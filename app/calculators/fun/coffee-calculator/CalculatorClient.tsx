@@ -30,7 +30,8 @@ export default function CalculatorClient({ faqs }: Props) {
   const perKg = (totalMg / weight).toFixed(1)
   const pct = Math.min(totalMg / maxSafe * 100, 100)
   const status = totalMg > maxSafe ? {l:'Over limit',c:'text-red-600'} : totalMg > 300 ? {l:'Moderate',c:'text-yellow-600'} : {l:'Safe',c:'text-green-600'}
-  const halfLife = new Date(); halfLife.setHours(halfLife.getHours() + 5 * cups)
+  const halfLife = new Date()
+  halfLife.setHours(halfLife.getHours() + 5 * cups)
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">

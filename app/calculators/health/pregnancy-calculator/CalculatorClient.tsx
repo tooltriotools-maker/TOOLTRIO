@@ -23,8 +23,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     { name: 'Third Trimester', weeks: '27-40', emoji: '🌸', color: 'bg-purple-50 border-purple-200', text: 'text-purple-700', milestones: ['Lungs mature (Week 28-32)', 'Baby turns head-down (Week 32-36)', 'Baby gains weight rapidly (Week 35)', 'Full term (Week 37-40)'] },
   ]
 
-  const maxDate = new Date(); maxDate.setDate(maxDate.getDate() - 1)
-  const minDate = new Date(); minDate.setDate(minDate.getDate() - 280)
+  const maxDate = new Date()
+  maxDate.setDate(maxDate.getDate() - 1)
+  const minDate = new Date()
+  minDate.setDate(minDate.getDate() - 280)
 
   return (
     <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your expected due date (EDD) based on your last menstrual period (LMP). See trimester milestones and week-by-week timeline." icon="🤰" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>

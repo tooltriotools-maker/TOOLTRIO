@@ -20,8 +20,11 @@ export default function CalculatorClient({ faqs }: Props) {
     const lifePath = reduce(d.getFullYear() + d.getMonth()+1 + d.getDate())
     const exprNum = name.trim() ? reduce(Array.from(name.replace(/[^a-z]/gi,'')).reduce((s,c)=>s+letterVal(c),0)) : 0
     const soulNum = name.trim() ? reduce(Array.from(name.replace(/[^aeiou]/gi,'')).reduce((s,c)=>s+letterVal(c),0)||1) : 0
-    const day = d.getDate(); const month = d.getMonth()+1; const year = d.getFullYear()
-    const today = new Date(); const todayNum = reduce(today.getFullYear()+today.getMonth()+1+today.getDate())
+    const day = d.getDate()
+    const month = d.getMonth()+1
+    const year = d.getFullYear()
+    const today = new Date()
+    const todayNum = reduce(today.getFullYear()+today.getMonth()+1+today.getDate())
     const lucky = [lifePath, (lifePath*3)%9||9, (lifePath+todayNum)%9||9, (lifePath*2+day)%9||9]
     const MEANINGS: Record<number,string> = {1:'Leadership & independence',2:'Harmony & partnership',3:'Creativity & expression',4:'Stability & practicality',5:'Freedom & adventure',6:'Love & responsibility',7:'Wisdom & spirituality',8:'Ambition & success',9:'Compassion & completion'}
     return { lifePath, exprNum, soulNum, lucky:Array.from(new Set(lucky)).slice(0,4), meaning:MEANINGS[lifePath]||'Mystery & magic', year:year%100 }

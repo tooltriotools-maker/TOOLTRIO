@@ -36,7 +36,8 @@ export default function CalculatorClient({ faqs }: Props) {
   const COMPAT: Record<string,string[]> = {
     Fire:['Fire','Air'], Earth:['Earth','Water'], Air:['Air','Fire'], Water:['Water','Earth']
   }
-  const me = getSign(dob); const them = getSign(partnerDob)
+  const me = getSign(dob)
+  const them = getSign(partnerDob)
   const compat = me && them ? (me.n===them.n ? 95 : COMPAT[me.t||'']?.includes(them.t||'') ? 85 : me.t===them.t ? 75 : 50) : 0
   const TYPE_COLORS: Record<string,string> = {Fire:'bg-red-100 text-red-700',Earth:'bg-green-100 text-green-700',Air:'bg-blue-100 text-blue-700',Water:'bg-indigo-100 text-indigo-700'}
 
