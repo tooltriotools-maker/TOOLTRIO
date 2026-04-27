@@ -1,0 +1,101 @@
+import type { Metadata } from 'next'
+import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import CalculatorClient from './CalculatorClient'
+
+export const metadata: Metadata = generateCalculatorMetadata({
+ title: 'UK Income Tax Calculator 2026 – PAYE, National Insurance and Take-Home Pay',
+ description: 'Free UK income tax calculator 2026. Calculate take-home pay after income tax, National Insurance, student loan, and pension contributions for 2026/27 tax year. Real examples for GBP 20k-200k UK salaries.',
+ slug: 'uk-income-tax-calculator',
+ category: 'finance',
+ keywords: [
+ 'uk income tax calculator 2026',
+ 
+ 'uk income tax calculator',
+ 'free uk income tax calculator',
+ 'uk income tax calculator online',
+ 'best uk income tax calculator 2026',
+ 'uk income tax calculator no signup',
+ 'accurate uk income tax calculator',
+ 'how to calculate uk income tax',
+ 'how does uk income tax calculator work',
+ 'what is uk income tax calculator',
+ 'calculate uk income tax free',
+ 'uk income tax calculator 2026',
+ 'uk income tax calculator 2026',
+ 'online uk income tax tool free',
+ 'uk income tax estimator online',
+ 'uk income tax formula calculator',
+ 'use uk income tax calculator now',
+ 'try uk income tax calculator free',
+ 'calculate my uk income tax',
+ 'check my uk income tax online',
+ 'find my uk income tax free',
+ 'instant uk income tax calculator',
+ 'quick uk income tax calculator',
+ 'uk income tax calculator app',
+ 'uk income tax calculator mobile',
+ 'uk income tax tool no login',
+ 'how to use uk income tax calculator',
+ 'what is a good uk income tax',
+ 'what is the formula for uk income tax',
+ 'how is uk income tax calculated',
+ 'when to use uk income tax calculator',
+ 'which uk income tax calculator is best',
+ 'how accurate is uk income tax calculator',
+ 'uk income tax calculator USA',
+ 'uk income tax financial calculator free',
+ 'uk income tax investment calculator',
+ 'uk income tax calculator with chart',
+ 'uk income tax returns calculator',
+ 'uk income tax calculator monthly',
+ 'uk income tax calculator yearly',
+ 'US uk income tax calculator',
+ 'American uk income tax calculator',
+ 'uk income tax calculator UK',
+ 'uk income tax calculator India',
+ 'uk income tax before after tax',
+ 'free finance calculator',
+ 'personal finance uk income tax',
+ 'uk income tax calculator no ads',
+ 'free financial calculator USA 2026',
+ 'investment calculator no signup',
+ 'retirement planning calculator free',
+ 'compound interest calculator USA',
+ 'mortgage calculator USA',
+ 'IRS tax calculator 2026',
+ 'uk income tax calculator UK 2026',
+ 'UK financial calculator free',
+ 'PAYE tax calculator UK',
+ 'ISA calculator UK 2026',
+ 'UK pension calculator free',
+ 'tooltrio.com',
+ 'free calculator no signup',
+ 'calculator no data stored',
+ 'instant calculator results',
+ 'free calculator USA UK India'
+ ],
+})
+
+const faqs = [
+ { question: 'Is the UK Income Tax Calculator free to use?', answer: 'Yes, the UK Income Tax Calculator is completely free - no account registration, subscription, or payment of any kind required. All calculations are performed locally in your browser, meaning your financial data is never transmitted or stored anywhere. We believe professional-grade financial calculators should be accessible to every American regardless of income.' },
+ { question: 'How accurate are the calculations?', answer: 'This UK Income Tax Calculator uses standard financial formulas recognized by certified financial planners (CFPs), CPAs, and investment advisors across the United States. Results assume consistent inputs and standard market conditions. Actual investment returns, taxes, and financial outcomes will vary based on market performance, tax law changes, and individual circumstances. Use results for planning purposes, not as guarantees.' },
+ { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), consulting a Certified Financial Planner (CFP) or CPA is strongly recommended. This UK Income Tax Calculator provides solid educational estimates and planning scenarios, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
+ { question: 'Does this account for inflation?', answer: 'Where applicable, this UK Income Tax Calculator uses nominal values (current dollars) by default. For long-term projections, always consider that inflation historically averages 2-3% annually in the United States. To get inflation-adjusted (real) returns, subtract your expected inflation rate from your nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
+ { question: 'Are the calculations based on US tax law?', answer: 'This UK Income Tax Calculator uses US financial conventions and, where applicable, current US tax brackets and contribution limits. Tax law changes annually - verify current IRS limits (401k, IRA, HSA, etc.) at IRS.gov. For non-US users, contribution limits and tax treatment will differ significantly. Always verify current figures with your tax professional.' },
+ { question: 'Is my financial data stored or shared?', answer: 'No. All calculations run entirely in your browser. No financial data - income, savings, investment amounts, or personal details - is ever transmitted to any server, stored in any database, or shared with any third party. When you close the tab, everything disappears. Your financial privacy is completely protected.' },
+ { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this UK Income Tax Calculator, assume consistent contribution rates, steady returns, and static tax rates - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
+ { question: 'Can I use this calculator for both US and international currencies?', answer: 'This UK Income Tax Calculator supports multiple currencies - USD ($), GBP (£), EUR (€), and INR (₹) where applicable. For global users, note that contribution limits, tax treatment, and regulatory frameworks vary significantly by country. The mathematical calculations are currency-agnostic, but country-specific planning should involve a local financial professional.' },
+]
+
+const relatedCalculators = [
+ { name: 'ISA Calculator', href: '/calculators/finance/isa-calculator', icon: '💷', desc: 'UK ISA calculator' },
+ { name: 'UK Pension Calculator', href: '/calculators/finance/uk-pension-calculator', icon: '🏦', desc: 'UK pension' },
+ { name: 'ISA vs SIPP', href: '/calculators/finance/isa-vs-sipp-uk-calculator', icon: '🇬🇧', desc: 'ISA vs SIPP' },
+ { name: 'UK Stamp Duty', href: '/calculators/finance/uk-stamp-duty-calculator', icon: '🏡', desc: 'SDLT calculator' },
+ { name: 'FIRE Europe', href: '/calculators/finance/fire-europe-calculator', icon: '🔥', desc: 'European FIRE' },
+ { name: 'Stocks ISA vs Cash ISA', href: '/calculators/finance/stocks-shares-isa-vs-cash-isa-calculator', icon: '📈', desc: 'ISA comparison' },
+]
+
+const structuredData = [generateFAQStructuredData(faqs)]
+
+export default function Page() { return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="uk-income-tax-guide-paye-national-insurance-take-home-pay-2026" /> }

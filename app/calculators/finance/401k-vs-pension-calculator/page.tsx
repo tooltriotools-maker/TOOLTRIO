@@ -1,0 +1,108 @@
+import type { Metadata } from 'next'
+import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import CalculatorClient from './CalculatorClient'
+
+export const metadata: Metadata = generateCalculatorMetadata({
+ title: '401k vs Pension Calculator USA 2026 – Self-Directed vs Defined Benefit Retirement',
+ description: 'Free 401k vs pension calculator USA 2026. Compare self-directed 401k growth vs defined benefit pension income at retirement. Real examples for $60k-$120k salary with 20-35 year careers.',
+ slug: '401k-vs-pension-calculator',
+ category: 'finance',
+ region: 'usa',
+ keywords: [
+ '401k vs pension calculator 2026',
+ 
+ '401k vs pension calculator',
+ 'free 401k vs pension calculator',
+ '401k vs pension calculator online',
+ 'best 401k vs pension calculator 2026',
+ '401k vs pension calculator no signup',
+ 'accurate 401k vs pension calculator',
+ 'how to calculate 401k vs pension',
+ 'how does 401k vs pension calculator work',
+ 'what is 401k vs pension calculator',
+ 'calculate 401k vs pension free',
+ '401k vs pension calculator 2026',
+ '401k vs pension calculator 2026',
+ 'online 401k vs pension tool free',
+ '401k vs pension estimator online',
+ '401k vs pension formula calculator',
+ 'use 401k vs pension calculator now',
+ 'try 401k vs pension calculator free',
+ 'calculate my 401k vs pension',
+ 'check my 401k vs pension online',
+ 'find my 401k vs pension free',
+ 'instant 401k vs pension calculator',
+ 'quick 401k vs pension calculator',
+ '401k vs pension calculator app',
+ '401k vs pension calculator mobile',
+ '401k vs pension tool no login',
+ 'how to use 401k vs pension calculator',
+ 'what is a good 401k vs pension',
+ 'what is the formula for 401k vs pension',
+ 'how is 401k vs pension calculated',
+ 'when to use 401k vs pension calculator',
+ 'which 401k vs pension calculator is best',
+ 'how accurate is 401k vs pension calculator',
+ '401k vs pension calculator USA',
+ '401k vs pension financial calculator free',
+ '401k vs pension investment calculator',
+ '401k vs pension calculator with chart',
+ '401k vs pension returns calculator',
+ '401k vs pension calculator monthly',
+ '401k vs pension calculator yearly',
+ 'US 401k vs pension calculator',
+ 'American 401k vs pension calculator',
+ '401k vs pension calculator UK',
+ '401k vs pension calculator India',
+ '401k vs pension before after tax',
+ 'free finance calculator',
+ 'personal finance 401k vs pension',
+ '401k vs pension calculator no ads',
+ 'free financial calculator USA 2026',
+ 'investment calculator no signup',
+ 'retirement planning calculator free',
+ 'compound interest calculator USA',
+ 'mortgage calculator USA',
+ 'IRS tax calculator 2026',
+ '401k vs pension calculator USA 2026',
+ 'US retirement calculator free',
+ 'American investment tool',
+ '401k calculator 2026',
+ 'Roth IRA calculator free',
+ 'FIRE number calculator USA',
+ 'mortgage payment calculator USA',
+ 'debt payoff calculator free',
+ '401k vs pension calculator UK 2026',
+ 'UK financial calculator free',
+ 'PAYE tax calculator UK',
+ 'ISA calculator UK 2026',
+ 'UK pension calculator free',
+ 'tooltrio.com',
+ 'free calculator no signup',
+ 'calculator no data stored',
+ 'instant calculator results',
+ 'free calculator USA UK India'
+ ],
+})
+
+const faqs = [
+  { question: 'How do I calculate the present value of my pension to compare it with a 401k?', answer: 'The simplest method: divide your annual pension benefit by 4% (the standard safe withdrawal rate). A pension paying $30,000 per year equals a present value of $750,000 in 401k terms — meaning you\'d need a $750,000 401k to generate the same annual income. A more precise calculation uses your expected pension duration and a discount rate. If you retire at 65 and expect to live to 87, that\'s 22 years of $30,000 = $660,000 in nominal payments. Discounted at 5% annually, the present value is approximately $390,000. The 4% rule shortcut overstates pension value for most people.' },
+  { question: 'What happens to my pension if my employer goes bankrupt?', answer: 'Private sector pensions are insured by the Pension Benefit Guaranty Corporation (PBGC), a federal agency. In 2024, PBGC guarantees up to $7,407 per month for retirees at age 65 in single-employer plans. If your pension exceeded this amount, you could receive less than promised. Government pensions (federal, state, municipal) are not covered by PBGC — they rely on the ongoing financial health of the government entity. 401k accounts, by contrast, are individual assets held in trust and completely protected in employer bankruptcy.' },
+  { question: 'Is a pension or 401k better for someone who changes jobs frequently?', answer: '401k wins decisively for job-changers. Vesting schedules mean you often forfeit pension benefits entirely if you leave before 5-7 years of service. A 401k with a vesting schedule does too, but the employer match forfeiture is usually smaller than a full pension forfeiture. More importantly, a 401k is portable — you roll it to your new employer or an IRA and it keeps compounding. Pension credits from a previous employer sit frozen, not growing with investment returns — they\'re inflation-eroded promises of future payments.' },
+  { question: 'What does a defined benefit pension actually promise compared to a 401k?', answer: 'A defined benefit pension promises a specific monthly payment in retirement, calculated by a formula like: (Years of Service) × (Final Average Salary) × (Benefit Multiplier, e.g. 1.5%). Twenty years at $80,000 final salary with a 1.5% multiplier = $24,000/year pension for life. The employer bears all investment risk — you get the same payment whether markets gained 20% or lost 30%. A 401k makes no promise about retirement income — only about contributions made. You bear all investment risk and longevity risk (the risk of outliving your money).' },
+  { question: 'Should I take the pension lump sum option or the monthly annuity?', answer: 'The lump sum is attractive when interest rates are high (because pension lump sums are calculated using interest rates — higher rates produce larger lump sums). The annuity wins if you live a long time — the break-even age is typically 78-82. Key factors: your health status, other income sources (Social Security, other investments), your spouse\'s situation (joint survivor vs single life annuity matters), and what you\'d do with the lump sum. If you\'d invest it conservatively or spend it, the annuity likely produces more lifetime income. If you\'d invest aggressively and live past 85, the lump sum might win.' },
+  { question: 'How does Social Security change the 401k vs pension comparison?', answer: 'Social Security is effectively a government pension — a guaranteed, inflation-adjusted annuity. If your Social Security benefit covers your essential expenses, you need less from your pension or 401k for survival and can afford more risk. In that case, the pension\'s guaranteed income is partially redundant, and a 401k\'s growth potential and inheritance value become relatively more attractive. For workers without Social Security (some government employees are in alternative pension systems), the pension\'s guaranteed income replaces Social Security\'s function and its value increases significantly.' }
+]
+
+const relatedCalculators = [
+ { name: '401k Calculator', href: '/calculators/finance/401k-calculator', icon: '🏦', desc: '401k retirement balance' },
+ { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator', icon: '🛡️', desc: 'Roth IRA growth' },
+ { name: '401k vs Roth IRA', href: '/calculators/finance/401k-vs-roth-ira-calculator', icon: '🇺🇸', desc: 'Compare retirement accounts' },
+ { name: 'S&amp;P 500 vs Bonds', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', desc: 'Stocks vs bonds' },
+ { name: 'FIRE Calculator', href: '/calculators/finance/fire-calculator', icon: '🔥', desc: 'Financial independence' },
+ { name: 'Paycheck Calculator', href: '/calculators/finance/paycheck-calculator', icon: '💵', desc: 'Take-home pay' },
+]
+
+export default function Page() {
+ return <CalculatorClient faqs={faqs} blogSlug="401k-vs-pension-guide-usa-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={relatedCalculators} />
+}

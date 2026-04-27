@@ -1,0 +1,634 @@
+import Link from 'next/link'
+import { GlobalSearch } from '@/components/ui/GlobalSearch'
+import HomeCategorySection from '@/components/ui/HomeCategorySection'
+import { Calculator, TrendingUp, Heart, ChevronRight, Zap, BarChart3, Shield, Globe, BookOpen, ArrowRight, Star, Users, CheckCircle, Clock, Code2, Smile } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Free Finance &amp; Health Calculators 2026 — SIP, EMI, 401k, BMI, UK Tax | tooltrio.com',
+  description: '171 free calculators: SIP vs FD, 401k vs Roth IRA, UK income tax, ISA, mortgage, EMI, BMI, calories burned, macro, heart rate, due date. USA, UK, India, Europe. No signup. Instant results.',
+  keywords: [
+    'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',
+    'compound interest calculator', 'UK income tax calculator', 'ISA calculator UK',
+    'BMI calculator', 'mortgage calculator', 'FIRE calculator', 'retirement calculator',
+    'SIP vs FD calculator', '401k vs Roth IRA', 'UK stamp duty calculator',
+    'calorie calculator', 'heart rate calculator', 'macro calculator',
+    'free online calculators no signup', 'financial calculators India USA UK',
+  ],
+  alternates: { canonical: 'https://tooltrio.com' },
+  openGraph: {
+    title: '171 Free Finance &amp; Health Calculators — tooltrio.com',
+    description: 'Free calculators for SIP, EMI, 401k, UK tax, ISA, BMI, calories, macros and more. USA, UK, India, Europe. No signup, instant results.',
+    url: 'https://tooltrio.com',
+    siteName: 'tooltrio.com',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: { card: 'summary_large_image', title: '171 Free Finance &amp; Health Calculators 2026', description: 'SIP, EMI, 401k, UK tax, BMI — 171 calculators, no signup, instant results.' },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
+}
+
+
+
+const financeCalcs = [
+  { name: 'SIP Calculator', desc: 'Monthly SIP returns & growth', href: '/calculators/finance/sip-calculator', icon: '📈', badge: 'Popular' },
+  { name: 'EMI Calculator', desc: 'Loan EMI & amortization', href: '/calculators/finance/emi-calculator', icon: '🏦', badge: 'Popular' },
+  { name: 'Compound Interest', desc: 'Power of compounding', href: '/calculators/finance/compound-interest-calculator', icon: '💰', badge: null },
+  { name: 'Retirement Calculator', desc: 'Plan your retirement corpus', href: '/calculators/finance/retirement-calculator', icon: '🌅', badge: 'Popular' },
+  { name: 'Home Loan / Mortgage', desc: 'Mortgage EMI planner', href: '/calculators/finance/home-loan-calculator', icon: '🏠', badge: 'Popular' },
+  { name: '401k Calculator', desc: 'US retirement with employer match', href: '/calculators/finance/401k-calculator', icon: '🇺🇸', badge: 'USA' },
+  { name: 'Roth IRA Calculator', desc: 'Tax-free retirement growth', href: '/calculators/finance/roth-ira-calculator', icon: '🛡️', badge: 'USA' },
+  { name: 'UK Income Tax', desc: 'PAYE, NI & take-home pay', href: '/calculators/finance/uk-income-tax-calculator', icon: '🇬🇧', badge: 'UK' },
+  { name: 'ISA Calculator', desc: 'Stocks, Cash & Lifetime ISA', href: '/calculators/finance/isa-calculator', icon: '💷', badge: 'UK' },
+  { name: 'UK Stamp Duty', desc: 'SDLT for first-time buyers', href: '/calculators/finance/uk-stamp-duty-calculator', icon: '🏡', badge: 'UK' },
+  { name: 'FIRE Calculator', desc: 'Financial independence number', href: '/calculators/finance/fire-calculator', icon: '🔥', badge: null },
+  { name: 'Debt Payoff Calculator', desc: 'Avalanche & snowball methods', href: '/calculators/finance/debt-payoff-calculator', icon: '🔓', badge: null },
+  { name: 'Inflation Calculator', desc: 'Future purchasing power', href: '/calculators/finance/inflation-calculator', icon: '📊', badge: null },
+  { name: 'CAGR Calculator', desc: 'Investment annual growth rate', href: '/calculators/finance/cagr-calculator', icon: '📈', badge: null },
+  { name: 'Net Worth Calculator', desc: 'Assets & liabilities tracker', href: '/calculators/finance/net-worth-calculator', icon: '⚖️', badge: null },
+  { name: 'VAT Calculator', desc: 'EU & UK VAT rates', href: '/calculators/finance/vat-calculator-europe', icon: '🏷️', badge: 'EU' },
+  { name: 'Car Loan Calculator', desc: 'Auto loan EMI & schedule', href: '/calculators/finance/car-loan-calculator', icon: '🚗', badge: null },
+  { name: 'FD / CD Calculator', desc: 'Fixed deposit returns', href: '/calculators/finance/fd-calculator', icon: '🏛️', badge: null },
+  { name: 'Savings Goal', desc: 'Goal-based saving plan', href: '/calculators/finance/savings-goal-calculator', icon: '🎯', badge: null },
+  { name: 'Dividend Calculator', desc: 'Dividend income & yield', href: '/calculators/finance/dividend-calculator', icon: '💵', badge: null },
+  // VS Calculators — India
+  { name: 'SIP vs FD', desc: 'Mutual fund SIP vs Fixed Deposit returns', href: '/calculators/finance/sip-vs-fd-calculator', icon: '⚖️', badge: 'VS' },
+  { name: 'SIP vs Real Estate', desc: 'SIP returns vs property investment', href: '/calculators/finance/sip-vs-real-estate-calculator', icon: '🏠', badge: 'VS' },
+  { name: 'SIP vs Gold', desc: 'SIP vs Gold (SGB/ETF/Physical)', href: '/calculators/finance/sip-vs-gold-calculator', icon: '🥇', badge: 'VS' },
+  { name: 'SIP vs PPF', desc: 'SIP vs PPF — post-tax returns', href: '/calculators/finance/sip-vs-ppf-calculator', icon: '🏛️', badge: 'VS' },
+  { name: 'SIP vs NPS', desc: 'SIP vs NPS for retirement', href: '/calculators/finance/sip-vs-nps-calculator', icon: '🎯', badge: 'VS' },
+  { name: 'SIP vs RD', desc: 'SIP vs Recurring Deposit', href: '/calculators/finance/sip-vs-rd-calculator', icon: '📊', badge: 'VS' },
+  { name: 'SIP vs Stocks', desc: 'SIP vs direct equity investing', href: '/calculators/finance/sip-vs-stocks-calculator', icon: '📉', badge: 'VS' },
+  { name: 'SIP vs Crypto', desc: 'SIP vs crypto after 30% India tax', href: '/calculators/finance/sip-vs-crypto-calculator', icon: '₿', badge: 'VS' },
+  { name: 'SIP vs Bonds', desc: 'SIP vs Govt & Corporate Bonds', href: '/calculators/finance/sip-vs-bonds-calculator', icon: '📜', badge: 'VS' },
+  { name: 'SIP vs Savings Account', desc: 'Opportunity cost of idle savings', href: '/calculators/finance/sip-vs-savings-account-calculator', icon: '🏧', badge: 'VS' },
+  { name: 'EPF vs NPS', desc: 'EPF vs NPS for employees', href: '/calculators/finance/epf-vs-nps-calculator', icon: '💼', badge: 'VS' },
+  { name: 'Term vs ULIP', desc: 'Term + SIP vs ULIP insurance plan', href: '/calculators/finance/term-vs-ulip-calculator', icon: '🛡️', badge: 'VS' },
+  { name: 'Mutual Fund vs FD', desc: 'Lumpsum MF vs FD post-tax', href: '/calculators/finance/mutual-fund-vs-fd-calculator', icon: '🏦', badge: 'VS' },
+  { name: 'Lumpsum vs Gold', desc: 'Lumpsum MF vs Gold returns', href: '/calculators/finance/lumpsum-vs-gold-calculator', icon: '🥇', badge: 'VS' },
+  { name: 'PPF vs FD', desc: 'PPF (EEE) vs FD after tax', href: '/calculators/finance/ppf-vs-fd-calculator', icon: '🏛️', badge: 'VS' },
+  { name: 'PPF vs NPS', desc: 'PPF vs NPS for retirement', href: '/calculators/finance/ppf-vs-nps-calculator', icon: '⚖️', badge: 'VS' },
+  { name: 'ELSS vs PPF', desc: 'Best 80C: ELSS fund vs PPF', href: '/calculators/finance/elss-vs-ppf-calculator', icon: '📈', badge: 'VS' },
+  { name: 'NSC vs FD', desc: 'Post Office NSC vs Bank FD', href: '/calculators/finance/nsc-vs-fd-calculator', icon: '📮', badge: 'VS' },
+  { name: 'EMI vs SIP', desc: 'Home loan EMI vs SIP investing', href: '/calculators/finance/emi-vs-sip-calculator', icon: '🏡', badge: 'VS' },
+  { name: 'SIP vs Endowment Plan', desc: 'Term + SIP vs endowment insurance', href: '/calculators/finance/sip-vs-endowment-calculator', icon: '📋', badge: 'VS' },
+  // VS Calculators — USA
+  { name: '401k vs Roth IRA', desc: 'Pre-tax 401k vs after-tax Roth IRA', href: '/calculators/finance/401k-vs-roth-ira-calculator', icon: '🇺🇸', badge: 'USA' },
+  { name: 'Roth vs Traditional IRA', desc: 'Roth IRA vs Traditional IRA after tax', href: '/calculators/finance/roth-ira-vs-traditional-ira-calculator', icon: '💰', badge: 'USA' },
+  { name: 'HSA vs FSA', desc: 'HSA triple tax advantage vs FSA', href: '/calculators/finance/hsa-vs-fsa-calculator', icon: '🏥', badge: 'USA' },
+  { name: 'S&amp;P 500 vs Bonds', desc: 'S&amp;P 500 index fund vs US bonds', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', badge: 'USA' },
+  { name: 'Pay Off Mortgage vs Invest', desc: 'Extra mortgage payment vs S&amp;P 500', href: '/calculators/finance/pay-off-mortgage-vs-invest-calculator', icon: '🏠', badge: 'USA' },
+  { name: 'Term vs Whole Life Insurance', desc: 'Buy term + invest vs whole life USA', href: '/calculators/finance/term-vs-whole-life-calculator', icon: '🛡️', badge: 'USA' },
+  { name: 'Index Fund vs ETF', desc: 'Index fund vs ETF costs & tax efficiency', href: '/calculators/finance/index-fund-vs-etf-calculator', icon: '📈', badge: 'USA' },
+  { name: 'Mortgage vs Renting USA', desc: 'Buy vs rent — US real estate market', href: '/calculators/finance/mortgage-vs-renting-usa-calculator', icon: '🏡', badge: 'USA' },
+  { name: 'Refinance vs Invest', desc: 'Mortgage refinance vs investing savings', href: '/calculators/finance/refinance-vs-invest-calculator', icon: '🔄', badge: 'USA' },
+  { name: '401k vs Pension', desc: '401k self-directed vs defined benefit pension', href: '/calculators/finance/401k-vs-pension-calculator', icon: '🏦', badge: 'USA' },
+  // New calculators v15
+  { name: 'Regular vs Direct MF', desc: 'How expense ratio costs you over time', href: '/calculators/finance/sip-vs-mutual-fund-direct-plan-calculator', icon: '📊', badge: 'VS' },
+  { name: 'NSC vs PPF', desc: 'Post Office NSC vs PPF returns', href: '/calculators/finance/nsc-vs-ppf-calculator', icon: '📮', badge: 'VS' },
+  { name: 'SCSS vs FD', desc: 'Senior Citizen Savings vs Bank FD', href: '/calculators/finance/senior-citizen-savings-vs-fd-calculator', icon: '👴', badge: 'VS' },
+  { name: 'ELSS vs NPS', desc: 'ELSS fund vs NPS for India retirement', href: '/calculators/finance/elss-vs-nps-calculator', icon: '📈', badge: 'VS' },
+  { name: 'SSY vs PPF', desc: 'Sukanya Samriddhi vs PPF for girls', href: '/calculators/finance/sukanya-samriddhi-vs-ppf-calculator', icon: '👧', badge: 'VS' },
+  { name: 'Annuity vs Lumpsum', desc: 'Pension annuity vs lumpsum investing', href: '/calculators/finance/annuity-vs-lumpsum-calculator', icon: '💰', badge: 'VS' },
+  { name: 'Roth IRA vs HSA', desc: 'Retirement account vs health savings', href: '/calculators/finance/roth-ira-vs-hsa-calculator', icon: '🏥', badge: 'USA' },
+  { name: 'S&amp;P 500 vs Real Estate USA', desc: 'Index fund vs US real estate returns', href: '/calculators/finance/sp500-vs-real-estate-usa-calculator', icon: '🏠', badge: 'USA' },
+  { name: 'CD vs High-Yield Savings', desc: 'CD fixed rate vs HYSA flexibility', href: '/calculators/finance/cd-vs-hysa-calculator', icon: '🏦', badge: 'USA' },
+  { name: '401k vs Taxable Account', desc: 'Tax-deferred vs taxable brokerage USA', href: '/calculators/finance/401k-vs-taxable-account-calculator', icon: '📉', badge: 'USA' },
+  // v16 — 20 new USA + Europe VS
+  { name: '529 vs Roth IRA', desc: '529 college plan vs Roth IRA for education', href: '/calculators/finance/529-vs-roth-ira-education-calculator', icon: '🎓', badge: 'USA' },
+  { name: 'Roth IRA vs 401k + Match', desc: 'How employer match changes Roth vs 401k', href: '/calculators/finance/roth-ira-vs-401k-employer-match-calculator', icon: '🏦', badge: 'USA' },
+  { name: 'Medicare vs Private Insurance', desc: 'Medicare vs private health insurance costs', href: '/calculators/finance/medicare-vs-private-insurance-calculator', icon: '🏥', badge: 'USA' },
+  { name: 'Social Security vs Pension', desc: 'Social Security vs private pension income', href: '/calculators/finance/social-security-vs-private-pension-calculator', icon: '🏛️', badge: 'USA' },
+  { name: 'Bonds vs CDs USA', desc: 'Treasury bonds vs bank CDs after tax', href: '/calculators/finance/bonds-vs-cds-usa-calculator', icon: '📜', badge: 'USA' },
+  { name: 'Vanguard vs Fidelity ETF', desc: 'VOO vs FXAIX expense ratio impact', href: '/calculators/finance/vanguard-vs-fidelity-etf-calculator', icon: '📊', badge: 'USA' },
+  { name: 'REIT vs Rental Property', desc: 'VNQ REIT vs direct rental property', href: '/calculators/finance/reit-vs-direct-property-usa-calculator', icon: '🏢', badge: 'USA' },
+  { name: 'DCA vs Lump Sum USA', desc: 'Monthly DCA vs lump sum S&amp;P 500 investing', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator', icon: '💰', badge: 'USA' },
+  { name: 'Traditional IRA vs Taxable', desc: 'IRA tax deduction vs taxable brokerage', href: '/calculators/finance/traditional-ira-vs-taxable-account-calculator', icon: '📉', badge: 'USA' },
+  { name: 'ISA vs SIPP UK', desc: 'UK ISA flexible access vs SIPP pension', href: '/calculators/finance/isa-vs-sipp-uk-calculator', icon: '🇬🇧', badge: 'UK' },
+  { name: 'UK Pension vs ISA', desc: 'Workplace pension vs Stocks and Shares ISA', href: '/calculators/finance/uk-pension-vs-isa-calculator', icon: '💷', badge: 'UK' },
+  { name: 'Offset Mortgage vs Savings', desc: 'UK offset mortgage vs savings account', href: '/calculators/finance/offset-mortgage-vs-savings-uk-calculator', icon: '🏠', badge: 'UK' },
+  { name: 'Stocks ISA vs Cash ISA', desc: 'UK equity ISA vs cash ISA returns', href: '/calculators/finance/stocks-shares-isa-vs-cash-isa-calculator', icon: '📈', badge: 'UK' },
+  { name: 'UK Buy-to-Let vs Stocks', desc: 'UK rental property vs FTSE index fund', href: '/calculators/finance/uk-buy-to-let-vs-stocks-calculator', icon: '🏘️', badge: 'UK' },
+  { name: 'Germany ETF vs Tagesgeld', desc: 'German MSCI World ETF vs savings account', href: '/calculators/finance/germany-etf-vs-tagesgeld-calculator', icon: '🇩🇪', badge: 'EU' },
+  { name: 'France PEA vs Assurance-Vie', desc: 'French PEA vs Assurance-vie investing', href: '/calculators/finance/france-pea-vs-assurance-vie-calculator', icon: '🇫🇷', badge: 'EU' },
+  { name: 'Europe ETF vs Property', desc: 'EU index ETF vs European real estate', href: '/calculators/finance/europe-etf-vs-property-calculator', icon: '🇪🇺', badge: 'EU' },
+  { name: 'UK Remortgage vs Invest', desc: 'UK remortgage savings vs FTSE investing', href: '/calculators/finance/uk-remortgage-vs-invest-calculator', icon: '🔄', badge: 'UK' },
+  { name: 'Euro Bonds vs ETF', desc: 'EU govt bonds vs MSCI Europe ETF', href: '/calculators/finance/euro-bonds-vs-etf-calculator', icon: '📜', badge: 'EU' },
+  { name: 'UK Stocks vs Bonds', desc: 'FTSE All-Share vs UK Gilts comparison', href: '/calculators/finance/uk-stocks-vs-bonds-calculator', icon: '📊', badge: 'UK' },
+  // v17 — 20 new USA + Europe VS
+  { name: '401k Withdrawal vs Loan', desc: 'Early 401k withdrawal vs 401k loan true cost', href: '/calculators/finance/401k-early-withdrawal-vs-loan-calculator', icon: '💸', badge: 'USA' },
+  { name: 'SEP IRA vs Solo 401k', desc: 'Self-employed retirement account comparison', href: '/calculators/finance/sep-ira-vs-solo-401k-calculator', icon: '👔', badge: 'USA' },
+  { name: 'I Bonds vs TIPS', desc: 'Best US inflation protection investment', href: '/calculators/finance/i-bonds-vs-tips-calculator', icon: '🛡️', badge: 'USA' },
+  { name: 'Muni vs Corp Bonds', desc: 'Tax-free muni bonds vs corporate bonds yield', href: '/calculators/finance/municipal-bonds-vs-corporate-bonds-calculator', icon: '📜', badge: 'USA' },
+  { name: 'VTI vs VOO Calculator', desc: 'Total market fund vs S&amp;P 500 returns', href: '/calculators/finance/whole-market-vs-sp500-calculator', icon: '📊', badge: 'USA' },
+  { name: 'Dividend vs Growth ETF', desc: 'SCHD dividend vs QQQ growth stocks', href: '/calculators/finance/dividend-growth-vs-growth-stocks-calculator', icon: '💵', badge: 'USA' },
+  { name: 'Real Estate vs REITs USA', desc: 'Direct property vs REIT ETF (VNQ)', href: '/calculators/finance/us-real-estate-vs-reits-calculator', icon: '🏢', badge: 'USA' },
+  { name: '529 vs UTMA Account', desc: 'College savings vs custodial account', href: '/calculators/finance/529-vs-utma-calculator', icon: '🎓', badge: 'USA' },
+  { name: 'TIPS vs Stocks USA', desc: 'Inflation bonds vs equity growth', href: '/calculators/finance/inflation-protected-bonds-vs-stocks-calculator', icon: '📈', badge: 'USA' },
+  { name: 'Cash-Out Refi vs HELOC', desc: 'Home equity access options compared', href: '/calculators/finance/cash-out-refinance-vs-heloc-calculator', icon: '🏠', badge: 'USA' },
+  { name: 'UK LISA vs SIPP', desc: 'UK Lifetime ISA vs SIPP for retirement', href: '/calculators/finance/uk-lifetime-isa-vs-sipp-calculator', icon: '🇬🇧', badge: 'UK' },
+  { name: 'UK Drawdown vs Annuity', desc: 'Pension drawdown vs annuity UK', href: '/calculators/finance/uk-pension-drawdown-vs-annuity-calculator', icon: '💷', badge: 'UK' },
+  { name: 'UK Fixed vs Tracker Mortgage', desc: 'UK fixed vs tracker mortgage rates', href: '/calculators/finance/uk-fixed-rate-vs-tracker-mortgage-calculator', icon: '🏠', badge: 'UK' },
+  { name: 'MSCI World vs S&amp;P 500 EU', desc: 'Global vs US index for EU investors', href: '/calculators/finance/europe-msci-world-vs-sp500-calculator', icon: '🌍', badge: 'EU' },
+  { name: 'Premium Bonds vs Cash ISA', desc: 'NS&I vs best Cash ISA rates UK', href: '/calculators/finance/uk-premium-bonds-vs-cash-isa-calculator', icon: '🎟️', badge: 'UK' },
+  { name: 'Netherlands AOW vs Pension', desc: 'Dutch state vs private pension', href: '/calculators/finance/netherlands-aow-vs-private-pension-calculator', icon: '🇳🇱', badge: 'EU' },
+  { name: 'Spain ETF vs Pension', desc: 'Spanish ETF vs plan de pensiones', href: '/calculators/finance/spain-pension-vs-etf-calculator', icon: '🇪🇸', badge: 'EU' },
+  { name: 'Europe Property vs REIT', desc: 'European direct property vs REIT ETF', href: '/calculators/finance/europe-property-vs-reit-calculator', icon: '🏘️', badge: 'EU' },
+  { name: 'UK Help to Buy vs LISA', desc: 'UK first home savings accounts compared', href: '/calculators/finance/uk-help-to-buy-vs-lisa-calculator', icon: '🏡', badge: 'UK' },
+  { name: 'Europe Growth vs Value ETF', desc: 'EU growth vs value ETF strategy', href: '/calculators/finance/europe-growth-vs-value-etf-calculator', icon: '📊', badge: 'EU' },
+  // Core calculators
+  { name: 'Lumpsum Calculator', desc: 'One-time lumpsum investment returns', href: '/calculators/finance/lumpsum-calculator', icon: '💼', badge: 'India' },
+  { name: 'SIP vs Lumpsum', desc: 'Monthly SIP vs one-time lumpsum', href: '/calculators/finance/lumpsum-vs-sip-calculator', icon: '⚖️', badge: 'India' },
+  { name: 'Step-Up SIP', desc: 'Annual SIP step-up wealth builder', href: '/calculators/finance/step-up-sip-calculator', icon: '🚀', badge: 'India' },
+  { name: 'PPF Calculator', desc: 'Public Provident Fund maturity', href: '/calculators/finance/ppf-calculator', icon: '🏛️', badge: 'India' },
+  { name: 'NPS Calculator', desc: 'National Pension System corpus', href: '/calculators/finance/nps-calculator', icon: '🎯', badge: 'India' },
+  { name: 'FD Comparison', desc: 'Compare multiple FD options', href: '/calculators/finance/fd-comparison-calculator', icon: '🏦', badge: 'India' },
+  { name: 'RD Calculator', desc: 'Recurring deposit maturity', href: '/calculators/finance/rd-calculator', icon: '📅', badge: 'India' },
+  { name: 'Mutual Fund Calculator', desc: 'MF returns with expense ratio', href: '/calculators/finance/mutual-fund-calculator', icon: '📊', badge: 'India' },
+  { name: 'Mutual Fund Returns', desc: 'CAGR and absolute returns', href: '/calculators/finance/mutual-fund-return-calculator', icon: '📈', badge: 'India' },
+  { name: 'XIRR Calculator', desc: 'True annualized SIP return', href: '/calculators/finance/xirr-calculator', icon: '📐', badge: 'India' },
+  { name: 'SWP Calculator', desc: 'Systematic withdrawal plan', href: '/calculators/finance/swp-calculator', icon: '💸', badge: 'India' },
+  { name: 'Real Return Calculator', desc: 'Inflation-adjusted real returns', href: '/calculators/finance/real-return-calculator', icon: '📉', badge: 'India' },
+  { name: 'Stock Profit Calculator', desc: 'Stock gains and STCG/LTCG tax', href: '/calculators/finance/stock-profit-calculator', icon: '💹', badge: 'India' },
+  { name: 'Gratuity Calculator', desc: 'Gratuity amount and eligibility', href: '/calculators/finance/gratuity-calculator', icon: '💼', badge: 'India' },
+  { name: 'HRA Calculator', desc: 'House rent allowance exemption', href: '/calculators/finance/hra-calculator', icon: '🏠', badge: 'India' },
+  { name: 'GST Calculator', desc: 'Goods and Services Tax India', href: '/calculators/finance/gst-calculator', icon: '🏷️', badge: 'India' },
+  { name: 'Income Tax Calculator', desc: 'New vs old tax regime India', href: '/calculators/finance/income-tax-calculator', icon: '📋', badge: 'India' },
+  { name: 'Salary Calculator', desc: 'CTC to in-hand salary India', href: '/calculators/finance/salary-calculator', icon: '💰', badge: 'India' },
+  { name: 'Salary Hike Calculator', desc: 'Calculate pay increment impact', href: '/calculators/finance/salary-hike-calculator', icon: '📈', badge: 'India' },
+  { name: 'Crypto Profit Calculator', desc: 'Crypto gains and 30% tax India', href: '/calculators/finance/crypto-profit-calculator', icon: '₿', badge: 'India' },
+  { name: 'ROI Calculator', desc: 'Return on investment calculator', href: '/calculators/finance/roi-calculator', icon: '📐', badge: 'Global' },
+  { name: 'Real Estate ROI', desc: 'Rental property returns', href: '/calculators/finance/real-estate-roi-calculator', icon: '🏘️', badge: 'Global' },
+  { name: 'Break-Even Calculator', desc: 'Business break-even analysis', href: '/calculators/finance/break-even-calculator', icon: '⚖️', badge: 'Global' },
+  { name: 'Budget Calculator', desc: 'Monthly budget planner 50/30/20', href: '/calculators/finance/budget-calculator', icon: '📊', badge: 'Global' },
+  { name: 'Emergency Fund Calculator', desc: 'How much emergency fund you need', href: '/calculators/finance/emergency-fund-calculator', icon: '🛡️', badge: 'Global' },
+  { name: 'P/E Ratio Calculator', desc: 'Stock price-to-earnings ratio', href: '/calculators/finance/pe-ratio-calculator', icon: '📊', badge: 'Global' },
+  { name: 'Education Goal Calculator', desc: 'Save for child education costs', href: '/calculators/finance/education-goal-calculator', icon: '🎓', badge: 'Global' },
+  { name: 'Inflation Calculator', desc: 'Purchasing power over time', href: '/calculators/finance/inflation-calculator', icon: '📉', badge: 'Global' },
+  { name: 'Currency Converter', desc: 'Live foreign exchange rates', href: '/calculators/finance/currency-converter', icon: '💱', badge: 'Global' },
+  { name: 'Currency Profit Calculator', desc: 'Forex trade profit calculator', href: '/calculators/finance/currency-profit-calculator', icon: '💹', badge: 'Global' },
+  { name: 'Tip Calculator', desc: 'Restaurant tip and split bill', href: '/calculators/finance/tip-calculator', icon: '🍽️', badge: 'Global' },
+  { name: 'Simple Interest Calculator', desc: 'Simple vs compound interest', href: '/calculators/finance/simple-interest-calculator', icon: '📐', badge: 'Global' },
+  { name: 'Social Security Calculator', desc: 'US Social Security benefits', href: '/calculators/finance/social-security-calculator', icon: '🏛️', badge: 'USA' },
+  { name: 'Paycheck Calculator', desc: 'Take-home pay after deductions', href: '/calculators/finance/paycheck-calculator', icon: '💵', badge: 'USA' },
+  { name: 'Student Loan Calculator', desc: 'Student loan payoff timeline', href: '/calculators/finance/student-loan-calculator', icon: '🎓', badge: 'USA' },
+  { name: 'Home Affordability', desc: 'How much house can you afford', href: '/calculators/finance/home-affordability-calculator', icon: '🏡', badge: 'USA' },
+  { name: 'Mortgage Refinance', desc: 'Refinance break-even calculator', href: '/calculators/finance/mortgage-refinance-calculator', icon: '🔄', badge: 'USA' },
+  { name: 'HELOC Calculator', desc: 'Home equity line of credit', href: '/calculators/finance/heloc-calculator', icon: '🏠', badge: 'USA' },
+  { name: 'Credit Card Payoff', desc: 'Minimum vs fixed payments', href: '/calculators/finance/credit-card-payoff-calculator', icon: '💳', badge: 'USA' },
+  { name: 'Personal Loan Calculator', desc: 'Personal loan EMI and interest', href: '/calculators/finance/personal-loan-calculator', icon: '🏦', badge: 'USA' },
+  { name: 'CD Ladder Calculator', desc: 'Certificate of deposit ladder', href: '/calculators/finance/cd-ladder-calculator', icon: '🏗️', badge: 'USA' },
+  { name: 'College Cost Calculator', desc: '529 savings needed for college', href: '/calculators/finance/college-cost-calculator', icon: '🏫', badge: 'USA' },
+  { name: 'Car Depreciation', desc: 'Vehicle value over time', href: '/calculators/finance/car-depreciation-calculator', icon: '🚗', badge: 'USA' },
+  { name: 'Lease vs Buy Calculator', desc: 'Car lease vs purchase comparison', href: '/calculators/finance/lease-vs-buy-calculator', icon: '🔑', badge: 'USA' },
+  { name: 'Dividend Calculator', desc: 'Dividend income and yield', href: '/calculators/finance/dividend-calculator', icon: '💰', badge: 'USA' },
+  { name: 'Rental Yield Calculator', desc: 'UK/EU property rental yield', href: '/calculators/finance/rental-yield-calculator', icon: '🏘️', badge: 'UK' },
+  { name: 'UK Pension Calculator', desc: 'UK workplace pension projection', href: '/calculators/finance/uk-pension-calculator', icon: '🏦', badge: 'UK' },
+  { name: 'FIRE Europe Calculator', desc: 'European financial independence', href: '/calculators/finance/fire-europe-calculator', icon: '🔥', badge: 'EU' },
+  { name: 'European Mortgage', desc: 'UK/EU mortgage payment calculator', href: '/calculators/finance/european-mortgage-calculator', icon: '🏠', badge: 'EU' },
+  { name: 'Government Bond Calculator', desc: 'UK Gilts and EU bond yields', href: '/calculators/finance/government-bond-calculator', icon: '📜', badge: 'EU' },
+  { name: 'Euro Auto Loan', desc: 'European car loan calculator', href: '/calculators/finance/euro-auto-loan-calculator', icon: '🚗', badge: 'EU' },
+  { name: 'Loan Prepayment Calculator', desc: 'Save on loan with prepayment', href: '/calculators/finance/loan-prepayment-calculator', icon: '💸', badge: 'Global' },
+  { name: 'Rent vs Buy Calculator', desc: 'Rent vs buy a home comparison', href: '/calculators/finance/rent-vs-buy-calculator', icon: '🔑', badge: 'Global' },
+]
+
+const healthCalcs = [
+  { name: 'BMI Calculator', desc: 'Body mass index with scale', href: '/calculators/health/bmi-calculator', icon: '⚖️', badge: 'Popular' },
+  { name: 'Calorie Calculator', desc: 'Daily TDEE & macros', href: '/calculators/health/calorie-calculator', icon: '🔥', badge: 'Popular' },
+  { name: 'BMR Calculator', desc: 'Basal metabolic rate', href: '/calculators/health/bmr-calculator', icon: '❤️', badge: null },
+  { name: 'Body Fat Calculator', desc: 'US Navy method body fat %', href: '/calculators/health/body-fat-calculator', icon: '💪', badge: null },
+  { name: 'Ideal Weight Calculator', desc: '4 formula comparison', href: '/calculators/health/ideal-weight-calculator', icon: '🏋️', badge: null },
+  { name: 'Water Intake Calculator', desc: 'Daily hydration needs', href: '/calculators/health/water-intake-calculator', icon: '💧', badge: null },
+  { name: 'Protein Intake', desc: 'Daily protein by goal', href: '/calculators/health/protein-intake-calculator', icon: '🥩', badge: null },
+  { name: 'Sleep Cycle Calculator', desc: 'Best bedtime & wake times', href: '/calculators/health/sleep-cycle-calculator', icon: '😴', badge: null },
+  { name: 'Pregnancy Calculator', desc: 'Due date & trimester guide', href: '/calculators/health/pregnancy-calculator', icon: '🤰', badge: null },
+  { name: 'Ovulation Calculator', desc: 'Fertile window tracker', href: '/calculators/health/ovulation-calculator', icon: '🌸', badge: null },
+  { name: 'Blood Pressure', desc: 'BP vs AHA categories', href: '/calculators/health/blood-pressure-calculator', icon: '❤️', badge: null },
+  { name: 'Heart Rate Zones', desc: 'Max HR and training zones', href: '/calculators/health/heart-rate-calculator', icon: '💓', badge: null },
+  { name: 'Calories Burned', desc: 'Exercise calories by MET', href: '/calculators/health/calories-burned-calculator', icon: '🔥', badge: null },
+  { name: 'Macro Calculator', desc: 'Protein, carbs and fat targets', href: '/calculators/health/macro-calculator', icon: '🥗', badge: null },
+  { name: 'Lean Body Mass', desc: 'LBM using 3 formulas', href: '/calculators/health/lean-body-mass-calculator', icon: '💪', badge: null },
+  { name: 'Waist-to-Height', desc: 'WHtR cardiovascular risk', href: '/calculators/health/waist-to-height-ratio-calculator', icon: '📏', badge: null },
+  { name: 'VO2 Max', desc: 'Cardio fitness estimator', href: '/calculators/health/vo2-max-calculator', icon: '🫁', badge: null },
+  { name: 'Due Date', desc: 'Pregnancy EDD & milestones', href: '/calculators/health/due-date-calculator', icon: '🤱', badge: null },
+  { name: 'BAC Calculator', desc: 'Blood alcohol content', href: '/calculators/health/bac-calculator', icon: '🍺', badge: null },
+  { name: 'Body Surface Area', desc: 'BSA for drug dosing', href: '/calculators/health/body-surface-area-calculator', icon: '📐', badge: null },
+  { name: 'Heart Age Calculator', desc: 'Cardiovascular age vs real age', href: '/calculators/health/heart-age-calculator', icon: '❤️‍🔥', badge: null },
+  { name: 'Calorie Deficit', desc: 'Daily calories for fat loss goal', href: '/calculators/health/calorie-deficit-calculator', icon: '📉', badge: null },
+  { name: 'Intermittent Fasting', desc: '16:8, 18:6 eating window planner', href: '/calculators/health/intermittent-fasting-calculator', icon: '⏰', badge: null },
+  { name: 'Longevity Calculator', desc: 'Estimate life expectancy & healthspan', href: '/calculators/health/longevity-calculator', icon: '🌿', badge: null },
+  { name: 'Keto Macros', desc: 'Ketogenic diet fat, protein & carbs', href: '/calculators/health/keto-macro-calculator', icon: '🥩', badge: null },
+  { name: 'Mental Health Score', desc: 'PHQ-9 depression & GAD-7 anxiety', href: '/calculators/health/mental-health-score-calculator', icon: '🧠', badge: null },
+  { name: 'Body Recomposition', desc: 'Lose fat & gain muscle simultaneously', href: '/calculators/health/body-recomposition-calculator', icon: '🔄', badge: null },
+  { name: 'RMR Calculator', desc: 'Resting metabolic rate formulas', href: '/calculators/health/resting-metabolic-rate-calculator', icon: '🛌', badge: null },
+  { name: 'Conception Calculator', desc: 'Best days to conceive', href: '/calculators/health/pregnancy-conception-calculator', icon: '🌱', badge: null },
+  { name: 'Skin Health Score', desc: 'Skin type & personalised care plan', href: '/calculators/health/skin-health-calculator', icon: '✨', badge: null },
+]
+
+const recentBlogs = [
+  { title: 'UK Income Tax Guide 2026 — PAYE, National Insurance & Take-Home Pay', href: '/blog/uk-income-tax-guide-paye-national-insurance-take-home-pay-2026', category: 'Tax Guides', readTime: '9 min', flag: '🇬🇧' },
+  { title: 'FIRE Europe Guide — Financial Independence in UK, Germany & France', href: '/blog/fire-europe-guide-financial-independence-uk-germany-france-2026', category: 'Retirement', readTime: '12 min', flag: '🇪🇺' },
+  { title: 'Mortgage Calculator Guide — How to Finance a Home in the USA', href: '/blog/mortgage-calculator-guide-how-to-buy-a-home-usa', category: 'Loans', readTime: '12 min', flag: '🇺🇸' },
+  { title: 'Compound Interest — The Eighth Wonder of the World', href: '/blog/compound-interest-guide-eighth-wonder-of-the-world', category: 'Investment', readTime: '8 min', flag: '🌐' },
+  { title: 'Retirement Planning 2026 — How Much Do You Really Need?', href: '/blog/retirement-planning-guide-how-much-do-you-need-to-retire', category: 'Retirement', readTime: '12 min', flag: '🌐' },
+  { title: 'UK ISA Guide 2026 — Stocks & Shares, Cash & Lifetime ISA', href: '/blog/isa-guide-uk-stocks-shares-cash-lifetime-isa-2026', category: 'Investment', readTime: '8 min', flag: '🇬🇧' },
+]
+
+const features = [
+  { icon: <Globe className="w-5 h-5" />, title: 'Multi-Currency', desc: 'Switch between $ USD, £ GBP, € EUR instantly', color: 'text-green-600 bg-green-100' },
+  { icon: <Zap className="w-5 h-5" />, title: 'Instant Results', desc: 'Real-time calculations as you type or slide', color: 'text-yellow-600 bg-yellow-100' },
+  { icon: <BarChart3 className="w-5 h-5" />, title: 'Interactive Charts', desc: 'Area, bar, pie charts with hover tooltips', color: 'text-blue-600 bg-blue-100' },
+  { icon: <Shield className="w-5 h-5" />, title: '100% Free', desc: 'No signup, no ads, no data tracking ever', color: 'text-purple-600 bg-purple-100' },
+]
+
+const stats = [
+  { value: '91', label: 'Free Calculators', icon: '🧮' },
+  { value: '35', label: 'Expert Blog Guides', icon: '📚' },
+  { value: '3', label: 'Regions Covered', sub: 'USA · UK · Europe', icon: '🌍' },
+  { value: '0', label: 'Signup Required', sub: 'Always free', icon: '✅' },
+]
+
+const faqs = [
+  { q: 'Are all 392 calculators completely free?', a: 'Yes — every single calculator on tooltrio.com is 100% free, permanently. There are no premium tiers, no subscription plans, no hidden fees, and no feature locks. We believe professional-grade calculation tools should be accessible to every American regardless of income. Open any tool and use it as many times as you want, forever.' },
+  { q: 'Do I need to create an account to use these tools?', a: 'No account required — ever. You can use all 392 calculators without providing an email address, phone number, or any personal information. Just open the tool and start calculating. There is no registration wall, no email verification, and no "free trial" that expires. Every tool works immediately for everyone.' },
+  { q: 'Is my personal data stored or shared?', a: 'No. All calculations run entirely within your browser using client-side JavaScript. Nothing you enter — health data, financial figures, income, passwords, code — is ever transmitted to any server, stored in any database, or shared with any third party. When you close the browser tab, all your inputs disappear permanently. We have no ability to access your data because it never leaves your device.' },
+  { q: 'How accurate are the financial calculators for US users?', a: 'Our finance calculators use current 2026 IRS tax brackets, contribution limits (401k: $23,500, IRA: $7,000, HSA: $4,300 for 2025), and US market conventions. Formulas follow standards from the CFP Board, IRS, SEC, and FINRA. Results are planning estimates — actual investment returns vary with market performance, and tax laws change annually. For major financial decisions, verify current limits at IRS.gov and consult a Certified Financial Planner (CFP).' },
+  { q: 'How accurate are the health calculators?', a: 'Health calculators use validated formulas from the CDC, NIH, AHA, WHO, and Academy of Nutrition and Dietetics. The BMI calculator uses CDC standard categories, calorie calculators use the Mifflin-St Jeor equation (most accurate for American adults per peer-reviewed research), and heart risk calculators use Framingham risk score methodology. Results are population-level estimates — individual results may vary based on genetics, medications, and medical conditions. Always discuss health changes with your physician.' },
+  { q: 'Do these calculators work for UK and European users?', a: 'Yes. We have 30+ dedicated UK calculators covering 2025/26 PAYE income tax, National Insurance, ISA allowances (Stocks & Shares, Cash, Lifetime), stamp duty (SDLT), UK pension auto-enrolment, SIPP vs. ISA comparison, and more. European tools cover VAT for all EU member states, European mortgage rates, MSCI World vs. S&P 500 comparison, and FIRE planning at European safe withdrawal rates. All calculators support GBP, EUR, and USD.' },
+  { q: 'Do these tools work on iPhones, Android, and tablets?', a: 'Yes — all 392 calculators are fully responsive and work on every device. Tested on iPhone (iOS 16+), Android (Chrome, Samsung Internet), iPad, Mac (Safari, Chrome), and Windows PC (Chrome, Edge, Firefox). No app download required. Simply open any calculator in your mobile browser and it works perfectly. The interface automatically optimizes for your screen size.' },
+  { q: 'How often are the calculators updated?', a: 'Finance calculators are updated annually to reflect new IRS contribution limits, tax bracket adjustments, and regulatory changes. Health calculators are updated when major US health organizations revise their guidelines (CDC, NIH, AHA updates are monitored continuously). Developer tools are updated when standards bodies release new specifications. The last site-wide update was for the 2026 tax year.' },
+  { q: 'Can I use these calculators for professional or commercial purposes?', a: 'Yes. Financial advisors, registered dietitians, software developers, educators, and other professionals use our calculators as reference tools and for client education. Results can be shared with clients, included in reports, and used in professional practice. No commercial license or attribution is required. For regulated financial or medical advice, always apply your professional judgment alongside our calculations.' },
+  { q: 'What makes tooltrio.com different from other calculator sites?', a: 'Three things: depth, privacy, and US-focus. With 392 calculators across finance, health, developer tools, and fun categories, we offer the broadest free calculator library available to Americans. Every tool is privacy-first (zero data transmission, zero storage). And every finance calculator is built specifically for the US market — using American units, IRS tax laws, and US market benchmarks by default, unlike generic international calculators that require manual adjustment.' },
+]
+
+// ─── Structured Data ─────────────────────────────────────────────────────────
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'tooltrio.com',
+  url: 'https://tooltrio.com',
+  description: '68 free finance and health calculators for USA, UK, and Europe. No signup required.',
+  potentialAction: { '@type': 'SearchAction', target: 'https://tooltrio.com/calculators/finance/{search_term_string}', 'query-input': 'required name=search_term_string' },
+  publisher: { '@type': 'Organization', name: 'tooltrio.com', url: 'https://tooltrio.com', email: 'financecalculator1610@gmail.com' },
+}
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'tooltrio.com',
+  url: 'https://tooltrio.com',
+  email: 'financecalculator1610@gmail.com',
+  description: 'Provider of 68 free finance and health calculators for USA, UK and Europe.',
+  foundingDate: '2026',
+  areaServed: ['United States', 'United Kingdom', 'Europe'],
+  knowsAbout: ['Financial Calculators', 'Mortgage Calculator', '401k Calculator', 'UK Income Tax', 'ISA Calculator', 'Compound Interest', 'BMI Calculator', 'FIRE Calculator'],
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Free Finance Calculators — tooltrio.com',
+  description: 'A collection of 58 free finance calculators for USA, UK, and Europe',
+  numberOfItems: 58,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'SIP Calculator', url: 'https://tooltrio.com/calculators/finance/sip-calculator' },
+    { '@type': 'ListItem', position: 2, name: 'EMI Calculator', url: 'https://tooltrio.com/calculators/finance/emi-calculator' },
+    { '@type': 'ListItem', position: 3, name: 'Compound Interest Calculator', url: 'https://tooltrio.com/calculators/finance/compound-interest-calculator' },
+    { '@type': 'ListItem', position: 4, name: '401k Calculator', url: 'https://tooltrio.com/calculators/finance/401k-calculator' },
+    { '@type': 'ListItem', position: 5, name: 'UK Income Tax Calculator', url: 'https://tooltrio.com/calculators/finance/uk-income-tax-calculator' },
+    { '@type': 'ListItem', position: 6, name: 'ISA Calculator', url: 'https://tooltrio.com/calculators/finance/isa-calculator' },
+    { '@type': 'ListItem', position: 7, name: 'Retirement Calculator', url: 'https://tooltrio.com/calculators/finance/retirement-calculator' },
+    { '@type': 'ListItem', position: 8, name: 'FIRE Calculator', url: 'https://tooltrio.com/calculators/finance/fire-calculator' },
+    { '@type': 'ListItem', position: 9, name: 'BMI Calculator', url: 'https://tooltrio.com/calculators/health/bmi-calculator' },
+    { '@type': 'ListItem', position: 10, name: 'Calorie Calculator', url: 'https://tooltrio.com/calculators/health/calorie-calculator' },
+  ],
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tooltrio.com' },
+  ],
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+
+const devCalcs = [
+  { name: 'JSON Formatter',     desc: 'Format & validate JSON',           href: '/calculators/dev/json-formatter',        icon: '📋', badge: null },
+  { name: 'Color Contrast',     desc: 'WCAG AA/AAA contrast checker',     href: '/calculators/dev/color-contrast',        icon: '♿', badge: null },
+  { name: 'Fake Data Gen',      desc: 'Generate realistic test data',     href: '/calculators/dev/fake-data-generator',   icon: '🎭', badge: null },
+  { name: 'package.json Gen',   desc: 'Node.js setup wizard',             href: '/calculators/dev/package-json-gen',      icon: '📦', badge: null },
+  { name: 'Regex Tester',       desc: 'Live regex with highlighting',     href: '/calculators/dev/regex-tester',          icon: '🔍', badge: null },
+  { name: 'YAML Formatter',     desc: 'YAML ↔ JSON converter',            href: '/calculators/dev/yaml-formatter',        icon: '📄', badge: null },
+  { name: 'CSS Specificity',    desc: 'Selector specificity scores',      href: '/calculators/dev/css-specificity',       icon: '🎯', badge: null },
+  { name: 'Bitwise Calc',       desc: 'AND OR XOR NOT shift',             href: '/calculators/dev/bitwise-calculator',    icon: '⚙️', badge: null },
+  { name: 'cURL Builder',       desc: 'Build HTTP curl commands',         href: '/calculators/dev/curl-builder',          icon: '🔧', badge: null },
+  { name: 'Git Commit Gen',     desc: 'Conventional commits generator',   href: '/calculators/dev/git-commit-gen',        icon: '💬', badge: null },
+  { name: 'SQL JOIN Visualiser',desc: 'INNER/LEFT/RIGHT/FULL explained',  href: '/calculators/dev/sql-join-visualizer',   icon: '🔗', badge: null },
+  { name: 'UUID Generator',     desc: 'UUID v4, ULID, NanoID',            href: '/calculators/dev/uuid-generator',        icon: '🆔', badge: null },
+  { name: 'Base64 Encoder',     desc: 'Encode/decode Base64',             href: '/calculators/dev/base64-encoder',        icon: '🔐', badge: null },
+  { name: 'Color Converter',    desc: 'HEX · RGB · HSL · CMYK',          href: '/calculators/dev/color-converter',       icon: '🎨', badge: null },
+  { name: 'Password Generator', desc: 'Strong passwords with entropy',    href: '/calculators/dev/password-generator',    icon: '🔒', badge: null },
+]
+
+
+const funCalcs = [
+  { name: 'Zodiac Calculator',  desc: 'Your sign + compatibility',    href: '/calculators/fun/zodiac-calculator',      icon: '⭐', badge: null },
+  { name: 'Love Compatibility', desc: 'Name & birthday match score',  href: '/calculators/fun/love-compatibility',     icon: '💕', badge: null },
+  { name: 'Lucky Number',       desc: 'Numerology lucky numbers',     href: '/calculators/fun/lucky-number',           icon: '🍀', badge: null },
+  { name: 'Trivia Quiz',        desc: '10 random knowledge questions',href: '/calculators/fun/trivia-quiz',            icon: '🧠', badge: null },
+  { name: 'Superhero Name',     desc: 'Your superhero identity',      href: '/calculators/fun/superhero-name',         icon: '🦸', badge: null },
+  { name: 'Emoji Translator',   desc: 'Convert text to emoji',        href: '/calculators/fun/emoji-translator',       icon: '😊', badge: null },
+  { name: 'Morse Code',         desc: 'Text ↔ Morse code converter',  href: '/calculators/fun/text-to-morse',          icon: '📡', badge: null },
+  { name: 'Fortune Cookie',     desc: 'Random virtual fortune',       href: '/calculators/fun/fortune-cookie',         icon: '🥠', badge: null },
+  { name: 'How Rich Am I?',     desc: 'Global wealth percentile',     href: '/calculators/fun/how-rich-am-i',          icon: '💰', badge: null },
+  { name: 'Age in Days',        desc: 'Heartbeats & life stats',      href: '/calculators/fun/age-in-days',            icon: '🎂', badge: null },
+  { name: 'Pizza Calculator',   desc: 'How many pizzas to order?',    href: '/calculators/fun/pizza-calculator',       icon: '🍕', badge: null },
+  { name: 'Personality Quiz',   desc: 'Fun personality type quiz',    href: '/calculators/fun/personality-quiz',       icon: '🧬', badge: null },
+]
+
+export default function HomePage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden" aria-label="Hero">
+        <div className="absolute inset-0 bg-gradient-to-b from-green-50/80 to-white pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-green-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto px-4 pt-16 pb-12 text-center">
+
+          {/* Trust badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 border border-green-200 text-green-700 text-sm font-bold mb-6">
+            <Globe className="w-4 h-4" />
+            Supports <strong>$ USD</strong> · <strong>£ GBP</strong> · <strong>€ EUR</strong> — Switch in Header
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-black font-display text-gray-900 mb-5 leading-tight">
+            Free <span className="gradient-text">Finance</span> &amp;<br />Health Calculators
+          </h1>
+          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-4 leading-relaxed">
+            91 free calculators for investments, loans, commodities, retirement, UK taxes, and health — with interactive charts and expert guides. No signup ever.
+          </p>
+
+          {/* ── Search Bar ── */}
+          <div className="max-w-2xl mx-auto mb-6">
+            <GlobalSearch className="w-full shadow-lg" />
+            <p className="text-xs text-gray-400 mt-2 text-center">
+              Search 171+ calculators, tools &amp; guides — try "BMI", "401k", "mortgage", "calories"
+            </p>
+          </div>
+
+          {/* Region pills */}
+          <div className="flex items-center justify-center gap-2 flex-wrap mb-8 text-sm">
+            <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-semibold">🇺🇸 401k · Roth IRA · Social Security</span>
+            <span className="px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 font-semibold">🇬🇧 Income Tax · ISA · Stamp Duty</span>
+            <span className="px-3 py-1 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-700 font-semibold">🇪🇺 VAT · Mortgage · FIRE</span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+            <Link href="/calculators/finance"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-green-200 hover:shadow-green-300 hover:-translate-y-0.5">
+              <Calculator className="w-4 h-4" /> Finance Calculators
+            </Link>
+            <Link href="/calculators/health"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-bold rounded-2xl border border-gray-200 hover:border-gray-300 transition-all shadow-card hover:-translate-y-0.5">
+              <Heart className="w-4 h-4 text-red-500" /> Health Calculators
+            </Link>
+            <Link href="/blog"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-bold rounded-2xl border border-gray-200 hover:border-gray-300 transition-all shadow-card hover:-translate-y-0.5">
+              <BookOpen className="w-4 h-4 text-blue-500" /> Read Our Blog
+            </Link>
+          </div>
+
+          {/* Stats bar */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+            {stats.map((s, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-card px-4 py-4 text-center">
+                <div className="text-2xl mb-1">{s.icon}</div>
+                <div className="text-2xl font-black text-gray-900">{s.value}</div>
+                <div className="text-xs font-semibold text-gray-600">{s.label}</div>
+                {s.sub && <div className="text-[10px] text-gray-400 mt-0.5">{s.sub}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Us ── */}
+      <section className="max-w-5xl mx-auto px-4 mb-12" aria-label="Features">
+        <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Why tooltrio.com?</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {features.map((f, i) => (
+            <div key={i} className="flex flex-col gap-3 p-5 rounded-2xl bg-white border border-gray-100 shadow-card">
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${f.color}`}>{f.icon}</div>
+              <div>
+                <p className="font-bold text-gray-900 text-sm">{f.title}</p>
+                <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+            {/* ── Finance Calculators ── */}
+      <HomeCategorySection
+        title="Finance Calculators"
+        subtitle="151 tools · USA · UK · India · Europe · Works in $, £, €, ₹"
+        icon={<TrendingUp className="w-6 h-6" />}
+        calcs={financeCalcs}
+        viewAllHref="/calculators/finance"
+        viewAllLabel="Browse all 151"
+        accentColor="green"
+        initialCount={10}
+      />
+
+            {/* ── Health Calculators ── */}
+      <HomeCategorySection
+        title="Health Calculators"
+        subtitle="20 tools · BMI, Calories, Heart Rate, Macros & more · Metric & Imperial"
+        icon={<Heart className="w-6 h-6" />}
+        calcs={healthCalcs}
+        viewAllHref="/calculators/health"
+        viewAllLabel="Browse all 60"
+        accentColor="red"
+        initialCount={10}
+      />
+
+      {/* ── Developer Tools ── */}
+      <HomeCategorySection
+        title="Developer Tools"
+        subtitle="60 free browser tools — JSON, YAML, SQL, Regex, Base64, UUID, Meta Tags, Docker, CSS generators & more. No login, no server."
+        icon={<Code2 className="w-6 h-6" />}
+        calcs={devCalcs}
+        viewAllHref="/calculators/dev"
+        viewAllLabel="All 90 dev tools"
+        accentColor="purple"
+        initialCount={10}
+      />
+
+      {/* ── Fun &amp; Entertainment ── */}
+      <HomeCategorySection
+        title="Fun &amp; Entertainment"
+        subtitle="30 fun tools — Zodiac, Love, Trivia, Name Generators, Emoji, Morse Code & more 🎉"
+        icon={<Smile className="w-6 h-6" />}
+        calcs={funCalcs}
+        viewAllHref="/calculators/fun"
+        viewAllLabel="All 30 fun tools"
+        accentColor="purple"
+        initialCount={10}
+      />
+
+
+
+
+      {/* ── Commodity Section ── */}
+      <section className="max-w-6xl mx-auto px-4 mb-12" aria-label="Commodity Calculators">
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h2 className="text-2xl font-black font-display text-gray-900 flex items-center gap-2">
+              🏅 Live Commodity Prices &amp; Calculators
+            </h2>
+            <p className="text-gray-500 text-sm mt-1">Gold • Silver • Platinum • Crude Oil • Natural Gas — Live prices with calculators</p>
+          </div>
+          <Link href="/commodities" className="text-sm text-yellow-600 hover:text-yellow-700 flex items-center gap-1 font-bold">
+            Browse all 60 <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+        {/* Live gold karat teaser */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+          {[
+            { name: 'Gold Price Calculator', desc: '24K/22K/18K live karat prices', href: '/commodities/gold-price-calculator', icon: '🥇', badge: 'LIVE' },
+            { name: 'Silver Calculator',      desc: '999/925/900 purity live price', href: '/commodities/silver-price-calculator', icon: '🥈', badge: 'LIVE' },
+            { name: 'Crude Oil (WTI)',         desc: 'Live WTI price per barrel',     href: '/commodities/crude-oil-calculator',    icon: '🛢️', badge: null  },
+            { name: 'Brent Crude Oil',         desc: 'Global benchmark live price',   href: '/commodities/brent-crude-calculator',  icon: '⛽', badge: null  },
+            { name: 'Natural Gas',             desc: 'Henry Hub live price/MMBtu',    href: '/commodities/natural-gas-calculator',  icon: '🔥', badge: null  },
+            { name: 'Platinum Price',          desc: 'Live platinum per gram & oz',   href: '/commodities/platinum-price-calculator', icon: '💎', badge: null },
+            { name: 'Gold Loan Calculator',    desc: 'Loan against gold at live price', href: '/commodities/gold-loan-calculator', icon: '🏦', badge: 'Popular' },
+            { name: 'Metals P&amp;L',            desc: 'Buy/sell profit on metals',      href: '/commodities/precious-metals-profit-calculator', icon: '💰', badge: null },
+            { name: 'Palladium Price',         desc: 'Live palladium spot price',     href: '/commodities/palladium-price-calculator', icon: '⚗️', badge: null },
+            { name: 'Portfolio Tracker',       desc: 'Track all commodity holdings',  href: '/commodities/commodity-portfolio-tracker', icon: '🗂️', badge: null },
+          ].map(calc => (
+            <Link key={calc.href} href={calc.href}
+              className="group relative p-4 rounded-2xl bg-white border border-gray-100 shadow-card hover:border-yellow-300 hover:shadow-card-hover transition-all duration-200">
+              {calc.badge && (
+                <span className={`absolute top-2 right-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full border ${calc.badge === 'LIVE' ? 'bg-green-100 text-green-700 border-green-200' : 'bg-yellow-100 text-yellow-700 border-yellow-200'}`}>{calc.badge}</span>
+              )}
+              <div className="text-2xl mb-2">{calc.icon}</div>
+              <p className="font-bold text-gray-900 text-sm group-hover:text-yellow-700 transition-colors leading-tight">{calc.name}</p>
+              <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{calc.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Blog Section ── */}
+      <section className="max-w-6xl mx-auto px-4 mb-12" aria-label="Blog articles">
+        <div className="flex items-center justify-between mb-5">
+          <div>
+            <h2 className="text-2xl font-black font-display text-gray-900 flex items-center gap-2">
+              <BookOpen className="w-6 h-6 text-blue-600" /> Expert Finance Guides
+            </h2>
+            <p className="text-gray-500 text-sm mt-1">35 in-depth articles on UK, USA &amp; global personal finance</p>
+          </div>
+          <Link href="/blog" className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1 font-bold">
+            All 35 guides <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {recentBlogs.map(blog => (
+            <Link key={blog.href} href={blog.href}
+              className="group p-5 rounded-2xl bg-white border border-gray-100 shadow-card hover:border-blue-200 hover:shadow-card-hover transition-all">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-lg">{blog.flag}</span>
+                <span className="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 border border-blue-200">{blog.category}</span>
+                <span className="ml-auto flex items-center gap-1 text-xs text-gray-400"><Clock className="w-3 h-3" />{blog.readTime}</span>
+              </div>
+              <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-blue-700 transition-colors mb-3">{blog.title}</h3>
+              <span className="text-xs text-blue-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">Read guide <ArrowRight className="w-3 h-3" /></span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── About Section ── */
+      <section className="max-w-5xl mx-auto px-4 mb-10">
+        <div className="bg-gradient-to-br from-green-50 to-white rounded-3xl border border-green-100 p-8">
+          <h2 className="text-2xl font-black text-gray-900 mb-2">
+            The Most Comprehensive Free Calculator Platform — <span className="gradient-text">392 Tools</span>
+          </h2>
+          <p className="text-gray-500 mb-6 text-base">No signup · No ads · No data stored · Works on every device</p>
+
+          {/* Category counts */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            {[
+              { icon: '💰', label: 'Finance Calculators', count: 151, href: '/calculators/finance', color: 'text-green-700', bg: 'bg-green-100 border-green-200', desc: '401k, SIP, EMI, Mortgage, FIRE & more' },
+              { icon: '❤️', label: 'Health Calculators', count: 121, href: '/calculators/health', color: 'text-red-700', bg: 'bg-red-100 border-red-200', desc: 'BMI, Calories, BMR, Heart Risk & more' },
+              { icon: '⚡', label: 'Developer Tools', count: 90, href: '/calculators/dev', color: 'text-blue-700', bg: 'bg-blue-100 border-blue-200', desc: 'JSON, Regex, Color, Base64 & more' },
+              { icon: '😄', label: 'Fun Tools', count: 30, href: '/calculators/fun', color: 'text-purple-700', bg: 'bg-purple-100 border-purple-200', desc: 'Zodiac, Love, Names, Trivia & more' },
+            ].map((cat, i) => (
+              <Link key={i} href={cat.href} className={`flex flex-col p-4 rounded-2xl border ${cat.bg} hover:shadow-md transition-all group`}>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-2xl">{cat.icon}</span>
+                  <span className={`text-3xl font-black ${cat.color}`}>{cat.count}</span>
+                </div>
+                <p className={`font-bold text-sm ${cat.color}`}>{cat.label}</p>
+                <p className="text-xs text-gray-500 mt-1 leading-snug">{cat.desc}</p>
+                <p className={`text-xs font-bold mt-2 ${cat.color} opacity-0 group-hover:opacity-100 transition-opacity`}>Browse all →</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="prose prose-sm text-gray-600 max-w-none leading-relaxed space-y-3">
+            <p>
+              tooltrio.com offers <strong>392 free calculators</strong> — <strong>151 finance tools</strong> covering 401(k), Roth IRA, mortgage, SIP, FIRE, and debt payoff; <strong>121 health calculators</strong> using CDC &amp; NIH formulas for BMI, calories, macros, and heart risk; <strong>90 developer tools</strong> for JSON formatting, color conversion, regex testing, and code utilities; and <strong>30 fun tools</strong> including zodiac compatibility, name generators, and personality quizzes.
+            </p>
+            <p>
+              <strong>For USA users:</strong> 401(k) with employer match, Roth IRA, Social Security, FIRE, 529 college savings, paycheck calculator, rent vs buy, mortgage refinance, S&amp;P 500 vs bonds — all using 2026 IRS limits. <strong>For UK users:</strong> PAYE income tax, ISA, stamp duty, pension, buy-to-let. <strong>For Europe:</strong> VAT, mortgage, and FIRE Europe calculators.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-5">
+            {['No signup required', 'No data stored', '100% free forever', 'Works offline', 'Mobile optimized', 'Updated 2026', 'US & UK & EU', 'Privacy first'].map((t, i) => (
+              <span key={i} className="text-xs font-semibold px-3 py-1.5 bg-white border border-green-200 text-green-700 rounded-full shadow-sm">✅ {t}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── FAQ Section ── */}
+      <section className="max-w-3xl mx-auto px-4 mb-16" aria-label="Frequently Asked Questions">
+        <h2 className="text-2xl font-black font-display text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-card p-5">
+              <h3 className="font-bold text-gray-900 mb-2 flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                {faq.q}
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed pl-6">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  )
+}

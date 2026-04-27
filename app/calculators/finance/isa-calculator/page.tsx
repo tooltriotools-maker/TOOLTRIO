@@ -1,0 +1,100 @@
+import type { Metadata } from 'next'
+import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import CalculatorClient from './CalculatorClient'
+
+export const metadata: Metadata = generateCalculatorMetadata({
+ title: 'ISA Calculator UK 2026 – Stocks and Shares ISA Tax-Free Growth',
+ description: 'Free ISA calculator UK 2026. Calculate tax-free growth in Stocks and Shares ISA, Cash ISA, and Lifetime ISA. Includes 2026 ISA allowance of GBP 20,000 and LISA bonus. Real examples for GBP 5k-500k ISA investments.',
+ slug: 'isa-calculator',
+ category: 'finance',
+ keywords: [
+ 'isa calculator 2026',
+ 
+ 'isa calculator',
+ 'free isa calculator',
+ 'isa calculator online',
+ 'best isa calculator 2026',
+ 'isa calculator no signup',
+ 'accurate isa calculator',
+ 'how to calculate isa',
+ 'how does isa calculator work',
+ 'what is isa calculator',
+ 'calculate isa free',
+ 'isa calculator 2026',
+ 'isa calculator 2026',
+ 'online isa tool free',
+ 'isa estimator online',
+ 'isa formula calculator',
+ 'use isa calculator now',
+ 'try isa calculator free',
+ 'calculate my isa',
+ 'check my isa online',
+ 'find my isa free',
+ 'instant isa calculator',
+ 'quick isa calculator',
+ 'isa calculator app',
+ 'isa calculator mobile',
+ 'isa tool no login',
+ 'how to use isa calculator',
+ 'what is a good isa',
+ 'what is the formula for isa',
+ 'how is isa calculated',
+ 'when to use isa calculator',
+ 'which isa calculator is best',
+ 'how accurate is isa calculator',
+ 'isa calculator USA',
+ 'isa financial calculator free',
+ 'isa investment calculator',
+ 'isa calculator with chart',
+ 'isa returns calculator',
+ 'isa calculator monthly',
+ 'isa calculator yearly',
+ 'US isa calculator',
+ 'American isa calculator',
+ 'isa calculator UK',
+ 'isa calculator India',
+ 'isa before after tax',
+ 'free finance calculator',
+ 'personal finance isa',
+ 'isa calculator no ads',
+ 'free financial calculator USA 2026',
+ 'investment calculator no signup',
+ 'retirement planning calculator free',
+ 'compound interest calculator USA',
+ 'mortgage calculator USA',
+ 'IRS tax calculator 2026',
+ 'isa calculator UK 2026',
+ 'UK financial calculator free',
+ 'PAYE tax calculator UK',
+ 'UK pension calculator free',
+ 'tooltrio.com',
+ 'free calculator no signup',
+ 'calculator no data stored',
+ 'instant calculator results',
+ 'free calculator USA UK India'
+ ],
+})
+
+const faqs = [
+ { question: 'Is the ISA Calculator UK free to use?', answer: 'Yes, the ISA Calculator UK is completely free - no account registration, subscription, or payment of any kind required. All calculations are performed locally in your browser, meaning your financial data is never transmitted or stored anywhere. We believe professional-grade financial calculators should be accessible to every American regardless of income.' },
+ { question: 'How accurate are the calculations?', answer: 'This ISA Calculator UK uses standard financial formulas recognized by certified financial planners (CFPs), CPAs, and investment advisors across the United States. Results assume consistent inputs and standard market conditions. Actual investment returns, taxes, and financial outcomes will vary based on market performance, tax law changes, and individual circumstances. Use results for planning purposes, not as guarantees.' },
+ { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), consulting a Certified Financial Planner (CFP) or CPA is strongly recommended. This ISA Calculator UK provides solid educational estimates and planning scenarios, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
+ { question: 'Does this account for inflation?', answer: 'Where applicable, this ISA Calculator UK uses nominal values (current dollars) by default. For long-term projections, always consider that inflation historically averages 2-3% annually in the United States. To get inflation-adjusted (real) returns, subtract your expected inflation rate from your nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
+ { question: 'Are the calculations based on US tax law?', answer: 'This ISA Calculator UK uses US financial conventions and, where applicable, current US tax brackets and contribution limits. Tax law changes annually - verify current IRS limits (401k, IRA, HSA, etc.) at IRS.gov. For non-US users, contribution limits and tax treatment will differ significantly. Always verify current figures with your tax professional.' },
+ { question: 'Is my financial data stored or shared?', answer: 'No. All calculations run entirely in your browser. No financial data - income, savings, investment amounts, or personal details - is ever transmitted to any server, stored in any database, or shared with any third party. When you close the tab, everything disappears. Your financial privacy is completely protected.' },
+ { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this ISA Calculator UK, assume consistent contribution rates, steady returns, and static tax rates - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
+ { question: 'Can I use this calculator for both US and international currencies?', answer: 'This ISA Calculator UK supports multiple currencies - USD ($), GBP (£), EUR (€), and INR (₹) where applicable. For global users, note that contribution limits, tax treatment, and regulatory frameworks vary significantly by country. The mathematical calculations are currency-agnostic, but country-specific planning should involve a local financial professional.' },
+]
+
+const relatedCalculators = [
+ { name: 'UK Pension Calculator', href: '/calculators/finance/uk-pension-calculator', icon: '🏦', desc: 'UK pension' },
+ { name: 'UK Income Tax', href: '/calculators/finance/uk-income-tax-calculator', icon: '📋', desc: 'PAYE calculator' },
+ { name: 'UK Stamp Duty', href: '/calculators/finance/uk-stamp-duty-calculator', icon: '🏡', desc: 'SDLT calculator' },
+ { name: 'FIRE Europe', href: '/calculators/finance/fire-europe-calculator', icon: '🔥', desc: 'European FIRE' },
+ { name: 'UK Pension Drawdown', href: '/calculators/finance/uk-pension-drawdown-vs-annuity-calculator', icon: '🎯', desc: 'Pension drawdown' },
+ { name: 'UK Buy-to-Let', href: '/calculators/finance/uk-buy-to-let-vs-stocks-calculator', icon: '🏘️', desc: 'Property vs stocks' },
+]
+
+const structuredData = [generateFAQStructuredData(faqs)]
+
+export default function Page() { return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="isa-guide-uk-stocks-shares-cash-lifetime-isa-2026" /> }

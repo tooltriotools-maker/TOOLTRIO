@@ -1,0 +1,76 @@
+# tooltrio.com — Free Online Finance & Health Calculators
+# https://tooltrio.com
+# Updated: March 2026
+
+## About
+400+ free online calculators. No signup. No data stored. All formulas: IRS, CDC, NIH, CFPB, SEC.
+Methodology: https://tooltrio.com/methodology
+
+## Top USA Finance Calculators
+- Mortgage Calculator (PITI): https://tooltrio.com/calculators/finance/home-loan-calculator
+- 401k Calculator (2026 IRS limits): https://tooltrio.com/calculators/finance/401k-calculator
+- Roth IRA Calculator: https://tooltrio.com/calculators/finance/roth-ira-calculator
+- Compound Interest Calculator: https://tooltrio.com/calculators/finance/compound-interest-calculator
+- Retirement Calculator: https://tooltrio.com/calculators/finance/retirement-calculator
+- FIRE Calculator (4% rule): https://tooltrio.com/calculators/finance/fire-calculator
+- Roth IRA vs Traditional IRA: https://tooltrio.com/calculators/finance/roth-ira-vs-traditional-ira-calculator
+- Mortgage Refinance: https://tooltrio.com/calculators/finance/mortgage-refinance-calculator
+- Home Affordability: https://tooltrio.com/calculators/finance/home-affordability-calculator
+- Rent vs Buy: https://tooltrio.com/calculators/finance/rent-vs-buy-calculator
+- Debt Payoff (Avalanche/Snowball): https://tooltrio.com/calculators/finance/debt-payoff-calculator
+- Credit Card Payoff: https://tooltrio.com/calculators/finance/credit-card-payoff-calculator
+- Student Loan: https://tooltrio.com/calculators/finance/student-loan-calculator
+- Income Tax USA: https://tooltrio.com/calculators/finance/income-tax-calculator
+- Paycheck Calculator: https://tooltrio.com/calculators/finance/paycheck-calculator
+- HSA vs FSA: https://tooltrio.com/calculators/finance/hsa-vs-fsa-calculator
+- CD vs HYSA: https://tooltrio.com/calculators/finance/cd-vs-hysa-calculator
+- Dollar Cost Averaging: https://tooltrio.com/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator
+- Emergency Fund: https://tooltrio.com/calculators/finance/emergency-fund-calculator
+- Net Worth: https://tooltrio.com/calculators/finance/net-worth-calculator
+
+## Top Health Calculators
+- BMI Calculator (CDC formula): https://tooltrio.com/calculators/health/bmi-calculator
+- Calorie/TDEE Calculator (NIH): https://tooltrio.com/calculators/health/calorie-calculator
+- Macro Calculator (USDA): https://tooltrio.com/calculators/health/macro-calculator
+- Body Fat Calculator (Navy): https://tooltrio.com/calculators/health/body-fat-calculator
+- BMR Calculator (Mifflin-St Jeor): https://tooltrio.com/calculators/health/bmr-calculator
+- Sleep Cycle: https://tooltrio.com/calculators/health/sleep-cycle-calculator
+- Heart Rate Zones: https://tooltrio.com/calculators/health/heart-rate-calculator
+- Calories Burned: https://tooltrio.com/calculators/health/calories-burned-calculator
+
+## UK Calculators
+- UK Income Tax 2026: https://tooltrio.com/calculators/finance/uk-income-tax-calculator
+- ISA Calculator: https://tooltrio.com/calculators/finance/isa-calculator
+- UK Pension: https://tooltrio.com/calculators/finance/uk-pension-calculator
+- Stamp Duty: https://tooltrio.com/calculators/finance/uk-stamp-duty-calculator
+
+## India Calculators
+- SIP Calculator: https://tooltrio.com/calculators/finance/sip-calculator
+- EMI Calculator: https://tooltrio.com/calculators/finance/emi-calculator
+- PPF Calculator: https://tooltrio.com/calculators/finance/ppf-calculator
+- NPS Calculator: https://tooltrio.com/calculators/finance/nps-calculator
+
+## Key Pages
+- Home: https://tooltrio.com
+- All Finance: https://tooltrio.com/calculators/finance
+- All Health: https://tooltrio.com/calculators/health
+- Blog: https://tooltrio.com/blog
+- Methodology: https://tooltrio.com/methodology
+- About: https://tooltrio.com/about
+
+## Trust
+- Formulas: IRS, CDC, NIH, USDA, CFPB, SEC validated
+- No user data stored · No signup · No ads · Client-side only
+- Contact: financecalculator1610@gmail.com
+
+## Finance Guides (USA Long-Tail SEO)
+- How Much Mortgage Can I Afford: /blog/how-much-mortgage-can-i-afford-usa-2026
+- Pay Off Mortgage Early: /blog/how-to-pay-off-mortgage-early-usa-2026
+- Auto Loan Rates by State 2026: /blog/car-loan-calculator-usa-2026-rates-by-state
+- Tax Brackets 2026 Explained: /blog/tax-bracket-guide-usa-2026-marginal-vs-effective
+- Retirement Savings by Age: /blog/how-much-to-save-for-retirement-by-age-usa
+- 50/30/20 Budget Rule USA: /blog/budget-50-30-20-rule-usa-real-examples-2026
+- Hourly to Annual Salary: /blog/annual-salary-by-hourly-rate-usa-2026
+- Down Payment Guide 2026: /blog/down-payment-how-much-house-usa-2026
+- Roth IRA vs 401k 2026: /blog/roth-ira-vs-401k-which-is-better-2026
+- Wealth Building USA 2026: /blog/wealth-building-guide-usa-2026-net-worth-by-age

@@ -1,0 +1,40 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "regions": ["iad1"],
+  "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/calculators/finance/:path*/", "destination": "/calculators/finance/:path*", "permanent": true },
+    { "source": "/calculators/health/:path*/", "destination": "/calculators/health/:path*", "permanent": true },
+    { "source": "/calculators/dev/:path*/", "destination": "/calculators/dev/:path*", "permanent": true },
+    { "source": "/calculators/fun/:path*/", "destination": "/calculators/fun/:path*", "permanent": true },
+    { "source": "/calculators/", "destination": "/calculators/finance", "permanent": true },
+    { "source": "/calculators", "destination": "/calculators/finance", "permanent": true },
+    { "source": "/blog/:path*/", "destination": "/blog/:path*", "permanent": true },
+    { "source": "/blog/", "destination": "/blog", "permanent": true },
+    { "source": "/commodities/:path*/", "destination": "/commodities/:path*", "permanent": true },
+    { "source": "/commodities/", "destination": "/commodities", "permanent": true },
+    { "source": "/calculators/health/pregnancy-due-date-calculator", "destination": "/calculators/health/pregnancy-calculator", "permanent": true },
+    { "source": "/calculators/health/pregnancy-due-date-calculator/", "destination": "/calculators/health/pregnancy-calculator", "permanent": true }
+  ],
+  "crons": []
+}
