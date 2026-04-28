@@ -144,42 +144,42 @@ export default function CalculatorClient({ faqs }: Props) {
           <Link href="/calculators/fun/zodiac-calculator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">⭐</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Zodiac Calculator</p><p className="text-xs text-gray-400 mt-0.5">Western + Chinese signs</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/lucky-number" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">🍀</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Lucky Number Calculator</p><p className="text-xs text-gray-400 mt-0.5">Your numerology life path</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/fortune-cookie" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">🥠</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Fortune Cookie</p><p className="text-xs text-gray-400 mt-0.5">Crack open your digital fortune</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/personality-quiz" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">🧬</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Personality Quiz</p><p className="text-xs text-gray-400 mt-0.5">16 personality archetypes</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/compliment-generator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">💖</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Compliment Generator</p><p className="text-xs text-gray-400 mt-0.5">Generate heartfelt compliments</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">😤</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/age-in-days" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">🎂</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Age in Days</p><p className="text-xs text-gray-400 mt-0.5">How many days old are you really?</p>
-</span>
+</div>
           </Link>
           <Link href="/calculators/fun/birthday-countdown" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
             <span className="text-2xl flex-shrink-0">🎉</span>
             <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Birthday Countdown</p><p className="text-xs text-gray-400 mt-0.5">Days until your next birthday</p>
-</span>
+</div>
           </Link>
             </div>
           </div>

@@ -197,7 +197,7 @@ export default function HomePage() {
                         {c.badge}
                       </span>
                     )}
-                  </span>
+                  </div>
                   <p className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-tight">
                     {c.name}
                   </p>
@@ -344,7 +344,7 @@ export default function HomePage() {
             { icon: '📱', title: 'Works Everywhere', desc: 'Mobile, tablet & desktop' },
           ].map(f => (
             <div key={f.title} className="text-center p-4 bg-green-50 rounded-xl border border-green-100">
-              <div className="text-2xl mb-1">{f.icon}</span>
+              <div className="text-2xl mb-1">{f.icon}</div>
               <p className="font-bold text-gray-900 text-sm">{f.title}</p>
               <p className="text-xs text-gray-500">{f.desc}</p>
             </div>

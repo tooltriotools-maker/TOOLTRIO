@@ -62,42 +62,41 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <span className="text-xs text-green-600 font-semibold">{fmtCompact(result.totalAssets)}</span>
           </div>
 
-       <div className="space-y-3">
-  {liabilities.map((l, i) => (
-    <div key={i} className="flex items-center gap-2">
-      <div className="flex-1">
-        <input
-          value={l.name}
-          onChange={e => updateName(liabilities, setLiabilities, i, e.target.value)}
-          className="w-full bg-transparent text-xs text-gray-500 outline-none mb-1 border-b border-gray-100 pb-0.5"
-        />
-        <div className="flex items-center gap-1 bg-gray-50 rounded-lg px-2 py-1.5 border border-gray-200">
-          <span className="text-red-400 text-xs">{currency.symbol}</span>
-          <input
-            type="number"
-            value={l.value}
-            onChange={e => updateValue(liabilities, setLiabilities, i, Number(e.target.value))}
-            className="bg-transparent text-white text-sm font-semibold w-full outline-none text-right"
-            step={step}
-          />
-        </div>
-      </div>
-      <button
-        onClick={() => remove(liabilities, setLiabilities, i)}
-        className="text-slate-600 hover:text-red-400 transition-colors p-1"
-      >
-        <Trash2 className="w-3.5 h-3.5" />
-      </button>
-    </div>
-  ))}
-
-  <button
-    onClick={() => add(liabilities, setLiabilities)}
-    className="w-full flex items-center justify-center gap-2 py-2 rounded-xl border border-dashed border-red-300 text-red-400 text-sm hover:bg-red-500/5 transition-all"
-  >
-    <Plus className="w-4 h-4" /> Add Liability
-  </button>
-</div>
+          <div className="space-y-3">
+            {assets.map((a, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <div className="flex-1">
+                  <input
+                    value={a.name}
+                    onChange={e => updateName(assets, setAssets, i, e.target.value)}
+                    className="w-full bg-transparent text-xs text-gray-500 outline-none mb-1 border-b border-gray-100 pb-0.5"
+                  />
+                  <div className="flex items-center gap-1 bg-gray-50 rounded-lg px-2 py-1.5 border border-gray-200">
+                    <span className="text-green-500 text-xs">{currency.symbol}</span>
+                    <input
+                      type="number"
+                      value={a.value}
+                      onChange={e => updateValue(assets, setAssets, i, Number(e.target.value))}
+                      className="bg-transparent text-sm font-semibold w-full outline-none text-right"
+                      step={step}
+                    />
+                  </div>
+                </div>
+                <button
+                  onClick={() => remove(assets, setAssets, i)}
+                  className="text-slate-600 hover:text-red-400 transition-colors p-1"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            ))}
+            <button
+              onClick={() => add(assets, setAssets)}
+              className="w-full flex items-center justify-center gap-2 py-2 rounded-xl border border-dashed border-green-300 text-green-500 text-sm hover:bg-green-500/5 transition-all"
+            >
+              <Plus className="w-4 h-4" /> Add Asset
+            </button>
+          </div>
 
           {/* Liabilities */}
           <div className="mt-6">
@@ -105,8 +104,43 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <h2 className="text-sm font-semibold text-red-400 uppercase tracking-wider">Liabilities</h2>
               <span className="text-xs text-red-400 font-semibold">{fmtCompact(result.totalLiabilities)}</span>
             </div>
-            </div>   {/* mt-6 */}
-</Card>  {/* main card */}
+            <div className="space-y-3">
+              {liabilities.map((l, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className="flex-1">
+                    <input
+                      value={l.name}
+                      onChange={e => updateName(liabilities, setLiabilities, i, e.target.value)}
+                      className="w-full bg-transparent text-xs text-gray-500 outline-none mb-1 border-b border-gray-100 pb-0.5"
+                    />
+                    <div className="flex items-center gap-1 bg-gray-50 rounded-lg px-2 py-1.5 border border-gray-200">
+                      <span className="text-red-400 text-xs">{currency.symbol}</span>
+                      <input
+                        type="number"
+                        value={l.value}
+                        onChange={e => updateValue(liabilities, setLiabilities, i, Number(e.target.value))}
+                        className="bg-transparent text-sm font-semibold w-full outline-none text-right"
+                        step={step}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => remove(liabilities, setLiabilities, i)}
+                    className="text-slate-600 hover:text-red-400 transition-colors p-1"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => add(liabilities, setLiabilities)}
+                className="w-full flex items-center justify-center gap-2 py-2 rounded-xl border border-dashed border-red-300 text-red-400 text-sm hover:bg-red-500/5 transition-all"
+              >
+                <Plus className="w-4 h-4" /> Add Liability
+              </button>
+            </div>
+          </div>
+        </Card>
       
             
       <Card className="mt-6">
