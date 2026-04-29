@@ -15,8 +15,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://tooltrio.com'),
   title: {
-    default: 'Free Finance & Health Calculators — 400+ Tools | TOOLTRIO',
-    template: '%s | TOOLTRIO',
+    default: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    template: 'TOOLTRIO | %s',
   },
   description:
     'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',

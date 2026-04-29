@@ -550,14 +550,14 @@ export function generateCalculatorMetadata(params: {
     : region === 'europe' ? 'Europe'
     : region === 'india' ? 'India' : ''
 
-  // Title: matches search intent, includes "Free", optimized CTR per category
+  // Title: matches search intent, includes "Free", optimized CTR per category, branded with Tooltrio
   const fullTitle = category === 'health'
-    ? `Free ${title} — US Standard (lbs/ft) | No Signup 2026`
+    ? `Free ${title} — US Standard (lbs/ft) | Tooltrio`
     : category === 'dev'
-    ? `${title} — Free Online Tool, No Install`
+    ? `${title} — Free Online Tool | Tooltrio`
     : regionLabel
-    ? `Free ${regionLabel} ${title} - Instant, Accurate & No Signup`
-    : `Free ${title} - Instant Results, No Signup`
+    ? `Free ${regionLabel} ${title} - Instant, Accurate | Tooltrio`
+    : `Free ${title} - Instant Results | Tooltrio`
 
   // Ensure description ends with a strong CTA and is 150-160 chars
   const enrichedDescription = category === 'health'

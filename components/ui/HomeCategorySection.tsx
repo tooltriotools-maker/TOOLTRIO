@@ -71,8 +71,8 @@ export default function HomeCategorySection({
               return <span className={`absolute top-2 right-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full border ${bc}`}>{b}</span>
             })()}
             <span className="text-2xl mb-2 block">{calc.icon}</span>
-            <p className={`font-bold text-gray-900 text-sm transition-colors leading-tight group-hover:${accentColor === 'green' ? 'text-green-700' : accentColor === 'red' ? 'text-red-600' : accentColor === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{calc.name}</p>
-            <p className="text-xs text-gray-400 mt-0.5 leading-relaxed line-clamp-2">{calc.desc}</p>
+            <span className={`font-bold text-gray-900 text-sm transition-colors leading-tight block group-hover:${accentColor === 'green' ? 'text-green-700' : accentColor === 'red' ? 'text-red-600' : accentColor === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{calc.name}</span>
+            <span className="text-xs text-gray-400 mt-0.5 leading-relaxed line-clamp-2 block">{calc.desc}</span>
           </Link>
         ))}
       </div>

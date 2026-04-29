@@ -5,7 +5,9 @@ import { TrendingUp, Heart, Code2, Smile, Star, Shield, Zap, Globe, CheckCircle 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+  title: {
+    absolute: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+  },
   description:
     'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest calculator, BMI, calorie calculator and 400+ more. No signup. Instant results.',
   keywords: [
@@ -188,20 +190,20 @@ export default function HomePage() {
                 <Link
                   key={c.href}
                   href={c.href}
-                  className="group p-3 bg-white border border-gray-200 rounded-xl hover:border-green-300 hover:shadow-md transition-all"
+                  className="group p-3 bg-white border border-gray-200 rounded-xl hover:border-green-300 hover:shadow-md transition-all flex flex-col"
                 >
-                  <div className="flex items-center gap-2 mb-1">
+                  <span className="flex items-center gap-2 mb-1">
                     <span className="text-xl">{c.icon}</span>
                     {c.badge && (
                       <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
                         {c.badge}
                       </span>
                     )}
-                  </div>
-                  <p className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-tight">
+                  </span>
+                  <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-tight">
                     {c.name}
-                  </p>
-                  <p className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</p>
+                  </span>
+                  <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
                 </Link>
               ))}
             </div>

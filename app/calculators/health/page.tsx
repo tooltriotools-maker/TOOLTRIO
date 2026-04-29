@@ -6,7 +6,7 @@ const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'tooltrio.com'
 
 export const metadata: Metadata = {
-  title: '124 Free Health Calculators 2026 — BMI, TDEE, Calories, Heart Risk | tooltrio.com',
+  title: '124 Free Health Calculators 2026 — BMI, TDEE, Calories, Heart Risk',
   description: '124 free health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle, and more. CDC & NIH formulas. No signup. Instant results.',
   keywords: [
     // Primary money keywords
