@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Student Loan Calculator USA 2026 – Monthly Payment, Payoff Date & Interest',
+ title: 'Student Loan Calculator USA 2026 | TOOLTRIO',
  description: 'Free student loan calculator USA 2026. Calculate your monthly payment, total interest paid, and payoff date for federal and private student loans. Real examples for $20k–$100k loan balances.',
  slug: 'student-loan-calculator',
  category: 'finance',

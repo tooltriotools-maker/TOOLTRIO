@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '529 vs Roth IRA Education Calculator USA 2026 – Best College Savings Account',
+ title: '529 vs Roth IRA Education Calculator | TOOLTRIO',
  description: "Free 529 vs Roth IRA education calculator USA 2026. Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact. Real examples for $5k-$20k annual savings.",
  slug: '529-vs-roth-ira-education-calculator',
  category: 'finance',

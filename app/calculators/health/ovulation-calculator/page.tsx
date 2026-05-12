@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Ovulation Calculator — Fertile Window, Ovulation Date & Conception Timing 2026',
+  title: 'Ovulation Calculator 2026 | TOOLTRIO',
   description: 'Free Ovulation Calculator 2026 — Accurate ovulation based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'ovulation-calculator',
   category: 'health',

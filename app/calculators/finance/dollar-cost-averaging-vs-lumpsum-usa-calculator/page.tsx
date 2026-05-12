@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "DCA vs Lump Sum Calculator USA 2026 – Dollar-Cost Averaging vs One-Time Invest",
+ title: 'DCA vs Lump Sum Calculator USA 2026 | TOOLTRIO',
  description: "Free DCA vs lump sum calculator USA 2026. Compare monthly dollar-cost averaging vs investing all at once in the S&P 500. Based on Vanguard research and historical data. Real examples for $10k-$100k investments.",
  slug: 'dollar-cost-averaging-vs-lumpsum-usa-calculator',
  category: 'finance',

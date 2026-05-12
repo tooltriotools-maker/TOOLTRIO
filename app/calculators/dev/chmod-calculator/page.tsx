@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'chmod Calculator — Unix File Permissions Free Online',
+  title: 'chmod Calculator – Unix Permissions | TOOLTRIO',
   description: 'Convert between symbolic (rwxr-xr-x) and octal (755) Unix file permissions. Visual breakdown of owner, group, and other permissions. Runs in your browser.',
   slug: 'chmod-calculator',
   keywords: ['chmod calculator online free','unix file permission calculator browser','linux chmod 755 644 tool','octal to permission converter','file permission checker free'],

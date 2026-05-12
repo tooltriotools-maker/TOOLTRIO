@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Spain Pension vs ETF Calculator 2026 – Plan de Pensiones vs Index Fund Investing',
+ title: 'Spain Pension vs ETF Calculator 2026 | TOOLTRIO',
  description: 'Free Spain pension vs ETF calculator 2026. Compare Spanish pension plan (plan de pensiones) vs index ETF investing on after-tax returns, flexibility, and retirement income. Real examples for EUR 3k-15k annual contributions.',
  slug: 'spain-pension-vs-etf-calculator',
  category: 'finance',

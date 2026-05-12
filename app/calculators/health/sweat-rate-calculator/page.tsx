@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sweat Rate Calculator — Fluid Loss Per Hour During Exercise 2026',
+  title: 'Sweat Rate Calculator 2026 | TOOLTRIO',
   description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maintain performance, with sport-specific and weather-adjusted targets. Free online sweat rate calculator 2026. No signup required.',
   slug: 'sweat-rate-calculator',
   category: 'health',

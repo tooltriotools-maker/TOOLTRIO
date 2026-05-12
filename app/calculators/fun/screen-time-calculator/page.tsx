@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Screen Time Calculator – How Much of Your Life Is Spent on Screens?',
+  title: 'Screen Time Calculator | TOOLTRIO',
   description: 'Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free, instant, no login.',
   slug: 'screen-time-calculator',
   keywords: [

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Cron Expression Generator — Build Cron Schedules Visually Free',
+  title: 'Cron Expression Generator Online | TOOLTRIO',
   description: 'Build and validate cron expressions visually. Shows next 5 execution times, natural language description, and supports 5-field and 6-field (with seconds) formats.',
   slug: 'cron-expression',
   keywords: ['cron expression generator online free','cron job builder browser','cron schedule visualizer','human readable cron free','cron syntax tester online','cron * * * * * builder'],

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'XML to JSON Converter — Transform XML Data Free Online',
+  title: 'XML to JSON Converter Online | TOOLTRIO',
   description: 'Convert XML to JSON and JSON to XML. Handles attributes, namespaces, and nested elements. Runs entirely in your browser — data never leaves your device.',
   slug: 'xml-to-json',
   keywords: ['xml to json converter online free','convert xml to json browser','xml parser to json','soap xml to json free','xml attributes to json online','xslt to json converter browser'],

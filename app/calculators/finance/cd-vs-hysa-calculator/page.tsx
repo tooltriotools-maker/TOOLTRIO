@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CD vs High-Yield Savings Account Calculator USA 2026 – Best Safe Investment',
+ title: 'CD vs High-Yield Savings Calculator USA | TOOLTRIO',
  description: 'Free CD vs HYSA calculator USA 2026. Compare certificate of deposit vs high-yield savings account on interest rate, flexibility, FDIC protection, and total earnings. Real examples for $5k-$50k savings balances.',
  slug: 'cd-vs-hysa-calculator',
  category: 'finance',

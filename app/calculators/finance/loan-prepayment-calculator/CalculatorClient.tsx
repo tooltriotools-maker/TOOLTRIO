@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <div className="p-4 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
               <p className="text-xs text-gray-500 font-semibold mb-1">Original Tenure</p>
               <p className="text-lg font-black text-gray-900">{Math.floor(tenure / 12)}yr {tenure % 12}mo</p>
             </div>

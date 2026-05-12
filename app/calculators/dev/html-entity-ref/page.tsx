@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Entity Reference — All HTML Entities Free',
+  title: 'HTML Entity Reference Online | TOOLTRIO',
   description: 'Complete reference of HTML character entities — named, numeric decimal, and hex. Search by character or entity name. Runs in your browser.',
   slug: 'html-entity-ref',
   keywords: ['html entity reference guide online','html special characters list','html entities cheat sheet free','html named entities browser','html character codes reference','&nbsp; &copy; entity lookup free'],

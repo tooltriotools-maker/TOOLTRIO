@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Fat Loss Rate Calculator — Weekly Fat Loss Prediction by Deficit Size 2026',
+  title: 'Fat Loss Rate Calculator 2026 | TOOLTRIO',
   description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss slows over time and how to adjust for metabolic adaptation. Free online fat loss rate calculator 2026. No signup required.',
   slug: 'fat-loss-rate-calculator',
   category: 'health',

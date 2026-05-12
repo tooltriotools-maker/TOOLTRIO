@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTTP Headers Analyzer — Decode Response Headers Free',
+  title: 'HTTP Headers Analyzer Online | TOOLTRIO',
   description: 'Paste HTTP response headers to decode security headers, caching directives, CORS settings, and cookies. Runs in your browser.',
   slug: 'http-headers-analyzer',
   keywords: ['http headers analyzer online free','response headers checker browser','http header viewer free','analyze http response headers','cors headers checker online'],

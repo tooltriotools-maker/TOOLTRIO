@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Favicon Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">⭐ Favicon Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⭐ Favicon Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Create favicons from text, letters, or emoji. Download in all sizes - 16x16 to 512x512. Browser-based, no upload needed.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -146,7 +146,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
         {/* Preview & Download */}
         <div className="space-y-5">
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <h2 className="font-bold text-gray-900 mb-4">Preview at All Sizes</h2>
             <div className="flex items-end gap-6 flex-wrap">
               {[16,32,48,64,128].map(s => (
@@ -160,7 +160,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <canvas ref={canvasRef} className="hidden" />
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <h2 className="font-bold text-gray-900 mb-3">Download</h2>
             <div className="grid grid-cols-2 gap-2">
               {[16,32,48,64,128,256,512].map(s => (
@@ -229,7 +229,7 @@ Research from Nielsen Norman Group shows that brand-recognizable favicons improv
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

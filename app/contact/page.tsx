@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Mail, MessageSquare, Clock, CheckCircle, HelpCircle, Bug, Lightbulb, Globe } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contact Us - tooltrio.com',
+  title: 'Contact Us | TOOLTRIO',
   description: 'Contact tooltrio.com for questions, feedback, calculator requests, or to report bugs. Email us at tooltrio1610@gmail.com.',
   alternates: { canonical: 'https://tooltrio.com/contact' },
 }
@@ -42,10 +42,10 @@ export default function ContactPage() {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-green-100 mb-5">
             <Mail className="w-7 h-7 text-green-700" />
           </div>
-          <h2 className="text-2xl font-black text-gray-900 mb-2">Email Us</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>Email Us</h2>
           <p className="text-gray-500 mb-5">The fastest way to reach us. We read and respond to every email.</p>
           <a href="mailto:tooltrio1610@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl text-lg transition-colors shadow-lg shadow-green-200">
+            className="inline-flex items-center gap-2 px-8 py-4 text-white font-bold rounded-2xl text-lg" style={{background:'linear-gradient(135deg,#22c55e,#16a34a)',boxShadow:'0 10px 25px rgba(34,197,94,0.25)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}>
             <Mail className="w-5 h-5" />
             tooltrio1610@gmail.com
           </a>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             {contactReasons.map(r => {
               const Icon = r.icon
               return (
-                <div key={r.title} className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+                <div key={r.title} className="rounded-3xl border p-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${r.color} mb-3`}>
                     <Icon className="w-5 h-5" />
                   </div>
@@ -91,10 +91,10 @@ export default function ContactPage() {
         <div className="mt-8 text-center">
           <p className="text-gray-500 text-sm mb-4">Before emailing, you might find your answer here:</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/about" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-colors">About Us</Link>
-            <Link href="/privacy-policy" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-colors">Privacy Policy</Link>
-            <Link href="/disclaimer" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-colors">Disclaimer</Link>
-            <Link href="/blog" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-colors">Blog &amp; Guides</Link>
+            <Link href="/about" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-all">About Us</Link>
+            <Link href="/privacy-policy" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-all">Privacy Policy</Link>
+            <Link href="/disclaimer" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-all">Disclaimer</Link>
+            <Link href="/blog" className="px-4 py-2 rounded-xl bg-white border border-gray-200 text-sm font-semibold text-gray-700 hover:border-green-400 transition-all">Blog &amp; Guides</Link>
           </div>
         </div>
       </div>

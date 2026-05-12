@@ -155,7 +155,7 @@ export default function SIPCalculatorClient({ faqs, structuredData, relatedCalcu
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-green-600 font-semibold mb-3">SIP Formula</h3>
-              <div className="bg-gray-50 rounded-xl p-4 font-mono text-sm text-gray-700 border border-gray-100">
+              <div className="rounded-xl p-4 font-mono text-sm text-gray-700 border" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.6)',backdropFilter:'blur(6px)'}}>
                 M = P x ({'{'} [1+i]n - 1 {'}'} / i) x (1+i)
                 <div className="mt-3 space-y-1 text-xs text-gray-400 font-sans">
                   <p><span className="text-green-600">M</span> = Maturity Amount</p>

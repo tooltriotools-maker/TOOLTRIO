@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import InterestRateCalculatorClient from './InterestRateCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Interest Rate Calculator USA 2026 – Find APR on Any Loan or Investment',
+ title: 'Interest Rate Calculator USA 2026 | TOOLTRIO',
  description: 'Free interest rate calculator USA 2026. Calculate APR, effective annual rate, and monthly rate from any loan payment or investment return. Works for mortgages, car loans, credit cards, and savings. Real examples for common loan scenarios.',
  slug: 'interest-rate-calculator',
  category: 'finance',

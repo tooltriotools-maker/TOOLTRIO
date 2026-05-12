@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Love Compatibility Calculator – Name & Birthday Match Score',
+  title: 'Love Compatibility Calculator | TOOLTRIO',
   description: 'Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and instant.',
   slug: 'love-compatibility',
   keywords: [

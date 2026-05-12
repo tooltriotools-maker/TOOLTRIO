@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSV to JSON Converter — Free Online, Runs in Browser',
+  title: 'CSV to JSON Converter Online | TOOLTRIO',
   description: 'Convert CSV data to JSON arrays or objects. Handles headers, custom delimiters, and quoted fields. Runs entirely in your browser — data never leaves your device.',
   slug: 'csv-to-json',
   keywords: ['csv to json converter online free','convert csv to json browser','csv parser to json','csv to json array online','csv columns to json keys free','import csv as json browser'],

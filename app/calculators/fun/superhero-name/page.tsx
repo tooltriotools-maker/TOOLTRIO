@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Superhero Name Generator – Your Superhero Identity & Powers',
+  title: 'Superhero Name Generator | TOOLTRIO',
   description: 'Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — instant results, no signup.',
   slug: 'superhero-name',
   keywords: [

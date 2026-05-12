@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Dividend Income Calculator USA 2026 – Yield, Growth and Annual Income',
+ title: 'Dividend Calculator USA 2026 | TOOLTRIO',
  description: 'Free dividend income calculator USA 2026. Calculate annual dividend income, yield on cost, dividend growth projections, and DRIP compounding. Real examples for $10k-$500k dividend portfolios.',
  slug: 'dividend-calculator',
  category: 'finance',

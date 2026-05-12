@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'TIPS vs Stocks Calculator USA 2026 – Inflation Protection vs Equity Growth',
+ title: 'TIPS vs Stocks Calculator USA 2026 | TOOLTRIO',
  description: 'Free TIPS vs stocks calculator USA 2026. Compare Treasury Inflation-Protected Securities vs S&P 500 equities on real return, volatility, and portfolio allocation. Real examples for $50k-$500k investment portfolios.',
  slug: 'inflation-protected-bonds-vs-stocks-calculator',
  category: 'finance',

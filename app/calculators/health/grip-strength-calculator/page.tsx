@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Grip Strength Calculator — Percentile by Age & Sex, Longevity Predictor 2026',
+  title: 'Grip Strength Calculator 2026 | TOOLTRIO',
   description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological aging. Compare your strength to normative values from large population studies. Free online grip strength calculator 2026. No signup required.',
   slug: 'grip-strength-calculator',
   category: 'health',

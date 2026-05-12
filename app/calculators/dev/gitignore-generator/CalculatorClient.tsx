@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">.gitignore Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🙈 .gitignore Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🙈 .gitignore Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Generate .gitignore files for Node, Python, Java, Go, Terraform and more</p>
       <div className="flex flex-wrap gap-2 mb-6">
         {Object.keys(TEMPLATES).map(k=>(
@@ -58,12 +58,12 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
         <pre className="font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto max-h-96 whitespace-pre">{output||'Select at least one template above'}</pre>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the .gitignore Generator</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">A .gitignore file tells Git which files and directories to exclude from version control. Click the technology buttons to select what your project uses - you can combine multiple templates (e.g. Node + React + VSCode + macOS for a typical frontend project). The generated rules are combined into a single file. Click Download to save the .gitignore file directly, then place it in the root of your repository.</p>
         <p className="text-sm text-gray-600"><strong>Typical combos:</strong> Full-stack JS: Node + Next.js + VSCode + macOS. Python project: Python + VSCode + macOS + Windows. Infrastructure: Terraform + VSCode. Always commit your .gitignore before adding it to an existing repo with <code className="bg-gray-100 px-1 rounded">git rm -r --cached .</code> to un-track already-tracked files.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Gitignore Generator"
         category="dev"

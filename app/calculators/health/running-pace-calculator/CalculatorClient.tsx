@@ -105,7 +105,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="font-bold text-gray-900 mb-4">Race Time Predictions</h3>
             <div className="space-y-2">
               {result.racePreds.map(r=>(
-                <div key={r.name} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                <div key={r.name} className="flex items-center justify-between p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <span className="font-bold text-gray-800">{r.name}</span>
                   <div className="text-right">
                     <p className="font-black text-gray-900">{r.time}</p>

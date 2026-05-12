@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Home Loan Calculator USA 2026 – Monthly Mortgage Payment and Amortization',
+ title: 'Home Loan EMI Calculator USA 2026 | TOOLTRIO',
  description: 'Free home loan calculator USA 2026. Calculate monthly mortgage payment, total interest, and complete amortization schedule for any home loan. Real examples for $150k-$600k loan amounts at current 2026 rates.',
  slug: 'home-loan-calculator',
  category: 'finance',

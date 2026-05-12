@@ -60,13 +60,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   className="flex-1 text-xs bg-white border border-gray-200 rounded-lg px-2 py-1.5 outline-none focus:border-green-500 min-w-0" />
                 <input type="number" value={e.amount} onChange={ev => updateEntry(e.id, 'amount', Number(ev.target.value))}
                   className={`w-28 text-xs bg-white border rounded-lg px-2 py-1.5 outline-none focus:border-green-500 text-right font-bold ${e.amount < 0 ? 'text-red-600 border-red-200' : 'text-green-600 border-green-200'}`} />
-                <button onClick={() => removeEntry(e.id)} className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0">
+                <button onClick={() => removeEntry(e.id)} className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all flex-shrink-0">
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
               </div>
             ))}
           </div>
-          <button onClick={addEntry} className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border-2 border-dashed border-green-300 text-green-600 text-sm font-bold hover:bg-green-50 transition-colors">
+          <button onClick={addEntry} className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border-2 border-dashed border-green-300 text-green-600 text-sm font-bold hover:bg-green-50 transition-all">
             <Plus className="w-4 h-4" /> Add Cashflow
           </button>
           <div className="mt-4 grid grid-cols-2 gap-2">

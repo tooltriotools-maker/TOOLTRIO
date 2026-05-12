@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Binary to Text Converter — Text to Binary & Back Free',
+  title: 'Binary to Text Converter Online | TOOLTRIO',
   description: 'Convert text to binary (01010100...) and binary back to text. ASCII and UTF-8 support. Runs entirely in your browser.',
   slug: 'binary-text-converter',
   keywords: ['binary to text converter online free','text to binary converter browser','ascii binary converter','binary string decoder free','convert text to binary online','binary code translator free'],

@@ -36,7 +36,7 @@ function RichText({ content }: { content: string }) {
         if (linkMatch) {
           return (
             <Link key={i} href={linkMatch[2]}
-              className="text-green-700 font-semibold underline underline-offset-2 hover:text-green-800 transition-colors">
+              className="text-green-700 font-semibold underline underline-offset-2 hover:text-green-800 transition-all">
               {linkMatch[1]}
             </Link>
           )
@@ -99,7 +99,7 @@ export function SEOContent({
 
       {/* Introduction */}
       <section aria-labelledby="seo-intro">
-        <h2 id="seo-intro" className="text-2xl font-black text-gray-900 mb-5">
+        <h2 id="seo-intro" className="text-2xl font-black text-gray-900 mb-5" style={{fontFamily:"'Playfair Display', serif"}}>
           {title} -- Complete USA Guide 2026
         </h2>
         <RichParagraphs text={intro} />
@@ -139,7 +139,7 @@ export function SEOContent({
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {comparisonTable.map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50 transition-colors">
+                  <tr key={i} className="hover:bg-gray-50 transition-all">
                     <td className="px-5 py-3 font-semibold text-gray-800">{row.label}</td>
                     <td className={`px-5 py-3 font-black ${c.text}`}>{row.value}</td>
                     <td className="px-5 py-3 text-gray-500 text-xs">{row.note}</td>

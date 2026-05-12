@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'HELOC Calculator USA 2026 – Home Equity Line of Credit Payment and Access',
+ title: 'HELOC Calculator USA 2026 | TOOLTRIO',
  description: 'Free HELOC calculator USA 2026. Calculate your available home equity credit line, monthly interest-only payments, and total borrowing cost. Real examples for $50k-$400k home equity at 2026 HELOC rates.',
  slug: 'heloc-calculator',
  category: 'finance',

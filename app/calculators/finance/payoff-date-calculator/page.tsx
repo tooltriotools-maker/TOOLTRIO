@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import PayoffDateCalculatorClient from './PayoffDateCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Loan Payoff Date Calculator USA 2026 – When Will You Be Debt-Free?',
+ title: 'Loan Payoff Date Calculator USA 2026 | TOOLTRIO',
  description: 'Free loan payoff date calculator USA 2026. Find your exact debt-free date and total interest paid for any loan with fixed payments or extra contributions. Real examples for mortgages, car loans, and personal loans.',
  slug: 'payoff-date-calculator',
  category: 'finance',

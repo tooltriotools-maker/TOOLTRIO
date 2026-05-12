@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Encoder — Escape HTML Entities Free Online',
+  title: 'HTML Encoder & Decoder Online | TOOLTRIO',
   description: 'Escape HTML special characters to entities and unescape back. Prevents XSS by converting < > & and quotes. Runs in your browser.',
   slug: 'html-encoder',
   keywords: ['html encoder decoder online free','html entity encoder browser','html special characters encoder','html escape tool online','convert html entities free','&amp; &lt; &gt; encoder free'],

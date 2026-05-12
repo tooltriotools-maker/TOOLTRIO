@@ -94,7 +94,7 @@ export default function TaxBracketCalculatorClient({ faqs, structuredData, relat
               <div className="grid grid-cols-2 gap-2">
                 {(['single', 'married'] as const).map(f => (
                   <button key={f} onClick={() => setFiling(f)}
-                    className={`py-2 rounded-xl text-sm font-semibold transition-colors ${filing === f ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                    className={`py-2 rounded-xl text-sm font-semibold transition-all ${filing === f ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                     {f === 'single' ? 'Single' : 'Married MFJ'}
                   </button>
                 ))}

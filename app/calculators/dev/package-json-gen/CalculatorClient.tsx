@@ -53,11 +53,11 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">package.json Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📦 package.json Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📦 package.json Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Fill the wizard on the left, get your perfect package.json on the right</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-3">
+          <div className="rounded-xl border p-4 space-y-3" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">Basic Info</h3>
             {[['name','Package Name','my-project'],['version','Version','1.0.0'],['description','Description',''],['main','Entry Point','index.js'],['author','Author',''],['keywords','Keywords (comma-separated)','']].map(([k,label,ph])=>(
               <div key={k}>
@@ -77,7 +77,7 @@ export default function CalculatorClient({ faqs }: Props) {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-4 space-y-2">
+          <div className="rounded-xl border p-4 space-y-2" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide mb-2">Scripts</h3>
             {Object.entries(pkg.scripts).map(([k,v])=>(
               <div key={k} className="flex gap-2 items-center">
@@ -88,7 +88,7 @@ export default function CalculatorClient({ faqs }: Props) {
             ))}
           </div>
           {(['deps','devDeps'] as const).map(type=>(
-            <div key={type} className="bg-white rounded-xl border border-gray-200 p-4 space-y-2">
+            <div key={type} className="rounded-xl border p-4 space-y-2" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
               <div className="flex items-center justify-between">
                 <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">{type==='deps'?'dependencies':'devDependencies'}</h3>
                 <button onClick={()=>addDep(type)} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700"><Plus className="w-3.5 h-3.5"/>Add</button>
@@ -162,7 +162,7 @@ peerDependencies vs dependencies. If your package requires React but does not bu
 Validate after editing. Paste the generated package.json into [JSON Formatter](/calculators/dev/json-formatter) to confirm valid JSON before using it.`}
         conclusion={`Getting exports, module type, and version ranges right the first time prevents hours of import failures. For the full Node.js project setup: generate package.json here, search packages with [npm Package Search](/calculators/dev/npm-package-search), and manage constraints with [Semver Calculator](/calculators/dev/semver-calculator).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
     </div>
   )
 

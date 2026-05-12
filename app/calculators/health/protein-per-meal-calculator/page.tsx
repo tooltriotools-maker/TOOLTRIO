@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Protein Per Meal Calculator — Optimal Protein Distribution for Muscle Synthesis 2026',
+  title: 'Protein Per Meal Calculator 2026 | TOOLTRIO',
   description: 'Free Protein Per Meal Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level. Real examples for 150–250 lb individuals. No signup required.',
   slug: 'protein-per-meal-calculator',
   category: 'health',

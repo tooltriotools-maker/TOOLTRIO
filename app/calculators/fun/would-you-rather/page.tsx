@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Would You Rather Generator – Hilarious Impossible Dilemmas Online',
+  title: 'Would You Rather Generator | TOOLTRIO',
   description: 'Generate wild, funny, and impossible Would You Rather questions. Perfect for parties, road trips, dates, and group chats. Free online Would You Rather generator, no login.',
   slug: 'would-you-rather',
   keywords: [

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Lease vs Buy Car Calculator USA 2026 – Total Cost of Leasing vs Financing',
+ title: 'Lease vs Buy Car Calculator USA 2026 | TOOLTRIO',
  description: 'Free lease vs buy car calculator USA 2026. Compare total cost of leasing vs financing a vehicle over 3-5 years including residual value, fees, and ownership. Real examples for $25k-$70k vehicles.',
  slug: 'lease-vs-buy-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Skin Health Calculator — UV Damage Risk, Photoaging Score & Protection Guide 2026',
+  title: 'Skin Health Calculator 2026 | TOOLTRIO',
   description: 'Free Skin Health Calculator 2026. Calculate your skin\'s UV damage exposure, estimated photoaging score, and personalized skincare recommendations based on lifestyle factors.',
   slug: 'skin-health-calculator',
   category: 'health',

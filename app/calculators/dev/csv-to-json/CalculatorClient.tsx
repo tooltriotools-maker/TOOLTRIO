@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">CSV to JSON</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📊 CSV to JSON Converter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📊 CSV to JSON Converter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Convert CSV data to JSON array - headers auto-detected, custom delimiter support</p>
       <div className="flex flex-wrap gap-3 mb-4">
         <div><label className="text-xs font-bold text-gray-500 block mb-1">Delimiter</label>
@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {[{l:'Infer Types',v:inferTypes,s:setInferTypes},{l:'Pretty Print',v:pretty,s:setPretty}].map(({l,v,s})=>(
           <div key={l} className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200 self-end">
             <span className="text-sm font-medium text-gray-700">{l}</span>
-            <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-colors ${v?'bg-green-500':'bg-gray-300'}`}><div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`}/></button>
+            <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-all ${v?'bg-green-500':'bg-gray-300'}`}><div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`}/></button>
           </div>
         ))}
       </div>
@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs }: Props) {
               className="flex items-center gap-1 text-xs font-bold text-green-600">{copied?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy</button>
           </div>
           {result.error
-            ? <div className="p-4 bg-red-50 rounded-xl border border-red-200"><p className="text-red-600 font-mono text-sm">{result.error}</p></div>
+            ? <div className="p-4 rounded-2xl border" style={{background:'rgba(254,242,242,0.8)',borderColor:'rgba(252,165,165,0.5)',backdropFilter:'blur(6px)'}}><p className="text-red-600 font-mono text-sm">{result.error}</p></div>
             : <pre className="h-72 font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto whitespace-pre">{result.json||'JSON appears here...'}</pre>
           }
         </div>
@@ -140,7 +140,7 @@ Validate after converting. Paste the JSON output into the [JSON Formatter](/calc
 
 For the full data transformation workflow: convert here, validate with [JSON Formatter](/calculators/dev/json-formatter), extract fields with [JSONPath Tester](/calculators/dev/json-path-tester).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
     </div>
   )
 

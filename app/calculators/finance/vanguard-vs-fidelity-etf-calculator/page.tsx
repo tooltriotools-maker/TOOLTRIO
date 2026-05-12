@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Vanguard vs Fidelity ETF Calculator USA 2026 – VOO vs FXAIX S&P 500 Returns',
+ title: 'Vanguard vs Fidelity ETF Calculator USA | TOOLTRIO',
  description: 'Free Vanguard vs Fidelity ETF calculator USA 2026. Compare Vanguard VOO vs Fidelity FXAIX and ZERO funds on expense ratio, tracking error, and long-term returns. Real examples for $10k-$500k S&P 500 index investments.',
  slug: 'vanguard-vs-fidelity-etf-calculator',
  category: 'finance',

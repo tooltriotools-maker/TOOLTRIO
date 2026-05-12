@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Credit Card Payoff Calculator USA 2026 – Debt-Free Date & Interest Savings',
+ title: 'Credit Card Payoff Calculator USA 2026 | TOOLTRIO',
  description: "Free credit card payoff calculator USA 2026. Find your debt-free date, total interest paid, and how much extra payments save you. Real examples for $5k–$30k balances at 18–29% APR.",
  slug: 'credit-card-payoff-calculator',
  category: 'finance',

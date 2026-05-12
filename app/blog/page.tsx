@@ -4,7 +4,7 @@ import { allBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
 import { Clock, BookOpen, ArrowRight, ChevronRight, TrendingUp } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '157 Expert Finance & Health Guides 2026 - SIP, 401k, UK Tax, ISA, Retirement & More',
+  title: 'Free Finance & Health Guides 2026 | TOOLTRIO',
   description: '157 in-depth guides on SIP investing, 401k vs Roth IRA, UK income tax, ISA, compound interest, FIRE, retirement planning, BMI, TDEE and more. USA, UK, India & Europe. Free, no signup.',
   keywords: [
     'finance guides 2026', 'investment guides india usa uk', 'SIP investing guide', '401k vs Roth IRA guide',
@@ -94,7 +94,7 @@ export default function BlogPage() {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900">Finance &amp; Health Guides</h1>
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance &amp; Health Guides</h1>
               <p className="text-green-600 font-semibold text-sm mt-0.5">{blogPosts.length} Expert Guides - Free - No Signup</p>
             </div>
           </div>
@@ -123,13 +123,13 @@ export default function BlogPage() {
           </p>
           <div className="flex flex-wrap gap-2">
             {TRENDING_KEYWORDS.map(kw => (
-              <span key={kw} className="text-xs px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-600 font-medium hover:border-green-300 hover:text-green-700 transition-colors cursor-default">{kw}</span>
+              <span key={kw} className="text-xs px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-600 font-medium hover:border-green-300 hover:text-green-700 transition-all cursor-default">{kw}</span>
             ))}
           </div>
           <div className="mt-3 pt-3 border-t border-gray-100 flex flex-wrap gap-2 items-center">
             <span className="text-xs font-bold text-gray-400">Popular topics:</span>
             {POPULAR_KEYWORDS.map(kw => (
-              <a key={kw.href} href={kw.href} className="text-xs px-2.5 py-1 rounded-lg bg-green-50 border border-green-200 text-green-700 font-semibold hover:bg-green-100 transition-colors">{kw.label}</a>
+              <a key={kw.href} href={kw.href} className="text-xs px-2.5 py-1 rounded-lg bg-green-50 border border-green-200 text-green-700 font-semibold hover:bg-green-100 transition-all">{kw.label}</a>
             ))}
           </div>
         </div>
@@ -139,12 +139,12 @@ export default function BlogPage() {
           <div className="mb-12">
             <p className="text-xs font-bold text-green-600 uppercase tracking-wider mb-3">⭐ Featured Guide</p>
             <Link href={`/blog/${featured.slug}`}
-              className="group block bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl border-2 border-green-200 hover:border-green-400 p-6 md:p-8 shadow-sm hover:shadow-md transition-all">
+              className="group block from-green-50 to-emerald-50 rounded-3xl border-2 border-green-200 hover:border-green-400 p-6 md:p-8 shadow-sm hover:shadow-md transition-all" style={{background:'linear-gradient(135deg,rgba(240,253,244,0.9),rgba(236,253,245,0.9))'}}>
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-green-100 text-green-700">{CAT_CONFIG[featured.categorySlug]?.label ?? featured.category}</span>
                 <span className="flex items-center gap-1 text-xs text-gray-400"><Clock className="w-3 h-3" />{featured.readTime}</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-green-700 transition-colors mb-3 leading-tight">{featured.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-green-700 transition-all mb-3 leading-tight" style={{fontFamily:"'Playfair Display', serif"}}>{featured.title}</h2>
               <p className="text-gray-600 mb-4 max-w-2xl leading-relaxed">{featured.excerpt}</p>
               <span className="inline-flex items-center gap-2 text-green-600 font-bold text-sm group-hover:gap-3 transition-all">
                 Read full guide <ArrowRight className="w-4 h-4" />
@@ -183,7 +183,7 @@ export default function BlogPage() {
                       <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${cfg.bg} ${cfg.border} ${cfg.color}`}>{cfg.icon} {cfg.label}</span>
                       <span className="flex items-center gap-1 text-xs text-gray-400"><Clock className="w-3 h-3" />{post.readTime}</span>
                     </div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-snug mb-2 flex-1 line-clamp-3">{post.title}</h3>
+                    <h3 className="font-bold text-gray-900 group-hover:text-green-700 transition-all leading-snug mb-2 flex-1 line-clamp-3">{post.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
                     {post.relatedCalc && (
                       <div className={`text-xs font-semibold px-2.5 py-1.5 rounded-lg ${cfg.bg} ${cfg.color} flex items-center gap-1.5`}>
@@ -211,10 +211,10 @@ export default function BlogPage() {
           <h2 className="text-2xl font-black mb-2">Ready to Put Theory Into Practice?</h2>
           <p className="text-green-100 mb-5 max-w-xl mx-auto">Use our free calculators to model the exact scenarios covered in these guides - with your own numbers.</p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-green-700 rounded-xl font-bold text-sm hover:bg-green-50 transition-colors">
+            <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-green-700 rounded-xl font-bold text-sm hover:bg-green-50 transition-all">
               Browse Finance Calculators →
             </Link>
-            <Link href="/calculators/health" className="px-5 py-2.5 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-400 transition-colors border border-green-400">
+            <Link href="/calculators/health" className="px-5 py-2.5 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-400 transition-all border border-green-400">
               Browse Health Calculators →
             </Link>
           </div>

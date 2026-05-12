@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Country</label>
             <select value={countryIdx} onChange={e => handleCountry(Number(e.target.value))}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none">
+              className="w-full border rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none" style={{background:'rgba(255,255,255,0.85)',borderColor:'#e2e8f0'}}>
               {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name} - {c.rate}% avg</option>)}
             </select>
           </div>
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           ].map(({ label, value, set, step }) => (
             <div key={label} className="space-y-1">
               <label className="text-xs font-medium text-gray-600">{label}</label>
-              <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <span className="text-green-600 font-bold text-sm">{sym}</span>
                 <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={step}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Interest Rate</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={annualRate} onChange={e => setAnnualRate(Number(e.target.value))} step={0.05}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">%</span>
@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Term</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={termYears} onChange={e => setTermYears(Number(e.target.value))} step={5} min={5} max={40}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">yr</span>

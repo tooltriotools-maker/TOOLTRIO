@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Salary Hike Calculator USA 2026 – Raise Impact, Take-Home Increase and Lifetime Earnings',
+ title: 'Salary Hike Calculator USA 2026 | TOOLTRIO',
  description: 'Free salary hike calculator USA 2026. Calculate the exact take-home impact of any salary raise, lifetime earnings increase, and investment value of a salary hike. Real examples for 5-30% raises on $50k-$200k salaries.',
  slug: 'salary-hike-calculator',
  category: 'finance',

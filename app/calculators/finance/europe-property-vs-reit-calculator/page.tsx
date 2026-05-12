@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Europe Property vs REIT Calculator 2026 – Direct Property vs REIT ETF Investment',
+ title: 'Europe Property vs REIT Calculator 2026 | TOOLTRIO',
  description: 'Free Europe property vs REIT calculator 2026. Compare direct European property vs REIT ETF for UK, Germany, and France investors. Real examples for EUR 100k–500k investments.',
  slug: 'europe-property-vs-reit-calculator',
  category: 'finance',

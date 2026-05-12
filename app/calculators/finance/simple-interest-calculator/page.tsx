@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Simple Interest Calculator USA 2026 – SI Formula, Principal, Rate and Time',
+ title: 'Simple Interest Calculator USA 2026 | TOOLTRIO',
  description: 'Free simple interest calculator USA 2026. Calculate simple interest, total amount, and interest rate using the SI formula. Compare simple vs compound interest. Real examples for loans, savings, and short-term investments.',
  slug: 'simple-interest-calculator',
  category: 'finance',

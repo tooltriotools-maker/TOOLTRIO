@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '401k Calculator USA 2026 – Employer Match, Growth & Retirement Value',
+ title: '401k Calculator USA 2026 | TOOLTRIO',
  description: 'Free 401k calculator USA 2026. Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest. Includes real examples for $50k–$100k salary.',
  slug: '401k-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "SIP vs NPS Calculator India 2026 – Mutual Fund SIP vs National Pension System",
+ title: 'SIP vs NPS Calculator India 2026 | TOOLTRIO',
  description: 'Free SIP vs NPS calculator India 2026. Compare SIP equity mutual fund vs NPS for retirement savings including 80CCD tax benefits. Real examples for INR 5k-30k monthly contributions over 20-30 year horizons.',
  slug: 'sip-vs-nps-calculator',
  category: 'finance',

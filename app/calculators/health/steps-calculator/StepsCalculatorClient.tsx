@@ -49,7 +49,7 @@ export default function StepsCalculatorClient({ faqs, structuredData, relatedCal
               <div className="grid grid-cols-2 gap-2">
                 {(['slow', 'moderate', 'brisk', 'fast'] as const).map(p => (
                   <button key={p} onClick={() => setPace(p)}
-                    className={`py-2 rounded-xl text-xs font-semibold capitalize transition-colors ${pace === p ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                    className={`py-2 rounded-xl text-xs font-semibold capitalize transition-all ${pace === p ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                     {p} ({paceData[p].mph} mph)
                   </button>
                 ))}

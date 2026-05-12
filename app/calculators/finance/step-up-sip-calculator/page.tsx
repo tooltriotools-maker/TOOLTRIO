@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Step-Up SIP Calculator India 2026 – Increasing SIP Investment Growth Projector',
+ title: 'Step-Up SIP Calculator India 2026 | TOOLTRIO',
  description: 'Free step-up SIP calculator India 2026. Calculate how increasing your SIP amount by 10-15% annually accelerates wealth building compared to a flat SIP. Real examples for INR 5k-30k starting monthly SIP.',
  slug: 'step-up-sip-calculator',
  category: 'finance',

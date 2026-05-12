@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'NPS Calculator India 2026 – National Pension System Corpus and Monthly Pension',
+ title: 'NPS Calculator India 2026 | TOOLTRIO',
  description: 'Free NPS calculator India 2026. Calculate your NPS retirement corpus, monthly pension from annuity, and lump sum withdrawal at 60. Includes Tier 1 and Tier 2 account projections. Real examples for INR 5k-50k monthly contributions.',
  slug: 'nps-calculator',
  category: 'finance',

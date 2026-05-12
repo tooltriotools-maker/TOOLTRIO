@@ -29,7 +29,7 @@ export function Footer() {
                   <li key={name}>
                     <Link
                       href={`/calculators/finance/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm hover:text-green-400 transition-colors"
+                      className="text-sm hover:text-green-400 transition-all"
                       style={{ color: "#64748b" }}
                     >
                       {name}
@@ -50,7 +50,7 @@ export function Footer() {
                   <li key={name}>
                     <Link
                       href={`/calculators/health/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm hover:text-green-400 transition-colors"
+                      className="text-sm hover:text-green-400 transition-all"
                       style={{ color: "#64748b" }}
                     >
                       {name}
@@ -76,7 +76,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:text-green-400 transition-colors"
+                    className="text-sm hover:text-green-400 transition-all"
                     style={{ color: "#64748b" }}
                   >
                     {link.name}

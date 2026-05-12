@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Heart Attack Risk Calculator — 10-Year ASCVD Risk Score (ACC/AHA) 2026',
+  title: 'Heart Attack Risk Calculator 2026 | TOOLTRIO',
   description: 'Free Heart Attack Risk Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
   slug: 'heart-attack-risk-calculator',
   category: 'health',

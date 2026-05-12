@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Timezone Converter — Convert Time Between Zones Free Online',
+  title: 'Timezone Converter Online | TOOLTRIO',
   description: 'Convert times between any two time zones. Shows UTC offset, DST status, and overlapping business hours. Runs entirely in your browser.',
   slug: 'timezone-converter',
   keywords: ['timezone converter online free','world time zone converter browser','convert between timezones','dst timezone calculator free','international time converter'],

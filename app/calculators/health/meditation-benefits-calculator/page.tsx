@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Meditation Benefits Calculator — Health Impact Score by Practice Type & Frequency 2026',
+  title: 'Meditation Benefits Calculator 2026 | TOOLTRIO',
   description: 'Free Meditation Benefits Calculator 2026 — Assess and track your meditation benefits with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'meditation-benefits-calculator',
   category: 'health',

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JWT Decoder — Decode and Inspect JSON Web Tokens Free',
+  title: 'JWT Decoder & Inspector Online | TOOLTRIO',
   description: 'Decode JWT tokens and inspect header, payload, and claims. Shows expiration, issued-at, and algorithm. Runs 100% in your browser — your token never leaves your device.',
   slug: 'jwt-decoder',
   keywords: ['jwt decoder online free','decode jwt token browser','json web token decoder','jwt payload viewer free','jwt claims parser online','verify jwt structure browser','jwt expiry checker free','decode jwt without server'],

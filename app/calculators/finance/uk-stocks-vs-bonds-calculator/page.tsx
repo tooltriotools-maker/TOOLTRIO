@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Stocks vs Bonds Calculator 2026 – FTSE vs Gilts Portfolio Returns',
+ title: 'UK Stocks vs Bonds Calculator 2026 | TOOLTRIO',
  description: 'Free UK stocks vs bonds calculator 2026. Compare FTSE All-Share equity returns vs UK government gilts and corporate bonds at different allocation splits. Real examples for GBP 50k-500k UK investment portfolios.',
  slug: 'uk-stocks-vs-bonds-calculator',
  category: 'finance',

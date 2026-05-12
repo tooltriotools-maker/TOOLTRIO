@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Cash-Out Refinance vs HELOC Calculator USA 2026 – Best Way to Access Home Equity',
+ title: 'Cash-Out Refinance vs HELOC Calculator | TOOLTRIO',
  description: 'Free cash-out refinance vs HELOC calculator USA 2026. Compare cash-out refi vs home equity line of credit on rate, monthly payment, closing costs, and total 10-year cost. Real examples for $50k-$200k equity needs.',
  slug: 'cash-out-refinance-vs-heloc-calculator',
  category: 'finance',

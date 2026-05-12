@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'I Bonds vs TIPS Calculator USA 2026 – Best Inflation Protection Investment',
+ title: 'I Bonds vs TIPS Calculator USA 2026 | TOOLTRIO',
  description: 'Free I Bonds vs TIPS calculator USA 2026. Compare Series I Savings Bonds vs Treasury Inflation-Protected Securities on after-tax real return, liquidity, and purchase limits. Real examples for $1k-$100k investments.',
  slug: 'i-bonds-vs-tips-calculator',
  category: 'finance',

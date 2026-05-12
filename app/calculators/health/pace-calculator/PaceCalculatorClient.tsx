@@ -72,7 +72,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
               { k: 'time', label: 'Pace from time & distance' },
             ].map(opt => (
               <button key={opt.k} onClick={() => setMode(opt.k as typeof mode)}
-                className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${mode === opt.k ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all ${mode === opt.k ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
                 {opt.label}
               </button>
             ))}
@@ -87,7 +87,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded-xl text-xs text-center">
                 <p className="text-gray-500">Your pace</p>
-                <p className="text-2xl font-black text-gray-900">{paceMin}:{paceSec.toString().padStart(2, '0')} /mi</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{paceMin}:{paceSec.toString().padStart(2, '0')} /mi</p>
                 <p className="text-gray-500">{calcSpeedFromPace()} mph</p>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
                 <label className="text-xs text-gray-500 mb-2 block">Unit</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(['mi', 'km'] as const).map(u => (
-                    <button key={u} onClick={() => setUnit(u)} className={`py-2 rounded-xl text-sm font-semibold transition-colors ${unit === u ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600'}`}>{u.toUpperCase()}</button>
+                    <button key={u} onClick={() => setUnit(u)} className={`py-2 rounded-xl text-sm font-semibold transition-all ${unit === u ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600'}`}>{u.toUpperCase()}</button>
                   ))}
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
               </div>
               <div className="mt-2 p-3 bg-gray-50 rounded-xl text-xs text-center">
                 <p className="text-gray-500">Your pace</p>
-                <p className="text-2xl font-black text-gray-900">{calcPaceFromTime()} /{unit}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{calcPaceFromTime()} /{unit}</p>
               </div>
             </div>
           )}

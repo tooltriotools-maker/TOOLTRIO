@@ -550,14 +550,8 @@ export function generateCalculatorMetadata(params: {
     : region === 'europe' ? 'Europe'
     : region === 'india' ? 'India' : ''
 
-  // Title: matches search intent, includes "Free", optimized CTR per category, branded with Tooltrio
-  const fullTitle = category === 'health'
-    ? `Free ${title} — US Standard (lbs/ft) | Tooltrio`
-    : category === 'dev'
-    ? `${title} — Free Online Tool | Tooltrio`
-    : regionLabel
-    ? `Free ${regionLabel} ${title} - Instant, Accurate | Tooltrio`
-    : `Free ${title} - Instant Results | Tooltrio`
+  // Title: use as-is — already formatted with | TOOLTRIO suffix
+  const fullTitle = title
 
   // Ensure description ends with a strong CTA and is 150-160 chars
   const enrichedDescription = category === 'health'

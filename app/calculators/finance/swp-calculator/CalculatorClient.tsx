@@ -87,15 +87,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <Card>
             <h3 className="text-sm font-bold text-gray-800 mb-3">Key Metrics</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
+              <div className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                 <p className="text-xs text-gray-500 font-semibold mb-1">Monthly Withdrawal</p>
                 <p className="text-base font-black text-gray-900">{fmt(withdrawal)}</p>
               </div>
-              <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
+              <div className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                 <p className="text-xs text-gray-500 font-semibold mb-1">Withdrawal Rate</p>
                 <p className="text-base font-black text-gray-900">{((withdrawal * 12 / investment) * 100).toFixed(1)}% annual</p>
               </div>
-              <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
+              <div className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                 <p className="text-xs text-gray-500 font-semibold mb-1">Return vs Withdrawal</p>
                 <p className={`text-base font-black ${returnRate > (withdrawal * 12 / investment * 100) ? 'text-green-700' : 'text-red-600'}`}>
                   {returnRate > (withdrawal * 12 / investment * 100) ? '✅ Surplus' : '⚠️ Deficit'}

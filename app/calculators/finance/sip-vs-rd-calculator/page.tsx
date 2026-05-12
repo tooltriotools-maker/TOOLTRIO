@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs RD Calculator India 2026 – Mutual Fund SIP vs Recurring Deposit',
+ title: 'SIP vs RD Calculator India 2026 | TOOLTRIO',
  description: "Free SIP vs RD calculator India 2026. Compare monthly SIP mutual fund returns vs bank recurring deposit returns over 3-20 years. Includes post-tax comparison. Real examples for INR 3k-30k monthly investments.",
  slug: 'sip-vs-rd-calculator',
  category: 'finance',

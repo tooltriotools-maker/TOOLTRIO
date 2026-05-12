@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Inflation Calculator USA 2026 – Purchasing Power & Real Value Over Time',
+ title: 'Inflation Calculator USA 2026 | TOOLTRIO',
  description: 'Free inflation calculator USA 2026. Calculate how inflation erodes purchasing power and what a past dollar amount is worth today. Uses CPI data from 1913 to 2026. Real examples for everyday Americans.',
  slug: 'inflation-calculator',
  category: 'finance',

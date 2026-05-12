@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Fiber Intake Calculator — Daily Fiber Needs by Age, Sex & Health Goals 2026',
+  title: 'Fiber Intake Calculator 2026 | TOOLTRIO',
   description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Track fiber from food sources and assess whether supplementation is needed. Free online fiber intake calculator 2026. No signup required.',
   slug: 'fiber-intake-calculator',
   category: 'health',

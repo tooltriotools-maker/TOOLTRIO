@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Age in Days Calculator – How Many Days Old Am I?',
+  title: 'Age in Days Calculator – How Old Am I? | TOOLTRIO',
   description: 'Find out exactly how many days, hours, minutes, and seconds you have been alive. Plus heartbeats, breaths taken, and wild life stats. Free, instant, no signup.',
   slug: 'age-in-days',
   keywords: [

@@ -111,7 +111,7 @@ export default function GoldLoanCalculatorPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900">🏦 Gold Loan Calculator</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🏦 Gold Loan Calculator</h1>
           <p className="text-gray-500 mt-1">Calculate loan amount against your gold at live spot price - LTV, EMI, interest &amp; repayment schedule</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -352,7 +352,7 @@ export default function GoldLoanCalculatorPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Gold Loan Calculator — Complete India Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Gold Loan Calculator — Complete India Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>India has over 25,000 tonnes of household gold — the largest private gold holding in the world — and a thriving gold loan industry that has grown to ₹8+ lakh crore in outstanding loans. Gold loans allow any gold owner to access liquidity immediately without selling their gold, without a credit check, and often within 30 minutes of walking into a branch. For a country where gold is a primary savings vehicle and formal credit access is limited, gold loans are a critical financial tool.</p>
             <p>The mechanics are straightforward: you pledge gold jewellery or coins to a lender; they assess purity and weight; you receive up to 75% of the assessed value as a loan (the RBI LTV cap for regulated lenders). You pay interest monthly or at the end of tenure; at loan closure, you get your gold back. This calculator gives you the full picture: eligible loan amount based on your gold's current market value, EMI breakdown for different tenures, and total interest cost — so you can compare offers before walking into any branch.</p>
@@ -390,7 +390,8 @@ export default function GoldLoanCalculatorPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Know your gold\'s exact market value before the lender appraises it'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Calculate gold ROI and whether selling beats a loan'},{e:'💳',n:'Personal Loan Calculator',h:'/calculators/finance/personal-loan-calculator',d:'Compare gold loan cost vs personal loan — which is cheaper?'},{e:'🏠',n:'Home Loan Calculator',h:'/calculators/finance/home-loan-calculator',d:'Planning a home loan? Calculate EMI and total cost'},{e:'📊',n:'EMI Calculator',h:'/calculators/finance/emi-calculator',d:'Calculate EMI for any loan amount, rate & tenure'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Live gold, silver, platinum & palladium prices'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Know your gold\'s exact market value before the lender appraises it'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Calculate gold ROI and whether selling beats a loan'},{e:'💳',n:'Personal Loan Calculator',h:'/calculators/finance/personal-loan-calculator',d:'Compare gold loan cost vs personal loan — which is cheaper?'},{e:'🏠',n:'Home Loan Calculator',h:'/calculators/finance/home-loan-calculator',d:'Planning a home loan? Calculate EMI and total cost'},{e:'📊',n:'EMI Calculator',h:'/calculators/finance/emi-calculator',d:'Calculate EMI for any loan amount, rate & tenure'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Live gold, silver, platinum & palladium prices'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

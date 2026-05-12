@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Real Return Calculator USA 2026 – Inflation-Adjusted Investment Returns',
+ title: 'Real Return Calculator – After Inflation | TOOLTRIO',
  description: 'Free real return calculator USA 2026. Calculate your inflation-adjusted real return vs nominal return for any investment. Shows purchasing power erosion and true investment performance. Real examples for 2-15% nominal returns.',
  slug: 'real-return-calculator',
  category: 'finance',

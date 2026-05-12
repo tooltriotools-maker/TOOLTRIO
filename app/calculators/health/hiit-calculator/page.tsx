@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'HIIT Calculator — Work/Rest Intervals, Calories & Training Zone Timing 2026',
+  title: 'HIIT Calculator – Intervals & Calories | TOOLTRIO',
   description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design protocols for fat burning, VO2 max, or anaerobic conditioning goals. Free online hiit calculator 2026. No signup required.',
   slug: 'hiit-calculator',
   category: 'health',

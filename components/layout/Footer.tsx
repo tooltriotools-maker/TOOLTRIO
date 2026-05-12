@@ -18,7 +18,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-2 text-sm">
               <Mail className="w-4 h-4 text-green-500 flex-shrink-0" />
-              <a href="mailto:tooltrio1610@gmail.com" className="hover:text-white transition-colors text-green-400 font-semibold">
+              <a href="mailto:tooltrio1610@gmail.com" className="hover:text-white transition-all text-green-400 font-semibold">
                 tooltrio1610@gmail.com
               </a>
             </div>
@@ -49,7 +49,7 @@ export function Footer() {
                 ['SWP Calculator', '/calculators/finance/swp-calculator'],
                 ['View All 20 ->', '/calculators/finance'],
               ].map(([name, href]) => (
-                <li key={href}><Link href={href} className="hover:text-white hover:text-green-400 transition-colors">{name}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-white hover:text-green-400 transition-all">{name}</Link></li>
               ))}
             </ul>
           </div>
@@ -73,7 +73,7 @@ export function Footer() {
                 ['Ovulation Calculator', '/calculators/health/ovulation-calculator'],
                 ['View All 10 ->', '/calculators/health'],
               ].map(([name, href]) => (
-                <li key={href}><Link href={href} className="hover:text-white hover:text-rose-400 transition-colors">{name}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-white hover:text-rose-400 transition-all">{name}</Link></li>
               ))}
             </ul>
           </div>
@@ -97,7 +97,7 @@ export function Footer() {
                 ['Metals P&L',          '/commodities/precious-metals-profit-calculator'],
                 ['Portfolio Tracker',    '/commodities/commodity-portfolio-tracker'],
               ].map(([name, href]) => (
-                <li key={href}><Link href={href} className="hover:text-yellow-400 transition-colors">{name}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-yellow-400 transition-all">{name}</Link></li>
               ))}
             </ul>
           </div>
@@ -116,7 +116,7 @@ export function Footer() {
                 ['Health & Fitness', '/blog/category/health'],
                 ['Personal Finance', '/blog/category/personal-finance'],
               ].map(([name, href]) => (
-                <li key={href}><Link href={href} className="hover:text-white transition-colors">{name}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-white transition-all">{name}</Link></li>
               ))}
             </ul>
             <h3 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
@@ -130,7 +130,7 @@ export function Footer() {
                 ['Privacy Policy', '/privacy-policy'],
                 ['Disclaimer', '/disclaimer'],
               ].map(([name, href]) => (
-                <li key={href}><Link href={href} className="hover:text-white transition-colors">{name}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-white transition-all">{name}</Link></li>
               ))}
             </ul>
           </div>

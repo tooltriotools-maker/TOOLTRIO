@@ -54,7 +54,7 @@ export default function Page() {
       </nav>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900">⚗️ Palladium Price Calculator</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>⚗️ Palladium Price Calculator</h1>
           <p className="text-gray-500 mt-1">Live palladium price per gram and troy oz. Critical for gasoline engine catalytic converters.</p>
         </div>
         <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl border border-gray-200">
@@ -97,7 +97,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl border border-gray-100 p-4">
+            <div className="rounded-2xl border border-gray-100 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
               <p className="text-sm font-bold text-gray-700 mb-2">Per Weight Unit (USD)</p>
               <div className="grid grid-cols-3 gap-2">
                 {[['Per Gram', perGram],['Per Tola', perGram*11.6638],['Per Troy Oz', c.price],['Per 10g', perGram*10],['Per 100g', perGram*100],['Per Kg', perGram*1000]].map(([l,v]) => (
@@ -133,7 +133,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Palladium Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Palladium Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Palladium is the most industrially specialized of the four major precious metals — approximately 85% of its global demand comes from a single application: catalytic converters in gasoline (petrol) powered vehicles. This concentration made palladium the best-performing commodity on earth in 2018–2021, when supply deficits from concentrated Russian and South African production sent prices from $1,000/oz to over $3,000/oz. The same concentration is now working in reverse as the electric vehicle transition accelerates and automakers actively substitute platinum for palladium in converter formulations.</p>
             <p>For the palladium price calculation itself: like all precious metals, palladium is quoted in USD per troy ounce (31.1035g). Convert to per gram by dividing spot by 31.1035. There is no purity variation for investment purposes — most traded palladium is .9995 fine. The calculator shows per-gram, per-tola (11.6638g), and per-troy-oz prices with a quick reference weight table for common amounts.</p>
@@ -156,7 +156,8 @@ export default function Page() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum — the sibling PGM metal'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices in 5 currencies'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on palladium trades'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Track all 4 metals at live prices'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Full precious metals & energy price hub'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-purple-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-purple-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum — the sibling PGM metal'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices in 5 currencies'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on palladium trades'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Track all 4 metals at live prices'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Full precious metals & energy price hub'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-purple-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-purple-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-purple-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Marathon Training Calculator — Weekly Mileage, Long Run & Race Pace Plan 2026',
+  title: 'Marathon Training Calculator 2026 | TOOLTRIO',
   description: 'Free Marathon Training Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon distances. Instant results for all fitness levels.',
   slug: 'marathon-training-calculator',
   category: 'health',

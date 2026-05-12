@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import AnnualIncomeCalculatorClient from './AnnualIncomeCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Annual Income Calculator USA 2026 – Hourly to Yearly Salary Converter',
+ title: 'Annual Income Calculator USA 2026 | TOOLTRIO',
  description: 'Free annual income calculator USA 2026. Convert hourly wage to annual salary, weekly to monthly pay, and see your complete compensation breakdown. Real examples for $15-$75/hr and $30k-$200k salaries.',
  slug: 'annual-income-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Surface Area Calculator — Mosteller, DuBois & Haycock Formulas 2026',
+  title: 'Body Surface Area Calculator 2026 | TOOLTRIO',
   description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn treatment, and cardiac output calculations in clinical medicine. Free online body surface area calculator 2026. No signup required.',
   slug: 'body-surface-area-calculator',
   category: 'health',

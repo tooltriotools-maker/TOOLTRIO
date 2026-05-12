@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Favicon Generator — Create Multi-Size Favicons Free Online',
+  title: 'Favicon Generator Online | TOOLTRIO',
   description: 'Generate favicons in all required sizes from a single image. Creates 16x16, 32x32, 180x180 (Apple Touch), and 192x192 (Android) icons with the correct HTML. Runs in your browser.',
   slug: 'favicon-generator',
   keywords: ['favicon generator online free','favicon ico png svg browser','create favicon from text free','favicon from image generator','website favicon maker online'],

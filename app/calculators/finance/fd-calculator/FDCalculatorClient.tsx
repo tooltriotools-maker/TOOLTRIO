@@ -47,11 +47,11 @@ export default function FDCalculatorClient({ faqs, structuredData, relatedCalcul
             <SelectField label="Compounding Frequency" value={freq} onChange={setFreq} options={FREQ_OPTIONS} />
           </div>
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <div className="p-3 rounded-xl bg-green-50 border border-green-200 text-center">
+            <div className="p-3 rounded-2xl border text-center" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)'}}>
               <p className="text-xs text-green-600 font-semibold mb-1">Maturity</p>
               <p className="text-lg font-black text-green-700">{fmt(r.maturityAmount || 0, true)}</p>
             </div>
-            <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-center">
+            <div className="p-3 rounded-2xl border text-center" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)'}}>
               <p className="text-xs text-blue-600 font-semibold mb-1">Interest</p>
               <p className="text-lg font-black text-blue-700">{fmt(r.interest || 0, true)}</p>
             </div>

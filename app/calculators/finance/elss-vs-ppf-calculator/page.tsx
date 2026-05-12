@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ELSS vs PPF Calculator India 2026 – Best 80C Tax Saving Investment Comparison',
+ title: 'ELSS vs PPF Calculator India 2026 | TOOLTRIO',
  description: "Free ELSS vs PPF calculator India 2026. Compare ELSS mutual fund vs PPF for Section 80C tax savings, returns, risk, and lock-in periods. Real examples for INR 50k-1.5L annual investments.",
  slug: 'elss-vs-ppf-calculator',
  category: 'finance',

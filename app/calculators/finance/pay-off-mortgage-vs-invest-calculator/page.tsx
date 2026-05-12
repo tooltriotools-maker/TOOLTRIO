@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "Pay Off Mortgage vs Invest Calculator USA 2026 – Extra Payments or Stock Market?",
+ title: 'Pay Off Mortgage vs Invest Calculator | TOOLTRIO',
  description: "Free pay off mortgage vs invest calculator USA 2026. Compare making extra mortgage payments vs investing in the stock market. Break-even return rate analysis included. Real examples for $200k-$500k mortgages.",
  slug: 'pay-off-mortgage-vs-invest-calculator',
  category: 'finance',

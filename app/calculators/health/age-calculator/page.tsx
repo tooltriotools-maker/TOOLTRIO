@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Age Calculator — Exact Age in Years, Months, Days & Hours 2026',
+  title: 'Age Calculator – Exact Age in Years 2026 | TOOLTRIO',
   description: 'Free Age Calculator 2026 — Calculate age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'age-calculator',
   category: 'health',

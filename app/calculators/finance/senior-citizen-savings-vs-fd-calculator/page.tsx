@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
-export const metadata: Metadata = generateCalculatorMetadata({ title: 'SCSS vs FD Calculator India 2026 – Senior Citizen Savings Scheme vs Fixed Deposit', description: 'Free Senior Citizen Savings Vs FD Calculator 2026. Calculate savings growth with high-yield accounts, CDs, and contribution strategies. Real examples for $5k–$100k starting balances. No signup required.', slug: 'senior-citizen-savings-vs-fd-calculator', category: 'finance', keywords: [
+export const metadata: Metadata = generateCalculatorMetadata({ title: 'SCSS vs FD Calculator India 2026 | TOOLTRIO', description: 'Free Senior Citizen Savings Vs FD Calculator 2026. Calculate savings growth with high-yield accounts, CDs, and contribution strategies. Real examples for $5k–$100k starting balances. No signup required.', slug: 'senior-citizen-savings-vs-fd-calculator', category: 'finance', keywords: [
  'senior citizen savings vs fd calculator 2026',
  
  'senior citizen savings vs fd calculator',

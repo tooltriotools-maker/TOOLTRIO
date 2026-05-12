@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "UK Pension Drawdown vs Annuity Calculator 2026 – Flexible vs Guaranteed Retirement Income",
+ title: 'UK Pension Drawdown vs Annuity 2026 | TOOLTRIO',
  description: "Free UK pension drawdown vs annuity calculator 2026. Compare flexible pension drawdown vs guaranteed annuity for UK retirees including inflation, longevity, and break-even analysis. Real examples for GBP 100k-600k pension pots.",
  slug: 'uk-pension-drawdown-vs-annuity-calculator',
  category: 'finance',

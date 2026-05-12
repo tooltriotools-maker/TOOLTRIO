@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Social Security Calculator USA 2026 – Monthly Benefit & Break-Even Age',
+ title: 'Social Security Calculator USA 2026 | TOOLTRIO',
  description: 'Free Social Security calculator USA 2026. Estimate your monthly Social Security benefit based on earnings history, claiming age (62–70), and break-even analysis. Real examples for $50k–$100k earners.',
  slug: 'social-security-calculator',
  category: 'finance',

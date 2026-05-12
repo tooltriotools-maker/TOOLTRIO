@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'How Rich Am I? – Global Wealth Percentile Calculator',
+  title: 'How Rich Am I? Global Wealth Rank | TOOLTRIO',
   description: 'Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people worldwide. Free.',
   slug: 'how-rich-am-i',
   keywords: [

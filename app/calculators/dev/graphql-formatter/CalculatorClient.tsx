@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">GraphQL Formatter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">◈ GraphQL Formatter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>◈ GraphQL Formatter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-4">Format and beautify GraphQL queries, mutations, and subscriptions with proper indentation. Copy formatted code instantly.</p>
 
       <div className="flex gap-2 mb-4">
@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs }: Props) {
           ['Mutations', 'Modify server data. Use mutation for create, update, delete.'],
           ['Subscriptions', 'Real-time data via WebSocket. Use subscription for live updates.']
         ].map(([title, desc]) => (
-          <div key={title} className="bg-white border border-gray-200 rounded-xl p-4">
+          <div key={title} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <p className="font-bold text-gray-900 text-sm">{title}</p>
             <p className="text-xs text-gray-500 mt-1">{desc}</p>
           </div>
@@ -139,7 +139,7 @@ According to the 2024 State of GraphQL survey, 58% of GraphQL users say the stro
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

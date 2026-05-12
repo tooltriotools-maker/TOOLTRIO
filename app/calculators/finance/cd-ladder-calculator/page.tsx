@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CD Ladder Calculator USA 2026 – Maximize FDIC-Insured Returns with CD Laddering',
+ title: 'CD Ladder Calculator USA 2026 | TOOLTRIO',
  description: 'Free CD ladder calculator USA 2026. Build a certificate of deposit laddering strategy to maximize FDIC-insured yield while maintaining annual liquidity. Real examples for $10k-$100k investments at 2026 CD rates.',
  slug: 'cd-ladder-calculator',
  category: 'finance',

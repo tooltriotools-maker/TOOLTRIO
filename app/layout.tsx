@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://tooltrio.com'),
   title: {
     default: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
-    template: 'TOOLTRIO | %s',
+    template: '%s',
   },
   description:
     'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',
@@ -254,8 +254,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
+        {/* Premium Fonts: Inter + Playfair Display */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
       </head>
-      <body suppressHydrationWarning className="bg-white text-gray-900 antialiased">
+      <body suppressHydrationWarning className="antialiased">
         {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-M1830T21DJ"

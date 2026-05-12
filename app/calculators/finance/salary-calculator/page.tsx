@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Salary Calculator USA 2026 – Take-Home Pay After All Deductions',
+ title: 'Salary Calculator USA 2026 | TOOLTRIO',
  description: 'Free salary calculator USA 2026. Calculate take-home pay after federal tax, state tax, Social Security, Medicare, and pre-tax deductions. Compare salary offers across states. Real examples for $40k-$200k annual salaries.',
  slug: 'salary-calculator',
  category: 'finance',

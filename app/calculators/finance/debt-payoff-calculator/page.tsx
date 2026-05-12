@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Debt Payoff Calculator USA 2026 – Debt-Free Date, Interest & Payoff Strategy',
+ title: 'Debt Payoff Calculator USA 2026 | TOOLTRIO',
  description: 'Free debt payoff calculator USA 2026. Calculate your debt-free date using avalanche or snowball method. Compare strategies and see total interest saved. Real examples for $10k–$100k total debt.',
  slug: 'debt-payoff-calculator',
  category: 'finance',

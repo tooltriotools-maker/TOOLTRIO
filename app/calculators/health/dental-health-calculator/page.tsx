@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Dental Health Risk Calculator — Cavity, Gum Disease & Tooth Loss Risk 2026',
+  title: 'Dental Health Calculator 2026 | TOOLTRIO',
   description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medical conditions. Get a personalized dental health action plan. Free online dental health calculator 2026. No signup required.',
   slug: 'dental-health-calculator',
   category: 'health',

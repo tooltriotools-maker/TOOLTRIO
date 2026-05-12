@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Network Speed Test — Browser-Based Latency and Throughput',
+  title: 'Network Speed Test Online | TOOLTRIO',
   description: 'Test your download speed, upload speed, and latency directly in the browser. No app download required. Measures real-world throughput to nearby servers.',
   slug: 'network-speed-test',
   keywords: ['network speed test online free','internet speed check browser','ping test tool free','broadband speed checker','latency test online'],

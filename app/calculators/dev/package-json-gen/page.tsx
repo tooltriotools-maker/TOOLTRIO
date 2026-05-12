@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Package.json Generator — Node.js Project Config Builder Free',
+  title: 'Package.json Generator Online | TOOLTRIO',
   description: 'Generate package.json files for Node.js projects. Configure name, version, scripts, dependencies, and metadata. Runs entirely in your browser.',
   slug: 'package-json-gen',
   keywords: ['package json generator online free','npm package.json builder browser','create package json free','npm init json generator','node package json creator online'],

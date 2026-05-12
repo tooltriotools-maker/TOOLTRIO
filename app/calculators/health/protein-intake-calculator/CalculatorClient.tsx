@@ -103,7 +103,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 const servings = Math.ceil(grams / food.protein)
                 const pct = Math.min(100, Math.round(food.protein / grams * 100))
                 return (
-                  <div key={food.food} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-200 transition-colors">
+                  <div key={food.food} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:bg-green-50 hover:border-green-200 transition-all">
                     <span className="text-xl">{food.emoji}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-bold text-gray-800 truncate">{food.food}</p>

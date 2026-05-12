@@ -72,7 +72,7 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Your BMI Score</p>
-              <div className="text-8xl font-black font-display mb-3 transition-all duration-500" style={{ color: result.color }}>{result.bmi}</div>
+              <div className="text-8xl font-black mb-3 transition-all duration-500" style={{ color: result.color }}>{result.bmi}</div>
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold" style={{ background: `${result.color}20`, color: result.color, border: `1px solid ${result.color}40` }}>
                 {result.category}
               </span>

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import AutoLoanCalculatorClient from './AutoLoanCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Auto Loan Calculator USA 2026 – Monthly Car Payment & Total Interest Cost',
+ title: 'Auto Loan Calculator USA 2026 | TOOLTRIO',
  description: 'Free auto loan calculator USA 2026. Calculate your exact monthly car payment, total interest cost, and amortization schedule. Real examples for $20k–$60k vehicle prices at 4–12% APR.',
  slug: 'auto-loan-calculator',
  category: 'finance',

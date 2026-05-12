@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Retirement Calculator USA 2026 – How Much Do You Need to Retire?',
+ title: 'Retirement Calculator USA 2026 | TOOLTRIO',
  description: 'Free retirement calculator USA 2026. Calculate your retirement corpus, monthly savings needed, and Social Security estimate using the 4% safe withdrawal rule. Real examples for $60k–$120k salary.',
  slug: 'retirement-calculator',
  category: 'finance',

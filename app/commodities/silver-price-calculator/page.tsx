@@ -59,7 +59,7 @@ export default function Page() {
       </nav>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900">🥈 Silver Price Calculator - Live by Purity</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🥈 Silver Price Calculator - Live by Purity</h1>
           <p className="text-gray-500 mt-1">Live silver price for 999 Fine, 925 Sterling, 900 Coin, 800 European - per gram, troy oz &amp; kg</p>
         </div>
         <div className="flex items-center gap-2">
@@ -80,7 +80,7 @@ export default function Page() {
               <p className="text-xs text-gray-400">{fxKey} per gram</p>
             </div>
             {purityList.map(([p, info]) => (
-              <button key={p} onClick={()=>setPurity(p)} className={`w-full px-4 py-3.5 flex items-center justify-between border-b border-gray-50 last:border-0 transition-colors text-left ${purity===p?'bg-slate-50 ring-1 ring-inset ring-slate-300':'hover:bg-gray-50'}`}>
+              <button key={p} onClick={()=>setPurity(p)} className={`w-full px-4 py-3.5 flex items-center justify-between border-b border-gray-50 last:border-0 transition-all text-left ${purity===p?'bg-slate-50 ring-1 ring-inset ring-slate-300':'hover:bg-gray-50'}`}>
                 <div><p className="font-black text-gray-900 text-sm">{p}</p><p className="text-[11px] text-gray-400">{(info.purity*100).toFixed(1)}% pure</p></div>
                 <p className="font-black text-gray-900">{fmt(info.perGram,4)}/g</p>
               </button>
@@ -148,7 +148,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Silver Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Silver Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Silver is the most misunderstood precious metal. Most people know it as jewellery material, but silver's real price story is driven by a unique combination of investment demand, central bank policy sensitivity, and surging industrial consumption — particularly from solar panels and electric vehicles. The silver price you see quoted is in USD per troy ounce for .999 fine silver (99.9% pure), but silver is sold and traded at multiple purity levels, each requiring a different price calculation.</p>
             <p>The four main purity levels: .999 fine (investment coins, bars) is the spot price benchmark. .925 sterling (jewellery, cutlery) = spot × 0.925. .900 coin silver (pre-1965 US dimes, quarters) = spot × 0.900. .800 European silver (older Continental pieces) = spot × 0.800. Our calculator shows live prices across all four purities simultaneously, in four currencies, per gram, ounce, and kilogram.</p>
@@ -198,7 +198,8 @@ export default function Page() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices per gram, tola & oz with GST'},{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum per gram and troy oz'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on any silver trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All your metals at live prices — total P&L dashboard'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Has gold beaten your mutual fund SIP? Find out.'},{e:'📊',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'Measure real purchasing power loss vs silver gains'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-slate-300 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-slate-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-slate-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices per gram, tola & oz with GST'},{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum per gram and troy oz'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on any silver trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All your metals at live prices — total P&L dashboard'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Has gold beaten your mutual fund SIP? Find out.'},{e:'📊',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'Measure real purchasing power loss vs silver gains'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-slate-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-slate-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-slate-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

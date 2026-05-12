@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import SIPCalculatorClient from './SIPCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP Calculator India 2026 – Monthly SIP Returns and Wealth Growth',
+ title: 'SIP Calculator India 2026 | TOOLTRIO',
  description: 'Free SIP calculator India 2026. Calculate monthly SIP investment returns, total wealth at any CAGR, and the power of rupee cost averaging. Real examples for INR 1k-50k monthly SIP investments.',
  slug: 'sip-calculator',
  category: 'finance',

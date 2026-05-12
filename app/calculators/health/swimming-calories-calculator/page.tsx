@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Swimming Calories Calculator — Stroke, Distance, Speed & Body Weight 2026',
+  title: 'Swimming Calories Calculator 2026 | TOOLTRIO',
   description: 'Free Swimming Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
   slug: 'swimming-calories-calculator',
   category: 'health',

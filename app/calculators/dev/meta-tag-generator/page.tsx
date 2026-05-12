@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Meta Tag Generator — SEO, Open Graph & Twitter Cards Free',
+  title: 'Meta Tag Generator – SEO & OG Tags | TOOLTRIO',
   description: 'Generate complete HTML meta tags for SEO, Open Graph (Facebook/LinkedIn), and Twitter Card previews. Copy-ready output. Runs in your browser.',
   slug: 'meta-tag-generator',
   keywords: ['meta tag generator online free','seo meta description generator','open graph meta tags builder','html head meta tags tool','twitter card generator browser'],

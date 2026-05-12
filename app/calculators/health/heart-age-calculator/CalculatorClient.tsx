@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[{l:'Current smoker?',v:smoker,s:setSmoker},{l:'Type 2 Diabetes?',v:diabetic,s:setDiabetic},{l:'BP medication?',v:hypertensionMeds,s:setHypertensionMeds},{l:'Family heart disease <60?',v:familyHistory,s:setFamilyHistory}].map(({l,v,s})=>(
               <div key={l} className="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl">
                 <span className="text-xs font-medium text-gray-700">{l}</span>
-                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-colors ${v?'bg-red-500':'bg-gray-200'}`}>
+                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-all ${v?'bg-red-500':'bg-gray-200'}`}>
                   <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`} />
                 </button>
               </div>

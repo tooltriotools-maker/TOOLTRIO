@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Help to Buy vs Lifetime ISA Calculator 2026 – First Home Savings Guide',
+ title: 'UK Help to Buy vs LISA Calculator 2026 | TOOLTRIO',
  description: 'Free UK Help to Buy vs Lifetime ISA calculator 2026. Compare government bonuses, property price limits, and flexibility for first-time buyers. Real examples for GBP 20k-40k annual savings toward a first home.',
  slug: 'uk-help-to-buy-vs-lisa-calculator',
  category: 'finance',

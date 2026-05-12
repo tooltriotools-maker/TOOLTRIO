@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'VAT Calculator Europe 2026 – UK, Germany, France and EU VAT Rates',
+ title: 'VAT Calculator Europe 2026 | TOOLTRIO',
  description: 'Free European VAT calculator 2026. Add or remove VAT for UK (20%), Germany (19%), France (20%), and all EU countries. Forward and reverse VAT calculation. Real examples for EUR/GBP 100-100,000 transactions.',
  slug: 'vat-calculator-europe',
  category: 'finance',

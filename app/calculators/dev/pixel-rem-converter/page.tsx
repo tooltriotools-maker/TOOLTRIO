@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'px to REM Converter — Pixel to Rem Bulk Converter Free',
+  title: 'px to REM Converter Online | TOOLTRIO',
   description: 'Convert pixels to rem and back with custom base font size. Bulk conversion for entire CSS files. Runs entirely in your browser.',
   slug: 'pixel-rem-converter',
   keywords: ['pixel to rem converter online free','rem to pixel calculator','px rem em converter browser','fluid typography converter','base font size calculator'],

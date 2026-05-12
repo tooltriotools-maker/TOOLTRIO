@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "SIP vs Crypto Calculator India 2026 – Mutual Fund vs Cryptocurrency Investment",
+ title: 'SIP vs Crypto Calculator India 2026 | TOOLTRIO',
  description: "Free SIP vs crypto calculator India 2026. Compare SIP mutual fund vs cryptocurrency investment returns in India accounting for 30% flat crypto tax. Real examples for INR 5k-25k monthly investments.",
  slug: 'sip-vs-crypto-calculator',
  category: 'finance',

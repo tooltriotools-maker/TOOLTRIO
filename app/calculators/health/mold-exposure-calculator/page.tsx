@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Mold Exposure Health Risk Calculator — Symptom Assessment & Remediation Guide 2026',
+  title: 'Mold Exposure Health Calculator 2026 | TOOLTRIO',
   description: 'Assess your health risk from mold exposure based on symptom frequency, exposure duration, mold type, and individual sensitivity. Get personalized guidance on remediation priority and medical evaluation thresholds. Free online mold exposure calculator 2026. No signup required.',
   slug: 'mold-exposure-calculator',
   category: 'health',

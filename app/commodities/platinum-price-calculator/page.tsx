@@ -54,7 +54,7 @@ export default function Page() {
       </nav>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900">💎 Platinum Price Calculator</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>💎 Platinum Price Calculator</h1>
           <p className="text-gray-500 mt-1">Live platinum spot price per gram, troy oz, pennyweight and kilogram.</p>
         </div>
         <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl border border-gray-200">
@@ -97,7 +97,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl border border-gray-100 p-4">
+            <div className="rounded-2xl border border-gray-100 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
               <p className="text-sm font-bold text-gray-700 mb-2">Per Weight Unit (USD)</p>
               <div className="grid grid-cols-3 gap-2">
                 {[['Per Gram', perGram],['Per Tola', perGram*11.6638],['Per Troy Oz', c.price],['Per 10g', perGram*10],['Per 100g', perGram*100],['Per Kg', perGram*1000]].map(([l,v]) => (
@@ -133,7 +133,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Platinum Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Platinum Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Platinum is the rarest and densest of the precious metals commonly used in jewellery and investment, yet it currently trades below gold — a historically unusual situation driven by the structural decline of diesel vehicles (platinum's primary industrial application) and the general underperformance of platinum group metals relative to gold since 2015. Understanding platinum pricing requires understanding both the commodity market dynamics and the emerging demand catalysts that could reverse this trend.</p>
             <p>Unlike gold and silver which have deep, liquid spot markets with constant price discovery, platinum trades in a smaller, less liquid market. The LPPM (London Platinum and Palladium Market) sets the benchmark price twice daily. Our calculator uses the live spot feed and converts it to per-gram, per-tola, and per-troy-oz prices for the most common calculation needs — whether you are appraising jewellery, evaluating refinery output, or tracking an investment position.</p>
@@ -156,7 +156,8 @@ export default function Page() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices — 24K to 10K in 5 currencies'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'999/925/900/800 silver live prices per gram & oz'},{e:'⚗️',n:'Palladium Calculator',h:'/commodities/palladium-price-calculator',d:'Live palladium — the other platinum group metal'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI & break-even on any platinum trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All 4 metals at live prices — total portfolio view'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Gold, silver, platinum, palladium, oil & gas hub'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-blue-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-blue-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices — 24K to 10K in 5 currencies'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'999/925/900/800 silver live prices per gram & oz'},{e:'⚗️',n:'Palladium Calculator',h:'/commodities/palladium-price-calculator',d:'Live palladium — the other platinum group metal'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI & break-even on any platinum trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All 4 metals at live prices — total portfolio view'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Gold, silver, platinum, palladium, oil & gas hub'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-blue-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-blue-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

@@ -66,13 +66,13 @@ export default function CalculatorClient({ faqs }: Props) {
         <span className="text-gray-700 font-semibold">Color Contrast Checker</span>
       </nav>
 
-      <h1 className="text-3xl font-black text-gray-900 mb-1">♿ Color Contrast Checker (WCAG)</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>♿ Color Contrast Checker (WCAG) <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Check color contrast ratios against WCAG 2.1 AA/AAA standards for accessible web design. Required for ADA compliance.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Controls */}
         <div className="space-y-4">
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Text Color</label>
@@ -94,7 +94,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </button>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <label className="text-xs font-bold text-gray-500 uppercase block mb-3">Font Size & Weight</label>
             <div className="flex gap-4">
               <div className="flex-1">
@@ -118,7 +118,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <p className={`text-xl font-black mt-1 ${level.color}`}>{level.label}</p>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <h3 className="font-bold text-gray-900 mb-3">WCAG 2.1 Compliance</h3>
             <div className="space-y-2">
               {[
@@ -139,7 +139,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Preview */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Live Preview</h2>
         <div className="rounded-xl overflow-hidden border border-gray-200">
           <div className="p-8 space-y-3" style={{ background: bg }}>
@@ -153,7 +153,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Sample combinations */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Try Common Combinations</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {SAMPLE_COMBOS.map(combo => {
@@ -223,7 +223,7 @@ Use this alongside our Color Converter and Color Palette Generator for a complet
 
       <div className="mt-8 space-y-3">
         {faqs.map(f => (
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

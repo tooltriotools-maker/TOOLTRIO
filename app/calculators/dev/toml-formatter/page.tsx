@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'TOML Formatter — Format and Validate TOML Files Free',
+  title: 'TOML Formatter & Validator Online | TOOLTRIO',
   description: 'Format and validate TOML configuration files. Convert between TOML and JSON. Used for Rust Cargo.toml, Python pyproject.toml, and Hugo. Runs in your browser.',
   slug: 'toml-formatter',
   keywords: ['toml formatter online free','toml validator browser','toml lint checker online','toml beautifier free','toml to json converter browser','validate toml syntax online'],

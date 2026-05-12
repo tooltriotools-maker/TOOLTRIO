@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">npm Package Search</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📦 npm Package Search & Reference</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📦 npm Package Search & Reference <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Search popular npm packages, view versions, licenses, and weekly downloads. Copy install commands instantly.</p>
 
       <div className="bg-white border-2 border-gray-200 rounded-2xl px-4 py-3 flex items-center gap-3 mb-5 focus-within:border-blue-400 shadow-sm">
@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 { label: 'bun', cmd: `bun add ${pkg.name}` },
               ].map(({ label, cmd }) => (
                 <button key={label} onClick={() => copy(cmd, `${pkg.name}-${label}`)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-950 text-green-400 text-xs font-mono rounded-xl hover:bg-gray-800 transition-colors">
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-950 text-green-400 text-xs font-mono rounded-xl hover:bg-gray-800 transition-all">
                   {copied===`${pkg.name}-${label}` ? <><Check className="w-3 h-3"/>Copied</> : <><Copy className="w-3 h-3"/>{cmd}</>}
                 </button>
               ))}
@@ -151,7 +151,7 @@ The concept of "dependency hell" - where conflicting transitive dependencies pre
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

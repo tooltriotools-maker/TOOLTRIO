@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Unix Timestamp</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">⏱️ Unix Timestamp Converter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⏱️ Unix Timestamp Converter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Convert between Unix timestamps and human-readable dates. Live current timestamp.</p>
 
       {/* Live timestamp */}
@@ -86,7 +86,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-blue-200 text-sm mt-2">{new Date(now*1000).toUTCString()}</p>
         <div className="grid grid-cols-3 gap-3 mt-4 text-center">
           {[['Seconds', now], ['Milliseconds', now*1000], ['Microseconds', now*1000000]].map(([label, val]) => (
-            <button key={label} onClick={() => copy(String(val), label as string)} className="bg-white/10 rounded-xl p-2 hover:bg-white/20 transition-colors">
+            <button key={label} onClick={() => copy(String(val), label as string)} className="bg-white/10 rounded-xl p-2 hover:bg-white/20 transition-all">
               <p className="text-xs text-blue-200 font-semibold">{label}</p>
               <p className="font-mono font-bold text-sm truncate">{String(val)}</p>
             </button>
@@ -96,7 +96,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Timestamp -> Date */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
           <h2 className="font-bold text-gray-900 mb-3">Timestamp → Human Date</h2>
           <input
             type="text" inputMode="numeric" value={tsInput}
@@ -127,7 +127,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
 
         {/* Date -> Timestamp */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
           <h2 className="font-bold text-gray-900 mb-3">Human Date → Timestamp</h2>
           <input
             type="datetime-local" value={dateInput}
@@ -160,7 +160,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Common timestamps */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Common Reference Timestamps</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {COMMON.map(c => (
@@ -210,7 +210,7 @@ Major databases store time as Unix timestamps internally: MySQL's UNIX_TIMESTAMP
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

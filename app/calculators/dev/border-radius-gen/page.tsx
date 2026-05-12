@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Border Radius Generator — Rounded Corners Builder Free',
+  title: 'CSS Border Radius Generator Online | TOOLTRIO',
   description: 'Build CSS border-radius values visually with individual corner control. Supports elliptical corners. Runs in your browser.',
   slug: 'border-radius-gen',
   keywords: ['border radius generator online free','css border radius preview','rounded corners css builder','border radius css code free','css corner radius tool'],

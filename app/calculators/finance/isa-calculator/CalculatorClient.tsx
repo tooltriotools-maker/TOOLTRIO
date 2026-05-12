@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Current ISA Balance</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 font-bold text-sm">£</span>
               <input type="number" value={currentBalance} onChange={e => setCurrentBalance(Number(e.target.value))} step={500}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -96,7 +96,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Annual Return</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={annualReturn} onChange={e => setAnnualReturn(Number(e.target.value))} step={0.5}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">%</span>
@@ -104,7 +104,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Years</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={years} onChange={e => setYears(Number(e.target.value))} step={5} min={1} max={50}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">yr</span>

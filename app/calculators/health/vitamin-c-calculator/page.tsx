@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Vitamin C Calculator — Daily Needs, Scurvy Prevention & Immune Support Dose 2026',
+  title: 'Vitamin C Calculator 2026 | TOOLTRIO',
   description: 'Free Vitamin C Calculator 2026 — Calculate your daily vitamin c needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'vitamin-c-calculator',
   category: 'health',

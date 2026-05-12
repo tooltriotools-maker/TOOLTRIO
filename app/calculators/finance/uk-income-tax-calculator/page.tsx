@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Income Tax Calculator 2026 – PAYE, National Insurance and Take-Home Pay',
+ title: 'UK Income Tax Calculator 2026 | TOOLTRIO',
  description: 'Free UK income tax calculator 2026. Calculate take-home pay after income tax, National Insurance, student loan, and pension contributions for 2026/27 tax year. Real examples for GBP 20k-200k UK salaries.',
  slug: 'uk-income-tax-calculator',
  category: 'finance',

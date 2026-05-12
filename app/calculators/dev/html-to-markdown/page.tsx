@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML to Markdown Converter — Free Online',
+  title: 'HTML to Markdown Converter Online | TOOLTRIO',
   description: 'Convert HTML to clean Markdown. Handles headings, lists, links, images, tables, and code blocks. Runs entirely in your browser.',
   slug: 'html-to-markdown',
   keywords: ['html to markdown converter online free','convert html to md browser','html2markdown tool free','paste html get markdown','html to markdown online no install'],

@@ -45,9 +45,9 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Timezone Converter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🌍 Timezone Converter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌍 Timezone Converter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Convert time between 20 world time zones instantly</p>
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="sm:col-span-1"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Date &amp; Time</label>
             <input type="datetime-local" value={dateTime} onChange={e=>setDateTime(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-3 py-2.5 focus:outline-none" /></div>
@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs }: Props) {
         )}
       </div>
       {convert && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-5">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
           <h3 className="font-bold text-gray-900 mb-3">World Clock - All Zones</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {convert.all.map(z=>(
@@ -82,16 +82,16 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         </div>
       )}
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Timezone Converter</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Pick any date and time, select your origin timezone, and see the equivalent time in 20+ world timezones simultaneously. Perfect for scheduling international meetings, debugging server timestamps, or planning cross-timezone deployments.</p>
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-1">9 AM UTC</p><code className="text-sm font-mono text-blue-800">2024-01-15 09:00 UTC</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-1">New York (EST)</p><code className="text-sm font-mono text-green-800">4:00 AM EST (UTC-5)</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-1">9 AM UTC</p><code className="text-sm font-mono text-blue-800">2024-01-15 09:00 UTC</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-1">New York (EST)</p><code className="text-sm font-mono text-green-800">4:00 AM EST (UTC-5)</code></div>
         </div>
         <p className="text-sm text-gray-600">The World Clock panel at the bottom shows all 20 zones at once - ideal for finding a meeting time that works across multiple continents. Use the offset badge (e.g. GMT+5:30) to verify you have the right zone selected.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Timezone Converter — World Time Zone Tool"
         category="dev"

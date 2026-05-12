@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Bandwidth Calculator — Transfer Time & Throughput Free',
+  title: 'Bandwidth Calculator Online | TOOLTRIO',
   description: 'Calculate file transfer time from bandwidth, or required bandwidth for a target transfer time. Supports bits, bytes, KB, MB, GB, TB. Runs in your browser.',
   slug: 'bandwidth-calculator',
   keywords: ['bandwidth calculator online free','download time calculator browser','internet speed calculator','data transfer time tool free','network throughput calculator'],

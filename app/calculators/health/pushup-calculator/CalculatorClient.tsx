@@ -77,7 +77,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-xs text-gray-500 mb-4">Est. max push-ups after 4 weeks: <span className="font-bold text-green-600">{result.est4week}</span></p>
             <div className="space-y-3">
               {result.plan.map(w=>(
-                <div key={w.week} className="p-3 bg-gray-50 rounded-xl border border-gray-200">
+                <div key={w.week} className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <div className="flex justify-between items-center mb-2">
                     <p className="font-bold text-gray-900 text-sm">Week {w.week}</p>
                     <p className="text-xs text-gray-500">{w.days}</p>

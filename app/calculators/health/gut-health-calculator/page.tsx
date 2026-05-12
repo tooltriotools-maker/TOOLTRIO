@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Gut Health Score Calculator — Microbiome Health & Digestive Function Assessment 2026',
+  title: 'Gut Health Calculator 2026 | TOOLTRIO',
   description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get personalized microbiome support strategies. Free online gut health calculator 2026. No signup required.',
   slug: 'gut-health-calculator',
   category: 'health',

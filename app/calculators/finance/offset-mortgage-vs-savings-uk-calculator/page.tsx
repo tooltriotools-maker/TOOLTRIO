@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Offset Mortgage vs Savings Calculator 2026 – Which Saves More Money?',
+ title: 'UK Offset Mortgage vs Savings 2026 | TOOLTRIO',
  description: 'Free UK offset mortgage vs savings calculator 2026. Compare putting savings in an offset mortgage account vs keeping them in a high-yield savings account. Real examples for GBP 50k-300k mortgage with GBP 20k-100k savings.',
  slug: 'offset-mortgage-vs-savings-uk-calculator',
  category: 'finance',

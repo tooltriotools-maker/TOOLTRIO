@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Net Worth Calculator USA 2026 – Total Assets, Liabilities & Wealth Snapshot',
+ title: 'Net Worth Calculator USA 2026 | TOOLTRIO',
  description: 'Free net worth calculator USA 2026. Calculate your total net worth by adding all assets and subtracting all liabilities. See how you compare to US averages by age. Real examples for every wealth level.',
  slug: 'net-worth-calculator',
  category: 'finance',

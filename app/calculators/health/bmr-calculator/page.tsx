@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BMR Calculator — Basal Metabolic Rate Using Mifflin-St Jeor & Harris-Benedict 2026',
+  title: 'BMR Calculator – Basal Metabolic Rate | TOOLTRIO',
   description: 'Free BMR Calculator 2026 — Calculate your Basal Metabolic Rate at complete rest. Uses Mifflin-St Jeor and Harris-Benedict equations. Real examples for men and women. Instant results, no signup.',
   slug: 'bmr-calculator',
   category: 'health',

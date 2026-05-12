@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Posture Assessment Calculator — Forward Head, Rounded Shoulders & Spinal Alignment 2026',
+  title: 'Posture Assessment Calculator 2026 | TOOLTRIO',
   description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targeting your specific postural imbalances. Free online posture calculator 2026. No signup required.',
   slug: 'posture-calculator',
   category: 'health',

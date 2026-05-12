@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import BiweeklyMortgageClient from './BiweeklyMortgageClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Biweekly Mortgage Calculator USA 2026 – Pay Off Faster and Save on Interest',
+ title: 'Biweekly Mortgage Calculator USA 2026 | TOOLTRIO',
  description: 'Free biweekly mortgage calculator USA 2026. See how switching to biweekly payments cuts years off your mortgage and saves thousands in interest. Real examples for $200k-$500k loans at 6-8% interest rates.',
  slug: 'biweekly-mortgage-calculator',
  category: 'finance',

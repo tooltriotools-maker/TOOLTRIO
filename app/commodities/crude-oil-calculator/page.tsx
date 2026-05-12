@@ -21,7 +21,7 @@ export default function Page() {
       </nav>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900">🛢️ WTI Crude Oil Price Calculator</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🛢️ WTI Crude Oil Price Calculator</h1>
           <p className="text-gray-500 mt-1">Live WTI crude oil price per barrel, gallon, litre and metric ton. West Texas Intermediate - US benchmark.</p>
         </div>
         <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl border border-gray-200">

@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Procrastination Score Calculator – How Bad a Procrastinator Are You?',
+  title: 'Procrastination Score Calculator | TOOLTRIO',
   description: 'Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free, instant, no signup.',
   slug: 'procrastination-score',
   keywords: [

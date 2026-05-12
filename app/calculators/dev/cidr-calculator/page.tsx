@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CIDR Calculator — IP Subnet & Network Calculator Free',
+  title: 'CIDR / IP Subnet Calculator Online | TOOLTRIO',
   description: 'Calculate network address, broadcast address, subnet mask, host range, and usable IPs from any CIDR block. Essential for AWS VPC, firewall rules, and network planning.',
   slug: 'cidr-calculator',
   keywords: ['cidr calculator online free','cidr to subnet mask browser','cidr notation explained calculator','vpc cidr block calculator','aws cidr calculator free'],

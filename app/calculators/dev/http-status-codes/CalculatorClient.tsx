@@ -45,13 +45,13 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">HTTP Status Codes</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🌐 HTTP Status Code Reference</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌐 HTTP Status Code Reference <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Quick reference for all common HTTP status codes with descriptions and use cases.</p>
 
       <div className="flex flex-wrap gap-3 mb-5">
         <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search by code or name..."
           className="flex-1 min-w-48 px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:border-green-400 focus:outline-none" />
-        <div className="flex rounded-xl border border-gray-200 overflow-hidden">
+        <div className="flex rounded-2xl border overflow-hidden" style={{borderColor:'rgba(226,232,240,0.7)'}}>
           {['all','2xx','3xx','4xx','5xx'].map(f=>(
             <button key={f} onClick={()=>setFilter(f)} className={`px-4 py-2 text-sm font-bold ${filter===f?'bg-green-600 text-white':'text-gray-600 hover:bg-gray-50'}`}>{f}</button>
           ))}
@@ -128,7 +128,7 @@ For HTTP debugging: look up status codes here, analyze response headers with [HT
       />
             <div className="mt-8 space-y-3">
         {faqs.map(f=>(
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

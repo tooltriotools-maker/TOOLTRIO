@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Character Encoder — Unicode Code Points & Escape Sequences',
+  title: 'Character Encoder – Unicode Online | TOOLTRIO',
   description: 'Encode and decode characters as Unicode escape sequences, HTML entities, and URL encoding. Runs in your browser.',
   slug: 'character-encoder',
   keywords: ['character encoder online free','utf8 encoder browser','unicode to ascii encoder','char code encoder free','special character converter online'],

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import StepsCalculatorClient from './StepsCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Steps Calculator — Convert Steps to Miles, Kilometers & Calories Burned 2026',
+  title: 'Steps Calculator – Steps to Miles 2026 | TOOLTRIO',
   description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn a target number of calories or reach a distance goal. Free online steps calculator 2026. No signup required.',
   slug: 'steps-calculator',
   category: 'health',

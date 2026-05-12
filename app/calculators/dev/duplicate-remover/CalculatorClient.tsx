@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Duplicate Remover</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">✂️ Duplicate Line Remover</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>✂️ Duplicate Line Remover <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Remove duplicate lines instantly - case-insensitive option included</p>
       <div className="flex flex-wrap gap-3 mb-4">
         {[{l:'Case sensitive',v:caseSensitive,s:setCaseSensitive},{l:'Trim whitespace',v:trimLines,s:setTrimLines}].map(({l,v,s})=>(
@@ -65,23 +65,23 @@ export default function CalculatorClient({ faqs }: Props) {
           {result.dupes.length > 0 && (
             <div>
               <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Duplicates Found</label>
-              <div className="p-3 bg-red-50 rounded-xl border border-red-200">
+              <div className="p-3 rounded-2xl border" style={{background:'rgba(254,242,242,0.8)',borderColor:'rgba(252,165,165,0.5)',backdropFilter:'blur(6px)'}}>
                 {result.dupes.map(d=><span key={d} className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs font-mono rounded-lg mr-1 mb-1">{d}</span>)}
               </div>
             </div>
           )}
         </div>
       </div>
-      <div className="mt-8 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-8 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Duplicate Line Remover</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Remove duplicate entries from any list instantly. Paste emails, usernames, file paths, CSS classes, keywords, or any newline-separated data - the tool finds and removes exact duplicate lines, highlights what was removed, and gives you the clean unique list to copy.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-2">Example Input</p><code className="text-sm font-mono text-blue-800">alice@mail.com<br/>bob@mail.com<br/>alice@mail.com<br/>carol@mail.com</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-2">Clean Output</p><code className="text-sm font-mono text-green-800">alice@mail.com<br/>bob@mail.com<br/>carol@mail.com</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-2">Example Input</p><code className="text-sm font-mono text-blue-800">alice@mail.com<br/>bob@mail.com<br/>alice@mail.com<br/>carol@mail.com</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-2">Clean Output</p><code className="text-sm font-mono text-green-800">alice@mail.com<br/>bob@mail.com<br/>carol@mail.com</code></div>
         </div>
         <p className="text-sm text-gray-600">Enable <strong>Case Sensitive</strong> to treat "Apple" and "apple" as different entries. Use <strong>Trim Whitespace</strong> to normalise lines that may have leading/trailing spaces before comparison. The duplicates panel shows you exactly what was removed so you can verify the result.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Duplicate Line Remover"
         category="dev"

@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <input type="date" value={lmpDate} onChange={e => setLmpDate(e.target.value)}
                 max={maxDate.toISOString().split('T')[0]}
                 min={minDate.toISOString().split('T')[0]}
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-gray-900 font-medium outline-none focus:border-green-500 transition-colors bg-white" />
+                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-gray-900 font-medium outline-none focus:border-green-500 transition-all bg-white" />
             </div>
             <p className="text-xs text-gray-500 leading-relaxed bg-green-50 p-3 rounded-xl border border-green-200">Calculated using Naegele's Rule: LMP + 280 days (40 weeks). Actual delivery may vary by 2 weeks.</p>
           </div>

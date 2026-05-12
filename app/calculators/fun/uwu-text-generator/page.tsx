@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'UWU Text Generator – Make Your Text Cute & Kawaii Online',
+  title: 'UWU Text Generator Online | TOOLTRIO',
   description: 'Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, instant results, no login.',
   slug: 'uwu-text-generator',
   keywords: [

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Ideal Weight Calculator — Hamwi, Devine, Robinson & Miller Formulas 2026',
+  title: 'Ideal Weight Calculator 2026 | TOOLTRIO',
   description: 'Free Ideal Weight Calculator 2026 — Calculate your ideal weight using 5 different medical formulas (Hamwi, Devine, Robinson, Miller, BMI). Real examples for men and women at different heights. No signup.',
   slug: 'ideal-weight-calculator',
   category: 'health',

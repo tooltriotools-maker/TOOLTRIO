@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'US Real Estate vs REITs Calculator USA 2026 – Direct Property vs REIT ETF',
+ title: 'Real Estate vs REITs Calculator USA | TOOLTRIO',
  description: 'Free US real estate vs REITs calculator USA 2026. Compare direct US rental property vs REIT ETF (VNQ, SCHH) on total return, income, management, and liquidity. Real examples for $100k-$500k real estate investments.',
  slug: 'us-real-estate-vs-reits-calculator',
  category: 'finance',

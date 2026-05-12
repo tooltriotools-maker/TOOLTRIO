@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Lorem Ipsum Generator — Placeholder Text Free Online',
+  title: 'Lorem Ipsum Generator Online | TOOLTRIO',
   description: 'Generate Lorem Ipsum placeholder text in words, sentences, or paragraphs. Classic and randomized variants. Used for design mockups and layout testing.',
   slug: 'lorem-ipsum-generator',
   keywords: ['lorem ipsum generator online free','placeholder text generator browser','dummy text generator free','lorem ipsum paragraphs words online','generate filler text free','lipsum generator browser'],

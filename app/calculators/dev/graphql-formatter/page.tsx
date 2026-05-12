@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'GraphQL Formatter & Validator — Format GraphQL Queries Free',
+  title: 'GraphQL Formatter Online | TOOLTRIO',
   description: 'Format and validate GraphQL queries, mutations, and schema definitions. Proper indentation and syntax validation. Runs entirely in your browser.',
   slug: 'graphql-formatter',
   keywords: ['graphql formatter online free','graphql query beautifier','graphql schema formatter','graphql prettier browser','graphql syntax highlighter online','format graphql query free'],

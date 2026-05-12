@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Running Pace Calculator — Pace Per Mile, Km & Race Finish Time Converter 2026',
+  title: 'Running Pace Calculator 2026 | TOOLTRIO',
   description: 'Free Running Pace Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon distances. Instant results for all fitness levels.',
   slug: 'running-pace-calculator',
   category: 'health',

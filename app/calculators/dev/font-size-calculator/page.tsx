@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Font Size Calculator — Fluid Type Scale with CSS clamp() Free',
+  title: 'Font Size Calculator – CSS clamp() | TOOLTRIO',
   description: 'Calculate fluid typography scales using CSS clamp(). Set min and max font sizes across viewport breakpoints. Generates type scales and clamp() values. Runs in your browser.',
   slug: 'font-size-calculator',
   keywords: ['font size calculator online free','fluid typography calculator browser','clamp css font size generator','min max font size tool','responsive font scale calculator'],

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Table Generator — Build HTML Tables Visually Free',
+  title: 'HTML Table Generator Online | TOOLTRIO',
   description: 'Generate HTML table code visually. Add rows, columns, headers, and styling. Outputs clean, semantic HTML. Runs entirely in your browser.',
   slug: 'table-generator',
   keywords: ['html table generator online free','markdown table builder','csv to table converter browser','generate html table free','table code generator online'],

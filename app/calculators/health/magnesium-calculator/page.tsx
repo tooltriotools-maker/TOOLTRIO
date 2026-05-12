@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Magnesium Calculator — Daily Magnesium Needs, Deficiency Signs & Food Sources 2026',
+  title: 'Magnesium Calculator 2026 | TOOLTRIO',
   description: 'Free Magnesium Calculator 2026 — Calculate your daily magnesium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'magnesium-calculator',
   category: 'health',

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Unix Timestamp Converter — Epoch to Date & Time Free',
+  title: 'Unix Timestamp Converter Online | TOOLTRIO',
   description: 'Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, UTC and local time. Runs entirely in your browser.',
   slug: 'unix-timestamp',
   keywords: ['unix timestamp converter online free','epoch to date converter browser','timestamp to human readable free','current unix time online','convert unix timestamp free'],

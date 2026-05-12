@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cortisol & Stress Calculator — Chronic Stress Health Impact Assessment 2026',
+  title: 'Cortisol & Stress Calculator 2026 | TOOLTRIO',
   description: 'Free Cortisol Stress Calculator 2026 — Assess and track your cortisol stress with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'cortisol-stress-calculator',
   category: 'health',

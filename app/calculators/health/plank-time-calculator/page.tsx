@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Plank Time Calculator — Core Strength Percentile & Progression Plan 2026',
+  title: 'Plank Time Calculator 2026 | TOOLTRIO',
   description: 'Calculate your core strength percentile from plank hold time by age and sex. Get a progressive plank training plan to improve core endurance and set realistic plank duration goals. Free online plank time calculator 2026. No signup required.',
   slug: 'plank-time-calculator',
   category: 'health',

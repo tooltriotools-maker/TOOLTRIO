@@ -40,10 +40,10 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Would You Rather</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🤔 Would You Rather?</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🤔 Would You Rather? <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">The classic dilemma game - which impossible choice would you make?</p>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4 shadow-sm">
+      <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <p className="text-xs font-bold text-gray-500 uppercase tracking-wide text-center mb-5">Would You Rather...</p>
         <div className="grid grid-cols-1 gap-3">
           {[0,1].map(i=>(
@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {history.length > 0 && (
-        <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
           <h2 className="font-bold text-gray-900 mb-3">Your Recent Choices</h2>
           <div className="space-y-2">
             {history.slice().reverse().map((h,i)=>(
@@ -132,48 +132,48 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* FAQs */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+          <div className="space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
         </section>
 
         {/* Related Fun Calculators */}
         <section>
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.55)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
             <div className="px-6 py-4 border-b border-gray-100 bg-purple-50">
               <h2 className="text-lg font-bold text-gray-900">🎉 More Fun Calculators</h2>
               <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
             </div>
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/calculators/fun/personality-quiz" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/personality-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🧬</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Personality Quiz</p><p className="text-xs text-gray-400 mt-0.5">16 personality archetypes</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Personality Quiz</p><p className="text-xs text-gray-400 mt-0.5">16 personality archetypes</p></span>
           </Link>
-          <Link href="/calculators/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🧠</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>
           </Link>
-          <Link href="/calculators/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🎯</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></span>
           </Link>
-          <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">😤</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></span>
           </Link>
-          <Link href="/calculators/fun/procrastination-score" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/procrastination-score" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">⏰</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Procrastination Score</p><p className="text-xs text-gray-400 mt-0.5">How bad is your habit?</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Procrastination Score</p><p className="text-xs text-gray-400 mt-0.5">How bad is your habit?</p></span>
           </Link>
-          <Link href="/calculators/fun/social-media-addiction" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/social-media-addiction" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">📲</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Social Media Addiction</p><p className="text-xs text-gray-400 mt-0.5">Bergen scale addiction score</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Social Media Addiction</p><p className="text-xs text-gray-400 mt-0.5">Bergen scale addiction score</p></span>
           </Link>
-          <Link href="/calculators/fun/fortune-cookie" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/fortune-cookie" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🥠</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Fortune Cookie</p><p className="text-xs text-gray-400 mt-0.5">Crack open your digital fortune</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Fortune Cookie</p><p className="text-xs text-gray-400 mt-0.5">Crack open your digital fortune</p></span>
           </Link>
-          <Link href="/calculators/fun/zodiac-calculator" className="flex items-center gap-3 p-4 rounded-xl border border-purple-100 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+          <Link href="/calculators/fun/zodiac-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">⭐</span>
-            <div><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-colors">Zodiac Calculator</p><p className="text-xs text-gray-400 mt-0.5">Western + Chinese signs</p></div>
+            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Zodiac Calculator</p><p className="text-xs text-gray-400 mt-0.5">Western + Chinese signs</p></span>
           </Link>
             </div>
           </div>

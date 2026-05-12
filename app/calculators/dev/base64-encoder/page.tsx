@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Base64 Encoder & Decoder — Free, Runs in Browser',
+  title: 'Base64 Encoder & Decoder Online | TOOLTRIO',
   description: 'Encode and decode Base64 strings instantly. Handles text, URLs, and binary data. Runs entirely in your browser — nothing is sent to any server.',
   slug: 'base64-encoder',
   keywords: ['base64 encoder decoder online free','encode decode base64 browser','base64url encoder free','image to base64 converter','file to base64 online','base64 encode string browser','jwt base64 decoder free','base64 no server upload'],

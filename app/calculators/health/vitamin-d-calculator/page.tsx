@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Vitamin D Calculator — Daily IU Needs, Deficiency Risk & Sun Exposure Guide 2026',
+  title: 'Vitamin D Calculator 2026 | TOOLTRIO',
   description: 'Free Vitamin D Calculator 2026 — Calculate your daily vitamin d needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'vitamin-d-calculator',
   category: 'health',

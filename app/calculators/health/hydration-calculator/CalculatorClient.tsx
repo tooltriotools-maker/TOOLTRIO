@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[{l:'Pregnant?',v:pregnant,s:setPregnant},{l:'Breastfeeding?',v:breastfeeding,s:setBreastfeeding}].map(({l,v,s})=>(
               <div key={l} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                 <span className="text-sm font-medium text-gray-700">{l}</span>
-                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-colors ${v?'bg-blue-500':'bg-gray-200'}`}>
+                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-all ${v?'bg-blue-500':'bg-gray-200'}`}>
                   <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`} />
                 </button>
               </div>
@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[{l:'8oz Glasses',v:result.glasses8oz,u:'glasses'},{l:'500ml Bottles',v:result.bottles500,u:'bottles'},{l:'750ml Bottles',v:result.bottles750,u:'bottles'}].map(s=>(
               <div key={s.l} className="p-3 bg-white rounded-xl border border-gray-200">
                 <p className="text-xs text-gray-500 font-medium">{s.l}</p>
-                <p className="text-2xl font-black text-gray-900">{s.v}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.v}</p>
                 <p className="text-xs text-gray-400">{s.u}</p>
               </div>
             ))}

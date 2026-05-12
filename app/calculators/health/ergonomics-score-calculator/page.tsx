@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Ergonomics Score Calculator — Office Workstation Assessment & Injury Risk 2026',
+  title: 'Ergonomics Score Calculator 2026 | TOOLTRIO',
   description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboard placement, and lighting against evidence-based ergonomics guidelines. Free online ergonomics score calculator 2026. No signup required.',
   slug: 'ergonomics-score-calculator',
   category: 'health',

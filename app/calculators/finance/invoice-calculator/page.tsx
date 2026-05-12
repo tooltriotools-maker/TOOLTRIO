@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import InvoiceCalculatorClient from './InvoiceCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Invoice Calculator USA 2026 – Create and Calculate Invoice Totals with Tax',
+ title: 'Invoice Calculator USA 2026 | TOOLTRIO',
  description: 'Free invoice calculator USA 2026. Add line items, apply sales tax, discounts, and calculate invoice totals instantly. Perfect for freelancers and small businesses. Real examples for $500-$50,000 invoices.',
  slug: 'invoice-calculator',
  category: 'finance',

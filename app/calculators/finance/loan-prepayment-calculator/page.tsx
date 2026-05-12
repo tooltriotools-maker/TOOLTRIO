@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Loan Prepayment Calculator USA 2026 – Interest Saved and Early Payoff Date',
+ title: 'Loan Prepayment Calculator USA 2026 | TOOLTRIO',
  description: 'Free loan prepayment calculator USA 2026. Calculate how much interest you save and how many months earlier you pay off with extra monthly or lump sum payments. Real examples for $50k-$500k loan balances.',
  slug: 'loan-prepayment-calculator',
  category: 'finance',

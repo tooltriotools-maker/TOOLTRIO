@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Muscle Gain Calculator — Calorie Surplus, Protein & Muscle Building Timeline 2026',
+  title: 'Muscle Gain Calculator 2026 | TOOLTRIO',
   description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates by training experience level and expected monthly lean mass progress. Free online muscle gain calculator 2026. No signup required.',
   slug: 'muscle-gain-calculator',
   category: 'health',

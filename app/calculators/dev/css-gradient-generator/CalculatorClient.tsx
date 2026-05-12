@@ -31,10 +31,10 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">CSS Gradient</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🎨 CSS Gradient Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎨 CSS Gradient Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Build linear, radial &amp; conic gradients visually - copy CSS instantly</p>
       <div className="rounded-2xl mb-6 h-40 w-full" style={{background:css}} />
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-4">
+      <div className="rounded-3xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-2 mb-5">
           {(['linear','radial','conic'] as const).map(t=>(
             <button key={t} onClick={()=>setType(t)} className={`px-4 py-2 rounded-xl text-sm font-bold capitalize transition-all ${type===t?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{t}</button>
@@ -62,7 +62,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <button onClick={()=>{navigator.clipboard.writeText(`background: ${css};`);setCopied(true);setTimeout(()=>setCopied(false),1500)}} className="flex-shrink-0 text-green-400 hover:text-green-300">{copied?<Check className="w-5 h-5"/>:<Copy className="w-5 h-5"/>}</button>
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the CSS Gradient Generator</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Create beautiful CSS gradients without memorising syntax. Pick gradient type (linear flows in a direction, radial radiates from a point, conic sweeps around a center), adjust the angle, add colour stops, and see the live preview instantly. Copy the ready-to-use CSS line with one click and paste it into your stylesheet.</p>
         <ol className="space-y-2 mb-4">
@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </ol>
         <div className="p-3 bg-gray-950 rounded-xl"><code className="text-green-300 font-mono text-xs">background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);</code></div>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="CSS Gradient Generator"
         category="dev"

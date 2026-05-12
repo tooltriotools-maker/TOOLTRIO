@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sleep Cycle Calculator — Wake Up Refreshed by Timing Your REM Cycles 2026',
+  title: 'Sleep Cycle Calculator 2026 | TOOLTRIO',
   description: 'Free Sleep Cycle Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up optimization. Evidence-based sleep science. No signup.',
   slug: 'sleep-cycle-calculator',
   category: 'health',

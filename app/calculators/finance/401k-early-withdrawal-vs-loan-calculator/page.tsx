@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "401k Early Withdrawal vs Loan Calculator USA 2026 – True Cost Comparison",
+ title: '401k Withdrawal vs Loan Calculator USA | TOOLTRIO',
  description: 'Free 401k early withdrawal vs loan calculator USA 2026. Compare the true cost of cashing out vs borrowing from your 401k. Includes taxes, penalties, and long-term growth loss. Real examples for $10k-$50k needs.',
  slug: '401k-early-withdrawal-vs-loan-calculator',
  category: 'finance',

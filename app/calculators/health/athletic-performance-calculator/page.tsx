@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Athletic Performance Calculator — VO2 Max, Power, Speed & Endurance Metrics 2026',
+  title: 'Athletic Performance Calculator 2026 | TOOLTRIO',
   description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold pace, and performance comparisons to age-group standards. Free online athletic performance calculator 2026. No signup required.',
   slug: 'athletic-performance-calculator',
   category: 'health',

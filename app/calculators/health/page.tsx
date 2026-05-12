@@ -6,7 +6,7 @@ const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'tooltrio.com'
 
 export const metadata: Metadata = {
-  title: '124 Free Health Calculators 2026 — BMI, TDEE, Calories, Heart Risk',
+  title: '124 Free Health Calculators 2026 | TOOLTRIO',
   description: '124 free health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle, and more. CDC & NIH formulas. No signup. Instant results.',
   keywords: [
     // Primary money keywords
@@ -310,7 +310,7 @@ export default function HealthPage() {
 
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-          <Link href="/" className="hover:text-rose-600 transition-colors">Home</Link>
+          <Link href="/" className="hover:text-rose-600 transition-all">Home</Link>
           <span>/</span>
           <span className="text-gray-700 font-semibold">Health Calculators</span>
         </nav>
@@ -341,18 +341,18 @@ export default function HealthPage() {
 
         {/* Featured / Most Popular */}
         <section aria-labelledby="popular-heading" className="mb-12">
-          <h2 id="popular-heading" className="text-2xl font-black text-gray-900 mb-1 flex items-center gap-2">
+          <h2 id="popular-heading" className="text-2xl font-black text-gray-900 mb-1 flex items-center gap-2" style={{fontFamily:"'Playfair Display', serif"}}>
             ⭐ Most Popular Health Calculators
           </h2>
           <p className="text-gray-500 text-sm mb-5">The calculators Americans search for most — all free, no signup.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {FEATURED.map(tool => (
               <Link key={tool.href} href={tool.href}
-                className="group bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col">
+                className="group bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
                 <span className="flex items-start gap-3 mb-3 block">
                   <span className="text-3xl">{tool.icon}</span>
                   <span className="flex-1 min-w-0 block">
-                    <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-rose-600 transition-colors">{tool.name}</h3>
+                    <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-rose-600 transition-all">{tool.name}</h3>
                     <p className="text-xs text-gray-500 mt-1 leading-snug">{tool.desc}</p>
                   </span>
                 </span>

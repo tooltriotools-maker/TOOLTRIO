@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'YAML Formatter & Validator — Format YAML Online Free',
+  title: 'YAML Formatter & Validator Online | TOOLTRIO',
   description: 'Format and validate YAML files online. Convert YAML to JSON and back. Catches indentation errors and syntax issues. Runs entirely in your browser.',
   slug: 'yaml-formatter',
   keywords: ['yaml formatter online free','yaml beautifier browser','yaml lint validator online','yaml syntax checker free','yaml to json online','json to yaml converter free','yaml indentation fixer online','validate yaml online'],

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'IP Subnet Calculator — VLSM and Subnetting Free Online',
+  title: 'IP Subnet Calculator Online | TOOLTRIO',
   description: 'Calculate IP subnets with VLSM (Variable Length Subnet Masking). Divide networks into subnets of different sizes. Essential for network planning. Runs in your browser.',
   slug: 'ip-subnet-calculator',
   keywords: ['ip subnet calculator online free','ipv4 subnetting tool browser','cidr to ip range calculator','subnet mask calculator free','network address calculator online'],

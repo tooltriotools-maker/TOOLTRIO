@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Euro Bonds vs ETF Calculator 2026 – Bunds vs MSCI Europe Returns Comparison',
+ title: 'Euro Bonds vs ETF Calculator 2026 | TOOLTRIO',
  description: 'Free Euro bonds vs ETF calculator 2026. Compare German Bunds and European government bonds vs MSCI Europe ETF returns for EU investors. Real examples for EUR 10k-200k portfolios over 10-30 year horizons.',
  slug: 'euro-bonds-vs-etf-calculator',
  category: 'finance',

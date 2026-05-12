@@ -72,14 +72,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[{l:'Current smoker?',v:smoker,s:setSmoker},{l:'Ex-smoker?',v:exSmoker,s:setExSmoker},{l:'Family early death (<75)?',v:familyHistory,s:setFamilyHistory}].map(({l,v,s})=>(
               <div key={l} className="flex items-center justify-between p-2.5 bg-gray-50 rounded-xl">
                 <span className="text-xs font-medium text-gray-700">{l}</span>
-                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-colors ${v?'bg-red-500':'bg-gray-200'}`}><div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`}/></button>
+                <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-all ${v?'bg-red-500':'bg-gray-200'}`}><div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`}/></button>
               </div>
             ))}
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-5 bg-green-50 rounded-2xl border-2 border-green-200 text-center">
+            <div className="p-5 rounded-2xl border-2 text-center" style={{background:'rgba(240,253,244,0.85)',borderColor:'rgba(134,239,172,0.7)',backdropFilter:'blur(8px)'}}>
               <p className="text-xs font-bold text-green-600 uppercase">Estimated Lifespan</p>
               <p className="text-5xl font-black text-green-700 my-1">{result.lifeExp}</p>
               <p className="text-sm text-green-600">{result.remaining} years remaining</p>

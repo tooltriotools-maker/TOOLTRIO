@@ -97,7 +97,7 @@ export function SelectInput({ label, value, options, onChange }: SelectInputProp
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-3 py-3 rounded-xl text-sm font-medium outline-none border transition-colors"
+        className="w-full px-3 py-3 rounded-xl text-sm font-medium outline-none border transition-all"
         style={{
           background: "#111827",
           border: "1px solid rgba(34,197,94,0.15)",
@@ -133,7 +133,7 @@ export function TextInput({ label, value, type = "text", placeholder, prefix, su
         {label}
       </label>
       <div
-        className="flex items-center rounded-xl border overflow-hidden transition-colors"
+        className="flex items-center rounded-xl border overflow-hidden transition-all"
         style={{ background: "#111827", border: "1px solid rgba(34,197,94,0.15)" }}
         onFocus={(e: any) => (e.currentTarget.parentElement!.style.borderColor = "rgba(34,197,94,0.4)")}
         onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(34,197,94,0.15)")}
@@ -391,7 +391,7 @@ export function DataTable({
       {rows.length > maxRows && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-3 text-sm font-medium transition-colors"
+          className="mt-3 text-sm font-medium transition-all"
           style={{ color: "#22c55e" }}
         >
           {showAll ? "Show Less ^" : `Show All ${rows.length} rows v`}

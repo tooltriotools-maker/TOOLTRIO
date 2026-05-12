@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTTP Status Codes Reference — All 5xx 4xx 3xx Free',
+  title: 'HTTP Status Codes Reference | TOOLTRIO',
   description: 'Complete HTTP status code reference with explanations. 1xx informational, 2xx success, 3xx redirects, 4xx client errors, 5xx server errors.',
   slug: 'http-status-codes',
   keywords: ['http status codes reference online free','http 404 200 500 codes browser','rest api status codes guide','http response codes lookup','http status code meaning tool'],

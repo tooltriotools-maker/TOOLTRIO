@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Meta Tag Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🏷️ Meta Tag Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏷️ Meta Tag Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Generate SEO meta tags, Open Graph tags, and Twitter Card tags for any webpage. Copy the complete &lt;head&gt; snippet instantly.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <label className="text-xs font-bold text-gray-500 uppercase">Page Title</label>
                 <span className={`text-xs font-bold ${titleLen > 60 ? 'text-red-500' : titleLen > 50 ? 'text-yellow-500' : 'text-green-600'}`}>{titleLen}/60</span>
               </div>
-              <input value={title} onChange={e=>setTitle(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm" />
+              <input value={title} onChange={e=>setTitle(e.target.value)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} />
               <p className="text-xs text-gray-400 mt-1">Ideal: 50-60 characters. Shows in Google search results.</p>
             </div>
             <div>
@@ -86,11 +86,11 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1">Author</label>
-                <input value={author} onChange={e=>setAuthor(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm" placeholder="Optional" />
+                <input value={author} onChange={e=>setAuthor(e.target.value)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} placeholder="Optional" />
               </div>
               <div>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1">Robots</label>
-                <select value={robot} onChange={e=>setRobot(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm">
+                <select value={robot} onChange={e=>setRobot(e.target.value)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
                   <option>index, follow</option>
                   <option>noindex, nofollow</option>
                   <option>index, nofollow</option>
@@ -100,12 +100,12 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
             <div>
               <label className="text-xs font-bold text-gray-500 uppercase block mb-1">Keywords (comma separated)</label>
-              <input value={keywords} onChange={e=>setKeywords(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm" />
+              <input value={keywords} onChange={e=>setKeywords(e.target.value)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1">OG Type</label>
-                <select value={type} onChange={e=>setType(e.target.value as any)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm">
+                <select value={type} onChange={e=>setType(e.target.value as any)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
                   <option value="website">website</option>
                   <option value="article">article</option>
                   <option value="product">product</option>
@@ -113,7 +113,7 @@ export default function CalculatorClient({ faqs }: Props) {
               </div>
               <div>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1">Twitter Card</label>
-                <select value={twitterCard} onChange={e=>setTwitterCard(e.target.value as any)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 focus:border-blue-400 focus:outline-none text-sm">
+                <select value={twitterCard} onChange={e=>setTwitterCard(e.target.value as any)} className="w-full border-2 rounded-xl px-3 py-2.5 focus:outline-none text-sm" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
                   <option value="summary_large_image">Large image</option>
                   <option value="summary">Summary</option>
                 </select>
@@ -124,7 +124,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
         {/* Output + Preview */}
         <div className="space-y-4">
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <h2 className="font-bold text-gray-900 mb-3">Google Search Preview</h2>
             <div className="border border-gray-200 rounded-xl p-4 bg-gray-50">
               <p className="text-blue-700 font-medium text-base truncate">{title || 'Page Title'}</p>
@@ -184,7 +184,7 @@ The W3C's HTML specification defines which character entities and Unicode charac
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

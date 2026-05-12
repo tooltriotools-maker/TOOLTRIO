@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'HRA and Housing Allowance Calculator USA 2026 – Tax Exemption on Rent',
+ title: 'HRA Calculator India & USA 2026 | TOOLTRIO',
  description: 'Free HRA and housing allowance calculator USA 2026. Calculate tax exemption on house rent allowance, tax savings on rent paid, and net taxable salary. Real examples for INR 30k-150k monthly salary ranges.',
  slug: 'hra-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Base Converter — Decimal, Hex, Octal, Binary Free',
+  title: 'Base Converter – Decimal, Hex, Binary | TOOLTRIO',
   description: 'Convert numbers between decimal, hexadecimal, octal, and binary simultaneously. Supports negative numbers and floating point. Runs in your browser.',
   slug: 'base-converter',
   keywords: ['number base converter online free','decimal to binary hex converter','binary octal hex decimal free','base 2 8 10 16 converter','number system converter online'],

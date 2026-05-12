@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalorieBurnedWalkingCalculatorClient from './CalorieBurnedWalkingCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Calorie Burned Walking Calculator — Distance, Speed, Weight & Terrain 2026',
+  title: 'Calories Burned Walking Calculator | TOOLTRIO',
   description: 'Free Calorie Burned Walking Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common activities. MET-based formula used by fitness professionals.',
   slug: 'calorie-burned-walking-calculator',
   category: 'health',

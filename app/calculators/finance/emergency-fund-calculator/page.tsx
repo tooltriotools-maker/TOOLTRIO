@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Emergency Fund Calculator USA 2026 – How Much Emergency Savings Do You Need?',
+ title: 'Emergency Fund Calculator USA 2026 | TOOLTRIO',
  description: 'Free emergency fund calculator USA 2026. Calculate your ideal emergency fund size based on monthly expenses, job stability, and dependents. Real examples for $3k–$30k monthly expense levels.',
  slug: 'emergency-fund-calculator',
  category: 'finance',

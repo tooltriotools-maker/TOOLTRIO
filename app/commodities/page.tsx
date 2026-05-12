@@ -74,7 +74,7 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(null)
   return (
     <section className="mb-10" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2">
+      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>
         ❓ Precious Metals FAQ — Everything You Need to Know
       </h2>
       <p className="text-sm text-gray-500 mb-6">Detailed answers to the most common questions about gold, silver, platinum & palladium investing, pricing, and calculations.</p>
@@ -130,16 +130,16 @@ const RELATED_CALCS = [
 function RelatedCalculators() {
   return (
     <section className="mb-10" aria-labelledby="related-calcs-heading">
-      <h2 id="related-calcs-heading" className="text-2xl font-black text-gray-900 mb-2">🔗 Related Calculators</h2>
+      <h2 id="related-calcs-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>🔗 Related Calculators</h2>
       <p className="text-sm text-gray-500 mb-5">Every tool you need for precious metals investing, pricing, and portfolio tracking — all with live spot prices.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {RELATED_CALCS.map(c => (
           <Link key={c.href} href={c.href}
             className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-2">
               <span className="text-2xl">{c.emoji}</span>
-              <p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 transition-colors leading-tight">{c.name}</p>
-            </div>
+              <p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 transition-all leading-tight">{c.name}</p>
+            </span>
             <p className="text-[11px] text-gray-500 leading-relaxed flex-1">{c.desc}</p>
             <span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3" /></span>
           </Link>
@@ -181,7 +181,7 @@ function PreciousMetalsSEO() {
       </div>
 
       {/* Introduction */}
-      <h2 id="seo-guide-heading" className="text-2xl font-black text-gray-900 mb-4">
+      <h2 id="seo-guide-heading" className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>
         Precious Metals Price Calculators — Complete India & Global Guide 2026
       </h2>
       <div className="space-y-4 text-gray-600 leading-relaxed text-base mb-8">
@@ -229,7 +229,7 @@ function PreciousMetalsSEO() {
               { m: '💎 Platinum', price: '~$960', use: 'Diesel catalytic converters, jewellery', vol: 'Medium', href: '/commodities/platinum-price-calculator' },
               { m: '⚗️ Palladium', price: '~$980', use: 'Petrol catalytic converters, electronics', vol: 'High', href: '/commodities/palladium-price-calculator' },
             ].map((row, i) => (
-              <tr key={i} className="hover:bg-gray-50 transition-colors">
+              <tr key={i} className="hover:bg-gray-50 transition-all">
                 <td className="px-4 py-3 font-semibold text-gray-800">{row.m}</td>
                 <td className="px-4 py-3 font-black text-yellow-700">{row.price}</td>
                 <td className="px-4 py-3 text-gray-600 text-xs">{row.use}</td>
@@ -260,7 +260,7 @@ function PreciousMetalsSEO() {
       <div className="space-y-4 mb-8">
         {[
           {
-            title: 'Buying Gold Jewellery — Verify Before You Pay',
+            title: 'Commodities Calculator – Gold, Silver, Oil 2026 | TOOLTRIO',
             text: 'Before visiting a jeweller, open the Gold Price Calculator, enter your target weight (e.g., 20 grams of 22K), and note the pure metal value. Then add the jeweller\'s making charges (ask them what % they charge). If their total price is more than 20% above the metal value, you\'re overpaying for making charges. Use this as your negotiation baseline. Track live gold prices with our real-time feed to catch the right buying window — gold often dips 1–2% after a US CPI data release.',
           },
           {
@@ -334,7 +334,7 @@ export default function CommoditiesPage() {
               </span>
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-1">🏅 Commodity Prices &amp; Calculators</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏅 Commodity Prices &amp; Calculators</h1>
           <p className="text-gray-500 max-w-2xl">Live gold, silver, platinum, palladium, crude oil (WTI &amp; Brent), and natural gas prices with calculators. Gold shown in 24K, 22K, 20K, 18K, 14K and 10K.</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -380,7 +380,7 @@ export default function CommoditiesPage() {
             <span>Karat</span><span>Purity</span><span>Per Gram</span><span>Per Tola</span><span>Per Troy Oz</span>
           </div>
           {(Object.entries(goldKarats) as [string, ReturnType<typeof getGoldKaratPrices>['24K']][]).map(([karat, info], i) => (
-            <div key={karat} className={`grid grid-cols-5 px-5 py-3 border-b border-gray-50 last:border-0 items-center ${i < 2 ? 'bg-yellow-50/60' : 'hover:bg-gray-50'} transition-colors`}>
+            <div key={karat} className={`grid grid-cols-5 px-5 py-3 border-b border-gray-50 last:border-0 items-center ${i < 2 ? 'bg-yellow-50/60' : 'hover:bg-gray-50'} transition-all`}>
               <div className="flex items-center gap-2">
                 <span className="font-black text-gray-900">{karat}</span>
                 {i < 2 && <span className="text-[10px] px-1.5 py-0.5 bg-yellow-200 text-yellow-800 rounded-full font-bold">Popular</span>}
@@ -428,7 +428,7 @@ export default function CommoditiesPage() {
             const up = c.changePct >= 0
             return (
               <Link key={key} href={COMMODITY_META[key].href}
-                className="grid grid-cols-4 sm:grid-cols-8 px-4 py-3 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors items-center">
+                className="grid grid-cols-4 sm:grid-cols-8 px-4 py-3 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-all items-center">
                 <div className="col-span-2 flex items-center gap-2">
                   <span className="text-lg">{COMMODITY_META[key].emoji}</span>
                   <span className="font-bold text-gray-900 text-sm">{c.name}</span>
@@ -454,10 +454,10 @@ export default function CommoditiesPage() {
               className="group relative bg-white rounded-2xl border border-gray-100 shadow-card hover:border-yellow-200 hover:shadow-lg transition-all p-4 flex flex-col gap-3">
               {c.hot && <span className="absolute top-3 right-3 text-[10px] font-black px-1.5 py-0.5 bg-red-100 text-red-700 rounded-full border border-red-200">HOT</span>}
               <span className="text-3xl">{c.emoji}</span>
-              <div>
-                <p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 transition-colors leading-tight mb-1">{c.name}</p>
+              <span>
+                <p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 transition-all leading-tight mb-1">{c.name}</p>
                 <p className="text-[11px] text-gray-500 leading-relaxed">{c.desc}</p>
-              </div>
+              </span>
               <span className="mt-auto text-xs font-bold text-yellow-600 flex items-center gap-1">Open <ArrowRight className="w-3 h-3" /></span>
             </Link>
           ))}

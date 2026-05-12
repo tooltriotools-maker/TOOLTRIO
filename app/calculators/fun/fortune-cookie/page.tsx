@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Fortune Cookie Generator – Crack Open a Virtual Fortune Cookie',
+  title: 'Fortune Cookie Generator | TOOLTRIO',
   description: 'Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the calories. Free online.',
   slug: 'fortune-cookie',
   keywords: [

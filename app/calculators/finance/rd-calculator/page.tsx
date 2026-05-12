@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Recurring Deposit Calculator India 2026 – Monthly Savings Maturity Value',
+ title: 'Recurring Deposit Calculator India 2026 | TOOLTRIO',
  description: 'Free recurring deposit calculator India 2026. Calculate RD maturity value, total interest earned, and month-by-month growth for any monthly deposit amount and tenure. Real examples for INR 1k-50k monthly deposits.',
  slug: 'rd-calculator',
  category: 'finance',

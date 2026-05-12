@@ -24,10 +24,10 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">API Response Time Calculator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">⚡ API Response Time Calculator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚡ API Response Time Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Analyse API performance metrics, calculate throughput, and grade response times against industry benchmarks.</p>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4 shadow-sm space-y-4">
+      <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         {[
           {label:'Time to First Byte (TTFB)', val:ttfb, set:setTtfb, max:5000, unit:'ms'},
           {label:'Data Transfer Time', val:transfer, set:setTransfer, max:5000, unit:'ms'},
@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs }: Props) {
         ))}
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 mb-6 shadow-sm">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Response Time Benchmarks</h2>
         <div className="space-y-2">
           {[{r:'< 100ms',l:'Excellent - users perceive as instant',c:'text-green-600'},{r:'100-300ms',l:'Good - acceptable for most APIs',c:'text-blue-600'},{r:'300ms-1s',l:'Noticeable - optimisation recommended',c:'text-yellow-600'},{r:'> 1s',l:'Poor - users will abandon',c:'text-red-600'}].map(b=>(
@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       <div className="space-y-3">
         {faqs.map(f=>(
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

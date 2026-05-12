@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Network Speed Calculator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📡 Network Speed & File Transfer Calculator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📡 Network Speed & File Transfer Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Calculate file download/upload times at any connection speed. Compare 3G, 4G, 5G, WiFi, and fiber speeds for common file sizes.</p>
 
       {/* Speed selector */}
@@ -98,7 +98,7 @@ export default function CalculatorClient({ faqs }: Props) {
           {COMMON_FILES.map(f => {
             const timeStr = calcTime(f.mb)
             return (
-              <div key={f.label} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl group hover:bg-blue-50 transition-colors">
+              <div key={f.label} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl group hover:bg-blue-50 transition-all">
                 <span className="text-lg flex-shrink-0">{f.icon}</span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-gray-900">{f.label}</p>
@@ -127,7 +127,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Speed comparison */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Speed Reference - 100MB File</h2>
         <div className="space-y-2">
           {SPEEDS.filter(s => s.mbps > 0).map(s => {
@@ -184,7 +184,7 @@ Akamai's State of the Internet reports and Ookla's Speedtest Intelligence provid
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

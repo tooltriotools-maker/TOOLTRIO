@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Caffeine Half-Life Calculator — How Long Caffeine Stays in Your System 2026',
+  title: 'Caffeine Half-Life Calculator 2026 | TOOLTRIO',
   description: 'Calculate how long caffeine stays in your system based on the amount consumed and time elapsed. Find the optimal cutoff time for your last coffee or tea to avoid disrupting sleep, with adjustments for oral contraceptives, smoking, and pregnancy. Free online caffeine half life calculator 2026. No signup required.',
   slug: 'caffeine-half-life-calculator',
   category: 'health',

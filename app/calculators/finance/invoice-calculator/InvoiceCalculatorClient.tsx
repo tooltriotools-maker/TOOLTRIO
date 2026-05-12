@@ -57,7 +57,7 @@ export default function InvoiceCalculatorClient({ faqs, structuredData, relatedC
           <Card>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Line Items</h2>
-              <button onClick={addItem} className="text-xs bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700 transition-colors font-semibold">+ Add Item</button>
+              <button onClick={addItem} className="text-xs bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700 transition-all font-semibold">+ Add Item</button>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

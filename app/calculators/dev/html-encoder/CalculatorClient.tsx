@@ -10,7 +10,7 @@ const encode = (s: string) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
 const decode = (s: string) => s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCharCode(+n)).replace(/&([a-z]+);/gi,(m,e)=>{const t=document.createElement('textarea');t.innerHTML=m;return t.value})
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [input, setInput] = useState('<h1 class="title">Hello "World" & \'Friends\'!</h1>')
+  const [input, setInput] = useState('<h1 class="title">Hello "World" & \'Friends\'! <span className="text-green-600">| TOOLTRIO</span></h1>')
   const [mode, setMode] = useState<'encode'|'decode'>('encode')
   const [copied, setCopied] = useState(false)
 
@@ -25,12 +25,12 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">HTML Encoder</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🏷️ HTML Encoder / Decoder</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏷️ HTML Encoder / Decoder <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Encode special characters to HTML entities or decode them back. Runs entirely in your browser.</p>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4 shadow-sm">
+      <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap gap-3 mb-5">
-          <div className="flex rounded-xl border border-gray-200 overflow-hidden">
+          <div className="flex rounded-2xl border overflow-hidden" style={{borderColor:'rgba(226,232,240,0.7)'}}>
             {(['encode','decode'] as const).map(m=>(
               <button key={m} onClick={()=>setMode(m)} className={`px-5 py-2 text-sm font-bold capitalize ${mode===m?'bg-green-600 text-white':'text-gray-600 hover:bg-gray-50'}`}>{m}</button>
             ))}
@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 mb-6 shadow-sm">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <p className="text-sm font-bold text-gray-700 mb-3">Common HTML Entities Reference</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
           {[['<','&lt;'],['>', '&gt;'],['&','&amp;'],['"','&quot;'],["'",'&#39;'],['(C)','&copy;'],['(R)','&reg;'],['(TM)','&trade;'],['->','&rarr;'],['€','&euro;'],['£','&pound;'],[' degrees','&deg;']].map(([ch,ent])=>(
@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       <div className="space-y-3">
         {faqs.map(f=>(
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

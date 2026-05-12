@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Target Weight Calculator — Set a Goal Weight with Timeline & Calorie Plan 2026',
+  title: 'Target Weight Calculator 2026 | TOOLTRIO',
   description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline assessment and safe rate-of-change guidance. Free online target weight calculator 2026. No signup required.',
   slug: 'target-weight-calculator',
   category: 'health',

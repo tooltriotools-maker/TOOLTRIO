@@ -68,7 +68,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
                       setWeight(u === 'imperial' ? Math.round(weight * 2.205) : Math.round(weight / 2.205))
                       setUnit(u)
                     }
-                  }} className={`py-2 rounded-xl text-sm font-semibold transition-colors ${unit === u ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                  }} className={`py-2 rounded-xl text-sm font-semibold transition-all ${unit === u ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                     {u.toUpperCase()}
                   </button>
                 ))}
@@ -82,7 +82,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
               <div className="space-y-1">
                 {ACTIVITIES.map((a, i) => (
                   <button key={a.name} onClick={() => setActivity(i)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-colors ${activityIdx === i ? 'bg-green-600 text-white font-semibold' : 'text-gray-500 hover:bg-gray-100'}`}>
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs transition-all ${activityIdx === i ? 'bg-green-600 text-white font-semibold' : 'text-gray-500 hover:bg-gray-100'}`}>
                     {a.name} <span className={`float-right ${activityIdx === i ? 'text-green-200' : 'text-gray-600'}`}>MET {a.met}</span>
                   </button>
                 ))}

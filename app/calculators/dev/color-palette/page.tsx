@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Color Palette Generator — Design System Colors Free Online',
+  title: 'Color Palette Generator Online | TOOLTRIO',
   description: 'Generate harmonious color palettes and design system color scales from a base color. Complementary, triadic, analogous, and monochromatic schemes. Runs in your browser.',
   slug: 'color-palette',
   keywords: ['color palette generator online free','design color scheme browser','complementary analogous colors','color harmony generator free','css color palette builder','brand color palette generator'],

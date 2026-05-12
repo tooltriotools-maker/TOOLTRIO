@@ -87,7 +87,7 @@ export default function GoldPriceCalculatorPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900">🥇 Gold Price Calculator - Live Karat Prices</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🥇 Gold Price Calculator - Live Karat Prices</h1>
           <p className="text-gray-500 mt-1">Live gold price in 24K, 22K, 20K, 18K, 14K, 10K - per gram, tola &amp; troy oz - multi-currency</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -119,7 +119,7 @@ export default function GoldPriceCalculatorPage() {
             </div>
             {karatList.map(([k, info], i) => (
               <button key={k} onClick={() => setKarat(k)}
-                className={`w-full px-4 py-3 flex items-center justify-between border-b border-gray-50 last:border-0 transition-colors text-left ${karat === k ? 'bg-yellow-50 ring-1 ring-inset ring-yellow-300' : 'hover:bg-gray-50'}`}>
+                className={`w-full px-4 py-3 flex items-center justify-between border-b border-gray-50 last:border-0 transition-all text-left ${karat === k ? 'bg-yellow-50 ring-1 ring-inset ring-yellow-300' : 'hover:bg-gray-50'}`}>
                 <div className="flex items-center gap-2">
                   <span className={`w-2 h-2 rounded-full flex-shrink-0 ${i===0?'bg-yellow-500':i===1?'bg-yellow-400':i===2?'bg-yellow-300':'bg-gray-300'}`} />
                   <span className="font-black text-gray-900 text-sm">{k}</span>
@@ -259,7 +259,7 @@ export default function GoldPriceCalculatorPage() {
 
         {/* Introduction */}
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Gold Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Gold Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>The gold price you see quoted on financial news channels is always in USD per troy ounce for 24K (99.9% pure) gold. But almost nobody buys 24K gold by the troy ounce — in India and the Gulf, gold is bought in grams or tolas, in 22K or 18K purity, and the price you actually pay includes import duty, GST, and making charges on top. This calculator converts the live spot price into every unit and karat combination you need, in five currencies.</p>
             <p>The conversion math: 1 troy oz = 31.1035 grams. 22K gold is 91.67% pure, so 22K price per gram = (spot ÷ 31.1035) × 0.9167. In India, add 15% import duty and 3% GST to get the domestic metal base price before making charges. When a jeweller quotes you ₹72,000 for 10 grams of 22K, run those numbers here first — you'll immediately see if the metal value stacks up or if you're being charged a premium.</p>
@@ -338,7 +338,7 @@ export default function GoldPriceCalculatorPage() {
               {e:'📉',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'How much purchasing power has ₹1 lakh lost over time?'},
             ].map(c=>(
               <Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></div>
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></span>
                 <p className="text-[11px] text-gray-500 leading-relaxed flex-1">{c.d}</p>
                 <span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span>
               </Link>

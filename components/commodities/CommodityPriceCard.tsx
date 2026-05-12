@@ -57,7 +57,7 @@ export function CommodityPriceCard({ commodity, emoji, href, currency = 'USD', f
       </div>
 
       {/* Price */}
-      <p className="text-2xl font-black text-gray-900 leading-none mb-1">
+      <p className="text-2xl font-black text-gray-900 leading-none mb-1" style={{fontFamily:"'Playfair Display', serif"}}>
         {formatPrice(commodity.price, fxRate, currencySymbol)}
       </p>
 

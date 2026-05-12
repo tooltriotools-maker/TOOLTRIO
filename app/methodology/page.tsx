@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Our Methodology -- How We Build Accurate Free Finance Calculators | tooltrio.com',
+  title: 'How We Build Accurate Free Calculators | TOOLTRIO',
   description:
     'Every calculator on tooltrio.com follows IRS guidelines, CDC standards, NIH research, CFPB rules, and SEC-validated formulas. Learn exactly how we source and verify every number.',
   keywords: [
@@ -98,7 +98,7 @@ export default function MethodologyPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(methodologySchema) }} />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen">
         <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-14 px-4">
           <div className="max-w-4xl mx-auto">
             <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
@@ -118,7 +118,7 @@ export default function MethodologyPage() {
 
         <div className="max-w-4xl mx-auto px-4 py-12">
           <section className="mb-14">
-            <h2 className="text-2xl font-black text-gray-900 mb-4">Our 4-Stage Accuracy Process</h2>
+            <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Our 4-Stage Accuracy Process</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { n: '1', title: 'Formula Verification', desc: 'Every formula is independently verified against 2+ official sources before deployment. We cross-check against IRS, CDC, and SEC official calculators.' },
@@ -183,12 +183,12 @@ export default function MethodologyPage() {
           </section>
 
           <section className="text-center py-8 border-t border-gray-100">
-            <h2 className="text-2xl font-black text-gray-900 mb-3">Ready to Calculate?</h2>
+            <h2 className="text-2xl font-black text-gray-900 mb-3" style={{fontFamily:"'Playfair Display', serif"}}>Ready to Calculate?</h2>
             <p className="text-gray-600 mb-6">400+ calculators built on this methodology. Free, instant, no signup.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/calculators/finance/home-loan-calculator" className="px-5 py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-colors">Mortgage Calculator</Link>
-              <Link href="/calculators/finance/401k-calculator" className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 transition-colors">401k Calculator</Link>
-              <Link href="/calculators/health/bmi-calculator" className="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-bold text-sm hover:bg-gray-50 transition-colors">BMI Calculator</Link>
+              <Link href="/calculators/finance/home-loan-calculator" className="px-5 py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-all">Mortgage Calculator</Link>
+              <Link href="/calculators/finance/401k-calculator" className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 transition-all">401k Calculator</Link>
+              <Link href="/calculators/health/bmi-calculator" className="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-bold text-sm hover:bg-gray-50 transition-all">BMI Calculator</Link>
             </div>
           </section>
         </div>

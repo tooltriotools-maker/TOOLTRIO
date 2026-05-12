@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">JSON Schema Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📐 JSON Schema Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📐 JSON Schema Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Runs entirely in your browser - no data sent to server</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </button>
           </div>
           {error
-            ? <div className="p-4 bg-red-50 rounded-xl border border-red-200"><p className="text-red-600 text-sm font-mono">{error}</p></div>
+            ? <div className="p-4 rounded-2xl border" style={{background:'rgba(254,242,242,0.8)',borderColor:'rgba(252,165,165,0.5)',backdropFilter:'blur(6px)'}}><p className="text-red-600 text-sm font-mono">{error}</p></div>
             : <pre className="h-64 font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto whitespace-pre-wrap">{output||'Output appears here...'}</pre>
           }
         </div>
@@ -99,7 +99,7 @@ Add descriptions for documentation quality. The generated schema lacks descripti
 Validate the schema itself. The output is JSON — paste it into [JSON Formatter](/calculators/dev/json-formatter) after manual edits to verify it is still valid JSON.`}
         conclusion={`Manual JSON Schema authoring is slow and error-prone. This generator gives a correct starting point from sample data — all fields, types, and nesting covered. Edit to add descriptions and mark optional fields. For the complete validation workflow: generate here, query with [JSONPath Tester](/calculators/dev/json-path-tester), and create test data with [Fake Data Generator](/calculators/dev/fake-data-generator).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
     </div>
   )
 

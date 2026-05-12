@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Government Bond Calculator USA 2026 – Yield to Maturity, Price and Duration',
+ title: 'Government Bond Calculator USA 2026 | TOOLTRIO',
  description: 'Free government bond calculator USA 2026. Calculate yield to maturity, current yield, bond price, and duration for US Treasuries and European government bonds. Real examples for $10k-$500k bond investments.',
  slug: 'government-bond-calculator',
  category: 'finance',

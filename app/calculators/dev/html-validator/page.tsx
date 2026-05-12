@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Validator — Validate HTML Syntax Free Online',
+  title: 'HTML Validator Online | TOOLTRIO',
   description: 'Validate HTML markup for syntax errors and best practices. Checks tag nesting, required attributes, and semantic structure. Runs in your browser.',
   slug: 'html-validator',
   keywords: ['html validator online free','validate html code browser','html syntax checker','w3c html validator alternative','html lint tool online free'],

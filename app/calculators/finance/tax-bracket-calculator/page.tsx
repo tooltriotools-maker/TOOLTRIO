@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import TaxBracketCalculatorClient from './TaxBracketCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Tax Bracket Calculator USA 2026 – Federal Income Tax Brackets and Effective Rate',
+ title: 'Tax Bracket Calculator USA 2026 | TOOLTRIO',
  description: 'Free tax bracket calculator USA 2026. See exactly which 2026 federal tax brackets apply to your income, your marginal rate vs effective rate, and total tax owed. Real examples for $30k-$300k income levels.',
  slug: 'tax-bracket-calculator',
  category: 'finance',

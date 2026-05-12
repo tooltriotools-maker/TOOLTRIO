@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "529 vs UTMA Calculator USA 2026 – College Savings vs Custodial Account",
+ title: '529 vs UTMA Calculator USA 2026 | TOOLTRIO',
  description: "Free 529 vs UTMA/UGMA calculator USA 2026. Compare 529 college savings plan vs UTMA custodial account for tax benefits, FAFSA impact, and investment flexibility. Real examples for $5k-$15k annual savings.",
  slug: '529-vs-utma-calculator',
  category: 'finance',

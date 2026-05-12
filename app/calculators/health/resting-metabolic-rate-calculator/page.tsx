@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Resting Metabolic Rate Calculator — Measured RMR vs Predicted BMR 2026',
+  title: 'Resting Metabolic Rate Calculator | TOOLTRIO',
   description: 'Calculate Resting Metabolic Rate (RMR) using Mifflin-St Jeor and Harris-Benedict equations. Understand the difference between measured RMR and calculated BMR, and what low or high RMR means for weight management. Free online resting metabolic rate calculator 2026. No signup required.',
   slug: 'resting-metabolic-rate-calculator',
   category: 'health',

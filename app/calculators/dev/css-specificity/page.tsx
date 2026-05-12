@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Specificity Calculator — Selector Specificity Score Free',
+  title: 'CSS Specificity Calculator Online | TOOLTRIO',
   description: 'Calculate CSS selector specificity instantly. Shows the (a,b,c) score and explains why one rule overrides another. Runs in your browser.',
   slug: 'css-specificity',
   keywords: ['css specificity calculator online free','css selector specificity checker','css priority calculator browser','css specificity score tool','css cascade calculator free'],

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Due Date Calculator — EDD by LMP, IVF Transfer & Ultrasound 2026',
+  title: 'Pregnancy Due Date Calculator 2026 | TOOLTRIO',
   description: 'Free Pregnancy Due Date Calculator 2026. Calculate your accurate pregnancy due date using Naegele\'s Rule and Mittendorf-Williams standards. Includes trimester timeline and weekly milestones.',
   slug: 'pregnancy-due-date-calculator',
   category: 'health',

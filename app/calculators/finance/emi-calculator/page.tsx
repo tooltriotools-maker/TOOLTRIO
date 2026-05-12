@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import EMICalculatorClient from './EMICalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Loan EMI Calculator USA 2026 – Monthly Payment, Total Interest and Amortization',
+ title: 'EMI Calculator – Loan Payment USA 2026 | TOOLTRIO',
  description: 'Free loan EMI calculator USA 2026. Calculate monthly loan payment (EMI), total interest paid, and complete amortization schedule for any loan type. Real examples for $10k-$500k loans at 3-20% interest.',
  slug: 'emi-calculator',
  category: 'finance',

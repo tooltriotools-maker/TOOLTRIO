@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Immune Health Score Calculator — Lifestyle Factors & Immunity Assessment 2026',
+  title: 'Immune Health Score Calculator 2026 | TOOLTRIO',
   description: 'Calculate your immune health score based on sleep, stress, nutrition, exercise, vitamin intake, and lifestyle habits. Get prioritized recommendations to strengthen immune resilience based on your weak points. Free online immune health calculator 2026. No signup required.',
   slug: 'immune-health-calculator',
   category: 'health',

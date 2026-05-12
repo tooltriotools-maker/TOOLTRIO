@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ROI Calculator USA 2026 – Return on Investment, Profit & Annualized Return',
+ title: 'ROI Calculator USA 2026 | TOOLTRIO',
  description: 'Free ROI calculator USA 2026. Calculate return on investment, net profit, and annualized ROI for any investment. Compare investment options side by side. Real examples for stocks, real estate, and business.',
  slug: 'roi-calculator',
  category: 'finance',

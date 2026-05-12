@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JSON to CSV Converter — Flatten JSON to Spreadsheet Free',
+  title: 'JSON to CSV Converter Online | TOOLTRIO',
   description: 'Convert JSON arrays to CSV format for spreadsheets and databases. Flattens nested objects and handles arrays. Runs entirely in your browser.',
   slug: 'json-to-csv',
   keywords: ['json to csv converter online free','convert json array to csv','json to spreadsheet online','export json to csv browser','json to csv download free','json array csv converter no install'],

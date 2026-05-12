@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import MortgageCalculatorClient from './MortgageCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mortgage Calculator USA 2026 – Monthly Payment, PITI & Amortization',
+ title: 'Mortgage Calculator USA 2026 | TOOLTRIO',
  description: 'Free mortgage calculator USA 2026. Calculate your complete monthly mortgage payment with principal, interest, taxes, insurance (PITI), and PMI. Real examples for $300k–$600k homes.',
  slug: 'mortgage-calculator',
  category: 'finance',

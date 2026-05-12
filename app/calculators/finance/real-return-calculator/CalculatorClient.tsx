@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-500">Nominal Value (in {years}y)</p>
-                <p className="text-2xl font-black text-gray-900">{fmt(result.nominalFV)}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.nominalFV)}</p>
                 <p className="text-xs text-gray-400 mt-0.5">At {nominalReturn}% nominal</p>
               </div>
               <div>

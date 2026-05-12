@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sodium Intake Calculator — Daily Sodium Needs, Blood Pressure Impact & Sources 2026',
+  title: 'Sodium Intake Calculator 2026 | TOOLTRIO',
   description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common food sources and understand the blood pressure-sodium relationship. Free online sodium intake calculator 2026. No signup required.',
   slug: 'sodium-intake-calculator',
   category: 'health',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Car Loan Calculator USA 2026 – Monthly Payment, Interest and Payoff Schedule',
+ title: 'Car Loan Calculator USA 2026 | TOOLTRIO',
  description: 'Free car loan calculator USA 2026. Calculate your exact monthly car payment, total interest cost, and full amortization schedule. Compare loan terms and down payment scenarios. Real examples for $20k-$65k vehicles.',
  slug: 'car-loan-calculator',
  category: 'finance',

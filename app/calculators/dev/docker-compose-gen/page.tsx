@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Docker Compose Generator — docker-compose.yml Builder Free',
+  title: 'Docker Compose Generator Online | TOOLTRIO',
   description: 'Generate docker-compose.yml files visually. Configure services, volumes, networks, environment variables, and port mappings. Runs in your browser.',
   slug: 'docker-compose-gen',
   keywords: ['docker compose generator online free','docker-compose.yml builder browser','docker compose file creator','generate docker compose free','docker services generator online'],

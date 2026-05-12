@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'UUID Generator — v4 UUID & ULID Free Online',
+  title: 'UUID Generator – v4 & ULID Online | TOOLTRIO',
   description: 'Generate RFC 4122 v4 UUIDs and ULIDs using crypto.randomUUID(). Bulk generation, copy-ready output. Runs entirely in your browser.',
   slug: 'uuid-generator',
   keywords: ['uuid generator online free','uuid v4 v7 generator browser','guid generator free online','ulid generator browser','nanoid generator free','bulk uuid generator online','random unique id generator','uuid no signup free'],

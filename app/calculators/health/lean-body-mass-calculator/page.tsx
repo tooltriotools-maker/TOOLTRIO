@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Lean Body Mass Calculator — Fat-Free Mass from Height, Weight & Body Fat % 2026',
+  title: 'Lean Body Mass Calculator 2026 | TOOLTRIO',
   description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake, TDEE, and anesthetic drug dosing calculations. Free online lean body mass calculator 2026. No signup required.',
   slug: 'lean-body-mass-calculator',
   category: 'health',

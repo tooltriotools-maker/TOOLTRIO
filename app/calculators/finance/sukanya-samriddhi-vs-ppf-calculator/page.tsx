@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Sukanya Samriddhi Yojana vs PPF Calculator India 2026 – Best for Girl Child Savings',
+ title: 'Sukanya Samriddhi vs PPF India 2026 | TOOLTRIO',
  description: 'Free Sukanya Samriddhi vs PPF calculator India 2026. Compare SSY at 8.2% vs PPF at 7.1% for girl child education and marriage fund savings. Includes 80C deduction comparison. Real examples for INR 1k-12,500/month deposits.',
  slug: 'sukanya-samriddhi-vs-ppf-calculator',
  category: 'finance',

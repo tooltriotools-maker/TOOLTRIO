@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Personal Loan Calculator USA 2026 – Monthly Payment, Total Cost and Best Rates',
+ title: 'Personal Loan Calculator USA 2026 | TOOLTRIO',
  description: 'Free personal loan calculator USA 2026. Calculate monthly payment, total interest, and amortization for any personal loan amount and rate. Compare 3-year vs 5-year terms. Real examples for $5k-$100k loans at 6-30% APR.',
  slug: 'personal-loan-calculator',
  category: 'finance',

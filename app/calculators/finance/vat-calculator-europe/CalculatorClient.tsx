@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Country</label>
             <select value={countryIdx} onChange={e => { setCountryIdx(Number(e.target.value)); setUseCustomRate(false) }}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none">
+              className="w-full border rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none" style={{background:'rgba(255,255,255,0.85)',borderColor:'#e2e8f0'}}>
               {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name} - {c.std}%</option>)}
             </select>
           </div>
@@ -108,7 +108,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {/* Amount */}
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">{calcType === 'exclusive' ? 'Net Amount (exc. VAT)' : 'Gross Amount (inc. VAT)'}</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm font-bold">{symbol}</span>
               <input type="number" value={amount} onChange={e => setAmount(Number(e.target.value))} step={10}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-lg" />
@@ -118,7 +118,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
         <div className="lg:col-span-2 space-y-4">
           {/* Main result panel */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
+          <div className="p-6 rounded-2xl from-green-50 to-emerald-50 border-2 border-green-200" style={{background:'linear-gradient(135deg,rgba(240,253,244,0.9),rgba(236,253,245,0.9))'}}>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div className="bg-white rounded-xl p-4 shadow-sm">
                 <p className="text-xs text-gray-500 mb-1">Net (exc. VAT)</p>

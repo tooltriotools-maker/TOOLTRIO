@@ -43,7 +43,7 @@ export default function SavingsRateCalculatorClient({ faqs, structuredData, rela
             <InputField label={`Other Monthly Savings (${currency.symbol})`} value={otherSavings} onChange={setOtherSavings} min={0} max={income} step={50} prefix={currency.symbol} />
           </div>
 
-          <div className="mt-5 p-4 bg-white rounded-xl">
+          <div className="mt-5 p-4 rounded-2xl border" style={{background:'rgba(255,255,255,0.82)',borderColor:'rgba(226,232,240,0.5)'}}>
             <p className="text-xs font-bold text-gray-600 mb-2">Savings Rate Benchmarks</p>
             <div className="space-y-1 text-xs">
               {[['10%', 'Minimum (Fidelity)', '#ef4444'], ['15%', 'Recommended', '#f59e0b'], ['20%', '50/30/20 Target', '#3b82f6'], ['30%', 'Accelerated', '#16a34a'], ['50%+', 'FIRE Fast Track', '#8b5cf6']].map(([r, l, c]) => (

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "SIP vs PPF Calculator India 2026 – Equity Mutual Fund SIP vs Public Provident Fund",
+ title: 'SIP vs PPF Calculator India 2026 | TOOLTRIO',
  description: "Free SIP vs PPF calculator India 2026. Compare SIP equity mutual fund returns vs PPF guaranteed 7.1% tax-free returns. Real examples for INR 5k-12,500/month (up to PPF annual limit) investments.",
  slug: 'sip-vs-ppf-calculator',
  category: 'finance',

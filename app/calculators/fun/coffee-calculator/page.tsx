@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Coffee Calculator – How Much Caffeine Have I Had in My Lifetime?',
+  title: 'Lifetime Caffeine Calculator | TOOLTRIO',
   description: 'Calculate your lifetime coffee consumption, total caffeine intake, money spent on coffee, and how many cups you will drink before retirement. Free and instant.',
   slug: 'coffee-calculator',
   keywords: [

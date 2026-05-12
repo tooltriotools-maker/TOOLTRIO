@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Car Depreciation Calculator USA 2026 – Vehicle Value Loss and True Ownership Cost',
+ title: 'Car Depreciation Calculator USA 2026 | TOOLTRIO',
  description: 'Free car depreciation calculator USA 2026. Calculate how much your car loses in value per year, total depreciation over 5 years, and true cost of ownership. Real examples for $25k-$80k new vehicles.',
  slug: 'car-depreciation-calculator',
  category: 'finance',

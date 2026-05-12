@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 <p className="text-4xl font-black text-red-700 my-1">{result.loadDose}g/day</p>
                 <p className="text-sm text-red-600">{result.loadPerMeal}g x 4 meals</p>
               </div>
-              <div className="p-5 bg-green-50 rounded-2xl border-2 border-green-200 text-center">
+              <div className="p-5 rounded-2xl border-2 text-center" style={{background:'rgba(240,253,244,0.85)',borderColor:'rgba(134,239,172,0.7)',backdropFilter:'blur(8px)'}}>
                 <p className="text-xs font-bold text-green-600 uppercase">Maintenance (after loading)</p>
                 <p className="text-4xl font-black text-green-700 my-1">{result.mainDose}g/day</p>
                 <p className="text-sm text-green-600">~${result.costPerDay}/day</p>

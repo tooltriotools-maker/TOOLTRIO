@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: '.htaccess Generator — Apache Redirect and Rewrite Rules Free',
+  title: '.htaccess Generator Online | TOOLTRIO',
   description: 'Generate .htaccess rules for redirects, URL rewriting, HTTPS enforcement, caching headers, and CORS. Runs entirely in your browser.',
   slug: 'htaccess-generator',
   keywords: ['htaccess generator online free','apache htaccess builder browser','mod_rewrite generator free','301 redirect htaccess generator','apache config generator tool'],

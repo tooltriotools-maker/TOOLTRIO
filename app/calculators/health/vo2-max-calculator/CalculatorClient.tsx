@@ -104,12 +104,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <Card>
               <p className="text-xs text-gray-500 font-medium">METs (Metabolic Equivalents)</p>
-              <p className="text-3xl font-black text-gray-900 mt-1">{result.mets}</p>
+              <p className="text-3xl font-black text-gray-900 mt-1" style={{fontFamily:"'Playfair Display', serif"}}>{result.mets}</p>
               <p className="text-xs text-gray-400">VO2max / 3.5</p>
             </Card>
             <Card>
               <p className="text-xs text-gray-500 font-medium">Fitness Age (est.)</p>
-              <p className="text-3xl font-black text-gray-900 mt-1">{result.cat==='Superior'?age-8:result.cat==='Excellent'?age-5:result.cat==='Good'?age:age+5}</p>
+              <p className="text-3xl font-black text-gray-900 mt-1" style={{fontFamily:"'Playfair Display', serif"}}>{result.cat==='Superior'?age-8:result.cat==='Excellent'?age-5:result.cat==='Good'?age:age+5}</p>
               <p className="text-xs text-gray-400">years</p>
             </Card>
           </div>

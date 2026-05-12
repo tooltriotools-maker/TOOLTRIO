@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'EMI vs SIP Calculator India 2026 – Home Loan vs SIP Investment Returns',
+ title: 'EMI vs SIP Calculator India 2026 | TOOLTRIO',
  description: 'Free EMI vs SIP calculator India 2026. Compare paying home loan EMI vs investing the same amount in SIP mutual funds. Find the break-even return rate. Real examples for INR 20k-80k monthly amounts.',
  slug: 'emi-vs-sip-calculator',
  category: 'finance',

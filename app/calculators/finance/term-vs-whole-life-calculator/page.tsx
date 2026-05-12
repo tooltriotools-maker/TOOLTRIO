@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Term vs Whole Life Insurance Calculator USA 2026 – Buy Term and Invest the Rest',
+ title: 'Term vs Whole Life Insurance Calculator | TOOLTRIO',
  description: 'Free term vs whole life insurance calculator USA 2026. Compare term life plus investing the difference vs whole life insurance on wealth building and coverage. Real examples for $500k-$2M coverage needs.',
  slug: 'term-vs-whole-life-calculator',
  category: 'finance',

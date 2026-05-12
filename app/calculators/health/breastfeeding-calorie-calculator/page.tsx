@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Breastfeeding Calorie Calculator — Extra Calories Needed While Nursing 2026',
+  title: 'Breastfeeding Calorie Calculator 2026 | TOOLTRIO',
   description: 'Free Breastfeeding Calorie Calculator 2026. Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency. Includes protein and hydration guidance.\', hydration targets, and nutrient priorities for optimal milk production and maternal health.',
   slug: 'breastfeeding-calorie-calculator',
   category: 'health',

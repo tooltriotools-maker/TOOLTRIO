@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Lump Sum Investment Calculator USA 2026 – One-Time Investment Growth Projector',
+ title: 'Lump Sum Investment Calculator India | TOOLTRIO',
  description: 'Free lump sum investment calculator USA 2026. See how a one-time investment grows over time with compound interest at different return rates. Real examples for $5k-$500k one-time investments over 5-40 years.',
  slug: 'lumpsum-calculator',
  category: 'finance',

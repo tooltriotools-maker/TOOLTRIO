@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Workout Excuse Generator – Creative Reasons to Skip the Gym',
+  title: 'Workout Excuse Generator | TOOLTRIO',
   description: 'Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant, no signup.',
   slug: 'workout-excuse-generator',
   keywords: [

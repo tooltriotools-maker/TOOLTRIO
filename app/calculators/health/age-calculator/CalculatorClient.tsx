@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div className="flex items-center gap-2">
               <label className="text-xs font-medium text-gray-600">Age on specific date?</label>
-              <button onClick={()=>setShowOnDate(!showOnDate)} className={`w-10 h-5 rounded-full transition-colors ${showOnDate?'bg-purple-500':'bg-gray-200'}`}>
+              <button onClick={()=>setShowOnDate(!showOnDate)} className={`w-10 h-5 rounded-full transition-all ${showOnDate?'bg-purple-500':'bg-gray-200'}`}>
                 <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${showOnDate?'translate-x-5':''}`} />
               </button>
             </div>
@@ -101,7 +101,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <h3 className="font-bold text-gray-900 mb-3">More Age Facts</h3>
               <div className="grid grid-cols-2 gap-3">
                 {[{l:'Total Days',v:result.totalDays.toLocaleString()},{l:'Total Weeks',v:result.totalWeeks.toLocaleString()},{l:'Total Months',v:result.totalMonths.toLocaleString()},{l:'Approx Hours',v:(result.totalHours/1000).toFixed(0)+'K'}].map(s=>(
-                  <div key={s.l} className="p-3 bg-gray-50 rounded-xl border border-gray-200 text-center">
+                  <div key={s.l} className="p-3 rounded-2xl border text-center" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                     <p className="text-xs text-gray-500 font-medium">{s.l}</p>
                     <p className="text-xl font-black text-gray-900">{s.v}</p>
                   </div>

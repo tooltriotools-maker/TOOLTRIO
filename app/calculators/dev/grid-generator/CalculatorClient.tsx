@@ -26,11 +26,11 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">CSS Grid Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">⊞ CSS Grid Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⊞ CSS Grid Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Design grid layouts visually - columns, rows, gaps and copy CSS</p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="space-y-4">
-          <div className="bg-white rounded-2xl border border-gray-200 p-5 space-y-4">
+          <div className="rounded-2xl border p-5 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
             {[{l:'Columns',v:cols,s:setCols},{l:'Rows',v:rows,s:setRows}].map(({l,v,s})=>(
               <div key={l}>
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">{l}: {v}</label>
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         </div>
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-gray-50 rounded-2xl border border-gray-200 h-64 p-4">
+          <div className="rounded-2xl border border-gray-200 h-64 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
             <div className="w-full h-full" style={{display:'grid',gridTemplateColumns:colTemplate,gridTemplateRows:rowTemplate,columnGap:`${colGap}px`,rowGap:`${rowGap}px`}}>
               {Array.from({length:cols*rows},(_,i)=>(
                 <div key={i} className="rounded-xl bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white text-xs font-black">{i+1}</div>
@@ -64,15 +64,15 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the CSS Grid Generator</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">CSS Grid is the most powerful layout system in CSS - use it for two-dimensional page layouts, card grids, dashboard panels, and photo galleries. Adjust columns and rows with the sliders, then fine-tune the template values manually (e.g. type "200px 1fr 300px" for a three-column layout with fixed sidebars). Column/row gaps control the whitespace between cells. The live preview updates instantly. Copy the CSS and apply it to your container. Each child element automatically fills a grid cell.</p>
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-1">Responsive card grid</p><code className="text-xs font-mono text-blue-800">grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-1">3-column layout</p><code className="text-xs font-mono text-green-800">grid-template-columns: 250px 1fr 250px;</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-1">Responsive card grid</p><code className="text-xs font-mono text-blue-800">grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-1">3-column layout</p><code className="text-xs font-mono text-green-800">grid-template-columns: 250px 1fr 250px;</code></div>
         </div>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="CSS Grid Generator — Visual 2D Layout Builder"
         category="dev"

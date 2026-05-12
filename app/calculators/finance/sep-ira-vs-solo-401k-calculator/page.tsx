@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SEP IRA vs Solo 401k Calculator USA 2026 – Best Self-Employed Retirement Account',
+ title: 'SEP IRA vs Solo 401k Calculator USA | TOOLTRIO',
  description: 'Free SEP IRA vs Solo 401k calculator USA 2026. Compare contribution limits, tax deductions, and long-term wealth for self-employed retirement accounts. Real examples for $50k-$300k self-employment income.',
  slug: 'sep-ira-vs-solo-401k-calculator',
  category: 'finance',

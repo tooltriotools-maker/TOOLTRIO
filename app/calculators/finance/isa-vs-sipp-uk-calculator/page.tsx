@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ISA vs SIPP UK Calculator 2026 – Stocks and Shares ISA vs Pension',
+ title: 'ISA vs SIPP Calculator UK 2026 | TOOLTRIO',
  description: "Free ISA vs SIPP UK calculator 2026. Compare Stocks and Shares ISA vs Self-Invested Personal Pension on after-tax wealth, flexibility, and retirement income. Real examples for GBP 20k-100k annual contributions.",
  slug: 'isa-vs-sipp-uk-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Zodiac Sign Calculator – Your Sign, Traits & Compatibility',
+  title: 'Zodiac Sign Calculator | TOOLTRIO',
   description: 'Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac calculator, no signup.',
   slug: 'zodiac-calculator',
   keywords: [

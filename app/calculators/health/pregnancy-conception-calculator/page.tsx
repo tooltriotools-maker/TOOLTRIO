@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Conception Date Calculator — When Did I Conceive? Back-Calculate Conception 2026',
+  title: 'Conception Date Calculator 2026 | TOOLTRIO',
   description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-conception-calculator',
   category: 'health',

@@ -49,7 +49,7 @@ export default function InterestRateCalculatorClient({ faqs, structuredData, rel
               ⚠️ Payment must be higher than {fmt(Math.ceil(minPayment))}/month to pay off the loan.
             </div>
           )}
-          <div className="mt-5 p-4 bg-white rounded-xl">
+          <div className="mt-5 p-4 rounded-2xl border" style={{background:'rgba(255,255,255,0.82)',borderColor:'rgba(226,232,240,0.5)'}}>
             <p className="text-xs font-bold text-gray-600 mb-2">Your Calculated Rate:</p>
             <p className="text-4xl font-black text-green-600">{result.apr}%</p>
             <p className="text-xs text-gray-500 mt-1">Annual Percentage Rate (APR)</p>

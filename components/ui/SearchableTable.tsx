@@ -38,7 +38,7 @@ export function SearchableTable({
 
       {searchKey && (
         <div className="px-4 py-3 border-b border-gray-100">
-          <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+          <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
             <Search className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
             <input
               type="text"
@@ -67,7 +67,7 @@ export function SearchableTable({
           </thead>
           <tbody className="divide-y divide-gray-50">
             {filtered.map((row, i) => (
-              <tr key={i} className={`hover:bg-green-50 transition-colors ${highlightKey && row[highlightKey] ? 'bg-green-50/50 font-semibold' : ''}`}>
+              <tr key={i} className={`hover:bg-green-50 transition-all ${highlightKey && row[highlightKey] ? 'bg-green-50/50 font-semibold' : ''}`}>
                 {headers.map(h => (
                   <td key={h} className="px-4 py-3 text-gray-700">
                     {row[h] ?? '--'}

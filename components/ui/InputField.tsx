@@ -56,7 +56,7 @@ export function InputField({ label, value, onChange, min = 0, max = 100, step = 
     <div className="space-y-1.5">
       <div className="flex items-center justify-between">
         <label className="text-sm font-semibold text-gray-700">{label}</label>
-        <div className="flex items-center gap-1 bg-white border-2 border-green-200 rounded-xl px-3 py-1.5 shadow-sm focus-within:border-green-500 transition-all">
+        <div className="flex items-center gap-1 bg-white border-2 rounded-xl px-3 py-1.5 shadow-sm transition-all" style={{borderColor:'#bbf7d0',background:'rgba(255,255,255,0.9)'}}>
           {prefix && <span className="text-green-600 text-sm font-bold">{prefix}</span>}
           <input
             type="text"
@@ -125,7 +125,7 @@ function SingleNumberInput({
 
   return (
     <div className="space-y-1.5">
-      <div className="flex items-center gap-1 bg-white border-2 border-green-200 rounded-xl px-3 py-1.5 shadow-sm focus-within:border-green-500 transition-all">
+      <div className="flex items-center gap-1 bg-white border-2 rounded-xl px-3 py-1.5 shadow-sm transition-all" style={{borderColor:'#bbf7d0',background:'rgba(255,255,255,0.9)'}}>
         <input
           type="text"
           inputMode="decimal"
@@ -170,7 +170,7 @@ export function HeightField({ unit, value, onChange, showSlider = true }: Height
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">
           <label className="text-sm font-semibold text-gray-700">Height</label>
-          <div className="flex items-center gap-1 bg-white border-2 border-green-200 rounded-xl px-3 py-1.5 shadow-sm focus-within:border-green-500 transition-all">
+          <div className="flex items-center gap-1 bg-white border-2 rounded-xl px-3 py-1.5 shadow-sm transition-all" style={{borderColor:'#bbf7d0',background:'rgba(255,255,255,0.9)'}}>
             <input type="text" inputMode="decimal" value={raw}
               onChange={e => { setRaw(e.target.value); const p = parseFloat(e.target.value); if (!isNaN(p)) onChange(Math.min(250, Math.max(100, p))) }}
               onFocus={e => { focused.current = true; e.target.select() }}
@@ -251,8 +251,7 @@ export function SelectField({ label, value, onChange, options }: SelectFieldProp
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        className="w-full bg-white border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-800 outline-none focus:border-green-500 transition-colors cursor-pointer shadow-sm"
-      >
+        className="w-full border-2 border-gray-200 rounded-xl px-3 py-2.5 text-sm font-medium text-gray-800 outline-none focus:border-green-500 cursor-pointer" style={{background:'rgba(255,255,255,0.85)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}>
         {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
       </select>
     </div>

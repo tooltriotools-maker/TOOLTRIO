@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mortgage Refinance Calculator USA 2026 – Break-Even, Monthly Savings and ROI',
+ title: 'Mortgage Refinance Calculator USA 2026 | TOOLTRIO',
  description: 'Free mortgage refinance calculator USA 2026. Calculate monthly savings, break-even month, and total interest saved from refinancing. Real examples for $200k-$500k mortgages refinancing at 2026 rates.',
  slug: 'mortgage-refinance-calculator',
  category: 'finance',

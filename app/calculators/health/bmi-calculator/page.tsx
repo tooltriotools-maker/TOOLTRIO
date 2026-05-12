@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import BMICalculatorClient from './BMICalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BMI Calculator — Body Mass Index for Adults (CDC & NIH Standards) 2026',
+  title: 'BMI Calculator USA 2026 | TOOLTRIO',
   description: 'Free BMI Calculator 2026 — Calculate your Body Mass Index using CDC & NIH standards. Instant results for adults with healthy weight range, category classification, and real examples. No signup required.',
   slug: 'bmi-calculator',
   category: 'health',

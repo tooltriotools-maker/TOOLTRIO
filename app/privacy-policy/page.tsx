@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Shield, Eye, Database, Cookie, Mail, RefreshCw } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - tooltrio.com',
+  title: 'Privacy Policy | TOOLTRIO',
   description: 'tooltrio.com privacy policy. We collect zero personal data. No cookies, no tracking, no email required. Your financial data stays on your device.',
   alternates: { canonical: 'https://tooltrio.com/privacy-policy' },
 }
@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
               <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-black text-gray-900">Privacy Policy</h1>
+              <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Privacy Policy</h1>
               <p className="text-gray-500 text-sm">Last updated: {lastUpdated}</p>
             </div>
           </div>
@@ -104,7 +104,7 @@ Since we collect no personal data, there is nothing to access, correct, or delet
           ].map(section => {
             const Icon = section.icon
             return (
-              <div key={section.title} className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+              <div key={section.title} className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${section.color}`}>
                     <Icon className="w-5 h-5" />
@@ -117,7 +117,7 @@ Since we collect no personal data, there is nothing to access, correct, or delet
           })}
 
           {/* Updates */}
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+          <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
             <h2 className="text-lg font-black text-gray-900 mb-3">7. Changes to This Policy</h2>
             <p className="text-gray-600 text-sm leading-relaxed">
               We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page will reflect any changes. We encourage you to review this policy periodically. Continued use of tooltrio.com after any changes constitutes acceptance of the updated policy.

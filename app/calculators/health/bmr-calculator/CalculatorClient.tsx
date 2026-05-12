@@ -106,7 +106,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">BMR Formula (Mifflin-St Jeor)</h3>
-            <div className="bg-gray-50 rounded-xl p-4 font-mono text-sm text-gray-700 border border-gray-100">
+            <div className="rounded-xl p-4 font-mono text-sm text-gray-700 border" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.6)',backdropFilter:'blur(6px)'}}>
               {gender === 'male' ? 'BMR = 10xweight + 6.25xheight - 5xage + 5' : 'BMR = 10xweight + 6.25xheight - 5xage - 161'}
               <div className="mt-2 text-xs text-gray-400 font-sans">= 10x{weight} + 6.25x{height} - 5x{age} {gender === 'male' ? '+ 5' : '- 161'} = <span className="text-gray-900 font-bold">{result.bmr} kcal</span></div>
             </div>

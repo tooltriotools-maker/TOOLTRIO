@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Creatinine Clearance Calculator — GFR Estimation (Cockcroft-Gault & CKD-EPI) 2026',
+  title: 'Creatinine Clearance Calculator 2026 | TOOLTRIO',
   description: 'Calculate estimated kidney function using Creatinine Clearance (Cockcroft-Gault formula) and eGFR (CKD-EPI equation). Interpret results against CKD staging criteria and understand implications for drug dosing. Free online creatinine clearance calculator 2026. No signup required.',
   slug: 'creatinine-clearance-calculator',
   category: 'health',

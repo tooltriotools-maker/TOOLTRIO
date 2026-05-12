@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Gradient Generator — Linear, Radial & Conic Free',
+  title: 'CSS Gradient Generator Online | TOOLTRIO',
   description: 'Build CSS gradients visually with live preview. Linear, radial, and conic gradients with multiple color stops. Copy ready-to-use CSS. Runs entirely in your browser.',
   slug: 'css-gradient-generator',
   keywords: ['css gradient generator online free','linear gradient builder browser','radial gradient css maker','gradient css code generator','background gradient tool free','css gradient preview online'],

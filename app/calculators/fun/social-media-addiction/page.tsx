@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Social Media Addiction Score – Am I Addicted to Social Media?',
+  title: 'Social Media Addiction Score | TOOLTRIO',
   description: 'Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back control. Free, instant.',
   slug: 'social-media-addiction',
   keywords: [

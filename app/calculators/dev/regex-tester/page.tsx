@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Regex Tester & Debugger — Live Match Highlighting Free',
+  title: 'Regex Tester & Debugger Online | TOOLTRIO',
   description: 'Test regular expressions with real-time match highlighting, capture group display, and flag toggles. Runs in your browser — no server, no login.',
   slug: 'regex-tester',
   keywords: ['regex tester online free','regular expression tester browser','javascript regex tester','python regex tester online','pcre regex tester free','live regex match highlighter','regex with named groups tester','regex flags tester browser'],

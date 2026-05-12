@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Chronic Inflammation Risk Calculator — Lifestyle & Dietary Inflammation Score 2026',
+  title: 'Inflammation Risk Calculator 2026 | TOOLTRIO',
   description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your diet and lifestyle, with a prioritized anti-inflammation action plan. Free online inflammation risk calculator 2026. No signup required.',
   slug: 'inflammation-risk-calculator',
   category: 'health',

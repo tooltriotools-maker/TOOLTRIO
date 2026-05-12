@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Eye Health Calculator — Vision Strain, Screen Time & Macular Risk Assessment 2026',
+  title: 'Eye Health Calculator 2026 | TOOLTRIO',
   description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light protection needs, and nutritional support for long-term vision health. Free online eye health calculator 2026. No signup required.',
   slug: 'eye-health-calculator',
   category: 'health',

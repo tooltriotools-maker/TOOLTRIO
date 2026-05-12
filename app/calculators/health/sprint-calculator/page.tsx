@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sprint Calculator — Speed, Power & Anaerobic Capacity from Sprint Times 2026',
+  title: 'Sprint Calculator 2026 | TOOLTRIO',
   description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether sprint training or power development is the priority. Free online sprint calculator 2026. No signup required.',
   slug: 'sprint-calculator',
   category: 'health',

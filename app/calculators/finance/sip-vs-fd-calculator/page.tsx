@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs FD Calculator India 2026 – Mutual Fund SIP vs Fixed Deposit Returns',
+ title: 'SIP vs FD Calculator India 2026 | TOOLTRIO',
  description: "Free SIP vs FD calculator India 2026. Compare SIP mutual fund returns vs Fixed Deposit after-tax returns across different time horizons. Real examples for INR 5k-30k monthly investments over 3-20 years.",
  slug: 'sip-vs-fd-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'European Mortgage Calculator 2026 – UK, Germany, France & Netherlands Payments',
+ title: 'European Mortgage Calculator 2026 | TOOLTRIO',
  description: 'Free European mortgage calculator 2026. Calculate monthly mortgage payments for UK, Germany, France, and Netherlands with local interest rates and amortization. Real examples for EUR/GBP 150k-600k properties.',
  slug: 'european-mortgage-calculator',
  category: 'finance',

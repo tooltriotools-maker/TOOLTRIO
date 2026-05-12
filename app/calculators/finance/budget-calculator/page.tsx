@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Budget Calculator USA 2026 – Monthly Budget Planner & Spending Breakdown',
+ title: 'Monthly Budget Calculator USA 2026 | TOOLTRIO',
  description: 'Free budget calculator USA 2026. Create a complete monthly budget, track income vs expenses, and see your savings rate instantly. Follows the 50/30/20 rule. Real examples for $40k–$100k income.',
  slug: 'budget-calculator',
  category: 'finance',

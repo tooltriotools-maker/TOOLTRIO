@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Currency Converter Calculator USA 2026 – Real-Time Exchange Rates',
+ title: 'Currency Converter – Live Rates 2026 | TOOLTRIO',
  description: 'Free currency converter USA 2026. Convert between USD, EUR, GBP, JPY, CAD, AUD, INR, and 30+ currencies with real-time exchange rates. Real examples for travel, business, and international transfers.',
  slug: 'currency-converter',
  category: 'finance',

@@ -113,12 +113,12 @@ export default function CalculatorClient({ faqs }: Props) {
         <span className="text-gray-700 font-semibold">Color Converter</span>
       </nav>
 
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🎨 Color Converter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎨 Color Converter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Convert between HEX, RGB, HSL, and CSS formats. See contrast ratios, shades, and tints instantly.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Left - color preview & picker */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div className="rounded-2xl border p-6 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
           {/* Big color swatch */}
           <div className="w-full h-40 rounded-xl mb-4 flex items-center justify-center text-lg font-bold shadow-inner relative overflow-hidden"
             style={{ background: hex, color: textColor }}>
@@ -158,7 +158,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Right - format outputs */}
         <div className="space-y-4">
           {/* RGB sliders */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-bold text-gray-900">RGB</h3>
               <button onClick={() => copy(`rgb(${r}, ${g}, ${b})`, 'rgb')} className="flex items-center gap-1 text-xs text-green-600 font-bold">
@@ -182,7 +182,7 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
 
           {/* HSL sliders */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-bold text-gray-900">HSL</h3>
               <button onClick={() => copy(`hsl(${h}, ${s}%, ${l}%)`, 'hsl')} className="flex items-center gap-1 text-xs text-green-600 font-bold">
@@ -208,7 +208,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Output formats */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h3 className="font-bold text-gray-900 mb-3">All Formats</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {[
@@ -231,7 +231,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Shades & Tints */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h3 className="font-bold text-gray-900 mb-3">Shades & Tints</h3>
         <div className="grid grid-cols-9 gap-2">
           {shades.map(shade => (
@@ -251,7 +251,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Contrast info */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h3 className="font-bold text-gray-900 mb-3">Accessibility Contrast Ratios (WCAG)</h3>
         <div className="grid grid-cols-2 gap-3">
           {[
@@ -325,7 +325,7 @@ Pair it with our CSS Gradient Generator and Color Contrast tools for a complete 
 
       <div className="mt-8 space-y-3">
         {faqs.map(f => (
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import LoanComparisonCalculatorClient from './LoanComparisonCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Loan Comparison Calculator USA 2026 – Compare Up to 4 Loan Offers Side by Side',
+ title: 'Loan Comparison Calculator USA 2026 | TOOLTRIO',
  description: 'Free loan comparison calculator USA 2026. Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR. Real examples for $50k–$500k loan amounts.',
  slug: 'loan-comparison-calculator',
  category: 'finance',

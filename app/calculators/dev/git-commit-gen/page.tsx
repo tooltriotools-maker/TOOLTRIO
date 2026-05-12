@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Git Commit Message Generator — Conventional Commits Free',
+  title: 'Git Commit Message Generator | TOOLTRIO',
   description: 'Generate well-formatted git commit messages following Conventional Commits spec. Supports feat, fix, chore, docs, refactor types. Runs in your browser.',
   slug: 'git-commit-gen',
   keywords: ['git commit message generator online free','conventional commits builder browser','semantic commit generator','git commit template free','commit message formatter online'],

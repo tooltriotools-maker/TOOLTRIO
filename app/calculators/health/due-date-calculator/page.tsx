@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Due Date Calculator — Pregnancy Due Date by LMP, Conception & Ultrasound 2026',
+  title: 'Due Date Calculator 2026 | TOOLTRIO',
   description: 'Free Due Date Calculator 2026 — Accurate due date based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'due-date-calculator',
   category: 'health',

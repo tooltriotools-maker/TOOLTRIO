@@ -64,13 +64,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <span className="text-sm font-medium text-gray-700">Current smoker?</span>
-              <button onClick={()=>setSmoker(!smoker)} className={`w-10 h-5 rounded-full transition-colors ${smoker?'bg-red-500':'bg-gray-200'}`}>
+              <button onClick={()=>setSmoker(!smoker)} className={`w-10 h-5 rounded-full transition-all ${smoker?'bg-red-500':'bg-gray-200'}`}>
                 <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${smoker?'translate-x-5':''}`} />
               </button>
             </div>
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <span className="text-sm font-medium text-gray-700">Diabetic?</span>
-              <button onClick={()=>setDiabetic(!diabetic)} className={`w-10 h-5 rounded-full transition-colors ${diabetic?'bg-orange-500':'bg-gray-200'}`}>
+              <button onClick={()=>setDiabetic(!diabetic)} className={`w-10 h-5 rounded-full transition-all ${diabetic?'bg-orange-500':'bg-gray-200'}`}>
                 <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${diabetic?'translate-x-5':''}`} />
               </button>
             </div>
@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-bold text-gray-700">Cholesterol Ratio (Total/HDL)</p>
-                <p className="text-3xl font-black text-gray-900">{result.ratio}</p>
+                <p className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{result.ratio}</p>
                 <p className="text-xs text-gray-500">Target: below 4.0 (below 3.5 is optimal)</p>
               </div>
               <div className={`px-4 py-3 rounded-xl border-2 ${result.riskColor} text-right`}>

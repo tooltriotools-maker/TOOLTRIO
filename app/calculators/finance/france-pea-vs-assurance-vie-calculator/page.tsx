@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'France PEA vs Assurance-Vie Calculator 2026 – Best French Investment Account',
+ title: 'France PEA vs Assurance-Vie 2026 | TOOLTRIO',
  description: 'Free France PEA vs Assurance-Vie calculator 2026. Compare Plan Epargne en Actions vs Assurance-Vie on tax efficiency, flexibility, and long-term wealth building for French investors. Real examples for EUR 10k-200k investments.',
  slug: 'france-pea-vs-assurance-vie-calculator',
  category: 'finance',

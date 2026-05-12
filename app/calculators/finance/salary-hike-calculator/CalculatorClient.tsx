@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-500">New Salary</p>
-                <p className="text-2xl font-black text-gray-900">{fmt(result.newSalary)}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.newSalary)}</p>
                 <p className="text-xs text-gray-500">Real value: {fmt(result.realNewSalary)}/yr today</p>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Squat Calculator — 1RM, Training Weights & Strength Standards 2026',
+  title: 'Squat 1RM Calculator 2026 | TOOLTRIO',
   description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Compare your squat strength to age and sex standards. Free online squat calculator 2026. No signup required.',
   slug: 'squat-calculator',
   category: 'health',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Rent vs Buy Calculator USA 2026 – 10-Year True Cost of Renting vs Homeownership',
+ title: 'Rent vs Buy Calculator USA 2026 | TOOLTRIO',
  description: 'Free rent vs buy calculator USA 2026. Compare the 10-year true cost of renting vs buying including mortgage, taxes, maintenance, appreciation, and opportunity cost. Real examples for $1,500-$3,500 monthly housing budgets.',
  slug: 'rent-vs-buy-calculator',
  category: 'finance',

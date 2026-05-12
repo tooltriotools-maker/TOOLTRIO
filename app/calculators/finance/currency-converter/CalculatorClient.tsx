@@ -76,7 +76,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 <span className={`w-1.5 h-1.5 rounded-full ${live ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`} />
                 {live ? 'LIVE' : 'CACHED'}
               </span>
-              <button onClick={refresh} disabled={loading} className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors">
+              <button onClick={refresh} disabled={loading} className="p-1.5 rounded-lg hover:bg-gray-100 transition-all">
                 <RefreshCw className={`w-3.5 h-3.5 text-gray-500 ${loading ? 'animate-spin' : ''}`} />
               </button>
             </div>
@@ -150,7 +150,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {/* Rate cards */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {quickConversions.map(c => (
-              <div key={c.code} className="bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 transition-colors cursor-pointer"
+              <div key={c.code} className="bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 transition-all cursor-pointer"
                 onClick={() => setTo(c.code)}>
                 <p className="text-lg font-black text-gray-900">{fmt(c.result, c.code)}</p>
                 <p className="text-xs text-gray-500 mt-0.5">{c.flag} {c.code} . {c.name}</p>
@@ -183,7 +183,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                       const inrRate = (rates['INR'] ?? 83.92) / rate
                       const info = CURRENCY_INFO[code]
                       return (
-                        <tr key={code} className="border-b border-orange-100 last:border-0 hover:bg-orange-100/50 transition-colors">
+                        <tr key={code} className="border-b border-orange-100 last:border-0 hover:bg-orange-100/50 transition-all">
                           <td className="py-2 font-semibold text-gray-800">{info?.flag} {code} <span className="text-gray-400 font-normal text-xs">. {info?.name}</span></td>
                           <td className="py-2 text-right font-bold text-gray-900">₹{inrRate.toFixed(2)}</td>
                           <td className="py-2 text-right text-gray-500 text-xs">1 ₹ = {(1/inrRate).toFixed(5)} {code}</td>

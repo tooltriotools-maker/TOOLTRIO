@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Birthday Countdown Calculator – Days Until My Next Birthday',
+  title: 'Birthday Countdown Calculator | TOOLTRIO',
   description: 'See exactly how many days, hours, minutes, and seconds until your next birthday. Live real-time countdown. Free, no login, works on any device.',
   slug: 'birthday-countdown',
   keywords: [

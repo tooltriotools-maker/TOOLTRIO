@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Omega-3 Calculator — DHA, EPA & ALA Daily Needs by Health Goal 2026',
+  title: 'Omega-3 Calculator 2026 | TOOLTRIO',
   description: 'Free Omega3 Calculator 2026 — Calculate your daily omega3 needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'omega3-calculator',
   category: 'health',

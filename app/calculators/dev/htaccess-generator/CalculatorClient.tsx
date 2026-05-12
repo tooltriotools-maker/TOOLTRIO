@@ -100,12 +100,12 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">.htaccess Generator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">⚙️ .htaccess Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚙️ .htaccess Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Generate Apache .htaccess files with HTTPS redirect, WWW handling, custom redirects, hotlink protection, caching, and more.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <h2 className="font-bold text-gray-900 mb-4">Site Configuration</h2>
             <div className="mb-4">
               <label className="text-xs font-bold text-gray-500 uppercase block mb-1">Your Domain</label>
@@ -141,7 +141,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-bold text-gray-900">Custom Redirects (301)</h2>
               <button onClick={addRedirect} className="flex items-center gap-1 text-xs font-bold text-blue-600"><Plus className="w-3.5 h-3.5"/>Add</button>
@@ -205,7 +205,7 @@ According to W3Techs (2024), Apache powers approximately 28.2% of all websites, 
       />
 
       <div className="mt-8 space-y-3">
-        {faqs.map(f => <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+        {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
           <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}

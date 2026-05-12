@@ -45,10 +45,10 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">IP Subnet Calculator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🌐 IP Subnet Calculator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌐 IP Subnet Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Calculate subnet masks, network addresses, broadcast addresses, and usable host ranges for any CIDR block.</p>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4 shadow-sm">
+      <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-3 mb-4">
           <input value={ip} onChange={e=>setIp(e.target.value)} placeholder="192.168.1.0"
             className="flex-1 font-mono px-3 py-2.5 border-2 border-gray-200 rounded-xl font-bold focus:border-green-400 focus:outline-none" />
@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs }: Props) {
             {l:'Usable Hosts',v:hosts.toLocaleString(),k:'hosts'},
             {l:'CIDR Notation',v:`${networkIp}/${prefix}`,k:'cidr'},
           ].map(item=>(
-            <div key={item.k} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+            <div key={item.k} className="flex items-center justify-between p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
               <span className="text-sm font-semibold text-gray-600">{item.l}</span>
               <div className="flex items-center gap-2">
                 <code className="font-mono font-black text-gray-900">{item.v}</code>
@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       <div className="space-y-3">
         {faqs.map(f=>(
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

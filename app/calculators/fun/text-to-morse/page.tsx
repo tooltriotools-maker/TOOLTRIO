@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Morse Code Translator – Text to Morse Code & Back Online',
+  title: 'Morse Code Translator Online | TOOLTRIO',
   description: 'Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code translator with reference chart.',
   slug: 'text-to-morse',
   keywords: [

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Word Counter — Words, Characters, Sentences, Reading Time',
+  title: 'Word Counter Online | TOOLTRIO',
   description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs in your browser.',
   slug: 'word-counter',
   keywords: ['word counter online free','character count tool browser','word count text online','count words characters sentences','word frequency counter free'],

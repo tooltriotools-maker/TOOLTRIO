@@ -63,7 +63,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
 
           <div className="mt-3 space-y-2">
-            <div className="p-3 rounded-xl bg-gray-50 border border-gray-100">
+            <div className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
               <p className="text-xs text-gray-500 font-semibold">Recommended sleep</p>
               <p className="text-sm font-black text-gray-900">7-9 hours (5-6 cycles)</p>
             </div>

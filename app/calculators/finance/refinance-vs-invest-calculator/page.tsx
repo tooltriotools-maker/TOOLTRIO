@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mortgage Refinance vs Invest Calculator USA 2026 – Closing Costs or Stock Market?',
+ title: 'Refinance vs Invest Calculator USA 2026 | TOOLTRIO',
  description: 'Free mortgage refinance vs invest calculator USA 2026. Compare using closing cost cash to refinance your mortgage vs investing it in the stock market. Break-even analysis included. Real examples for $5k-$20k closing costs.',
  slug: 'refinance-vs-invest-calculator',
  category: 'finance',

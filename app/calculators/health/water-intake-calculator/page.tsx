@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Water Intake Calculator — Daily Water by Weight, Climate & Activity Level 2026',
+  title: 'Water Intake Calculator 2026 | TOOLTRIO',
   description: 'Free Water Intake Calculator 2026. Calculate your daily water needs based on weight, activity level, and climate. Goes beyond the \'8 glasses a day\' myth with science-based hydration targets.\', heat, and pregnancy.',
   slug: 'water-intake-calculator',
   category: 'health',

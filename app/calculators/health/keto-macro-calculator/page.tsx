@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Keto Macro Calculator — Net Carbs, Protein & Fat for Ketosis 2026',
+  title: 'Keto Macro Calculator 2026 | TOOLTRIO',
   description: 'Free Keto Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples for weight loss and muscle building. Instant results.',
   slug: 'keto-macro-calculator',
   category: 'health',

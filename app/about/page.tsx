@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { TrendingUp, Heart, Target, Users, Globe, Shield, Zap, BookOpen } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About tooltrio.com - Free, Accurate Finance &amp; Health Calculators',
+  title: 'About TOOLTRIO – Free Finance & Health Calculators',
   description: 'tooltrio.com provides 400+ free finance and health calculators for Americans - SIP, EMI, BMI, TDEE, and more. No signup, no ads. Built to help people make better financial and health decisions.',
   alternates: { canonical: 'https://tooltrio.com/about' },
 }
@@ -54,7 +54,7 @@ export default function AboutPage() {
             return (
               <div key={s.label} className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 text-center">
                 <Icon className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                <p className="text-3xl font-black text-gray-900">{s.value}</p>
+                <p className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.value}</p>
                 <p className="text-sm text-gray-500 font-semibold mt-1">{s.label}</p>
               </div>
             )
@@ -63,7 +63,7 @@ export default function AboutPage() {
 
         {/* Mission */}
         <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 md:p-10 mb-10">
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Our Mission</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Our Mission</h2>
           <p className="text-gray-600 leading-relaxed text-lg mb-4">
             Financial calculators should be <strong>free, fast, and honest</strong>. Too many finance websites hide their tools behind paywalls, require email signups, or drown you in ads. We believe that's wrong.
           </p>
@@ -74,12 +74,12 @@ export default function AboutPage() {
 
         {/* Values */}
         <div className="mb-10">
-          <h2 className="text-2xl font-black text-gray-900 mb-6 text-center">What We Stand For</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 text-center" style={{fontFamily:"'Playfair Display', serif"}}>What We Stand For</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {values.map(v => {
               const Icon = v.icon
               return (
-                <div key={v.title} className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+                <div key={v.title} className="rounded-3xl border p-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${v.color} mb-4`}>
                     <Icon className="w-5 h-5" />
                   </div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
 
         {/* SEO / AI discoverability content */}
         <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Frequently Asked Questions</h2>
           <div className="space-y-5">
             {[
               { q: 'Is tooltrio.com really free?', a: 'Yes, 100% free. Every calculator, every chart, every blog article - no subscription, no premium tier, no credit card required. Ever.' },

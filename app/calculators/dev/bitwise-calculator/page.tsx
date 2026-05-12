@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Bitwise Calculator — AND, OR, XOR, NOT Operations Free',
+  title: 'Bitwise Calculator – AND, OR, XOR | TOOLTRIO',
   description: 'Perform AND, OR, XOR, NOT, and shift operations on binary values. Shows binary, decimal, and hex output. Runs in your browser.',
   slug: 'bitwise-calculator',
   keywords: ['bitwise calculator online free','and or xor not bit operations','bitwise operator calculator browser','binary bitwise operations free','bit manipulation tool online'],

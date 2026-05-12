@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Bonds Calculator India 2026 – Mutual Fund SIP vs Government and Corporate Bonds',
+ title: 'SIP vs Bonds Calculator India 2026 | TOOLTRIO',
  description: 'Free SIP vs bonds calculator India 2026. Compare SIP mutual fund returns vs government bonds, corporate bonds, and tax-free bonds. Real examples for INR 5k-30k monthly investments over 5-20 year horizons.',
  slug: 'sip-vs-bonds-calculator',
  category: 'finance',

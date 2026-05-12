@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Hydration Calculator — Sport & Exercise Hydration Planning by Sweat Rate 2026',
+  title: 'Hydration Calculator 2026 | TOOLTRIO',
   description: 'Free Hydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary adults. Evidence-based hydration targets. No signup.',
   slug: 'hydration-calculator',
   category: 'health',

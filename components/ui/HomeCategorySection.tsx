@@ -50,7 +50,7 @@ export default function HomeCategorySection({
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h2 className="text-2xl font-black font-display text-gray-900 flex items-center gap-2">
+          <h2 className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>
             <span className={c.icon}>{icon}</span> {title}
           </h2>
           <p className="text-gray-500 text-sm mt-1">{subtitle}</p>
@@ -64,14 +64,14 @@ export default function HomeCategorySection({
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {displayed.map(calc => (
           <Link key={calc.href} href={calc.href}
-            className={`group relative p-4 rounded-2xl bg-white border border-gray-100 shadow-card ${c.hover} transition-all duration-200`}>
+            className="group relative p-4 rounded-2xl border transition-all" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(255,255,255,0.55)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-4px)';el.style.boxShadow='0 12px 28px rgba(15,23,42,0.10)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='0 4px 16px rgba(15,23,42,0.05)';}}>
             {(calc.badge || calc.tag) && (() => {
               const b = calc.badge || calc.tag || ''
               const bc = BADGE_COLORS[b] || c.badge
               return <span className={`absolute top-2 right-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full border ${bc}`}>{b}</span>
             })()}
             <span className="text-2xl mb-2 block">{calc.icon}</span>
-            <span className={`font-bold text-gray-900 text-sm transition-colors leading-tight block group-hover:${accentColor === 'green' ? 'text-green-700' : accentColor === 'red' ? 'text-red-600' : accentColor === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{calc.name}</span>
+            <span className={`font-bold text-gray-900 text-sm transition-all leading-tight block group-hover:${accentColor === 'green' ? 'text-green-700' : accentColor === 'red' ? 'text-red-600' : accentColor === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{calc.name}</span>
             <span className="text-xs text-gray-400 mt-0.5 leading-relaxed line-clamp-2 block">{calc.desc}</span>
           </Link>
         ))}
@@ -84,7 +84,7 @@ export default function HomeCategorySection({
             accentColor === 'red' ? 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white' :
             accentColor === 'blue' ? 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white' :
             'border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white'
-          } transition-all`}>
+          }}`} style={{borderRadius:'16px',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}>
           {viewAllLabel}
         </Link>
       </div>

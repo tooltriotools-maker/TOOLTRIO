@@ -42,7 +42,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Line Sorter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">^v️ Line Sorter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>^v️ Line Sorter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Sort, reverse, shuffle or deduplicate lines - all in your browser</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {[{v:'az',l:'A -> Z'},{v:'za',l:'Z -> A'},{v:'len-asc',l:'Shortest first'},{v:'len-desc',l:'Longest first'},{v:'reverse',l:'Reverse'},{v:'shuffle',l:'Shuffle'},{v:'unique',l:'Unique only'}].map(m=>(
@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <pre className="h-72 font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto whitespace-pre">{output}</pre>
         </div>
       </div>
-      <div className="mt-8 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-8 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Line Sorter</h2>
         <p className="text-gray-600 text-sm mb-6 leading-relaxed">The Line Sorter instantly organises multi-line text in any order you need - alphabetically, by length, reversed, shuffled, or deduplicated. Perfect for developers sorting lists of names, file paths, CSS classes, JSON keys, or any newline-separated data. Everything runs in your browser - nothing is sent to any server.</p>
         <h3 className="font-bold text-gray-900 mb-3">Step-by-Step Guide</h3>
@@ -85,11 +85,11 @@ export default function CalculatorClient({ faqs }: Props) {
           ))}
         </ol>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}>
             <p className="text-xs font-bold text-blue-600 uppercase mb-2">Example Input</p>
             <code className="text-sm font-mono text-blue-800">banana<br/>apple<br/>cherry<br/>apple<br/>date</code>
           </div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200">
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}>
             <p className="text-xs font-bold text-green-600 uppercase mb-2">A→Z + Unique Output</p>
             <code className="text-sm font-mono text-green-800">apple<br/>banana<br/>cherry<br/>date</code>
           </div>
@@ -104,7 +104,7 @@ export default function CalculatorClient({ faqs }: Props) {
           ].map((t,i)=>(<div key={i} className="flex items-start gap-2"><span className="text-green-500 font-bold mt-0.5">v</span><span className="text-sm text-gray-700">{t}</span></div>))}
         </div>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Line Sorter — Sort and Deduplicate Text Lines"
         category="dev"

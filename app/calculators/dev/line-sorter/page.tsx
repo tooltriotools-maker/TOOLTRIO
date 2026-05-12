@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Line Sorter — Sort, Reverse, and Shuffle Lines Free Online',
+  title: 'Line Sorter Online | TOOLTRIO',
   description: 'Sort lines alphabetically, numerically, by length, or reverse. Shuffle randomly. Trim whitespace and remove empty lines. Runs entirely in your browser.',
   slug: 'line-sorter',
   keywords: ['line sorter online free','sort lines alphabetically browser','sort text lines free','reverse sort lines online','line sorter no duplicates'],

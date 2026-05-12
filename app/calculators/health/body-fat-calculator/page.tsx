@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Fat Calculator — US Navy Method, BMI Method & Athlete Formula 2026',
+  title: 'Body Fat Calculator 2026 | TOOLTRIO',
   description: 'Free Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More accurate than BMI alone. Instant results.',
   slug: 'body-fat-calculator',
   category: 'health',

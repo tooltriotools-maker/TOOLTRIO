@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Diff Checker — Compare Text Side by Side Free Online',
+  title: 'Diff Checker – Compare Text Online | TOOLTRIO',
   description: 'Compare two blocks of text or code and see differences highlighted line by line. Added, removed, and changed lines clearly marked. Runs entirely in your browser.',
   slug: 'diff-checker',
   keywords: ['diff checker online free','text comparison tool browser','compare two texts online','diff files online free','text diff side by side'],

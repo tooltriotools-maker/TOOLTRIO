@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "Mutual Fund vs FD Calculator India 2026 – Market Returns vs Fixed Deposit",
+ title: 'Mutual Fund vs FD Calculator India | TOOLTRIO',
  description: "Free mutual fund vs FD calculator India 2026. Compare lump sum mutual fund returns vs Fixed Deposit after tax and inflation. Real examples for INR 1L-25L investments over 3-20 year periods.",
  slug: 'mutual-fund-vs-fd-calculator',
  category: 'finance',

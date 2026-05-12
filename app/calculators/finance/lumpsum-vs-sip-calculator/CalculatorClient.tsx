@@ -46,11 +46,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
 
           <div className="mt-5 space-y-2 text-sm">
-            <div className="p-3 bg-green-50 rounded-xl border border-green-200">
+            <div className="p-3 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}>
               <p className="font-bold text-green-800">Lump Sum Strategy</p>
               <p className="text-gray-600">Invest {fmt(totalAmount)} on Day 1</p>
             </div>
-            <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+            <div className="p-3 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}>
               <p className="font-bold text-blue-800">SIP / DCA Strategy</p>
               <p className="text-gray-600">Invest {fmt(result.monthlyAmount)}/month for {years} years</p>
             </div>
@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-500">Difference</p>
-                <p className="text-2xl font-black text-gray-900">{fmt(result.difference)}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.difference)}</p>
                 <p className="text-xs text-gray-500">({((result.difference / loserFV) * 100).toFixed(1)}% more than loser)</p>
               </div>
             </div>
@@ -77,12 +77,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <div className={`rounded-2xl border p-4 ${result.lumpSumBetter ? 'bg-green-50 border-green-300' : 'bg-white border-gray-200'}`}>
               <p className="text-xs font-bold text-green-600 mb-1">💰 LUMP SUM</p>
-              <p className="text-2xl font-black text-gray-900">{fmt(result.lumpSumFV)}</p>
+              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.lumpSumFV)}</p>
               <p className="text-sm text-gray-500">Gain: {fmt(result.lumpSumGain)}</p>
             </div>
             <div className={`rounded-2xl border p-4 ${!result.lumpSumBetter ? 'bg-blue-50 border-blue-300' : 'bg-white border-gray-200'}`}>
               <p className="text-xs font-bold text-blue-600 mb-1">📅 SIP / DCA</p>
-              <p className="text-2xl font-black text-gray-900">{fmt(result.sipFV)}</p>
+              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.sipFV)}</p>
               <p className="text-sm text-gray-500">Gain: {fmt(result.sipGain)}</p>
             </div>
           </div>
@@ -104,8 +104,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </div>
       </div>
             <div className="mt-8">
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6">Lumpsum vs Sip: Complete Guide</h2>
+        <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>Lumpsum vs Sip: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is Lumpsum?</h3>
@@ -124,7 +124,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
           </div>
-          <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
+          <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>
             <h3 className="font-bold text-green-800 mb-2">💡 Expert Tip</h3>
             <p className="text-sm text-green-700 leading-relaxed">Most financial advisors recommend not putting all your money in one option. A diversified approach - splitting between Lumpsum and Sip based on your specific goals - often provides better risk-adjusted returns than going all-in on either. Use this calculator to find your optimal split.</p>
           </div>

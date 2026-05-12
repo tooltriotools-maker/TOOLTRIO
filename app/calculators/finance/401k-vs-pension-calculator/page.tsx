@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '401k vs Pension Calculator USA 2026 – Self-Directed vs Defined Benefit Retirement',
+ title: '401k vs Pension Calculator USA 2026 | TOOLTRIO',
  description: 'Free 401k vs pension calculator USA 2026. Compare self-directed 401k growth vs defined benefit pension income at retirement. Real examples for $60k-$120k salary with 20-35 year careers.',
  slug: '401k-vs-pension-calculator',
  category: 'finance',

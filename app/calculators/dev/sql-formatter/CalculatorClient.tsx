@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">SQL Formatter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🗄️ SQL Formatter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🗄️ SQL Formatter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Format and beautify SQL queries - capitalises keywords and adds clean indentation</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
@@ -99,7 +99,7 @@ CTEs improve readability. Complex queries with multiple subqueries are almost al
 Diff before and after changes. After modifying a complex query, use [Diff Checker](/calculators/dev/diff-checker) to see exactly what changed — formatted queries produce much more readable diffs than minified ones.`}
         conclusion={`SQL queries are team-maintained code, and readable queries are easier to review, debug, and maintain. This formatter handles complex SQL including CTEs, window functions, and nested subqueries. For query design: [SQL JOIN Visualizer](/calculators/dev/sql-join-visualizer).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
     </div>
   )
 

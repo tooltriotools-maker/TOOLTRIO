@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Paycheck Calculator USA 2026 – Take-Home Pay After Federal & State Tax',
+ title: 'Paycheck Calculator USA – Take-Home Pay | TOOLTRIO',
  description: 'Free paycheck calculator USA 2026. Calculate your exact take-home pay after federal tax, state tax, Social Security, and Medicare deductions. Real examples for $40k–$150k salary.',
  slug: 'paycheck-calculator',
  category: 'finance',

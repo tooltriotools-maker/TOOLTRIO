@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Fasting Window Calculator — Daily Fasting Hours, Timing & Autophagy Onset 2026',
+  title: 'Fasting Window Calculator 2026 | TOOLTRIO',
   description: 'Free Fasting Window Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD protocols. Evidence-based results. No signup required.',
   slug: 'fasting-window-calculator',
   category: 'health',

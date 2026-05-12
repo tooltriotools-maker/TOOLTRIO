@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Municipal Bonds vs Corporate Bonds Calculator USA 2026 – After-Tax Yield',
+ title: 'Muni Bonds vs Corporate Bonds USA | TOOLTRIO',
  description: 'Free municipal bonds vs corporate bonds calculator USA 2026. Compare tax-free muni bonds vs taxable corporate bonds on after-tax yield based on your tax bracket. Real examples for $10k-$500k fixed income investments.',
  slug: 'municipal-bonds-vs-corporate-bonds-calculator',
  category: 'finance',

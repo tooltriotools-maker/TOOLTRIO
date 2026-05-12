@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Dehydration Calculator — Fluid Deficit Estimation & Rehydration Plan 2026',
+  title: 'Dehydration Calculator 2026 | TOOLTRIO',
   description: 'Free Dehydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary adults. Evidence-based hydration targets. No signup.',
   slug: 'dehydration-calculator',
   category: 'health',

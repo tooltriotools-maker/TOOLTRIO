@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Filter Generator — Blur, Brightness, Contrast & More Free',
+  title: 'CSS Filter Generator Online | TOOLTRIO',
   description: 'Build CSS filter effects visually — blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia, and drop-shadow. Live preview with copy-ready CSS.',
   slug: 'css-filter-gen',
   keywords: ['css filter generator online free','css filter effects preview','blur brightness contrast css tool','css filter code builder free','image css filter generator'],

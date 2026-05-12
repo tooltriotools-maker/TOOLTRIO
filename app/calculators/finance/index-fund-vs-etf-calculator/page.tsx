@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Index Fund vs ETF Calculator USA 2026 – Expense Ratio, Tax and Long-Term Cost',
+ title: 'Index Fund vs ETF Calculator USA 2026 | TOOLTRIO',
  description: 'Free index fund vs ETF calculator USA 2026. Compare index mutual funds vs ETFs on expense ratio, tax drag, minimum investment, and long-term total cost. Real examples for $10k-$500k portfolio sizes.',
  slug: 'index-fund-vs-etf-calculator',
  category: 'finance',

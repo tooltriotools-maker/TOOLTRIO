@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Weight Gain Calculator — Trimester-by-Trimester Targets by Pre-Pregnancy BMI 2026',
+  title: 'Pregnancy Weight Gain Calculator 2026 | TOOLTRIO',
   description: 'Free Pregnancy Weight Gain Calculator 2026 — Accurate pregnancy weight gain based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-weight-gain-calculator',
   category: 'health',

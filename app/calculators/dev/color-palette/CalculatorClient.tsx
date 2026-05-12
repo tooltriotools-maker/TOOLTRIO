@@ -127,11 +127,11 @@ export default function CalculatorClient({ faqs }: Props) {
         <span className="text-gray-700 font-semibold">Color Palette Generator</span>
       </nav>
 
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🎨 Color Palette Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎨 Color Palette Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Generate beautiful, accessible color palettes using color theory harmony rules. Perfect for web design, brand identity, and UI development.</p>
 
       {/* Controls */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap gap-4 items-end">
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-2">Base Color</label>
@@ -159,7 +159,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Palette */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-bold text-gray-900">{HARMONY_TYPES.find(h=>h.id===harmonyType)?.label} Palette</h2>
           <button onClick={copyAll} className="flex items-center gap-1.5 text-xs font-bold text-purple-600 border border-purple-200 px-3 py-1.5 rounded-xl hover:bg-purple-50">
@@ -188,7 +188,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       {/* Tailwind-style scale */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-4">Tailwind-Style Color Scale</h2>
         <div className="space-y-2">
           {scale.map(({ shade, hex: shadeHex }) => {
@@ -257,7 +257,7 @@ Design systems at companies like Tailwind CSS, Ant Design, Material Design, and 
 
       <div className="mt-8 space-y-3">
         {faqs.map(f => (
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

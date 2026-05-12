@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import FDCalculatorClient from './FDCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CD / Fixed Deposit Calculator USA 2026 – Interest Earned and Maturity Value',
+ title: 'CD / Fixed Deposit Calculator USA 2026 | TOOLTRIO',
  description: 'Free CD and fixed deposit calculator USA 2026. Calculate interest earned, maturity value, and effective annual yield for any certificate of deposit. Real examples for $5k-$100k deposits at 4-6% rates.',
  slug: 'fd-calculator',
  category: 'finance',

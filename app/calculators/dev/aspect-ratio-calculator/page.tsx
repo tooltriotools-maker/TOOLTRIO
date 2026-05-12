@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Aspect Ratio Calculator — Image & Video Dimensions Free',
+  title: 'Aspect Ratio Calculator Online | TOOLTRIO',
   description: 'Calculate aspect ratios, resize dimensions while maintaining ratio, and convert between common ratios. Runs in your browser.',
   slug: 'aspect-ratio-calculator',
   keywords: ['aspect ratio calculator online free','image aspect ratio checker browser','16 9 4 3 ratio converter','video aspect ratio calculator','responsive image ratio tool free'],

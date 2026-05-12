@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">XML Formatter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📰 XML Formatter &amp; Validator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📰 XML Formatter &amp; Validator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Format, indent and minify XML - runs entirely in your browser</p>
       <div className="flex gap-3 mb-4">
         {(['format','minify'] as const).map(m=>(
@@ -72,12 +72,12 @@ export default function CalculatorClient({ faqs }: Props) {
           <pre className="h-72 font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto whitespace-pre">{result.out||'Formatted output appears here...'}</pre>
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the XML Formatter</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Paste any XML document into the left panel. Click Format to pretty-print with indentation (choose 2 or 4 spaces), or Minify to collapse it to a single line for production use. XML is used for SOAP APIs, RSS feeds, Maven POM files, Android layouts, SVG files, and countless configuration formats. Formatted XML is much easier to read and debug than a single-line blob.</p>
         <p className="text-sm text-gray-600">Common use cases: Format a SOAP response to find the data fields. Minify a large XML config for faster transmission. Compare XML structures by formatting both before using a diff tool. All processing is client-side - your XML data never leaves your browser.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="XML Formatter & Validator"
         category="dev"

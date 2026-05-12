@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Macro Calculator — Protein, Carbs & Fat by Goal (Cutting, Bulking, Maintenance) 2026',
+  title: 'Macro Calculator – Protein, Carbs & Fat | TOOLTRIO',
   description: 'Free Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples for weight loss and muscle building. Instant results.',
   slug: 'macro-calculator',
   category: 'health',

@@ -120,7 +120,7 @@ function DropdownMenu({ items, allHref, color, accent, type }: { items: typeof N
       style={{ background:'#0d1425', border:`1px solid rgba(255,255,255,0.08)`, boxShadow:'0 24px 60px rgba(0,0,0,0.6)' }}>
       {items.slice(0, PREVIEW_COUNT).map(c => (
         <Link key={c.slug} href={`${base}/${c.slug}`}
-          className="flex items-center gap-3 px-4 py-2 text-sm transition-colors group"
+          className="flex items-center gap-3 px-4 py-2 text-sm transition-all group"
           style={{ color:'#94a3b8' }}
           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = color; (e.currentTarget as HTMLElement).style.background = accent }}
           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#94a3b8'; (e.currentTarget as HTMLElement).style.background = 'transparent' }}>
@@ -165,6 +165,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
             <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto",filter:"brightness(0) invert(1)"}} />
+            <span className="font-black text-xl tracking-tight text-white hidden sm:block">TOOLTRIO</span>
           </Link>
 
           {/* Search Bar - Desktop */}

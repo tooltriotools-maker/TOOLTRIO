@@ -6,7 +6,7 @@ export function FAQAccordion({ faqs, colorText }: { faqs: { q: string; a: string
   const [open, setOpen] = useState<number | null>(null)
   return (
     <section className="mb-10" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2">❓ Frequently Asked Questions</h2>
+      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>❓ Frequently Asked Questions</h2>
       <p className="text-sm text-gray-500 mb-5">Detailed answers to the most common questions in this category — with real numbers and examples.</p>
       <div className="space-y-2">
         {faqs.map((faq, i) => (

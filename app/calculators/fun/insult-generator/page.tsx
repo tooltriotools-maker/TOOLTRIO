@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Shakespearean Insult Generator – Olde English Roasts Online',
+  title: 'Shakespearean Insult Generator | TOOLTRIO',
   description: 'Generate dramatic Shakespearean insults, old English roasts, and creative put-downs. Funny, theatrical, and totally harmless. Free online insult generator, no signup.',
   slug: 'insult-generator',
   keywords: [

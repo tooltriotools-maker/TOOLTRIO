@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Sleep Debt Calculator – How Sleep Deprived Are You Really?',
+  title: 'Sleep Debt Calculator | TOOLTRIO',
   description: 'Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend sleep-ins are actually helping.',
   slug: 'sleep-debt-calculator',
   keywords: [

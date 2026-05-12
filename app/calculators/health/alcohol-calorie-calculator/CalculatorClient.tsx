@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <InputField label="Your Weight (kg)" value={weight} onChange={setWeight} min={40} max={200} step={1} suffix="kg" />
           <div className="mt-4 space-y-3">
             {drinks.map((d,i) => (
-              <div key={i} className="p-3 bg-gray-50 rounded-xl border border-gray-200">
+              <div key={i} className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                 <div className="grid grid-cols-2 gap-2 mb-2">
                   <SelectField label="Drink" value={d.type} onChange={v=>setDrinks(ds=>{const n=[...ds];n[i].type=v;n[i].size=Object.keys(DRINK_DB[v]?.sizes||{})[0]||'glass';return n})} options={drinkTypeOpts} />
                   <SelectField label="Size" value={d.size} onChange={v=>setDrinks(ds=>{const n=[...ds];n[i].size=v;return n})} options={Object.entries(DRINK_DB[d.type]?.sizes||{}).map(([k,v])=>({value:k,label:v.label}))} />
@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
             ))}
             <button onClick={()=>setDrinks(ds=>[...ds,{type:'beer_regular',count:1,size:'pint'}])}
-              className="w-full py-2 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-green-400 hover:text-green-600 transition-colors">
+              className="w-full py-2 border-2 border-dashed border-gray-300 rounded-xl text-sm font-semibold text-gray-500 hover:border-green-400 hover:text-green-600 transition-all">
               + Add Drink
             </button>
           </div>

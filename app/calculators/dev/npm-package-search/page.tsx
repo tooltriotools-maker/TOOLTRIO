@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'npm Package Search — Find Packages with Download Stats Free',
+  title: 'npm Package Search Online | TOOLTRIO',
   description: 'Search npm packages with live weekly download stats, version info, license, and GitHub links. Find the right package for your project.',
   slug: 'npm-package-search',
   keywords: ['npm package search online free','npm registry browser search','find npm packages online','npm package info lookup','node modules search tool free'],

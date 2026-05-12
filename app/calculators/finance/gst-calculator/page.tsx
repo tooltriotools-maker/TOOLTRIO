@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Sales Tax and GST Calculator USA 2026 – Tax-Inclusive and Tax-Exclusive Amounts',
+ title: 'Sales Tax & GST Calculator USA 2026 | TOOLTRIO',
  description: 'Free sales tax and GST calculator USA 2026. Calculate tax-inclusive and tax-exclusive amounts, reverse-calculate pre-tax price, and compare rates across all US states. Real examples for $10-$10,000 purchases.',
  slug: 'gst-calculator',
  category: 'finance',

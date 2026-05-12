@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="font-bold text-gray-900 mb-3">Food Sources to Hit {result.perMeal}g Per Meal</h3>
             <div className="grid grid-cols-2 gap-2">
               {result.SOURCES.map(s=>(
-                <div key={s.f} className="p-3 bg-gray-50 rounded-xl border border-gray-200">
+                <div key={s.f} className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <p className="text-sm font-semibold text-gray-800">{s.f}</p>
                   <p className="text-lg font-black text-green-600">{typeof s.g === 'number' ? `${s.g}g` : s.g}</p>
                 </div>

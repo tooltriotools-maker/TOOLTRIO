@@ -42,9 +42,9 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Number Formatter</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🔢 Number Formatter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔢 Number Formatter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Format numbers with thousands separators, currency, K/M/B and more</p>
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="sm:col-span-2"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Number</label>
             <input value={num} onChange={e=>setNum(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-3 text-xl font-mono font-bold focus:outline-none" /></div>
@@ -71,16 +71,16 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         )}
       </div>
-      <div className="mt-8 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-8 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Number Formatter</h2>
         <p className="text-gray-600 text-sm mb-4">Enter any number to instantly see it formatted in 10 different ways - with commas, as currency, in K/M/B shorthand, as a percentage, and more. Choose your locale to get region-specific formatting (e.g. German uses periods as thousand separators).</p>
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-1">Input</p><code className="text-sm font-mono text-blue-800">1234567.89</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-1">en-US Currency</p><code className="text-sm font-mono text-green-800">$1,234,567.89</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-1">Input</p><code className="text-sm font-mono text-blue-800">1234567.89</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-1">en-US Currency</p><code className="text-sm font-mono text-green-800">$1,234,567.89</code></div>
         </div>
         <p className="text-sm text-gray-600">Use locale <strong>de-DE</strong> for European formatting (1.234.567,89). The Compact format converts large numbers to human-readable K/M/B notation useful for dashboards. Copy any format with one click to use directly in your code or spreadsheet.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Number Formatter"
         category="dev"

@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Body Fat Percentage</p>
-              <div className="text-7xl font-black font-display mb-2" style={{ color: currentCat.color }}>{result.bodyFat}%</div>
+              <div className="text-7xl font-black mb-2 transition-all duration-500" style={{ color: currentCat.color }}>{result.bodyFat}%</div>
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-bold" style={{ background: `${currentCat.color}20`, color: currentCat.color, border: `1px solid ${currentCat.color}40` }}>
                 {result.category}
               </span>

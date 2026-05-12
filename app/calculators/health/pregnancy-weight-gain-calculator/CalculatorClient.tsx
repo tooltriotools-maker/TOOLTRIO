@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Weeks Pregnant" value={weeksPregnant} onChange={setWeeksPregnant} min={4} max={42} step={1} suffix="weeks" />
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <span className="text-sm font-medium text-gray-700">Twins?</span>
-              <button onClick={()=>setTwins(!twins)} className={`w-10 h-5 rounded-full transition-colors ${twins?'bg-pink-500':'bg-gray-200'}`}>
+              <button onClick={()=>setTwins(!twins)} className={`w-10 h-5 rounded-full transition-all ${twins?'bg-pink-500':'bg-gray-200'}`}>
                 <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${twins?'translate-x-5':''}`} />
               </button>
             </div>

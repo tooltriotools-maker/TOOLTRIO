@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "UK Pension vs Stocks and Shares ISA Calculator 2026 – Best UK Retirement Account",
+ title: 'UK Pension vs ISA Calculator 2026 | TOOLTRIO',
  description: "Free UK pension vs Stocks and Shares ISA calculator 2026. Compare workplace pension with employer match vs Stocks ISA on after-tax retirement wealth and flexibility. Real examples for GBP 30k-100k UK income.",
  slug: 'uk-pension-vs-isa-calculator',
  category: 'finance',

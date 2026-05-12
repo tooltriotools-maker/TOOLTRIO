@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Heart Rate Calculator — Max HR, Target Zones, Resting HR & VO2max Estimate 2026',
+  title: 'Heart Rate Calculator – Training Zones | TOOLTRIO',
   description: 'Free Heart Rate Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
   slug: 'heart-rate-calculator',
   category: 'health',

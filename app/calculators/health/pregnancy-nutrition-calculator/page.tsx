@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Nutrition Calculator — Calorie, Protein & Nutrient Needs by Trimester 2026',
+  title: 'Pregnancy Nutrition Calculator 2026 | TOOLTRIO',
   description: 'Free Pregnancy Nutrition Calculator 2026 — Accurate pregnancy nutrition based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-nutrition-calculator',
   category: 'health',

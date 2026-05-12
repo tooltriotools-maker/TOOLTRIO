@@ -57,9 +57,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="font-bold text-gray-900 mb-4">BSA by Formula</h3>
             <div className="grid grid-cols-2 gap-3">
               {formulas.map(f=>(
-                <div key={f.name} className="p-3 bg-gray-50 rounded-xl border border-gray-200 text-center">
+                <div key={f.name} className="p-3 rounded-2xl border text-center" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <p className="text-xs font-bold text-gray-500">{f.name}</p>
-                  <p className="text-2xl font-black text-gray-900">{f.val} m2</p>
+                  <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{f.val} m2</p>
                   <p className="text-xs text-gray-400">{f.note}</p>
                 </div>
               ))}

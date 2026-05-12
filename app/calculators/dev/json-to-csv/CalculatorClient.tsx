@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">JSON to CSV</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📊 JSON to CSV Converter</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📊 JSON to CSV Converter <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Convert JSON arrays to CSV - auto-detects headers, handles nested values, supports custom delimiters</p>
       <div className="flex gap-3 mb-4">
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1">Delimiter</label>
@@ -59,19 +59,19 @@ export default function CalculatorClient({ faqs }: Props) {
               {result.csv && <button onClick={download} className="flex items-center gap-1 text-xs font-bold text-blue-600"><Download className="w-3.5 h-3.5"/> Download</button>}
             </div>
           </div>
-          {result.error ? <div className="p-4 bg-red-50 rounded-xl border border-red-200"><p className="text-red-600 text-sm font-mono">{result.error}</p></div>
+          {result.error ? <div className="p-4 rounded-2xl border" style={{background:'rgba(254,242,242,0.8)',borderColor:'rgba(252,165,165,0.5)',backdropFilter:'blur(6px)'}}><p className="text-red-600 text-sm font-mono">{result.error}</p></div>
             : <pre className="h-64 font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl overflow-auto whitespace-pre">{result.csv||'Output appears here...'}</pre>}
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the JSON to CSV Converter</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Paste a JSON array of objects into the left panel. The first object's keys become the CSV header row. Every subsequent object becomes a data row. Values containing commas or quotes are automatically wrapped in double-quotes per RFC 4180 standard. Click Download to save as a .csv file you can open directly in Excel or Google Sheets.</p>
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-1">JSON Input</p><code className="text-xs font-mono text-blue-800">{'[{"name":"Alice","age":28}]'}</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-1">CSV Output</p><code className="text-xs font-mono text-green-800">name,age<br/>Alice,28</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-1">JSON Input</p><code className="text-xs font-mono text-blue-800">{'[{"name":"Alice","age":28}]'}</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-1">CSV Output</p><code className="text-xs font-mono text-green-800">name,age<br/>Alice,28</code></div>
         </div>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="JSON to CSV Converter"
         category="dev"

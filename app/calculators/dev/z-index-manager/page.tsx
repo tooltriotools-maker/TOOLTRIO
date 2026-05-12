@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Z-Index Manager — Visualize CSS Stacking Contexts Free',
+  title: 'Z-Index Manager Online | TOOLTRIO',
   description: 'Understand and debug CSS z-index issues. Visualize stacking contexts, explain why z-index is not working, and build a z-index scale. Runs in your browser.',
   slug: 'z-index-manager',
   keywords: ['z-index manager online free','css z-index stacking tool','manage z-index layers browser','css stacking context visualizer','z-index calculator free'],

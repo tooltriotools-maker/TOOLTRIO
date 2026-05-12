@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Gitignore Generator — .gitignore for Any Stack Free Online',
+  title: '.gitignore Generator Online | TOOLTRIO',
   description: 'Generate .gitignore files for Node.js, Python, Ruby, Go, Java, macOS, Windows, and more. Select your stack and copy ready-to-use patterns. Runs in your browser.',
   slug: 'gitignore-generator',
   keywords: ['gitignore generator online free','.gitignore file builder browser','gitignore for node python java','create gitignore free online','gitignore template generator'],

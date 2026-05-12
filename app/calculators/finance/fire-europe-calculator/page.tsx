@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'FIRE Europe Calculator 2026 – Financial Independence Number for UK and EU Investors',
+ title: 'FIRE Calculator Europe 2026 | TOOLTRIO',
  description: 'Free FIRE Europe calculator 2026. Calculate your financial independence number, years to FIRE, and safe withdrawal rate for UK and European investors. Adjusted for European tax, VAT, and social security. Real examples for GBP/EUR 30k-100k income.',
  slug: 'fire-europe-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import BusinessLoanCalculatorClient from './BusinessLoanCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Business Loan Calculator USA 2026 – Monthly Payment, Total Cost and Amortization',
+ title: 'Business Loan Calculator USA 2026 | TOOLTRIO',
  description: 'Free business loan calculator USA 2026. Calculate monthly payments, total interest, and amortization schedule for any business loan. Real examples for $50k-$500k loans at 6-20% interest rates.',
  slug: 'business-loan-calculator',
  category: 'finance',

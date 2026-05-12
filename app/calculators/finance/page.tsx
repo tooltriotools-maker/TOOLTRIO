@@ -4,7 +4,7 @@ import { TrendingUp, ChevronRight, ArrowRight } from 'lucide-react'
 import CalcFilterBar from '@/components/ui/CalcFilterBar'
 
 export const metadata: Metadata = {
-  title: '167 Free Finance Calculators 2026 -- Mortgage, 401k, Budget, Wealth & More',
+  title: '167 Free Finance Calculators 2026 | TOOLTRIO',
   description: '167 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth calculator, auto loan, biweekly mortgage, closing costs, and more. No signup.',
   keywords: [
     'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',
@@ -245,7 +245,7 @@ export default function FinancePage() {
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900">Finance Calculators</h1>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance Calculators</h1>
                 <p className="text-green-600 font-semibold text-sm mt-0.5">151 Free Tools . No Signup . Instant Results</p>
               </div>
             </div>
@@ -267,10 +267,10 @@ export default function FinancePage() {
               {calculators.filter(c => c.popular).map(calc => (
                 <Link key={calc.href} href={calc.href} className="flex items-center gap-3 p-4 rounded-2xl bg-white border-2 border-green-200 hover:border-green-500 hover:shadow-lg transition-all group shadow-sm">
                   <span className="text-2xl">{calc.icon}</span>
-                  <div>
+                  <span>
                     <p className="font-bold text-sm text-gray-900 group-hover:text-green-700">{calc.name}</p>
                     <p className="text-xs text-green-600 font-semibold flex items-center gap-0.5 mt-0.5">Open <ArrowRight className="w-3 h-3" /></p>
-                  </div>
+                  </span>
                 </Link>
               ))}
             </div>

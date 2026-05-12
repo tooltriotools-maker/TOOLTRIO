@@ -104,7 +104,7 @@ export default function PreciousMetalsProfitPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900">💰 Precious Metals Profit Calculator</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>💰 Precious Metals Profit Calculator</h1>
           <p className="text-gray-500 mt-1">Calculate profit &amp; loss on gold, silver, platinum &amp; palladium - including dealer fees, annualized ROI &amp; break-even price</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -196,7 +196,7 @@ export default function PreciousMetalsProfitPage() {
                   </p>
                 </div>
                 <button onClick={() => setUseLive(!useLive)}
-                  className={`w-11 h-6 rounded-full transition-colors relative ${useLive ? 'bg-green-500' : 'bg-gray-300'}`}>
+                  className={`w-11 h-6 rounded-full transition-all relative ${useLive ? 'bg-green-500' : 'bg-gray-300'}`}>
                   <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-all ${useLive ? 'left-5' : 'left-0.5'}`} />
                 </button>
               </div>
@@ -233,7 +233,7 @@ export default function PreciousMetalsProfitPage() {
         <div className="xl:col-span-2 space-y-4">
 
           {/* Big P&amp;L verdict */}
-          <div className={`rounded-2xl border p-6 ${isProfit ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-200' : 'bg-gradient-to-br from-red-50 to-rose-50 border-red-200'}`}>
+          <div className={`rounded-2xl border p-6 ${isProfit ? 'border-green-200' : 'border-red-200'}`} style={{background: isProfit ? 'rgba(240,253,244,0.8)' : 'rgba(254,242,242,0.8)', backdropFilter:'blur(8px)'}}>
             <div className="flex items-start justify-between flex-wrap gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -340,7 +340,7 @@ export default function PreciousMetalsProfitPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Precious Metals Profit Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Precious Metals Profit Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals calculators show you the current price. This one shows you what actually matters for an investor: did you make money, how much, and at what annualized rate? The difference between spot price and your actual realized return includes dealer buy premiums (2–4% above spot when you buy), sell discounts (1–2% below spot when you sell), and the time value of your holding period. A 10% gold price gain over 3 years sounds good until you calculate it was a 3.2% annualized return — barely ahead of a fixed deposit.</p>
             <p>This calculator handles all four precious metals — gold, silver, platinum, and palladium — with separate buy fee and sell fee fields so you enter realistic dealer economics rather than theoretical spot-to-spot returns. The break-even price shows exactly what price the metal must reach before your trade becomes profitable (accounting for all fees). The P&L scenario chart shows profit at ±5%, ±10%, ±15%, ±20%, and ±25% from your buy price — essential for setting realistic profit targets and stop-loss levels.</p>
@@ -364,7 +364,8 @@ export default function PreciousMetalsProfitPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices to get current sell price'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver spot for 999/925/900/800 purity'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Aggregate all metal positions at live prices'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Compare gold ROI against your mutual fund SIP'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — who won?'},{e:'📈',n:'Stock Profit Calculator',h:'/calculators/finance/stock-profit-calculator',d:'Same P&L analysis for equity trades'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-green-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-green-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices to get current sell price'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver spot for 999/925/900/800 purity'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Aggregate all metal positions at live prices'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Compare gold ROI against your mutual fund SIP'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — who won?'},{e:'📈',n:'Stock Profit Calculator',h:'/calculators/finance/stock-profit-calculator',d:'Same P&L analysis for equity trades'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-green-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-green-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

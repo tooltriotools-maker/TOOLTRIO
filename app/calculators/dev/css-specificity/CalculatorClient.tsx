@@ -43,9 +43,9 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">CSS Specificity</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🎯 CSS Specificity Calculator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎯 CSS Specificity Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-8">Calculate and compare CSS selector specificity scores - (A, B, C) breakdown</p>
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6">
+      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-2 mb-4">
           <input value={newSel} onChange={e=>setNewSel(e.target.value)} onKeyDown={e=>e.key==='Enter'&&add()} placeholder="Add a CSS selector... e.g. .nav #link:hover"
             className="flex-1 border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-2.5 font-mono text-sm focus:outline-none" />
@@ -113,7 +113,7 @@ Inline styles beat everything. style=color:red has specificity (1,0,0,0) — hig
           ))}
         </div>
       </div>
-      <div className="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+      <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <h3 className="font-bold text-gray-900 mb-3 text-sm">Specificity Reference</h3>
         <div className="grid grid-cols-2 gap-2 text-xs">
           {[['Inline styles','(1,0,0)','style="..."'],['ID selector','(0,1,0)','#main'],['Class selector','(0,0,1)','.active'],['Attribute selector','(0,0,1)','[type="text"]'],['Pseudo-class','(0,0,1)',':hover :focus'],['Element','(0,0,1)','div h1 p'],['Pseudo-element','(0,0,1)','::before'],['Universal','(0,0,0)','*']].map(([n,s,e])=>(
@@ -124,7 +124,7 @@ Inline styles beat everything. style=color:red has specificity (1,0,0,0) — hig
           ))}
         </div>
       </div>
-      <div className="mt-4 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-4 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
     </div>
   )
 

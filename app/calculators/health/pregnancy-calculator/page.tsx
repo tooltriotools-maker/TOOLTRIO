@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Calculator — Due Date, Week-by-Week Guide & Trimester Milestones 2026',
+  title: 'Pregnancy Calculator 2026 | TOOLTRIO',
   description: 'Free Pregnancy Calculator 2026 — Accurate pregnancy based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-calculator',
   category: 'health',

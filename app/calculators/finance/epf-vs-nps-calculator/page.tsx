@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "EPF vs NPS Calculator India 2026 – Provident Fund vs National Pension System",
+ title: 'EPF vs NPS Calculator India 2026 | TOOLTRIO',
  description: "Free EPF vs NPS calculator India 2026. Compare EPF guaranteed 8.15% returns vs NPS market-linked 10-12% for Indian retirement planning. Real examples for INR 5k-50k monthly contributions.",
  slug: 'epf-vs-nps-calculator',
  category: 'finance',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Yoga Calorie Calculator — Hatha, Vinyasa, Bikram & Restorative Calorie Burn 2026',
+  title: 'Yoga Calorie Calculator 2026 | TOOLTRIO',
   description: 'Free Yoga Calories Calculator 2026. Calculate calories burned during yoga sessions by style, duration, and body weight. Includes Hatha, Vinyasa, Bikram, and restorative yoga comparisons.',
   slug: 'yoga-calories-calculator',
   category: 'health',

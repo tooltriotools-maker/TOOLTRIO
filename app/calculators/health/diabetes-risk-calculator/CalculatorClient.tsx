@@ -63,7 +63,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[{label:'High blood pressure?',val:bp,set:setBp},{label:'Gestational diabetes? (women)',val:gestational,set:setGestational}].map(({label,val,set})=>(
               <div key={label} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
                 <span className="text-sm font-medium text-gray-700">{label}</span>
-                <button onClick={()=>set(!val)} className={`w-10 h-5 rounded-full transition-colors ${val?'bg-red-500':'bg-gray-200'}`}>
+                <button onClick={()=>set(!val)} className={`w-10 h-5 rounded-full transition-all ${val?'bg-red-500':'bg-gray-200'}`}>
                   <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${val?'translate-x-5':''}`} />
                 </button>
               </div>

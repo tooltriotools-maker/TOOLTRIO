@@ -11,9 +11,8 @@ interface CardProps {
 export function Card({ children, className, glow = true, gradient = false }: CardProps) {
   return (
     <div className={cn(
-      'rounded-2xl bg-white p-6',
-      'border border-gray-100 shadow-card',
-      glow && 'transition-all duration-300 hover:border-green-200 hover:shadow-card-hover',
+      'rounded-3xl p-6 border',
+      glow && 'transition-all',
       gradient && 'bg-gradient-to-br from-green-50 to-white border-green-100',
       className
     )}>
@@ -34,7 +33,7 @@ interface ResultCardProps {
 export function ResultCard({ label, value, subValue, highlight, icon, color }: ResultCardProps) {
   return (
     <div className={cn(
-      'rounded-xl p-4 border transition-all duration-200',
+      'rounded-xl p-4 border transition-all',
       highlight
         ? 'bg-gradient-to-br from-green-50 to-green-100/60 border-green-200 shadow-sm'
         : 'bg-gray-50 border-gray-100 hover:border-gray-200'

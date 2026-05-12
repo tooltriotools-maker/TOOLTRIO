@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Germany ETF vs Tagesgeld Calculator 2026 – MSCI World vs Festgeld Returns',
+ title: 'Germany ETF vs Tagesgeld 2026 | TOOLTRIO',
  description: 'Free Germany ETF vs Tagesgeld calculator 2026. Compare MSCI World ETF vs German Tagesgeld (daily savings) and Festgeld (fixed deposit) returns for German investors. Real examples for EUR 10k-200k investments.',
  slug: 'germany-etf-vs-tagesgeld-calculator',
  category: 'finance',

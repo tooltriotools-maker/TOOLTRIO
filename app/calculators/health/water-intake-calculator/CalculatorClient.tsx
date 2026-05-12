@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="text-sm font-bold text-gray-800 mb-4">💧 Daily Hydration Schedule</h3>
             <div className="space-y-2">
               {adjusted.map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-colors">
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all">
                   <span className="text-lg">{item.emoji}</span>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">

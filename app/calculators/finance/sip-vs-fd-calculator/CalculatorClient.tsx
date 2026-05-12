@@ -154,8 +154,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
       </div>
       <div className="mt-8">
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
-          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6">Sip vs Fd: Complete Guide</h2>
+        <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>Sip vs Fd: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">Understanding Sip</h3>
@@ -170,7 +170,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <p>Post-tax returns can differ significantly between these options. Always calculate your effective after-tax return for an accurate comparison in your specific tax bracket.</p>
             </div>
           </div>
-          <div className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200">
+          <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>
             <h3 className="font-bold text-green-800 mb-2">💡 Expert Tip</h3>
             <p className="text-sm text-green-700 leading-relaxed">Most investors benefit from a diversified approach combining both Sip and Fd in proportions that match their goals rather than choosing one exclusively. Use this calculator to find your optimal split.</p>
           </div>

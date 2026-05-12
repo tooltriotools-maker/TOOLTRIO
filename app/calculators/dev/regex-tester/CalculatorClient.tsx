@@ -55,10 +55,10 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Regex Tester</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🔍 Regex Tester</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔍 Regex Tester <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-8">Live regular expression testing with match highlighting</p>
 
-      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-6 space-y-4">
+      <div className="rounded-3xl border p-6 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-1.5">Pattern</label>
           <div className={`flex items-center border-2 rounded-xl overflow-hidden ${result.error ? 'border-red-400' : 'border-gray-200 focus-within:border-green-400'}`}>
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-bold text-gray-900">Matches Highlighted</h3>
             <span className={`text-xs font-bold px-2 py-1 rounded-full ${result.count > 0 ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>{result.count} match{result.count !== 1 ? 'es' : ''}</span>
@@ -113,7 +113,7 @@ export default function CalculatorClient({ faqs }: Props) {
           )}
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+        <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
           <h3 className="font-bold text-gray-900 mb-3">After Replacement</h3>
           <div className="font-mono text-sm leading-relaxed bg-gray-50 rounded-xl p-3 min-h-12 text-gray-700">{result.replaced || testStr}</div>
         </div>
@@ -169,7 +169,7 @@ The g flag is usually what you want. Without the global flag, the regex only fin
       />
       <div className="space-y-3">
         {faqs.map(f => (
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

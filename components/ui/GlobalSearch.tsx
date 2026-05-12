@@ -569,7 +569,9 @@ export function GlobalSearch({ className }: { className?: string }) {
       {/* Trigger */}
       <button
         onClick={openSearch}
-        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 border border-gray-200 hover:bg-white hover:border-green-300 hover:shadow-sm transition-all text-sm text-gray-500 min-w-[160px] group"
+        className="flex items-center gap-2 px-4 py-3 rounded-2xl border text-sm text-gray-500 min-w-[200px] group" style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(12px)', borderColor:'#e2e8f0', boxShadow:'0 4px 16px rgba(0,0,0,0.06)', transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}
+        onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='#22c55e';el.style.boxShadow='0 0 0 4px rgba(34,197,94,0.1)';}}
+        onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='#e2e8f0';el.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';}}
         aria-label="Search calculators and guides"
       >
         <Search className="w-3.5 h-3.5 text-gray-400 group-hover:text-green-500 flex-shrink-0" />
@@ -579,7 +581,7 @@ export function GlobalSearch({ className }: { className?: string }) {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-[480px] max-w-[calc(100vw-1rem)] bg-white border border-gray-200 rounded-2xl shadow-2xl z-[9999] overflow-hidden">
+        <div className="absolute right-0 top-full mt-2 w-[480px] max-w-[calc(100vw-1rem)] border rounded-3xl z-[9999] overflow-hidden" style={{background:'rgba(255,255,255,0.92)', backdropFilter:'blur(16px)', WebkitBackdropFilter:'blur(16px)', borderColor:'rgba(255,255,255,0.6)', boxShadow:'0 20px 60px rgba(15,23,42,0.15)'}}>
           {/* Input */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
             <Search className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -593,7 +595,7 @@ export function GlobalSearch({ className }: { className?: string }) {
               autoComplete="off"
               spellCheck={false}
             />
-            <button onClick={query ? () => setQuery('') : closeSearch} className="p-1 rounded-lg hover:bg-gray-100 transition-colors">
+            <button onClick={query ? () => setQuery('') : closeSearch} className="p-1 rounded-lg hover:bg-gray-100 transition-all">
               <X className="w-3.5 h-3.5 text-gray-400" />
             </button>
           </div>
@@ -607,7 +609,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`flex-shrink-0 px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors ${
+                    className={`flex-shrink-0 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
                       activeTab === tab
                         ? 'bg-green-600 text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -635,11 +637,11 @@ export function GlobalSearch({ className }: { className?: string }) {
                         key={item.href}
                         href={item.href}
                         onClick={closeSearch}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 transition-colors group"
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 transition-all group"
                       >
-                        <div className={`w-6 h-6 rounded-lg ${meta.bg} flex items-center justify-center flex-shrink-0 ${meta.color}`}>
+                        <span className={`w-6 h-6 rounded-lg ${meta.bg} flex items-center justify-center flex-shrink-0 ${meta.color}`} style={{display:'inline-flex'}}>
                           {meta.icon}
-                        </div>
+                        </span>
                         <span className="flex-1 text-sm font-medium text-gray-800 group-hover:text-green-700 truncate">
                           {item.name}
                         </span>
@@ -667,7 +669,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                       key={item.href}
                       href={item.href}
                       onClick={closeSearch}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 transition-colors group"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 transition-all group"
                     >
                       <BarChart2 className="w-4 h-4 text-green-400 flex-shrink-0" />
                       <span className="flex-1 text-sm text-gray-700 group-hover:text-green-700 font-medium">{item.name}</span>
@@ -686,7 +688,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                     <button
                       key={cat as string}
                       onClick={() => { setQuery(cat as string); setActiveTab(cat as string) }}
-                      className={`text-center p-2 rounded-xl ${cls} transition-colors hover:opacity-80`}
+                      className={`text-center p-2 rounded-xl ${cls} transition-all hover:opacity-80`}
                     >
                       <p className="text-sm font-black">{count}</p>
                       <p className="text-[10px] font-semibold">{cat}</p>

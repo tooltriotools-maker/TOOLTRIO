@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Testosterone Calculator — Age-Adjusted Levels, Decline Rate & Optimization Guide 2026',
+  title: 'Testosterone Calculator 2026 | TOOLTRIO',
   description: 'Free Testosterone Age Calculator 2026 — Calculate testosterone age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'testosterone-age-calculator',
   category: 'health',

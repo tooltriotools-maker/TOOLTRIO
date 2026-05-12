@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Number Formatter — Locale Number Display and Separators Free',
+  title: 'Number Formatter Online | TOOLTRIO',
   description: 'Format numbers with locale-appropriate separators — US commas, European periods, Indian lakh system. Convert between locales. Runs entirely in your browser.',
   slug: 'number-formatter',
   keywords: ['number formatter online free','format numbers with commas browser','number to words converter','large number formatter free','locale number format tool'],

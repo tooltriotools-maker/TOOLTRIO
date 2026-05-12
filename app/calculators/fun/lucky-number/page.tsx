@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Lucky Number Calculator – Find Your Life Path & Lucky Numbers',
+  title: 'Lucky Number Calculator | TOOLTRIO',
   description: 'Calculate your life path number, expression number, and personal lucky numbers from your name and birthday using numerology. Free, instant, no signup needed.',
   slug: 'lucky-number',
   keywords: [

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'MIME Type Lookup — File Extension to Content-Type Free',
+  title: 'MIME Type Lookup Online | TOOLTRIO',
   description: 'Look up MIME types by file extension or Content-Type header. Covers 900+ file types. Essential for Content-Type headers and server configuration.',
   slug: 'mime-type-lookup',
   keywords: ['mime type lookup online free','file extension mime type finder','content-type header lookup browser','mime types reference free','what is the mime type of file'],

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Smile, ChevronRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Fun & Entertainment Calculators – 30 Free Tools for Every Occasion',
+  title: '30+ Free Fun Calculators 2026 | TOOLTRIO',
   description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, procrastination score and 22 more free fun tools. No signup, no ads, instant results.',
   keywords: [
     'fun calculators online free',
@@ -148,7 +148,7 @@ export default function FunPage() {
           <Smile className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900">Fun &amp; Entertainment</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Fun &amp; Entertainment</h1>
           <p className="text-pink-600 font-semibold mt-0.5">30 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>
@@ -177,9 +177,9 @@ export default function FunPage() {
             const cfg = TAG_CONFIG[tool.tag]
             return (
               <Link key={tool.href} href={tool.href}
-                className={`group p-4 rounded-2xl bg-white border-2 ${cfg.border} hover:shadow-md transition-all duration-200`}>
+                className={`group p-4 rounded-2xl bg-white border-2 ${cfg.border} hover:shadow-md transition-all`}>
                 <span className="text-2xl mb-2 block">{tool.icon}</span>
-                <p className="font-bold text-gray-900 text-sm group-hover:text-pink-600 transition-colors leading-tight">{tool.name}</p>
+                <p className="font-bold text-gray-900 text-sm group-hover:text-pink-600 transition-all leading-tight">{tool.name}</p>
                 <p className="text-xs text-gray-400 mt-1 leading-snug line-clamp-2">{tool.desc}</p>
               </Link>
             )
@@ -207,10 +207,10 @@ export default function FunPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {catTools.map(tool => (
                 <Link key={tool.href} href={tool.href}
-                  className={`group flex items-start gap-4 p-4 rounded-2xl bg-white border-2 ${cfg.border} hover:shadow-md transition-all duration-200`}>
+                  className={`group flex items-start gap-4 p-4 rounded-2xl bg-white border-2 ${cfg.border} hover:shadow-md transition-all`}>
                   <span className={`w-12 h-12 rounded-xl ${cfg.bg} border ${cfg.border} flex items-center justify-center text-2xl flex-shrink-0 block`}>{tool.icon}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="font-bold text-gray-900 group-hover:text-pink-600 transition-colors">{tool.name}</p>
+                    <p className="font-bold text-gray-900 group-hover:text-pink-600 transition-all">{tool.name}</p>
                     <p className="text-xs text-gray-500 mt-1 leading-relaxed">{tool.desc}</p>
                   </div>
                   <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-pink-400 flex-shrink-0 mt-1" />
@@ -223,7 +223,7 @@ export default function FunPage() {
 
       {/* SEO FAQ section */}
       <section className="mt-10 mb-8" aria-label="Frequently asked questions">
-        <h2 className="text-2xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>Frequently Asked Questions</h2>
         <div className="space-y-5">
           {SEO_FAQS.map(({ q, a }) => (
             <div key={q} className="bg-white border-2 border-gray-100 rounded-2xl p-5">
@@ -241,13 +241,13 @@ export default function FunPage() {
           We also build tools that actually help with money, health, and development — same no-signup, no-ads approach.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-pink-600 rounded-xl font-bold text-sm hover:bg-pink-50 transition-colors">
+          <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-pink-600 rounded-xl font-bold text-sm hover:bg-pink-50 transition-all">
             Finance Calculators →
           </Link>
-          <Link href="/calculators/health" className="px-5 py-2.5 bg-pink-400 text-white rounded-xl font-bold text-sm hover:bg-pink-300 transition-colors border border-pink-300">
+          <Link href="/calculators/health" className="px-5 py-2.5 bg-pink-400 text-white rounded-xl font-bold text-sm hover:bg-pink-300 transition-all border border-pink-300">
             Health Calculators →
           </Link>
-          <Link href="/calculators/dev" className="px-5 py-2.5 bg-purple-400 text-white rounded-xl font-bold text-sm hover:bg-purple-300 transition-colors border border-purple-300">
+          <Link href="/calculators/dev" className="px-5 py-2.5 bg-purple-400 text-white rounded-xl font-bold text-sm hover:bg-purple-300 transition-all border border-purple-300">
             Dev Tools →
           </Link>
         </div>

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Stock Profit Calculator USA 2026 – Trade Profit, Loss and Capital Gains Tax',
+ title: 'Stock Profit Calculator USA 2026 | TOOLTRIO',
  description: 'Free stock profit calculator USA 2026. Calculate profit or loss from stock trades including brokerage fees, short-term and long-term capital gains tax. Real examples for $1k-$100k stock trades.',
  slug: 'stock-profit-calculator',
  category: 'finance',

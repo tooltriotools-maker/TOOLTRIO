@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Current Vitamin D Level" value={currentD} onChange={v=>setCurrentD(v as any)} options={[{value:'deficient',label:'Deficient (<20 ng/mL)'},{value:'insufficient',label:'Insufficient (20-30 ng/mL)'},{value:'sufficient',label:'Sufficient (30+ ng/mL)'},{value:'optimal',label:'Optimal / Not tested'}]} />
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <span className="text-sm font-medium text-gray-700">Indoor job / limited outdoor?</span>
-              <button onClick={()=>setIndoorJob(!indoorJob)} className={`w-10 h-5 rounded-full transition-colors ${indoorJob?'bg-orange-500':'bg-gray-200'}`}>
+              <button onClick={()=>setIndoorJob(!indoorJob)} className={`w-10 h-5 rounded-full transition-all ${indoorJob?'bg-orange-500':'bg-gray-200'}`}>
                 <div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${indoorJob?'translate-x-5':''}`} />
               </button>
             </div>

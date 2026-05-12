@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Emoji Translator – Convert Text to Emoji Online Free',
+  title: 'Emoji Translator – Text to Emoji | TOOLTRIO',
   description: 'Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social media. No signup.',
   slug: 'emoji-translator',
   keywords: [

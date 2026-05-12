@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Creatine Dosage Calculator — Loading Phase, Maintenance & Cycling Protocol 2026',
+  title: 'Creatine Dosage Calculator 2026 | TOOLTRIO',
   description: 'Free Creatine Dosage Calculator 2026 — Calculate creatine dosage instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'creatine-dosage-calculator',
   category: 'health',

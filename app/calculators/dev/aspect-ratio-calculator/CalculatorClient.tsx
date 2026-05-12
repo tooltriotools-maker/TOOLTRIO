@@ -28,9 +28,9 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Aspect Ratio Calculator</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">📐 Aspect Ratio Calculator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📐 Aspect Ratio Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Calculate aspect ratios, find missing dimensions, and convert between common screen ratios.</p>
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-4 shadow-sm">
+      <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-1">Width (px)</label>
@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         </div>
       </div>
-      <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+      <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-3">Common Ratios - click to load</h2>
         <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
           {COMMON.map(r => {
@@ -132,7 +132,7 @@ Square != circle. border-radius: 50% on a 200x100px element produces an ellipse.
       />
       <div className="mt-8 space-y-3">
         {faqs.map(f => (
-          <details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4">
+          <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>

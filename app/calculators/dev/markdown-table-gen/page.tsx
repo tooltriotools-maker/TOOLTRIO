@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Markdown Table Generator — GitHub Table Builder Free',
+  title: 'Markdown Table Generator Online | TOOLTRIO',
   description: 'Build Markdown tables visually. Add rows and columns, align cells, copy GitHub-compatible Markdown table syntax. Runs in your browser.',
   slug: 'markdown-table-gen',
   keywords: ['markdown table generator online free','markdown table builder browser','create markdown table free','md table generator tool','markdown table formatter online'],

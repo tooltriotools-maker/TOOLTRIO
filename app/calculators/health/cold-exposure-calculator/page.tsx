@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cold Exposure Calculator — Cold Plunge Temperature, Duration & Adaptation 2026',
+  title: 'Cold Exposure Calculator 2026 | TOOLTRIO',
   description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold plunge protocols, safety thresholds, and recovery timing. Free online cold exposure calculator 2026. No signup required.',
   slug: 'cold-exposure-calculator',
   category: 'health',

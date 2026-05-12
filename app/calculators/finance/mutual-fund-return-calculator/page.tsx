@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mutual Fund Return Calculator USA 2026 – NAV Profit, CAGR and Absolute Return',
+ title: 'Mutual Fund Return Calculator 2026 | TOOLTRIO',
  description: 'Free mutual fund return calculator USA 2026. Calculate profit or loss, CAGR, and absolute return on any mutual fund or ETF investment using NAV prices. Real examples for $5k-$200k fund investments.',
  slug: 'mutual-fund-return-calculator',
  category: 'finance',

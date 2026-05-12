@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Real Estate Calculator India 2026 – Mutual Fund vs Property Investment',
+ title: 'SIP vs Real Estate Calculator India | TOOLTRIO',
  description: 'Free SIP vs real estate calculator India 2026. Compare monthly SIP mutual fund returns vs real estate property investment including rental yield, appreciation, and EMI. Real examples for INR 20k-1 crore property investments.',
  slug: 'sip-vs-real-estate-calculator',
  category: 'finance',

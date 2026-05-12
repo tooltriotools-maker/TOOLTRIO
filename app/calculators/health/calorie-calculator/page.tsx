@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Calorie Calculator — TDEE & Daily Calories for Weight Loss, Gain, or Maintenance 2026',
+  title: 'Calorie Calculator – Daily Intake 2026 | TOOLTRIO',
   description: 'Free Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
   slug: 'calorie-calculator',
   category: 'health',

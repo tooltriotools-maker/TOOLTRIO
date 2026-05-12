@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Break-Even Calculator USA 2026 – Break-Even Point, Units and Revenue Analysis',
+ title: 'Break-Even Calculator USA 2026 | TOOLTRIO',
  description: 'Free break-even calculator USA 2026. Calculate your break-even point in units and revenue, contribution margin, and profit at any sales volume. Real examples for small businesses, startups, and products.',
  slug: 'break-even-calculator',
  category: 'finance',

@@ -115,12 +115,12 @@ function Dropdown({ nav, onClose }: { nav: typeof NAV[0]; onClose: () => void })
       </p>
       {nav.items.map(item => (
         <Link key={item.href} href={item.href} onClick={onClose}
-          className={`block px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-colors font-medium truncate`}>
+          className={`block px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-all font-medium truncate`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
           {item.name}
         </Link>
       ))}
       <Link href={nav.href} onClick={onClose}
-        className={`flex items-center justify-center mt-1 px-3 py-2 rounded-xl text-xs font-bold ${c.text} border border-current/30 ${c.hover} transition-colors`}>
+        className={`flex items-center justify-center mt-1 px-3 py-2 rounded-xl text-xs font-bold ${c.text} border border-current/30 ${c.hover} transition-all`}>
         {nav.viewAll}
       </Link>
     </div>
@@ -149,13 +149,14 @@ export function Header() {
   }, [])
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-[9990] border-b border-gray-200 bg-white shadow-sm">
+    <header ref={headerRef} className="sticky top-0 z-[9990] border-b border-white/50 bg-white/70 backdrop-blur-xl shadow-sm" style={{backdropFilter:'blur(12px)',WebkitBackdropFilter:'blur(12px)'}}>
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="flex items-center h-16 gap-2 overflow-visible">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0 mr-2">
             <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto"}} />
+            <span className="font-black text-xl tracking-tight text-gray-900 hidden sm:block">TOOLTRIO</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -164,11 +165,11 @@ export function Header() {
               <div key={nav.key} className="relative">
                 <button
                   onClick={() => setOpenKey(openKey === nav.key ? null : nav.key)}
-                  className={`flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-semibold transition-colors whitespace-nowrap ${
+                  className={`flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-semibold whitespace-nowrap ${
                     openKey === nav.key
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
+                  }`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
                 >
                   {nav.label}
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openKey === nav.key ? 'rotate-180' : ''}`} />
@@ -206,7 +207,7 @@ export function Header() {
                   {(Object.values(CURRENCIES) as typeof CURRENCIES[CurrencyCode][]).map(cur => (
                     <button key={cur.code}
                       onClick={() => { setCurrency(cur.code as CurrencyCode); setCurrencyOpen(false) }}
-                      className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-green-50 transition-colors ${currency.code === cur.code ? 'bg-green-50 text-green-700 font-bold' : 'text-gray-700'}`}
+                      className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-green-50 transition-all ${currency.code === cur.code ? 'bg-green-50 text-green-700 font-bold' : 'text-gray-700'}`}
                     >
                       <span className="text-xl">{cur.flag}</span>
                       <span className="font-mono font-bold">{cur.symbol}</span>
@@ -221,7 +222,7 @@ export function Header() {
             {/* Mobile menu button */}
             <button
               onClick={() => { setMobileOpen(o => !o); setMobileSection(null) }}
-              className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+              className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-all"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -251,7 +252,7 @@ export function Header() {
                       {nav.items.map(item => (
                         <Link key={item.href} href={item.href}
                           onClick={() => setMobileOpen(false)}
-                          className={`block px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-colors`}
+                          className={`block px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-all`}
                         >
                           {item.name}
                         </Link>

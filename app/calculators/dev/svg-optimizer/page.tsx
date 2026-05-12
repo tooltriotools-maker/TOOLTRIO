@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'SVG Optimizer — Reduce SVG File Size Free Online',
+  title: 'SVG Optimizer – Reduce File Size | TOOLTRIO',
   description: 'Optimize SVG files by removing unnecessary metadata, comments, and redundant attributes. Typically 40-70% size reduction. Runs entirely in your browser.',
   slug: 'svg-optimizer',
   keywords: ['svg optimizer online free','svgo browser tool','optimize svg code free','minify svg online','svg size reducer browser'],

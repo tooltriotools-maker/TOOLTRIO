@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {/* Extra payment */}
           <div className="space-y-2 mb-5">
             <label className="text-sm font-medium text-gray-700">Extra Monthly Payment</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm">{currency.symbol}</span>
               <input type="number" value={extraPayment} onChange={e => setExtraPayment(Number(e.target.value))} step={step}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 <div className="flex items-center justify-between">
                   <input value={debt.name} onChange={e => update(i, 'name', e.target.value)}
                     className="bg-transparent text-sm font-semibold text-white outline-none flex-1" />
-                  <button onClick={() => remove(i)} className="text-slate-600 hover:text-red-400 transition-colors ml-2"><Trash2 className="w-3.5 h-3.5" /></button>
+                  <button onClick={() => remove(i)} className="text-slate-600 hover:text-red-400 transition-all ml-2"><Trash2 className="w-3.5 h-3.5" /></button>
                 </div>
                 <div className="grid grid-cols-3 gap-1.5">
                   {[['Balance', 'balance', step, d.mediumAmount * 10], ['Rate %', 'rate', 0.5, 50], ['Min Pay', 'minPayment', step / 10, d.mediumAmount]].map(([label, field, s, max]) => (

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Blood Pressure Calculator — Understand Your Reading & Hypertension Risk 2026',
+  title: 'Blood Pressure Calculator 2026 | TOOLTRIO',
   description: 'Free Blood Pressure Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
   slug: 'blood-pressure-calculator',
   category: 'health',

@@ -108,7 +108,7 @@ export default function CompoundCalculatorClient({ faqs, structuredData, related
       <div className="mt-8 space-y-6">
         <Card>
           <h2 className="text-xl font-bold font-display text-white mb-4">Compound Interest Formula</h2>
-          <div className="bg-gray-50 rounded-xl p-4 font-mono text-sm text-gray-700 border border-gray-100">
+          <div className="rounded-xl p-4 font-mono text-sm text-gray-700 border" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.6)',backdropFilter:'blur(6px)'}}>
             A = P x (1 + r/n)^(nxt)
             <div className="mt-3 space-y-1 text-xs text-gray-400 font-sans">
               <p>P = {fmt(principal)}, r = {rate}%, n = {freq} (compounding/year), t = {years} years</p>

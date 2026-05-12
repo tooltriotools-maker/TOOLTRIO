@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Stroke Risk Calculator — 10-Year Ischemic Stroke Risk (Framingham Stroke Profile) 2026',
+  title: 'Stroke Risk Calculator 2026 | TOOLTRIO',
   description: 'Calculate your 10-year ischemic stroke risk using the Framingham Stroke Profile. Based on age, systolic blood pressure, cholesterol, smoking, diabetes, cardiovascular disease, and atrial fibrillation status. Free online stroke risk calculator 2026. No signup required.',
   slug: 'stroke-risk-calculator',
   category: 'health',

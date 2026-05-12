@@ -19,9 +19,9 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Open Graph Preview</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">👁️ Open Graph Preview</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>👁️ Open Graph Preview <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Preview how your page looks when shared on Facebook, Twitter &amp; LinkedIn</p>
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6 space-y-4">
+      <div className="rounded-2xl border p-6 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Page Title</label>
           <input value={title} onChange={e=>setTitle(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-2.5 focus:outline-none" /></div>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Description</label>
@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs }: Props) {
           ))}
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+      <div className="rounded-2xl border overflow-hidden" style={{background:'rgba(255,255,255,0.85)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         {image && <div className="h-52 bg-gray-100"><img src={image} alt="OG" className="w-full h-full object-cover" onError={e=>{(e.target as HTMLImageElement).style.display='none'}} /></div>}
         {!image && <div className="h-52 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center text-gray-400 text-sm">No image set</div>}
         <div className="p-4 border-t border-gray-100">
@@ -47,12 +47,12 @@ export default function CalculatorClient({ faqs }: Props) {
           <p className="text-sm text-gray-500 mt-1 line-clamp-2">{desc}</p>
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Open Graph Preview</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Open Graph tags control how your page appears when shared on social media. Fill in your page title, description, image URL, and site name, then see a live preview of how it will look on Facebook, Twitter, or LinkedIn. Optimal OG image size is 1200x630 pixels. Title should be 60-90 characters, description 150-200 characters. Once satisfied, add these meta tags to your HTML head section.</p>
         <p className="text-sm text-gray-600">After updating your site, use Facebook's Sharing Debugger, Twitter\'s Card Validator, or LinkedIn\'s Post Inspector to clear the cached preview and force a re-scrape of your latest OG tags.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Open Graph Preview — Social Share Preview"
         category="dev"

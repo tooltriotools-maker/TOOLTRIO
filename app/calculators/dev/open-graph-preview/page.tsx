@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Open Graph Preview — Social Link Card Previewer Free',
+  title: 'Open Graph Preview Tool Online | TOOLTRIO',
   description: 'Preview how your Open Graph tags appear as link cards on Facebook, LinkedIn, Twitter, Slack, and Discord. Validate og:image dimensions. Runs in your browser.',
   slug: 'open-graph-preview',
   keywords: ['open graph preview tool online free','og tags preview browser','facebook link preview checker','og image preview tool','social share preview online'],

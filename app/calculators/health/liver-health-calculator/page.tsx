@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Liver Health Risk Calculator — Fatty Liver Disease & Liver Function Assessment 2026',
+  title: 'Liver Health Calculator 2026 | TOOLTRIO',
   description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and metabolic health markers. Get prioritized liver protection strategies. Free online liver health calculator 2026. No signup required.',
   slug: 'liver-health-calculator',
   category: 'health',

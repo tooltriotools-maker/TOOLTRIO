@@ -78,7 +78,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Country / Finance Type</label>
             <select value={countryIdx} onChange={e => handleCountry(Number(e.target.value))}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none">
+              className="w-full border rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none" style={{background:'rgba(255,255,255,0.85)',borderColor:'#e2e8f0'}}>
               {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name} - {c.rate}% APR</option>)}
             </select>
           </div>
@@ -97,7 +97,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Vehicle Price</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 font-bold text-sm">{sym}</span>
               <input type="number" value={vehiclePrice} onChange={e => setVehiclePrice(Number(e.target.value))} step={500}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-lg" />
@@ -144,7 +144,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
 
         <div className="lg:col-span-2 space-y-4">
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
+          <div className="p-5 rounded-2xl from-green-50 to-emerald-50 border-2 border-green-200" style={{background:'linear-gradient(135deg,rgba(240,253,244,0.9),rgba(236,253,245,0.9))'}}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="bg-green-600 text-white rounded-xl p-3">
                 <p className="text-xs text-green-100">Monthly Payment</p>

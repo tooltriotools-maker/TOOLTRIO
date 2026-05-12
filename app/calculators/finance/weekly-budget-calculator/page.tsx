@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import WeeklyBudgetCalculatorClient from './WeeklyBudgetCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Weekly Budget Calculator USA 2026 – Plan Your Weekly Spending and Savings',
+ title: 'Weekly Budget Calculator USA 2026 | TOOLTRIO',
  description: 'Free weekly budget calculator USA 2026. Plan your weekly budget, track spending categories, and calculate weekly savings rate. Ideal for hourly and weekly-paid workers. Real examples for $500-$2,000 weekly income.',
  slug: 'weekly-budget-calculator',
  category: 'finance',

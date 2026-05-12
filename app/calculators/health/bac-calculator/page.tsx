@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BAC Calculator — Blood Alcohol Concentration by Drinks, Weight & Time 2026',
+  title: 'BAC Calculator – Blood Alcohol Level | TOOLTRIO',
   description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how BAC changes over time and when you reach legal driving limits. Free online bac calculator 2026. No signup required.',
   slug: 'bac-calculator',
   category: 'health',

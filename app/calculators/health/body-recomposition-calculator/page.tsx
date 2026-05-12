@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Recomposition Calculator — Lose Fat and Gain Muscle Simultaneously 2026',
+  title: 'Body Recomposition Calculator 2026 | TOOLTRIO',
   description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support simultaneous fat loss and muscle gain without a traditional bulk-cut cycle. Free online body recomposition calculator 2026. No signup required.',
   slug: 'body-recomposition-calculator',
   category: 'health',

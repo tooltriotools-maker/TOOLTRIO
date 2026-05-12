@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Monthly Essential Expenses</label>
               <div className="relative"><span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                <input type="number" value={monthlyExpenses} onChange={e => setMonthlyExpenses(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent" /></div>
+                <input type="number" value={monthlyExpenses} onChange={e => setMonthlyExpenses(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border rounded-xl" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} /></div>
             </div>
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Target Months Coverage: <span className="text-green-600">{targetMonths} months</span></label>
@@ -44,12 +44,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Current Savings</label>
               <div className="relative"><span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                <input type="number" value={currentSavings} onChange={e => setCurrentSavings(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent" /></div>
+                <input type="number" value={currentSavings} onChange={e => setCurrentSavings(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border rounded-xl" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} /></div>
             </div>
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Monthly Savings Contribution</label>
               <div className="relative"><span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
-                <input type="number" value={monthlySavings} onChange={e => setMonthlySavings(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent" /></div>
+                <input type="number" value={monthlySavings} onChange={e => setMonthlySavings(Number(e.target.value))} className="w-full pl-7 pr-3 py-2.5 border rounded-xl" style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}} /></div>
             </div>
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Savings Account Rate: <span className="text-green-600">{savingsRate}%</span></label>

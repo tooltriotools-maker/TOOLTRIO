@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JSON Schema Generator — Auto-Generate from JSON Free',
+  title: 'JSON Schema Generator Online | TOOLTRIO',
   description: 'Auto-generate a JSON Schema (draft-07) from any JSON sample. Infers types, required fields, and nested structure. Runs in your browser.',
   slug: 'json-schema-gen',
   keywords: ['json schema generator online free','generate json schema from example','json schema from sample data','json schema draft 7 generator','auto generate json schema browser','json schema validator generator free'],

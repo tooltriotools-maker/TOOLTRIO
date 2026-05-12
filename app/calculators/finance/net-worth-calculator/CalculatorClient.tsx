@@ -84,7 +84,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 </div>
                 <button
                   onClick={() => remove(assets, setAssets, i)}
-                  className="text-slate-600 hover:text-red-400 transition-colors p-1"
+                  className="text-slate-600 hover:text-red-400 transition-all p-1"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
@@ -126,7 +126,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   </div>
                   <button
                     onClick={() => remove(liabilities, setLiabilities, i)}
-                    className="text-slate-600 hover:text-red-400 transition-colors p-1"
+                    className="text-slate-600 hover:text-red-400 transition-all p-1"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>

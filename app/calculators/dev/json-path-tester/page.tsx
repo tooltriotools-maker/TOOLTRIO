@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JSONPath Tester — Query JSON with Path Expressions Free',
+  title: 'JSONPath Tester Online | TOOLTRIO',
   description: 'Test JSONPath expressions against JSON data with live results. Supports dot notation, bracket notation, wildcards, filters, and recursive descent. Runs in your browser.',
   slug: 'json-path-tester',
   keywords: ['jsonpath tester online free','jsonpath evaluator browser','test jsonpath expression online','jsonpath query tester','jsonpath filter online','json path selector free','$.store.book jsonpath tester','how to write jsonpath query online'],

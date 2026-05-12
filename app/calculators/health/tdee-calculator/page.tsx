@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'TDEE Calculator — Total Daily Energy Expenditure with Activity Multipliers 2026',
+  title: 'TDEE Calculator 2026 | TOOLTRIO',
   description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Instant results for weight loss, maintenance, and muscle gain. Based on Harris-Benedict & Mifflin formulas.',
   slug: 'tdee-calculator',
   category: 'health',

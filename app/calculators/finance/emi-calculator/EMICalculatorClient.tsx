@@ -167,7 +167,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
       <div className="mt-8 space-y-6">
         <Card>
           <h2 className="text-xl font-bold font-display text-white mb-4">EMI Formula Explained</h2>
-          <div className="bg-gray-50 rounded-xl p-4 font-mono text-sm text-gray-700 border border-gray-100">
+          <div className="rounded-xl p-4 font-mono text-sm text-gray-700 border" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.6)',backdropFilter:'blur(6px)'}}>
             EMI = P x r x (1+r)n / ( (1+r)n - 1 )
             <div className="mt-3 space-y-1 text-xs text-gray-400 font-sans">
               <p><span className="text-green-600">P</span> = {fmt(principal)}, <span className="text-green-600">r</span> = {(rate / 12).toFixed(4)}% / month, <span className="text-green-600">n</span> = {tenureMonths} months</p>

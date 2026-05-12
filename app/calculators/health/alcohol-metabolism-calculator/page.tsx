@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Alcohol Metabolism Calculator — How Long Alcohol Stays in Your System 2026',
+  title: 'Alcohol Metabolism Calculator 2026 | TOOLTRIO',
   description: 'Calculate how long alcohol remains in your bloodstream based on drinks consumed, body weight, sex, and time elapsed. Understand BAC levels, metabolism rates, and safe timing for driving. Free online alcohol metabolism calculator 2026. No signup required.',
   slug: 'alcohol-metabolism-calculator',
   category: 'health',

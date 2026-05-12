@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <span className="w-3 h-3 rounded-full flex-shrink-0 mr-1" style={{ background: COLORS[i % COLORS.length] }} />
                   <input value={cat.name} onChange={e => update(i, 'name', e.target.value)}
                     className="bg-transparent text-sm font-semibold text-gray-800 outline-none flex-1" />
-                  <button onClick={() => remove(i)} className="text-gray-300 hover:text-red-400 transition-colors"><Trash2 className="w-3.5 h-3.5" /></button>
+                  <button onClick={() => remove(i)} className="text-gray-300 hover:text-red-400 transition-all"><Trash2 className="w-3.5 h-3.5" /></button>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {(['planned', 'actual'] as const).map(field => (

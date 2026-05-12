@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    absolute: 'TOOLTRIO — Free Finance, Health & Dev Calculators | 400+ Tools',
   },
   description:
     'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest calculator, BMI, calorie calculator and 400+ more. No signup. Instant results.',
@@ -99,29 +99,40 @@ const categories = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero - USA-focused, keyword-rich, trust-building */}
-      <section className="bg-gradient-to-b from-green-600 to-green-700 text-white py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1.5 rounded-full text-xs font-bold text-white/90 mb-4">
+    <div className="min-h-screen">
+      {/* Hero — premium Apple/Stripe style */}
+      <section className="relative overflow-hidden py-16 px-4">
+        {/* Hero glow orbs */}
+        <div className="hero-glow" style={{top:'-80px', left:'-60px'}} />
+        <div className="hero-glow" style={{bottom:'-80px', right:'-60px', background:'rgba(16,185,129,0.1)'}} />
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-10" style={{background:'radial-gradient(circle, #16a34a, transparent)'}} />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10" style={{background:'radial-gradient(circle, #16a34a, transparent)'}} />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          {/* Trust badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(8px)', borderColor:'#d1fae5', color:'#15803d', boxShadow:'0 4px 16px rgba(22,163,74,0.1)'}}>
             <span>⭐ Trusted by 2M+ Americans</span>
-            <span className="w-px h-3 bg-white/30" />
-            <span>🔒 No Signup . No Ads . No Data Stored</span>
+            <span className="w-px h-3" style={{background:'#bbf7d0'}} />
+            <span>🔒 No Signup · No Ads · 100% Private</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-            TOOLTRIO — Calculate Everything
+          {/* Main heading */}
+          <h1 className="font-black mb-4 leading-tight" style={{fontSize:'clamp(2rem,5vw,3.25rem)', color:'#0f172a', fontFamily:"'Playfair Display', serif"}}>
+            TOOLTRIO —{' '}
+            <span style={{color:'#16a34a'}}>Calculate Everything</span>
           </h1>
-          <p className="text-green-100 text-lg md:text-xl mb-3 max-w-2xl mx-auto">
-            Mortgage calculator, 401k calculator, compound interest calculator, BMI calculator and 400+ free online tools. Instant results, no signup.
+          <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{color:'#475569'}}>
+            Mortgage, 401k, compound interest, BMI and 400+ free calculators. Instant results, no signup.
           </p>
-          <p className="text-green-200 text-sm mb-8 max-w-xl mx-auto">
-            The #1 free financial calculator for Americans -- accurate, fast, and completely private.
+          <p className="text-sm mb-8 max-w-xl mx-auto" style={{color:'#94a3b8'}}>
+            The #1 free calculator suite for Americans — accurate, fast, and completely private.
           </p>
+          {/* Search */}
           <div className="max-w-2xl mx-auto">
             <GlobalSearch />
           </div>
-          {/* Popular calculator quick links - high CTR */}
-          <div className="flex flex-wrap justify-center gap-2 mt-6 text-sm">
+          {/* Popular quick links — premium pill chips */}
+          <div className="flex flex-wrap justify-center gap-2 mt-6">
             {[
               'Mortgage Calculator',
               '401k Calculator',
@@ -132,17 +143,32 @@ export default function HomePage() {
             ].map(t => (
               <span
                 key={t}
-                className="bg-white/20 px-3 py-1 rounded-full text-white/90 text-xs font-medium"
+                className="tag-pill text-xs"
+                style={{padding:'8px 16px'}}
               >
                 {t}
               </span>
+            ))}
+          </div>
+          {/* Stats row */}
+          <div className="flex flex-wrap justify-center gap-6 mt-10">
+            {[
+              {val:'465+', label:'Free Tools'},
+              {val:'2M+', label:'Users/Month'},
+              {val:'100%', label:'Free Forever'},
+              {val:'0', label:'Signup Required'},
+            ].map(s => (
+              <div key={s.label} className="text-center">
+                <div className="text-2xl font-black" style={{color:'#16a34a'}}>{s.val}</div>
+                <div className="text-xs mt-0.5" style={{color:'#94a3b8'}}>{s.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Quick-access bar -- most searched calculators in USA */}
-      <section className="bg-gray-50 border-b border-gray-200 py-4 px-4">
+      <section className="border-b py-4 px-4" style={{background:"#F0F7F0", borderColor:"#d1fae5"}}>
         <div className="max-w-6xl mx-auto">
           <p className="text-xs text-gray-500 text-center mb-3 font-semibold uppercase tracking-wider">
             Most Popular in USA
@@ -163,7 +189,7 @@ export default function HomePage() {
               <Link
                 key={c.href}
                 href={c.href}
-                className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-colors"
+                className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all"
               >
                 {c.name}
               </Link>
@@ -177,7 +203,7 @@ export default function HomePage() {
         {categories.map(cat => (
           <section key={cat.label} className="mb-12">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2">
+              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{fontFamily:"'Playfair Display', serif"}}>
                 <cat.icon className="w-6 h-6 text-green-600" />
                 {cat.label} Calculators
               </h2>
@@ -190,7 +216,7 @@ export default function HomePage() {
                 <Link
                   key={c.href}
                   href={c.href}
-                  className="group p-3 bg-white border border-gray-200 rounded-xl hover:border-green-300 hover:shadow-md transition-all flex flex-col"
+                  className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{background:'rgba(255,255,255,0.8)', borderColor:'rgba(255,255,255,0.5)', backdropFilter:'blur(8px)', boxShadow:'0 4px 16px rgba(15,23,42,0.05)', transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}
                 >
                   <span className="flex items-center gap-2 mb-1">
                     <span className="text-xl">{c.icon}</span>
@@ -200,7 +226,7 @@ export default function HomePage() {
                       </span>
                     )}
                   </span>
-                  <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-tight">
+                  <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">
                     {c.name}
                   </span>
                   <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
@@ -211,8 +237,8 @@ export default function HomePage() {
         ))}
 
         {/* USA-focused SEO content block -- rich, helpful, unique */}
-        <section className="mt-8 bg-gray-50 rounded-2xl p-8 border border-gray-100">
-          <h2 className="text-2xl font-black text-gray-900 mb-6">
+        <section className="mt-8 rounded-3xl p-8 border" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>
             Free Online Finance Calculators for Americans
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600 leading-relaxed">
@@ -345,7 +371,7 @@ export default function HomePage() {
             { icon: '⚡', title: 'Instant Results', desc: 'Real-time calculations' },
             { icon: '📱', title: 'Works Everywhere', desc: 'Mobile, tablet & desktop' },
           ].map(f => (
-            <div key={f.title} className="text-center p-4 bg-green-50 rounded-xl border border-green-100">
+            <div key={f.title} className="text-center p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}>
               <div className="text-2xl mb-1">{f.icon}</div>
               <p className="font-bold text-gray-900 text-sm">{f.title}</p>
               <p className="text-xs text-gray-500">{f.desc}</p>
@@ -355,7 +381,7 @@ export default function HomePage() {
 
         {/* FAQ section -- targets featured snippets & AI answers */}
         <section className="mt-12">
-          <h2 className="text-2xl font-black text-gray-900 mb-6">
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>
             Frequently Asked Questions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -385,7 +411,7 @@ export default function HomePage() {
                 a: 'Roth IRA contributions are made with after-tax dollars; withdrawals in retirement are tax-free. Traditional IRA contributions may be tax-deductible; withdrawals are taxed as ordinary income. Use our Roth vs Traditional IRA calculator to compare based on your tax situation.',
               },
             ].map(({ q, a }) => (
-              <div key={q} className="bg-white border border-gray-200 rounded-xl p-5">
+              <div key={q} className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
                 <h3 className="font-bold text-gray-900 text-sm mb-2">{q}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{a}</p>
               </div>

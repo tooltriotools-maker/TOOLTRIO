@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Gratuity and Severance Pay Calculator USA 2026 – End of Service Benefits',
+ title: 'Gratuity Calculator USA 2026 | TOOLTRIO',
  description: 'Free gratuity and severance pay calculator USA 2026. Estimate end-of-service gratuity, severance benefits, and final settlement amounts based on years of service and last salary. Real examples for 5-30 year service periods.',
  slug: 'gratuity-calculator',
  category: 'finance',

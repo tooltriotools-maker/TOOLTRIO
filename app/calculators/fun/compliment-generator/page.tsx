@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Compliment Generator – Random Genuine Compliments Online',
+  title: 'Compliment Generator Online | TOOLTRIO',
   description: 'Generate heartfelt, funny, or creative compliments for anyone — friends, colleagues, partners, or strangers. Free random compliment generator with no login.',
   slug: 'compliment-generator',
   keywords: [

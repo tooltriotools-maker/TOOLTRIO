@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CompoundCalculatorClient from './CompoundCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Compound Interest Calculator USA 2026 – Investment Growth & Savings Value',
+ title: 'Compound Interest Calculator USA 2026 | TOOLTRIO',
  description: 'Free compound interest calculator USA 2026. See exactly how your money grows with daily, monthly, and annual compounding. Includes real examples for $10k–$100k investments over 10–30 years.',
  slug: 'compound-interest-calculator',
  category: 'finance',

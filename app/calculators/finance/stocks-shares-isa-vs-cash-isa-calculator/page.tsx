@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: "Stocks and Shares ISA vs Cash ISA Calculator UK 2026 – Which ISA Pays More?",
+ title: 'Stocks ISA vs Cash ISA Calculator UK | TOOLTRIO',
  description: "Free Stocks and Shares ISA vs Cash ISA calculator UK 2026. Compare ISA types on historical returns, risk, and long-term wealth for UK investors. Real examples for GBP 5k-20k annual ISA contributions.",
  slug: 'stocks-shares-isa-vs-cash-isa-calculator',
  category: 'finance',

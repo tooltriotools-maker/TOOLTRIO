@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'One Rep Max Calculator — 1RM Estimation from Reps at Submaximal Weight 2026',
+  title: 'One Rep Max Calculator 2026 | TOOLTRIO',
   description: 'Free One Rep Max Calculator 2026. Calculate your 1RM for any lift using Brzycki, Epley, Lombardi, and Conner formulas. Includes percentage-based training weights for strength and hypertrophy.\', strength, and power programs.',
   slug: 'one-rep-max-calculator',
   category: 'health',

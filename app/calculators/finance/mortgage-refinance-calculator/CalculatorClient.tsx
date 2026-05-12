@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-500">Break-Even</p>
-                <p className="text-2xl font-black text-gray-900">{result.breakEvenMonths ? `${result.breakEvenMonths} months` : 'N/A'}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{result.breakEvenMonths ? `${result.breakEvenMonths} months` : 'N/A'}</p>
                 <p className="text-xs text-gray-500">{result.breakEvenMonths ? `~${(result.breakEvenMonths / 12).toFixed(1)} years` : 'Monthly payment increases'}</p>
               </div>
             </div>

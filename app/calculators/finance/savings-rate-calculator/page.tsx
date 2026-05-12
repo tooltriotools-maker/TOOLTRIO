@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculat
 import SavingsRateCalculatorClient from './SavingsRateCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Savings Rate Calculator USA 2026 – How Much of Your Income Are You Actually Saving?',
+ title: 'Savings Rate Calculator USA 2026 | TOOLTRIO',
  description: 'Free savings rate calculator USA 2026. Calculate your personal savings rate, time to financial independence, and how each 1% increase in savings rate accelerates your FIRE date. Real examples for $40k-$150k income levels.',
  slug: 'savings-rate-calculator',
  category: 'finance',

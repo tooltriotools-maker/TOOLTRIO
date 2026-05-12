@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Fake Data Generator — Realistic Test Data Free Online',
+  title: 'Fake Data Generator Online | TOOLTRIO',
   description: 'Generate realistic fake names, emails, addresses, phone numbers, UUIDs, and more for testing. Bulk output in JSON or CSV. Runs entirely in your browser.',
   slug: 'fake-data-generator',
   keywords: ['fake data generator online free','test data generator browser','mock user data generator','generate dummy names emails free','random person generator online','lorem ipsum data generator','fake api response generator'],

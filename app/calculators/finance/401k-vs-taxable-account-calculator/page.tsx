@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '401k vs Taxable Account Calculator USA 2026 – Tax-Deferred vs Brokerage Growth',
+ title: '401k vs Taxable Account Calculator USA | TOOLTRIO',
  description: 'Free 401k vs taxable account calculator USA 2026. Compare tax-deferred 401k growth vs taxable brokerage account over 20-30 years. Real examples for $50k-$120k salary with varying tax brackets.',
  slug: '401k-vs-taxable-account-calculator',
  category: 'finance',

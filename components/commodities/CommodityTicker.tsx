@@ -122,7 +122,7 @@ export function CommodityTicker() {
               const up = item.change >= 0
               return (
                 <Link key={`${item.key}-${i}`} href={item.href}
-                  className="flex items-center gap-2 px-4 h-full border-r border-gray-800 hover:bg-gray-800 transition-colors whitespace-nowrap cursor-pointer"
+                  className="flex items-center gap-2 px-4 h-full border-r border-gray-800 hover:bg-gray-800 transition-all whitespace-nowrap cursor-pointer"
                   style={{ fontSize:'12px' }}
                 >
                   <span className="text-gray-400 font-bold text-[11px]">{item.symbol}</span>
@@ -145,7 +145,7 @@ export function CommodityTicker() {
             {clock} <span style={{ color: countdown <= 5 ? '#fbbf24' : '#4b5563' }}>{countdown}s</span>
           </span>
           <button onClick={fetchLive} disabled={loading} title="Refresh now"
-            className="p-1 rounded hover:bg-gray-800 transition-colors disabled:opacity-40" style={{ color:'#6b7280' }}>
+            className="p-1 rounded hover:bg-gray-800 transition-all disabled:opacity-40" style={{ color:'#6b7280' }}>
             <RefreshCw style={{ width:'11px', height:'11px', animation: loading ? 'spin 1s linear infinite' : 'none' }} />
           </button>
         </div>

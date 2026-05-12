@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ISA Calculator UK 2026 – Stocks and Shares ISA Tax-Free Growth',
+ title: 'ISA Calculator UK 2026 | TOOLTRIO',
  description: 'Free ISA calculator UK 2026. Calculate tax-free growth in Stocks and Shares ISA, Cash ISA, and Lifetime ISA. Includes 2026 ISA allowance of GBP 20,000 and LISA bonus. Real examples for GBP 5k-500k ISA investments.',
  slug: 'isa-calculator',
  category: 'finance',

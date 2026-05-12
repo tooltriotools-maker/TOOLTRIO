@@ -61,7 +61,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-base font-bold text-gray-900">Enter FD Details (up to 4)</h2>
             {fds.length < 4 && (
-              <button onClick={addFD} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-green-600 text-white text-sm font-bold hover:bg-green-700 transition-colors shadow-sm">
+              <button onClick={addFD} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-green-600 text-white text-sm font-bold hover:bg-green-700 transition-all shadow-sm">
                 <Plus className="w-4 h-4" /> Add FD
               </button>
             )}
@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                     />
                   </div>
                   {fds.length > 2 && (
-                    <button onClick={() => removeFD(i)} className="text-gray-400 hover:text-red-500 transition-colors">
+                    <button onClick={() => removeFD(i)} className="text-gray-400 hover:text-red-500 transition-all">
                       <Trash2 className="w-4 h-4" />
                     </button>
                   )}

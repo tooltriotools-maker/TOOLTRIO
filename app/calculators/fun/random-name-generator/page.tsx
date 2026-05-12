@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Random Name Generator – Baby Names, Usernames & Nicknames',
+  title: 'Random Name Generator | TOOLTRIO',
   description: 'Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator online.',
   slug: 'random-name-generator',
   keywords: [

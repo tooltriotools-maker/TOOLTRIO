@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Loneliness Health Impact Calculator — Social Connection & Mortality Risk 2026',
+  title: 'Loneliness Health Calculator 2026 | TOOLTRIO',
   description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social support network. Understand how loneliness compares to other health risk factors. Free online loneliness health calculator 2026. No signup required.',
   slug: 'loneliness-health-calculator',
   category: 'health',

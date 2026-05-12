@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'US Army Body Fat Calculator — Army Tape Test Method (AR 600-9) 2026',
+  title: 'US Army Body Fat Calculator 2026 | TOOLTRIO',
   description: 'Free Army Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More accurate than BMI alone. Instant results.',
   slug: 'army-body-fat-calculator',
   category: 'health',

@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Breathing Exercise Calculator — Box Breathing, 4-7-8 & Wim Hof Timing 2026',
+  title: 'Breathing Exercise Calculator 2026 | TOOLTRIO',
   description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breath hold targets, practice schedules, and track breathing capacity improvements. Free online breathing exercise calculator 2026. No signup required.',
   slug: 'breathing-exercise-calculator',
   category: 'health',

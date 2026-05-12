@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sleep Need Calculator — Optimal Hours by Age, Chronotype & Lifestyle 2026',
+  title: 'Sleep Need Calculator 2026 | TOOLTRIO',
   description: 'Free Sleep Need Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up optimization. Evidence-based sleep science. No signup.',
   slug: 'sleep-need-calculator',
   category: 'health',

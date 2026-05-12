@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Heart Age Calculator — Cardiovascular Age from Risk Factors 2026',
+  title: 'Heart Age Calculator 2026 | TOOLTRIO',
   description: 'Free Heart Age Calculator 2026. Calculate your cardiovascular biological age using American Heart Association standards. Assess your heart\'s biological age vs chronological age.',
   slug: 'heart-age-calculator',
   category: 'health',

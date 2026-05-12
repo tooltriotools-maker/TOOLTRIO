@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Villain Name Generator – Your Evil Alter Ego & Origin Story',
+  title: 'Villain Name Generator | TOOLTRIO',
   description: 'Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name generator, no signup.',
   slug: 'villain-name',
   keywords: [

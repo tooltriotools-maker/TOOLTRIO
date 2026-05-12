@@ -35,8 +35,9 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-plus-jakarta)', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['var(--font-fira-code)', 'monospace'],
       },
       backgroundImage: {
@@ -44,9 +45,11 @@ const config: Config = {
         'hero-gradient': 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #f0fdf4 100%)',
       },
       boxShadow: {
-        'card': '0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
-        'card-hover': '0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(22,163,74,0.08)',
-        'green-glow': '0 0 0 3px rgba(22,163,74,0.15), 0 4px 16px rgba(22,163,74,0.1)',
+        'card': '0 8px 30px rgba(15,23,42,0.05)',
+        'card-hover': '0 20px 40px rgba(15,23,42,0.12)',
+        'green-glow': '0 0 0 5px rgba(34,197,94,0.12)',
+        'btn': '0 10px 25px rgba(34,197,94,0.25)',
+        'btn-hover': '0 18px 35px rgba(34,197,94,0.35)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

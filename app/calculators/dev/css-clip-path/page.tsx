@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS clip-path Generator — Shape Clipping Builder Free',
+  title: 'CSS clip-path Generator Online | TOOLTRIO',
   description: 'Build CSS clip-path shapes visually — polygon, circle, ellipse, and inset. Live preview with copy-ready CSS. Create diagonal sections and custom shapes. Runs in your browser.',
   slug: 'css-clip-path',
   keywords: ['css clip path generator online free','clip-path maker browser','css polygon shape builder','clip path visual editor free','css shape generator online'],

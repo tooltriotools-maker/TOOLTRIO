@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Infant Weight & Height Percentile Calculator — WHO Growth Charts (0-24 months) 2026',
+  title: 'Infant Weight Percentile Calculator | TOOLTRIO',
   description: 'Free Infant Weight Percentile Calculator 2026. Calculate your baby\'s weight, height, and head circumference percentile using WHO and CDC growth charts. Track development from birth to 24 months.\', height, and head circumference percentiles using WHO growth charts for ages 0-24 months. Understand what percentile means for growth and identify patterns that warrant medical attention.',
   slug: 'infant-weight-percentile-calculator',
   category: 'health',

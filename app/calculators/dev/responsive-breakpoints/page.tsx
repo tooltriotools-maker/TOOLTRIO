@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Responsive Breakpoints — Standard CSS Breakpoints Reference',
+  title: 'CSS Breakpoints Reference 2026 | TOOLTRIO',
   description: 'Reference standard CSS breakpoints for all frameworks. Shows Tailwind, Bootstrap, and Material UI breakpoints in px and rem. Plan media queries. Runs in your browser.',
   slug: 'responsive-breakpoints',
   keywords: ['responsive breakpoints checker online free','css media query generator','mobile tablet desktop breakpoints','viewport breakpoints tool free','responsive design checker browser'],

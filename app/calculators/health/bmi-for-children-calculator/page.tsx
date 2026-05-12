@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BMI Calculator for Children — CDC BMI-for-Age Percentile (Ages 2-19) 2026',
+  title: 'BMI Calculator for Children 2026 | TOOLTRIO',
   description: 'Free BMI for Children Calculator 2026. Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy weight ranges by age and sex.\', and what the percentile means for growth trajectory.',
   slug: 'bmi-for-children-calculator',
   category: 'health',

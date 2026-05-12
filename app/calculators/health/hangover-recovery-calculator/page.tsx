@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Hangover Recovery Calculator — Rehydration, Nutrition & Timeline 2026',
+  title: 'Hangover Recovery Calculator 2026 | TOOLTRIO',
   description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan, nutrient replacement priorities, and estimated time to feel normal. Free online hangover recovery calculator 2026. No signup required.',
   slug: 'hangover-recovery-calculator',
   category: 'health',

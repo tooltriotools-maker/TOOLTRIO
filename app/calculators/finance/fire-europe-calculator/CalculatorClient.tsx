@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Country</label>
             <select value={countryIdx} onChange={e => setCountryIdx(Number(e.target.value))}
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none">
+              className="w-full border rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none" style={{background:'rgba(255,255,255,0.85)',borderColor:'#e2e8f0'}}>
               {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name}</option>)}
             </select>
           </div>
@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[['Current Age', currentAge, setCurrentAge], ['Target FIRE Age', targetAge, setTargetAge]].map(([label, value, set]: any) => (
               <div key={label} className="space-y-1">
                 <label className="text-xs font-medium text-gray-600">{label}</label>
-                <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                   <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={1} min={18} max={80}
                     className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                   <span className="text-gray-400 text-xs">yr</span>
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           ].map(({ label, value, set, step }) => (
             <div key={label} className="space-y-1">
               <label className="text-xs font-medium text-gray-600">{label}</label>
-              <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <span className="text-green-600 font-bold text-sm">{sym}</span>
                 <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={step}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -102,7 +102,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Annual Return</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={annualReturn} onChange={e => setAnnualReturn(Number(e.target.value))} step={0.5}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">%</span>
@@ -145,11 +145,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
         <div className="lg:col-span-2 space-y-4">
           {/* FIRE Number hero */}
-          <div className={`p-5 rounded-2xl border-2 ${result.isAchievable ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-300'}`}>
+          <div className={`p-5 rounded-2xl border-2 ${result.isAchievable ? 'border-green-300' : 'border-amber-300'}`} style={{background: result.isAchievable ? 'rgba(240,253,244,0.8)' : 'rgba(255,251,235,0.8)', backdropFilter:'blur(8px)'}}>
             <div className="flex items-center justify-between mb-3">
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wide">Your FIRE Number</p>
-                <p className="text-4xl font-black text-gray-900">{fmtK(result.fireNumber)}</p>
+                <p className="text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmtK(result.fireNumber)}</p>
                 {includeStatePension && (
                   <p className="text-xs text-blue-600 mt-1">Reduced to {fmtK(adjustedFIRENumber)} with state pension at {country.statePensionAge}</p>
                 )}

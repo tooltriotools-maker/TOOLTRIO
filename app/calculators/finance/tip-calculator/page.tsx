@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Tip Calculator USA 2026 – Restaurant Tip, Bill Split and Gratuity Per Person',
+ title: 'Tip Calculator USA – Bill Split & Gratuity | TOOLTRIO',
  description: 'Free tip calculator USA 2026. Calculate 15%, 18%, 20%, and custom tip amounts, split bills between any number of people. Real examples for $50–$500 restaurant bills.',
  slug: 'tip-calculator',
  category: 'finance',

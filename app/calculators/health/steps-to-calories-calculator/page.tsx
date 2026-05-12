@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Steps to Calories Calculator — Burn Calories by Step Count, Weight & Speed 2026',
+  title: 'Steps to Calories Calculator 2026 | TOOLTRIO',
   description: 'Free Steps To Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
   slug: 'steps-to-calories-calculator',
   category: 'health',

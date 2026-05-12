@@ -6,7 +6,7 @@ const DEV_CATEGORY_URL = `${BASE_URL}/calculators/dev`
 const OG_IMAGE = `${BASE_URL}/og-image.png`
 
 export const metadata: Metadata = {
-  title: '90 Free Developer Tools — JSON, Regex, Base64, UUID, CSS, SQL & More',
+  title: '90+ Free Developer Tools Online | TOOLTRIO',
   description: '90 free browser-based developer tools for engineers worldwide. JSON formatter, regex tester, Base64 encoder, UUID generator, JWT decoder, SQL formatter, CSS generators and more. No install, no signup, 100% private.',
   keywords: [
     // Category identity
@@ -264,7 +264,7 @@ export default function DevToolsPage() {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">{tool.icon}</span>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors truncate">{tool.name}</h3>
+                      <h3 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-all truncate">{tool.name}</h3>
                       <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">{tool.desc}</p>
                     </div>
                   </div>

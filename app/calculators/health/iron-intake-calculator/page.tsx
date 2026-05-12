@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Iron Intake Calculator — Daily Iron Needs, Deficiency Risk & Absorption Guide 2026',
+  title: 'Iron Intake Calculator 2026 | TOOLTRIO',
   description: 'Free Iron Intake Calculator 2026 — Calculate your daily iron intake needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'iron-intake-calculator',
   category: 'health',

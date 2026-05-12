@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cholesterol Calculator — LDL, HDL, Triglycerides & Cardiovascular Risk 2026',
+  title: 'Cholesterol Calculator 2026 | TOOLTRIO',
   description: 'Free Cholesterol Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
   slug: 'cholesterol-calculator',
   category: 'health',

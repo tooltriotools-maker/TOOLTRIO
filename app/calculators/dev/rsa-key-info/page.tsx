@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'RSA Key Inspector — Parse and Analyze RSA Keys Free',
+  title: 'RSA Key Inspector Online | TOOLTRIO',
   description: 'Inspect RSA public and private keys. Shows key size, exponent, modulus, and certificate information from PEM format. Runs entirely in your browser.',
   slug: 'rsa-key-info',
   keywords: ['rsa key info online free','rsa public key decoder browser','ssl certificate key parser free','rsa key bit length checker','pem key info tool online','analyze rsa private key free'],

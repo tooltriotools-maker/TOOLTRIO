@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AlertTriangle, Info, TrendingUp, Heart, Scale, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Disclaimer - tooltrio.com',
+  title: 'Disclaimer | TOOLTRIO',
   description: 'Important disclaimer for tooltrio.com. Our calculators provide estimates for informational purposes only and do not constitute financial, medical, or legal advice.',
   alternates: { canonical: 'https://tooltrio.com/disclaimer' },
 }
@@ -26,7 +26,7 @@ export default function DisclaimerPage() {
               <AlertTriangle className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-black text-gray-900">Disclaimer</h1>
+              <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Disclaimer</h1>
               <p className="text-gray-500 text-sm">Please read this carefully before using our calculators</p>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function DisclaimerPage() {
           ].map(section => {
             const Icon = section.icon
             return (
-              <div key={section.title} className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
+              <div key={section.title} className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
                 <div className="flex items-center gap-3 mb-5">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${section.color}`}>
                     <Icon className="w-5 h-5" />

@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'SQL JOIN Visualizer — Visual JOIN Type Explainer Free',
+  title: 'SQL JOIN Visualizer Online | TOOLTRIO',
   description: 'Visualize SQL JOIN types with Venn diagrams and example queries. INNER, LEFT, RIGHT, FULL OUTER, CROSS, SELF joins explained. Runs in your browser.',
   slug: 'sql-join-visualizer',
   keywords: ['sql join visualizer online free','sql joins diagram browser','inner join left join right join visual','sql join types explained diagram','sql join venn diagram online','visualize sql joins free','sql table join preview browser'],

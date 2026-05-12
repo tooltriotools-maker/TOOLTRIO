@@ -96,16 +96,16 @@ export default function CalcFilterBar({ calculators, tagColors }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filtered.map(calc => (
           <Link key={calc.href} href={calc.href}
-            className="group bg-white rounded-2xl border border-gray-200 hover:border-green-400 hover:shadow-xl transition-all duration-200 p-5 flex flex-col shadow-sm">
-            <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-green-50 border border-green-200 flex items-center justify-center text-2xl group-hover:bg-green-100 transition-colors">{calc.icon}</div>
+            className="group bg-white rounded-2xl border border-gray-200 hover:border-green-400 hover:shadow-xl transition-all p-5 flex flex-col shadow-sm" style={{display:'flex'}}>
+            <span className="flex items-start justify-between mb-4" style={{display:'flex'}}>
+              <span className="w-12 h-12 rounded-xl bg-green-50 border border-green-200 flex items-center justify-center text-2xl group-hover:bg-green-100 transition-all" style={{display:'flex'}}>{calc.icon}</span>
               <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${tagColors[calc.tag] || 'bg-gray-100 text-gray-600'}`}>{calc.tag}</span>
-            </div>
-            <h2 className="font-bold text-gray-900 group-hover:text-green-700 transition-colors mb-1.5">{calc.name}</h2>
-            <p className="text-xs text-gray-500 flex-1 leading-relaxed">{calc.desc}</p>
-            <div className="flex items-center gap-1 mt-4 text-xs font-bold text-green-600 group-hover:gap-2 transition-all">
+            </span>
+            <span className="font-bold text-gray-900 group-hover:text-green-700 transition-all mb-1.5 block">{calc.name}</span>
+            <span className="text-xs text-gray-500 flex-1 leading-relaxed block">{calc.desc}</span>
+            <span className="flex items-center gap-1 mt-4 text-xs font-bold text-green-600 group-hover:gap-2 transition-all" style={{display:'flex'}}>
               Open Calculator <ChevronRight className="w-3.5 h-3.5" />
-            </div>
+            </span>
           </Link>
         ))}
       </div>

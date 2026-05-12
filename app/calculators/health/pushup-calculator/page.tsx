@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Push-Up Calculator — Max Reps Percentile, Age Norms & Strength Standards 2026',
+  title: 'Push-Up Calculator – Strength Norms | TOOLTRIO',
   description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized progression targets for strength and endurance goals. Free online pushup calculator 2026. No signup required.',
   slug: 'pushup-calculator',
   category: 'health',

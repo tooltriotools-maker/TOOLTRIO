@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Total Investment</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={totalInvestment} onChange={e => setTotalInvestment(Number(e.target.value))} step={5000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
             </div>
@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">1-Year CD Rate (APY)</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <input type="number" value={baseRate} onChange={e => setBaseRate(Number(e.target.value))} step={0.1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>
             </div>
@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Rate Increment per Rung</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <input type="number" value={rateIncrement} onChange={e => setRateIncrement(Number(e.target.value))} step={0.05} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>
             </div>

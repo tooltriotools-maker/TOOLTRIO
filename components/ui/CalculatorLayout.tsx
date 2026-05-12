@@ -132,13 +132,13 @@ export function CalculatorLayout({ title, description, icon, category, children,
             {blogSlug && (
               <Link
                 href={`/blog/${blogSlug}`}
-                className="text-xs text-blue-600 hover:text-blue-700 flex items-center gap-1 font-semibold border border-blue-200 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors"
+                className="text-xs text-blue-600 hover:text-blue-700 flex items-center gap-1 font-semibold border border-blue-200 px-3 py-1 rounded-full bg-blue-50 hover:bg-blue-100 transition-all"
               >
                 <BookOpen className="w-3 h-3" /> Read the Guide <ArrowRight className="w-3 h-3" />
               </Link>
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-black font-display text-gray-900 mb-3">{title}</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
           <p className="text-gray-500 text-base md:text-lg max-w-2xl leading-relaxed">{description}</p>
         </div>
 
@@ -170,21 +170,22 @@ export function CalculatorLayout({ title, description, icon, category, children,
         {/* Related Calculators */}
         {relatedCalculators && relatedCalculators.length > 0 && (
           <div className="mt-8">
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-card overflow-hidden">
+            <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
               <div className={`px-6 py-4 border-b border-gray-100 ${category === 'Finance' ? 'bg-green-50' : category === 'Health' ? 'bg-red-50' : category === 'Dev' ? 'bg-blue-50' : 'bg-purple-50'}`}>
-                <h2 className="text-lg font-bold font-display text-gray-900">🔗 Related Calculators</h2>
+                <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🔗 Related Calculators</h2>
                 <p className="text-sm text-gray-500 mt-0.5">You might also find these useful</p>
               </div>
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {relatedCalculators.map(rc => (
                   <Link key={rc.href} href={rc.href}
-                    className={`flex items-start gap-3 p-4 rounded-xl border border-gray-100 transition-all group ${category === 'Finance' ? 'hover:border-green-200 hover:bg-green-50/50' : category === 'Health' ? 'hover:border-red-200 hover:bg-red-50/50' : category === 'Dev' ? 'hover:border-blue-200 hover:bg-blue-50/50' : 'hover:border-purple-200 hover:bg-purple-50/50'}`}>
+                    className={`flex items-start gap-3 p-4 rounded-2xl border transition-all group hover:-translate-y-0.5 hover:shadow-md hover:border-green-200/60`} style={{borderColor:'rgba(226,232,240,0.6)', transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
+                  >
                     <span className="text-xl flex-shrink-0">{rc.icon}</span>
-                    <div>
-                      <p className={`font-semibold text-sm text-gray-800 transition-colors ${category === 'Finance' ? 'group-hover:text-green-700' : category === 'Health' ? 'group-hover:text-red-600' : category === 'Dev' ? 'group-hover:text-blue-600' : 'group-hover:text-purple-600'}`}>{rc.name}</p>
-                      <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{rc.desc}</p>
-                    </div>
-                    <ArrowRight className={`w-4 h-4 text-gray-300 transition-colors ml-auto flex-shrink-0 mt-0.5 ${category === 'Finance' ? 'group-hover:text-green-500' : category === 'Health' ? 'group-hover:text-red-400' : category === 'Dev' ? 'group-hover:text-blue-400' : 'group-hover:text-purple-400'}`} />
+                    <span className="block">
+                      <span className={`font-semibold text-sm text-gray-800 transition-all block ${category === 'Finance' ? 'group-hover:text-green-700' : category === 'Health' ? 'group-hover:text-red-600' : category === 'Dev' ? 'group-hover:text-blue-600' : 'group-hover:text-purple-600'}`}>{rc.name}</span>
+                      <span className="text-xs text-gray-400 mt-0.5 leading-relaxed block">{rc.desc}</span>
+                    </span>
+                    <ArrowRight className={`w-4 h-4 text-gray-300 transition-all ml-auto flex-shrink-0 mt-0.5 ${category === 'Finance' ? 'group-hover:text-green-500' : category === 'Health' ? 'group-hover:text-red-400' : category === 'Dev' ? 'group-hover:text-blue-400' : 'group-hover:text-purple-400'}`} />
                   </Link>
                 ))}
               </div>
@@ -195,7 +196,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
         {/* Bottom blog prompt */}
         {!blogSlug && (
           <div className="mt-10 text-center">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-semibold border border-blue-200 px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-semibold border border-blue-200 px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all">
               <BookOpen className="w-4 h-4" /> Browse our Finance &amp; Health Guides <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

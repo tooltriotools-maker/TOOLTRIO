@@ -3,7 +3,7 @@ import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Fun Life Expectancy Calculator – Estimate How Long You Will Live',
+  title: 'Life Expectancy Calculator – Fun | TOOLTRIO',
   description: 'Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for entertainment. Free, no login.',
   slug: 'life-expectancy-fun',
   keywords: [

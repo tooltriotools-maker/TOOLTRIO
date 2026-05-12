@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Forex Profit Calculator USA 2026 – Currency Trade Profit, Pips and ROI',
+ title: 'Forex Profit Calculator USA 2026 | TOOLTRIO',
  description: 'Free forex profit calculator USA 2026. Calculate profit or loss on currency exchange trades including pip value, position size, and leverage. Real examples for USD/EUR, USD/GBP, and major forex pairs.',
  slug: 'currency-profit-calculator',
  category: 'finance',

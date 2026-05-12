@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Annual Gross Income</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 font-bold text-sm">£</span>
               <input type="number" value={grossIncome} onChange={e => setGrossIncome(Number(e.target.value))} step={1000}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-lg" />
@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <label className="text-xs font-medium text-gray-600">Pension Contribution</label>
               <span className="text-xs text-gray-400">{grossIncome > 0 ? ((pensionContrib / grossIncome) * 100).toFixed(1) : 0}% of salary</span>
             </div>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 font-bold text-sm">£</span>
               <input type="number" value={pensionContrib} onChange={e => setPensionContrib(Number(e.target.value))} step={500}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -86,7 +86,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
         <div className="lg:col-span-2 space-y-4">
           {/* Main payslip */}
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
+          <div className="p-5 rounded-2xl from-green-50 to-emerald-50 border-2 border-green-200" style={{background:'linear-gradient(135deg,rgba(240,253,244,0.9),rgba(236,253,245,0.9))'}}>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div className="bg-white rounded-xl p-3">
                 <p className="text-xs text-gray-500">Gross Income</p>

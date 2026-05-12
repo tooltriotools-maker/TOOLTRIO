@@ -24,12 +24,12 @@ export default function CalculatorClient({ faqs }: Props) {
         <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Box Shadow</span>
       </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1">🌑 CSS Box Shadow Generator</h1>
+      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌑 CSS Box Shadow Generator <span className="text-green-600">| TOOLTRIO</span></h1>
       <p className="text-gray-500 mb-6">Build shadows visually - control every property and copy CSS instantly</p>
-      <div className="flex items-center justify-center py-16 bg-gray-50 rounded-2xl border border-gray-200 mb-6">
+      <div className="flex items-center justify-center py-16 rounded-2xl border border-gray-200 mb-6" style={{background:'rgba(248,250,248,0.8)'}}>
         <div className="w-48 h-32 bg-white rounded-2xl" style={{boxShadow:css}} />
       </div>
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-4">
+      <div className="rounded-2xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         {[{l:'Horizontal (X)',v:x,s:setX,min:-50,max:50},{l:'Vertical (Y)',v:y,s:setY,min:-50,max:50},{l:'Blur',v:blur,s:setBlur,min:0,max:100},{l:'Spread',v:spread,s:setSpread,min:-50,max:50}].map(({l,v,s,min,max})=>(
           <div key={l} className="mb-4">
             <div className="flex justify-between text-xs mb-1"><span className="font-bold text-gray-600">{l}</span><span className="font-mono text-gray-500">{v}px</span></div>
@@ -48,16 +48,16 @@ export default function CalculatorClient({ faqs }: Props) {
           <button onClick={()=>{navigator.clipboard.writeText(fullCss);setCopied(true);setTimeout(()=>setCopied(false),1500)}} className="text-green-400 hover:text-green-300">{copied?<Check className="w-5 h-5"/>:<Copy className="w-5 h-5"/>}</button>
         </div>
       </div>
-      <div className="mt-6 bg-white rounded-2xl border border-gray-200 p-6">
+      <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Box Shadow Generator</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Create realistic CSS box shadows without guessing values. Drag the sliders to see the shadow update live on the preview box. <strong>X/Y offsets</strong> control shadow direction, <strong>Blur</strong> controls softness, <strong>Spread</strong> expands/shrinks the shadow size, and <strong>Inset</strong> moves the shadow inside the element (useful for pressed/clicked states).</p>
         <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="p-4 bg-blue-50 rounded-xl border border-blue-200"><p className="text-xs font-bold text-blue-600 uppercase mb-1">Soft card shadow</p><code className="text-xs font-mono text-blue-800">box-shadow: 0 4px 16px 0 rgba(0,0,0,0.25);</code></div>
-          <div className="p-4 bg-green-50 rounded-xl border border-green-200"><p className="text-xs font-bold text-green-600 uppercase mb-1">Inset inner glow</p><code className="text-xs font-mono text-green-800">box-shadow: inset 0 2px 8px 0 rgba(0,0,0,0.15);</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(239,246,255,0.8)',borderColor:'rgba(147,197,253,0.5)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-blue-600 uppercase mb-1">Soft card shadow</p><code className="text-xs font-mono text-blue-800">box-shadow: 0 4px 16px 0 rgba(0,0,0,0.25);</code></div>
+          <div className="p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}><p className="text-xs font-bold text-green-600 uppercase mb-1">Inset inner glow</p><code className="text-xs font-mono text-green-800">box-shadow: inset 0 2px 8px 0 rgba(0,0,0,0.15);</code></div>
         </div>
         <p className="text-sm text-gray-600">Tip: Use near-zero X and Y with high Blur (20-30px) and light colour for modern card shadows. Use negative spread to create a shadow that is smaller than the element for a floating effect.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="bg-white border border-gray-200 rounded-xl p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="CSS Box Shadow Generator"
         category="dev"

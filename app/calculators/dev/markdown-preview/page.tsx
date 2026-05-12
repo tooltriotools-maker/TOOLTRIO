@@ -3,7 +3,7 @@ import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metada
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Markdown Preview — Live GFM Renderer Free Online',
+  title: 'Markdown Preview Online | TOOLTRIO',
   description: 'Preview Markdown as rendered HTML in real time. Supports GFM tables, code highlighting, task lists, and strikethrough. Runs in your browser.',
   slug: 'markdown-preview',
   keywords: ['markdown preview online free','markdown editor browser','markdown to html preview','live markdown renderer','markdown viewer online free'],

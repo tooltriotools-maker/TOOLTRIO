@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {[['Current Age', currentAge, setCurrentAge], ['Retirement Age', retirementAge, setRetirementAge]].map(([label, value, set]: any) => (
               <div key={label} className="space-y-1">
                 <label className="text-xs font-medium text-gray-600">{label}</label>
-                <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                   <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={1}
                     className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                   <span className="text-gray-400 text-xs">yr</span>
@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           ].map(({ label, value, set, step }) => (
             <div key={label} className="space-y-1">
               <label className="text-xs font-medium text-gray-600">{label}</label>
-              <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <span className="text-green-600 font-bold text-sm">£</span>
                 <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={step}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Employee %</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={employeeContrib} onChange={e => setEmployeeContrib(Number(e.target.value))} step={0.5} min={0}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">%</span>
@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">Employer %</label>
-              <div className="flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
                 <input type="number" value={employerContrib} onChange={e => setEmployerContrib(Number(e.target.value))} step={0.5} min={0}
                   className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right text-sm" />
                 <span className="text-gray-400 text-xs">%</span>
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Annual Return</label>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <input type="number" value={annualReturn} onChange={e => setAnnualReturn(Number(e.target.value))} step={0.5}
                 className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>

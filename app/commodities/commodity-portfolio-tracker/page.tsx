@@ -151,7 +151,7 @@ export default function CommodityPortfolioTrackerPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900">🗂️ Commodity Portfolio Tracker</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🗂️ Commodity Portfolio Tracker</h1>
           <p className="text-gray-500 mt-1">Track your gold, silver, platinum &amp; energy holdings at live prices - P&amp;L, allocation &amp; performance</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
@@ -249,7 +249,7 @@ export default function CommodityPortfolioTrackerPage() {
             ) : rows.map((row, i) => {
               const up = row.pnl >= 0
               return (
-                <div key={row.id} className="grid grid-cols-7 items-center px-5 py-3 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
+                <div key={row.id} className="grid grid-cols-7 items-center px-5 py-3 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-all">
                   <div className="col-span-2 flex items-center gap-2 min-w-0">
                     <span className="text-xl flex-shrink-0">{row.metaOpt.emoji}</span>
                     <div className="min-w-0">
@@ -363,20 +363,20 @@ export default function CommodityPortfolioTrackerPage() {
               const up = c.changePct >= 0
               return (
                 <Link key={m.key} href={COMMODITY_META[m.key].href}
-                  className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
-                  <div className="flex items-center gap-2">
+                  className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-all">
+                  <span className="flex items-center gap-2">
                     <span className="text-base">{m.emoji}</span>
-                    <div>
+                    <span>
                       <p className="text-xs font-bold text-gray-900 leading-tight">{m.name}</p>
                       <p className="text-[10px] text-gray-400">per {m.unit}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
+                    </span>
+                  </span>
+                  <span className="text-right">
                     <p className="text-xs font-black text-gray-900">${c.price.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</p>
                     <p className={`text-[10px] font-bold ${up ? 'text-green-600':'text-red-500'}`}>
                       {up?'^':'v'}{Math.abs(c.changePct).toFixed(2)}%
                     </p>
-                  </div>
+                  </span>
                 </Link>
               )
             })}
@@ -420,7 +420,7 @@ export default function CommodityPortfolioTrackerPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4">Commodity Portfolio Tracker — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Commodity Portfolio Tracker — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals investors hold positions across multiple metals, bought at different times and prices, in different weight units, from different dealers — and have no single view of what their total collection is worth today. This portfolio tracker solves that: enter each holding with its purchase price, get a live total portfolio value, position-level unrealized P&L, and overall return — all updating in real time from the same live price feeds that power our individual calculators.</p>
             <p>The tracker handles all four major precious metals (gold, silver, platinum, palladium) in any weight unit (grams, troy ounces, tolas, kilograms). You can add multiple positions for the same metal — the tracker computes weighted average cost automatically. The total portfolio view shows your metals allocation breakdown, best and worst performing positions, and total unrealized gain/loss in absolute amount and percentage.</p>
@@ -433,7 +433,8 @@ export default function CommodityPortfolioTrackerPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Trade-level ROI with dealer fees for any single position'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices in 5 currencies'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Benchmark your gold portfolio vs SIP returns'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical comparison'},{e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR for cross-currency portfolio valuation'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all p-4 flex flex-col gap-2"><div className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-indigo-700 leading-tight">{c.n}</p></div><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-indigo-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
+            {[{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Trade-level ROI with dealer fees for any single position'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices in 5 currencies'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Benchmark your gold portfolio vs SIP returns'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical comparison'},{e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR for cross-currency portfolio valuation'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-indigo-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-indigo-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>
       </div>

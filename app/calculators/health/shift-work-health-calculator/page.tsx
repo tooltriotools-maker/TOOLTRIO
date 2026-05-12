@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Shift Work Health Risk Calculator — Circadian Disruption & Chronic Disease Risk 2026',
+  title: 'Shift Work Health Calculator 2026 | TOOLTRIO',
   description: 'Assess the cumulative health risk of shift work including night shifts, rotating shifts, and irregular schedules. Calculate circadian disruption index and health risks for cardiovascular disease, metabolic syndrome, and sleep disorders. Free online shift work health calculator 2026. No signup required.',
   slug: 'shift-work-health-calculator',
   category: 'health',

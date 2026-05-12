@@ -3,7 +3,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppSt
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Stress Level Calculator — Perceived Stress Scale & Physical Impact Assessment 2026',
+  title: 'Stress Level Calculator 2026 | TOOLTRIO',
   description: 'Free Stress Level Calculator 2026 — Assess and track your stress level with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'stress-level-calculator',
   category: 'health',
