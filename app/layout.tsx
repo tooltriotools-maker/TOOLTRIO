@@ -20,46 +20,53 @@ export const metadata: Metadata = {
   },
   description:
     'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',
-  keywords: [
-    'home loan calculator',
-    '401k calculator',
-    '401k calculator 2026',
-    'Roth IRA calculator',
-    'retirement calculator USA',
-    'compound interest calculator',
-    'loan calculator',
-    'investment calculator',
-    'income tax calculator USA',
+ keywords: [
+    // Core USA finance intent -- highest volume
 
+     'home loan calculator',
+    '401k calculator', '401k calculator 2026', 'Roth IRA calculator',
+    'retirement calculator USA', 'compound interest calculator',
+    'loan calculator', 'investment calculator', 'income tax calculator USA',
+   
+    // Health
+
+    // Broad
+  
+   
+    // Long tail
     'best free financial calculator USA 2026',
     'online financial tools no registration',
+ 
+   
 
-    'finance calculator USA',
-    'free financial calculator USA',
-    'online calculator free',
+  'finance calculator USA',
+  'free financial calculator USA',
+  'online calculator free',
 
-    'free mortgage calculator USA with taxes',
-    '401k calculator with employer match USA',
-    'compound interest calculator monthly contribution',
-    'loan payoff calculator USA early payment',
-    'debt payoff calculator snowball vs avalanche',
-    'budget planner calculator USA',
-    'income tax calculator USA 2026',
-    'fixed deposit calculator usa',
-    'random password generator free online',
-    'uuid generator free online',
-    'json formatter online free',
-    'finanace calculator',
-    'tax bracket calculator',
-    'steps to calories',
+  'free mortgage calculator USA with taxes',
+  '401k calculator with employer match USA',
+  'compound interest calculator monthly contribution',
+  'loan payoff calculator USA early payment',
+  'debt payoff calculator snowball vs avalanche',
+  'budget planner calculator USA',
+  'income tax calculator USA 2026',
+  'fixed deposit calculator usa',
+  'random password generator free online',
+  'uuid generator free online',
+  'json formatter online free',
+  'finanace calculator',
+  'tax bracket calculator','steps to calories',
+  // Brand
+  'tooltrio.com'
 
-    'tooltrio.com',
+
+
+
+
   ],
-
   authors: [{ name: 'tooltrio Team', url: 'https://tooltrio.com' }],
   creator: 'tooltrio.com',
   publisher: 'tooltrio.com',
-
   robots: {
     index: true,
     follow: true,
@@ -71,7 +78,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -89,7 +95,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: 'summary_large_image',
     title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
@@ -97,22 +102,25 @@ export const metadata: Metadata = {
       'Free mortgage, 401k, BMI, compound interest calculators. 400+ tools. No signup. Instant results.',
     images: ['/og-image.png'],
   },
+icons: {
+  icon: [
+    { url: '/favicon.ico' },
+    { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
+    { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+  ],
+  shortcut: [
+    { url: '/favicon.ico', type: 'image/x-icon' }
+  ],
+  apple: [
+    { url: '/apple-touch-icon.png', sizes: '180x180' }
+  ]
+},
+manifest: '/site.webmanifest',
+category: 'finance',
 
-  icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-    ],
-    shortcut: [{ url: '/favicon.ico', type: 'image/x-icon' }],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-  },
-
-  manifest: '/site.webmanifest',
-  category: 'finance',
 }
 
-// Structured Data
+// -- Structured Data ------------------------------------------------------------
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -140,7 +148,6 @@ const websiteSchema = {
   description:
     'Free online finance calculators -- mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
   inLanguage: 'en-US',
-
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -157,16 +164,20 @@ const softwareSchema = {
   name: 'tooltrio.com - Free Online Calculators',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Any',
-
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
   },
-
+  // aggregateRating: {
+  //   '@type': 'AggregateRating',
+  //   ratingValue: '4.9',
+  //   ratingCount: '48291',
+  //   bestRating: '5',
+  //   worstRating: '1',
+  // },
   description:
     'Free online finance and health calculators. Mortgage, 401k, compound interest, BMI, TDEE and 400+ calculators. No signup required.',
-
   featureList: [
     'Mortgage Calculator with taxes and insurance',
     '401k and Roth IRA retirement calculators',
@@ -179,28 +190,24 @@ const softwareSchema = {
   ],
 }
 
+// HowTo schema -- helps AI search visibility (Perplexity, ChatGPT, Gemini)
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-
   name: 'How to Use Our Free Online Finance Calculators',
-
   description:
     'Step-by-step guide to using tooltrio.com free online calculators for mortgage, retirement, and more.',
-
   step: [
     {
       '@type': 'HowToStep',
       name: 'Choose a Calculator',
       text: 'Browse our 400+ free calculators by category: Finance, Health, Dev Tools, or Fun. Use the search bar to find a specific calculator instantly.',
     },
-
     {
       '@type': 'HowToStep',
       name: 'Enter Your Numbers',
       text: 'Input your personal figures -- such as loan amount, interest rate, income, or body measurements. All fields have clear labels and helpful tooltips.',
     },
-
     {
       '@type': 'HowToStep',
       name: 'Get Instant Results',
@@ -209,31 +216,20 @@ const howToSchema = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Favicon */}
+        {/* Favicon - explicit link tags for ALL browsers/devices */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
         <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-
-        {/* Geo & SEO */}
+        {/* Geo & language signals for USA ranking */}
         <meta name="geo.region" content="US" />
         <meta name="geo.placename" content="United States" />
         <meta name="language" content="English" />
@@ -244,70 +240,39 @@ export default function RootLayout({
         {/* Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
         />
-
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(howToSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
-
-        {/* Fonts */}
+        {/* Premium Fonts: Inter + Playfair Display */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
       </head>
-
       <body suppressHydrationWarning className="antialiased">
         {/* Google Analytics GA4 */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XW8R1K19P7"
+          src="https://www.googletagmanager.com/gtag/js?id=G-M1830T21DJ"
           strategy="afterInteractive"
         />
-
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag(){
-              dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'G-XW8R1K19P7', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
-
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-M1830T21DJ', {
+            page_path: window.location.pathname,
+          });
+        `}</Script>
         <CurrencyProvider>
           <div className="flex flex-col min-h-screen">
             <Header />

@@ -79,6 +79,30 @@ export function Footer() {
           </div>
 
 
+          {/* ZIP Tools */}
+          <div>
+            <h3 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">
+              📮 ZIP Tools
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              {[
+                ['ZIP Code Lookup',     '/zip/zip-code-lookup'],
+                ['ZIP Distance',        '/zip/zip-code-distance'],
+                ['ZIP to City',         '/zip/zip-to-city'],
+                ['City to ZIP',         '/zip/city-to-zip'],
+                ['ZIPs in Radius',      '/zip/zips-within-radius'],
+                ['ZIP Timezone',        '/zip/zip-to-timezone'],
+                ['ZIP Code Map',        '/zip/zip-code-map'],
+                ['Drive Time by ZIP',   '/zip/drive-time-by-zip'],
+                ['ZIP Validator',       '/zip/zip-code-validator'],
+                ['USPS Address Format', '/zip/usps-address-format'],
+                ['All 35+ ZIP Tools →', '/zip'],
+              ].map(([name, href]) => (
+                <li key={href}><Link href={href} className="hover:text-teal-400 transition-all">{name}</Link></li>
+              ))}
+            </ul>
+          </div>
+
           {/* Commodities */}
           <div>
             <h3 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">

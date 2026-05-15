@@ -73,6 +73,24 @@ const NAV = [
     ],
   },
   {
+    key: 'zip', label: '📮 ZIP Tools', color: 'teal',
+    href: '/zip', viewAll: 'All 30+ ZIP Tools →',
+    items: [
+      { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+      { name: 'ZIP to City', href: '/zip/zip-to-city' },
+      { name: 'ZIP to State', href: '/zip/zip-to-state' },
+      { name: 'ZIP to County', href: '/zip/zip-to-county' },
+      { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
+      { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius' },
+      { name: 'City to ZIP', href: '/zip/city-to-zip' },
+      { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
+      { name: 'ZIP Code Map', href: '/zip/zip-code-map' },
+      { name: 'ZIP Validator', href: '/zip/zip-code-validator' },
+      { name: 'USPS Address Format', href: '/zip/usps-address-format' },
+      { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip' },
+    ],
+  },
+  {
     key: 'commodities', label: '🥇 Commodities', color: 'yellow',
     href: '/commodities', viewAll: 'All Commodities ->',
     items: [
@@ -103,6 +121,7 @@ const COLOR_MAP: Record<string, { text: string; hover: string; header: string }>
   blue:   { text: 'text-blue-600',   hover: 'hover:bg-blue-50',   header: 'bg-blue-50'   },
   purple: { text: 'text-purple-600', hover: 'hover:bg-purple-50', header: 'bg-purple-50' },
   yellow: { text: 'text-yellow-700', hover: 'hover:bg-yellow-50', header: 'bg-yellow-50' },
+  teal:   { text: 'text-teal-700',   hover: 'hover:bg-teal-50',   header: 'bg-teal-50'   },
 }
 
 // -- Dropdown ------------------------------------------------------------------

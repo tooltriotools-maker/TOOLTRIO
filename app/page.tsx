@@ -91,10 +91,22 @@ const devCalcs = [
   { name: 'YAML Formatter', desc: 'YAML to JSON', href: '/calculators/dev/yaml-formatter', icon: '📄', badge: null },
 ]
 
+const zipCalcs = [
+  { name: 'ZIP Code Lookup', desc: 'Full ZIP details', href: '/zip/zip-code-lookup', icon: '🔍', badge: null },
+  { name: 'ZIP Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
+  { name: 'ZIP to City', desc: 'Find city from ZIP', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
+  { name: 'City to ZIP', desc: 'Get ZIP for a city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
+  { name: 'ZIPs in Radius', desc: 'ZIPs within X miles', href: '/zip/zips-within-radius', icon: '🎯', badge: null },
+  { name: 'ZIP Map Viewer', desc: 'View ZIP on map', href: '/zip/zip-code-map', icon: '📍', badge: null },
+  { name: 'ZIP Timezone', desc: 'Timezone for ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: null },
+  { name: 'USPS Format', desc: 'Format addresses', href: '/zip/usps-address-format', icon: '📬', badge: null },
+]
+
 const categories = [
   { label: 'Finance', icon: TrendingUp, href: '/calculators/finance', cls: 'bg-green-50 border-green-200 text-green-700', calcs: financeCalcs },
   { label: 'Health', icon: Heart, href: '/calculators/health', cls: 'bg-rose-50 border-rose-200 text-rose-700', calcs: healthCalcs },
   { label: 'Dev Tools', icon: Code2, href: '/calculators/dev', cls: 'bg-blue-50 border-blue-200 text-blue-700', calcs: devCalcs },
+  { label: 'ZIP Tools', icon: Globe, href: '/zip', cls: 'bg-teal-50 border-teal-200 text-teal-700', calcs: zipCalcs },
 ]
 
 export default function HomePage() {
@@ -134,27 +146,29 @@ export default function HomePage() {
           {/* Popular quick links — premium pill chips */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
             {[
-              'Mortgage Calculator',
-              '401k Calculator',
-              'Compound Interest',
-              'BMI Calculator',
-              'Calorie Calculator',
-              'Retirement Calculator',
+              { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
+              { label: '401k Calculator', href: '/calculators/finance/401k-calculator' },
+              { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
+              { label: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
+              { label: '📮 ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+              { label: '📏 ZIP Distance', href: '/zip/zip-code-distance' },
+              { label: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
             ].map(t => (
-              <span
-                key={t}
+              <Link
+                key={t.label}
+                href={t.href}
                 className="tag-pill text-xs"
                 style={{padding:'8px 16px'}}
               >
-                {t}
-              </span>
+                {t.label}
+              </Link>
             ))}
           </div>
           {/* Stats row */}
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
-              {val:'465+', label:'Free Tools'},
-              {val:'2M+', label:'Users/Month'},
+              {val:'500+', label:'Free Tools'},
+              {val:'35+', label:'ZIP Utilities'},
               {val:'100%', label:'Free Forever'},
               {val:'0', label:'Signup Required'},
             ].map(s => (
