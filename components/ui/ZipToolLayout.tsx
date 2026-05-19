@@ -7,6 +7,17 @@ interface RelatedTool {
   icon: string
 }
 
+interface FAQ {
+  q: string
+  a: string
+}
+
+interface SeoContent {
+  heading: string
+  body: string
+  faqs?: FAQ[]
+}
+
 interface Props {
   title: string
   description: string
@@ -14,9 +25,35 @@ interface Props {
   children: ReactNode
   relatedTools?: RelatedTool[]
   tips?: string[]
+  seoContent?: SeoContent
 }
 
-export function ZipToolLayout({ title, description, icon, children, relatedTools, tips }: Props) {
+function renderBody(text: string) {
+  const paras = text.trim().split(/\n\n+/)
+  return paras.map((para, i) => {
+    // Heading lines: **Text** alone on a line
+    if (/^\*\*[^*]+\*\*$/.test(para.trim())) {
+      return (
+        <h3 key={i} className="text-base font-bold text-gray-900 mt-5 mb-1">
+          {para.replace(/\*\*/g, '')}
+        </h3>
+      )
+    }
+    // Mixed inline bold
+    const parts = para.split(/(\*\*[^*]+\*\*)/)
+    return (
+      <p key={i} className="text-sm text-gray-600 leading-relaxed mb-2">
+        {parts.map((part, j) =>
+          part.startsWith('**') && part.endsWith('**')
+            ? <strong key={j} className="font-semibold text-gray-800">{part.replace(/\*\*/g, '')}</strong>
+            : part
+        )}
+      </p>
+    )
+  })
+}
+
+export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent }: Props) {
   return (
     <main className="min-h-screen py-8 px-4">
       <div className="max-w-3xl mx-auto">
@@ -66,7 +103,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
 
         {/* Related tools */}
         {relatedTools && relatedTools.length > 0 && (
-          <div className="rounded-2xl border p-5"
+          <div className="rounded-2xl border p-5 mb-5"
             style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.6)' }}>
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-bold text-gray-800 text-sm uppercase tracking-wider">🔗 Related ZIP Tools</h3>
@@ -85,6 +122,42 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
             </div>
           </div>
         )}
+
+        {/* SEO Content */}
+        {seoContent && (
+          <div className="mt-8">
+            {/* Body */}
+            <div className="rounded-2xl border p-6 mb-6"
+              style={{ background: 'rgba(255,255,255,0.85)', borderColor: 'rgba(226,232,240,0.6)' }}>
+              <h2 className="text-xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display',serif" }}>
+                {seoContent.heading}
+              </h2>
+              <div>{renderBody(seoContent.body)}</div>
+            </div>
+
+            {/* FAQs */}
+            {seoContent.faqs && seoContent.faqs.length > 0 && (
+              <div className="rounded-2xl border p-6"
+                style={{ background: 'rgba(255,255,255,0.85)', borderColor: 'rgba(226,232,240,0.6)' }}>
+                <h2 className="text-xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display',serif" }}>
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-3">
+                  {seoContent.faqs.map((faq, i) => (
+                    <details key={i} className="group rounded-xl border border-gray-100 overflow-hidden">
+                      <summary className="px-4 py-3 cursor-pointer font-semibold text-gray-800 text-sm hover:bg-gray-50 list-none flex items-center justify-between">
+                        <span>{faq.q}</span>
+                        <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs ml-2">▼</span>
+                      </summary>
+                      <div className="px-4 pb-4 pt-1 text-sm text-gray-600 leading-relaxed">{faq.a}</div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
       </div>
     </main>
   )
