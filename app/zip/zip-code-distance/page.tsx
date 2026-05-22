@@ -88,9 +88,6 @@ const seoContent = {
       { label: 'Coastal detours', value: 40 },
     ],
   },
-  statsTable: [
-    
-  ],
   body: `Calculating the distance between two US ZIP codes is fundamental to logistics planning, delivery zone design, territory management, real estate search, competitive analysis, and countless other geographic applications. Our ZIP Code Distance Calculator uses the Haversine formula applied to Census Bureau ZIP code centroid coordinates to return the straight-line (great-circle) distance between any two US ZIP codes in miles or kilometers — instantly, with no signup required.
 
 **The Haversine Formula: How ZIP Distance Is Calculated**

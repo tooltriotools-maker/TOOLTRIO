@@ -51,12 +51,6 @@ const seoContent = {
     { icon: '🏪', title: `Local Business Targeting`, desc: `Find all ZIP codes within delivery range of your restaurant, store, or service business. Set delivery zones with confidence.` },
     { icon: '🏥', title: `Healthcare Service Areas`, desc: `Define patient catchment areas for CMS network adequacy reporting. Identify ZIP codes within your required drive-time threshold.` },
   ],
-  statsTable: [
-    { label: 'ZIP Codes Searched', value: '42,000+' },
-    { label: '5-Mile Urban Result', value: '~40 ZIPs' },
-    { label: '25-Mile Urban Result', value: '~250 ZIPs' },
-    { label: 'Max Supported Radius', value: '500 miles' },
-  ],
   dataSources: [
     { icon: '🌐', name: `Census TIGER/Line Centroids`, desc: `WGS 84 centroid coordinates for all active ZIP Code Tabulation Areas.` },
     { icon: '📮', name: `USPS AMS Database`, desc: `Active ZIP code status verification — only returns deliverable ZIP codes.` },
