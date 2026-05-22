@@ -61,11 +61,11 @@ const seoContent = {
     { label: 'Cross-state routing', value: 'Fully supported' },
     { label: 'Max route distance', value: 'Transcontinental (any two US ZIPs)' },
   ],
-  body: `Planning a drive between two ZIP codes — whether for a delivery, a sales call, a cross-country move, or simply exploring how far two locations are — requires more than a straight-line distance. Our ZIP to ZIP Route tool calculates the actual driving route between any two US ZIP codes, returning the total driving distance, estimated drive time, and a summary of the route's major roads and highways.
+  body: `Planning a drive between two ZIP codes — whether for a delivery, a sales call, a cross-country move, or simply exploring how far two locations are — requires more than a straight-line distance. Our ZIP to ZIP Route tool calculates the actual driving route between any two US ZIP codes, returning the total driving distance, estimated drive time, and a summary of the route major roads and highways.
 
 **How ZIP to ZIP Routing Works**
 
-Route calculation uses graph-based routing algorithms (Dijkstra or A*) applied to a road network graph derived from OpenStreetMap or HERE Maps data. Each intersection is a node; each road segment between intersections is an edge with a weight equal to the traversal time at the segment's speed limit. The algorithm finds the path from the origin ZIP's centroid to the destination ZIP's centroid that minimizes total travel time.
+Route calculation uses graph-based routing algorithms (Dijkstra or A*) applied to a road network graph derived from OpenStreetMap or HERE Maps data. Each intersection is a node; each road segment between intersections is an edge with a weight equal to the traversal time at the segment speed limit. The algorithm finds the path from the origin ZIP centroid to the destination ZIP centroid that minimizes total travel time.
 
 The result includes: total driving distance in miles and kilometers; estimated travel time under free-flow conditions; a summary of major roads and highways traversed; and a link to open the exact route in Google Maps for live navigation with real-time traffic.
 
@@ -77,7 +77,7 @@ For precision delivery routing to a specific address, always use the full street
 
 **Route Planning for Multi-Stop Deliveries**
 
-When planning delivery routes across multiple ZIP codes, the order of stops matters enormously. Visiting 10 ZIP codes in a random order might require 200 miles of driving; an optimized sequence might cover the same 10 ZIPs in 110 miles. This is the **Traveling Salesman Problem (TSP)** — finding the shortest or fastest sequence through a set of stops. For small numbers of stops (up to ~12), exact TSP solutions are computationally feasible. For larger numbers, nearest-neighbor heuristics or optimization libraries (Google OR-Tools, Python's TSPy, commercial routing platforms) provide high-quality approximate solutions.
+When planning delivery routes across multiple ZIP codes, the order of stops matters enormously. Visiting 10 ZIP codes in a random order might require 200 miles of driving; an optimized sequence might cover the same 10 ZIPs in 110 miles. This is the **Traveling Salesman Problem (TSP)** — finding the shortest or fastest sequence through a set of stops. For small numbers of stops (up to ~12), exact TSP solutions are computationally feasible. For larger numbers, nearest-neighbor heuristics or optimization libraries (Google OR-Tools, Python TSPy, commercial routing platforms) provide high-quality approximate solutions.
 
 Our Multi-ZIP Distance tool supports multi-stop distance calculation to aid in route planning. For full route optimization across many stops, commercial delivery management platforms (Circuit, Routific, OptimoRoute) provide optimized sequencing and turn-by-turn driver apps.
 
@@ -95,23 +95,20 @@ Many freight carriers calculate rates based on point-to-point distance for non-L
 
 **Historical and Scenic Routes**
 
-Beyond logistics, ZIP code routing is useful for travel planning. Road trippers often plan routes by starting and ending ZIP codes, with intermediate ZIP stops at national parks, landmarks, and cities. The ZIP to ZIP route gives the baseline highway route; from there, travelers can add detours to scenic highway segments, replacing interstate miles with more interesting state highway alternatives.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'How does ZIP to ZIP routing differ from Google Maps routing?', a: 'Our tool provides a zip-centroid-to-centroid estimate, useful for planning. Google Maps uses your exact address and provides live traffic conditions, turn-by-turn navigation, and real-time ETAs. Use our tool for planning; use Google Maps for live navigation.' },
-    { q: 'How accurate is centroid-based routing?', a: 'Centroid-based routes typically differ from specific address-to-address routes by 1–3 miles. For most planning purposes (territory design, delivery zone estimation, sales planning), this accuracy is sufficient.' },
-    { q: 'Does the route cross state lines if needed?', a: 'Yes — routing follows the fastest road path regardless of state boundaries. Cross-country routes traverse multiple states as needed.' },
-    { q: 'Can I get turn-by-turn directions from ZIP to ZIP?', a: 'Our tool provides a route summary. For turn-by-turn directions, click the 'Open in Google Maps' link in the results.' },
-    { q: 'What is the Traveling Salesman Problem and how does it relate to ZIP routing?', a: 'TSP is the optimization problem of finding the shortest route through a set of stops. When routing deliveries or sales calls across multiple ZIPs, optimizing stop order using TSP minimizes total drive distance and time.' },
-    { q: 'How do freight carriers use ZIP-to-ZIP distance?', a: 'Freight carriers calculate rates based on point-to-point distance between origin and destination ZIP codes. The route distance from our tool provides the mileage input for freight rate lookups and cost estimation.' },
-    { q: 'What is the longest ZIP to ZIP route in the US?', a: 'The longest possible route between two US ZIP codes (excluding territories) is roughly 3,000+ miles — cross-country from the easternmost Maine ZIPs to the westernmost Washington state ZIPs.' },
-    { q: 'Can I plan a road trip by entering start and end ZIP codes?', a: 'Yes — enter your origin and destination ZIP codes to get the route distance and time. For adding multiple waypoints, use Google Maps or a road trip planner that supports multi-stop routing.' },
-    { q: 'How does a timezone change affect travel planning on long routes?', a: 'A drive from Denver CO (Mountain Time) to Kansas City MO (Central Time) gains one hour. Our ZIP to Timezone tool can identify timezone transitions along your route.' },
-    { q: 'Why does my ZIP to ZIP result show a different distance than my car's odometer?', a: 'Odometer distance reflects your exact starting and ending address-to-address route. Our calculation is centroid-to-centroid and may differ by a few miles. Additionally, any detours or alternative routes you take will add odometer distance.' },
-    { q: 'Is the tool free?', a: 'Yes — free, no account required.' },
-    { q: 'Does the tool work for ZIP codes in Hawaii and Alaska?', a: 'Yes — routes within Hawaii and within Alaska are supported. Routes between Hawaii/Alaska and the continental US will show the straight-line distance since driving is not possible across the ocean.' },
+Beyond logistics, ZIP code routing is useful for travel planning. Road trippers often plan routes by starting and ending ZIP codes, with intermediate ZIP stops at national parks, landmarks, and cities. The ZIP to ZIP route gives the baseline highway route; from there, travelers can add detours to scenic highway segments, replacing interstate miles with more interesting state highway alternatives.`,
+  faqs: [
+    { q: `How does ZIP to ZIP routing differ from Google Maps routing?`, a: `Our tool provides a zip-centroid-to-centroid estimate, useful for planning. Google Maps uses your exact address and provides live traffic conditions, turn-by-turn navigation, and real-time ETAs. Use our tool for planning; use Google Maps for live navigation.` },
+    { q: `How accurate is centroid-based routing?`, a: `Centroid-based routes typically differ from specific address-to-address routes by 1–3 miles. For most planning purposes (territory design, delivery zone estimation, sales planning), this accuracy is sufficient.` },
+    { q: `Does the route cross state lines if needed?`, a: `Yes — routing follows the fastest road path regardless of state boundaries. Cross-country routes traverse multiple states as needed.` },
+    { q: `Can I get turn-by-turn directions from ZIP to ZIP?`, a: `Our tool provides a route summary. For turn-by-turn directions, click the Open in Google Maps link in the results.` },
+    { q: `What is the Traveling Salesman Problem and how does it relate to ZIP routing?`, a: `TSP is the optimization problem of finding the shortest route through a set of stops. When routing deliveries or sales calls across multiple ZIPs, optimizing stop order using TSP minimizes total drive distance and time.` },
+    { q: `How do freight carriers use ZIP-to-ZIP distance?`, a: `Freight carriers calculate rates based on point-to-point distance between origin and destination ZIP codes. The route distance from our tool provides the mileage input for freight rate lookups and cost estimation.` },
+    { q: `What is the longest ZIP to ZIP route in the US?`, a: `The longest possible route between two US ZIP codes (excluding territories) is roughly 3,000+ miles — cross-country from the easternmost Maine ZIPs to the westernmost Washington state ZIPs.` },
+    { q: `Can I plan a road trip by entering start and end ZIP codes?`, a: `Yes — enter your origin and destination ZIP codes to get the route distance and time. For adding multiple waypoints, use Google Maps or a road trip planner that supports multi-stop routing.` },
+    { q: `How does a timezone change affect travel planning on long routes?`, a: `A drive from Denver CO (Mountain Time) to Kansas City MO (Central Time) gains one hour. Our ZIP to Timezone tool can identify timezone transitions along your route.` },
+    { q: `Why does my ZIP to ZIP result show a different distance than my car odometer?`, a: `Odometer distance reflects your exact starting and ending address-to-address route. Our calculation is centroid-to-centroid and may differ by a few miles. Additionally, any detours or alternative routes you take will add odometer distance.` },
+    { q: `Is the tool free?`, a: `Yes — free, no account required.` },
+    { q: `Does the tool work for ZIP codes in Hawaii and Alaska?`, a: `Yes — routes within Hawaii and within Alaska are supported. Routes between Hawaii/Alaska and the continental US will show the straight-line distance since driving is not possible across the ocean.` },
   ],
 }
 

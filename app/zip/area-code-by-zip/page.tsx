@@ -34,7 +34,7 @@ const tips = [
 const seoContent = {
   verifiedDate: 'JAN 2026',
   featureCards: [
-    { icon: '📱', title: `All Associated ZIPs`, desc: `Returns every ZIP code associated with the searched area code's geographic region.`, bullets: [] },
+    { icon: '📱', title: `All Associated ZIPs`, desc: `Returns every ZIP code associated with the searched area code geographic region.`, bullets: [] },
     { icon: '🔄', title: `Overlay Aware`, desc: `Overlay area codes share the same ZIP set — all overlay codes return identical ZIP results.`, bullets: [] },
     { icon: '📍', title: `NANPA Geographic`, desc: `Based on official NANPA geographic area code boundary assignments.`, bullets: [] },
   ],
@@ -73,12 +73,12 @@ When the NANP was established in 1947, each area code was assigned to a geograph
 
 **Overlay Area Codes and Multiple Results**
 
-Many ZIP codes now return two, three, or more area codes because their geographic area has been assigned multiple overlay codes. When an area code's available number pool approaches exhaustion, NANPA can either:
+Many ZIP codes now return two, three, or more area codes because their geographic area has been assigned multiple overlay codes. When an area code available number pool approaches exhaustion, NANPA can either:
 
 1. **Split** the territory geographically — creating a new area code for part of the region (the old code keeps the other part)
 2. **Overlay** a new area code onto the same territory — both codes cover the same geographic area
 
-Overlays are the current preferred approach because geographic splits cause community disruption (businesses must change their area codes) while overlays don't require any existing number to change — they simply add new numbers in a new code assigned to the same geography. The consequence: 10-digit local dialing becomes mandatory in overlay regions.
+Overlays are the current preferred approach because geographic splits cause community disruption (businesses must change their area codes) while overlays do not require any existing number to change — they simply add new numbers in a new code assigned to the same geography. The consequence: 10-digit local dialing becomes mandatory in overlay regions.
 
 New York City has one of the highest overlay densities in the US. The original Manhattan area code 212 has been supplemented by 646 (1999 overlay), 332 (2017 overlay), and 917 (shared with other NYC boroughs). The other boroughs use 718, 347, and 929. Brooklyn, Queens, the Bronx, and Staten Island share these codes. A ZIP code in any of the five NYC boroughs may return up to 7 area codes.
 
@@ -86,13 +86,13 @@ New York City has one of the highest overlay densities in the US. The original M
 
 Area code boundaries and ZIP code boundaries are different geographic systems. Area code boundaries are defined by NANPA based on telephone traffic patterns and are implemented at roughly the county level in most states. ZIP code boundaries are defined by USPS based on mail delivery efficiency. The two systems cover the same territory but do not align perfectly.
 
-For most ZIP codes, the geographic overlap is clear: the ZIP falls within one area code's territory, and one area code is returned. For ZIP codes near area code boundaries, the ZIP may straddle two area code regions, and two area codes may be returned. For ZIP codes in urban overlay regions, all active overlay codes for that region are returned.
+For most ZIP codes, the geographic overlap is clear: the ZIP falls within one area code territory, and one area code is returned. For ZIP codes near area code boundaries, the ZIP may straddle two area code regions, and two area codes may be returned. For ZIP codes in urban overlay regions, all active overlay codes for that region are returned.
 
 **Area Code Lookup for CRM Data Validation**
 
-One of the most common use cases for area-code-by-ZIP lookup is phone number validation in CRM systems. The workflow: for each customer record, look up the expected area code for the customer's ZIP code. Compare the expected area code to the first 3 digits of the customer's phone number. If they match, the record passes this validation check. If they don't match, flag the record for review — the mismatch might indicate: the customer has a mobile number from a previous area (very common), a data entry error (wrong phone number entered), or the customer has moved since the record was created.
+One of the most common use cases for area-code-by-ZIP lookup is phone number validation in CRM systems. The workflow: for each customer record, look up the expected area code for the customer ZIP code. Compare the expected area code to the first 3 digits of the customer phone number. If they match, the record passes this validation check. If they do not match, flag the record for review — the mismatch might indicate: the customer has a mobile number from a previous area (very common), a data entry error (wrong phone number entered), or the customer has moved since the record was created.
 
-This validation is a "soft" check — a mismatch is a data quality signal, not a definitive error. Because mobile numbers travel with users regardless of where they originally assigned, area code mismatches are common and expected. A customer with a 212 area code who now lives in a 90210 ZIP code simply hasn't changed their phone number.
+This validation is a "soft" check — a mismatch is a data quality signal, not a definitive error. Because mobile numbers travel with users regardless of where they originally assigned, area code mismatches are common and expected. A customer with a 212 area code who now lives in a 90210 ZIP code simply has not changed their phone number.
 
 **TCPA Compliance and Area Code Targeting**
 
@@ -106,23 +106,20 @@ International callers reaching US businesses need to know the local area code to
 
 **Historical Area Code Research**
 
-Area code assignments have changed significantly since 1947, with dozens of splits and overlays creating the current mosaic of 400+ US area codes. Understanding the history of area code changes in a region is useful for historical address research, genealogical record matching (old phone directories use historical area codes), and telecommunications infrastructure analysis. Our tool returns the current area code(s) for each ZIP; for historical area code research, NANPA maintains historical NPA records.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'Why does a ZIP code return multiple area codes?', a: 'Urban ZIP codes in overlay regions are served by multiple area codes. When a region's numbering capacity was exhausted, NANPA added new overlay codes to the same geographic territory. All overlay codes serve the same ZIP codes, requiring 10-digit local dialing.' },
-    { q: 'What is the difference between a geographic split and an overlay?', a: 'A geographic split divides the existing area code's territory: the old code keeps one part, the new code covers another. An overlay assigns a new code to the same territory as the existing code. Overlays don't require any existing numbers to change; splits do.' },
-    { q: 'How accurate is the area code returned for a ZIP code?', a: 'The area code reflects the NANPA geographic region covering the ZIP code centroid. For ZIP codes near area code boundaries, multiple codes may be returned. The result is the geographic area code for the region, not the code of any specific phone number.' },
-    { q: 'Can I use area code to validate a customer's phone number?', a: 'Yes, as a soft validation signal. Compare the phone's area code to the expected area code for the customer's ZIP. A mismatch is a data quality flag — the customer may have a mobile number from a previous location, which is common and not necessarily an error.' },
-    { q: 'What is 10-digit dialing?', a: 'In overlay regions, all local calls require dialing the full 10-digit number (area code + 7-digit number) even for local calls within the same area code. This is mandatory when two area codes cover the same geographic territory.' },
-    { q: 'How many area codes does New York City have?', a: 'New York City has approximately 7+ area codes: 212 and 646 and 332 (Manhattan), 718, 347, and 929 (other boroughs), and 917 (all boroughs, originally mobile/pager-focused). Multiple overlays make NYC one of the most area-code-dense regions in the country.' },
-    { q: 'What format is the US area code?', a: 'Three digits following the NXX pattern: N = any digit 2–9; X = any digit 0–9. Area codes starting with 0 or 1 are reserved for special services (operator, long distance prefix). N11 codes (211, 311, 411, 511, 611, 711, 811, 911) are reserved service codes.' },
-    { q: 'Does the area code tool work for Puerto Rico?', a: 'Yes. Puerto Rico uses area code 787 and 939 (overlay). USVI uses 340. Guam uses 671. American Samoa uses 684. Northern Mariana Islands uses 670.' },
-    { q: 'What are toll-free area codes and are they associated with ZIP codes?', a: 'Toll-free area codes (800, 888, 877, 866, 855, 844, 833) are not geographic — they route to anywhere regardless of geography and are not associated with any ZIP code.' },
-    { q: 'How does NANPA decide when to add a new area code?', a: 'NANPA monitors number utilization rates in each area code. When projections show the code will be exhausted within 5 years, NANPA initiates the area code relief process: evaluate split vs. overlay options, consult with state public utility commissions, and implement the approved solution.' },
-    { q: 'What is NPA-NXX?', a: 'NPA = Numbering Plan Area (the area code). NXX = the exchange (the next 3 digits of a phone number). Together, NPA-NXX identifies the block of 10,000 numbers (NPA-NXX-0000 through NPA-NXX-9999) assigned to a specific carrier in a specific area.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
+Area code assignments have changed significantly since 1947, with dozens of splits and overlays creating the current mosaic of 400+ US area codes. Understanding the history of area code changes in a region is useful for historical address research, genealogical record matching (old phone directories use historical area codes), and telecommunications infrastructure analysis. Our tool returns the current area code(s) for each ZIP; for historical area code research, NANPA maintains historical NPA records.`,
+  faqs: [
+    { q: `Why does a ZIP code return multiple area codes?`, a: `Urban ZIP codes in overlay regions are served by multiple area codes. When a region numbering capacity was exhausted, NANPA added new overlay codes to the same geographic territory. All overlay codes serve the same ZIP codes, requiring 10-digit local dialing.` },
+    { q: `What is the difference between a geographic split and an overlay?`, a: `A geographic split divides the existing area code territory: the old code keeps one part, the new code covers another. An overlay assigns a new code to the same territory as the existing code. Overlays do not require any existing numbers to change; splits do.` },
+    { q: `How accurate is the area code returned for a ZIP code?`, a: `The area code reflects the NANPA geographic region covering the ZIP code centroid. For ZIP codes near area code boundaries, multiple codes may be returned. The result is the geographic area code for the region, not the code of any specific phone number.` },
+    { q: `Can I use area code to validate a customer phone number?`, a: `Yes, as a soft validation signal. Compare the phone area code to the expected area code for the customer ZIP. A mismatch is a data quality flag — the customer may have a mobile number from a previous location, which is common and not necessarily an error.` },
+    { q: `What is 10-digit dialing?`, a: `In overlay regions, all local calls require dialing the full 10-digit number (area code + 7-digit number) even for local calls within the same area code. This is mandatory when two area codes cover the same geographic territory.` },
+    { q: `How many area codes does New York City have?`, a: `New York City has approximately 7+ area codes: 212 and 646 and 332 (Manhattan), 718, 347, and 929 (other boroughs), and 917 (all boroughs, originally mobile/pager-focused). Multiple overlays make NYC one of the most area-code-dense regions in the country.` },
+    { q: `What format is the US area code?`, a: `Three digits following the NXX pattern: N = any digit 2–9; X = any digit 0–9. Area codes starting with 0 or 1 are reserved for special services (operator, long distance prefix). N11 codes (211, 311, 411, 511, 611, 711, 811, 911) are reserved service codes.` },
+    { q: `Does the area code tool work for Puerto Rico?`, a: `Yes. Puerto Rico uses area code 787 and 939 (overlay). USVI uses 340. Guam uses 671. American Samoa uses 684. Northern Mariana Islands uses 670.` },
+    { q: `What are toll-free area codes and are they associated with ZIP codes?`, a: `Toll-free area codes (800, 888, 877, 866, 855, 844, 833) are not geographic — they route to anywhere regardless of geography and are not associated with any ZIP code.` },
+    { q: `How does NANPA decide when to add a new area code?`, a: `NANPA monitors number utilization rates in each area code. When projections show the code will be exhausted within 5 years, NANPA initiates the area code relief process: evaluate split vs. overlay options, consult with state public utility commissions, and implement the approved solution.` },
+    { q: `What is NPA-NXX?`, a: `NPA = Numbering Plan Area (the area code). NXX = the exchange (the next 3 digits of a phone number). Together, NPA-NXX identifies the block of 10,000 numbers (NPA-NXX-0000 through NPA-NXX-9999) assigned to a specific carrier in a specific area.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
 }
 

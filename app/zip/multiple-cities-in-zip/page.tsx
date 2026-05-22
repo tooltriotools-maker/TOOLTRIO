@@ -36,7 +36,7 @@ const seoContent = {
   featureCards: [
     { icon: '🏘️', title: `All City Names`, desc: `Returns preferred city first, then all acceptable USPS alternate city names.`, bullets: [] },
     { icon: '🔄', title: `Data Normalization`, desc: `Shows which name to use for USPS-compliant addresses vs. local community identity.`, bullets: [] },
-    { icon: '🚫', title: `Non-Acceptable Filter`, desc: `Clearly distinguishes USPS-acceptable names from informal nicknames that USPS won't recognize.`, bullets: [] },
+    { icon: '🚫', title: `Non-Acceptable Filter`, desc: `Clearly distinguishes USPS-acceptable names from informal nicknames that USPS will not recognize.`, bullets: [] },
   ],
 
   heading: `Multiple Cities in a ZIP Code — How ZIP Codes Serve Multiple Communities`,
@@ -71,7 +71,7 @@ In suburban areas, a ZIP code originally assigned to a primary town often ends u
 
 **Preferred City vs. Alternate City Names**
 
-The **preferred city** is the USPS's official primary designation — the name printed in USPS publications, used in official addressing, and returned by USPS address lookup tools when the ZIP is queried. The preferred city is always listed first in our results.
+The **preferred city** is the USPS official primary designation — the name printed in USPS publications, used in official addressing, and returned by USPS address lookup tools when the ZIP is queried. The preferred city is always listed first in our results.
 
 **Acceptable alternate city names** are additional city names that USPS will recognize and deliver to for the same ZIP code. Mail addressed using any acceptable name is delivered normally. Alternate names exist because communities along the delivery route use different names: a small town that is technically in the delivery zone of the ZIP but was named by local residents before USPS's current designations; an unincorporated community whose residents use their community name rather than the nearest large city's name; a neighborhood within a larger city that has a distinct local identity.
 
@@ -95,23 +95,20 @@ Problems arise when applications treat city name as a unique geographic key with
 
 **USPS City Name Changes**
 
-USPS periodically updates preferred city names and acceptable alternate names through the Address Management System. Communities may be added to or removed from acceptable alternate lists as USPS updates its delivery records. Historical names that were once acceptable may be dropped if they fall out of common use. Our tool reflects current USPS AMS city name assignments.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'Why does a ZIP code have multiple city names?', a: 'ZIP codes cover postal delivery zones that may span multiple communities. USPS designates one preferred city but accepts alternate city names for all communities in the delivery zone, ensuring mail addressed to any local community name is correctly routed.' },
-    { q: 'What is the preferred city for a ZIP code?', a: 'The preferred city is USPS's official primary designation — the first city name returned in our results. It is the name used in USPS publications and the canonical name for data normalization.' },
-    { q: 'Can I send mail using any city name in the list?', a: 'Yes — USPS will deliver mail addressed to the preferred city or any acceptable alternate city in the list, as long as the ZIP code is correct and the street address is valid.' },
-    { q: 'Why might my city name not appear in the results?', a: 'Your community name may be an unacceptable informal name not in the USPS database. USPS only recognizes specific acceptable city names — informal neighborhood names and marketing names for residential developments are typically not included.' },
-    { q: 'Does having multiple city names affect deliverability?', a: 'No — mail addressed using the ZIP code and any acceptable city name is delivered normally. The ZIP code is the primary routing key; the city name is a secondary confirmation.' },
-    { q: 'How does this affect data quality in my database?', a: 'Customers entering their address may use any acceptable city name, resulting in different city strings for people in the same ZIP. Normalize all city values to the USPS preferred city using a ZIP-to-city lookup for consistent geographic segmentation.' },
-    { q: 'Can two ZIP codes share the same alternate city name?', a: 'Yes — the same small community name can be an acceptable alternate for two different ZIP codes if the community straddles a ZIP boundary. This is why city name alone is an unreliable geographic key.' },
-    { q: 'How many cities can a single ZIP code have?', a: 'Most ZIP codes have 1–3 city names. Large rural ZIP codes can have 10–15+ community names as the delivery zone spans many small towns. The vast majority of urban and suburban ZIPs have 1–2 names.' },
-    { q: 'Is the preferred city the same as the incorporated city?', a: 'Not necessarily. The preferred city is USPS's operational designation based on which post office serves the area. The physical addresses in a ZIP may be within a different incorporated city's limits than the ZIP's preferred city name.' },
-    { q: 'Can a city name change for a ZIP code?', a: 'Yes — USPS periodically updates city name designations. A small town that grows significantly may have its name elevated to preferred status from alternate status. Names that fall out of common use may be removed from the acceptable list.' },
-    { q: 'Why does a ZIP show a small town name instead of the nearby major city?', a: 'USPS assigns the preferred city name based on the post office that serves the ZIP — historically the community where the post office was established. If a small town's post office was the original facility, its name remains preferred even as a major nearby city grows.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
+USPS periodically updates preferred city names and acceptable alternate names through the Address Management System. Communities may be added to or removed from acceptable alternate lists as USPS updates its delivery records. Historical names that were once acceptable may be dropped if they fall out of common use. Our tool reflects current USPS AMS city name assignments.`,
+  faqs: [
+    { q: `Why does a ZIP code have multiple city names?`, a: `ZIP codes cover postal delivery zones that may span multiple communities. USPS designates one preferred city but accepts alternate city names for all communities in the delivery zone, ensuring mail addressed to any local community name is correctly routed.` },
+    { q: `What is the preferred city for a ZIP code?`, a: `The preferred city is USPS official primary designation — the first city name returned in our results. It is the name used in USPS publications and the canonical name for data normalization.` },
+    { q: `Can I send mail using any city name in the list?`, a: `Yes — USPS will deliver mail addressed to the preferred city or any acceptable alternate city in the list, as long as the ZIP code is correct and the street address is valid.` },
+    { q: `Why might my city name not appear in the results?`, a: `Your community name may be an unacceptable informal name not in the USPS database. USPS only recognizes specific acceptable city names — informal neighborhood names and marketing names for residential developments are typically not included.` },
+    { q: `Does having multiple city names affect deliverability?`, a: `No — mail addressed using the ZIP code and any acceptable city name is delivered normally. The ZIP code is the primary routing key; the city name is a secondary confirmation.` },
+    { q: `How does this affect data quality in my database?`, a: `Customers entering their address may use any acceptable city name, resulting in different city strings for people in the same ZIP. Normalize all city values to the USPS preferred city using a ZIP-to-city lookup for consistent geographic segmentation.` },
+    { q: `Can two ZIP codes share the same alternate city name?`, a: `Yes — the same small community name can be an acceptable alternate for two different ZIP codes if the community straddles a ZIP boundary. This is why city name alone is an unreliable geographic key.` },
+    { q: `How many cities can a single ZIP code have?`, a: `Most ZIP codes have 1–3 city names. Large rural ZIP codes can have 10–15+ community names as the delivery zone spans many small towns. The vast majority of urban and suburban ZIPs have 1–2 names.` },
+    { q: `Is the preferred city the same as the incorporated city?`, a: `Not necessarily. The preferred city is USPS's operational designation based on which post office serves the area. The physical addresses in a ZIP may be within a different incorporated city limits than the ZIP's preferred city name.` },
+    { q: `Can a city name change for a ZIP code?`, a: `Yes — USPS periodically updates city name designations. A small town that grows significantly may have its name elevated to preferred status from alternate status. Names that fall out of common use may be removed from the acceptable list.` },
+    { q: `Why does a ZIP show a small town name instead of the nearby major city?`, a: `USPS assigns the preferred city name based on the post office that serves the ZIP — historically the community where the post office was established. If a small town post office was the original facility, its name remains preferred even as a major nearby city grows.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
 }
 

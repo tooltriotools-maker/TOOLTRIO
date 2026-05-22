@@ -87,7 +87,7 @@ For small numbers of stops (up to ~10–12), exact TSP solutions are computation
 
 **Multi-ZIP Distance for Delivery Operations**
 
-Delivery dispatchers use multi-ZIP distance to estimate whether a driver's assigned stops fit within their shift window. A driver covering 12 ZIP codes with a total straight-line distance of 85 miles (≈110 miles driving with circuity) at an average driving speed of 30 mph (accounting for stops, signals, and traffic) might need approximately 3.5–4 hours of driving plus stop dwell time. If the calculated route distance suggests the shift is overloaded, stops are redistributed before the driver departs.
+Delivery dispatchers use multi-ZIP distance to estimate whether a driver assigned stops fit within their shift window. A driver covering 12 ZIP codes with a total straight-line distance of 85 miles (≈110 miles driving with circuity) at an average driving speed of 30 mph (accounting for stops, signals, and traffic) might need approximately 3.5–4 hours of driving plus stop dwell time. If the calculated route distance suggests the shift is overloaded, stops are redistributed before the driver departs.
 
 **Sales Territory Route Planning**
 
@@ -99,23 +99,20 @@ Road trip planners often think in terms of ZIP codes when mapping out an itinera
 
 **Using Multi-ZIP Distance with Population Data**
 
-Combine multi-ZIP distance routing with ZIP Code Population data to create coverage-weighted route metrics. A route covering 10 ZIPs with a combined population of 200,000 at a total distance of 120 miles has a population density along the route of 1,667 people per mile — a high-efficiency route. A route covering 10 ZIPs with only 20,000 combined population at 120 miles has a density of 167 people per mile — much lower efficiency for any population-weighted objective like canvassing or field marketing.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'How is total multi-ZIP distance calculated?', a: 'Total distance is the sum of consecutive Haversine straight-line distances: Σ d(ZIPₙ, ZIPₙ₊₁) for each pair of consecutive ZIPs in the sequence you enter.' },
-    { q: 'What is the Traveling Salesman Problem?', a: 'TSP is the optimization problem of finding the shortest route through a set of stops. For delivery and sales routing, solving TSP minimizes total drive distance or time across all stops.' },
-    { q: 'How do I optimize the order of my ZIP code stops?', a: 'Start with nearest-neighbor heuristic (always go to the closest unvisited stop), then apply 2-opt improvement (swap pairs of edges if it reduces total distance). Commercial routing platforms (Circuit, Routific) automate this.' },
-    { q: 'What is the maximum number of ZIP codes I can enter?', a: 'Our tool supports up to 20 ZIP codes per route. For larger multi-stop route optimization, use a dedicated routing platform that supports TSP solving.' },
-    { q: 'Can I calculate round-trip distance?', a: 'Yes — enable the round-trip option to add the distance from your final ZIP back to your starting ZIP.' },
-    { q: 'How does multi-ZIP distance help with delivery dispatching?', a: 'It gives dispatchers an estimate of total route mileage, helping them determine if a set of ZIP code stops fits within a driver's shift and how to redistribute stops if the route is too long.' },
-    { q: 'Is straight-line distance the same as driving distance?', a: 'No — straight-line distance is shorter. Multiply by approximately 1.3 (the circuity factor) to estimate driving distance. Our Drive Time by ZIP and ZIP to ZIP Route tools provide actual driving distance.' },
-    { q: 'Can I compare different stop sequences?', a: 'Yes — enter the same ZIP codes in different orders and compare total distances to find a more efficient sequence.' },
-    { q: 'What is a 2-opt improvement?', a: '2-opt is a route improvement algorithm that tries reversing segments of a route. If reversing a segment reduces total distance, the reversal is kept. The process repeats until no improving reversals exist.' },
-    { q: 'How much can route optimization typically save?', a: 'Optimization typically reduces total route distance by 20–40% compared to a random stop order. The savings are larger for routes with more stops and less geographic regularity.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
-    { q: 'Can I use multi-ZIP distance for road trip planning?', a: 'Yes — enter your start ZIP, waypoint ZIPs, and destination ZIP to get total estimated straight-line distance. Multiply by ~1.3 for driving distance estimate.' },
+Combine multi-ZIP distance routing with ZIP Code Population data to create coverage-weighted route metrics. A route covering 10 ZIPs with a combined population of 200,000 at a total distance of 120 miles has a population density along the route of 1,667 people per mile — a high-efficiency route. A route covering 10 ZIPs with only 20,000 combined population at 120 miles has a density of 167 people per mile — much lower efficiency for any population-weighted objective like canvassing or field marketing.`,
+  faqs: [
+    { q: `How is total multi-ZIP distance calculated?`, a: `Total distance is the sum of consecutive Haversine straight-line distances: Σ d(ZIPₙ, ZIPₙ₊₁) for each pair of consecutive ZIPs in the sequence you enter.` },
+    { q: `What is the Traveling Salesman Problem?`, a: `TSP is the optimization problem of finding the shortest route through a set of stops. For delivery and sales routing, solving TSP minimizes total drive distance or time across all stops.` },
+    { q: `How do I optimize the order of my ZIP code stops?`, a: `Start with nearest-neighbor heuristic (always go to the closest unvisited stop), then apply 2-opt improvement (swap pairs of edges if it reduces total distance). Commercial routing platforms (Circuit, Routific) automate this.` },
+    { q: `What is the maximum number of ZIP codes I can enter?`, a: `Our tool supports up to 20 ZIP codes per route. For larger multi-stop route optimization, use a dedicated routing platform that supports TSP solving.` },
+    { q: `Can I calculate round-trip distance?`, a: `Yes — enable the round-trip option to add the distance from your final ZIP back to your starting ZIP.` },
+    { q: `How does multi-ZIP distance help with delivery dispatching?`, a: `It gives dispatchers an estimate of total route mileage, helping them determine if a set of ZIP code stops fits within a driver shift and how to redistribute stops if the route is too long.` },
+    { q: `Is straight-line distance the same as driving distance?`, a: `No — straight-line distance is shorter. Multiply by approximately 1.3 (the circuity factor) to estimate driving distance. Our Drive Time by ZIP and ZIP to ZIP Route tools provide actual driving distance.` },
+    { q: `Can I compare different stop sequences?`, a: `Yes — enter the same ZIP codes in different orders and compare total distances to find a more efficient sequence.` },
+    { q: `What is a 2-opt improvement?`, a: `2-opt is a route improvement algorithm that tries reversing segments of a route. If reversing a segment reduces total distance, the reversal is kept. The process repeats until no improving reversals exist.` },
+    { q: `How much can route optimization typically save?`, a: `Optimization typically reduces total route distance by 20–40% compared to a random stop order. The savings are larger for routes with more stops and less geographic regularity.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
+    { q: `Can I use multi-ZIP distance for road trip planning?`, a: `Yes — enter your start ZIP, waypoint ZIPs, and destination ZIP to get total estimated straight-line distance. Multiply by ~1.3 for driving distance estimate.` },
   ],
 }
 

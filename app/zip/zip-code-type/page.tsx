@@ -85,7 +85,7 @@ Unique ZIP codes cannot be interpreted as serving a geographic neighborhood or c
 
 Military ZIP codes serve overseas military personnel through the Army Post Office (APO), Fleet Post Office (FPO), and Diplomatic Post Office (DPO) systems. Approximately 600 military ZIP codes cover mail addressed to US military installations and diplomatic missions worldwide.
 
-Military ZIP codes are organized by geographic region: APO AE (Armed Forces Europe, Middle East, Africa — 090xx-098xx range), APO AP (Armed Forces Pacific — 962xx-966xx range), APO AA (Armed Forces Americas — 340xx range), and FPO equivalents for naval vessels. From the sender's perspective, military mail is addressed to "CITY, STATE ZIP" using the military designator as the city name (e.g., "APO AE 09001") and mailed through the standard US postal system to a military port of embarkation, where it is forwarded via military transport to the overseas installation.
+Military ZIP codes are organized by geographic region: APO AE (Armed Forces Europe, Middle East, Africa — 090xx-098xx range), APO AP (Armed Forces Pacific — 962xx-966xx range), APO AA (Armed Forces Americas — 340xx range), and FPO equivalents for naval vessels. From the sender perspective, military mail is addressed to "CITY, STATE ZIP" using the military designator as the city name (e.g., "APO AE 09001") and mailed through the standard US postal system to a military port of embarkation, where it is forwarded via military transport to the overseas installation.
 
 **Business Logic: Type-Based Delivery Rules**
 
@@ -96,23 +96,20 @@ Shipping applications should implement type-based delivery rules:
 3. **Military ZIPs**: Flag for special carrier handling — USPS is often the only carrier that delivers to APO/FPO addresses. FedEx and UPS have APO/FPO shipping programs but with restrictions.
 4. **Standard ZIPs**: Process normally through standard carrier workflow.
 
-This type-checking logic prevents a significant class of delivery failures and improves customer experience by catching issues at checkout rather than after a failed delivery attempt.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'What are the four types of US ZIP codes?', a: 'Standard (S): residential and business delivery. P.O. Box (B): post office box pickup only. Unique (U): single large organization. Military (M): APO/FPO/DPO overseas military mail.' },
-    { q: 'Can I ship a physical package to a P.O. Box ZIP code?', a: 'No. P.O. Box ZIP codes (type B) do not have physical delivery addresses — they only serve box pickup. FedEx and UPS cannot deliver to P.O. Box addresses. USPS also cannot deliver packages to a P.O. Box without a street address.' },
-    { q: 'How do I detect P.O. Box ZIP codes at checkout?', a: 'Use a ZIP type lookup API to check if the entered ZIP is type B (P.O. Box). If yes, display a message asking the customer to enter a street delivery address instead.' },
-    { q: 'What is a Unique ZIP code?', a: 'A Unique ZIP (type U) is assigned to a single large organization — major federal agencies, large corporations, universities, or hospitals — that receives enough mail volume for its own ZIP code. Examples: 20502 (White House), 10048 (One World Trade Center).' },
-    { q: 'Do military ZIP codes work with all shipping carriers?', a: 'No. FedEx and UPS have APO/FPO programs with restrictions. USPS is the most reliable carrier for military APO/FPO addresses. Always check carrier capabilities before accepting orders with military ZIP codes.' },
-    { q: 'Can a neighborhood have both a Standard and a P.O. Box ZIP code?', a: 'Yes — many post offices have one ZIP for street carrier delivery (Standard) and a different ZIP for P.O. Boxes (Box type). Both ZIP codes share the same city and state but are different numbers with different types.' },
-    { q: 'What does the ZIP code type letter mean in USPS data?', a: 'USPS uses single-letter codes: S = Standard, B = P.O. Box, U = Unique, M = Military. These codes appear in USPS ZIP code database files and address management products.' },
-    { q: 'How many P.O. Box ZIP codes exist in the US?', a: 'Approximately 9,000 ZIP codes are classified as P.O. Box type — about 21% of all active US ZIP codes.' },
-    { q: 'Does ZIP code type affect tax calculation?', a: 'Indirectly. P.O. Box ZIP codes return a valid city and state but the P.O. Box may be in a different county than the recipient's actual address, potentially affecting county-level tax rate application.' },
-    { q: 'Are there ZIP codes that have changed type?', a: 'Yes — USPS may reclassify ZIP codes. A ZIP that was previously Standard may be converted to Unique if a large organization moves in and generates sufficient mail volume. Changes are published in USPS quarterly updates.' },
-    { q: 'Is ZIP code type visible to the end user?', a: 'Usually not — most address forms don't display ZIP type. But the type should be validated programmatically to prevent shipping to non-deliverable addresses.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
+This type-checking logic prevents a significant class of delivery failures and improves customer experience by catching issues at checkout rather than after a failed delivery attempt.`,
+  faqs: [
+    { q: `What are the four types of US ZIP codes?`, a: `Standard (S): residential and business delivery. P.O. Box (B): post office box pickup only. Unique (U): single large organization. Military (M): APO/FPO/DPO overseas military mail.` },
+    { q: `Can I ship a physical package to a P.O. Box ZIP code?`, a: `No. P.O. Box ZIP codes (type B) do not have physical delivery addresses — they only serve box pickup. FedEx and UPS cannot deliver to P.O. Box addresses. USPS also cannot deliver packages to a P.O. Box without a street address.` },
+    { q: `How do I detect P.O. Box ZIP codes at checkout?`, a: `Use a ZIP type lookup API to check if the entered ZIP is type B (P.O. Box). If yes, display a message asking the customer to enter a street delivery address instead.` },
+    { q: `What is a Unique ZIP code?`, a: `A Unique ZIP (type U) is assigned to a single large organization — major federal agencies, large corporations, universities, or hospitals — that receives enough mail volume for its own ZIP code. Examples: 20502 (White House), 10048 (One World Trade Center).` },
+    { q: `Do military ZIP codes work with all shipping carriers?`, a: `No. FedEx and UPS have APO/FPO programs with restrictions. USPS is the most reliable carrier for military APO/FPO addresses. Always check carrier capabilities before accepting orders with military ZIP codes.` },
+    { q: `Can a neighborhood have both a Standard and a P.O. Box ZIP code?`, a: `Yes — many post offices have one ZIP for street carrier delivery (Standard) and a different ZIP for P.O. Boxes (Box type). Both ZIP codes share the same city and state but are different numbers with different types.` },
+    { q: `What does the ZIP code type letter mean in USPS data?`, a: `USPS uses single-letter codes: S = Standard, B = P.O. Box, U = Unique, M = Military. These codes appear in USPS ZIP code database files and address management products.` },
+    { q: `How many P.O. Box ZIP codes exist in the US?`, a: `Approximately 9,000 ZIP codes are classified as P.O. Box type — about 21% of all active US ZIP codes.` },
+    { q: `Does ZIP code type affect tax calculation?`, a: `Indirectly. P.O. Box ZIP codes return a valid city and state but the P.O. Box may be in a different county than the recipient actual address, potentially affecting county-level tax rate application.` },
+    { q: `Are there ZIP codes that have changed type?`, a: `Yes — USPS may reclassify ZIP codes. A ZIP that was previously Standard may be converted to Unique if a large organization moves in and generates sufficient mail volume. Changes are published in USPS quarterly updates.` },
+    { q: `Is ZIP code type visible to the end user?`, a: `Usually not — most address forms do not display ZIP type. But the type should be validated programmatically to prevent shipping to non-deliverable addresses.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
 }
 

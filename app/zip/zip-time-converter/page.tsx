@@ -65,7 +65,7 @@ const seoContent = {
 
 **How ZIP Time Conversion Works**
 
-The tool identifies the IANA timezone for each entered ZIP code using our ZIP-to-timezone database, retrieves the current UTC time, and converts it to the local time in each timezone using the IANA tz database rules (which include all daylight saving time transitions). The result displays the current time in each ZIP code's local time, the time difference in hours, and which location is ahead.
+The tool identifies the IANA timezone for each entered ZIP code using our ZIP-to-timezone database, retrieves the current UTC time, and converts it to the local time in each timezone using the IANA tz database rules (which include all daylight saving time transitions). The result displays the current time in each ZIP code local time, the time difference in hours, and which location is ahead.
 
 Time conversion formula: **Local Time = UTC + UTC Offset**. During Eastern Standard Time: UTC-5. During Eastern Daylight Time (DST): UTC-4. During Pacific Standard Time: UTC-8. During Pacific Daylight Time: UTC-7.
 
@@ -88,7 +88,7 @@ For business calls that respect standard working hours (9 AM–5 PM) in both loc
 
 **ZIP Time for Real-Time Application Features**
 
-Web and mobile applications that display local time based on user location use ZIP-to-timezone as the data source when GPS location is unavailable. A checkout page that shows "Order in the next 2 hours to ship today" needs to display a countdown in the user's local time. A live event notification needs to show event time in the user's timezone. A customer profile page might display the account holder's local time to help support agents know if it is a reasonable hour to call.
+Web and mobile applications that display local time based on user location use ZIP-to-timezone as the data source when GPS location is unavailable. A checkout page that shows "Order in the next 2 hours to ship today" needs to display a countdown in the user local time. A live event notification needs to show event time in the user timezone. A customer profile page might display the account holder local time to help support agents know if it is a reasonable hour to call.
 
 **Coordinating Multi-Location Operations**
 
@@ -96,23 +96,20 @@ Distribution centers, call centers, and regional offices in different timezone r
 
 **Daylight Saving Time: The Complicating Factor**
 
-DST adds complexity to time conversion for 8 months of the year (when most of the US is in summer time). DST begins the second Sunday in March and ends the first Sunday in November for all observing US locations. Arizona and Hawaii never change. US territories never change. This means for 8 months of the year (DST period), ET = UTC-4, CT = UTC-5, MT = UTC-6, PT = UTC-7. For 4 months (winter), ET = UTC-5, CT = UTC-6, MT = UTC-7, PT = UTC-8. Always use IANA timezone IDs and a DST-aware library for any programmatic time conversion to handle these transitions automatically.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'What is the time difference between Eastern and Pacific time?', a: '3 hours when both zones are in the same DST period. Eastern is always ahead of Pacific. When it is 9 AM Pacific, it is 12 PM Eastern.' },
-    { q: 'Does the ZIP time converter update automatically?', a: 'Yes — the tool shows the current live local time in both ZIP codes, refreshed in real time.' },
-    { q: 'How do I find the best meeting time between two ZIP codes?', a: 'Enter both ZIP codes. The tool shows current local times and the offset. For business calls, aim for an overlap where both locations are between 9 AM and 5 PM local time.' },
-    { q: 'What time is it in Arizona vs. California?', a: 'In winter (standard time): Arizona (MST, UTC-7) and California (PST, UTC-8) — Arizona is 1 hour ahead. In summer (DST): Arizona (still MST, UTC-7) and California (PDT, UTC-7) — same time. Arizona does not observe DST.' },
-    { q: 'How are IANA timezone rules used in time conversion?', a: 'IANA timezone identifiers (e.g., America/New_York) reference a tz database that includes all historical and future DST rules for each zone. Using IANA IDs ensures correct DST handling automatically.' },
-    { q: 'What is the time difference between New York and Los Angeles?', a: '3 hours (New York/ET ahead of Los Angeles/PT) for most of the year when both are in the same DST period.' },
-    { q: 'Can I use ZIP time converter to schedule a webinar?', a: 'Yes — enter the ZIP codes of your key attendees and find the time that falls within working hours for all timezones represented. The classic time for US national webinars is 12–2 PM ET (9–11 AM PT).' },
-    { q: 'Why might the time difference between two ZIPs change on specific dates?', a: 'During the 2-week windows when some timezones transition to/from DST before others (early March and early November), the effective difference changes by 1 hour temporarily.' },
-    { q: 'What time zone does Hawaii use?', a: 'Hawaii Standard Time (HST, UTC-10), which never observes DST. Hawaii is always 5 hours behind Eastern Standard Time and 2–3 hours behind Pacific time depending on DST.' },
-    { q: 'Is there a time zone in the US at UTC-11?', a: 'Yes — American Samoa uses Samoa Standard Time (SST, UTC-11), making it one of the last places on Earth to begin each calendar day.' },
-    { q: 'Is the tool free?', a: 'Yes — free, no account required.' },
-    { q: 'How do I convert a specific time (not current) between two ZIP codes?', a: 'Enter both ZIP codes to see the current offset. Apply the offset to your specific time: if ET is 3 hours ahead of PT, a 2 PM ET event is 11 AM PT.' },
+DST adds complexity to time conversion for 8 months of the year (when most of the US is in summer time). DST begins the second Sunday in March and ends the first Sunday in November for all observing US locations. Arizona and Hawaii never change. US territories never change. This means for 8 months of the year (DST period), ET = UTC-4, CT = UTC-5, MT = UTC-6, PT = UTC-7. For 4 months (winter), ET = UTC-5, CT = UTC-6, MT = UTC-7, PT = UTC-8. Always use IANA timezone IDs and a DST-aware library for any programmatic time conversion to handle these transitions automatically.`,
+  faqs: [
+    { q: `What is the time difference between Eastern and Pacific time?`, a: `3 hours when both zones are in the same DST period. Eastern is always ahead of Pacific. When it is 9 AM Pacific, it is 12 PM Eastern.` },
+    { q: `Does the ZIP time converter update automatically?`, a: `Yes — the tool shows the current live local time in both ZIP codes, refreshed in real time.` },
+    { q: `How do I find the best meeting time between two ZIP codes?`, a: `Enter both ZIP codes. The tool shows current local times and the offset. For business calls, aim for an overlap where both locations are between 9 AM and 5 PM local time.` },
+    { q: `What time is it in Arizona vs. California?`, a: `In winter (standard time): Arizona (MST, UTC-7) and California (PST, UTC-8) — Arizona is 1 hour ahead. In summer (DST): Arizona (still MST, UTC-7) and California (PDT, UTC-7) — same time. Arizona does not observe DST.` },
+    { q: `How are IANA timezone rules used in time conversion?`, a: `IANA timezone identifiers (e.g., America/New_York) reference a tz database that includes all historical and future DST rules for each zone. Using IANA IDs ensures correct DST handling automatically.` },
+    { q: `What is the time difference between New York and Los Angeles?`, a: `3 hours (New York/ET ahead of Los Angeles/PT) for most of the year when both are in the same DST period.` },
+    { q: `Can I use ZIP time converter to schedule a webinar?`, a: `Yes — enter the ZIP codes of your key attendees and find the time that falls within working hours for all timezones represented. The classic time for US national webinars is 12–2 PM ET (9–11 AM PT).` },
+    { q: `Why might the time difference between two ZIPs change on specific dates?`, a: `During the 2-week windows when some timezones transition to/from DST before others (early March and early November), the effective difference changes by 1 hour temporarily.` },
+    { q: `What time zone does Hawaii use?`, a: `Hawaii Standard Time (HST, UTC-10), which never observes DST. Hawaii is always 5 hours behind Eastern Standard Time and 2–3 hours behind Pacific time depending on DST.` },
+    { q: `Is there a time zone in the US at UTC-11?`, a: `Yes — American Samoa uses Samoa Standard Time (SST, UTC-11), making it one of the last places on Earth to begin each calendar day.` },
+    { q: `Is the tool free?`, a: `Yes — free, no account required.` },
+    { q: `How do I convert a specific time (not current) between two ZIP codes?`, a: `Enter both ZIP codes to see the current offset. Apply the offset to your specific time: if ET is 3 hours ahead of PT, a 2 PM ET event is 11 AM PT.` },
   ],
 }
 

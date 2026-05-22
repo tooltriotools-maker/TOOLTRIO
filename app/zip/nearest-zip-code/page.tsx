@@ -80,7 +80,7 @@ This variation means "nearest ZIP code" has very different practical implication
 
 **Nearest ZIP for Competitive Intelligence**
 
-Understanding which ZIP codes are nearest to a competitor's location is a core competitive intelligence use case. If you identify a competitor's primary operating ZIP, finding the 5–10 nearest ZIPs tells you their likely core trade area — the area from which they draw the majority of their customers. Cross-referencing your own customer data against these nearest-ZIP results shows where you have already penetrated the competitor's trade area and where you have coverage gaps to address.
+Understanding which ZIP codes are nearest to a competitor location is a core competitive intelligence use case. If you identify a competitor primary operating ZIP, finding the 5–10 nearest ZIPs tells you their likely core trade area — the area from which they draw the majority of their customers. Cross-referencing your own customer data against these nearest-ZIP results shows where you have already penetrated the competitor trade area and where you have coverage gaps to address.
 
 **Nearest ZIP for Site Selection**
 
@@ -100,23 +100,20 @@ Nearest ZIP results are not filtered by state — if the nearest ZIP code is acr
 
 **Using Nearest ZIP for Direct Mail Neighbor Lists**
 
-Direct mail campaigns often target customers' "neighbors" — households in the same and adjacent ZIP codes. A neighbor-targeting campaign starts with your known customer ZIP codes, runs nearest-ZIP for each to identify the geographic neighborhood, and then mails to all households in the resulting cluster. This approach is particularly effective for service businesses (home improvement, pest control, landscaping) where word-of-mouth and visible service trucks create organic awareness in adjacent ZIP codes.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'How is nearest ZIP code calculated?', a: 'The tool calculates the Haversine straight-line distance from your ZIP's centroid to every other ZIP's centroid, sorts results by distance ascending, and returns the top nearest ZIPs.' },
-    { q: 'Why is the nearest ZIP further than I expected?', a: 'In rural areas, ZIP codes are geographically large, so centroid-to-centroid distances between neighboring ZIPs can be surprisingly large. The next ZIP's centroid may be 15+ miles away even if the boundary is adjacent.' },
-    { q: 'Does nearest ZIP work across state lines?', a: 'Yes — results are not filtered by state. If the nearest ZIP is in a neighboring state, it will appear. Real-world service areas and trade areas often cross state lines.' },
-    { q: 'What is the difference between nearest ZIP and adjacent ZIP?', a: 'Nearest ZIP is determined by centroid-to-centroid distance. Adjacent ZIP shares a geographic boundary. In most cases these are the same, but a large-area ZIP may have a more distant centroid than a small ZIP whose centroid is nearby but whose boundary is not adjacent.' },
-    { q: 'How many nearest ZIP codes does the tool return?', a: 'The tool returns the top 10 nearest ZIP codes by default. For a broader list, use our ZIPs Within Radius tool with an appropriate radius.' },
-    { q: 'Can I use nearest ZIP for delivery zone expansion?', a: 'Yes — the nearest ZIP list is a natural incremental expansion roadmap. Start with the 1–3 nearest ZIPs, test operational capacity, then expand to the next ring of nearest ZIPs.' },
-    { q: 'Why do urban areas have so many more nearby ZIPs?', a: 'Urban areas have much higher ZIP code density — many small ZIPs covering a dense area. In Manhattan, there may be 20+ ZIP codes within 1 mile. In rural Montana, the nearest ZIP may be 20+ miles away.' },
-    { q: 'Can I find the nearest ZIP code to a specific address (not just a ZIP)?', a: 'Enter the ZIP code of the address to get nearest ZIPs. For address-level precision, use our Address to ZIP tool first to confirm the exact ZIP, then run Nearest ZIP from there.' },
-    { q: 'Does nearest ZIP consider ZIP code boundaries or just centroids?', a: 'Centroids only. Two ZIP codes with adjacent boundaries may have centroids that are farther apart than two ZIPs that appear non-adjacent but have close centroids (possible with irregularly shaped ZIPs).' },
-    { q: 'How is nearest ZIP useful for competitive analysis?', a: 'Find a competitor's ZIP, run nearest ZIP to identify their likely trade area, cross-reference with your customer data to see where you have penetration, and identify adjacencies where targeted marketing could capture market share.' },
-    { q: 'Can I combine nearest ZIP results with population data?', a: 'Yes — use our ZIP Code Population tool to append population and demographic data to each nearest ZIP result for market sizing and prioritization.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
+Direct mail campaigns often target customers "neighbors" — households in the same and adjacent ZIP codes. A neighbor-targeting campaign starts with your known customer ZIP codes, runs nearest-ZIP for each to identify the geographic neighborhood, and then mails to all households in the resulting cluster. This approach is particularly effective for service businesses (home improvement, pest control, landscaping) where word-of-mouth and visible service trucks create organic awareness in adjacent ZIP codes.`,
+  faqs: [
+    { q: `How is nearest ZIP code calculated?`, a: `The tool calculates the Haversine straight-line distance from your ZIP's centroid to every other ZIP's centroid, sorts results by distance ascending, and returns the top nearest ZIPs.` },
+    { q: `Why is the nearest ZIP further than I expected?`, a: `In rural areas, ZIP codes are geographically large, so centroid-to-centroid distances between neighboring ZIPs can be surprisingly large. The next ZIP centroid may be 15+ miles away even if the boundary is adjacent.` },
+    { q: `Does nearest ZIP work across state lines?`, a: `Yes — results are not filtered by state. If the nearest ZIP is in a neighboring state, it will appear. Real-world service areas and trade areas often cross state lines.` },
+    { q: `What is the difference between nearest ZIP and adjacent ZIP?`, a: `Nearest ZIP is determined by centroid-to-centroid distance. Adjacent ZIP shares a geographic boundary. In most cases these are the same, but a large-area ZIP may have a more distant centroid than a small ZIP whose centroid is nearby but whose boundary is not adjacent.` },
+    { q: `How many nearest ZIP codes does the tool return?`, a: `The tool returns the top 10 nearest ZIP codes by default. For a broader list, use our ZIPs Within Radius tool with an appropriate radius.` },
+    { q: `Can I use nearest ZIP for delivery zone expansion?`, a: `Yes — the nearest ZIP list is a natural incremental expansion roadmap. Start with the 1–3 nearest ZIPs, test operational capacity, then expand to the next ring of nearest ZIPs.` },
+    { q: `Why do urban areas have so many more nearby ZIPs?`, a: `Urban areas have much higher ZIP code density — many small ZIPs covering a dense area. In Manhattan, there may be 20+ ZIP codes within 1 mile. In rural Montana, the nearest ZIP may be 20+ miles away.` },
+    { q: `Can I find the nearest ZIP code to a specific address (not just a ZIP)?`, a: `Enter the ZIP code of the address to get nearest ZIPs. For address-level precision, use our Address to ZIP tool first to confirm the exact ZIP, then run Nearest ZIP from there.` },
+    { q: `Does nearest ZIP consider ZIP code boundaries or just centroids?`, a: `Centroids only. Two ZIP codes with adjacent boundaries may have centroids that are farther apart than two ZIPs that appear non-adjacent but have close centroids (possible with irregularly shaped ZIPs).` },
+    { q: `How is nearest ZIP useful for competitive analysis?`, a: `Find a competitor ZIP, run nearest ZIP to identify their likely trade area, cross-reference with your customer data to see where you have penetration, and identify adjacencies where targeted marketing could capture market share.` },
+    { q: `Can I combine nearest ZIP results with population data?`, a: `Yes — use our ZIP Code Population tool to append population and demographic data to each nearest ZIP result for market sizing and prioritization.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
 }
 

@@ -36,7 +36,7 @@ const seoContent = {
   featureCards: [
     { icon: '🗺️', title: `All 42,000+ ZIPs`, desc: `Browse complete ZIP code list for any of 50 states, DC, and 6 territories.`, bullets: [] },
     { icon: '📊', title: `With Demographics`, desc: `Each ZIP includes population, county, timezone, and type for immediate analysis.`, bullets: [] },
-    { icon: '📋', title: `Export Ready`, desc: `Copy or export any state's complete ZIP list for tax, compliance, or campaign use.`, bullets: [] },
+    { icon: '📋', title: `Export Ready`, desc: `Copy or export any state complete ZIP list for tax, compliance, or campaign use.`, bullets: [] },
   ],
 
   heading: `State ZIP Codes — Finding and Using ZIP Code Lists by State`,
@@ -95,23 +95,20 @@ Delaware, the smallest state by geographic area (1,982 square miles) and with ~1
 
 **ZIP Code Lists for All 50 States Plus Territories**
 
-Beyond the 50 states and DC, US territories have their own ZIP code ranges. Puerto Rico uses 006xx–009xx. US Virgin Islands use 008xx (overlapping with New England, differentiated by the island-specific middle digits). Guam uses 969xx. American Samoa uses 96799. Northern Mariana Islands use 969xx. Military APO/FPO codes use various ranges. Our tool supports all of these for complete US address coverage.
-
-**Why Use TOOLTRIO for ZIP Code Lookups?**
-
-TOOLTRIO (also searched as Tool Trio, Trio Tools, and ToolTrio) is a free suite of US address and ZIP code tools built for developers, marketers, logistics teams, and everyday users who need fast, reliable postal data. Every TOOLTRIO ZIP tool — from ZIP code lookup to drive time by ZIP, ZIP to city, and ZIP code distance — is free to use with no account required. When you search for "tooltrio zip code," "zip code tooltrio," or simply "tooltrio," you land on a platform built around one goal: making US ZIP code data instantly accessible to everyone. Bookmark tooltrio.com and share any TOOLTRIO tool link directly — every page is designed to be fast, ad-free, and accurate.`, [
-    { q: 'Which state has the most ZIP codes?', a: 'Texas leads with approximately 1,935 active ZIP codes, followed by California (~1,771), New York (~1,595), and Pennsylvania (~1,548).' },
-    { q: 'Which state has the fewest ZIP codes?', a: 'Delaware has approximately 58 active ZIP codes — reflecting its small geographic area and relatively small population of about 1 million residents.' },
-    { q: 'What ZIP code range does California use?', a: 'California ZIP codes range from 90001 to 96162, covering the Los Angeles metro (900-902), San Francisco Bay Area (940-945), San Diego (919-921), and the Central Valley and northern regions.' },
-    { q: 'How do I get a complete list of ZIP codes for a state?', a: 'Use our State ZIP Codes tool — select a state to get a complete, downloadable list of all active ZIP codes with city names, counties, and population data.' },
-    { q: 'Do any ZIP codes span multiple states?', a: 'Fewer than 20 ZIP codes span state lines. These are extremely rare and occur along state borders where a single post office delivery route extends into a neighboring state.' },
-    { q: 'What ZIP codes does DC use?', a: 'Washington DC ZIP codes range from 20001 to 20599, with some specialized ZIPs for federal agencies in the 20001–20090 range and residential/commercial ZIPs in the 20001–20020 range.' },
-    { q: 'Can I download a state ZIP code list as a CSV?', a: 'Our tool allows copying ZIP code results. For bulk downloads, the Census Bureau's TIGER/Line ZCTA files and USPS National ZIP Code database (available through USPS Business Customer Gateway) provide complete ZIP-to-state assignments.' },
-    { q: 'How many ZIP codes are in New York City?', a: 'New York City's five boroughs contain approximately 178 ZIP codes, including some of the most densely populated ZIPs in the country in Manhattan, Brooklyn, and Queens.' },
-    { q: 'Do US territories have ZIP codes?', a: 'Yes. Puerto Rico (006xx-009xx), US Virgin Islands (008xx), Guam (969xx), American Samoa (96799), and Northern Mariana Islands (969xx) all have ZIP codes covered by the US postal system.' },
-    { q: 'Why does Texas have so many more ZIP codes than other large states?', a: 'Texas has both the largest contiguous area and the second-largest population of any US state. Its combination of large geographic extent (requiring many rural ZIP codes for delivery routing) and large urban populations (requiring dense urban ZIP codes) results in the highest ZIP count nationally.' },
-    { q: 'How are ZIP codes assigned to states?', a: 'ZIP codes are assigned to states based on the Sectional Center Facility (SCF) that processes their mail. SCF boundaries generally follow state lines, but a handful of border ZIP codes are served by an SCF in a neighboring state, giving them a ZIP prefix associated with a different state.' },
-    { q: 'Is this tool free?', a: 'Yes — free, no account required.' },
+Beyond the 50 states and DC, US territories have their own ZIP code ranges. Puerto Rico uses 006xx–009xx. US Virgin Islands use 008xx (overlapping with New England, differentiated by the island-specific middle digits). Guam uses 969xx. American Samoa uses 96799. Northern Mariana Islands use 969xx. Military APO/FPO codes use various ranges. Our tool supports all of these for complete US address coverage.`,
+  faqs: [
+    { q: `Which state has the most ZIP codes?`, a: `Texas leads with approximately 1,935 active ZIP codes, followed by California (~1,771), New York (~1,595), and Pennsylvania (~1,548).` },
+    { q: `Which state has the fewest ZIP codes?`, a: `Delaware has approximately 58 active ZIP codes — reflecting its small geographic area and relatively small population of about 1 million residents.` },
+    { q: `What ZIP code range does California use?`, a: `California ZIP codes range from 90001 to 96162, covering the Los Angeles metro (900-902), San Francisco Bay Area (940-945), San Diego (919-921), and the Central Valley and northern regions.` },
+    { q: `How do I get a complete list of ZIP codes for a state?`, a: `Use our State ZIP Codes tool — select a state to get a complete, downloadable list of all active ZIP codes with city names, counties, and population data.` },
+    { q: `Do any ZIP codes span multiple states?`, a: `Fewer than 20 ZIP codes span state lines. These are extremely rare and occur along state borders where a single post office delivery route extends into a neighboring state.` },
+    { q: `What ZIP codes does DC use?`, a: `Washington DC ZIP codes range from 20001 to 20599, with some specialized ZIPs for federal agencies in the 20001–20090 range and residential/commercial ZIPs in the 20001–20020 range.` },
+    { q: `Can I download a state ZIP code list as a CSV?`, a: `Our tool allows copying ZIP code results. For bulk downloads, the Census Bureau TIGER/Line ZCTA files and USPS National ZIP Code database (available through USPS Business Customer Gateway) provide complete ZIP-to-state assignments.` },
+    { q: `How many ZIP codes are in New York City?`, a: `New York City five boroughs contain approximately 178 ZIP codes, including some of the most densely populated ZIPs in the country in Manhattan, Brooklyn, and Queens.` },
+    { q: `Do US territories have ZIP codes?`, a: `Yes. Puerto Rico (006xx-009xx), US Virgin Islands (008xx), Guam (969xx), American Samoa (96799), and Northern Mariana Islands (969xx) all have ZIP codes covered by the US postal system.` },
+    { q: `Why does Texas have so many more ZIP codes than other large states?`, a: `Texas has both the largest contiguous area and the second-largest population of any US state. Its combination of large geographic extent (requiring many rural ZIP codes for delivery routing) and large urban populations (requiring dense urban ZIP codes) results in the highest ZIP count nationally.` },
+    { q: `How are ZIP codes assigned to states?`, a: `ZIP codes are assigned to states based on the Sectional Center Facility (SCF) that processes their mail. SCF boundaries generally follow state lines, but a handful of border ZIP codes are served by an SCF in a neighboring state, giving them a ZIP prefix associated with a different state.` },
+    { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
 }
 
