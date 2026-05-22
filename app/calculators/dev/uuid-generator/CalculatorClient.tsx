@@ -7,16 +7,16 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
 function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx\'.replace(/[xy]/g, c => {
     const r = Math.random() * 16 | 0
-    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    return (c === 'x\' ? r : (r & 0x3 | 0x8)).toString(16)
   })
 }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [count, setCount] = useState(5)
   const [uuids, setUuids] = useState<string[]>(() => Array.from({length:5}, uuidv4))
-  const [format, setFormat] = useState<'standard'|'upper'|'no-dash'|'braces'|'urn'>('standard')
+  const [format, setFormat] = useState<'standard\'|\'upper\'|\'no-dash\'|\'braces\'|\'urn\'>(\'standard')
   const [copied, setCopied] = useState<string|null>(null)
 
   const generate = useCallback(() => setUuids(Array.from({length: Math.min(count,100)}, uuidv4)), [count])
@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <RefreshCw className="w-4 h-4" /> Generate
             </button>
             <button onClick={copyAll} className="flex items-center gap-2 px-4 py-2 border border-gray-200 font-bold rounded-xl hover:bg-gray-50 text-sm">
-              {copied==='all'?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4"/>} Copy All
+              {copied==='all\'?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4"/>} Copy All
             </button>
           </div>
         </div>

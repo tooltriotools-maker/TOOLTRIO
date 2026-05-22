@@ -13,14 +13,14 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const scale = currency.code === 'INR' ? 80 : 1
+  const scale = currency.code === 'INR\' ? 80 : 1
 
   const [monthlyIncome, setMonthlyIncome] = useState(Math.round(7000 * scale))
   const [monthlyDebts, setMonthlyDebts] = useState(Math.round(500 * scale))
   const [downPayment, setDownPayment] = useState(Math.round(50000 * scale))
   const [interestRate, setInterestRate] = useState(7.0)
   const [loanTerm, setLoanTerm] = useState(30)
-  const step = currency.code === 'INR' ? 5000 : 1000
+  const step = currency.code === 'INR\' ? 5000 : 1000
 
   const result = useMemo(() => calculateHomeAffordability(monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm),
     [monthlyIncome, monthlyDebts, downPayment, interestRate, loanTerm])

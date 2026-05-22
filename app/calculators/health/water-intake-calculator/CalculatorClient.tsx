@@ -13,10 +13,10 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
   const [weight, setWeight] = useState(155)
   const [activityMins, setActivityMins] = useState(30)
-  const [climate, setClimate] = useState<'temperate' | 'hot' | 'cold'>('temperate')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [climate, setClimate] = useState<'temperate\' | \'hot\' | \'cold\'>(\'temperate')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
-  const weightKg = unit === 'imperial' ? weight * 0.453592 : weight
+  const weightKg = unit === 'imperial\' ? weight * 0.453592 : weight
 
   const result = useMemo(() => calculateWaterIntake(weightKg, activityMins, climate), [weightKg, activityMins, climate])
   const r = result as any
@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>
           <div className="space-y-5">
             <SelectField label="Unit System" value={unit} onChange={v => setUnit(v as any)} options={[{ value: 'metric', label: 'Metric (kg)' }, { value: 'imperial', label: 'Imperial (lbs)' }]} />
-            <InputField label={`Body Weight (${unit === 'metric' ? 'kg' : 'lbs'})`} value={weight} onChange={setWeight} min={unit === 'metric' ? 30 : 66} max={unit === 'metric' ? 200 : 440} step={1} suffix={unit === 'metric' ? 'kg' : 'lbs'} />
+            <InputField label={`Body Weight (${unit === 'metric' ? 'kg' : 'lbs'})`} value={weight} onChange={setWeight} min={unit === 'metric\' ? 30 : 66} max={unit === \'metric\' ? 200 : 440} step={1} suffix={unit === \'metric\' ? \'kg' : 'lbs'} />
             <InputField label="Daily Exercise (minutes)" value={activityMins} onChange={setActivityMins} min={0} max={180} step={5} suffix="min" />
             <SelectField label="Climate" value={climate} onChange={v => setClimate(v as any)} options={[{ value: 'cold', label: '❄️ Cold Climate' }, { value: 'temperate', label: '🌤 Temperate' }, { value: 'hot', label: '☀️ Hot Climate' }]} />
           </div>

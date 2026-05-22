@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Pregnancy Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Pregnancy involves a sequence of well-defined biological milestones that follow remarkably consistent timing across the roughly 40 weeks from last menstrual period to due date. Understanding these milestones — what's developing when, which weeks are most critical, when certain symptoms are expected to resolve, and when specific monitoring is appropriate — helps expectant parents navigate the enormous amount of information they'll encounter.
 
 The first trimester (weeks 1-12) is the period of organogenesis — when all major organ systems are established. Neural tube closure occurs by week 6; cardiac chambers form by week 8; external genitalia differentiate by week 12. This is why early prenatal care and folic acid supplementation (ideally started before conception) are most critical.

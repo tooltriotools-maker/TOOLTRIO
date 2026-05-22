@@ -118,8 +118,8 @@ export default function CalculatorClient({ faqs }: Props) {
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you know you don't know the answer, use the elimination method before guessing: rule out the most obviously wrong options first and pick from what remains. You'll be right more often than chance even without specific knowledge.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Category performance gaps are more useful than total score. Scoring well overall but poorly in history usually means something specific -- not that you're bad at trivia, but that you have a specific gap in your knowledge base that's fixable.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you know you don't know the answer, use the elimination method before guessing: rule out the most obviously wrong options first and pick from what remains. You\'ll be right more often than chance even without specific knowledge.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Category performance gaps are more useful than total score. Scoring well overall but poorly in history usually means something specific -- not that you're bad at trivia, but that you have a specific gap in your knowledge base that\'s fixable.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Read the explanations even when you get an answer right. The explanation often contains a more interesting fact than the question itself, which is the format trivia is most useful for actual learning.</span></li>
           </ul>
         </section>

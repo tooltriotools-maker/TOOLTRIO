@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [countryIdx, setCountryIdx] = useState(0)
   const [useCustomRate, setUseCustomRate] = useState(false)
   const [customRate, setCustomRate] = useState(20)
-  const [calcType, setCalcType] = useState<'exclusive' | 'inclusive'>('exclusive')
+  const [calcType, setCalcType] = useState<'exclusive\' | \'inclusive\'>(\'exclusive')
   const [useReduced, setUseReduced] = useState(false)
 
   const country = COUNTRIES[countryIdx]
@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const rateComparison = COUNTRIES.slice(0, 8).map(c => ({
     name: c.name.split(' ')[1],
     stdRate: c.std,
-    vatAmount: Math.round((calcType === 'exclusive' ? amount * c.std / 100 : amount - amount / (1 + c.std / 100))),
+    vatAmount: Math.round((calcType === 'exclusive\' ? amount * c.std / 100 : amount - amount / (1 + c.std / 100))),
   }))
 
   return (
@@ -107,7 +107,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           {/* Amount */}
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">{calcType === 'exclusive' ? 'Net Amount (exc. VAT)' : 'Gross Amount (inc. VAT)'}</label>
+            <label className="text-xs font-medium text-gray-600">{calcType === 'exclusive\' ? \'Net Amount (exc. VAT)' : 'Gross Amount (inc. VAT)'}</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm font-bold">{symbol}</span>
               <input type="number" value={amount} onChange={e => setAmount(Number(e.target.value))} step={10}
@@ -187,7 +187,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="name" tick={{ fill: '#374151', fontSize: 10 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#374151', fontSize: 10 }} axisLine={false} tickLine={false} width={35} tickFormatter={v => `${v}%`} />
-                  <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, name) => [name === 'stdRate' ? `${v}%` : fmt(v), name === 'stdRate' ? 'VAT Rate' : 'VAT on Amount']} />
+                  <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, name) => [name === 'stdRate\' ? `${v}%` : fmt(v), name === \'stdRate\' ? \'VAT Rate' : 'VAT on Amount']} />
                   <Bar dataKey="stdRate" name="VAT Rate %" radius={[4, 4, 0, 0]}>
                     {rateComparison.map((e, i) => <Cell key={i} fill={i === countryIdx ? '#22c55e' : '#94a3b8'} />)}
                   </Bar>

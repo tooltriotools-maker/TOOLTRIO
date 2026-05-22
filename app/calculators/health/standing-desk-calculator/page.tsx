@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Standing Desk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Standing desks have become popular as a solution to sedentary desk work, and the concern about prolonged sitting is legitimate: over 20 prospective studies have linked sedentary time with increased risk of cardiovascular disease, type 2 diabetes, and all-cause mortality — effects that appear independent of leisure-time physical activity, meaning regular exercise doesn't fully offset the harms of sitting for 8-10 hours daily.
 
 But the solution isn't standing — it's movement. A 2018 systematic review found that standing desk interventions successfully reduced sitting time but produced only very small improvements in metabolic markers. Prolonged standing has its own health costs: varicose veins, plantar fasciitis, lower back discomfort from static loading, and reduced concentration from postural fatigue.

@@ -14,7 +14,7 @@ const FRAMEWORKS = {
 
 export default function CalculatorClient({ faqs }: Props) {
   const [width, setWidth] = useState(1024)
-  const [framework, setFramework] = useState<'tailwind'|'bootstrap'|'mui'>('tailwind')
+  const [framework, setFramework] = useState<'tailwind\'|\'bootstrap\'|\'mui\'>(\'tailwind')
 
   const bps = FRAMEWORKS[framework]
   const active = [...bps].reverse().find(bp=>width>=bp.px)

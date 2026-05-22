@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Caffeine Half-Life Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Caffeine has a half-life of 5-7 hours in most adults, which means if you drink a 200mg coffee at 2pm, you still have 100mg active in your system at 7-9pm and 50mg at midnight. That background level of caffeine doesn't necessarily keep you awake, but it does reduce sleep quality — particularly the proportion of deep, restorative sleep — even in people who feel like they fall asleep fine. Research from Stanford found that afternoon caffeine reduces slow-wave sleep by 20% even when subjects don't notice any difficulty falling asleep.
 
 The half-life isn't fixed — it varies substantially based on genetics, age, liver health, medications, and hormonal status. Smokers metabolize caffeine roughly twice as fast as non-smokers due to CYP1A2 enzyme induction. Oral contraceptives slow caffeine metabolism significantly, extending the half-life to 9-11 hours in some women. Pregnancy dramatically extends half-life to 15+ hours in the third trimester. People with certain genetic variants of the CYP1A2 enzyme are slow metabolizers who feel caffeine effects for much longer than average.

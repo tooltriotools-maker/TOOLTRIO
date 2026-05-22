@@ -17,12 +17,12 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function DownPaymentCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
-  const [homePrice, setHomePrice]     = useState(currency.code === 'INR' ? 5000000 : 400000)
+  const [homePrice, setHomePrice]     = useState(currency.code === 'INR\' ? 5000000 : 400000)
   const [downPct, setDownPct]         = useState(20)
   const [rate, setRate]               = useState(7.0)
   const [years, setYears]             = useState(30)
   const [propTaxRate, setPropTaxRate] = useState(1.2)
-  const [annualIns, setAnnualIns]     = useState(currency.code === 'INR' ? 15000 : 1400)
+  const [annualIns, setAnnualIns]     = useState(currency.code === 'INR\' ? 15000 : 1400)
 
   const result = useMemo(() => calculateDownPayment(homePrice, downPct, rate, years, propTaxRate, annualIns), [homePrice, downPct, rate, years, propTaxRate, annualIns])
 

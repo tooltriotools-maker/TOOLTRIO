@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Calorie Deficit Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your calorie deficit is the single variable that determines whether you lose fat, maintain weight, or gain weight. Everything else in a diet — food choices, meal timing, macronutrient ratios — operates within the constraint of whether you are eating above or below your total daily energy expenditure. Understanding exactly how large your deficit should be is the foundation of any effective fat loss plan.
 
 This calculator takes three inputs: your current TDEE (or it can estimate it from your body stats), your current weight, and your goal weight and timeline. It then calculates the exact daily calorie deficit needed to achieve your goal by your target date, flags whether that deficit falls in the safe, moderate, aggressive, or dangerous zone, and shows the expected timeline at various deficit sizes.

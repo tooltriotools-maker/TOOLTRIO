@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Stroke Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Stroke is the fifth leading cause of death in the United States and the leading cause of long-term disability — yet 80% of strokes are considered preventable through control of modifiable risk factors. The tragedy of stroke is that its risk factors are well-established, the interventions are available, but risk often goes unaddressed until the event that could have been prevented.
 
 The two types of stroke have different mechanisms: ischemic stroke (87% of strokes) occurs when a clot blocks a blood vessel supplying the brain. Hemorrhagic stroke occurs when a blood vessel ruptures. Risk factors for both overlap substantially: hypertension is the single most powerful modifiable risk factor for both types.

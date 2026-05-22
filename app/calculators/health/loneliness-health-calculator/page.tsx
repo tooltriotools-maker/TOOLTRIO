@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Loneliness Health Impact Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Loneliness is a public health crisis with consequences comparable to major physical risk factors. A landmark meta-analysis by Holt-Lunstad et al. tracking over 3 million people across 148 studies found that social isolation and loneliness increased mortality risk by 26-29% — an effect size comparable to smoking 15 cigarettes per day and larger than obesity or physical inactivity. The US Surgeon General declared loneliness an epidemic in 2023.
 
 The physiological mechanisms are now well-understood. Loneliness activates the HPA stress axis and maintains elevated cortisol. It promotes hypervigilance — a biological state of threat detection that maintains sympathetic nervous system activation and inflammatory signaling. Lonely individuals show elevated blood levels of IL-6 and CRP that directly contribute to cardiovascular and metabolic disease.

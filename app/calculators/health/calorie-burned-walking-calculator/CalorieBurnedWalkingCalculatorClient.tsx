@@ -29,9 +29,9 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
   const [weight, setWeight] = useState(154)   // kg
   const [duration, setDuration]   = useState(30)   // minutes
   const [activityIdx, setActivity] = useState(2)   // brisk walk default
-  const [unit, setUnit]           = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit]           = useState<'imperial\' | \'metric\'>(\'imperial')
 
-  const weightKg  = unit === 'imperial' ? weight * 0.453592 : weight
+  const weightKg  = unit === 'imperial\' ? weight * 0.453592 : weight
   const activity  = ACTIVITIES[activityIdx]
 
   // Formula: Calories = MET x weight(kg) x duration(hours)
@@ -45,8 +45,8 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
   // Pounds lost per week (3,500 cal = 1 lb)
   const lbsPerWeek5 = (weekly5 / 3500).toFixed(2)
 
-  const weightDisplay = unit === 'imperial' ? weight : Math.round(weight / 2.20462)
-  const weightLabel = unit === 'imperial' ? 'lbs' : 'kg'
+  const weightDisplay = unit === 'imperial\' ? weight : Math.round(weight / 2.20462)
+  const weightLabel = unit === 'imperial\' ? \'lbs' : 'kg'
 
   const comparisonData = ACTIVITIES.map(a => ({
     name: a.name.replace('Walking ', '').replace('Jogging ', '').replace('Running ', '').replace('Hiking with pack', 'Hiking'),
@@ -65,7 +65,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
                 {(['imperial', 'metric'] as const).map(u => (
                   <button key={u} onClick={() => {
                     if (u !== unit) {
-                      setWeight(u === 'imperial' ? Math.round(weight * 2.205) : Math.round(weight / 2.205))
+                      setWeight(u === 'imperial\' ? Math.round(weight * 2.205) : Math.round(weight / 2.205))
                       setUnit(u)
                     }
                   }} className={`py-2 rounded-xl text-sm font-semibold transition-all ${unit === u ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
@@ -74,7 +74,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
                 ))}
               </div>
             </div>
-            <InputField label={`Your Weight (${weightLabel})`} value={weight} onChange={setWeight} min={unit === 'imperial' ? 80 : 36} max={unit === 'imperial' ? 400 : 181} step={1} suffix={weightLabel} />
+            <InputField label={`Your Weight (${weightLabel})`} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 80 : 36} max={unit === \'imperial\' ? 400 : 181} step={1} suffix={weightLabel} />
             <InputField label="Duration (minutes)" value={duration} onChange={setDuration} min={5} max={300} step={5} suffix="min" />
 
             <div>

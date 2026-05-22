@@ -9,7 +9,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 export default function CalculatorClient({ faqs }: Props) {
 
   const [text, setText] = useState('HELLO WORLD')
-  const [mode, setMode] = useState<'encode'|'decode'>('encode')
+  const [mode, setMode] = useState<'encode\'|\'decode\'>(\'encode')
   const [copied, setCopied] = useState(false)
 
   const MORSE: Record<string,string> = {
@@ -49,13 +49,13 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="flex gap-2 mb-4">
         {(['encode','decode'] as const).map(m=>(
           <button key={m} onClick={()=>setMode(m)} className={`px-4 py-2 rounded-xl text-sm font-bold capitalize ${mode===m?'bg-gray-900 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-            {m==='encode'?'Text -> Morse':'Morse -> Text'}
+            {m==='encode\'?\'Text -> Morse':'Morse -> Text'}
           </button>
         ))}
       </div>
       <div className="rounded-3xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-        <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Input {mode==='encode'?'Text':'Morse Code (use spaces between symbols, 3 spaces between words)'}</label>
-        <textarea value={text} onChange={e=>setText(e.target.value)} rows={4} placeholder={mode==='encode'?'Type text here...':'.- .-.. .-.  (3 spaces between words)'}
+        <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Input {mode==='encode\'?\'Text':'Morse Code (use spaces between symbols, 3 spaces between words)'}</label>
+        <textarea value={text} onChange={e=>setText(e.target.value)} rows={4} placeholder={mode==='encode\'?\'Type text here...':'.- .-.. .-.  (3 spaces between words)'}
           className="w-full border-2 border-gray-200 focus:border-yellow-400 rounded-xl px-4 py-3 font-mono text-lg focus:outline-none resize-none" />
       </div>
       <div className="bg-gray-900 rounded-2xl p-6 mb-4">

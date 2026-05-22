@@ -25,7 +25,7 @@ const DEFAULT_CATEGORIES = [
 
 export default function WeeklyBudgetCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR' ? 10 : 1
+  const m = currency.code === 'INR\' ? 10 : 1
 
   const [weeklyIncome, setWeeklyIncome] = useState(1200 * m)
   const [categories, setCategories]     = useState(DEFAULT_CATEGORIES.map(c => ({ ...c, amount: Math.round(c.amount * m) })))

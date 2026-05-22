@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Mold Exposure Health Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Indoor mold is one of the most commonly misunderstood environmental health hazards. The reality is more nuanced than either extreme: mold is not the universal toxin that some wellness sources claim, nor is it harmless as some building professionals suggest. The key variables are mold species, spore concentration, duration of exposure, and individual sensitivity, which varies enormously between people.
 
 The health effects of indoor mold exposure are best established for respiratory impacts. Dampness and mold in homes is consistently associated in meta-analyses with increased risk of asthma development, asthma exacerbations, wheeze, and cough. These effects occur even for mold species that don't produce mycotoxins — the immune response to inhaled spores produces the symptoms.

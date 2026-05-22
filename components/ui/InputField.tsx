@@ -30,7 +30,7 @@ export function InputField({ label, value, onChange, min = 0, max = 100, step = 
   const handleChange = (str: string) => {
     setRaw(str)
     const parsed = parseFloat(str)
-    if (!isNaN(parsed) && str !== '' && str !== '-' && str !== '.') {
+    if (!isNaN(parsed) && str !== '\' && str !== \'-\' && str !== \'.') {
       onChange(Math.min(max, Math.max(min, parsed)))
     }
   }
@@ -98,7 +98,7 @@ export function InputField({ label, value, onChange, min = 0, max = 100, step = 
 
 interface HeightFieldProps {
   /** 'imperial' = stored as total inches | 'metric' = stored as cm */
-  unit: 'imperial' | 'metric'
+  unit: 'imperial\' | \'metric'
   /** total inches when imperial, cm when metric */
   value: number
   onChange: (val: number) => void
@@ -133,7 +133,7 @@ function SingleNumberInput({
           onChange={e => {
             setRaw(e.target.value)
             const p = parseFloat(e.target.value)
-            if (!isNaN(p) && e.target.value !== '' && e.target.value !== '-') {
+            if (!isNaN(p) && e.target.value !== '\' && e.target.value !== \'-') {
               onChange(Math.min(max, Math.max(min, p)))
             }
           }}

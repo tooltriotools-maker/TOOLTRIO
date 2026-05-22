@@ -117,7 +117,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Decaf coffee is not caffeine-free. A standard 8oz decaf contains approximately 2-15mg of caffeine, compared to a regular coffee's 80-100mg. However, the decaffeination process is imperfect, and some decafs test significantly higher. Heavy decaf drinkers (4-5 cups per day) can consume enough residual caffeine to produce measurable effects and disrupt sleep -- which is why "I only drink decaf" doesn't always explain intact sleep quality.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Decaf coffee is not caffeine-free. A standard 8oz decaf contains approximately 2-15mg of caffeine, compared to a regular coffee's 80-100mg. However, the decaffeination process is imperfect, and some decafs test significantly higher. Heavy decaf drinkers (4-5 cups per day) can consume enough residual caffeine to produce measurable effects and disrupt sleep -- which is why "I only drink decaf" doesn\'t always explain intact sleep quality.</p>
         </section>
 
         {/* Tips */}

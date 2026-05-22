@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Protein Per Meal Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The question of how much protein to eat per meal has shifted significantly in the research over the past decade. The earlier view — that the body can only utilize around 20-30g of protein per meal — has been substantially revised. A 2023 meta-analysis found that muscle protein synthesis continues to increase with doses beyond 40g when considering whole-body protein turnover.
 
 What does appear to matter for muscle-building purposes is spreading protein meaningfully across meals rather than concentrating it in one or two. Research established that leucine — the branch-chain amino acid that acts as the primary anabolic signaling molecule — needs to reach roughly 2-3g per meal to trigger muscle protein synthesis robustly.

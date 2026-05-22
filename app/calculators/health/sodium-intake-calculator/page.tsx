@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sodium Intake Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Sodium is genuinely important to health — but the relationship is more nuanced than less is always better. Sodium is essential for fluid balance, nerve signal transmission, and muscle contraction. The kidneys regulate sodium with extraordinary precision, and sodium deficiency (hyponatremia) can be as dangerous as excess.
 
 That said, most Americans consume approximately 3,400mg of sodium per day — well above the 2,300mg recommendation and far above the 1,500mg recommended for people with hypertension or kidney disease. In people who are sodium-sensitive (roughly 25-50% of the population), high sodium directly raises blood pressure.

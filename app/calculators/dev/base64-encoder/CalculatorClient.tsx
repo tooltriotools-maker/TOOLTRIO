@@ -8,7 +8,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('Hello, World!')
-  const [mode, setMode] = useState<'encode' | 'decode'>('encode')
+  const [mode, setMode] = useState<'encode\' | \'decode\'>(\'encode')
   const [urlSafe, setUrlSafe] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs }: Props) {
   })()
   const error = outputError
 
-  const swap = () => { setInput(output || ''); setMode(m => m === 'encode' ? 'decode' : 'encode') }
+  const swap = () => { setInput(output || ''); setMode(m => m === 'encode\' ? \'decode' : 'encode') }
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(() => setCopied(false), 1500) }
 
   const EXAMPLES = [
@@ -65,14 +65,14 @@ export default function CalculatorClient({ faqs }: Props) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
-            <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Input ({mode === 'encode' ? 'Plain Text' : 'Base64'})</label>
+            <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Input ({mode === 'encode\' ? \'Plain Text' : 'Base64'})</label>
             <textarea value={input} onChange={e => setInput(e.target.value)} rows={10}
-              placeholder={mode === 'encode' ? 'Enter text to encode...' : 'Enter Base64 to decode...'}
+              placeholder={mode === 'encode\' ? \'Enter text to encode...' : 'Enter Base64 to decode...'}
               className="w-full font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none" />
           </div>
           <div>
             <div className="flex items-center justify-between mb-2">
-              <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Output ({mode === 'encode' ? 'Base64' : 'Plain Text'})</label>
+              <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Output ({mode === 'encode\' ? \'Base64' : 'Plain Text'})</label>
               <button onClick={copy} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700">
                 {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />} {copied ? 'Copied!' : 'Copy'}
               </button>

@@ -50,7 +50,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Age Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your exact age sounds like a simple number — but there is surprising depth in what it actually tells you. This calculator goes beyond a simple year count to give you your age in every unit: years, months, weeks, days, hours, and even minutes if you know your birth time. It also tells you how many days until your next birthday, which generation you belong to based on research-based cohort definitions, and what percentage of a statistical average lifespan you have lived.
 
 These numbers have practical uses beyond trivia: insurance policies, retirement accounts, Medicare eligibility, legal contracts, and medical screening recommendations all use specific age thresholds. Knowing your precise age in each unit ensures you never miss a deadline or qualification by failing to account for exactly where you are in the calendar year.

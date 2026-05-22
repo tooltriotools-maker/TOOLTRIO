@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Diabetes Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Type 2 diabetes affects 37.3 million Americans — 11.3% of the population — and an additional 96 million Americans have prediabetes, putting them on the path to full diabetes without lifestyle intervention. The staggering majority of type 2 diabetes cases are preventable: the landmark Diabetes Prevention Program found that modest lifestyle changes (7% body weight reduction and 150 minutes of moderate activity weekly) reduced diabetes development by 58% in high-risk adults.
 
 This calculator uses the American Diabetes Association's validated risk screening tool to estimate your 10-year type 2 diabetes risk based on age, weight, physical activity, hypertension history, family history, gestational diabetes history, and race/ethnicity. Completing it takes under 2 minutes and identifies whether you fall in the low, moderate, or high risk category — and what that means for screening and prevention.

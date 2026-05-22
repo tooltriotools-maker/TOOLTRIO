@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Fiber Intake Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Most Americans consume about half the fiber they need. The average adult gets 15-17 grams per day; recommendations are 25 grams for women and 38 grams for men. This fiber gap has real health consequences: dietary fiber intake is one of the most consistently associated dietary factors with cardiovascular risk, blood glucose management, colorectal cancer prevention, and gut microbiome diversity.
 
 Fiber isn't one thing — it's a category of plant compounds that share the property of resisting digestion in the small intestine. Soluble fiber (found in oats, legumes, apples, psyllium) dissolves in water, forms a gel, slows glucose absorption, and is fermented by gut bacteria producing short-chain fatty acids that feed colonocytes. Insoluble fiber (found in wheat bran, vegetables, whole grains) adds bulk to stool and speeds transit time.

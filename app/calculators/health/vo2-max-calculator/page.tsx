@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'VO2 Max Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `VO2 max is the single most powerful predictor of cardiovascular health and longevity available without expensive equipment. It measures the maximum rate at which your body can take in, transport, and use oxygen during intense exercise. Higher VO2 max means your cardiovascular system is more efficient at delivering oxygen to working muscles, which translates to better endurance performance and significantly lower mortality risk.
 
 A landmark study published in JAMA Network Open in 2018 analyzed over 120,000 patients and found that the least fit group had a 5-fold higher all-cause mortality risk compared to the most fit group — a larger effect than smoking, hypertension, or diabetes. Other analyses have found that each 1 MET increase in cardiorespiratory fitness corresponds to a 13-15% reduction in all-cause mortality.

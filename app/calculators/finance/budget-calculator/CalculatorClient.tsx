@@ -30,16 +30,16 @@ const COLORS = ['#22c55e','#3b82f6','#f59e0b','#ec4899','#8b5cf6','#06b6d4','#ef
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
-  const scale = currency.code === 'INR' ? 80 : 1
+  const scale = currency.code === 'INR\' ? 80 : 1
 
   const [income, setIncome] = useState(Math.round(5000 * scale))
   const [categories, setCategories] = useState(DEFAULT_CATEGORIES.map(c => ({
     ...c, planned: Math.round(c.planned * scale), actual: Math.round(c.actual * scale)
   })))
-  const [activeTab, setActiveTab] = useState<'planned' | 'actual'>('actual')
+  const [activeTab, setActiveTab] = useState<'planned\' | \'actual\'>(\'actual')
 
   const result = useMemo(() => calculateBudget(income, categories), [income, categories])
-  const step = currency.code === 'INR' ? 500 : 50
+  const step = currency.code === 'INR\' ? 500 : 50
 
   const update = (idx: number, field: string, val: any) => {
     const next = [...categories]; (next[idx] as any)[field] = val; setCategories(next)
@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const remove = (idx: number) => setCategories(categories.filter((_, i) => i !== idx))
   const add = () => setCategories([...categories, { name: 'New Category', planned: Math.round(100 * scale), actual: Math.round(100 * scale) }])
 
-  const pieData = result.categories.map((c, i) => ({ name: c.name, value: activeTab === 'planned' ? c.planned : c.actual, color: COLORS[i % COLORS.length] })).filter(c => c.value > 0)
+  const pieData = result.categories.map((c, i) => ({ name: c.name, value: activeTab === 'planned\' ? c.planned : c.actual, color: COLORS[i % COLORS.length] })).filter(c => c.value > 0)
   const rule5030 = { needs: result.categories.filter((_, i) => i < 5).reduce((s, c) => s + c.actual, 0), wants: result.categories.filter((_, i) => i >= 5 && i < 8).reduce((s, c) => s + c.actual, 0), savings: result.categories.filter((_, i) => i >= 8).reduce((s, c) => s + c.actual, 0) }
 
   return (

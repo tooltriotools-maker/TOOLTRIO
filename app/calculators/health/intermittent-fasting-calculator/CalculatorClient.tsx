@@ -10,14 +10,14 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
-  const [protocol, setProtocol] = useState<'16_8'|'18_6'|'20_4'|'omad'|'5_2'>('16_8')
+  const [protocol, setProtocol] = useState<'16_8\'|\'18_6\'|\'20_4\'|\'omad\'|\'5_2\'>(\'16_8')
   const [wakeTime, setWakeTime] = useState('07:00')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(165)
   const [tdee, setTdee] = useState(2000)
-  const [goal, setGoal] = useState<'lose'|'maintain'>('lose')
+  const [goal, setGoal] = useState<'lose\'|\'maintain\'>(\'lose')
 
-  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
+  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
 
   const result = useMemo(() => {
     const [wh, wm] = wakeTime.split(':').map(Number)
@@ -32,13 +32,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     }
     const cfg = configs[protocol]
 
-    const eatStart = protocol==='5_2' ? wakeTime : (() => {
+    const eatStart = protocol==='5_2\' ? wakeTime : (() => {
       const delayH = 1 // 1 hour after wake to start eating
       const startMins = (wakeMins + delayH*60) % 1440
       return `${String(Math.floor(startMins/60)).padStart(2,'0')}:${String(startMins%60).padStart(2,'0')}`
     })()
 
-    const eatEnd = protocol==='5_2' ? '21:00' : (() => {
+    const eatEnd = protocol==='5_2\' ? \'21:00' : (() => {
       const [sh,sm] = eatStart.split(':').map(Number)
       const endMins = (sh*60+sm+cfg.eat*60) % 1440
       return `${String(Math.floor(endMins/60)).padStart(2,'0')}:${String(endMins%60).padStart(2,'0')}`
@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
     const cals = protocol==='5_2'
       ? {normal:tdee, fastDay:500}
-      : {target: goal==='lose' ? Math.round(tdee*0.8) : tdee}
+      : {target: goal==='lose\' ? Math.round(tdee*0.8) : tdee}
 
     const benefits = [
       {h:12,label:'Fat burning begins',done:cfg.fast>=12},
@@ -78,7 +78,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="p-5 rounded-2xl border-2 text-center" style={{background:'rgba(240,253,244,0.85)',borderColor:'rgba(134,239,172,0.7)',backdropFilter:'blur(8px)'}}>
               <p className="text-xs font-bold text-green-600 uppercase">Eating Window</p>
               <p className="text-2xl font-black text-green-700 mt-1">{result.eatStart} - {result.eatEnd}</p>
-              <p className="text-sm text-green-600">{result.cfg.eat} hours - {protocol==='5_2'?`${result.cals.normal} kcal normal days`:`${(result.cals as any).target} kcal target`}</p>
+              <p className="text-sm text-green-600">{result.cfg.eat} hours - {protocol==='5_2\'?`${result.cals.normal} kcal normal days`:`${(result.cals as any).target} kcal target`}</p>
             </div>
             <div className="p-5 bg-indigo-50 rounded-2xl border-2 border-indigo-200 text-center">
               <p className="text-xs font-bold text-indigo-600 uppercase">Fasting Window</p>

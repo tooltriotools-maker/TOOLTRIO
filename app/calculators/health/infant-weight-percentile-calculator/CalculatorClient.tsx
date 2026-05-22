@@ -11,11 +11,11 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(12)
-  const [ageUnit, setAgeUnit] = useState<'months'|'years'>('months')
+  const [ageUnit, setAgeUnit] = useState<'months\'|\'years\'>(\'months')
   const [weight, setWeight] = useState(9.5)
   const [height, setHeight] = useState(75)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   // Approximate WHO median and SD for weight-for-age (simplified)
   const getPercentile = (value: number, median: number, sd: number) => {
@@ -30,9 +30,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   const result = useMemo(() => {
-    const ageMonths = ageUnit==='years' ? age*12 : age
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
-    const hCm = unit==='imperial' ? height*2.54 : height
+    const ageMonths = ageUnit==='years\' ? age*12 : age
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const hCm = unit==='imperial\' ? height*2.54 : height
 
     // Simplified WHO median weight data (kg) by age months and gender
     // These are rough approximations for demo purposes
@@ -76,10 +76,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Boy'},{value:'female',label:'Girl'}]} />
             <div className="grid grid-cols-2 gap-2">
-              <InputField label="Age" value={age} onChange={setAge} min={0} max={ageUnit==='months'?240:20} step={1} suffix={ageUnit==='months'?'mo':'yrs'} />
+              <InputField label="Age" value={age} onChange={setAge} min={0} max={ageUnit==='months\'?240:20} step={1} suffix={ageUnit===\'months\'?\'mo':'yrs'} />
               <SelectField label="Unit" value={ageUnit} onChange={v=>setAgeUnit(v as any)} options={[{value:'months',label:'Months'},{value:'years',label:'Years'}]} />
             </div>
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?1:2.2} max={unit==='metric'?120:264} step={unit==='metric'?0.1:0.1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?1:2.2} max={unit===\'metric\'?120:264} step={unit===\'metric\'?0.1:0.1} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
         </Card>

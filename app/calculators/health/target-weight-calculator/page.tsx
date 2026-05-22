@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Target Weight Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Setting a target weight is a more nuanced decision than picking a number on a BMI chart. The BMI range of 18.5-24.9 for normal weight gives you a broad window — for a 5'8" person, that's a 35-pound range from 122 to 164 lbs. Where within that range you should realistically aim depends on your body frame, muscle mass, age, and what's actually achievable and maintainable.
 
 Older adults tend to have better outcomes at the higher end of the normal weight range or even slightly overweight (BMI 25-27) — the obesity paradox for older adults is well-documented, reflecting the protective metabolic reserve of slightly higher weight during illness. For younger adults, the lower end of normal weight is generally associated with better metabolic outcomes.

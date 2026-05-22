@@ -13,22 +13,22 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [currentWeight, setCurrentWeight] = useState(85)
   const [targetWeight, setTargetWeight] = useState(75)
   const [height, setHeight] = useState(69)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [weeklyChange, setWeeklyChange] = useState(0.5)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? currentWeight*0.453592 : currentWeight
-    const tKg = unit==='imperial' ? targetWeight*0.453592 : targetWeight
-    const hCm = unit==='imperial' ? height*2.54 : height
+    const wKg = unit==='imperial\' ? currentWeight*0.453592 : currentWeight
+    const tKg = unit==='imperial\' ? targetWeight*0.453592 : targetWeight
+    const hCm = unit==='imperial\' ? height*2.54 : height
     const hM = hCm/100
     const inches = hCm/2.54 - 60
     
     const ideal = {
-      robinson: gender==='male' ? 52 + 1.9*inches : 49 + 1.7*inches,
-      miller:   gender==='male' ? 56.2 + 1.41*inches : 53.1 + 1.36*inches,
-      devine:   gender==='male' ? 50 + 2.3*inches : 45.5 + 2.3*inches,
-      hamwi:    gender==='male' ? 48 + 2.7*inches : 45.4 + 2.2*inches,
+      robinson: gender==='male\' ? 52 + 1.9*inches : 49 + 1.7*inches,
+      miller:   gender==='male\' ? 56.2 + 1.41*inches : 53.1 + 1.36*inches,
+      devine:   gender==='male\' ? 50 + 2.3*inches : 45.5 + 2.3*inches,
+      hamwi:    gender==='male\' ? 48 + 2.7*inches : 45.4 + 2.2*inches,
       bmiMin:   18.5 * hM*hM,
       bmiMax:   24.9 * hM*hM,
     }
@@ -60,15 +60,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
-<InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={currentWeight} onChange={setCurrentWeight} min={unit==='metric'?30:66} max={unit==='metric'?300:660} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
-            <InputField label={`Target Weight (${unit==='metric'?'kg':'lbs'})`} value={targetWeight} onChange={setTargetWeight} min={unit==='metric'?30:66} max={unit==='metric'?300:660} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
+<InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={currentWeight} onChange={setCurrentWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?300:660} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Target Weight (${unit==='metric'?'kg':'lbs'})`} value={targetWeight} onChange={setTargetWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?300:660} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <SelectField label="Weekly Change Rate" value={String(weeklyChange)} onChange={v=>setWeeklyChange(Number(v))} options={[{value:'0.25',label:'0.25 kg/week (slow)'},{value:'0.5',label:'0.5 kg/week (safe)'},{value:'0.75',label:'0.75 kg/week (moderate)'},{value:'1',label:'1 kg/week (aggressive)'}]} />
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className={`p-5 rounded-2xl border-2 ${result.losing?'bg-blue-50 border-blue-200':'bg-green-50 border-green-200'} text-center`}>
             <p className="text-xs font-bold uppercase tracking-wide opacity-70">{result.losing?'Weight Loss':'Weight Gain'} Plan</p>
-            <p className={`text-4xl font-black my-2 ${result.losing?'text-blue-700':'text-green-700'}`}>{result.diff} {unit==='metric'?'kg':'lbs'} to go</p>
+            <p className={`text-4xl font-black my-2 ${result.losing?'text-blue-700':'text-green-700'}`}>{result.diff} {unit==='metric\'?\'kg':'lbs'} to go</p>
             <p className={`font-semibold ${result.losing?'text-blue-600':'text-green-600'}`}>{result.weeks} weeks - Est. {result.targetDate}</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -87,12 +87,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {[['Robinson',result.ideal.robinson],['Miller',result.ideal.miller],['Devine',result.ideal.devine],['Hamwi',result.ideal.hamwi]].map(([n,v])=>(
                 <div key={n} className="flex justify-between p-2 bg-gray-50 rounded-lg">
                   <span className="text-gray-600">{n}</span>
-                  <span className="font-bold">{v} {unit==='metric'?'kg':'lbs'}</span>
+                  <span className="font-bold">{v} {unit==='metric\'?\'kg':'lbs'}</span>
                 </div>
               ))}
               <div className="col-span-2 flex justify-between p-2 bg-green-50 rounded-lg border border-green-200">
                 <span className="text-green-700 font-semibold">Healthy BMI Range</span>
-                <span className="font-bold text-green-700">{result.ideal.bmiMin}-{result.ideal.bmiMax} {unit==='metric'?'kg':'lbs'}</span>
+                <span className="font-bold text-green-700">{result.ideal.bmiMin}-{result.ideal.bmiMax} {unit==='metric\'?\'kg':'lbs'}</span>
               </div>
             </div>
           </Card>

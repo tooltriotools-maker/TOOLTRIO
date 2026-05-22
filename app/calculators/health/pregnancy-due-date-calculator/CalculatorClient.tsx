@@ -9,7 +9,7 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [method, setMethod] = useState<'lmp'|'conception'>('lmp')
+  const [method, setMethod] = useState<'lmp\'|\'conception\'>(\'lmp')
   const [lmpDate, setLmpDate] = useState(() => {
     const d = new Date(); d.setDate(d.getDate()-42); return d.toISOString().split('T')[0]
   })
@@ -19,12 +19,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [cycleLen, setCycleLen] = useState(28)
 
   const result = useMemo(() => {
-    const baseDate = method==='lmp' ? new Date(lmpDate) : new Date(conceptDate)
+    const baseDate = method==='lmp\' ? new Date(lmpDate) : new Date(conceptDate)
     if (isNaN(baseDate.getTime())) return null
-    const daysToAdd = method==='lmp' ? 280 + (cycleLen-28) : 266
+    const daysToAdd = method==='lmp\' ? 280 + (cycleLen-28) : 266
     const edd = new Date(baseDate.getTime() + daysToAdd*24*60*60*1000)
     const today = new Date()
-    const conceptionDate = method==='lmp' ? new Date(baseDate.getTime() + 14*24*60*60*1000) : baseDate
+    const conceptionDate = method==='lmp\' ? new Date(baseDate.getTime() + 14*24*60*60*1000) : baseDate
     const gestDays = Math.floor((today.getTime()-baseDate.getTime())/(24*60*60*1000))
     const gestWeeks = Math.floor(gestDays/7)
     const gestDaysRem = gestDays%7
@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Pregnancy Details</h2>
           <div className="space-y-4">
             <SelectField label="Calculate From" value={method} onChange={v=>setMethod(v as any)} options={[{value:'lmp',label:'Last Menstrual Period (LMP)'},{value:'conception',label:'Conception / Ovulation Date'}]} />
-            {method==='lmp' ? <>
+            {method==='lmp\' ? <>
               <div>
                 <label className="text-xs font-medium text-gray-600">First Day of Last Period</label>
                 <input type="date" value={lmpDate} onChange={e=>setLmpDate(e.target.value)} className="mt-1 w-full border border-gray-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400" />

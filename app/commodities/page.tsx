@@ -411,7 +411,7 @@ export default function CommoditiesPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ENERGY.map(key => (
             <CommodityPriceCard key={key} commodity={data[key]} emoji={COMMODITY_META[key].emoji}
-              href={COMMODITY_META[key].href !== '/commodities' ? COMMODITY_META[key].href : undefined}
+              href={COMMODITY_META[key].href !== '/commodities\' ? COMMODITY_META[key].href : undefined}
               loading={loading} />
           ))}
         </div>

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Protein Intake Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Protein is arguably the most important macronutrient to get right, regardless of your health goal. Whether you are trying to lose fat, build muscle, perform better in sport, or simply maintain your health as you age, protein plays a central role — and the right amount is almost certainly different from what general dietary guidelines suggest.
 
 The standard RDA of 0.8 grams of protein per kilogram of body weight was set to prevent deficiency in sedentary adults, not to optimize body composition or athletic performance. Research over the past two decades has consistently shown that physically active adults, people dieting to lose fat, and older adults all need significantly more — typically 1.6-2.2 g/kg/day for most active adults, with needs running higher during aggressive caloric deficits.

@@ -11,15 +11,15 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(154)
   const [height, setHeight] = useState(67)
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male' | 'female'>('male')
+  const [gender, setGender] = useState<'male\' | \'female\'>(\'male')
 
 
-  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
-  const heightCm = unit === 'imperial' ? height * 2.54 : height
+  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
+  const heightCm = unit === 'imperial\' ? height * 2.54 : height
     const result = useMemo(() => calculateBMR(weightKg, heightCm, age, gender), [weight, height, age, gender])
 
   const activityLevels = [
@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="grid grid-cols-2 gap-1 p-1 bg-gray-50 rounded-xl">
               {(['male', 'female'] as const).map(g => (
                 <button key={g} onClick={() => setGender(g)} className={`py-2 rounded-xl text-sm font-semibold transition-all ${gender === g ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {g === 'male' ? '♂ Male' : '♀ Female'}
+                  {g === 'male\' ? \'♂ Male' : '♀ Female'}
                 </button>
               ))}
             </div>
@@ -49,12 +49,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial' ? '🇺🇸 lbs / in' : '🌍 kg / cm'}
+                  {u === 'imperial\' ? \'🇺🇸 lbs / in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
 
-            <InputField label={unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial' ? 66 : 30} max={unit === 'imperial' ? 550 : 250} step={unit === 'imperial' ? 1 : 0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
+            <InputField label={unit === 'imperial\' ? \'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 66 : 30} max={unit === \'imperial\' ? 550 : 250} step={unit === \'imperial\' ? 1 : 0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
           <div className="mt-5 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20">
@@ -107,8 +107,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">BMR Formula (Mifflin-St Jeor)</h3>
             <div className="rounded-xl p-4 font-mono text-sm text-gray-700 border" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.6)',backdropFilter:'blur(6px)'}}>
-              {gender === 'male' ? 'BMR = 10xweight + 6.25xheight - 5xage + 5' : 'BMR = 10xweight + 6.25xheight - 5xage - 161'}
-              <div className="mt-2 text-xs text-gray-400 font-sans">= 10x{weight} + 6.25x{height} - 5x{age} {gender === 'male' ? '+ 5' : '- 161'} = <span className="text-gray-900 font-bold">{result.bmr} kcal</span></div>
+              {gender === 'male\' ? \'BMR = 10xweight + 6.25xheight - 5xage + 5' : 'BMR = 10xweight + 6.25xheight - 5xage - 161'}
+              <div className="mt-2 text-xs text-gray-400 font-sans">= 10x{weight} + 6.25x{height} - 5x{age} {gender === 'male\' ? '+ 5' : \'- 161'} = <span className="text-gray-900 font-bold">{result.bmr} kcal</span></div>
             </div>
           </Card>
         </div>

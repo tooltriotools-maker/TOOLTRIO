@@ -99,5 +99,5 @@ const relatedCalculators = [
 const structuredData = [generateFAQStructuredData(faqs)]
 
 export default function Page() {
- return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug='mortgage-calculator-guide-how-to-buy-a-home-usa' />
+ return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug='mortgage-calculator-guide-how-to-buy-a-home-usa\' />
 }

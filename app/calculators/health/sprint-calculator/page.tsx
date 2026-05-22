@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sprint Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Sprint performance is a window into your neuromuscular system — the combination of fast-twitch muscle fiber recruitment, motor neuron firing rate, stride mechanics, and ground contact time that determines how fast you can move over short distances. Unlike endurance performance, which adapts gradually over months, sprint performance can improve meaningfully in 4-8 weeks of specific training because much of the initial gain comes from neural adaptations.
 
 Speed at different sprint distances is governed by different physical qualities. The first 10-20 meters are dominated by acceleration — the ability to apply force into the ground quickly and build velocity from rest. The 20-60 meter phase involves maximum velocity. Distances above 60-80 meters involve speed endurance — maintaining high velocity as metabolic fatigue accumulates.

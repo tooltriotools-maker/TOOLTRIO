@@ -11,10 +11,10 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [temp, setTemp] = useState(10)
   const [duration, setDuration] = useState(5)
-  const [experience, setExperience] = useState<'beginner'|'intermediate'|'advanced'>('beginner')
+  const [experience, setExperience] = useState<'beginner\'|\'intermediate\'|\'advanced\'>(\'beginner')
   const [frequency, setFrequency] = useState(3)
 
-  const maxSafe = experience==='beginner'?5:experience==='intermediate'?10:20
+  const maxSafe = experience==='beginner\'?5:experience===\'intermediate\'?10:20
   const safe = duration <= maxSafe
   const weeklyMin = duration * frequency
   const dopamineBoost = Math.min(250, Math.round(50 + (duration/10)*100 + (temp<5?50:0)))

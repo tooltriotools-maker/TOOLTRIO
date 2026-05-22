@@ -13,9 +13,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [workSec, setWorkSec] = useState(40)
   const [restSec, setRestSec] = useState(20)
   const [rounds, setRounds] = useState(8)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
-  const wKg = unit==='imperial' ? weight*0.453592 : weight
+  const wKg = unit==='imperial\' ? weight*0.453592 : weight
   const totalSec = (workSec + restSec) * rounds
   const workMin = (workSec * rounds) / 60
   const calWork = Math.round(12 * wKg * workMin / 60)
@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">HIIT Settings</h2>
           <div className="space-y-4">
             <SelectField label="Units" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label="Body Weight" value={weight} onChange={setWeight} min={30} max={200} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label="Body Weight" value={weight} onChange={setWeight} min={30} max={200} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
             <InputField label="Work Interval" value={workSec} onChange={setWorkSec} min={10} max={120} step={5} suffix="sec" />
             <InputField label="Rest Interval" value={restSec} onChange={setRestSec} min={5} max={120} step={5} suffix="sec" />
             <InputField label="Number of Rounds" value={rounds} onChange={setRounds} min={1} max={30} step={1} suffix="rds" />

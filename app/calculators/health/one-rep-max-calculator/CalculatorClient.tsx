@@ -13,7 +13,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(100)
   const [reps, setReps] = useState(5)
   const [exercise, setExercise] = useState('bench')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
     const w = weight

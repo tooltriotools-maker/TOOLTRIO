@@ -15,11 +15,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [currentWeight, setCurrentWeight] = useState(72)
   const [weeksPregnant, setWeeksPregnant] = useState(20)
   const [twins, setTwins] = useState(false)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? preWeight*0.453592 : preWeight
-    const cwKg = unit==='imperial' ? currentWeight*0.453592 : currentWeight
+    const wKg = unit==='imperial\' ? preWeight*0.453592 : preWeight
+    const cwKg = unit==='imperial\' ? currentWeight*0.453592 : currentWeight
     const bmi = preBmi
 
     let minGain: number, maxGain: number, category: string
@@ -64,8 +64,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
             <InputField label="Pre-pregnancy BMI" value={preBmi} onChange={setPreBmi} min={14} max={50} step={0.5} suffix="BMI" />
-            <InputField label={`Pre-pregnancy Weight (${unit==='metric'?'kg':'lbs'})`} value={preWeight} onChange={setPreWeight} min={unit==='metric'?35:77} max={unit==='metric'?200:440} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
-            <InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={currentWeight} onChange={setCurrentWeight} min={unit==='metric'?35:77} max={unit==='metric'?220:484} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Pre-pregnancy Weight (${unit==='metric'?'kg':'lbs'})`} value={preWeight} onChange={setPreWeight} min={unit==='metric\'?35:77} max={unit===\'metric\'?200:440} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={currentWeight} onChange={setCurrentWeight} min={unit==='metric\'?35:77} max={unit===\'metric\'?220:484} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <InputField label="Weeks Pregnant" value={weeksPregnant} onChange={setWeeksPregnant} min={4} max={42} step={1} suffix="weeks" />
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
               <span className="text-sm font-medium text-gray-700">Twins?</span>
@@ -79,13 +79,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className={`p-5 rounded-2xl border-2 ${result.statusColor}`}>
             <p className="text-xs font-bold uppercase tracking-wide opacity-70">Week {weeksPregnant} Status</p>
             <p className="text-2xl font-black my-1">{result.status}</p>
-            <p className="text-sm">Gained so far: <span className="font-bold">{result.currentGain} {unit==='metric'?'kg':'lbs'}</span> - Expected range: {result.expectedMinNow}-{result.expectedMaxNow} {unit==='metric'?'kg':'lbs'}</p>
+            <p className="text-sm">Gained so far: <span className="font-bold">{result.currentGain} {unit==='metric\'?\'kg':'lbs'}</span> - Expected range: {result.expectedMinNow}-{result.expectedMaxNow} {unit==='metric\'?\'kg':'lbs'}</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <Card>
               <p className="text-xs text-gray-500">BMI Category</p>
               <p className="font-black text-gray-900">{result.category}</p>
-              <p className="text-xs text-green-600 font-semibold mt-1">Target: {result.minGain}-{result.maxGain} {unit==='metric'?'kg':'lbs'} total</p>
+              <p className="text-xs text-green-600 font-semibold mt-1">Target: {result.minGain}-{result.maxGain} {unit==='metric\'?\'kg':'lbs'} total</p>
             </Card>
             <Card>
               <p className="text-xs text-gray-500">Trimester {result.trimester}</p>
@@ -98,12 +98,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="flex items-center gap-4">
               <div className="text-center flex-1">
                 <p className="text-xs text-gray-500">Minimum target</p>
-                <p className="text-2xl font-black text-blue-700">{result.moreMinNeeded} {unit==='metric'?'kg':'lbs'}</p>
+                <p className="text-2xl font-black text-blue-700">{result.moreMinNeeded} {unit==='metric\'?\'kg':'lbs'}</p>
               </div>
               <div className="text-gray-200 font-bold text-2xl">-</div>
               <div className="text-center flex-1">
                 <p className="text-xs text-gray-500">Maximum target</p>
-                <p className="text-2xl font-black text-blue-700">{result.moreMaxNeeded} {unit==='metric'?'kg':'lbs'}</p>
+                <p className="text-2xl font-black text-blue-700">{result.moreMaxNeeded} {unit==='metric\'?\'kg':'lbs'}</p>
               </div>
             </div>
             <p className="text-xs text-gray-400 mt-3">⚠️ Always follow your healthcare provider's specific guidance. These are general guidelines only.</p>

@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="bg-green-50 rounded-xl p-3 mt-2 flex items-center justify-between">
               <span className="font-mono font-bold text-green-800">{px}px = {pxToRem(px)}rem</span>
               <button onClick={()=>copy(`${pxToRem(px)}rem`,'px')} className="text-xs text-green-600 font-bold">
-                {copied==='px'?<Check className="w-4 h-4"/>:<Copy className="w-4 h-4"/>}
+                {copied==='px\'?<Check className="w-4 h-4"/>:<Copy className="w-4 h-4"/>}
               </button>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="bg-blue-50 rounded-xl p-3 mt-2 flex items-center justify-between">
               <span className="font-mono font-bold text-blue-800">{rem}rem = {remToPx(rem)}px</span>
               <button onClick={()=>copy(`${remToPx(rem)}px`,'rem')} className="text-xs text-blue-600 font-bold">
-                {copied==='rem'?<Check className="w-4 h-4"/>:<Copy className="w-4 h-4"/>}
+                {copied==='rem\'?<Check className="w-4 h-4"/>:<Copy className="w-4 h-4"/>}
               </button>
             </div>
           </div>

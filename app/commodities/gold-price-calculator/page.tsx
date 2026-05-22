@@ -54,7 +54,7 @@ export default function GoldPriceCalculatorPage() {
 
   const [fxKey, setFxKey] = useState('USD')
   const [weight, setWeight] = useState(10)
-  const [unit, setUnit]   = useState<'gram'|'tola'|'oz'|'kg'>('gram')
+  const [unit, setUnit]   = useState<'gram\'|\'tola\'|\'oz\'|\'kg\'>(\'gram')
   const [karat, setKarat] = useState('22K')
   const [making, setMaking] = useState(8)
 
@@ -262,7 +262,7 @@ export default function GoldPriceCalculatorPage() {
           <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Gold Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>The gold price you see quoted on financial news channels is always in USD per troy ounce for 24K (99.9% pure) gold. But almost nobody buys 24K gold by the troy ounce — in India and the Gulf, gold is bought in grams or tolas, in 22K or 18K purity, and the price you actually pay includes import duty, GST, and making charges on top. This calculator converts the live spot price into every unit and karat combination you need, in five currencies.</p>
-            <p>The conversion math: 1 troy oz = 31.1035 grams. 22K gold is 91.67% pure, so 22K price per gram = (spot ÷ 31.1035) × 0.9167. In India, add 15% import duty and 3% GST to get the domestic metal base price before making charges. When a jeweller quotes you ₹72,000 for 10 grams of 22K, run those numbers here first — you'll immediately see if the metal value stacks up or if you're being charged a premium.</p>
+            <p>The conversion math: 1 troy oz = 31.1035 grams. 22K gold is 91.67% pure, so 22K price per gram = (spot ÷ 31.1035) × 0.9167. In India, add 15% import duty and 3% GST to get the domestic metal base price before making charges. When a jeweller quotes you ₹72,000 for 10 grams of 22K, run those numbers here first — you'll immediately see if the metal value stacks up or if you\'re being charged a premium.</p>
             <p>For investment-grade gold (coins, bars), the relevant price is the spot price with no making charges. Use the making charges slider at 0% to get pure metal value. For jewellery with complex craftsmanship, 12–20% making is normal. For machine-made chains, anything above 10% is negotiable. Track your P&L on any gold position with the <Link href="/commodities/precious-metals-profit-calculator" className="text-yellow-700 font-semibold underline underline-offset-2">Precious Metals Profit Calculator</Link> and compare gold vs SIP returns with our <Link href="/calculators/finance/sip-vs-gold-calculator" className="text-yellow-700 font-semibold underline underline-offset-2">SIP vs Gold Calculator</Link>.</p>
           </div>
         </section>

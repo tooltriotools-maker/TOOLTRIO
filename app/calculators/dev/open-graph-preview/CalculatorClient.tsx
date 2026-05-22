@@ -10,7 +10,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const [desc, setDesc] = useState('A compelling description that makes people want to click and read more.')
   const [image, setImage] = useState('')
   const [site, setSite] = useState('example.com')
-  const [platform, setPlatform] = useState<'facebook'|'twitter'|'linkedin'>('facebook')
+  const [platform, setPlatform] = useState<'facebook\'|\'twitter\'|\'linkedin\'>(\'facebook')
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">

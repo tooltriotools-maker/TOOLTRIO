@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Marathon Training Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Running a marathon is one of the most physiologically demanding endurance events an average person can complete — 26.2 miles that tax aerobic capacity, muscular endurance, fat metabolism, and mental resilience simultaneously. The preparation required spans months and involves progressively building aerobic base, weekly mileage, and long run distance in a way that allows adaptation without overuse injury.
 
 Most first-time marathon attempts fail because of one of three causes: starting with insufficient aerobic base, building mileage too quickly and sustaining a stress injury (the 10% weekly mileage increase rule exists precisely because faster progression exceeds bone and tendon adaptation rates), or going out too fast on race day and hitting the wall at mile 20 when glycogen stores deplete.

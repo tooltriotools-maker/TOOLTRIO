@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sweat Rate Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your sweat rate is more individual than most people realize — it varies by up to 3-fold between people at the same exercise intensity, and even within the same person it varies significantly based on temperature, humidity, acclimatization, fitness level, and clothing. Understanding your personal sweat rate is the foundation of a proper hydration strategy, particularly for extended exercise.
 
 The consequences of dehydration during exercise are well-quantified: losing 1-2% of body weight in fluid measurably reduces aerobic performance; 2-3% impairs both physical and cognitive performance; above 5% carries serious medical risk in hot conditions.

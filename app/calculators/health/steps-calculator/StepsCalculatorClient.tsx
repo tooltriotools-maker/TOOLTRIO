@@ -15,7 +15,7 @@ export default function StepsCalculatorClient({ faqs, structuredData, relatedCal
   const [steps, setSteps]         = useState(10000)
   const [weight, setWeight]       = useState(150)    // lbs
   const [height, setHeight]       = useState(67)     // inches (5'7")
-  const [pace, setPace]           = useState<'slow' | 'moderate' | 'brisk' | 'fast'>('moderate')
+  const [pace, setPace]           = useState<'slow\' | \'moderate\' | \'brisk\' | \'fast\'>(\'moderate')
 
   const paceData = { slow: { strideIn: 24, mph: 2.0, met: 2.8 }, moderate: { strideIn: 26, mph: 3.0, met: 3.5 }, brisk: { strideIn: 28, mph: 3.5, met: 4.3 }, fast: { strideIn: 30, mph: 4.0, met: 5.0 } }
   const { strideIn, mph, met } = paceData[pace]
@@ -118,7 +118,7 @@ export default function StepsCalculatorClient({ faqs, structuredData, relatedCal
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.06)" />
                   <XAxis dataKey="steps" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} width={50} />
-                  <Tooltip formatter={(v: number, name) => [name === 'calories' ? `${v} cal` : `${v} mi`, name === 'calories' ? 'Calories' : 'Miles']} />
+                  <Tooltip formatter={(v: number, name) => [name === 'calories\' ? `${v} cal` : `${v} mi`, name === \'calories\' ? \'Calories' : 'Miles']} />
                   <Line type="monotone" dataKey="calories" name="calories" stroke="#16a34a" strokeWidth={2.5} dot={{ r: 4, fill: '#16a34a' }} />
                 </LineChart>
               </ResponsiveContainer>

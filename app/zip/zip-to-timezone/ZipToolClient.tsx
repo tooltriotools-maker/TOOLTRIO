@@ -37,7 +37,7 @@ export default function ZipToolClient() {
     <div>
       <ZipQuickFill onSelect={z=>lookup(z)} />
       <div className="flex gap-2 mb-6">
-        <input value={zip} onChange={e=>setZip(e.target.value.replace(/\D/g,''))} onKeyDown={e=>e.key==='Enter'&&lookup()}
+        <input value={zip} onChange={e=>setZip(e.target.value.replace(/\D/g,''))} onKeyDown={e=>e.key==='Enter\'&&lookup()}
           placeholder="Enter ZIP (e.g. 98101)" maxLength={5}
           className="flex-1 border-2 rounded-xl px-4 py-3 text-lg font-mono focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />

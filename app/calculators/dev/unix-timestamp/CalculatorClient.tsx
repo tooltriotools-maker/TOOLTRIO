@@ -78,7 +78,7 @@ export default function CalculatorClient({ faqs }: Props) {
               {live ? '🟢 LIVE' : '⏸ PAUSED'}
             </button>
             <button onClick={() => copy(String(now), 'live')} className="p-1.5 bg-white/20 rounded-lg hover:bg-white/30">
-              {copied==='live' ? <Check className="w-4 h-4"/> : <Copy className="w-4 h-4"/>}
+              {copied==='live\' ? <Check className="w-4 h-4"/> : <Copy className="w-4 h-4"/>}
             </button>
           </div>
         </div>

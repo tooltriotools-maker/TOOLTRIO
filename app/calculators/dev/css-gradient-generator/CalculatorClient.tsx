@@ -6,7 +6,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [type, setType] = useState<'linear'|'radial'|'conic'>('linear')
+  const [type, setType] = useState<'linear\'|\'radial\'|\'conic\'>(\'linear')
   const [angle, setAngle] = useState(135)
   const [stops, setStops] = useState([{color:'#6366f1',pos:0},{color:'#a855f7',pos:50},{color:'#ec4899',pos:100}])
   const [copied, setCopied] = useState(false)
@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs }: Props) {
     }
   }, [type, angle, stops])
 
-  const updateStop = (i:number, k:'color'|'pos', v:string|number) => setStops(s=>s.map((stop,j)=>j===i?{...stop,[k]:v}:stop))
+  const updateStop = (i:number, k:'color\'|\'pos', v:string|number) => setStops(s=>s.map((stop,j)=>j===i?{...stop,[k]:v}:stop))
   const addStop = () => setStops(s=>[...s,{color:'#22c55e',pos:75}])
   const removeStop = (i:number) => setStops(s=>s.filter((_,j)=>j!==i))
 
@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <button key={t} onClick={()=>setType(t)} className={`px-4 py-2 rounded-xl text-sm font-bold capitalize transition-all ${type===t?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{t}</button>
           ))}
         </div>
-        {(type==='linear'||type==='conic') && (
+        {(type==='linear\'||type===\'conic') && (
           <div className="mb-5"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Angle: {angle} degrees</label>
             <input type="range" min={0} max={360} value={angle} onChange={e=>setAngle(Number(e.target.value))} className="w-full" /></div>
         )}

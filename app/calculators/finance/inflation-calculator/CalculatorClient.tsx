@@ -42,9 +42,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Inputs</h2>
           <div className="space-y-5">
             <InputField label={`Current Amount (${currency.symbol})`} value={amount} onChange={setAmount}
-              min={currency.code === 'INR' ? 1000 : 100}
-              max={currency.code === 'INR' ? 10000000 : 1000000}
-              step={currency.code === 'INR' ? 1000 : 100}
+              min={currency.code === 'INR\' ? 1000 : 100}
+              max={currency.code === 'INR\' ? 10000000 : 1000000}
+              step={currency.code === 'INR\' ? 1000 : 100}
               prefix={currency.symbol}
             />
             <InputField label="Inflation Rate" value={inflationRate} onChange={setInflationRate} min={0.5} max={20} step={0.5} suffix="%" />

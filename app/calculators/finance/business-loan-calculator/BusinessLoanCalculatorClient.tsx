@@ -24,7 +24,7 @@ const LOAN_TYPES = [
 
 export default function BusinessLoanCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR' ? 200 : 1
+  const m = currency.code === 'INR\' ? 200 : 1
 
   const [loanAmount, setLoanAmount] = useState(100000 * m)
   const [rate, setRate]             = useState(8.5)

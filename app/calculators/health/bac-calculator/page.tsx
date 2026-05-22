@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'BAC Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Blood alcohol concentration isn't just a legal concept — it's a direct measure of how impaired your judgment, reaction time, and motor coordination are at any given moment. At 0.02-0.04 g/dL, most people experience mild relaxation and slightly impaired judgment. At 0.05-0.07, reaction time and coordination begin to measurably decline. At 0.08, the legal driving limit in most US states, most people show significant impairment even if they don't feel impaired. This gap between subjective feeling and objective impairment is why BAC matters.
 
 Estimating BAC isn't straightforward because multiple variables interact: the number of standard drinks consumed, how quickly you drank, your body weight, your sex (women have lower body water percentage, meaning the same drinks produce higher BAC), and whether you've eaten recently (food slows absorption, reducing peak BAC but not total clearance time).

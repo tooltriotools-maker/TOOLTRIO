@@ -20,11 +20,11 @@ export default function AutoLoanCalculatorClient({ faqs, structuredData, related
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
-  const [vehiclePrice, setVehiclePrice] = useState(currency.code === 'INR' ? 800000 : 35000)
-  const [downPayment, setDownPayment]   = useState(currency.code === 'INR' ? 160000 : 7000)
+  const [vehiclePrice, setVehiclePrice] = useState(currency.code === 'INR\' ? 800000 : 35000)
+  const [downPayment, setDownPayment]   = useState(currency.code === 'INR\' ? 160000 : 7000)
   const [tradeIn, setTradeIn]           = useState(0)
-  const [salesTaxRate, setSalesTaxRate] = useState(currency.code === 'INR' ? 0 : 7.5)
-  const [fees, setFees]                 = useState(currency.code === 'INR' ? 5000 : 800)
+  const [salesTaxRate, setSalesTaxRate] = useState(currency.code === 'INR\' ? 0 : 7.5)
+  const [fees, setFees]                 = useState(currency.code === 'INR\' ? 5000 : 800)
   const [rate, setRate]                 = useState(7.0)
   const [months, setMonths]             = useState(60)
 

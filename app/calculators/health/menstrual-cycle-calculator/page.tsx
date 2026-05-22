@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Menstrual Cycle Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Menstrual cycle tracking has evolved from basic period prediction into a broader window into hormonal health and fertility. The average menstrual cycle is 28 days, but research consistently shows that fewer than 15% of women have precisely 28-day cycles — normal cycles range from 21 to 35 days, and slight variation from cycle to cycle is entirely normal. What matters more than hitting 28 days is your personal regularity.
 
 The cycle has four phases with distinct hormonal profiles: menstruation (days 1-5 on average), follicular phase (estrogen rising, days 1-13), ovulation (LH surge triggering egg release, day 14 on average — but highly variable), and luteal phase (progesterone dominant, days 15-28). Symptoms, energy levels, cognitive patterns, and physical performance all shift predictably across these phases.

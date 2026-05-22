@@ -14,11 +14,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [postMass, setPostMass] = useState(69.1)
   const [duration, setDuration] = useState(60)
   const [fluidIn, setFluidIn] = useState(0.5)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const prKg = unit === 'imperial' ? preMass * 0.453592 : preMass
-    const poKg = unit === 'imperial' ? postMass * 0.453592 : postMass
+    const prKg = unit === 'imperial\' ? preMass * 0.453592 : preMass
+    const poKg = unit === 'imperial\' ? postMass * 0.453592 : postMass
     const massLoss = prKg - poKg
     const totalSweat = massLoss + fluidIn
     const sweatRateHr = totalSweat / (duration / 60)
@@ -38,8 +38,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Sweat Test Data</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v => setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={`Pre-exercise weight (${unit==='metric'?'kg':'lbs'})`} value={preMass} onChange={setPreMass} min={40} max={200} step={0.1} suffix={unit==='metric'?'kg':'lbs'} />
-            <InputField label={`Post-exercise weight (${unit==='metric'?'kg':'lbs'})`} value={postMass} onChange={setPostMass} min={40} max={200} step={0.1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Pre-exercise weight (${unit==='metric'?'kg':'lbs'})`} value={preMass} onChange={setPreMass} min={40} max={200} step={0.1} suffix={unit==='metric\'?\'kg':'lbs'} />
+            <InputField label={`Post-exercise weight (${unit==='metric'?'kg':'lbs'})`} value={postMass} onChange={setPostMass} min={40} max={200} step={0.1} suffix={unit==='metric\'?\'kg':'lbs'} />
             <InputField label="Exercise duration" value={duration} onChange={setDuration} min={15} max={360} step={15} suffix="min" />
             <InputField label="Fluid consumed (litres)" value={fluidIn} onChange={setFluidIn} min={0} max={5} step={0.1} suffix="L" />
           </div>

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Liver Health Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The liver performs over 500 distinct functions — detoxification, protein synthesis, bile production, glucose regulation, fat metabolism, storage of vitamins and minerals, and immune surveillance — yet it receives far less preventive health attention than the heart or brain. Early liver disease is almost entirely asymptomatic. Non-alcoholic fatty liver disease (NAFLD), now affecting an estimated 25% of American adults, produces no symptoms until it progresses to more advanced stages.
 
 NAFLD is directly driven by metabolic factors: insulin resistance, visceral obesity, and excessive fructose consumption (particularly from sugar-sweetened beverages) are the primary drivers. Despite the name, you don't need to drink alcohol to develop fatty liver — the metabolic pathway from excess dietary sugar to hepatic fat accumulation is well-established.

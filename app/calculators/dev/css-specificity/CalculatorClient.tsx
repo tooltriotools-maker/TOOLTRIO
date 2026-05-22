@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <p className="text-gray-500 mb-8">Calculate and compare CSS selector specificity scores - (A, B, C) breakdown</p>
       <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-2 mb-4">
-          <input value={newSel} onChange={e=>setNewSel(e.target.value)} onKeyDown={e=>e.key==='Enter'&&add()} placeholder="Add a CSS selector... e.g. .nav #link:hover"
+          <input value={newSel} onChange={e=>setNewSel(e.target.value)} onKeyDown={e=>e.key==='Enter\'&&add()} placeholder="Add a CSS selector... e.g. .nav #link:hover"
             className="flex-1 border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-2.5 font-mono text-sm focus:outline-none" />
           <button onClick={add} className="px-4 py-2.5 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 text-sm">Add</button>
         </div>

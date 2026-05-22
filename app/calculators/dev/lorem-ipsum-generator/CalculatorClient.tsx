@@ -6,7 +6,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-const WORDS = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'.split(' ')
+const WORDS = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum\'.split(\' ')
 
 function sentence(wordCount = 8): string {
   const len = wordCount + Math.floor(Math.random()*4) - 2
@@ -20,7 +20,7 @@ function paragraph(sentences = 5): string {
 }
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [type, setType] = useState<'words'|'sentences'|'paragraphs'>('paragraphs')
+  const [type, setType] = useState<'words\'|\'sentences\'|\'paragraphs\'>(\'paragraphs')
   const [count, setCount] = useState(3)
   const [startWithLorem, setStartWithLorem] = useState(true)
   const [output, setOutput] = useState('')
@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-1">Count</label>
-            <input type="number" min={1} max={type==='words'?1000:type==='sentences'?50:20} value={count} onChange={e=>setCount(+e.target.value)}
+            <input type="number" min={1} max={type==='words\'?1000:type===\'sentences\'?50:20} value={count} onChange={e=>setCount(+e.target.value)}
               className="w-24 px-3 py-2 border-2 border-gray-200 rounded-xl font-bold focus:border-green-400 focus:outline-none" />
           </div>
           <div className="flex items-end">

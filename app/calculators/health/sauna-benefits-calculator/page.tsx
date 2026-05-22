@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sauna Benefits Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Finnish sauna culture has given the world an unusually well-studied health intervention, primarily through the Kuopio Ischemic Heart Disease study that followed over 2,300 Finnish men for decades. Men who used a sauna 4-7 times per week had a 40% lower risk of all-cause mortality and 50% lower risk of cardiovascular mortality compared to those who used sauna once per week, in a dose-dependent relationship.
 
 The physiological mechanisms are increasingly well-understood. A 20-minute sauna session at 80°C produces cardiovascular responses comparable to moderate aerobic exercise: heart rate increases by 50-70%, cardiac output rises, and body temperature increases by 1-2°C. This passive exercise effect trains cardiovascular adaptation without the musculoskeletal stress of physical activity. Heat stress also triggers heat shock proteins that protect cellular proteins, stimulates growth hormone release, and produces an acute anti-inflammatory response.

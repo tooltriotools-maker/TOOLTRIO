@@ -11,16 +11,16 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [height, setHeight] = useState(67)
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male' | 'female'>('male')
+  const [gender, setGender] = useState<'male\' | \'female\'>(\'male')
   const [currentWeight, setCurrentWeight] = useState(170)  // lbs default
   const weight = currentWeight
 
 
-  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
-  const heightCm = unit === 'imperial' ? height * 2.54 : height
+  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
+  const heightCm = unit === 'imperial\' ? height * 2.54 : height
     const result = useMemo(() => calculateIdealWeight(heightCm, gender, age), [heightCm, gender, age])
 
   const diff = currentWeight - result.recommended
@@ -46,20 +46,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial' ? '🇺🇸 lbs / ft-in' : '🌍 kg / cm'}
+                  {u === 'imperial\' ? \'🇺🇸 lbs / ft-in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
             <div className="grid grid-cols-2 gap-1 p-1 bg-gray-50 rounded-xl">
               {(['male', 'female'] as const).map(g => (
                 <button key={g} onClick={() => setGender(g)} className={`py-2 rounded-xl text-sm font-semibold transition-all ${gender === g ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {g === 'male' ? '♂ Male' : '♀ Female'}
+                  {g === 'male\' ? \'♂ Male' : '♀ Female'}
                 </button>
               ))}
             </div>
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={18} max={100} step={1} suffix="yrs" />
-            <InputField label={unit === 'imperial' ? 'Current Weight (lbs)' : 'Current Weight (kg)'} value={currentWeight} onChange={setCurrentWeight} min={unit === 'imperial' ? 66 : 30} max={unit === 'imperial' ? 440 : 200} step={unit === 'imperial' ? 1 : 0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
+            <InputField label={unit === 'imperial\' ? \'Current Weight (lbs)' : 'Current Weight (kg)'} value={currentWeight} onChange={setCurrentWeight} min={unit === 'imperial\' ? 66 : 30} max={unit === \'imperial\' ? 440 : 200} step={unit === \'imperial\' ? 1 : 0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
           </div>
 
           <div className="mt-5 space-y-3">

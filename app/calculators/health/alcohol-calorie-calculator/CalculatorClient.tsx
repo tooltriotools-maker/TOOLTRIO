@@ -14,7 +14,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     {type:'beer_regular',count:2,size:'pint'},
     {type:'wine_red',count:1,size:'glass'},
   ])
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(155)
 
   const DRINK_DB: Record<string,{name:string;icon:string;sizes:Record<string,{label:string;ml:number;abv:number}>}> = {

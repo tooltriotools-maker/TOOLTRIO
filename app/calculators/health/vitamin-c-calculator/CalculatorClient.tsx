@@ -12,11 +12,11 @@ const FOODS = [{n:'Guava (100g)',mg:228},{n:'Bell pepper red (100g)',mg:128},{n:
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [smoker, setSmoker] = useState(false)
   const [pregnant, setPregnant] = useState(false)
 
-  const base = gender==='male'?(age>=19?90:65):(age>=19?75:65)
+  const base = gender==='male\'?(age>=19?90:65):(age>=19?75:65)
   const rdi = pregnant?85:smoker?base+35:base
   const upperLimit = 2000
 
@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={1} max={100} step={1} suffix="yrs" />
             <label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={smoker} onChange={e=>setSmoker(e.target.checked)} className="accent-rose-500"/><span>Smoker (+35mg needed)</span></label>
-            {gender==='female'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant</span></label>}
+            {gender==='female\'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant</span></label>}
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">

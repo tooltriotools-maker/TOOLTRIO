@@ -11,15 +11,15 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [weight, setWeight] = useState(155)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
-  const [activity, setActivity] = useState<'low'|'moderate'|'high'|'athlete'>('moderate')
-  const [climate, setClimate] = useState<'cool'|'temperate'|'hot'|'humid'>('temperate')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [activity, setActivity] = useState<'low\'|\'moderate\'|\'high\'|\'athlete\'>(\'moderate')
+  const [climate, setClimate] = useState<'cool\'|\'temperate\'|\'hot\'|\'humid\'>(\'temperate')
   const [exerciseMins, setExerciseMins] = useState(30)
   const [pregnant, setPregnant] = useState(false)
   const [breastfeeding, setBreastfeeding] = useState(false)
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
     const baseMl = wKg * 33 // 33ml/kg baseline
     const actAdd = {low:0,moderate:300,high:600,athlete:900}[activity]
     const climateAdd = {cool:-200,temperate:0,hot:400,humid:300}[climate]
@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     const glasses8oz = Math.ceil(total / 240)
     const bottles500 = (total / 500).toFixed(1)
     const bottles750 = (total / 750).toFixed(1)
-    const sodiumMg = activity==='athlete' ? 1000 : activity==='high' ? 600 : 300
+    const sodiumMg = activity==='athlete\' ? 1000 : activity===\'high\' ? 600 : 300
     const potMg = 2000
     const magMg = 300
     return { total, glasses8oz, bottles500, bottles750, sodiumMg, potMg, magMg,
@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={`Body Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Body Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <SelectField label="Activity Level" value={activity} onChange={v=>setActivity(v as any)} options={[{value:'low',label:'Low (mostly sedentary)'},{value:'moderate',label:'Moderate (light exercise)'},{value:'high',label:'High (daily vigorous)'},{value:'athlete',label:'Athlete (intense training)'}]} />
             <SelectField label="Climate" value={climate} onChange={v=>setClimate(v as any)} options={[{value:'cool',label:'Cool (<15 degreesC / <60 degreesF)'},{value:'temperate',label:'Temperate (15-25 degreesC)'},{value:'hot',label:'Hot (>25 degreesC / >77 degreesF)'},{value:'humid',label:'Hot & Humid'}]} />
             <InputField label="Daily Exercise Duration" value={exerciseMins} onChange={setExerciseMins} min={0} max={300} step={10} suffix="min" />

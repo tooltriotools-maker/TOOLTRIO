@@ -21,7 +21,7 @@ export default function ZipToolClient() {
   return (
     <div>
       <div className="flex gap-2 mb-6">
-        <input value={areaCode} onChange={e=>setAreaCode(e.target.value.replace(/\D/g,''))} onKeyDown={e=>e.key==='Enter'&&lookup()}
+        <input value={areaCode} onChange={e=>setAreaCode(e.target.value.replace(/\D/g,''))} onKeyDown={e=>e.key==='Enter\'&&lookup()}
           placeholder="Enter area code (e.g. 212)" maxLength={3}
           className="flex-1 border-2 rounded-xl px-4 py-3 text-2xl font-mono text-center focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />

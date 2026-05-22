@@ -41,9 +41,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Investment Details</h2>
           <div className="space-y-5">
             <InputField label={`One-time Investment (${currency.symbol})`} value={principal} onChange={setPrincipal}
-              min={currency.code === 'INR' ? 1000 : 100}
-              max={currency.code === 'INR' ? 100000000 : 10000000}
-              step={currency.code === 'INR' ? 1000 : 100}
+              min={currency.code === 'INR\' ? 1000 : 100}
+              max={currency.code === 'INR\' ? 100000000 : 10000000}
+              step={currency.code === 'INR\' ? 1000 : 100}
               prefix={currency.symbol}
             />
             <InputField label="Expected Annual Return" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%" />

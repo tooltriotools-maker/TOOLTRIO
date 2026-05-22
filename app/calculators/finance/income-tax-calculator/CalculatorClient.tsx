@@ -16,13 +16,13 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [income, setIncome] = useState(1200000)
-  const [regime, setRegime] = useState<'old' | 'new'>('new')
+  const [regime, setRegime] = useState<'old\' | \'new\'>(\'new')
   const [sec80C, setSec80C] = useState(150000)
   const [sec80D, setSec80D] = useState(25000)
   const [hra, setHra] = useState(0)
 
   const r = useMemo(() => calculateIncomeTax(income, regime, { sec80C, sec80D, hra, lta: 0, stdDeduction: 50000 }), [income, regime, sec80C, sec80D, hra])
-  const rOther = useMemo(() => calculateIncomeTax(income, regime === 'new' ? 'old' : 'new', { sec80C, sec80D, hra, lta: 0, stdDeduction: 50000 }), [income, regime, sec80C, sec80D, hra])
+  const rOther = useMemo(() => calculateIncomeTax(income, regime === 'new\' ? \'old' : 'new', { sec80C, sec80D, hra, lta: 0, stdDeduction: 50000 }), [income, regime, sec80C, sec80D, hra])
 
   const pie = [
     { name: 'Net In-Hand', value: r.netIncome, color: '#16a34a' },
@@ -44,12 +44,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 {(['new', 'old'] as const).map(t => (
                   <button key={t} onClick={() => setRegime(t)}
                     className={`py-2.5 rounded-xl text-sm font-bold border-2 transition-all ${regime === t ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                    {t === 'new' ? '✨ New Regime' : '📋 Old Regime'}
+                    {t === 'new\' ? \'✨ New Regime' : '📋 Old Regime'}
                   </button>
                 ))}
               </div>
             </div>
-            {regime === 'old' && (
+            {regime === 'old\' && (
               <div className="space-y-3 p-3 rounded-xl bg-gray-50 border border-gray-200">
                 <p className="text-xs font-bold text-gray-600">Old Regime Deductions</p>
                 <InputField label="Tax Deductions (80C/IRA equiv.)" value={sec80C} onChange={setSec80C} min={0} max={150000} step={5000} prefix="₹" />
@@ -61,9 +61,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200">
             <p className="text-xs font-bold text-amber-700 mb-1">💡 Regime Comparison</p>
             <div className="text-xs text-amber-700 space-y-1">
-              <div className="flex justify-between"><span>New Regime Tax</span><span className="font-bold">{regime === 'new' ? fmt(r.totalTax) : fmt(rOther.totalTax)}</span></div>
-              <div className="flex justify-between"><span>Old Regime Tax</span><span className="font-bold">{regime === 'old' ? fmt(r.totalTax) : fmt(rOther.totalTax)}</span></div>
-              <div className="flex justify-between border-t border-amber-300 pt-1"><span>You Save (with {r.totalTax < rOther.totalTax ? regime : (regime === 'new' ? 'old' : 'new')} regime)</span><span className="font-bold text-green-700">{fmt(Math.abs(r.totalTax - rOther.totalTax))}</span></div>
+              <div className="flex justify-between"><span>New Regime Tax</span><span className="font-bold">{regime === 'new\' ? fmt(r.totalTax) : fmt(rOther.totalTax)}</span></div>
+              <div className="flex justify-between"><span>Old Regime Tax</span><span className="font-bold">{regime === 'old\' ? fmt(r.totalTax) : fmt(rOther.totalTax)}</span></div>
+              <div className="flex justify-between border-t border-amber-300 pt-1"><span>You Save (with {r.totalTax < rOther.totalTax ? regime : (regime === 'new\' ? \'old' : 'new')} regime)</span><span className="font-bold text-green-700">{fmt(Math.abs(r.totalTax - rOther.totalTax))}</span></div>
             </div>
           </div>
         </Card>
@@ -121,8 +121,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div style={{ height: 180 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={[
-                  { regime: 'New Regime', tax: regime === 'new' ? r.totalTax : rOther.totalTax, inhand: regime === 'new' ? r.netIncome : rOther.netIncome },
-                  { regime: 'Old Regime', tax: regime === 'old' ? r.totalTax : rOther.totalTax, inhand: regime === 'old' ? r.netIncome : rOther.netIncome },
+                  { regime: 'New Regime', tax: regime === 'new\' ? r.totalTax : rOther.totalTax, inhand: regime === \'new\' ? r.netIncome : rOther.netIncome },
+                  { regime: 'Old Regime', tax: regime === 'old\' ? r.totalTax : rOther.totalTax, inhand: regime === \'old\' ? r.netIncome : rOther.netIncome },
                 ]} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.05)" />
                   <XAxis dataKey="regime" tick={{ fill: '#6b7280', fontSize: 12 }} axisLine={false} tickLine={false} />

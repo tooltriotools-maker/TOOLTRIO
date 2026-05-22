@@ -54,9 +54,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Property &amp; Loan</h2>
           <div className="space-y-5">
             <InputField label={`Property Value (${currency.symbol})`} value={homeValue} onChange={setHomeValue}
-              min={currency.code === 'INR' ? 1000000 : 50000}
-              max={currency.code === 'INR' ? 100000000 : 5000000}
-              step={currency.code === 'INR' ? 100000 : 10000}
+              min={currency.code === 'INR\' ? 1000000 : 50000}
+              max={currency.code === 'INR\' ? 100000000 : 5000000}
+              step={currency.code === 'INR\' ? 100000 : 10000}
               prefix={currency.symbol}
             />
             <InputField label="Down Payment" value={downPayPct} onChange={setDownPayPct} min={5} max={50} step={1} suffix="%" />

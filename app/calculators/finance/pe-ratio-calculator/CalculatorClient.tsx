@@ -21,8 +21,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const result = useMemo(() => calculatePERatio(stockPrice, eps, growthRate, years), [stockPrice, eps, growthRate, years])
 
-  const valuationColor = result.valuation === 'Undervalued' ? 'text-green-600' : result.valuation === 'Fair Value' ? 'text-blue-600' : result.valuation === 'Overvalued' ? 'text-orange-600' : 'text-red-600'
-  const valuationBg = result.valuation === 'Undervalued' ? 'bg-green-50 border-green-200' : result.valuation === 'Fair Value' ? 'bg-blue-50 border-blue-200' : result.valuation === 'Overvalued' ? 'bg-orange-50 border-orange-200' : 'bg-red-50 border-red-200'
+  const valuationColor = result.valuation === 'Undervalued\' ? \'text-green-600' : result.valuation === 'Fair Value\' ? \'text-blue-600' : result.valuation === 'Overvalued\' ? \'text-orange-600' : 'text-red-600'
+  const valuationBg = result.valuation === 'Undervalued\' ? \'bg-green-50 border-green-200' : result.valuation === 'Fair Value\' ? \'bg-blue-50 border-blue-200' : result.valuation === 'Overvalued\' ? \'bg-orange-50 border-orange-200' : 'bg-red-50 border-red-200'
 
   return (
     <CalculatorLayout title="P/E Ratio Calculator USA 2026" description="Calculate Price-to-Earnings ratio, PEG ratio, and estimated fair value for any stock." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
@@ -89,7 +89,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 <XAxis dataKey="year" tickFormatter={v => `Y${v}`} tick={{ fontSize: 11 }} />
                 <YAxis yAxisId="left" tick={{ fontSize: 11 }} tickFormatter={v => `$${v}`} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 11 }} tickFormatter={v => `$${v}`} />
-                <Tooltip formatter={(v: number, n: string) => [`$${v}`, n === 'projectedPrice' ? 'Projected Price' : 'Projected EPS']} />
+                <Tooltip formatter={(v: number, n: string) => [`$${v}`, n === 'projectedPrice\' ? \'Projected Price' : 'Projected EPS']} />
                 <Legend />
                 <Line yAxisId="left" type="monotone" dataKey="projectedPrice" stroke="#16a34a" strokeWidth={2} name="Projected Price" dot={false} />
                 <Line yAxisId="right" type="monotone" dataKey="projectedEPS" stroke="#3b82f6" strokeWidth={2} name="Projected EPS" dot={false} />

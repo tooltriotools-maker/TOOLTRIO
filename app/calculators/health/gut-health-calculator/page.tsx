@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Gut Health Score Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The gut microbiome — the roughly 38 trillion bacteria, fungi, and archaea living in your digestive tract — has emerged as one of the most active and surprising areas of medical research in the past two decades. The connections established go far beyond digestion: gut bacteria influence immune function, produce neurotransmitters including serotonin, affect inflammation throughout the body, and have bidirectional communication with the brain via the vagus nerve.
 
 High microbiome diversity — having many different species of bacteria — is consistently associated with better health outcomes across nearly every measure studied. Low diversity is associated with obesity, inflammatory bowel disease, and metabolic syndrome. The foods that most reliably increase diversity are fermented foods (live bacterial cultures that directly inoculate the gut) and diverse plant fiber.

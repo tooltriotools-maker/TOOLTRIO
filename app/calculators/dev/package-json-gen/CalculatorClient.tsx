@@ -42,9 +42,9 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const upd = (k: string, v: any) => setPkg(p => ({...p, [k]: v}))
   const updScript = (k: string, v: string) => setPkg(p=>({...p, scripts:{...p.scripts,[k]:v}}))
-  const addDep = (type: 'deps'|'devDeps') => setPkg(p=>({...p,[type]:[...p[type],{name:'',version:''}]}))
-  const updDep = (type: 'deps'|'devDeps', i: number, k: 'name'|'version', v: string) => setPkg(p=>({...p,[type]:p[type].map((d,j)=>j===i?{...d,[k]:v}:d)}))
-  const delDep = (type: 'deps'|'devDeps', i: number) => setPkg(p=>({...p,[type]:p[type].filter((_,j)=>j!==i)}))
+  const addDep = (type: 'deps\'|\'devDeps') => setPkg(p=>({...p,[type]:[...p[type],{name:'',version:''}]}))
+  const updDep = (type: 'deps\'|\'devDeps', i: number, k: 'name\'|\'version', v: string) => setPkg(p=>({...p,[type]:p[type].map((d,j)=>j===i?{...d,[k]:v}:d)}))
+  const delDep = (type: 'deps\'|\'devDeps', i: number) => setPkg(p=>({...p,[type]:p[type].filter((_,j)=>j!==i)}))
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs }: Props) {
           {(['deps','devDeps'] as const).map(type=>(
             <div key={type} className="rounded-xl border p-4 space-y-2" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">{type==='deps'?'dependencies':'devDependencies'}</h3>
+                <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">{type==='deps\'?\'dependencies':'devDependencies'}</h3>
                 <button onClick={()=>addDep(type)} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700"><Plus className="w-3.5 h-3.5"/>Add</button>
               </div>
               {pkg[type].map((d,i)=>(

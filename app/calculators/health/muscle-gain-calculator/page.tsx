@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Muscle Gain Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Building muscle is slower than most people hope and more achievable than many fear — but the rate is constrained by biology in ways that don't respond to harder work or more protein. Research consistently shows that natural muscle gain rates are approximately 1-2 pounds per month for beginners, 0.5-1 pound per month for intermediates, and 0.25-0.5 pounds per month for advanced lifters. These aren't arbitrary benchmarks — they reflect the limits of muscle protein synthesis, satellite cell activation, and hormonal anabolic response.
 
 The three non-negotiables for muscle growth are progressive overload (consistently increasing the stimulus on the muscle over time), adequate protein (0.7-1g per pound of body weight is the research-supported range), and caloric surplus (muscle building requires energy; a 200-350 calorie daily surplus minimizes fat gain while supporting the anabolic process).

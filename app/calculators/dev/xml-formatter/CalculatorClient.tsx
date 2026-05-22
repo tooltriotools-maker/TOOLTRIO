@@ -8,7 +8,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('<?xml version="1.0"?><catalog><book id="bk101"><author>Gambardella, Matthew</author><title>XML Developer Guide</title><price>44.95</price></book><book id="bk102"><author>Ralls, Kim</author><title>Midnight Rain</title><price>5.95</price></book></catalog>')
   const [indent, setIndent] = useState(2)
-  const [mode, setMode] = useState<'format'|'minify'>('format')
+  const [mode, setMode] = useState<'format\'|\'minify\'>(\'format')
   const [copied, setCopied] = useState(false)
 
   const result = useMemo(() => {
@@ -18,7 +18,7 @@ export default function CalculatorClient({ faqs }: Props) {
       const minified = input.replace(/>\s+</g,'><').replace(/\s+/g,' ').trim()
       if (mode==='minify') return { out: minified, error: '', valid: true }
       
-      const sp = ' '.repeat(indent)
+      const sp = ' \'.repeat(indent)
       let formatted = ''
       let depth = 0
       const tokens = minified.match(/<[^>]+>|[^<]+/g) || []
@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {(['format','minify'] as const).map(m=>(
           <button key={m} onClick={()=>setMode(m)} className={`px-4 py-2 rounded-xl text-sm font-bold capitalize ${mode===m?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{m}</button>
         ))}
-        {mode==='format' && (
+        {mode==='format\' && (
           <select value={indent} onChange={e=>setIndent(Number(e.target.value))} className="border-2 border-gray-200 rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:border-green-400 bg-white">
             <option value={2}>2 spaces</option><option value={4}>4 spaces</option>
           </select>

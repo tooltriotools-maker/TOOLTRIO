@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Meditation Benefits Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Meditation has made the unusual journey from ancient contemplative practice to a legitimate subject of neuroscience research, with a growing body of RCTs, neuroimaging studies, and longitudinal research documenting specific, measurable effects. The effects that are most robustly supported: reduced anxiety and depression symptoms (meta-analyses consistently find effect sizes comparable to antidepressant medication for anxiety), reduced rumination, improved attention and working memory, lower cortisol reactivity to stress, and in longer-term practitioners, measurable structural brain changes.
 
 The effects don't require extensive practice. A 2014 meta-analysis found that mindfulness-based stress reduction programs (8 weeks, 2.5 hours per week plus home practice) produced significant reductions in anxiety, depression, and pain. Even briefer interventions — 13 minutes of focused attention meditation per day for 8 weeks — produced measurable improvements in attention and mood.

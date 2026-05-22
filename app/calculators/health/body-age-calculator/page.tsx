@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Body Age Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your birth certificate says one thing about your age. Your body may tell a different story. Biological age — also called physiological age — is an estimate of how old your body functions relative to how old it actually is, based on biomarkers that are known to change with aging. Two 50-year-olds can have biological ages of 42 and 61 depending on their cardiovascular fitness, inflammation levels, metabolic health, and lifestyle habits.
 
 The gap between chronological and biological age isn't fixed. Research tracking thousands of adults over decades shows that lifestyle factors — particularly cardiorespiratory fitness, sleep quality, diet, and not smoking — can meaningfully shift biological age in both directions. A sedentary 45-year-old who starts training regularly can, over 2-3 years, show measurable improvements in every biomarker used to estimate biological age.

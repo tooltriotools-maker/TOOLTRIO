@@ -18,7 +18,7 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function AnnualIncomeCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
-  const [hourlyRate, setHourlyRate]         = useState(currency.code === 'INR' ? 500 : 25)
+  const [hourlyRate, setHourlyRate]         = useState(currency.code === 'INR\' ? 500 : 25)
   const [hoursPerWeek, setHoursPerWeek]     = useState(40)
   const [weeksPerYear, setWeeksPerYear]     = useState(52)
   const [overtimeHours, setOvertimeHours]   = useState(0)

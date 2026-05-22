@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Waist-to-Height Ratio Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Waist-to-height ratio is quietly one of the best single-number predictors of cardiometabolic health risk — better than BMI, better than waist circumference alone, and competitive with or superior to waist-to-hip ratio in most comparative studies. The reason it outperforms BMI is that it specifically captures central adiposity (the viscerally dangerous fat concentrated around internal organs) while adjusting for height.
 
 The simple rule that has emerged from large population studies: keep your waist less than half your height. A waist-to-height ratio below 0.5 is the broadly recommended target for cardiovascular and metabolic health. Values between 0.5-0.59 indicate elevated risk; above 0.6 indicates high risk. This threshold performs well across different ethnicities — unlike BMI cutoffs, the 0.5 threshold is reasonably universal.

@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">A landmark study from the University of Pennsylvania had participants sleep 6 hours per night for two weeks. Their cognitive performance declined to the level equivalent of going 24 hours without sleep. Critically -- and this is the part people find hardest to believe -- the participants rated themselves as "only slightly sleepy." The sleep-deprived subjects had lost the ability to accurately assess their own impairment. You can't tell when you're cognitively impaired by sleep debt because the impairment affects the assessment itself.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">A landmark study from the University of Pennsylvania had participants sleep 6 hours per night for two weeks. Their cognitive performance declined to the level equivalent of going 24 hours without sleep. Critically -- and this is the part people find hardest to believe -- the participants rated themselves as "only slightly sleepy." The sleep-deprived subjects had lost the ability to accurately assess their own impairment. You can't tell when you\'re cognitively impaired by sleep debt because the impairment affects the assessment itself.</p>
         </section>
 
         {/* Tips */}
@@ -104,14 +104,14 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Consistent wake time matters more than consistent bedtime for sleep quality and debt management. Your body clock anchors primarily to light and wake time. Go to bed earlier when you need more sleep; keep the alarm consistent.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The "weekend recovery" strategy works to a degree -- you can recover modest amounts of sleep debt on weekends. But it doesn't work if the debt is large (more than 10+ hours), and it introduces social jet lag (your body clock shifts to the later sleep schedule) that impairs Monday performance.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine masks sleep debt without addressing it. The coffee you're using to function is not fixing the underlying impairment -- it's blocking the adenosine receptors that make you feel sleepy while the impairment remains. The <Link href="/calculators/fun/coffee-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Coffee Calculator</Link> is worth running alongside your sleep debt score if caffeine is a significant part of your daily pattern.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine masks sleep debt without addressing it. The coffee you're using to function is not fixing the underlying impairment -- it\'s blocking the adenosine receptors that make you feel sleepy while the impairment remains. The <Link href="/calculators/fun/coffee-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Coffee Calculator</Link> is worth running alongside your sleep debt score if caffeine is a significant part of your daily pattern.</span></li>
           </ul>
         </section>
 
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Track your actual sleep for one week (not your intended sleep, your actual sleep -- get the times from your phone's usage history if you're not sure when you fell asleep) and run the real numbers. The gap between what you think you sleep and what you actually sleep is the most useful output of this tool.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Track your actual sleep for one week (not your intended sleep, your actual sleep -- get the times from your phone's usage history if you\'re not sure when you fell asleep) and run the real numbers. The gap between what you think you sleep and what you actually sleep is the most useful output of this tool.</p>
         </section>
 
         {/* Did You Know */}

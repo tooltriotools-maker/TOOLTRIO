@@ -9,18 +9,18 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [trimester, setTrimester] = useState<'1'|'2'|'3'>('2')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [trimester, setTrimester] = useState<'1\'|\'2\'|\'3\'>(\'2')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(150)
   const [preWeight, setPreWeight] = useState(63)
   const [height, setHeight] = useState(65)
   const [twins, setTwins] = useState(false)
 
-  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
-  const heightCm = unit === 'imperial' ? height * 2.54 : height
-  const preWeightKg = unit === 'imperial' ? preWeight / 2.20462 : preWeight
+  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
+  const heightCm = unit === 'imperial\' ? height * 2.54 : height
+  const preWeightKg = unit === 'imperial\' ? preWeight / 2.20462 : preWeight
   const preBMI = preWeightKg / Math.pow(heightCm/100, 2)
-  const extraCal = trimester === '1' ? 0 : trimester === '2' ? 340 : 450
+  const extraCal = trimester === '1\' ? 0 : trimester === \'2\' ? 340 : 450
   const baseCal = Math.round(weightKg * 22 + 500)
   const totalCal = baseCal + extraCal + (twins ? 300 : 0)
 

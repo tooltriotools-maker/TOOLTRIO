@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Ideal Weight Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Ideal weight is one of the most searched health numbers yet one of the most misunderstood. Every formula that produces an 'ideal' number is a clinical approximation designed for a specific purpose — often drug dosing or clinical triage — not a personal health prescription. Understanding this context transforms how you use the result: as one data point in a wider picture rather than an absolute target.
 
 This calculator runs all four major clinical ideal weight formulas simultaneously — Hamwi, Devine, Robinson, and Miller — and shows you the range they produce. For most adults, the spread is 5-20 pounds. Your healthiest target weight is likely somewhere in this range, modified upward if you carry significant muscle mass and potentially modified by your doctor based on your individual health markers.

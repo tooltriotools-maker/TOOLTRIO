@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Altitude Sickness Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Most people who develop acute mountain sickness at altitude were feeling completely fine the day before. That's what makes altitude illness deceptive — it doesn't announce itself immediately. Symptoms typically appear 6-12 hours after arriving at elevation, often after a night's sleep, and they can progress from mild headache to serious pulmonary or cerebral edema if you keep ascending instead of acclimatizing or descending.
 
 The fundamental problem is that thinner air at altitude delivers less oxygen per breath. Your body compensates over days by increasing red blood cell production and adjusting breathing patterns — but that adaptation takes time. The faster you ascend and the higher you go, the less time your body has to adjust. Above 8,000 feet (2,438 meters), most unacclimatized people will experience some physiological change. Above 14,000 feet (4,267 meters), serious altitude illness becomes a real risk for anyone ascending too quickly.

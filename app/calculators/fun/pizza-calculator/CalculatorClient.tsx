@@ -8,8 +8,8 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [people, setPeople] = useState(6)
-  const [appetite, setAppetite] = useState<'light'|'normal'|'hungry'>('normal')
-  const [size, setSize] = useState<'small'|'medium'|'large'|'xl'>('large')
+  const [appetite, setAppetite] = useState<'light\'|\'normal\'|\'hungry\'>(\'normal')
+  const [size, setSize] = useState<'small\'|\'medium\'|\'large\'|\'xl\'>(\'large')
   const [kids, setKids] = useState(0)
 
   const adultSlices = {light:2,normal:3,hungry:4}[appetite]

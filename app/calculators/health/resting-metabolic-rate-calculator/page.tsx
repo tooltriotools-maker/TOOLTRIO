@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Resting Metabolic Rate Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your resting metabolic rate (RMR) is the number of calories your body burns just to maintain its basic functions at rest — breathing, circulating blood, maintaining body temperature, running organ systems, and synthesizing proteins. It accounts for roughly 60-75% of total daily calorie expenditure for sedentary individuals, which is why it's the most important number in any nutrition or weight management equation.
 
 The most accurate way to measure RMR clinically is indirect calorimetry. Prediction equations offer reasonable estimates using height, weight, age, and sex, with Mifflin-St Jeor being the most validated for the general population. Harris-Benedict remains widely used. Katch-McArdle provides more accurate estimates when body fat percentage is known.

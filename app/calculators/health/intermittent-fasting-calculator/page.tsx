@@ -49,7 +49,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Intermittent Fasting Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Intermittent fasting is one of the most flexible and widely practiced dietary frameworks in the world — and for good reason. Rather than specifying what to eat, it specifies when to eat, making it compatible with virtually any dietary preference from keto to vegan. This calculator helps you structure your fasting protocol by calculating your eating and fasting window times, how many calories to fit into your eating window, and how your chosen protocol compares to alternatives.
 
 The key insight that makes IF work is deceptively simple: when you restrict your eating to a shorter window, most people naturally eat fewer calories without explicitly counting them. This passive calorie reduction — combined with the hormonal effects of the fasted state — makes IF an effective tool for many people who struggle with traditional continuous calorie restriction.

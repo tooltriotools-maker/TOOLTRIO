@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sit-and-Reach Flexibility Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The sit-and-reach test has been a standard component of health-related fitness assessments for decades, providing a standardized, low-equipment measure of hamstring and lower back flexibility — two areas with direct relevance to lower back pain, which affects roughly 80% of adults at some point in their lives.
 
 The test involves sitting with legs straight and reaching forward toward or past your feet. Performance norms are age- and sex-stratified: women typically outperform men by 4-6 cm across all age groups due to differences in hamstring elasticity and hip flexibility. Performance declines predictably with age without targeted maintenance.

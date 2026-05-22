@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sleep Need Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Sleep needs are more individualized than the 8 hours for everyone guideline suggests. The National Sleep Foundation's recommendations give age-stratified ranges (7-9 hours for adults 18-64, 7-8 hours for 65+), but the optimal amount within that range varies meaningfully between individuals based on genetics, health status, physical activity, and stress load.
 
 Two people can have the same total sleep duration with very different sleep quality — one getting restorative architecture with adequate deep sleep and REM, the other having fragmented, light sleep. Signs of inadequate sleep quality include difficulty waking, needing an alarm to get up, needing caffeine to function in the morning, and persistent fatigue despite adequate hours in bed.

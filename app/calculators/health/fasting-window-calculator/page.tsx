@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Fasting Window Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Time-restricted eating works — for some people, for some goals — and the research has become clearer about both its benefits and its limits. The core mechanism is simple: extending the period your body is in a post-absorptive (fasted) state shifts metabolism toward fat oxidation, reduces insulin exposure, and for many people naturally reduces calorie intake without deliberate restriction. These effects are real, but their magnitude depends heavily on what you eat during your eating window.
 
 The most common intermittent fasting protocols are 16:8 (16 hours fasting, 8-hour eating window), 14:10, and 18:6. A 2022 TREAT trial — one of the most rigorous randomized controlled trials on time-restricted eating — found that 16:8 fasting produced modest weight loss comparable to calorie counting for most participants, with the main advantage being simplicity rather than metabolic magic.

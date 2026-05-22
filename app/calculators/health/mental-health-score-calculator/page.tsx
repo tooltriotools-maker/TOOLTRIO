@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Mental Health Score Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Mental health exists on a continuum — not as a binary of mentally ill or mentally well — and most people move along that continuum throughout their lives based on biological factors, life circumstances, relationships, and daily habits. Understanding where you currently are on that spectrum, and what factors are most significantly influencing your position, is genuinely useful information for making intentional choices about your wellbeing.
 
 Validated screening tools like PHQ-9 (for depression), GAD-7 (for anxiety), and the WHO-5 Wellbeing Index measure mental health dimensions that have real clinical and practical significance. A PHQ-9 score above 10 identifies people who would likely benefit from clinical evaluation with 88% sensitivity and 88% specificity.

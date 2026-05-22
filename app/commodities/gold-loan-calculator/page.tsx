@@ -44,12 +44,12 @@ export default function GoldLoanCalculatorPage() {
 
   const [fxKey,   setFxKey]   = useState('USD')
   const [weight,  setWeight]  = useState(50)
-  const [wUnit,   setWUnit]   = useState<'gram'|'tola'|'oz'>('gram')
+  const [wUnit,   setWUnit]   = useState<'gram\'|\'tola\'|\'oz\'>(\'gram')
   const [karat,   setKarat]   = useState('22K')
   const [ltv,     setLtv]     = useState(75)
   const [rate,    setRate]    = useState(10.5)
   const [tenure,  setTenure]  = useState(12)
-  const [loanType, setLoanType] = useState<'emi'|'bullet'>('emi')
+  const [loanType, setLoanType] = useState<'emi\'|\'bullet\'>(\'emi')
 
   const fmt = (usd: number, dp = 0) => `${SYM[fxKey]}${(usd * FX[fxKey]).toLocaleString(undefined, { minimumFractionDigits:dp, maximumFractionDigits:dp })}`
 
@@ -218,9 +218,9 @@ export default function GoldLoanCalculatorPage() {
             {[
               { label: 'Gold Value',    val: fmt(goldValue),              sub: `${karat} - ${grams.toFixed(1)}g`,     accent: 'bg-yellow-50 border-yellow-200' },
               { label: 'Loan Amount',   val: fmt(loanAmt),                sub: `${ltv}% LTV`,                          accent: 'bg-blue-50 border-blue-200' },
-              { label: loanType === 'emi' ? 'Monthly EMI' : 'Lump Sum',
-                val: loanType === 'emi' ? fmt(monthlyEMI) : fmt(totalPayment),
-                sub: loanType === 'emi' ? `x ${tenure} months` : `Pay at end`,
+              { label: loanType === 'emi\' ? \'Monthly EMI' : 'Lump Sum',
+                val: loanType === 'emi\' ? fmt(monthlyEMI) : fmt(totalPayment),
+                sub: loanType === 'emi\' ? `x ${tenure} months` : `Pay at end`,
                 accent: 'bg-green-50 border-green-200' },
               { label: 'Total Interest', val: fmt(totalInterest),         sub: `${rate}% p.a. - ${tenure}m`,          accent: 'bg-red-50 border-red-200' },
             ].map(c => (
@@ -269,7 +269,7 @@ export default function GoldLoanCalculatorPage() {
                   ['Loan Amount',      fmt(loanAmt)],
                   ['Annual Rate',      `${rate}%`],
                   ['Tenure',           `${tenure} months`],
-                  ['Monthly EMI',      loanType === 'emi' ? fmt(monthlyEMI) : 'Bullet repayment'],
+                  ['Monthly EMI',      loanType === 'emi\' ? fmt(monthlyEMI) : \'Bullet repayment'],
                   ['Total Interest',   fmt(totalInterest)],
                   ['Total Repayment',  fmt(totalPayment)],
                   ['Effective Cost',   `${((totalInterest / loanAmt) * 100).toFixed(1)}% on loan`],
@@ -284,7 +284,7 @@ export default function GoldLoanCalculatorPage() {
           </div>
 
           {/* EMI Schedule chart */}
-          {loanType === 'emi' && schedule.length > 0 && (
+          {loanType === 'emi\' && schedule.length > 0 && (
             <div className="bg-white rounded-2xl border border-gray-100 shadow-card p-5">
               <h3 className="font-black text-gray-900 mb-4">Loan Balance - Month by Month</h3>
               <ResponsiveContainer width="100%" height={180}>

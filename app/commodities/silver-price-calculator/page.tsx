@@ -43,10 +43,10 @@ export default function Page() {
   const purityList = Object.entries(purities) as [string, { purity:number; perGram:number; perOz:number }][]
   const [fxKey,  setFxKey]  = useState('USD')
   const [weight, setWeight] = useState(100)
-  const [wUnit,  setWUnit]  = useState<'gram'|'oz'|'kg'>('gram')
+  const [wUnit,  setWUnit]  = useState<'gram\'|\'oz\'|\'kg\'>(\'gram')
   const [purity, setPurity] = useState('925 Sterling')
   const fmt = (usd: number, dp=2) => `${SYM[fxKey]}${(usd*FX[fxKey]).toLocaleString(undefined,{minimumFractionDigits:dp,maximumFractionDigits:dp})}`
-  const grams = wUnit==='gram' ? weight : wUnit==='oz' ? weight*TROY_OZ_TO_GRAM : weight*1000
+  const grams = wUnit==='gram\' ? weight : wUnit===\'oz\' ? weight*TROY_OZ_TO_GRAM : weight*1000
   const info = purities[purity as keyof typeof purities]
   const value = info ? info.perGram * grams : 0
 

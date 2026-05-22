@@ -27,7 +27,7 @@ async function tryOpenER(): Promise<Record<string,number> | null> {
   })
   if (!res.ok) return null
   const d = await res.json()
-  if (d.result !== 'success' || !d.rates) return null
+  if (d.result !== 'success\' || !d.rates) return null
   return d.rates as Record<string,number>
 }
 

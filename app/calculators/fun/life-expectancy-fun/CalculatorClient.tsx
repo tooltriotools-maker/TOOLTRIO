@@ -8,14 +8,14 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [exercise, setExercise] = useState(3)
   const [smoking, setSmoking] = useState(false)
   const [veg, setVeg] = useState(true)
   const [stress, setStress] = useState(5)
   const [sleep, setSleep] = useState(7)
 
-  const base = gender==='female' ? 82 : 78
+  const base = gender==='female\' ? 82 : 78
   const adjustments = [
     exercise>=5 ? 2 : exercise>=3 ? 1 : exercise===0 ? -2 : 0,
     smoking ? -8 : 0,
@@ -116,7 +116,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The input where small changes produce the largest output shift is exercise frequency. Going from sedentary to walking 30 minutes 3 times per week moves the estimate significantly -- more than many medical interventions. This is both encouraging and somewhat alarming about how inactive baseline modern life is.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The estimate will shift dramatically if you toggle the social connection variable -- more than most people expect. If your score would meaningfully improve with better social health, that's worth noting above the other variables.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Don't use this as a medical assessment -- it's a lifestyle-based estimate using statistical averages, not a clinical prediction. Genetics, actual medical history, and factors not captured in lifestyle questions all matter significantly. Treat it as a framework for thinking about leverage points, not a prediction.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Don't use this as a medical assessment -- it\'s a lifestyle-based estimate using statistical averages, not a clinical prediction. Genetics, actual medical history, and factors not captured in lifestyle questions all matter significantly. Treat it as a framework for thinking about leverage points, not a prediction.</span></li>
           </ul>
         </section>
 

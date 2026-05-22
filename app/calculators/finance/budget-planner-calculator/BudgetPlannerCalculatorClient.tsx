@@ -16,23 +16,23 @@ import { budgetByIncomeLevel } from '@/lib/seo/finance-tables'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const DEFAULT_EXPENSES = [
-  { name: 'Rent/Mortgage', amount: 1500, category: 'needs' as const },
-  { name: 'Groceries', amount: 400, category: 'needs' as const },
-  { name: 'Utilities', amount: 150, category: 'needs' as const },
-  { name: 'Transportation', amount: 300, category: 'needs' as const },
-  { name: 'Health Insurance', amount: 200, category: 'needs' as const },
-  { name: 'Dining Out', amount: 250, category: 'wants' as const },
-  { name: 'Entertainment', amount: 150, category: 'wants' as const },
-  { name: 'Shopping', amount: 200, category: 'wants' as const },
-  { name: 'Subscriptions', amount: 80, category: 'wants' as const },
-  { name: '401k / IRA', amount: 400, category: 'savings' as const },
-  { name: 'Emergency Fund', amount: 200, category: 'savings' as const },
+  { name: 'Rent/Mortgage', amount: 1500, category: 'needs\' as const },
+  { name: 'Groceries', amount: 400, category: 'needs\' as const },
+  { name: 'Utilities', amount: 150, category: 'needs\' as const },
+  { name: 'Transportation', amount: 300, category: 'needs\' as const },
+  { name: 'Health Insurance', amount: 200, category: 'needs\' as const },
+  { name: 'Dining Out', amount: 250, category: 'wants\' as const },
+  { name: 'Entertainment', amount: 150, category: 'wants\' as const },
+  { name: 'Shopping', amount: 200, category: 'wants\' as const },
+  { name: 'Subscriptions', amount: 80, category: 'wants\' as const },
+  { name: '401k / IRA', amount: 400, category: 'savings\' as const },
+  { name: 'Emergency Fund', amount: 200, category: 'savings\' as const },
 ]
 
 export default function BudgetPlannerCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt } = useCurrency()
 
-  const multiplier = currency.code === 'INR' ? 10 : currency.code === 'EUR' ? 0.9 : 1
+  const multiplier = currency.code === 'INR\' ? 10 : currency.code === \'EUR\' ? 0.9 : 1
   const [income, setIncome] = useState(Math.round(5000 * multiplier))
   const [expenses, setExpenses] = useState(DEFAULT_EXPENSES.map(e => ({ ...e, amount: Math.round(e.amount * multiplier) })))
 
@@ -143,7 +143,7 @@ export default function BudgetPlannerCalculatorClient({ faqs, structuredData, re
                   <div key={row.label} className="space-y-1">
                     <div className="flex justify-between text-xs">
                       <span className="font-semibold" style={{ color: row.color }}>{row.label} (target: {row.target}%)</span>
-                      <span className={row.pct > row.target * 1.1 ? 'text-red-500 font-bold' : row.pct < row.target * 0.9 && row.label === 'Savings' ? 'text-amber-500 font-bold' : 'text-gray-500'}>
+                      <span className={row.pct > row.target * 1.1 ? 'text-red-500 font-bold' : row.pct < row.target * 0.9 && row.label === 'Savings\' ? \'text-amber-500 font-bold' : 'text-gray-500'}>
                         {row.pct}% . {fmt(row.actual)}
                       </span>
                     </div>

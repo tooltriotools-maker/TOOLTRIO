@@ -10,7 +10,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-type BuyerType = 'firstTime' | 'standard' | 'additionalProperty'
+type BuyerType = 'firstTime\' | \'standard\' | \'additionalProperty'
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const [propertyPrice, setPropertyPrice] = useState(350000)

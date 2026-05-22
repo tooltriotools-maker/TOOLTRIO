@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Keto Macro Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `A ketogenic diet works through a specific metabolic mechanism: restricting carbohydrates below roughly 20-50 grams net per day depletes liver glycogen, which triggers the production of ketone bodies from fat in the liver. These ketones become an alternative fuel for the brain and muscles. This metabolic state — nutritional ketosis — produces appetite suppression, stable blood glucose, and fat oxidation that many people find beneficial for weight loss and blood sugar management.
 
 The diet's efficacy is well-supported for certain applications. Type 2 diabetes and prediabetes management: multiple RCTs show meaningful reductions in HbA1c and medication requirements. Weight loss in the short term (6-12 months): ketogenic diets produce faster initial weight loss than low-fat diets, though the advantage disappears at 12+ months when adherence is matched.

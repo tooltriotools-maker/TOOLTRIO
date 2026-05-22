@@ -16,7 +16,7 @@ import { wealthByAgeUSA } from '@/lib/seo/finance-tables'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 export default function WealthCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR' ? 80 : 1
+  const m = currency.code === 'INR\' ? 80 : 1
 
   // Assets
   const [home,           setHome]           = useState(400000 * m)

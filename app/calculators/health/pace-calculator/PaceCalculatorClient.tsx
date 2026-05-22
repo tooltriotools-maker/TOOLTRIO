@@ -27,14 +27,14 @@ function formatTime(totalSeconds: number) {
 }
 
 export default function PaceCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [mode, setMode]       = useState<'pace' | 'time' | 'distance'>('pace')
+  const [mode, setMode]       = useState<'pace\' | \'time\' | \'distance\'>(\'pace')
   const [paceMin, setPaceMin] = useState(9)
   const [paceSec, setPaceSec] = useState(30)
   const [hours, setHours]     = useState(0)
   const [mins, setMins]       = useState(50)
   const [secs, setSecs]       = useState(0)
   const [distance, setDistance] = useState(5.0)
-  const [unit, setUnit]       = useState<'mi' | 'km'>('mi')
+  const [unit, setUnit]       = useState<'mi\' | \'km\'>(\'mi')
 
   const paceSecTotal = paceMin * 60 + paceSec
   const timeSecTotal = hours * 3600 + mins * 60 + secs
@@ -50,7 +50,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
       }))
     } else if (mode === 'time') {
       // Given time and distance, calc pace
-      const dist = unit === 'km' ? distance * 0.621371 : distance
+      const dist = unit === 'km\' ? distance * 0.621371 : distance
       const paceS = timeSecTotal / dist
       return [{ name: `${distance} ${unit}`, distance: dist, time: formatTime(timeSecTotal), speed: (dist / timeSecTotal * 3600).toFixed(2), pace: formatTime(paceS) }]
     } else {
@@ -58,7 +58,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
     }
   }, [mode, paceSecTotal, timeSecTotal, distance, unit])
 
-  const calcPaceFromTime = () => timeSecTotal > 0 ? formatTime(timeSecTotal / (unit === 'km' ? distance * 0.621371 : distance)) : '--'
+  const calcPaceFromTime = () => timeSecTotal > 0 ? formatTime(timeSecTotal / (unit === 'km\' ? distance * 0.621371 : distance)) : \'--'
   const calcSpeedFromPace = () => paceSecTotal > 0 ? (3600 / paceSecTotal).toFixed(2) : '--'
 
   return (
@@ -78,7 +78,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
             ))}
           </div>
 
-          {mode === 'pace' && (
+          {mode === 'pace\' && (
             <div>
               <p className="text-xs text-gray-500 mb-3">Enter your pace (per mile)</p>
               <div className="grid grid-cols-2 gap-3">
@@ -93,7 +93,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
             </div>
           )}
 
-          {mode === 'time' && (
+          {mode === 'time\' && (
             <div className="space-y-4">
               <div>
                 <label className="text-xs text-gray-500 mb-2 block">Unit</label>
@@ -119,7 +119,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
         </Card>
 
         <div className="lg:col-span-2 space-y-4">
-          {mode === 'pace' && (
+          {mode === 'pace\' && (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <ResultCard label="Pace" value={`${paceMin}:${paceSec.toString().padStart(2, '0')}`} subValue="per mile" highlight />
@@ -170,7 +170,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
             </>
           )}
 
-          {mode === 'time' && results.length > 0 && (
+          {mode === 'time\' && results.length > 0 && (
             <Card>
               <h3 className="text-sm font-semibold text-gray-700 mb-4">Your Pace Analysis</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -179,8 +179,8 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
                   ['Finish Time', formatTime(timeSecTotal)],
                   ['Pace per mile', calcPaceFromTime()],
                   ['Speed (mph)', `${(unit === 'km' ? distance * 0.621371 : distance) / timeSecTotal * 3600 > 0 ? ((unit === 'km' ? distance * 0.621371 : distance) / timeSecTotal * 3600).toFixed(2) : '--'}`],
-                  ['5K projected', formatTime(timeSecTotal / (unit === 'km' ? distance * 0.621371 : distance) * 3.10686)],
-                  ['10K projected', formatTime(timeSecTotal / (unit === 'km' ? distance * 0.621371 : distance) * 6.21371)],
+                  ['5K projected', formatTime(timeSecTotal / (unit === 'km\' ? distance * 0.621371 : distance) * 3.10686)],
+                  ['10K projected', formatTime(timeSecTotal / (unit === 'km\' ? distance * 0.621371 : distance) * 6.21371)],
                 ].map(([l, v]) => (
                   <div key={l} className="bg-gray-50 rounded-xl p-3 text-center">
                     <p className="text-xs text-gray-500 mb-1">{l}</p>

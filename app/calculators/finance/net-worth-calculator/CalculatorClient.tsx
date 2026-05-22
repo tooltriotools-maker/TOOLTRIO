@@ -42,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const remove = (list: any[], setList: any, idx: number) => setList(list.filter((_, i) => i !== idx))
   const add = (list: any[], setList: any) => setList([...list, { name: 'New Item', value: 0 }])
 
-  const step = currency.code === 'INR' ? 10000 : 1000
+  const step = currency.code === 'INR\' ? 10000 : 1000
 
   return (
     <CalculatorLayout title="Net Worth Calculator USA 2026" description={`Track your total net worth in ${currency.name}. Add assets and liabilities for a complete financial picture.`} icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>

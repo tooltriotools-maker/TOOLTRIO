@@ -21,7 +21,7 @@ export default function PayoffDateCalculatorClient({ faqs, structuredData, relat
 
   const [balance, setBalance]           = useState(d.loanAmount)
   const [rate, setRate]                 = useState(7.5)
-  const [monthlyPayment, setMonthlyPayment] = useState(currency.code === 'INR' ? 12000 : 600)
+  const [monthlyPayment, setMonthlyPayment] = useState(currency.code === 'INR\' ? 12000 : 600)
   const [extraPayment, setExtraPayment] = useState(0)
 
   const result = useMemo(() => calculatePayoffDate(balance, rate, monthlyPayment, extraPayment), [balance, rate, monthlyPayment, extraPayment])

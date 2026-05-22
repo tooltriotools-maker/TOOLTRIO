@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Push-Up Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The push-up tells you something important about your chest, shoulder, and triceps endurance — and something about your core stability, since the perfect push-up is essentially a moving plank. It's one of the most practical fitness assessments precisely because it requires no equipment and has well-established population norms that give meaningful context to your performance.
 
 The Canadian Physical Activity Fitness and Lifestyle Approach (CPAFLA) and the American College of Sports Medicine have both published age- and sex-stratified push-up performance tables based on large population samples. Performance norms decline with age — what's average for a 25-year-old is above average for a 50-year-old.

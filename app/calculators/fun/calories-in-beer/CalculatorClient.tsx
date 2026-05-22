@@ -110,7 +110,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">A standard UK pint (568ml) is 20% larger than a US pint (473ml). This seems minor but adds roughly 30-60 calories depending on ABV -- and when you're comparing calorie counts between UK and US sources, the pint size difference is often why the numbers don't match. The same ABV beer consumed in a UK pub and a US bar produces meaningfully different calorie totals.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">A standard UK pint (568ml) is 20% larger than a US pint (473ml). This seems minor but adds roughly 30-60 calories depending on ABV -- and when you're comparing calorie counts between UK and US sources, the pint size difference is often why the numbers don\'t match. The same ABV beer consumed in a UK pub and a US bar produces meaningfully different calorie totals.</p>
         </section>
 
         {/* Tips */}
@@ -132,7 +132,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Did You Know */}
         <section className="border-l-4 border-purple-300 pl-5">
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">Beer labeling requirements for calories vary dramatically by country. In the US, most alcoholic beverages are exempt from the FDA's standard nutrition labeling requirements -- one of the few product categories that doesn't require calorie disclosure on packaging. UK labels started requiring calorie counts in the mid-2010s, producing the first large-scale consumer awareness of how variable beer calorie counts actually are.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">Beer labeling requirements for calories vary dramatically by country. In the US, most alcoholic beverages are exempt from the FDA's standard nutrition labeling requirements -- one of the few product categories that doesn\'t require calorie disclosure on packaging. UK labels started requiring calorie counts in the mid-2010s, producing the first large-scale consumer awareness of how variable beer calorie counts actually are.</p>
         </section>
 
         {/* FAQs */}

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Nicotine Withdrawal Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Nicotine withdrawal is both predictable and finite — which is actually encouraging news for anyone trying to quit smoking. The acute withdrawal phase is uncomfortable but follows a well-documented timeline: nicotine clears the body within 24-72 hours of the last cigarette, and the peak of physical withdrawal symptoms (irritability, anxiety, difficulty concentrating, sleep disruption, headache, increased appetite) typically occurs at 48-72 hours and subsides significantly within 2-4 weeks.
 
 What makes quitting difficult is not primarily physical dependence — it's the psychological and behavioral conditioned associations. Nicotine has been paired with hundreds of daily cues: morning coffee, after meals, during stress, in the car. These cue-reward associations persist long after physical withdrawal resolves and are responsible for most cravings and relapses that occur weeks or months after quitting.

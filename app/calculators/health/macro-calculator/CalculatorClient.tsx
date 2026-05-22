@@ -12,22 +12,22 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(165)
   const [height, setHeight] = useState(69)
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [activity, setActivity] = useState<'sedentary'|'light'|'moderate'|'active'|'very_active'>('moderate')
-  const [goal, setGoal] = useState<'cut'|'maintain'|'bulk'>('maintain')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [activity, setActivity] = useState<'sedentary\'|\'light\'|\'moderate\'|\'active\'|\'very_active\'>(\'moderate')
+  const [goal, setGoal] = useState<'cut\'|\'maintain\'|\'bulk\'>(\'maintain')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
-    const hCm = unit==='imperial' ? height*2.54 : height
-    const bmr = gender==='male' ? 10*wKg + 6.25*hCm - 5*age + 5 : 10*wKg + 6.25*hCm - 5*age - 161
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const hCm = unit==='imperial\' ? height*2.54 : height
+    const bmr = gender==='male\' ? 10*wKg + 6.25*hCm - 5*age + 5 : 10*wKg + 6.25*hCm - 5*age - 161
     const actMult = {sedentary:1.2,light:1.375,moderate:1.55,active:1.725,very_active:1.9}[activity]
     const tdee = Math.round(bmr * actMult)
-    const adj = goal==='cut' ? -400 : goal==='bulk' ? 300 : 0
+    const adj = goal==='cut\' ? -400 : goal===\'bulk\' ? 300 : 0
     const calories = tdee + adj
-    const proteinG = Math.round(wKg * (goal==='cut' ? 2.2 : goal==='bulk' ? 1.9 : 1.6))
+    const proteinG = Math.round(wKg * (goal==='cut\' ? 2.2 : goal===\'bulk\' ? 1.9 : 1.6))
     const proteinCal = proteinG * 4
-    const fatPct = goal==='cut' ? 0.25 : goal==='bulk' ? 0.30 : 0.28
+    const fatPct = goal==='cut\' ? 0.25 : goal===\'bulk\' ? 0.30 : 0.28
     const fatCal = Math.round(calories * fatPct)
     const fatG = Math.round(fatCal / 9)
     const carbCal = calories - proteinCal - fatCal
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric'},{value:'imperial',label:'Imperial'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={15} max={90} step={1} suffix="yrs" />
             <SelectField label="Activity Level" value={activity} onChange={v=>setActivity(v as any)} options={[{value:'sedentary',label:'Sedentary (desk job)'},{value:'light',label:'Light (1-3x/wk)'},{value:'moderate',label:'Moderate (3-5x/wk)'},{value:'active',label:'Active (6-7x/wk)'},{value:'very_active',label:'Very Active (2x/day)'}]} />

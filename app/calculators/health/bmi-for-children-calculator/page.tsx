@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'BMI Calculator for Children',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `BMI means something very different for a child than it does for an adult. You cannot use adult BMI cutoffs — 18.5, 25, 30 — for children and teenagers. A BMI of 22 is healthy for a 35-year-old adult and would indicate obesity in a 7-year-old. For children aged 2-19, the correct measure is BMI-for-age percentile, which accounts for the fact that healthy body composition changes dramatically as kids grow.
 
 The CDC 2000 growth charts establish sex-specific BMI-for-age curves based on nationally representative data. A child at the 75th percentile for BMI-for-age has a higher BMI than 75% of children the same age and sex — and that's within the healthy range. The concern thresholds are: below the 5th percentile (underweight), 85th-94th percentile (overweight), and 95th percentile or above (obese). These cutoffs are statistical, not absolute — they reflect elevated risk of health problems, not certainty.

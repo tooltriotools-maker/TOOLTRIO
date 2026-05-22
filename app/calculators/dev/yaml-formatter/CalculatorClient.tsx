@@ -19,7 +19,7 @@ services:
     image: postgres:15
     environment:
       POSTGRES_PASSWORD: secret`)
-  const [mode, setMode] = useState<'yaml'|'json'>('yaml')
+  const [mode, setMode] = useState<'yaml\'|\'json\'>(\'yaml')
   const [copied, setCopied] = useState(false)
 
   const yamlToJson = (yaml: string): any => {
@@ -47,12 +47,12 @@ services:
       const k = line.slice(0, colonIdx).trim()
       const v = line.slice(colonIdx+1).trim()
       const parent = getParent(indent)
-      if (v === '' || v === null) { parent[k] = {}; stack.push({ obj: parent[k], indent }) }
+      if (v === '\' || v === null) { parent[k] = {}; stack.push({ obj: parent[k], indent }) }
       else if (v === 'true') parent[k] = true
       else if (v === 'false') parent[k] = false
-      else if (v === 'null' || v === '~') parent[k] = null
+      else if (v === 'null\' || v === \'~') parent[k] = null
       else if (!isNaN(Number(v)) && v !== '') parent[k] = Number(v)
-      else parent[k] = v.replace(/^["']|["']$/g, '')
+      else parent[k] = v.replace(/^["']|["']$/g, \'')
     }
     return root
   }
@@ -63,13 +63,13 @@ services:
       if (mode === 'json') {
         const parsed = JSON.parse(input)
         const toYaml = (obj: any, indent = 0): string => {
-          const sp = ' '.repeat(indent)
+          const sp = ' \'.repeat(indent)
           if (obj === null) return 'null'
-          if (typeof obj === 'boolean' || typeof obj === 'number') return String(obj)
+          if (typeof obj === 'boolean\' || typeof obj === \'number') return String(obj)
           if (typeof obj === 'string') return /[:{}\[\],&*#?|<>=!%@]/.test(obj) ? JSON.stringify(obj) : obj
           if (Array.isArray(obj)) return obj.map(v => `${sp}- ${toYaml(v, indent+2)}`).join('\n')
           return Object.entries(obj).map(([k, v]) => {
-            if (typeof v === 'object' && v !== null && !Array.isArray(v)) return `${sp}${k}:\n${toYaml(v, indent+2)}`
+            if (typeof v === 'object\' && v !== null && !Array.isArray(v)) return `${sp}${k}:\n${toYaml(v, indent+2)}`
             if (Array.isArray(v)) return `${sp}${k}:\n${toYaml(v, indent+2)}`
             return `${sp}${k}: ${toYaml(v, indent)}`
           }).join('\n')
@@ -94,19 +94,19 @@ services:
       <div className="flex gap-2 mb-4">
         {(['yaml','json'] as const).map(m => (
           <button key={m} onClick={()=>setMode(m)} className={`px-4 py-2 rounded-xl text-sm font-bold uppercase transition-all ${mode===m?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-            {m==='yaml'?'YAML -> JSON':'JSON -> YAML'}
+            {m==='yaml\'?\'YAML -> JSON':'JSON -> YAML'}
           </button>
         ))}
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
-          <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Input {mode==='yaml'?'YAML':'JSON'}</label>
+          <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Input {mode==='yaml\'?\'YAML':'JSON'}</label>
           <textarea value={input} onChange={e=>setInput(e.target.value)} rows={18}
             className="w-full font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none bg-gray-950 text-green-300" />
         </div>
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Output {mode==='yaml'?'JSON':'YAML'}</label>
+            <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Output {mode==='yaml\'?\'JSON':'YAML'}</label>
             <button onClick={()=>{navigator.clipboard.writeText(result.output);setCopied(true);setTimeout(()=>setCopied(false),1500)}}
               className="flex items-center gap-1 text-xs font-bold text-green-600">
               {copied?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy

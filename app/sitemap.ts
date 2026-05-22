@@ -142,13 +142,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/disclaimer`,              lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
 
     // -- Commodities hub --
-    { url: `${BASE}/commodities`, lastModified: now, changeFrequency: 'hourly' as const, priority: 0.97 },
+    { url: `${BASE}/commodities`, lastModified: now, changeFrequency: 'hourly\' as const, priority: 0.97 },
 
     // -- USA Finance calculators --
     ...financeCalcsUSA.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.88,
     })),
 
@@ -163,7 +163,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.88,
     })),
 
@@ -171,7 +171,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...financeCalcsIndia.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.88,
     })),
 
@@ -179,7 +179,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...financeCalcsUK.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.88,
     })),
 
@@ -187,7 +187,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...financeCalcsEurope.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.88,
     })),
 
@@ -195,7 +195,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...healthCalcs.map(slug => ({
       url: `${BASE}/calculators/health/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.85,
     })),
 
@@ -203,7 +203,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...commodityCalcs.map(slug => ({
       url: `${BASE}/commodities/${slug}`,
       lastModified: now,
-      changeFrequency: 'hourly' as const,
+      changeFrequency: 'hourly\' as const,
       priority: 0.92,
     })),
 
@@ -211,7 +211,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...devTools.map(s => ({
       url: `${BASE}/calculators/dev/${s}`,
       lastModified: now,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly\' as const,
       priority: 0.7,
     })),
 
@@ -219,7 +219,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...funTools.map(s => ({
       url: `${BASE}/calculators/fun/${s}`,
       lastModified: now,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly\' as const,
       priority: 0.6,
     })),
 
@@ -233,7 +233,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map(slug => ({
       url: `${BASE}/blog/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.82,
     })),
 
@@ -249,7 +249,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map(slug => ({
       url: `${BASE}/blog/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.82,
     })),
 
@@ -257,7 +257,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPosts.map(p => ({
       url: `${BASE}/blog/${p.slug}`,
       lastModified: new Date(p.publishedAt).toISOString(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly\' as const,
       priority: 0.78,
     })),
 
@@ -265,7 +265,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogCategories.map(cat => ({
       url: `${BASE}/blog/category/${cat.slug}`,
       lastModified: now,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly\' as const,
       priority: 0.7,
     })),
   ]

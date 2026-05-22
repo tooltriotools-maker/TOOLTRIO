@@ -61,7 +61,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Select your excuse category: health-adjacent (you're protecting your body), weather-related (it's too something outside), scheduling (something genuinely came up), equipment-related (the machines are definitely broken), and philosophical (a deeper reason that suggests exercise is itself suspect). The generator combines a core excuse with supporting detail and a convincing closing statement. The more specific the excuse, the more plausible it sounds -- this is calibrated to produce excuses that feel airtight rather than obviously thin.</p>
+          <p className="text-gray-700 leading-relaxed">Select your excuse category: health-adjacent (you're protecting your body), weather-related (it\'s too something outside), scheduling (something genuinely came up), equipment-related (the machines are definitely broken), and philosophical (a deeper reason that suggests exercise is itself suspect). The generator combines a core excuse with supporting detail and a convincing closing statement. The more specific the excuse, the more plausible it sounds -- this is calibrated to produce excuses that feel airtight rather than obviously thin.</p>
         </section>
 
         {/* Fun Fact */}

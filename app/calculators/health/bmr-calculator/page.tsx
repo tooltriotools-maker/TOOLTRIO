@@ -50,7 +50,7 @@ const faqs = [
 
 const seoContent = {
   title: 'BMR Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Your BMR — Basal Metabolic Rate — is the foundation number that every calorie target, diet plan, and weight management strategy ultimately rests on. It represents the energy cost of simply existing: the calories your body burns to maintain every biological function at complete rest, every hour of every day, whether you're dieting, training hard, or doing nothing at all.
 
 Understanding your BMR matters because it sets a hard floor on your calorie intake. Eating below your BMR is rarely justified and always has metabolic consequences — your body has non-negotiable energy requirements that cannot be bypassed through sheer willpower. Knowing your BMR also helps you understand why extreme diets backfire: when intake drops too far below BMR, the body slows metabolism, breaks down muscle tissue for fuel, and creates conditions that make long-term fat loss far harder.

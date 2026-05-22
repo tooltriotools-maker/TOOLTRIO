@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Most people dramatically underestimate how many hours they spend on their devices. Your phone's built-in screen time tracker is often the first genuinely confronting number you encounter -- and this calculator contextualizes it further, converting daily phone hours into annual hours, life-years lost, and what else you could do with that time. The goal isn't to make you feel bad; it's to make the number real in a way that "4 hours 23 minutes per day" doesn't quite achieve on its own. For the social media component specifically, the <Link href="/calculators/fun/social-media-addiction" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Social Media Addiction Calculator</Link> breaks down which platforms drive the most usage and why.</p>
+          <p className="text-gray-600 leading-relaxed">Most people dramatically underestimate how many hours they spend on their devices. Your phone's built-in screen time tracker is often the first genuinely confronting number you encounter -- and this calculator contextualizes it further, converting daily phone hours into annual hours, life-years lost, and what else you could do with that time. The goal isn\'t to make you feel bad; it\'s to make the number real in a way that "4 hours 23 minutes per day" doesn\'t quite achieve on its own. For the social media component specifically, the <Link href="/calculators/fun/social-media-addiction" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Social Media Addiction Calculator</Link> breaks down which platforms drive the most usage and why.</p>
         </section>
 
         {/* How It Works */}
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The average American adult spends approximately 7 hours per day consuming digital content across all screens -- phone, laptop, TV, tablet. That's roughly 2,555 hours per year, or about 106 days of your life annually. Over a 40-year adult lifespan, that's approximately 11.5 years of waking time -- more than most people spend in formal education from kindergarten through a bachelor's degree.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The average American adult spends approximately 7 hours per day consuming digital content across all screens -- phone, laptop, TV, tablet. That's roughly 2,555 hours per year, or about 106 days of your life annually. Over a 40-year adult lifespan, that\'s approximately 11.5 years of waking time -- more than most people spend in formal education from kindergarten through a bachelor\'s degree.</p>
         </section>
 
         {/* Tips */}

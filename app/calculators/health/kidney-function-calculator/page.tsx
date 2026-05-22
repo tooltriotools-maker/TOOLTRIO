@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Kidney Function Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Chronic kidney disease affects an estimated 37 million Americans — about 1 in 7 adults — and roughly 90% don't know they have it because early-to-moderate CKD has no symptoms. The kidneys lose function gradually over years, and by the time symptoms appear (fatigue, swelling, changes in urination, difficulty concentrating), significant permanent damage has often already occurred.
 
 Estimated glomerular filtration rate (eGFR) is the primary measure of kidney function used clinically. Normal eGFR is above 90 mL/min/1.73m²; CKD staging goes from Stage 1 (eGFR >90 with evidence of kidney damage) through Stage 5 (<15, kidney failure requiring dialysis or transplant). Stages 1-3a often have no symptoms at all.

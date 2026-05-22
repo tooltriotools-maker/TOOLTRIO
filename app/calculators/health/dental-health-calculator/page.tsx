@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Dental Health Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Oral health is more connected to systemic health than most people realize. The mouth isn't isolated from the rest of your body — it's the entry point to your digestive and respiratory systems, and the bacteria and inflammation in your gums have direct pathways to your bloodstream. Periodontal disease is independently associated with increased cardiovascular risk, diabetes complications, adverse pregnancy outcomes, and respiratory infections.
 
 The most prevalent preventable diseases in the US are dental. Cavities form when oral bacteria metabolize sugars and produce acid that demineralizes tooth enamel. Gum disease progresses from gingivitis (reversible inflammation) to periodontitis (irreversible bone and tissue destruction) when bacterial plaque isn't regularly disrupted by brushing and flossing. Both are almost entirely preventable with consistent hygiene.

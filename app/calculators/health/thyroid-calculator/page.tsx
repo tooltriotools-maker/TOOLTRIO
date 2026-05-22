@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Thyroid Health Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The thyroid gland — a butterfly-shaped structure at the base of your throat — produces hormones (T3 and T4) that regulate the metabolic rate of nearly every cell in your body. When thyroid hormone production is too low (hypothyroidism), metabolism slows: weight increases despite unchanged diet, fatigue is persistent even with adequate sleep, body temperature drops, heart rate slows, and cognitive speed decreases. When production is too high (hyperthyroidism), the opposite occurs.
 
 Thyroid disorders are extremely common — hypothyroidism affects roughly 5% of Americans, and subclinical hypothyroidism affects up to 20% of women over 60. Hashimoto's thyroiditis — an autoimmune destruction of the thyroid gland — is the most common cause of hypothyroidism in developed countries.

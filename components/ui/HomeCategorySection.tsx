@@ -19,7 +19,7 @@ interface Props {
   calcs: Calc[]
   viewAllHref: string
   viewAllLabel: string
-  accentColor: 'green' | 'red' | 'blue' | 'purple'
+  accentColor: 'green\' | \'red\' | \'blue\' | \'purple'
   initialCount?: number
 }
 

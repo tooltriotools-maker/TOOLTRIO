@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Alcohol Calorie Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Two glasses of wine with dinner. A beer at the game. A cocktail at happy hour. None of it feels like much in the moment, but alcohol is surprisingly calorie-dense — 7 calories per gram, almost as much as fat and nearly twice as much as carbohydrates. Unlike food calories, alcohol calories carry no nutritional value: no protein, no vitamins, no fiber. They go straight to your energy balance.
 
 The tricky part is that most people genuinely don't know how many calories are in their usual drinks. A craft IPA can pack 250+ calories. A margarita with sugary mix can hit 400. A glass of wine ranges from 120 to 200 depending on pour size and alcohol content. Over a week of moderate drinking, those calories add up to a meaningful fraction of your total energy intake — often without being tracked or even noticed.

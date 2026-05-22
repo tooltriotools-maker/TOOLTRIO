@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState, ReactNode } from 'react'
 
-export type CurrencyCode = 'USD' | 'INR' | 'EUR'
+export type CurrencyCode = 'USD\' | \'INR\' | \'EUR'
 
 export interface Currency {
   code: CurrencyCode

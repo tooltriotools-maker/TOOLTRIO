@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Chronic Inflammation Risk Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Inflammation is one of those medical concepts that's simultaneously central to health science and widely misused in wellness marketing. Acute inflammation — the redness, swelling, and warmth that follows an injury or infection — is essential and protective. Chronic low-grade systemic inflammation is the problem: a sustained, low-level activation of the inflammatory response that silently damages blood vessels, promotes insulin resistance, and underlies the development of cardiovascular disease, type 2 diabetes, and certain cancers.
 
 C-reactive protein (CRP) and interleukin-6 (IL-6) are the most commonly measured inflammatory markers in clinical settings. Visceral fat (fat stored around internal organs) is metabolically active — it secretes pro-inflammatory cytokines and is independently associated with elevated CRP. Poor sleep, chronic psychological stress, gum disease, environmental toxin exposure, and ultra-processed food diets all independently contribute to inflammatory burden.

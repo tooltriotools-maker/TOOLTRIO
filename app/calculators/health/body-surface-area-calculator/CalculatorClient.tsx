@@ -11,11 +11,11 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
   const [height, setHeight] = useState(67)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
-    const hCm = unit==='imperial' ? height*2.54 : height
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const hCm = unit==='imperial\' ? height*2.54 : height
     const mosteller = Math.sqrt((hCm*wKg)/3600)
     const dubois    = 0.007184 * Math.pow(hCm,0.725) * Math.pow(wKg,0.425)
     const haycock   = 0.024265 * Math.pow(hCm,0.3964) * Math.pow(wKg,0.5378)
@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Patient Details</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?5:11} max={unit==='metric'?250:550} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?5:11} max={unit===\'metric\'?250:550} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
           <div className="mt-5 p-4 bg-purple-50 rounded-xl text-center border border-purple-200">

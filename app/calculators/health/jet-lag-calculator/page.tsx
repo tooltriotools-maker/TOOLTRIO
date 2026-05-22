@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Jet Lag Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Jet lag is circadian misalignment — a mismatch between your internal biological clock and the external time at your destination. Your circadian rhythm regulates dozens of physiological processes on a roughly 24-hour cycle: cortisol peaks, body temperature rhythms, melatonin secretion, digestive enzyme release, and immune function all run on this internal clock. When you fly across time zones, your clock adjusts at a rate of roughly 1 hour per day — which is why crossing 8 time zones east can produce a week of disrupted sleep, daytime fatigue, and digestive issues.
 
 The severity of jet lag depends on the number of time zones crossed, direction of travel (eastward is harder than westward because it requires phase advance), your individual circadian sensitivity, and how much light exposure you get on arrival.

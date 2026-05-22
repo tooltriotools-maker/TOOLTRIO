@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Social media companies employ entire teams of behavioral engineers whose job is to make their apps as engaging as possible. This isn't a conspiracy -- it's in every quarterly report. The Bergen Social Media Addiction Scale, used in academic research, provides a clinical framework for measuring where heavy use tips into problematic use. This quiz scores you across the six Bergen dimensions and identifies which platforms and drivers are contributing most to your score. The companion tool <Link href="/calculators/fun/screen-time-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Screen Time Calculator</Link> gives the raw time numbers; this one gives you the behavioral pattern underneath them.</p>
+          <p className="text-gray-600 leading-relaxed">Social media companies employ entire teams of behavioral engineers whose job is to make their apps as engaging as possible. This isn't a conspiracy -- it\'s in every quarterly report. The Bergen Social Media Addiction Scale, used in academic research, provides a clinical framework for measuring where heavy use tips into problematic use. This quiz scores you across the six Bergen dimensions and identifies which platforms and drivers are contributing most to your score. The companion tool <Link href="/calculators/fun/screen-time-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Screen Time Calculator</Link> gives the raw time numbers; this one gives you the behavioral pattern underneath them.</p>
         </section>
 
         {/* How It Works */}
@@ -93,7 +93,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">TikTok's recommendation algorithm is widely studied as the most effective engagement-maximizing system ever built for a mass consumer app. Unlike Facebook or Instagram, which initially showed content from accounts you follow, TikTok's algorithm starts with zero social graph and builds a preference model purely from behavior -- it knows what you're interested in before you do, because it watches what percentage of each video you watch and how quickly you scroll away. This "cold start" capability is what makes it significantly more sticky than previous platforms.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">TikTok's recommendation algorithm is widely studied as the most effective engagement-maximizing system ever built for a mass consumer app. Unlike Facebook or Instagram, which initially showed content from accounts you follow, TikTok\'s algorithm starts with zero social graph and builds a preference model purely from behavior -- it knows what you\'re interested in before you do, because it watches what percentage of each video you watch and how quickly you scroll away. This "cold start" capability is what makes it significantly more sticky than previous platforms.</p>
         </section>
 
         {/* Tips */}

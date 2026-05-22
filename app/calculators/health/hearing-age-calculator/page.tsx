@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Hearing Age Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Hearing loss is the third most common chronic physical condition in the United States, affecting about 38 million Americans. Yet it's treated as a normal part of aging, accepted as inevitable, and rarely screened for until it's significantly advanced. The average person waits 7 years between noticing hearing difficulties and seeking help.
 
 High-frequency hearing loss begins earlier than most people expect. The ability to hear frequencies above 15,000 Hz typically starts declining in adolescence. By the mid-20s, most people have lost some sensitivity at 16,000 Hz. This gradual presbycusis accelerates if combined with noise exposure damage, which is additive and permanent.

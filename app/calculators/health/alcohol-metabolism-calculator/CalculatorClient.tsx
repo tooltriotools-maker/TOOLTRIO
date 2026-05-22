@@ -13,15 +13,15 @@ const DRINKS = [
 ]
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(165)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [drinkIdx, setDrinkIdx] = useState(2)
   const [drinkCount, setDrinkCount] = useState(2)
   const [startHoursAgo, setStartHoursAgo] = useState(1)
 
   // Widmark formula
-  const r = gender === 'male' ? 0.68 : 0.55
+  const r = gender === 'male\' ? 0.68 : 0.55
   const totalAlcohol = DRINKS[drinkIdx].units * drinkCount * 10 // grams
   const peakBAC = (totalAlcohol / (weight * r * 10)) * 100 // % BAC
   const metabolised = startHoursAgo * 0.015

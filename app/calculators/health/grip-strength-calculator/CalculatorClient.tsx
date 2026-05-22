@@ -12,8 +12,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const [strength, setStrength] = useState(40)
   const [age, setAge] = useState(40)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const NORMS: Record<string, Record<string, number[]>> = {
     male: {
@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   const result = useMemo(() => {
-    const kg = unit === 'imperial' ? strength * 0.453592 : strength
+    const kg = unit === 'imperial\' ? strength * 0.453592 : strength
     const band = age < 30 ? '20-29' : age < 40 ? '30-39' : age < 50 ? '40-49' : age < 60 ? '50-59' : age < 70 ? '60-69' : '70+'
     const norms = NORMS[gender][band]
     const [low, avg, high] = norms
@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       : clampedPct >= 50 ? { l: 'Above Average ✅', c: 'text-blue-700 bg-blue-50 border-blue-200' }
       : clampedPct >= 25 ? { l: 'Average', c: 'text-yellow-700 bg-yellow-50 border-yellow-200' }
       : { l: 'Below Average - work on it', c: 'text-red-700 bg-red-50 border-red-200' }
-    const weakness = (gender === 'male' && kg < 27) || (gender === 'female' && kg < 16)
+    const weakness = (gender === 'male\' && kg < 27) || (gender === \'female\' && kg < 16)
     return { clampedPct, level, weakness, avg, band }
   }, [strength, age, gender, unit])
 

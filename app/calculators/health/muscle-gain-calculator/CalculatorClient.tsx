@@ -9,10 +9,10 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(154)
-  const [experience, setExperience] = useState<'beginner'|'intermediate'|'advanced'>('beginner')
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [experience, setExperience] = useState<'beginner\'|\'intermediate\'|\'advanced\'>(\'beginner')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [age, setAge] = useState(25)
 
   const rates = {

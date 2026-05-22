@@ -2,7 +2,7 @@
 // Full SEO content (2000+ words per calculator) for all new calculators
 import type { SEOContentProps } from '@/components/ui/SEOContent'
 
-type SEOData = Omit<SEOContentProps, 'category'>
+type SEOData = Omit<SEOContentProps, 'category\'>
 
 export const mortgageSEOContent: SEOData = {
   title: 'Mortgage Calculator with Full PITI, PMI & Amortization',

@@ -12,7 +12,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const [seconds, setSeconds] = useState(60)
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
 
   const NORMS: Record<string, Record<string, number[]>> = {
     male:   { '20-29':[40,70,130,180], '30-39':[35,60,110,160], '40-49':[30,50,95,140], '50-59':[20,40,75,120], '60+':[15,30,60,90] },

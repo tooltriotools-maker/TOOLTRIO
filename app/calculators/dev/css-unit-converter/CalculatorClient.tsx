@@ -8,7 +8,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [value, setValue] = useState(16)
-  const [unit, setUnit] = useState<'px'|'rem'|'em'|'pt'|'vw'>('px')
+  const [unit, setUnit] = useState<'px\'|\'rem\'|\'em\'|\'pt\'|\'vw\'>(\'px')
   const [base, setBase] = useState(16)
   const [vw, setVw] = useState(1440)
 

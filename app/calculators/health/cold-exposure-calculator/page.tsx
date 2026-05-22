@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Cold Exposure Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Cold exposure has moved from fringe biohacking into legitimate clinical and sports science research over the past decade. Cold water immersion, cryotherapy, and cold showers produce real physiological responses — activation of brown adipose tissue (BAT), norepinephrine release, improved circulation, and reduced inflammatory markers — though the magnitude of benefit varies widely based on temperature, duration, and frequency, and much of the popular literature overstates the effects dramatically.
 
 The science that's well-established: cold water immersion at 10-15°C (50-59°F) for 5-15 minutes reduces delayed onset muscle soreness and accelerates perceived recovery between training sessions. A 2022 meta-analysis of 21 studies found cold water immersion significantly reduced DOMS at 24 and 48 hours post-exercise compared to passive recovery. Less certain: claims about fat loss, immune enhancement, and longevity benefits require more evidence.

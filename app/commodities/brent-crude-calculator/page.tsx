@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function Page() {
   const { data, loading, refresh } = useCommodityPrices(60)
-  const c = data['crude_brent' as keyof typeof data]
+  const c = data['crude_brent\' as keyof typeof data]
   const [qty, setQty] = useState(1000)
 
   const conversions = [{label:"Per Barrel",factor:1,unit:"bbl"},{label:"Per Gallon",factor:1/42,unit:"gal"},{label:"Per Litre",factor:1/158.987,unit:"L"},{label:"Per Metric Ton",factor:1/7.5,unit:"MT"},{label:"100 barrels",factor:100,unit:"bbl"},{label:"1,000 barrels",factor:1000,unit:"bbl"}]

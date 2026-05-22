@@ -50,7 +50,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Running Pace Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Pace is the universal language of running — it translates effort into a number that connects your training to your race goals. This calculator handles every pace conversion you need: minutes per mile, minutes per kilometer, mph, km/h, and projected finish times for every major race distance from 5K to marathon.
 
 The tool works in both directions. Enter a finish time and distance to find your average pace, or enter a target pace to calculate predicted finish times. It also shows training zone paces based on your current fitness — the easy, long run, tempo, and interval paces that form the foundation of structured training.

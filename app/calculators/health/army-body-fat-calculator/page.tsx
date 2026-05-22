@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'US Army Body Fat Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The Army's tape test exists because BMI doesn't cut it for a population of active-duty soldiers. A highly muscular 6-foot soldier who weighs 220 lbs may have a BMI of 29.8 — technically "overweight" — while actually being in exceptional physical condition with low body fat. The Army's circumference-based formula estimates body fat from neck, waist, and hip measurements instead, giving a number that better reflects actual body composition.
 
 Army Regulation 600-9 sets specific body fat standards that vary by age and sex: generally 20-24% for men and 30-34% for women depending on age group, with increasingly strict standards for those seeking promotions or special assignments. Soldiers who exceed the standard are enrolled in the Army Body Composition Program and have a defined window to meet standards before facing separation proceedings.

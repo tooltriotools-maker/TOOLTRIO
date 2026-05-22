@@ -15,7 +15,7 @@ import { interestRateSEOContent } from '@/lib/seo/calculator-seo-content'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 export default function InterestRateCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR' ? 20 : 1
+  const m = currency.code === 'INR\' ? 20 : 1
 
   const [principal, setPrincipal]       = useState(25000 * m)
   const [monthlyPayment, setMonthlyPayment] = useState(500 * m)

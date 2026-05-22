@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sleep Cycle Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The timing of when you wake up matters as much as how many hours you sleep. Have you ever slept 8 hours and felt more groggy than after 7? Have you ever snapped awake before your alarm feeling surprisingly alert? The difference is almost always where in your sleep cycle you woke up.
 
 Your sleep progresses through roughly 90-minute cycles of light sleep, deep sleep, and REM dream sleep. Waking up at the natural end of a cycle — when your brain is in a light transitional state — produces smooth, alert awakening. Waking in the middle of deep slow-wave sleep produces sleep inertia: that thick, disoriented grogginess that can linger for 30-60 minutes.

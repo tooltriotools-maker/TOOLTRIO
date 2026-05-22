@@ -19,14 +19,14 @@ function getBMICategory(bmi: number, age: number, gender: string) {
 }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [age, setAge] = useState(10)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [height, setHeight] = useState(55)  // total inches when imperial (55in = 4'7" avg 10yr)
   const [weight, setWeight] = useState(77)  // lbs when imperial
 
-  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
-  const heightCm = unit === 'imperial' ? height * 2.54 : height
+  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
+  const heightCm = unit === 'imperial\' ? height * 2.54 : height
   const bmi = +(weightKg / Math.pow(heightCm/100, 2)).toFixed(1)
   const category = getBMICategory(bmi, age, gender)
 
@@ -41,14 +41,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial' ? '🇺🇸 lbs / ft-in' : '🌍 kg / cm'}
+                  {u === 'imperial\' ? \'🇺🇸 lbs / ft-in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
             <SelectField label="Sex" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Boy'},{value:'female',label:'Girl'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={2} max={19} step={1} suffix="yrs" />
             <HeightField unit={unit} value={height} onChange={setHeight} />
-            <InputField label={unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial' ? 22 : 10} max={unit === 'imperial' ? 265 : 120} step={0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
+            <InputField label={unit === 'imperial\' ? \'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 22 : 10} max={unit === \'imperial\' ? 265 : 120} step={0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
           </div>
           <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800">
             ⚠️ BMI for children uses age- and sex-specific percentile charts. Always consult a paediatrician for clinical assessment.

@@ -13,12 +13,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [steps, setSteps] = useState(8000)
   const [weight, setWeight] = useState(155)
   const [height, setHeight] = useState(67)
-  const [pace, setPace] = useState<'slow'|'moderate'|'brisk'|'fast'>('moderate')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [pace, setPace] = useState<'slow\'|\'moderate\'|\'brisk\'|\'fast\'>(\'moderate')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
-    const hCm = unit==='imperial' ? height*2.54 : height
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const hCm = unit==='imperial\' ? height*2.54 : height
     const strideM = hCm * 0.0045 // avg stride length in meters
     const distKm = (steps * strideM) / 1000
     const met = {slow:2.5,moderate:3.5,brisk:5.0,fast:6.5}[pace]
@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric'},{value:'imperial',label:'Imperial'}]} />
             <InputField label="Daily Steps" value={steps} onChange={setSteps} min={500} max={50000} step={500} suffix="steps" />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <SelectField label="Walking Pace" value={pace} onChange={v=>setPace(v as any)} options={[{value:'slow',label:'Slow (2.5 km/h)'},{value:'moderate',label:'Moderate (4 km/h)'},{value:'brisk',label:'Brisk (5.5 km/h)'},{value:'fast',label:'Fast (7 km/h)'}]} />
           </div>

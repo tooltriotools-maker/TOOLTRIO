@@ -24,16 +24,16 @@ const US_STATES = [
 ]
 
 const PAY_PERIODS = [
-  { label: 'Weekly (52x)', value: 'weekly' as const },
-  { label: 'Bi-Weekly (26x)', value: 'biweekly' as const },
-  { label: 'Semi-Monthly (24x)', value: 'semimonthly' as const },
-  { label: 'Monthly (12x)', value: 'monthly' as const },
+  { label: 'Weekly (52x)', value: 'weekly\' as const },
+  { label: 'Bi-Weekly (26x)', value: 'biweekly\' as const },
+  { label: 'Semi-Monthly (24x)', value: 'semimonthly\' as const },
+  { label: 'Monthly (12x)', value: 'monthly\' as const },
 ]
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const [annualSalary, setAnnualSalary] = useState(75000)
-  const [payPeriod, setPayPeriod] = useState<'weekly' | 'biweekly' | 'semimonthly' | 'monthly'>('biweekly')
-  const [filingStatus, setFilingStatus] = useState<'single' | 'married' | 'hoh'>('single')
+  const [payPeriod, setPayPeriod] = useState<'weekly\' | \'biweekly\' | \'semimonthly\' | \'monthly\'>(\'biweekly')
+  const [filingStatus, setFilingStatus] = useState<'single\' | \'married\' | \'hoh\'>(\'single')
   const [stateRate, setStateRate] = useState(0)
   const [contrib401k, setContrib401k] = useState(10)
   const [healthIns, setHealthIns] = useState(2400)
@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-2">
             <label className="text-xs font-medium text-gray-600">Filing Status</label>
             <div className="grid grid-cols-3 gap-1.5">
-              {(['single', 'married', 'hoh'] as Array<'single'|'married'|'hoh'>).map((val) => {
+              {(['single', 'married', 'hoh'] as Array<'single\'|\'married\'|\'hoh\'>).map((val) => {
                 const labelMap: Record<string,string> = {single:'Single',married:'Married',hoh:'HoH'}
                 return (
                   <button key={val} onClick={() => setFilingStatus(val)}

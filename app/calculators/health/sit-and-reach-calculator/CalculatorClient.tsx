@@ -12,8 +12,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const [reach, setReach] = useState(25)
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('metric')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'metric')
 
   const NORMS: Record<string, Record<string, number[]>> = {
     male:   { '18-25':[8,11,14,17], '26-35':[7,10,13,16], '36-45':[6,9,12,15], '46-55':[5,8,11,14], '56-65':[4,7,10,13], '65+':[3,6,9,12] },
@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   const result = useMemo(() => {
-    const v = unit === 'imperial' ? reach * 2.54 : reach
+    const v = unit === 'imperial\' ? reach * 2.54 : reach
     const band = age < 26 ? '18-25' : age < 36 ? '26-35' : age < 46 ? '36-45' : age < 56 ? '46-55' : age < 66 ? '56-65' : '65+'
     const [poor, fair, good, exc] = NORMS[gender][band]
     const cat = v < poor ? { l:'Poor', c:'text-red-700 bg-red-50 border-red-200', pct:15 }

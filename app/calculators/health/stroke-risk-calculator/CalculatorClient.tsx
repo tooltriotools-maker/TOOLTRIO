@@ -10,7 +10,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(55)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [systolicBP, setSystolicBP] = useState(135)
   const [atrialFibrillation, setAtrialFibrillation] = useState(false)
   const [diabetes, setDiabetes] = useState(false)
@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   // Simplified stroke risk score based on Framingham
   const score = Math.round(
     (age - 40) * 0.4 +
-    (gender === 'female' ? 2 : 0) +
+    (gender === 'female\' ? 2 : 0) +
     (systolicBP - 120) * 0.1 +
     (atrialFibrillation ? 8 : 0) +
     (diabetes ? 3 : 0) +

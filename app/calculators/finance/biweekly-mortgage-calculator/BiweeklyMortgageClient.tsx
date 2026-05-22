@@ -17,7 +17,7 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function BiweeklyMortgageClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
-  const [loanAmount, setLoanAmount] = useState(currency.code === 'INR' ? 5000000 : 350000)
+  const [loanAmount, setLoanAmount] = useState(currency.code === 'INR\' ? 5000000 : 350000)
   const [rate, setRate]             = useState(7.0)
   const [years, setYears]           = useState(30)
 

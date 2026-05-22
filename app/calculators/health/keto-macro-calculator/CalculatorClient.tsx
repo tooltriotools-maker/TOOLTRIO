@@ -13,25 +13,25 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(175)
   const [height, setHeight] = useState(69)
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [activity, setActivity] = useState<'sedentary'|'light'|'moderate'|'active'>('moderate')
-  const [goal, setGoal] = useState<'lose'|'maintain'|'bulk'>('lose')
-  const [type, setType] = useState<'standard'|'targeted'|'high-protein'>('standard')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [activity, setActivity] = useState<'sedentary\'|\'light\'|\'moderate\'|\'active\'>(\'moderate')
+  const [goal, setGoal] = useState<'lose\'|\'maintain\'|\'bulk\'>(\'lose')
+  const [type, setType] = useState<'standard\'|\'targeted\'|\'high-protein\'>(\'standard')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial'?weight*0.453592:weight
-    const hCm = unit==='imperial'?height*2.54:height
-    const bmr = gender==='male' ? 10*wKg+6.25*hCm-5*age+5 : 10*wKg+6.25*hCm-5*age-161
+    const wKg = unit==='imperial\'?weight*0.453592:weight
+    const hCm = unit==='imperial\'?height*2.54:height
+    const bmr = gender==='male\' ? 10*wKg+6.25*hCm-5*age+5 : 10*wKg+6.25*hCm-5*age-161
     const mults = {sedentary:1.2,light:1.375,moderate:1.55,active:1.725}
     const tdee = Math.round(bmr*mults[activity])
-    const adj = goal==='lose'?-0.2:goal==='bulk'?0.1:0
+    const adj = goal==='lose\'?-0.2:goal===\'bulk\'?0.1:0
     const targetCals = Math.round(tdee*(1+adj))
 
-    const proteinFactor = type==='high-protein'?1.8:1.4
+    const proteinFactor = type==='high-protein\'?1.8:1.4
     const proteinG = Math.round(wKg*proteinFactor)
     const proteinCal = proteinG*4
-    const carbsG = type==='targeted' ? 50 : 25
+    const carbsG = type==='targeted\' ? 50 : 25
     const carbsCal = carbsG*4
     const fatCal = targetCals-proteinCal-carbsCal
     const fatG = Math.round(fatCal/9)
@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric'},{value:'imperial',label:'Imperial'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={15} max={90} step={1} suffix="yrs" />
             <SelectField label="Activity" value={activity} onChange={v=>setActivity(v as any)} options={[{value:'sedentary',label:'Sedentary'},{value:'light',label:'Light'},{value:'moderate',label:'Moderate'},{value:'active',label:'Active'}]} />

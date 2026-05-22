@@ -16,9 +16,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(155)
   const [duration, setDuration] = useState(60)
   const [intensity, setIntensity] = useState(1)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
-  const wKg = unit==='imperial' ? weight*0.453592 : weight
+  const wKg = unit==='imperial\' ? weight*0.453592 : weight
   const met = INTENSITIES[intensity].met
   const calories = Math.round(met * wKg * (duration/60))
   const hourRate = Math.round(met * wKg)
@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>
           <div className="space-y-4">
             <SelectField label="Units" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={unit==='metric'?'Weight (kg)':'Weight (lbs)'} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={unit==='metric\'?\'Weight (kg)':'Weight (lbs)'} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <InputField label="Duration" value={duration} onChange={setDuration} min={5} max={300} step={5} suffix="min" />
             <SelectField label="Intensity" value={String(intensity)} onChange={v=>setIntensity(+v)} options={INTENSITIES.map((i,idx)=>({value:String(idx),label:i.label}))} />
           </div>

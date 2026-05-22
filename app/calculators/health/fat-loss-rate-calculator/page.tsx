@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Fat Loss Rate Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `The lose no more than 2 pounds per week guideline is a starting point, not a universal rule. What matters is the proportion of weight loss coming from fat versus lean mass — and that ratio depends critically on your starting body fat percentage, protein intake, resistance training, and calorie deficit size. A person at 35% body fat can lose 2-2.5 pounds per week while preserving nearly all lean mass. The same deficit in someone at 15% body fat would likely result in significant muscle loss.
 
 The physiology is straightforward: fat cells contain about 3,500 calories of stored energy per pound. A 500-calorie daily deficit, sustained over a week, represents about one pound of fat loss in the absence of other changes. But your body isn't a simple calculator — at larger deficits, metabolic adaptation kicks in, and the deficit you calculated is rarely the deficit you actually achieve.

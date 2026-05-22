@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Vitamin C Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Vitamin C is one of the most researched micronutrients in existence, with thousands of studies examining its roles in immune function, collagen synthesis, antioxidant defense, iron absorption, and neurological health. It's also one of the most supplemented — driven largely by the belief that extra vitamin C prevents or cures colds. The reality is more nuanced.
 
 Linus Pauling's famous claims that multi-gram doses prevent cancer and colds have not held up to rigorous testing. For the general population, vitamin C supplementation doesn't meaningfully reduce cold incidence. However, Cochrane meta-analyses consistently show that regular supplementation reduces cold duration by roughly 8-14% (about half a day shorter) and reduces cold severity. For people under heavy physical stress — marathon runners, military personnel — supplementation does appear to reduce cold incidence.

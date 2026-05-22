@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Body Recomposition Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Body recomposition — losing fat and gaining muscle simultaneously — is one of the most contested topics in fitness, partly because it contradicts the common wisdom that you need to be in a calorie surplus to build muscle. The reality is more nuanced: body recomposition is genuinely possible, particularly for people who are new to resistance training, returning after a break, carrying significant excess body fat, or following a high-protein diet. For advanced, already-lean athletes, simultaneous fat loss and muscle gain is slower and harder.
 
 The underlying mechanism: fat stores contain energy, and your body can use that stored energy to support muscle protein synthesis even when you're eating at maintenance or a slight deficit. The conditions that make this work are a high protein intake (typically 0.7-1g per pound of body weight), consistent resistance training with progressive overload, and a calorie intake set at or slightly below maintenance — not a deep deficit.

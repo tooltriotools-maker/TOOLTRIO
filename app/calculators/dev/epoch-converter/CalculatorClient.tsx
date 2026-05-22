@@ -9,7 +9,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 export default function CalculatorClient({ faqs }: Props) {
   const [ts, setTs] = useState(String(Math.floor(Date.now()/1000)))
   const [dateStr, setDateStr] = useState('')
-  const [mode, setMode] = useState<'ts-to-date'|'date-to-ts'>('ts-to-date')
+  const [mode, setMode] = useState<'ts-to-date\'|\'date-to-ts\'>(\'ts-to-date')
   const [copied, setCopied] = useState('')
 
   const tsResult = useMemo(() => {
@@ -57,14 +57,14 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="flex gap-2 mb-6">
         {(['ts-to-date','date-to-ts'] as const).map(m=>(
           <button key={m} onClick={()=>setMode(m)} className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${mode===m?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-            {m==='ts-to-date' ? 'Timestamp -> Date' : 'Date -> Timestamp'}
+            {m==='ts-to-date\' ? \'Timestamp -> Date' : 'Date -> Timestamp'}
           </button>
         ))}
         <button onClick={()=>setTs(String(Math.floor(Date.now()/1000)))} className="ml-auto flex items-center gap-1 px-3 py-2 text-xs font-bold bg-gray-100 rounded-xl hover:bg-gray-200">
           <RefreshCw className="w-3.5 h-3.5" /> Now
         </button>
       </div>
-      {mode==='ts-to-date' ? (
+      {mode==='ts-to-date\' ? (
         <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
           <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Unix Timestamp (seconds or milliseconds)</label>
           <input value={ts} onChange={e=>setTs(e.target.value)} placeholder="e.g. 1700000000 or 1700000000000"

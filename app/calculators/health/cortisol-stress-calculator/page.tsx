@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Cortisol & Stress Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Cortisol gets a bad reputation, but it's an essential hormone — not a villain to be eliminated. Your cortisol should spike in the morning (the cortisol awakening response peaks 30-45 minutes after waking and contributes to morning alertness), gradually decline through the day, and be near its lowest at night when you sleep. This natural rhythm keeps you alert when you need to be and allows recovery when you should be resting. The problem isn't cortisol; it's cortisol at the wrong times, or chronically elevated cortisol that never returns to baseline.
 
 Chronic psychological stress, poor sleep, excessive caffeine, overtraining, and caloric restriction all dysregulate the HPA axis and push cortisol into patterns that harm metabolic health over time. Elevated cortisol promotes visceral fat accumulation, impairs insulin sensitivity, suppresses immune function, disrupts sleep architecture, and — if sustained long enough — can reduce hippocampal volume. None of these effects happen from a few stressful weeks; they require months to years of sustained dysregulation.

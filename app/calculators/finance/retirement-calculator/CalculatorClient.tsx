@@ -49,11 +49,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <span className="text-gray-500 text-sm ml-2">years to retirement</span>
             </div>
             <InputField label={`Monthly Expenses (${currency.symbol})`} value={monthlyExpense} onChange={setMonthlyExpense}
-              min={currency.code === 'INR' ? 5000 : 500} max={currency.code === 'INR' ? 500000 : 50000}
-              step={currency.code === 'INR' ? 5000 : 500} prefix={currency.symbol} />
+              min={currency.code === 'INR\' ? 5000 : 500} max={currency.code === \'INR\' ? 500000 : 50000}
+              step={currency.code === 'INR\' ? 5000 : 500} prefix={currency.symbol} />
             <InputField label={`Current Savings (${currency.symbol})`} value={currentSavings} onChange={setCurrentSavings}
-              min={0} max={currency.code === 'INR' ? 50000000 : 5000000}
-              step={currency.code === 'INR' ? 10000 : 1000} prefix={currency.symbol} />
+              min={0} max={currency.code === 'INR\' ? 50000000 : 5000000}
+              step={currency.code === 'INR\' ? 10000 : 1000} prefix={currency.symbol} />
             <InputField label="Expected Return" value={expectedReturn} onChange={setExpectedReturn} min={4} max={20} step={0.5} suffix="%" />
             <InputField label="Inflation Rate" value={inflation} onChange={setInflation} min={1} max={12} step={0.5} suffix="%" />
           </div>

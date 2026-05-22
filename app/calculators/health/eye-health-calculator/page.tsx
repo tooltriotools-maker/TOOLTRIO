@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Eye Health Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Most eye diseases progress without symptoms until significant damage has already occurred. Age-related macular degeneration, glaucoma, and diabetic retinopathy — the leading causes of vision loss in adults — are all largely asymptomatic in early stages when intervention is most effective. This makes regular eye exams not just a vision correction issue but a genuine health screening, comparable in importance to cholesterol checks for identifying disease before it becomes irreversible.
 
 At the same time, lifestyle factors have significant effects on long-term eye health. UV exposure without protection accelerates cataract formation and increases macular degeneration risk. Smoking is the single most modifiable risk factor for macular degeneration — smokers have 2-4x the risk of non-smokers. High blood pressure and diabetes both cause progressive retinal vascular changes. Digital eye strain affects an estimated 60-90% of people who work at computers.

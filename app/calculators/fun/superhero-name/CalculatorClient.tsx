@@ -105,7 +105,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most beloved superhero names follow a two-part structure: a modifier + a noun ("Spider-Man," "Iron Man," "Black Widow"). If your result follows this pattern, that's by design -- it's the pattern that sticks in memory.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most beloved superhero names follow a two-part structure: a modifier + a noun ("Spider-Man," "Iron Man," "Black Widow"). If your result follows this pattern, that's by design -- it\'s the pattern that sticks in memory.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For roleplay games like <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">fantasy character naming</Link> or fan fiction, generate five or six hero names and pick the one whose power set creates the most interesting constraints. Limitations make for better stories than omnipotence.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Your nemesis is usually the hero who has the opposite power to yours, which means if you also generate a <Link href="/calculators/fun/villain-name" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">villain name</Link>, you're already writing a story whether you intended to or not.</span></li>
           </ul>
@@ -114,7 +114,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Run this with a group of friends and then assign each other's hero names to the wrong person -- "actually, you're definitely Shadowstep McGee and Jake is clearly The Magnificent Brisket" usually produces better results than keeping your own name.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Run this with a group of friends and then assign each other's hero names to the wrong person -- "actually, you\'re definitely Shadowstep McGee and Jake is clearly The Magnificent Brisket" usually produces better results than keeping your own name.</p>
         </section>
 
         {/* Did You Know */}

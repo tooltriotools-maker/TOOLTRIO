@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     { name: 'Personal Loan', balance: d.mediumAmount, rate: 12, minPayment: Math.round(d.smallAmount * 0.4) },
   ])
   const [extraPayment, setExtraPayment] = useState(Math.round(d.smallAmount * 0.5))
-  const [method, setMethod] = useState<'avalanche' | 'snowball'>('avalanche')
+  const [method, setMethod] = useState<'avalanche\' | \'snowball\'>(\'avalanche')
 
   const result = useMemo(() => calculateDebtPayoff(debts, extraPayment, method), [debts, extraPayment, method])
   const noExtra = useMemo(() => calculateDebtPayoff(debts, 0, method), [debts, method])
@@ -33,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const remove = (idx: number) => setDebts(debts.filter((_, i) => i !== idx))
   const add = () => setDebts([...debts, { name: 'New Debt', balance: d.smallAmount, rate: 10, minPayment: Math.round(d.smallAmount * 0.1) }])
 
-  const step = currency.code === 'INR' ? 1000 : 100
+  const step = currency.code === 'INR\' ? 1000 : 100
 
   return (
     <CalculatorLayout title="Debt Payoff Calculator USA 2026" description={`Find the fastest way to pay off all your debts using avalanche or snowball method in ${currency.name}.`} icon="🔓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
@@ -45,12 +45,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {(['avalanche', 'snowball'] as const).map(m => (
               <button key={m} onClick={() => setMethod(m)}
                 className={`py-2 rounded-xl text-sm font-semibold transition-all capitalize ${method === m ? 'bg-green-600 text-white' : 'text-gray-500 hover:text-white'}`}>
-                {m === 'avalanche' ? '🏔️ Avalanche' : '⛄ Snowball'}
+                {m === 'avalanche\' ? \'🏔️ Avalanche' : '⛄ Snowball'}
               </button>
             ))}
           </div>
           <p className="text-xs text-gray-400 mb-5">
-            {method === 'avalanche' ? '📉 Highest interest first - saves the most money overall.' : '⬆️ Smallest balance first - quick wins for motivation.'}
+            {method === 'avalanche\' ? \'📉 Highest interest first - saves the most money overall.' : '⬆️ Smallest balance first - quick wins for motivation.'}
           </p>
 
           {/* Extra payment */}
@@ -106,7 +106,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <XAxis dataKey="name" tick={{ fill: '#374151', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#374151', fontSize: 11 }} axisLine={false} tickLine={false} width={76}
                     tickFormatter={v => v >= 1000 ? `${currency.symbol}${(v / 1000).toFixed(0)}K` : `${currency.symbol}${v}`} />
-                  <Tooltip contentStyle={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: 10, boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} formatter={(v: number, name) => [name === 'Months' ? `${v} months` : fmt(v), name]} />
+                  <Tooltip contentStyle={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: 10, boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} formatter={(v: number, name) => [name === 'Months\' ? `${v} months` : fmt(v), name]} />
                   <Legend wrapperStyle={{ fontSize: 12, color: '#374151' }} />
                   <Bar dataKey="balance" name="Balance" fill="#3b82f6" radius={[4, 4, 0, 0]} />
                   <Bar dataKey="totalInterest" name="Total Interest" fill="#ef4444" radius={[4, 4, 0, 0]} />
@@ -144,7 +144,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <h3 className="font-bold text-gray-800 mb-2">Two Proven Debt Payoff Strategies</h3>
               <p>The Debt Avalanche method targets the debt with the highest interest rate first (regardless of balance), then rolls that payment to the next highest rate once paid off. Mathematically optimal - saves the most total interest and is ideal for disciplined, numbers-focused individuals. The Debt Snowball method targets the smallest debt balance first (regardless of interest rate), creating quick wins and psychological momentum. Research by Harvard Business Review shows snowball users pay off debt faster in practice because the psychological wins improve motivation and compliance. Our calculator shows results for both methods so you can choose what fits your personality and situation.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">How Extra Payments Accelerate Debt Freedom</h3>
-              <p>Even small extra payments create dramatic results through the debt payoff snowball. Example: 3 debts - credit card ($1L at 36%), personal loan ($3L at 18%), car loan ($5L at 10%). Total minimum payments = $18,000/month. Paying just $3,000/month extra ($21,000 total) using avalanche method: Saves $1.87 thousands in interest. Becomes debt-free 16 months sooner. The power grows because each paid-off debt frees up its minimum payment to accelerate the next debt, creating an exponential payoff acceleration - the 'snowball' or 'avalanche' rolling effect.</p>
+              <p>Even small extra payments create dramatic results through the debt payoff snowball. Example: 3 debts - credit card ($1L at 36%), personal loan ($3L at 18%), car loan ($5L at 10%). Total minimum payments = $18,000/month. Paying just $3,000/month extra ($21,000 total) using avalanche method: Saves $1.87 thousands in interest. Becomes debt-free 16 months sooner. The power grows because each paid-off debt frees up its minimum payment to accelerate the next debt, creating an exponential payoff acceleration - the 'snowball\' or \'avalanche\' rolling effect.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">High-Interest Debt Priority - Credit Cards vs Personal Loans</h3>

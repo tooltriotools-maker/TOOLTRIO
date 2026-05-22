@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Ovulation Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Ovulation timing is the key variable for both achieving and avoiding pregnancy, yet many people have a surprisingly incomplete understanding of when it actually occurs. The common assumption — that ovulation happens on day 14 of the cycle — is accurate only for women with textbook 28-day cycles, which is less than 15% of women in population research. For someone with a 24-day cycle, ovulation might occur on day 10. For someone with a 35-day cycle, day 21.
 
 The fertile window is wider than most people realize: sperm can survive in the reproductive tract for up to 5 days in favorable cervical mucus conditions, so sex 5 days before ovulation can still result in conception. The egg survives 12-24 hours after ovulation. Combined, this creates a window of roughly 6 days per cycle when pregnancy is possible.

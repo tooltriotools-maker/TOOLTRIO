@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'UV Exposure Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Ultraviolet radiation from sunlight is the primary environmental cause of skin cancer — responsible for roughly 90% of non-melanoma skin cancers and 86% of melanomas — yet it's also the primary driver of vitamin D synthesis, and moderate sun exposure has independent benefits for mood, circadian rhythm, and potentially immune function beyond just vitamin D production. Getting the balance right requires understanding how UV exposure works.
 
 UV radiation comes in two main wavelengths of concern: UVB (280-315nm), which causes sunburn and drives vitamin D synthesis; and UVA (315-400nm), which penetrates year-round regardless of cloud cover, penetrates glass, causes photoaging (wrinkles, age spots), and also contributes to cancer risk.

@@ -13,7 +13,7 @@ interface RelatedLink {
 interface InternalLinksProps {
   links: RelatedLink[]
   title?: string
-  variant?: 'inline' | 'grid' | 'compact'
+  variant?: 'inline\' | \'grid\' | \'compact'
 }
 
 export function InternalLinks({ links, title = 'Related Calculators', variant = 'grid' }: InternalLinksProps) {

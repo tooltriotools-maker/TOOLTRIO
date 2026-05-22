@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Infant Weight & Height Percentile Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Watching a baby grow is one of the most anxiety-inducing experiences of new parenthood, and much of that anxiety centers on a single question: is my baby growing normally? The answer almost never lives in a single weight measurement — it lives in the trajectory of measurements over time, plotted against age-appropriate growth standards. A baby at the 10th percentile who is consistently tracking along that curve is growing normally. A baby who was at the 50th percentile and is now at the 20th over three visits warrants attention.
 
 The WHO Multicentre Growth Reference Study, published in 2006, established growth standards based on healthy breastfed infants in optimal conditions across six countries — representing how children grow when they're growing well. The CDC 2000 growth charts, by contrast, are references based on how American children actually grew in sample surveys. For infants under 2 years, the WHO standards are now preferred clinically.

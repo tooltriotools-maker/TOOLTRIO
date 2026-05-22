@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Posture Assessment Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Posture is more dynamic and modifiable than people often believe, but it's also more consequential than just cosmetic — the structural positions your body spends hours in daily shape the soft tissue adaptations, breathing mechanics, and movement patterns that either support or undermine your long-term musculoskeletal health.
 
 The most prevalent postural pattern in the modern population is upper crossed syndrome: forward head posture, rounded shoulders, and a flattened or exaggerated thoracic kyphosis. This pattern develops from hours of sitting, screen use, and driving with the head projected forward, which lengthens and weakens the deep neck flexors and lower trapezius while shortening and tightening the pectorals and upper trapezius.

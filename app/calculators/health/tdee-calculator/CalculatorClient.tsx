@@ -13,30 +13,30 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(155)
   const [height, setHeight] = useState(67)
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [activity, setActivity] = useState<'sedentary'|'light'|'moderate'|'active'|'very'>('moderate')
-  const [goal, setGoal] = useState<'lose'|'maintain'|'gain'>('maintain')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [activity, setActivity] = useState<'sedentary\'|\'light\'|\'moderate\'|\'active\'|\'very\'>(\'moderate')
+  const [goal, setGoal] = useState<'lose\'|\'maintain\'|\'gain\'>(\'maintain')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial' ? weight*0.453592 : weight
-    const hCm = unit==='imperial' ? height*2.54 : height
+    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const hCm = unit==='imperial\' ? height*2.54 : height
     const bmr = gender==='male'
       ? 10*wKg + 6.25*hCm - 5*age + 5
       : 10*wKg + 6.25*hCm - 5*age - 161
     const mults = {sedentary:1.2,light:1.375,moderate:1.55,active:1.725,very:1.9}
     const tdee = Math.round(bmr * mults[activity])
-    const target = goal==='lose' ? tdee-450 : goal==='gain' ? tdee+300 : tdee
-    const protein = Math.round(wKg * (goal==='lose' ? 2.2 : 1.8))
+    const target = goal==='lose\' ? tdee-450 : goal===\'gain\' ? tdee+300 : tdee
+    const protein = Math.round(wKg * (goal==='lose\' ? 2.2 : 1.8))
     const proteinCal = protein*4
     const fatCal = Math.round(target*0.28)
     const fatG = Math.round(fatCal/9)
     const carbG = Math.round((target - proteinCal - fatCal)/4)
     return { bmr:Math.round(bmr), tdee, target, protein, fatG, carbG,
-      weeklyChange: goal==='lose' ? -0.45 : goal==='gain' ? 0.3 : 0 }
+      weeklyChange: goal==='lose\' ? -0.45 : goal===\'gain\' ? 0.3 : 0 }
   }, [weight,height,age,gender,activity,goal,unit])
 
-  const goalColor = goal==='lose'?'text-blue-600 bg-blue-50 border-blue-200':goal==='gain'?'text-green-600 bg-green-50 border-green-200':'text-purple-600 bg-purple-50 border-purple-200'
+  const goalColor = goal==='lose\'?\'text-blue-600 bg-blue-50 border-blue-200':goal==='gain\'?\'text-green-600 bg-green-50 border-green-200':'text-purple-600 bg-purple-50 border-purple-200'
 
   return (
     <CalculatorLayout title="TDEE Calculator" description="Calculate your Total Daily Energy Expenditure - how many calories your body needs based on your lifestyle and goals." icon="⚡" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={15} max={90} step={1} suffix="yrs" />
             <SelectField label="Activity Level" value={activity} onChange={v=>setActivity(v as any)} options={[{value:'sedentary',label:'Sedentary (desk job)'},{value:'light',label:'Light (1-3x/week)'},{value:'moderate',label:'Moderate (3-5x/week)'},{value:'active',label:'Active (6-7x/week)'},{value:'very',label:'Very Active (2x/day)'}]} />
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
           <div className={`p-5 rounded-xl border-2 text-center ${goalColor}`}>
-            <p className="text-xs font-bold uppercase tracking-wide opacity-70">Target Calories ({goal==='lose'?'Fat Loss':goal==='gain'?'Muscle Gain':'Maintenance'})</p>
+            <p className="text-xs font-bold uppercase tracking-wide opacity-70">Target Calories ({goal==='lose\'?\'Fat Loss':goal==='gain\'?\'Muscle Gain':'Maintenance'})</p>
             <p className="text-5xl font-black my-2">{result.target}</p>
             <p className="text-sm font-semibold">kcal/day - Est. {result.weeklyChange>0?'+':''}{result.weeklyChange} kg/week</p>
           </div>

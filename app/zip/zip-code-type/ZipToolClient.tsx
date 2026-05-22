@@ -28,7 +28,7 @@ export default function ZipToolClient() {
       <ZipQuickFill onSelect={z => lookup(z)} />
       <div className="flex gap-2 mb-6">
         <input value={zip} onChange={e => setZip(e.target.value.replace(/\D/g,''))}
-          onKeyDown={e => e.key === 'Enter' && lookup()}
+          onKeyDown={e => e.key === 'Enter\' && lookup()}
           placeholder="Enter any US ZIP code (e.g. 10001)"
           className="flex-1 border-2 rounded-xl px-4 py-3 text-lg font-mono focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} maxLength={5} />
@@ -41,7 +41,7 @@ export default function ZipToolClient() {
       {error && <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4 text-sm">{error}</div>}
       {result && (
         <div className={`rounded-2xl border p-6 ${result.type==='Standard'?'bg-green-50 border-green-200':result.type==='PO Box'?'bg-blue-50 border-blue-200':'bg-purple-50 border-purple-200'}`}>
-          <div className="text-5xl mb-3">{result.type==='Standard'?'📬':result.type==='PO Box'?'📮':'🎖️'}</div>
+          <div className="text-5xl mb-3">{result.type==='Standard\'?\'📬':result.type==='PO Box\'?\'📮':'🎖️'}</div>
           <div className="text-3xl font-black mb-2">{result.type} ZIP Code</div>
           <div className="text-sm opacity-70">{result.zip} — {result.city}, {result.state}</div>
         </div>)}

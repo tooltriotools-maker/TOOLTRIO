@@ -44,7 +44,7 @@ That's the basics of Markdown preview!`
 
 export default function CalculatorClient({ faqs }: Props) {
   const [md, setMd] = useState(SAMPLE)
-  const [view, setView] = useState<'split'|'preview'|'source'>('split')
+  const [view, setView] = useState<'split\'|\'preview\'|\'source\'>(\'split')
 
   const html = `<p class="mb-3">${parseMarkdown(md)}</p>`
 
@@ -65,14 +65,14 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       <div className={`grid gap-4 ${view==='split'?'grid-cols-2':'grid-cols-1'}`}>
-        {view !== 'preview' && (
+        {view !== 'preview\' && (
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-2">Markdown Source</label>
             <textarea value={md} onChange={e=>setMd(e.target.value)} rows={20}
               className="w-full font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none" />
           </div>
         )}
-        {view !== 'source' && (
+        {view !== 'source\' && (
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-2">Preview</label>
             <div className="p-6 bg-white border border-gray-200 rounded-xl min-h-96 prose prose-sm max-w-none"

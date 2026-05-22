@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'HIIT Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `High-intensity interval training produces disproportionately large cardiovascular and metabolic adaptations relative to the time invested. A 2019 meta-analysis in the British Journal of Sports Medicine found that HIIT produced comparable improvements in VO2 max to moderate-intensity continuous training in roughly half the weekly time. The physiological explanation involves greater activation of mitochondrial biogenesis pathways, more significant glycogen depletion creating stronger adaptation signals, and the afterburn effect (EPOC) that elevates metabolism for hours after the session ends.
 
 The practical downside of HIIT is that true high-intensity work is demanding enough that most people can only handle 2-3 sessions per week before cumulative fatigue impairs recovery. What most people call HIIT at commercial gyms is often moderate-intensity interval training — effective, but not capturing the full adaptations of true maximal effort intervals.

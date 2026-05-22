@@ -10,7 +10,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
-  const [protocol, setProtocol] = useState<'16:8'|'18:6'|'20:4'|'14:10'|'12:12'>('16:8')
+  const [protocol, setProtocol] = useState<'16:8\'|\'18:6\'|\'20:4\'|\'14:10\'|\'12:12\'>(\'16:8')
   const [firstMeal, setFirstMeal] = useState(12)
   const [sleepTime, setSleepTime] = useState(23)
   const [wakeTime, setWakeTime] = useState(7)

@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     setNextId(nextId + 1)
   }
   const removeEntry = (id: number) => setEntries(entries.filter(e => e.id !== id))
-  const updateEntry = (id: number, field: 'date' | 'amount', value: string | number) =>
+  const updateEntry = (id: number, field: 'date\' | \'amount', value: string | number) =>
     setEntries(entries.map(e => e.id === id ? { ...e, [field]: value } : e))
 
   const totalInvested = entries.filter(e => e.amount < 0).reduce((s, e) => s + Math.abs(e.amount), 0)

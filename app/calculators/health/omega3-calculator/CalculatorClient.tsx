@@ -12,10 +12,10 @@ const SOURCES = [{n:'Salmon (100g)',mg:2260},{n:'Mackerel (100g)',mg:4580},{n:'S
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
   const [heartRisk, setHeartRisk] = useState(false)
 
-  const base = gender==='male' ? 1600 : 1100
+  const base = gender==='male\' ? 1600 : 1100
   const rdi = heartRisk ? 2000 : base
 
   return (

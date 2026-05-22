@@ -10,14 +10,14 @@ function parseCron(expr: string): string {
   const parts = expr.trim().split(/\s+/)
   if (parts.length < 5 || parts.length > 6) return 'Invalid cron expression (need 5 or 6 parts)'
   const [min, hour, dom, month, dow] = parts.slice(-5)
-  const fmtMin = min === '*' ? 'every minute' : `at minute ${min}`
-  const fmtHour = hour === '*' ? 'every hour' : `at hour ${hour}`
+  const fmtMin = min === '*\' ? \'every minute' : `at minute ${min}`
+  const fmtHour = hour === '*\' ? \'every hour' : `at hour ${hour}`
   const months = ['','January','February','March','April','May','June','July','August','September','October','November','December']
   const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
-  const fmtMonth = month === '*' ? 'every month' : months[+month] || `month ${month}`
-  const fmtDow = dow === '*' ? 'every day of week' : days[+dow] || `day ${dow}`
-  const fmtDom = dom === '*' ? 'every day of month' : `day ${dom} of month`
-  if (min === '*' && hour === '*') return `Every minute, ${fmtDom}, ${fmtMonth}, ${fmtDow}`
+  const fmtMonth = month === '*\' ? \'every month' : months[+month] || `month ${month}`
+  const fmtDow = dow === '*\' ? \'every day of week' : days[+dow] || `day ${dow}`
+  const fmtDom = dom === '*\' ? \'every day of month' : `day ${dom} of month`
+  if (min === '*\' && hour === \'*') return `Every minute, ${fmtDom}, ${fmtMonth}, ${fmtDow}`
   if (hour === '*') return `${fmtMin} of every hour, ${fmtDom}, ${fmtMonth}, ${fmtDow}`
   return `At ${hour.padStart(2,'0')}:${min.padStart(2,'0')}, ${fmtDom}, ${fmtMonth}, ${fmtDow}`
 }

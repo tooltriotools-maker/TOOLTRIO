@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Creatinine Clearance Calculator',
-  category: 'health' as const,
+  category: 'health\' as const,
   intro: `Creatinine clearance is a measure of kidney filtration efficiency — specifically, how well your kidneys are removing creatinine (a waste product from muscle metabolism) from your blood. When kidneys function normally, they clear creatinine efficiently and blood levels stay low. When kidney function declines, creatinine accumulates. Measuring how much creatinine the kidneys clear per minute gives clinicians a practical window into overall glomerular filtration rate (GFR).
 
 This matters because many medications are cleared by the kidneys, and dosing must be adjusted for people with reduced kidney function to avoid toxicity. The Cockcroft-Gault equation — the standard formula used in clinical pharmacology for 50 years — estimates creatinine clearance from serum creatinine, age, body weight, and sex. Normal creatinine clearance is roughly 90-130 mL/min for adults, declining gradually with age.

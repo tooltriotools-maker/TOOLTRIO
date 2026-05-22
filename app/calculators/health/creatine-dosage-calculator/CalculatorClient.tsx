@@ -11,22 +11,22 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [weight, setWeight] = useState(165)
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
-  const [phase, setPhase] = useState<'loading'|'maintenance'|'no-load'>('maintenance')
-  const [goal, setGoal] = useState<'strength'|'endurance'|'general'>('strength')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [phase, setPhase] = useState<'loading\'|\'maintenance\'|\'no-load\'>(\'maintenance')
+  const [goal, setGoal] = useState<'strength\'|\'endurance\'|\'general\'>(\'strength')
 
   const result = useMemo(() => {
-    const wKg = unit === 'imperial' ? weight * 0.453592 : weight
+    const wKg = unit === 'imperial\' ? weight * 0.453592 : weight
     const mainDose = Math.round(wKg * 0.06) // 0.06g/kg
     const loadDose = Math.round(wKg * 0.3)  // 0.3g/kg
     const loadPerMeal = Math.round(loadDose / 4)
-    const saturateDays = phase === 'loading' ? 5 : 28
-    const costPerDay = phase === 'loading' ? (loadDose * 0.015).toFixed(2) : (mainDose * 0.015).toFixed(2)
-    const timing = goal === 'strength' ? 'Post-workout with carbs + protein (best uptake)' : 'Any time consistently - timing matters less than consistency'
+    const saturateDays = phase === 'loading\' ? 5 : 28
+    const costPerDay = phase === 'loading\' ? (loadDose * 0.015).toFixed(2) : (mainDose * 0.015).toFixed(2)
+    const timing = goal === 'strength\' ? \'Post-workout with carbs + protein (best uptake)' : 'Any time consistently - timing matters less than consistency'
     const tips = [
       'Creatine monohydrate is the gold standard - avoid expensive alternatives',
       'Take with carbohydrates to spike insulin (improves uptake)',
-      phase === 'loading' ? 'Split loading dose across 4 meals to avoid GI discomfort' : 'Daily consistency matters more than timing',
+      phase === 'loading\' ? \'Split loading dose across 4 meals to avoid GI discomfort' : 'Daily consistency matters more than timing',
       'Ensure adequate hydration - creatine draws water into muscles',
       'Results visible in 2-4 weeks (strength), 1-2 weeks (loading saturated)',
     ]
@@ -40,14 +40,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Creatine Plan</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={`Body weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Body weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
             <SelectField label="Protocol" value={phase} onChange={v=>setPhase(v as any)} options={[{value:'loading',label:'Loading phase (5-7 days)'},{value:'maintenance',label:'Maintenance (ongoing)'},{value:'no-load',label:'Skip loading (gradual)'}]} />
             <SelectField label="Primary goal" value={goal} onChange={v=>setGoal(v as any)} options={[{value:'strength',label:'Strength & Power'},{value:'endurance',label:'Endurance'},{value:'general',label:'General health'}]} />
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            {phase === 'loading' ? <>
+            {phase === 'loading\' ? <>
               <div className="p-5 bg-red-50 rounded-2xl border-2 border-red-200 text-center">
                 <p className="text-xs font-bold text-red-600 uppercase">Loading Dose (x5 days)</p>
                 <p className="text-4xl font-black text-red-700 my-1">{result.loadDose}g/day</p>

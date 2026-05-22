@@ -8,9 +8,9 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [fileSize, setFileSize] = useState(100)
-  const [fileSizeUnit, setFileSizeUnit] = useState<'MB'|'GB'|'KB'>('MB')
+  const [fileSizeUnit, setFileSizeUnit] = useState<'MB\'|\'GB\'|\'KB\'>(\'MB')
   const [bandwidth, setBandwidth] = useState(100)
-  const [bwUnit, setBwUnit] = useState<'Mbps'|'Gbps'|'Kbps'>('Mbps')
+  const [bwUnit, setBwUnit] = useState<'Mbps\'|\'Gbps\'|\'Kbps\'>(\'Mbps')
 
   const toMB = {'KB':0.001,'MB':1,'GB':1000}
   const toMbps = {'Kbps':0.001,'Mbps':1,'Gbps':1000}
@@ -28,16 +28,16 @@ export default function CalculatorClient({ faqs }: Props) {
   }
 
 const PRESETS = [
-  { l: '1 song (5MB)', sz: 5, u: 'MB' as const },
-  { l: 'HD movie (4GB)', sz: 4, u: 'GB' as const },
-  { l: '4K movie (40GB)', sz: 40, u: 'GB' as const },
-  { l: '1GB backup', sz: 1, u: 'GB' as const }
+  { l: '1 song (5MB)', sz: 5, u: 'MB\' as const },
+  { l: 'HD movie (4GB)', sz: 4, u: 'GB\' as const },
+  { l: '4K movie (40GB)', sz: 40, u: 'GB\' as const },
+  { l: '1GB backup', sz: 1, u: 'GB\' as const }
 ]
 
 const BWPRESETS = [
-  { l: 'Home fibre 100Mbps', bw: 100, u: 'Mbps' as const },
-  { l: '5G ~300Mbps', bw: 300, u: 'Mbps' as const },
-  { l: 'USB 3.0 5Gbps', bw: 5, u: 'Gbps' as const }
+  { l: 'Home fibre 100Mbps', bw: 100, u: 'Mbps\' as const },
+  { l: '5G ~300Mbps', bw: 300, u: 'Mbps\' as const },
+  { l: 'USB 3.0 5Gbps', bw: 5, u: 'Gbps\' as const }
 ]
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">

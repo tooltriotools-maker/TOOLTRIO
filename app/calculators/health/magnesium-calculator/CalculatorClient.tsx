@@ -12,12 +12,12 @@ const FOODS = [{n:'Pumpkin seeds (30g)',mg:156},{n:'Dark chocolate (30g)',mg:64}
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male'|'female'>('male')
-  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
   const [weight, setWeight] = useState(165)
   const [active, setActive] = useState(false)
 
-  const base = gender==='male'?(age>=31?420:400):(age>=31?320:310)
+  const base = gender==='male\'?(age>=31?420:400):(age>=31?320:310)
   const rdi = active ? Math.round(base * 1.15) : base
   const perKg = (rdi/weight).toFixed(1)
 
@@ -34,12 +34,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial' ? '🇺🇸 lbs / in' : '🌍 kg / cm'}
+                  {u === 'imperial\' ? \'🇺🇸 lbs / in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
 
-            <InputField label={unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial' ? 66 : 30} max={unit === 'imperial' ? 550 : 250} step={unit === 'imperial' ? 1 : 0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
+            <InputField label={unit === 'imperial\' ? \'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 66 : 30} max={unit === \'imperial\' ? 550 : 250} step={unit === \'imperial\' ? 1 : 0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
             <label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={active} onChange={e=>setActive(e.target.checked)} className="accent-rose-500"/><span>Physically active (exercise 5+ days/week)</span></label>
           </div>
         </Card>

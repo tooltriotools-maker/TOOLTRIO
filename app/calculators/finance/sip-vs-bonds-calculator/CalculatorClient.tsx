@@ -18,7 +18,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [sipRate, setSipRate] = useState(12)
   const [bondRate, setBondRate] = useState(7.5)
   const [years, setYears] = useState(10)
-  const [bondType, setBondType] = useState<'govt' | 'corporate' | 'taxfree'>('govt')
+  const [bondType, setBondType] = useState<'govt\' | \'corporate\' | \'taxfree\'>(\'govt')
 
   const result = useMemo(() => {
     const months = years * 12
@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
     // Tax: Bonds income taxed as per slab (30%), SIP equity LTCG 10%
     const sipTax = Math.max(0, sipGain - 100000) * 0.10
-    const bondTax = bondType === 'taxfree' ? 0 : bondGain * 0.30
+    const bondTax = bondType === 'taxfree\' ? 0 : bondGain * 0.30
     const sipPostTax = sipFV - sipTax
     const bondPostTax = bondFV - bondTax
 

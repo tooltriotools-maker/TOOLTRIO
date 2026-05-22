@@ -39,9 +39,9 @@ export default function CompoundCalculatorClient({ faqs, structuredData, related
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Investment Details</h2>
           <div className="space-y-5">
             <InputField label={`Principal Amount (${currency.symbol})`} value={principal} onChange={setPrincipal}
-              min={currency.code === 'INR' ? 1000 : 100}
-              max={currency.code === 'INR' ? 10000000 : 1000000}
-              step={currency.code === 'INR' ? 1000 : 100}
+              min={currency.code === 'INR\' ? 1000 : 100}
+              max={currency.code === 'INR\' ? 10000000 : 1000000}
+              step={currency.code === 'INR\' ? 1000 : 100}
               prefix={currency.symbol}
             />
             <InputField label="Annual Interest Rate" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%" />
@@ -132,7 +132,7 @@ export default function CompoundCalculatorClient({ faqs, structuredData, related
               <h3 className="font-bold text-gray-800 mb-2">The Rule of 72 - Compound Interest Made Intuitive</h3>
               <p>The Rule of 72 is the fastest way to estimate doubling time: Years to double = 72 / Annual Return Rate. At 6% (savings account): doubles in 12 years. At 8% (FD): doubles in 9 years. At 12% (equity MF): doubles in 6 years. At 18% (small-cap MF): doubles in 4 years. At 24% (credit card interest): your debt doubles in 3 years! This rule has two profound implications: (1) For investors: every percentage point increase in return reduces doubling time significantly. (2) For borrowers: high-interest debt compounds frighteningly fast. The same mathematics working for your investments works against you on credit card debt - which is why paying 36% credit card interest destroys wealth while 12% equity investing creates it.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Compound Interest - Start Age vs Start Amount</h3>
-              <p>Starting age matters more than starting amount in compounding. Compare two investors: Riya invests $5,000/month from age 25 to 35 (10 years only), then stops. Total invested: $6 thousands. Rahul invests $5,000/month from age 35 to 60 (25 years). Total invested: $15 thousands. At 60, both earning 12% CAGR: Riya's corpus: $1.81 millions. Rahul\'s corpus: $94.88 thousands. Riya invested $9 thousands less but has $86 thousands MORE - because she started 10 years earlier! Those 10 early years compound for an extra 25 years while Rahul\'s money has less time to grow. This is the most powerful illustration of why 'start now, start small' beats 'start big, start later' in every financial planning scenario.</p>
+              <p>Starting age matters more than starting amount in compounding. Compare two investors: Riya invests $5,000/month from age 25 to 35 (10 years only), then stops. Total invested: $6 thousands. Rahul invests $5,000/month from age 35 to 60 (25 years). Total invested: $15 thousands. At 60, both earning 12% CAGR: Riya's corpus: $1.81 millions. Rahul\'s corpus: $94.88 thousands. Riya invested $9 thousands less but has $86 thousands MORE - because she started 10 years earlier! Those 10 early years compound for an extra 25 years while Rahul\'s money has less time to grow. This is the most powerful illustration of why \'start now, start small\' beats \'start big, start later\' in every financial planning scenario.</p>
             </div>
           </div>
         </Card>
