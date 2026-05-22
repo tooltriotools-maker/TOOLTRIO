@@ -6,6 +6,17 @@ const OG_IMAGE = `${BASE_URL}/og-image.png`
 
 // Core keywords on EVERY page
 const CORE_KEYWORDS = [
+  // ── TOOLTRIO Brand Keywords ──────────────────────────────────────────────
+  'tooltrio', 'tooltrio.com', 'tool trio', 'trio tools', 'tooltrio tools',
+  'tooltrio free', 'tooltrio calculator', 'tooltrio zip code', 'zip code tooltrio',
+  'tooltrio zipcode', 'tooltrio zip tool', 'tooltrio zip lookup',
+  'tooltrio address tool', 'tooltrio postal code', 'tooltrio free tools',
+  'free tools tooltrio', 'best free tools tooltrio', 'tooltrio online tools',
+  'tooltrio utility', 'tooltrio no signup', 'tooltrio instant results',
+  'tool trio online', 'trio tools free', 'tooltrio finance', 'tooltrio health',
+  'tooltrio developer tools', 'tooltrio calculators', 'tooltrio no login',
+  'tooltrio free calculator', 'tooltrio suite', 'tooltrio website',
+
   'calculator', 'online calculator', 'free calculator', 'calculator free',
   'free online calculator', 'calculators', 'calculator online',
   'free calculator no signup', 'instant calculator results',

@@ -54,6 +54,14 @@ export const metadata: Metadata = {
     'steps to calories',
 
     'tooltrio.com',
+    // TOOLTRIO Brand Keywords
+    'tooltrio', 'tool trio', 'trio tools', 'tooltrio.com', 'tooltrio tools',
+    'tooltrio free', 'tooltrio calculator', 'tooltrio zip code', 'zip code tooltrio',
+    'tooltrio zipcode tool', 'tooltrio free tools', 'tooltrio no signup',
+    'tooltrio instant results', 'tooltrio online', 'tooltrio utilities',
+    'tooltrio address tool', 'tooltrio postal tool', 'tooltrio zip lookup',
+    'free tools tooltrio', 'tooltrio finance tools', 'tooltrio health tools',
+
   ],
 
   authors: [{ name: 'tooltrio Team', url: 'https://tooltrio.com' }],
@@ -121,7 +129,7 @@ const organizationSchema = {
   url: 'https://tooltrio.com',
   logo: 'https://tooltrio.com/logo.png',
   description:
-    'Free online finance and health calculators for Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
+    'TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) — Free online finance, health, ZIP code, and developer tools. 400+ free calculators and utilities. No signup required. tooltrio.com',
   email: 'tooltrio1610@gmail.com',
   foundingDate: '2026',
   sameAs: [],
@@ -135,7 +143,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'tooltrio.com',
-  alternateName: ['Finance Calculator', 'Free Online Calculator', 'tooltrio'],
+  alternateName: ['TOOLTRIO', 'Tool Trio', 'ToolTrio', 'Trio Tools', 'tooltrio.com', 'Free Online Calculator', 'ZIP Code Lookup Tool'],
   url: 'https://tooltrio.com',
   description:
     'Free online finance calculators -- mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
@@ -154,7 +162,7 @@ const websiteSchema = {
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'tooltrio.com - Free Online Calculators',
+  name: 'TOOLTRIO (tooltrio.com) — Free Online Calculators & ZIP Code Tools',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Any',
 
@@ -165,7 +173,7 @@ const softwareSchema = {
   },
 
   description:
-    'Free online finance and health calculators. Mortgage, 401k, compound interest, BMI, TDEE and 400+ calculators. No signup required.',
+    'TOOLTRIO (also Tool Trio, ToolTrio, Trio Tools) — Free finance, health, ZIP code, and developer tools. 400+ utilities at tooltrio.com. No signup required.',
 
   featureList: [
     'Mortgage Calculator with taxes and insurance',
@@ -176,6 +184,9 @@ const softwareSchema = {
     'Instant real-time results',
     'Mobile-friendly on all devices',
     'Complete privacy - no data stored',
+    'ZIP code lookup and US postal tools',
+    'Developer tools and utilities',
+    'Also known as Tool Trio, ToolTrio, Trio Tools',
   ],
 }
 

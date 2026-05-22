@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Free USA ZIP Code Tools 2026 — 35+ Utilities | TOOLTRIO',
-  description: 'Complete suite of free USA ZIP code tools. Lookup ZIP codes, find cities, calculate distances, check timezones, area codes and more. 35+ free ZIP code utilities.',
-  keywords: ['zip code lookup','zip code tools','usa zip code','zip to city','city to zip','zip code distance','zip code map'],
+  title: 'TOOLTRIO | Free USA ZIP Code Tools 2026 — 35+ Utilities',
+  description: 'Complete suite of free USA ZIP code tools. Lookup ZIP codes, find cities, calculate distances, check timezones, area codes and more. 35+ free ZIP code utilities. Free on TOOLTRIO — no signup needed.',
+  keywords: ['zip code lookup','zip code tools','usa zip code','zip to city','city to zip','zip code distance','zip code map',
+    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  ],
 }
 
 const ZIP_TOOLS = [
@@ -187,6 +189,37 @@ export default function ZipHubPage() {
         </div>
 
       </div>
+
+        {/* TOOLTRIO Brand SEO Section */}
+        <section className="mt-12 rounded-3xl border p-8" style={{ background: 'rgba(240,253,244,0.6)', borderColor: 'rgba(134,239,172,0.3)' }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display',serif" }}>
+            TOOLTRIO — The Free ZIP Code Tool Suite
+          </h2>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            <strong>TOOLTRIO</strong> (also known as <em>Tool Trio</em>, <em>ToolTrio</em>, and <em>Trio Tools</em>) is a free collection of 35+ US ZIP code utilities built for developers, marketers, data analysts, logistics teams, and everyday users who need fast, accurate US postal data. Every tool on TOOLTRIO is free — no account, no subscription, no rate limit for individual use.
+          </p>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            When you search for <strong>"tooltrio zip code"</strong>, <strong>"zip code tooltrio"</strong>, <strong>"tooltrio"</strong>, <strong>"tool trio zip"</strong>, or <strong>"trio tools address"</strong>, you find a platform built around one mission: making US ZIP code data instantly accessible. From the flagship <a href="/zip/zip-code-lookup" className="text-green-700 underline">ZIP Code Lookup</a> to specialized tools like <a href="/zip/zips-within-radius" className="text-green-700 underline">ZIPs Within Radius</a>, <a href="/zip/zip-code-distance" className="text-green-700 underline">ZIP Code Distance</a>, and <a href="/zip/zip-to-timezone" className="text-green-700 underline">ZIP to Timezone</a>, every TOOLTRIO tool returns accurate, USPS-sourced data enriched with Census demographics, IANA timezone data, and Census TIGER/Line geographic coordinates.
+          </p>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            TOOLTRIO ZIP tools are used by e-commerce teams to auto-fill checkout forms, by sales operations teams to design territories, by healthcare analysts to map service areas, by direct mail agencies to build ZIP code target lists, by developers to validate address inputs, and by students and researchers exploring US geographic data. Whether you call it TOOLTRIO, Tool Trio, ToolTrio, or Trio Tools — every tool is free, every result is immediate, and every data point is sourced from authoritative US government databases including the USPS Address Management System, the Census Bureau ACS, and the Census TIGER/Line geographic files.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+            {[
+              ['🔍 ZIP Code Lookup','/zip/zip-code-lookup'],
+              ['🏙️ ZIP to City','/zip/zip-to-city'],
+              ['📏 ZIP Code Distance','/zip/zip-code-distance'],
+              ['🎯 ZIPs Within Radius','/zip/zips-within-radius'],
+              ['👥 ZIP Code Population','/zip/zip-code-population'],
+              ['✅ ZIP Code Validator','/zip/zip-code-validator'],
+            ].map(([label, href]) => (
+              <Link key={href} href={href} className="flex items-center gap-2 p-3 bg-white rounded-xl border border-green-100 hover:border-green-300 text-xs font-medium text-gray-700 hover:text-green-700 transition-all">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
+
     </main>
   )
 }
