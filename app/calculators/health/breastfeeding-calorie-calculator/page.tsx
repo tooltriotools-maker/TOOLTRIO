@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Breastfeeding Calorie Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Breastfeeding burns more calories than most new mothers expect — roughly 400-500 extra calories per day for exclusive breastfeeding, depending on milk production volume. For context, that's approximately the caloric equivalent of running 4 miles. The energy goes directly into milk synthesis: breast milk contains about 20 calories per ounce, and most mothers produce 25-35 ounces per day for a fully breastfed newborn.
 
 The challenge is that caloric needs during breastfeeding are highly individual. Milk production volume varies, activity levels change significantly postpartum, and body fat stores accumulated during pregnancy are designed to partially offset the caloric demands of lactation. Eating too little while breastfeeding can reduce milk supply, leave you exhausted, and slow postpartum recovery. Eating too much can make postpartum weight management harder.

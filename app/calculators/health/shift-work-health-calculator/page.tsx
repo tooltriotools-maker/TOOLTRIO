@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Shift Work Health Risk Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Shift work — particularly night shift and rotating shift patterns — imposes a physiological cost that's independent of sleep quantity. The problem isn't just sleep loss; it's circadian misalignment: the conflict between your body's internal biological clock and the external demands on when you sleep, eat, and are active.
 
 The epidemiology is sobering. Shift workers have significantly elevated risks compared to day workers: type 2 diabetes (15-40% higher risk), cardiovascular disease (23-40% higher risk), metabolic syndrome, obesity, certain cancers, depression, and anxiety. Rotating shift workers fare worse than permanent night shift workers because rotating schedules prevent any adaptation to a consistent sleep/wake timing.

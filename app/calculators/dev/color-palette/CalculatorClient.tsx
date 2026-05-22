@@ -163,7 +163,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-bold text-gray-900">{HARMONY_TYPES.find(h=>h.id===harmonyType)?.label} Palette</h2>
           <button onClick={copyAll} className="flex items-center gap-1.5 text-xs font-bold text-purple-600 border border-purple-200 px-3 py-1.5 rounded-xl hover:bg-purple-50">
-            {copied==='all\'?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy as CSS
+            {copied==='all'?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy as CSS
           </button>
         </div>
         <div className="grid grid-cols-5 gap-3">

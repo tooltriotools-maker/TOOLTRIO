@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Magnesium Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Magnesium is involved in over 300 enzymatic reactions in the human body, including ATP production, DNA synthesis, protein synthesis, nerve signal transmission, and muscle contraction. Despite this central role, roughly 50% of Americans consume less than the Estimated Average Requirement, and up to 20% are estimated to be genuinely deficient — often without knowing it, because standard serum magnesium tests are poor at detecting deficiency (less than 1% of magnesium is in the blood; the rest is in bones and cells).
 
 The consequences of inadequate magnesium are diffuse and easily attributed to other causes: muscle cramps, poor sleep, anxiety, fatigue, headaches, constipation, and irregular heartbeat. Chronic low magnesium is associated with higher rates of hypertension, type 2 diabetes, cardiovascular disease, and osteoporosis in population studies.

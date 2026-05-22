@@ -50,7 +50,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Steps Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Steps are the most accessible measure of daily physical activity — yet converting step counts into meaningful health metrics (distance, calories, and health impact) requires knowing your personal stride length and body weight. This calculator does the complete conversion.
 
 Enter your step count, height, weight, and walking speed to instantly see how far you walked, how many calories you burned, and how your activity compares to evidence-based physical activity guidelines. The reverse mode lets you enter a calorie or distance goal to find the step count needed to reach it.

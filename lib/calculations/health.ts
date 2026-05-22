@@ -17,7 +17,7 @@ export function calculateBMI(weightKg: number, heightCm: number) {
 }
 
 /** BMR Calculator (Mifflin-St Jeor) */
-export function calculateBMR(weightKg: number, heightCm: number, age: number, gender: 'male\' | \'female') {
+export function calculateBMR(weightKg: number, heightCm: number, age: number, gender: 'male' | 'female') {
   const bmr = gender === 'male'
     ? 10 * weightKg + 6.25 * heightCm - 5 * age + 5
     : 10 * weightKg + 6.25 * heightCm - 5 * age - 161
@@ -32,7 +32,7 @@ export function calculateBMR(weightKg: number, heightCm: number, age: number, ge
 }
 
 /** Calorie Calculator */
-export function calculateCalories(weightKg: number, heightCm: number, age: number, gender: 'male\' | \'female', activityLevel: number, goal: 'loss\' | \'maintain\' | \'gain') {
+export function calculateCalories(weightKg: number, heightCm: number, age: number, gender: 'male' | 'female', activityLevel: number, goal: 'loss' | 'maintain' | 'gain') {
   const bmrData = calculateBMR(weightKg, heightCm, age, gender)
   const tdee = bmrData.bmr * activityLevel
   return {
@@ -51,7 +51,7 @@ export function calculateCalories(weightKg: number, heightCm: number, age: numbe
 }
 
 /** Body Fat Calculator (US Navy Method) */
-export function calculateBodyFat(gender: 'male\' | \'female', weightKg: number, heightCm: number, waistCm: number, neckCm: number, hipCm?: number) {
+export function calculateBodyFat(gender: 'male' | 'female', weightKg: number, heightCm: number, waistCm: number, neckCm: number, hipCm?: number) {
   let bodyFat = 0
   if (gender === 'male') {
     bodyFat = 495 / (1.0324 - 0.19077 * Math.log10(waistCm - neckCm) + 0.15456 * Math.log10(heightCm)) - 450
@@ -79,12 +79,12 @@ export function calculateBodyFat(gender: 'male\' | \'female', weightKg: number, 
 }
 
 /** Ideal Weight Calculator */
-export function calculateIdealWeight(heightCm: number, gender: 'male\' | \'female', age: number) {
+export function calculateIdealWeight(heightCm: number, gender: 'male' | 'female', age: number) {
   const heightIn = heightCm / 2.54
-  const basePound = gender === 'male\' ? 106 : 100
+  const basePound = gender === 'male' ? 106 : 100
   const hamwiKg = (basePound + 6 * (heightIn - 60)) * 0.453592
-  const robinsonKg = gender === 'male\' ? 52 + 1.9 * (heightIn - 60) : 49 + 1.7 * (heightIn - 60)
-  const millerKg = gender === 'male\' ? 56.2 + 1.41 * (heightIn - 60) : 53.1 + 1.36 * (heightIn - 60)
+  const robinsonKg = gender === 'male' ? 52 + 1.9 * (heightIn - 60) : 49 + 1.7 * (heightIn - 60)
+  const millerKg = gender === 'male' ? 56.2 + 1.41 * (heightIn - 60) : 53.1 + 1.36 * (heightIn - 60)
   const bmiMin = 18.5 * Math.pow(heightCm / 100, 2)
   const bmiMax = 24.9 * Math.pow(heightCm / 100, 2)
   return {
@@ -98,17 +98,17 @@ export function calculateIdealWeight(heightCm: number, gender: 'male\' | \'femal
 }
 
 /** Water Intake Calculator */
-export function calculateWaterIntake(weightKg: number, activityMinutes: number, climate: 'temperate\' | \'hot\' | \'cold') {
+export function calculateWaterIntake(weightKg: number, activityMinutes: number, climate: 'temperate' | 'hot' | 'cold') {
   const baseIntakeMl = weightKg * 35
   const activityExtra = activityMinutes * 5
-  const climateMultiplier = climate === 'hot\' ? 1.2 : climate === \'cold\' ? 0.9 : 1
+  const climateMultiplier = climate === 'hot' ? 1.2 : climate === 'cold' ? 0.9 : 1
   const totalMl = (baseIntakeMl + activityExtra) * climateMultiplier
   const glasses = totalMl / 240
   return { totalMl: Math.round(totalMl), totalLiters: parseFloat((totalMl / 1000).toFixed(1)), glasses: parseFloat(glasses.toFixed(1)), baseIntakeMl: Math.round(baseIntakeMl), activityExtra: Math.round(activityExtra) }
 }
 
 /** Protein Intake Calculator */
-export function calculateProteinIntake(weightKg: number, activityLevel: 'sedentary\' | \'light\' | \'moderate\' | \'active\' | \'athlete', goal: 'maintain\' | \'build\' | \'lose') {
+export function calculateProteinIntake(weightKg: number, activityLevel: 'sedentary' | 'light' | 'moderate' | 'active' | 'athlete', goal: 'maintain' | 'build' | 'lose') {
   const multipliers: Record<string, number> = { sedentary: 0.8, light: 1.0, moderate: 1.2, active: 1.4, athlete: 1.7 }
   const goalMultipliers: Record<string, number> = { maintain: 1, build: 1.3, lose: 1.2 }
   const baseProtein = weightKg * multipliers[activityLevel] * goalMultipliers[goal]
@@ -149,15 +149,15 @@ export function calculateOvulation(lastPeriodDate: Date, cycleLength: number) {
 }
 
 /** Sleep Cycle Calculator */
-export function calculateSleepCycle(bedtime: string, wakeGoal: 'wake\' | \'bed') {
+export function calculateSleepCycle(bedtime: string, wakeGoal: 'wake' | 'bed') {
   const [h, m] = bedtime.split(':').map(Number)
   const fallAsleepMinutes = 14
   const cycleMinutes = 90
   const results = []
   for (let cycles = 4; cycles <= 6; cycles++) {
-    const totalMinutes = cycles * cycleMinutes + (wakeGoal === 'wake\' ? fallAsleepMinutes : 0)
-    const targetH = h + Math.floor((m + (wakeGoal === 'wake\' ? totalMinutes : -totalMinutes)) / 60)
-    const targetM = (m + (wakeGoal === 'wake\' ? totalMinutes : -totalMinutes)) % 60
+    const totalMinutes = cycles * cycleMinutes + (wakeGoal === 'wake' ? fallAsleepMinutes : 0)
+    const targetH = h + Math.floor((m + (wakeGoal === 'wake' ? totalMinutes : -totalMinutes)) / 60)
+    const targetM = (m + (wakeGoal === 'wake' ? totalMinutes : -totalMinutes)) % 60
     const adjustedH = ((targetH % 24) + 24) % 24
     const adjustedM = ((targetM % 60) + 60) % 60
     results.push({

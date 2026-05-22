@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Heart Attack Risk Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Heart attacks don't happen randomly. They are the end result of decades of gradual arterial change — atherosclerotic plaque building up in coronary artery walls, eventually rupturing and triggering the blood clot that blocks blood flow to heart muscle. Most major cardiovascular events in people under 65 are preventable, and the risk factors that drive them are measurable, trackable, and largely modifiable starting decades before an event would occur.
 
 The Framingham Risk Score and ACC/AHA Pooled Cohort equations estimate 10-year risk of a major cardiovascular event (heart attack, stroke, or cardiovascular death) from a handful of inputs: age, sex, blood pressure, cholesterol levels, diabetes status, and smoking. These models have been validated in populations of millions and are the basis for clinical guidelines on when to initiate statin therapy, blood pressure medication, and aspirin.

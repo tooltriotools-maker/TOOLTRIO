@@ -11,14 +11,14 @@ const FIRST_F = ['Emma','Olivia','Ava','Sophia','Isabella','Mia','Charlotte','Am
 const LAST = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Martinez','Wilson','Anderson','Taylor','Thomas','Moore','Jackson','White','Harris','Martin','Thompson','Young']
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [gender, setGender] = useState<'male\'|\'female\'|\'any\'>(\'any')
+  const [gender, setGender] = useState<'male'|'female'|'any'>('any')
   const [count, setCount] = useState(8)
   const [names, setNames] = useState<string[]>([])
   const [copied, setCopied] = useState<string|null>(null)
 
   const rand = <T,>(a:T[])=>a[Math.floor(Math.random()*a.length)]
   const generate = () => {
-    const firsts = gender==='male\' ? FIRST_M : gender===\'female\' ? FIRST_F : [...FIRST_M,...FIRST_F]
+    const firsts = gender==='male' ? FIRST_M : gender==='female' ? FIRST_F : [...FIRST_M,...FIRST_F]
     setNames(Array.from({length:count}, ()=>`${rand(firsts)} ${rand(LAST)}`))
   }
   const copy = (n:string) => { navigator.clipboard.writeText(n); setCopied(n); setTimeout(()=>setCopied(null),1500) }
@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <RefreshCw className="w-4 h-4" /> Generate Names
           </button>
           <button onClick={copyAll} className="flex items-center gap-2 px-4 py-3 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 text-sm">
-            {copied==='all\'?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4"/>} Copy All
+            {copied==='all'?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4"/>} Copy All
           </button>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Sometimes you need a name and you need it now. A character for a story, an NPC for tonight's game session, a placeholder in a mockup, an alias for a throwaway account -- whatever the reason, you shouldn\'t be spending ten minutes on this. This generator produces realistic first-and-last-name combinations from weighted name pools reflecting actual name frequency data, so you get names that feel plausible rather than randomly assembled. For names that feel more fantastical or unusual, the <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Fantasy Name Generator</Link> is the better starting point.</p>
+          <p className="text-gray-600 leading-relaxed">Sometimes you need a name and you need it now. A character for a story, an NPC for tonight's game session, a placeholder in a mockup, an alias for a throwaway account -- whatever the reason, you shouldn't be spending ten minutes on this. This generator produces realistic first-and-last-name combinations from weighted name pools reflecting actual name frequency data, so you get names that feel plausible rather than randomly assembled. For names that feel more fantastical or unusual, the <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Fantasy Name Generator</Link> is the better starting point.</p>
         </section>
 
         {/* How It Works */}

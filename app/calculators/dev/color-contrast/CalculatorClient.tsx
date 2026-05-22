@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const [bg, setBg] = useState('#f9fafb')
   const [copied, setCopied] = useState('')
   const [fontSize, setFontSize] = useState(16)
-  const [fontWeight, setFontWeight] = useState<'normal\'|\'bold\'>(\'normal')
+  const [fontWeight, setFontWeight] = useState<'normal'|'bold'>('normal')
 
   const copy = (v: string, k: string) => { navigator.clipboard.writeText(v); setCopied(k); setTimeout(()=>setCopied(''),1500) }
   const swap = () => { const t=fg; setFg(bg); setBg(t) }
@@ -162,7 +162,7 @@ export default function CalculatorClient({ faqs }: Props) {
             return (
               <button key={combo.name} onClick={() => { setFg(combo.fg); setBg(combo.bg) }}
                 className="p-3 rounded-xl text-center hover:scale-105 transition-transform border"
-                style={{ background: combo.bg, borderColor: combo.bg === '#ffffff\' ? \'#e5e7eb' : combo.bg }}>
+                style={{ background: combo.bg, borderColor: combo.bg === '#ffffff' ? '#e5e7eb' : combo.bg }}>
                 <p className="font-bold text-sm" style={{ color: combo.fg }}>{combo.name}</p>
                 <p className="text-xs mt-1" style={{ color: combo.fg, opacity: 0.7 }}>{r?.toFixed(1)}:1 {pass?'✅':'❌'}</p>
               </button>

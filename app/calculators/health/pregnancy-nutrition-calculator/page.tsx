@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Pregnancy Nutrition Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Pregnancy increases nutrient needs substantially — but calorie needs increase much less than most people expect. The old eating for two framing is physiologically inaccurate: in the first trimester, additional calorie needs are approximately zero. In the second trimester, roughly 340 extra calories per day are needed. In the third trimester, about 450 extra calories.
 
 What does increase significantly is specific nutrient need. Folate requirements nearly double (from 400mcg to 600mcg daily), iron needs increase by 50% (from 18mg to 27mg), iodine needs increase significantly (to 220mcg), and choline requirements rise substantially — a nutrient that receives less attention than folate but is equally critical for fetal brain development. Most prenatal vitamins contain inadequate choline.

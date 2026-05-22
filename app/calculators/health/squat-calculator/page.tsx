@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Squat Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The barbell back squat is often called the king of exercises because it involves more muscle mass across a greater range of motion than almost any other movement — quads, hamstrings, glutes, adductors, core, and upper back all work simultaneously. One-rep max squat is one of the most commonly used benchmarks for overall lower body strength.
 
 Squat mechanics vary substantially between individuals based on femur length, hip socket depth and orientation, ankle mobility, and torso length. This is why perfect squat form looks different on different people. Training a mechanically inappropriate squat technique is both ineffective and potentially harmful.

@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function Page() {
   const { data, loading, refresh } = useCommodityPrices(60)
-  const c = data['natural_gas\' as keyof typeof data]
+  const c = data['natural_gas' as keyof typeof data]
   const [qty, setQty] = useState(1000)
 
   const conversions = [{label:"Per MMBtu",factor:1,unit:"MMBtu"},{label:"Per Therm",factor:0.1,unit:"therm"},{label:"Per MCF",factor:1,unit:"Mcf"},{label:"Per Cubic Meter",factor:1/35.315,unit:"m3"},{label:"100 MMBtu",factor:100,unit:"MMBtu"},{label:"1,000 MMBtu",factor:1000,unit:"MMBtu"}]

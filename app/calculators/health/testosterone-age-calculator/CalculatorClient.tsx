@@ -10,7 +10,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(45)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [exercise, setExercise] = useState(3)
   const [sleep, setSleep] = useState(7)
   const [stress, setStress] = useState(5)
@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   // Approximate testosterone level (nmol/L) based on lifestyle
   const baseMale = Math.max(5, 22 - (age - 20) * 0.25)
   const baseFemale = Math.max(0.5, 1.8 - (age - 20) * 0.015)
-  const base = gender === 'male\' ? baseMale : baseFemale
+  const base = gender === 'male' ? baseMale : baseFemale
 
   const adjustments = [
     exercise >= 5 ? 0.1 : exercise >= 3 ? 0.05 : -0.1,
@@ -31,8 +31,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   const estimated = Math.max(0.3, base * (1 + adjustments.reduce((s,a)=>s+a,0)))
-  const normalRangeLow = gender === 'male\' ? 8.7 : 0.52
-  const normalRangeHigh = gender === 'male\' ? 29 : 1.7
+  const normalRangeLow = gender === 'male' ? 8.7 : 0.52
+  const normalRangeHigh = gender === 'male' ? 29 : 1.7
   const status = estimated < normalRangeLow ? {l:'Below normal range - consult GP',c:'text-red-600'} : estimated > normalRangeHigh ? {l:'Above normal range',c:'text-orange-600'} : {l:'Within normal range v',c:'text-green-600'}
 
   const symptoms_low = gender === 'male'

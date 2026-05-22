@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Pregnancy Due Date Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The due date is one of the first and most anticipated numbers in a pregnancy — and one of the most frequently misunderstood. An estimated due date (EDD) is exactly that: an estimate based on statistical probabilities, not a prediction of the actual delivery date. Fewer than 5% of babies are born on their due date; roughly 80% arrive within two weeks on either side.
 
 Naegele's rule — adding 280 days to the first day of the last menstrual period — has been the clinical standard for over 200 years. It assumes a 28-day cycle with ovulation on day 14, which describes fewer than 15% of women. For cycles that are regularly longer (e.g., 35 days), the due date should be shifted forward by the number of days the cycle exceeds 28.

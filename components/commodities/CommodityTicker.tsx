@@ -39,7 +39,7 @@ export function CommodityTicker() {
       ])
 
       // Update commodity prices
-      if (comRes.status === 'fulfilled\' && comRes.value.ok) {
+      if (comRes.status === 'fulfilled' && comRes.value.ok) {
         const data = await comRes.value.json()
         const updated = SEED.map(seed => {
           const d = data[seed.key]
@@ -52,7 +52,7 @@ export function CommodityTicker() {
       }
 
       // Update USD/INR from FX route as well
-      if (fxRes.status === 'fulfilled\' && fxRes.value.ok) {
+      if (fxRes.status === 'fulfilled' && fxRes.value.ok) {
         const fx = await fxRes.value.json()
         if (fx.rates?.INR) setUsdInr(+fx.rates.INR.toFixed(2))
       }

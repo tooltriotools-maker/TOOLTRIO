@@ -63,7 +63,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const [hex, setHex] = useState('#6366f1')
   const [rgbInput, setRgbInput] = useState({ r: 99, g: 102, b: 241 })
   const [hslInput, setHslInput] = useState({ h: 239, s: 84, l: 67 })
-  const [activeTab, setActiveTab] = useState<'hex\'|\'rgb\'|\'hsl\'>(\'hex')
+  const [activeTab, setActiveTab] = useState<'hex'|'rgb'|'hsl'>('hex')
   const [copied, setCopied] = useState('')
 
   const copy = (val: string, key: string) => {
@@ -140,7 +140,7 @@ export default function CalculatorClient({ faqs }: Props) {
               maxLength={7}
             />
             <button onClick={() => copy(hex.toUpperCase(), 'hex')} className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50">
-              {copied === 'hex\' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4 text-gray-400" />}
+              {copied === 'hex' ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4 text-gray-400" />}
             </button>
           </div>
 
@@ -162,7 +162,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-bold text-gray-900">RGB</h3>
               <button onClick={() => copy(`rgb(${r}, ${g}, ${b})`, 'rgb')} className="flex items-center gap-1 text-xs text-green-600 font-bold">
-                {copied==='rgb\'?<Check className="w-3 h-3"/>:<Copy className="w-3 h-3"/>} {`rgb(${r}, ${g}, ${b})`}
+                {copied==='rgb'?<Check className="w-3 h-3"/>:<Copy className="w-3 h-3"/>} {`rgb(${r}, ${g}, ${b})`}
               </button>
             </div>
             {([['R', r, '#ef4444', (v: number) => fromRgb(v, g, b)],
@@ -186,7 +186,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-bold text-gray-900">HSL</h3>
               <button onClick={() => copy(`hsl(${h}, ${s}%, ${l}%)`, 'hsl')} className="flex items-center gap-1 text-xs text-green-600 font-bold">
-                {copied==='hsl\'?<Check className="w-3 h-3"/>:<Copy className="w-3 h-3"/>} {`hsl(${h}, ${s}%, ${l}%)`}
+                {copied==='hsl'?<Check className="w-3 h-3"/>:<Copy className="w-3 h-3"/>} {`hsl(${h}, ${s}%, ${l}%)`}
               </button>
             </div>
             {([['H degrees', h, 0, 360, '#a855f7', (v: number) => fromHsl(v, s, l)],

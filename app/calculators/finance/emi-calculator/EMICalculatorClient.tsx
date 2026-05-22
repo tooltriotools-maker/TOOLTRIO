@@ -19,9 +19,9 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
   const [principal, setPrincipal] = useState(d.loanAmount)
   const [rate, setRate] = useState(7.5)
   const [tenure, setTenure] = useState(5)
-  const [tenureType, setTenureType] = useState<'years\' | \'months\'>(\'years')
+  const [tenureType, setTenureType] = useState<'years' | 'months'>('years')
 
-  const tenureMonths = tenureType === 'years\' ? tenure * 12 : tenure
+  const tenureMonths = tenureType === 'years' ? tenure * 12 : tenure
   const result = useMemo(() => calculateEMI(principal, rate, tenureMonths), [principal, rate, tenureMonths])
 
   const pieData = [
@@ -47,9 +47,9 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Loan Details</h2>
           <div className="space-y-5">
             <InputField label={`Loan Amount (${currency.symbol})`} value={principal} onChange={setPrincipal}
-              min={currency.code === 'INR\' ? 10000 : 1000}
-              max={currency.code === 'INR\' ? 50000000 : 2000000}
-              step={currency.code === 'INR\' ? 10000 : 1000}
+              min={currency.code === 'INR' ? 10000 : 1000}
+              max={currency.code === 'INR' ? 50000000 : 2000000}
+              step={currency.code === 'INR' ? 10000 : 1000}
               prefix={currency.symbol}
             />
             <InputField label="Annual Interest Rate" value={rate} onChange={setRate} min={1} max={30} step={0.1} suffix="%" />
@@ -58,7 +58,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
               <div className="flex items-center gap-2">
                 <div className="flex-1 flex items-center bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
                   <input type="number" value={tenure} onChange={e => setTenure(Number(e.target.value))}
-                    className="w-full bg-transparent text-gray-900 font-semibold outline-none text-right" min={1} max={tenureType === 'years\' ? 30 : 360} />
+                    className="w-full bg-transparent text-gray-900 font-semibold outline-none text-right" min={1} max={tenureType === 'years' ? 30 : 360} />
                 </div>
                 <div className="flex rounded-xl overflow-hidden border border-gray-200">
                   {(['years', 'months'] as const).map(t => (
@@ -69,7 +69,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
                   ))}
                 </div>
               </div>
-              <input type="range" value={tenure} onChange={e => setTenure(Number(e.target.value))} min={1} max={tenureType === 'years\' ? 30 : 360} className="w-full"
+              <input type="range" value={tenure} onChange={e => setTenure(Number(e.target.value))} min={1} max={tenureType === 'years' ? 30 : 360} className="w-full"
                 style={{ background: `linear-gradient(to right,#14b8a6 0%,#14b8a6 ${((tenure - 1) / (tenureType === 'years' ? 29 : 359)) * 100}%,#1e293b ${((tenure - 1) / (tenureType === 'years' ? 29 : 359)) * 100}%,#1e293b 100%)` }} />
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Reducing Balance vs Flat Rate - Know the Difference</h3>
-              <p>All major bank loans in the US use reducing balance interest calculation - interest is charged only on the outstanding principal, which reduces with each EMI payment. Some NBFCs and informal lenders quote 'flat rate\' interest - calculated on the original principal throughout the tenure. A 10% flat rate equals approximately 18-20% effective reducing balance rate! Always ask for the Annual Percentage Rate (APR) or reducing balance rate when comparing loan offers. The EMI might seem similar, but the true cost of a flat-rate loan is far higher. Our calculator uses the industry-standard reducing balance method used by all Federal Reserve-regulated banks.</p>
+              <p>All major bank loans in the US use reducing balance interest calculation - interest is charged only on the outstanding principal, which reduces with each EMI payment. Some NBFCs and informal lenders quote 'flat rate' interest - calculated on the original principal throughout the tenure. A 10% flat rate equals approximately 18-20% effective reducing balance rate! Always ask for the Annual Percentage Rate (APR) or reducing balance rate when comparing loan offers. The EMI might seem similar, but the true cost of a flat-rate loan is far higher. Our calculator uses the industry-standard reducing balance method used by all Federal Reserve-regulated banks.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Smart EMI Strategies - Save Lakhs Without Paying More</h3>
               <p>Three powerful strategies to reduce total interest without changing your EMI: (1) Prepayment: Pay extra principal whenever possible - even $10,000 extra once a year on a home loan can save $2-3 thousands in interest over 20 years. (2) Increase EMI with salary hike: If your salary increases 10%, increase your EMI by 5% - reduces tenure by 3-4 years on a 20-year loan. (3) Balance transfer: If rates fall significantly (0.5%+ difference), transfer loan to lower-rate lender - saves substantially over remaining tenure. For home loans specifically, note that floating-rate loans adjust with Federal Reserve rate changes - consider part-fixed/part-floating structures to balance stability and benefit from rate cuts.</p>
             </div>

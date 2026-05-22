@@ -106,5 +106,5 @@ const relatedCalculators = [
 const structuredData = [generateFAQStructuredData(faqs)]
 
 export default function Page() {
- return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug='debt-payoff-strategies-avalanche-vs-snowball-method\' />
+ return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug='debt-payoff-strategies-avalanche-vs-snowball-method' />
 }

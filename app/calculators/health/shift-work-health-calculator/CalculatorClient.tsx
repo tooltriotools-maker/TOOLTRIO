@@ -9,7 +9,7 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [shiftType, setShiftType] = useState<'night\'|\'rotating\'|\'early\'|\'split\'>(\'rotating')
+  const [shiftType, setShiftType] = useState<'night'|'rotating'|'early'|'split'>('rotating')
   const [yearsOnShiftWork, setYearsOnShiftWork] = useState(5)
   const [sleepHours, setSleepHours] = useState(6)
   const [exerciseDays, setExerciseDays] = useState(2)

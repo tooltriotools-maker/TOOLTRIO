@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Menopause Symptom Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Menopause is a biological transition, not a disease — but the symptoms it can produce are real, often disruptive, and in many cases highly treatable. The transition (perimenopause) typically begins 2-8 years before the final menstrual period and is characterized by fluctuating estrogen and progesterone levels that produce the symptoms most associated with menopause: vasomotor symptoms (hot flashes, night sweats), sleep disruption, mood changes, vaginal atrophy, and cognitive changes.
 
 The average age of menopause in the United States is 51. Symptoms vary enormously: some women have minimal disruption; others experience severe hot flashes 10-20 times per day that significantly impair quality of life. Hot flashes occur because declining estrogen disrupts the hypothalamic thermostat — the brain misreads normal body temperature as overheating and triggers cooling responses that are unnecessary and disruptive.

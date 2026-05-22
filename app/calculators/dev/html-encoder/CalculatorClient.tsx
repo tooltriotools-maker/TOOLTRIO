@@ -11,12 +11,12 @@ const decode = (s: string) => s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').repla
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('<h1 class="title">Hello "World" & \'Friends\'! <span className="text-green-600">| TOOLTRIO</span></h1>')
-  const [mode, setMode] = useState<'encode\'|\'decode\'>(\'encode')
+  const [mode, setMode] = useState<'encode'|'decode'>('encode')
   const [copied, setCopied] = useState(false)
 
-  const output = mode==='encode\' ? encode(input) : decode(input)
+  const output = mode==='encode' ? encode(input) : decode(input)
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(()=>setCopied(false),1500) }
-  const swap = () => { setInput(output); setMode(m=>m==='encode\'?\'decode':'encode') }
+  const swap = () => { setInput(output); setMode(m=>m==='encode'?'decode':'encode') }
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">

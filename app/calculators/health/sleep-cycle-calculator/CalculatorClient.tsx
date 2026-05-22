@@ -19,7 +19,7 @@ const TIMES = Array.from({ length: 48 }, (_, i) => {
 })
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
-  const [mode, setMode] = useState<'wake\' | \'bed\'>(\'wake')
+  const [mode, setMode] = useState<'wake' | 'bed'>('wake')
   const [time, setTime] = useState('06:30')
 
   const result = useMemo(() => calculateSleepCycle(time, mode), [time, mode])
@@ -45,12 +45,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 { key: 'bed', label: '🛏️ I want to sleep at', icon: Moon }].map(opt => (
                 <button key={opt.key} onClick={() => setMode(opt.key as any)}
                   className={`p-3 rounded-xl border-2 text-sm font-bold transition-all ${mode === opt.key ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                  {opt.key === 'wake\' ? \'⏰ Wake At' : '🛏️ Sleep At'}
+                  {opt.key === 'wake' ? '⏰ Wake At' : '🛏️ Sleep At'}
                 </button>
               ))}
             </div>
             <SelectField
-              label={mode === 'wake\' ? \'Wake-Up Time' : 'Bedtime'}
+              label={mode === 'wake' ? 'Wake-Up Time' : 'Bedtime'}
               value={time}
               onChange={setTime}
               options={TIMES}
@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <Card>
             <h3 className="text-sm font-bold text-gray-800 mb-4">
-              {mode === 'wake\' ? `⏰ Best Bedtimes to Wake at ${TIMES.find(t => t.value === time)?.label}` : `🛏️ Best Wake Times if Sleeping at ${TIMES.find(t => t.value === time)?.label}`}
+              {mode === 'wake' ? `⏰ Best Bedtimes to Wake at ${TIMES.find(t => t.value === time)?.label}` : `🛏️ Best Wake Times if Sleeping at ${TIMES.find(t => t.value === time)?.label}`}
             </h3>
             <div className="space-y-3">
               {bedtimes.slice(0, 6).reverse().map((t: any, i: number, arr: any[]) => {
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0 ${isOptimal ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-600'}`}>{cycleNum}</div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <p className="font-black text-lg text-gray-900">{typeof t === 'string\' ? t : t.time || t}</p>
+                        <p className="font-black text-lg text-gray-900">{typeof t === 'string' ? t : t.time || t}</p>
                         {isOptimal && <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-green-600 text-white">v Optimal</span>}
                       </div>
                       <p className="text-xs text-gray-500">{cycleNum} cycle{cycleNum !== 1 ? 's' : ''} - {(cycleNum * 1.5).toFixed(1)} hours sleep</p>

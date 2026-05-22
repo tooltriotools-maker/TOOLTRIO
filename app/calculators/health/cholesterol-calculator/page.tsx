@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Cholesterol Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Cholesterol is arguably the most misunderstood cardiovascular health metric — the total number is far less meaningful than the ratio between its components. A total cholesterol of 210 with HDL of 70 represents a very different health profile than total cholesterol of 180 with HDL of 35, yet the first person might be dismissed as 'borderline high' while the second gets no intervention despite a more dangerous lipid pattern.
 
 This calculator interprets your full lipid panel — total cholesterol, LDL, HDL, triglycerides — against the 2018 ACC/AHA guidelines that shifted from target-number treatment to risk-based treatment. It calculates your total-to-HDL ratio, LDL-to-HDL ratio, non-HDL cholesterol (which captures all atherogenic particles), and places each result in clinical context with appropriate action recommendations.

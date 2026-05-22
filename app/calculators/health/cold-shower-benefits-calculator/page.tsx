@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Cold Shower Benefits Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Cold showers trigger an immediate and measurable stress response — your heart rate spikes, your breathing accelerates, norepinephrine surges, and your body mobilizes energy to maintain core temperature. Within 20-30 seconds, if you don't step out, that acute stress response starts to subside and something different happens: a parasympathetic rebound that many people experience as calm, clarity, or energized focus.
 
 The science on cold shower benefits is more modest than the wellness industry suggests, but it's not nothing. A Dutch randomized controlled trial of 3,018 participants found that people instructed to take cold showers missed 29% fewer sick days over 90 days compared to a warm shower control group. For mental health, the norepinephrine spike from cold exposure (documented at 2-3x baseline in studies) produces alertness, mood improvement, and anti-inflammatory signaling. Case reports and small trials suggest benefit for depression, though large RCTs are lacking.

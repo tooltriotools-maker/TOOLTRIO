@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Stress Level Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Stress is the silent driver behind a remarkable range of health outcomes — from cardiovascular disease and immune dysfunction to weight gain, sleep disorders, and accelerated aging. Yet stress is also one of the most individually variable health experiences, making personal assessment far more relevant than population averages.
 
 This calculator uses the validated Perceived Stress Scale (PSS-10) — the most widely used psychological instrument for measuring subjective stress perception — alongside a life stressor inventory and physical stress symptom assessment. The combination gives you both a validated clinical stress score and a broader picture of how stress is manifesting in your body and behavior.

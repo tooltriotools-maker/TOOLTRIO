@@ -13,8 +13,8 @@ export default function CalculatorClient({ faqs }: Props) {
   const [author, setAuthor] = useState('')
   const [keywords, setKeywords] = useState('keyword1, keyword2, keyword3')
   const [robot, setRobot] = useState('index, follow')
-  const [type, setType] = useState<'website\'|\'article\'|\'product\'>(\'website')
-  const [twitterCard, setTwitterCard] = useState<'summary\'|\'summary_large_image\'>(\'summary_large_image')
+  const [type, setType] = useState<'website'|'article'|'product'>('website')
+  const [twitterCard, setTwitterCard] = useState<'summary'|'summary_large_image'>('summary_large_image')
   const [copied, setCopied] = useState('')
 
   const copy = (v: string, k: string) => { navigator.clipboard.writeText(v); setCopied(k); setTimeout(()=>setCopied(''),1500) }
@@ -139,7 +139,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-bold text-gray-400 uppercase">Generated Meta Tags</span>
               <button onClick={() => copy(metaTags, 'all')} className="flex items-center gap-1.5 text-xs font-bold text-green-400 hover:text-green-300">
-                {copied==='all\' ? <><Check className="w-3.5 h-3.5"/>Copied!</> : <><Copy className="w-3.5 h-3.5"/>Copy All</>}
+                {copied==='all' ? <><Check className="w-3.5 h-3.5"/>Copied!</> : <><Copy className="w-3.5 h-3.5"/>Copy All</>}
               </button>
             </div>
             <pre className="font-mono text-xs text-green-300 whitespace-pre-wrap overflow-auto max-h-64">{metaTags}</pre>

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Glycemic Load Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Glycemic index tells you how quickly a food raises blood sugar relative to pure glucose — but it ignores how much of that food you actually eat. A slice of watermelon has a high glycemic index (72), but contains so little carbohydrate per serving that it has a very low glycemic load. White rice has a high GI and a large carbohydrate content, so it carries a high glycemic load. This distinction matters enormously in practice: glycemic load is what actually drives post-meal blood glucose response.
 
 The glycemic load formula is simple: GL = (GI × grams of available carbohydrate) ÷ 100. A GL under 10 is low, 11-19 is medium, and 20+ is high. For people managing blood sugar — whether living with type 2 diabetes, prediabetes, PCOS, or simply trying to reduce energy crashes — glycemic load is a more actionable concept than glycemic index alone.

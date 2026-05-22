@@ -18,11 +18,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [mfRate, setMfRate] = useState(12)
   const [goldRate, setGoldRate] = useState(8)
   const [years, setYears] = useState(10)
-  const [goldType, setGoldType] = useState<'sgb\' | \'etf\' | \'physical\'>(\'sgb')
+  const [goldType, setGoldType] = useState<'sgb' | 'etf' | 'physical'>('sgb')
 
   const result = useMemo(() => {
-    const sgbBonus = goldType === 'sgb\' ? 2.5 : 0
-    const makingChargeHit = goldType === 'physical\' ? 0.88 : 1
+    const sgbBonus = goldType === 'sgb' ? 2.5 : 0
+    const makingChargeHit = goldType === 'physical' ? 0.88 : 1
     const effectiveGoldRate = goldRate + sgbBonus
 
     const mfFV = lumpsum * Math.pow(1 + mfRate / 100, years)
@@ -33,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
     // Tax: MF equity LTCG 10% above 1L; SGB maturity tax-free; Gold ETF/physical 20% with indexation
     const mfTax = Math.max(0, mfGain - 100000) * 0.10
-    const goldTax = goldType === 'sgb\' ? 0 : Math.max(0, goldGain - lumpsum * (Math.pow(1.05, years) - 1)) * 0.20
+    const goldTax = goldType === 'sgb' ? 0 : Math.max(0, goldGain - lumpsum * (Math.pow(1.05, years) - 1)) * 0.20
     const mfPostTax = mfFV - mfTax
     const goldPostTax = goldFV - goldTax
 
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <ResultCard label="MF Post-Tax" value={fmtCompact(result.mfPostTax)} subValue={`Tax: ${fmtCompact(result.mfTax)}`} highlight={result.mfBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Gold Post-Tax" value={fmtCompact(result.goldPostTax)} subValue={`Eff. rate: ${result.effectiveGoldRate}%`} highlight={!result.mfBetter} />
             <ResultCard label="MF Gain" value={fmtCompact(result.mfGain)} subValue="Before LTCG tax" />
-            <ResultCard label="Gold Gain" value={fmtCompact(result.goldGain)} subValue={goldType === 'sgb\' ? \'Tax-free at maturity' : 'Before tax'} />
+            <ResultCard label="Gold Gain" value={fmtCompact(result.goldGain)} subValue={goldType === 'sgb' ? 'Tax-free at maturity' : 'Before tax'} />
           </div>
 
           <Card>

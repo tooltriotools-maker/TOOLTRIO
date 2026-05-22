@@ -49,7 +49,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Vitamin D Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Vitamin D deficiency is one of the most common nutritional deficiencies worldwide — estimates suggest that 40% of Americans have insufficient levels (below 30 ng/mL) and 29% are fully deficient (below 20 ng/mL). Yet it is also one of the most correctable, since supplementation is inexpensive and effective.
 
 This calculator estimates your daily vitamin D needs based on the factors that most influence requirements: your latitude and sun exposure habits, skin tone (which determines UV efficiency), age (skin produces 75% less vitamin D at 70 than at 20), body weight (obesity sequesters vitamin D in fat), and current dietary intake. It then recommends a supplementation dose to achieve optimal blood levels.

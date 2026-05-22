@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Injury Recovery Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Recovery from injury follows biological timelines that can't be rushed — but they can be optimized or undermined depending on what you do in the days and weeks following an injury. The phases of tissue healing are well-understood: acute inflammation (0-72 hours), proliferation where new tissue forms (72 hours to 6 weeks), and remodeling where tissue matures and organizes (6 weeks to 18+ months). Each phase responds differently to activity, nutrition, and treatment.
 
 The old RICE protocol (Rest, Ice, Compression, Elevation) has been largely replaced in sports medicine. Prolonged rest slows recovery — early controlled movement improves tissue healing quality and reduces scar tissue formation. Ice reduces pain in the acute phase but may impede the inflammatory signals needed for healing when applied excessively. Current evidence supports PEACE & LOVE (Protection, Elevation, Avoid anti-inflammatory modalities, Compression, Education; Load, Optimism, Vascularization, Exercise) as a more nuanced framework.

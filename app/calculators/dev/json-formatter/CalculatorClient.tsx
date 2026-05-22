@@ -10,7 +10,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const [input, setInput] = useState('{"name":"Alice","age":30,"skills":["TypeScript","React"],"address":{"city":"London"}}')
   const [indent, setIndent] = useState(2)
-  const [mode, setMode] = useState<'formatted\' | \'minified\'>(\'formatted')
+  const [mode, setMode] = useState<'formatted' | 'minified'>('formatted')
   const [copiedMode, setCopiedMode] = useState('')
 
   const result = useMemo(() => {
@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs }: Props) {
     }
   }, [input, indent])
 
-  const output = mode === 'formatted\' ? result.formatted : result.minified
+  const output = mode === 'formatted' ? result.formatted : result.minified
   const copyOutput = () => {
     navigator.clipboard.writeText(output)
     setCopiedMode(mode)
@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <button key={m} onClick={() => setMode(m)}
                   className={`px-3 py-1 text-xs font-bold rounded-lg capitalize transition-all ${mode === m ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{m}</button>
               ))}
-              {mode === 'formatted\' && (
+              {mode === 'formatted' && (
                 <select value={indent} onChange={e => setIndent(Number(e.target.value))}
                   className="ml-2 text-xs border border-gray-200 rounded-lg px-2 py-1 bg-white focus:outline-none">
                   <option value={2}>2 spaces</option><option value={4}>4 spaces</option>

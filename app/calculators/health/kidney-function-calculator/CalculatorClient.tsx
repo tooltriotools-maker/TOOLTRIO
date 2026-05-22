@@ -10,18 +10,18 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(50)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [creatinine, setCreatinine] = useState(90)
   const [diabetes, setDiabetes] = useState(false)
   const [hypertension, setHypertension] = useState(false)
   const [nsaids, setNsaids] = useState(false)
 
   // CKD-EPI approximation (simplified)
-  const k = gender === 'female\' ? 61.9 : 79.6
-  const alpha = gender === 'female\' ? -0.329 : -0.411
+  const k = gender === 'female' ? 61.9 : 79.6
+  const alpha = gender === 'female' ? -0.329 : -0.411
   const crSI = creatinine / 88.4 // convert umol/L to mg/dL
   const ratio = crSI / k
-  const eGFR = Math.round(141 * Math.pow(Math.min(ratio, 1), alpha) * Math.pow(Math.max(ratio, 1), -1.209) * Math.pow(0.993, age) * (gender === 'female\' ? 1.018 : 1))
+  const eGFR = Math.round(141 * Math.pow(Math.min(ratio, 1), alpha) * Math.pow(Math.max(ratio, 1), -1.209) * Math.pow(0.993, age) * (gender === 'female' ? 1.018 : 1))
   const clamped = Math.max(0, Math.min(120, eGFR))
 
   const stage = clamped >= 90 ? {s:'G1 - Normal or High',c:'text-green-600'} : clamped >= 60 ? {s:'G2 - Mildly Decreased',c:'text-blue-600'} : clamped >= 45 ? {s:'G3a - Mild-Moderate Decrease',c:'text-yellow-600'} : clamped >= 30 ? {s:'G3b - Moderate-Severe Decrease',c:'text-orange-600'} : clamped >= 15 ? {s:'G4 - Severely Decreased',c:'text-red-600'} : {s:'G5 - Kidney Failure',c:'text-red-800'}

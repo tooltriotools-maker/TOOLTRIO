@@ -512,7 +512,7 @@ export function GlobalSearch({ className }: { className?: string }) {
         const matchesText = item.name.toLowerCase().includes(q) ||
           item.cat.toLowerCase().includes(q) ||
           item.href.toLowerCase().includes(q)
-        const matchesTab = activeTab === 'All\' || item.cat === activeTab
+        const matchesTab = activeTab === 'All' || item.cat === activeTab
         return matchesText && matchesTab
       })
       .sort((a, b) => {
@@ -526,8 +526,8 @@ export function GlobalSearch({ className }: { className?: string }) {
         if (aName.startsWith(q) && !bName.startsWith(q)) return -1
         if (bName.startsWith(q) && !aName.startsWith(q)) return 1
         // Calculator category before blog
-        if (a.cat !== 'Blog\' && b.cat === \'Blog') return -1
-        if (b.cat !== 'Blog\' && a.cat === \'Blog') return 1
+        if (a.cat !== 'Blog' && b.cat === 'Blog') return -1
+        if (b.cat !== 'Blog' && a.cat === 'Blog') return 1
         return aName.localeCompare(bName)
       })
       .slice(0, 20)
@@ -628,7 +628,7 @@ export function GlobalSearch({ className }: { className?: string }) {
               filtered.length > 0 ? (
                 <div className="p-2">
                   <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-3 py-1.5">
-                    {filtered.length} result{filtered.length !== 1 ? 's' : ''}{activeTab !== 'All\' ? ` in ${activeTab}` : \''}
+                    {filtered.length} result{filtered.length !== 1 ? 's' : ''}{activeTab !== 'All' ? ` in ${activeTab}` : ''}
                   </p>
                   {filtered.map(item => {
                     const meta = CAT_META[item.cat] || CAT_META.Finance

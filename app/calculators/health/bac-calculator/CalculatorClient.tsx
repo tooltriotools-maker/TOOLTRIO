@@ -10,10 +10,10 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [drinks, setDrinks] = useState(2)
   const [hours, setHours] = useState(1)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const DRINK_TYPES = [
     {name:'Beer (355ml, 5%)',     grams:14},
@@ -25,9 +25,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [drinkType, setDrinkType] = useState(0)
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial\' ? weight*0.453592 : weight
+    const wKg = unit==='imperial' ? weight*0.453592 : weight
     const wLbs = wKg * 2.205
-    const r = gender==='male\' ? 0.73 : 0.66
+    const r = gender==='male' ? 0.73 : 0.66
     const gramsPerDrink = DRINK_TYPES[drinkType].grams
     const rawBac = (drinks * gramsPerDrink * 5.14) / (wLbs * r)
     const bac = Math.max(0, rawBac - (0.015 * hours))
@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?40:88} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?40:88} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
             <SelectField label="Drink Type" value={String(drinkType)} onChange={v=>setDrinkType(Number(v))} options={drinkOptions} />
             <InputField label="Number of Drinks" value={drinks} onChange={setDrinks} min={0} max={20} step={0.5} suffix="drinks" />
             <InputField label="Hours Since First Drink" value={hours} onChange={setHours} min={0} max={12} step={0.5} suffix="hrs" />

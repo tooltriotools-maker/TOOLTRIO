@@ -11,7 +11,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(30)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [pushups, setPushups] = useState(25)
 
   const result = useMemo(() => {
@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       {min:24,max:34, label:'Good', color:'text-green-600 bg-green-50'},
       {min:34,max:999,label:'Excellent', color:'text-blue-600 bg-blue-50'},
     ]
-    const levels = gender==='male\' ? maleLevels : femaleLevels
+    const levels = gender==='male' ? maleLevels : femaleLevels
     const lvl = levels.find(l=>pushups>=l.min && pushups<l.max) ?? levels[0]
     
     // Army standards (age-adjusted)

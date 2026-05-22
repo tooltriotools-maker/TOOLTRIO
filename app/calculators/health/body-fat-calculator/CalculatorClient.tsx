@@ -11,8 +11,8 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [gender, setGender] = useState<'male\' | \'female\'>(\'male')
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [gender, setGender] = useState<'male' | 'female'>('male')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(176)
   const [height, setHeight] = useState(69)
   const [waist, setWaist] = useState(85)
@@ -20,9 +20,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [hip, setHip] = useState(95)
 
 
-  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
-  const heightCm = unit === 'imperial\' ? height * 2.54 : height
-    const result = useMemo(() => calculateBodyFat(gender, weightKg, heightCm, waist, neck, gender === 'female\' ? hip : undefined), [gender, weight, height, waist, neck, hip])
+  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
+  const heightCm = unit === 'imperial' ? height * 2.54 : height
+    const result = useMemo(() => calculateBodyFat(gender, weightKg, heightCm, waist, neck, gender === 'female' ? hip : undefined), [gender, weight, height, waist, neck, hip])
 
   const categoryRanges = gender === 'male'
     ? [{ label: 'Essential', min: 2, max: 5, color: '#3b82f6' }, { label: 'Athletic', min: 6, max: 13, color: '#22c55e' }, { label: 'Fitness', min: 14, max: 17, color: '#14b8a6' }, { label: 'Average', min: 18, max: 24, color: '#f59e0b' }, { label: 'Obese', min: 25, max: 40, color: '#ef4444' }]
@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="grid grid-cols-2 gap-1 p-1 bg-gray-50 rounded-xl">
               {(['male', 'female'] as const).map(g => (
                 <button key={g} onClick={() => setGender(g)} className={`py-2 rounded-xl text-sm font-semibold transition-all ${gender === g ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {g === 'male\' ? \'♂ Male' : '♀ Female'}
+                  {g === 'male' ? '♂ Male' : '♀ Female'}
                 </button>
               ))}
             </div>
@@ -53,16 +53,16 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial\' ? \'🇺🇸 lbs / in' : '🌍 kg / cm'}
+                  {u === 'imperial' ? '🇺🇸 lbs / in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
 
-            <InputField label={unit === 'imperial\' ? \'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 66 : 30} max={unit === \'imperial\' ? 550 : 250} step={unit === \'imperial\' ? 1 : 0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
+            <InputField label={unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial' ? 66 : 30} max={unit === 'imperial' ? 550 : 250} step={unit === 'imperial' ? 1 : 0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Waist (at navel)" value={waist} onChange={setWaist} min={50} max={200} step={0.5} suffix="cm" />
             <InputField label="Neck (below larynx)" value={neck} onChange={setNeck} min={25} max={70} step={0.5} suffix="cm" />
-            {gender === 'female\' && <InputField label="Hip (widest point)" value={hip} onChange={setHip} min={60} max={200} step={0.5} suffix="cm" />}
+            {gender === 'female' && <InputField label="Hip (widest point)" value={hip} onChange={setHip} min={60} max={200} step={0.5} suffix="cm" />}
           </div>
         </Card>
 

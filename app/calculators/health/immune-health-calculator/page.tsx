@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Immune Health Score Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your immune system doesn't operate in isolation from the rest of your lifestyle — it's deeply integrated with your sleep, nutrition, stress, and physical activity patterns in ways that produce real, measurable differences in immune function. The immune system isn't something you boost with supplements (a marketing term without meaningful biological definition); it's something you maintain through consistent foundational habits or undermine through chronic deprivation.
 
 Sleep is the most powerful single variable. A landmark study published in JAMA Internal Medicine found that people who slept fewer than 6 hours per night were 4.2 times more likely to catch a cold when directly exposed to rhinovirus compared to those who slept 7 or more hours. You cannot supplement your way around inadequate sleep.

@@ -9,25 +9,25 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [method, setMethod] = useState<'cooper\'|\'rhr\'|\'mile\'>(\'cooper')
+  const [method, setMethod] = useState<'cooper'|'rhr'|'mile'>('cooper')
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [cooperDist, setCooperDist] = useState(2400)
   const [maxHR, setMaxHR] = useState(185)
   const [restHR, setRestHR] = useState(60)
   const [mileTime, setMileTime] = useState(8.5)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(154)
 
 
-  const weightKg = unit === 'imperial\' ? weight / 2.20462 : weight
+  const weightKg = unit === 'imperial' ? weight / 2.20462 : weight
   const result = useMemo(() => {
     let vo2 = 0
     if (method==='cooper') vo2 = (cooperDist/1000 - 0.3138) / 0.2070
     if (method==='rhr')    vo2 = 15 * (maxHR / restHR)
     if (method==='mile') {
       const wLbs = weight * 2.205
-      vo2 = 132.853 - 0.0769*wLbs - 0.3877*age + (gender==='male\'?6.315:0) - 3.2649*mileTime - 0.1565*restHR
+      vo2 = 132.853 - 0.0769*wLbs - 0.3877*age + (gender==='male'?6.315:0) - 3.2649*mileTime - 0.1565*restHR
     }
     vo2 = Math.max(10, Math.round(vo2*10)/10)
 
@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       {label:'Excellent', men:[50,57],   women:[42,49]},
       {label:'Superior',  men:[57,999],  women:[49,999]},
     ]
-    const cat = categories.find(c => gender==='male\' ? vo2>=c.men[0]&&vo2<c.men[1] : vo2>=c.women[0]&&vo2<c.women[1])?.label ?? \'Good'
+    const cat = categories.find(c => gender==='male' ? vo2>=c.men[0]&&vo2<c.men[1] : vo2>=c.women[0]&&vo2<c.women[1])?.label ?? 'Good'
     const colors: Record<string,string> = {Poor:'text-red-600',Fair:'text-orange-500',Good:'text-yellow-600',Excellent:'text-green-600',Superior:'text-blue-600'}
     const metsValue = vo2 / 3.5
     return { vo2, cat, color: colors[cat]??'text-gray-600', mets: Math.round(metsValue*10)/10 }
@@ -53,24 +53,24 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Estimation Method" value={method} onChange={v=>setMethod(v as any)} options={[{value:'cooper',label:'Cooper 12-Min Run Test'},{value:'rhr',label:'Resting Heart Rate (Uth)'},{value:'mile',label:'1-Mile Walk Test (Rockport)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={15} max={85} step={1} suffix="yrs" />
-            {method==='cooper\' && <InputField label="Distance Run in 12 Min" value={cooperDist} onChange={setCooperDist} min={800} max={4500} step={50} suffix="m" />}
-            {method==='rhr\' && <>
+            {method==='cooper' && <InputField label="Distance Run in 12 Min" value={cooperDist} onChange={setCooperDist} min={800} max={4500} step={50} suffix="m" />}
+            {method==='rhr' && <>
               <InputField label="Max Heart Rate" value={maxHR} onChange={setMaxHR} min={120} max={220} step={1} suffix="bpm" />
               <InputField label="Resting Heart Rate" value={restHR} onChange={setRestHR} min={30} max={100} step={1} suffix="bpm" />
             </>}
-            {method==='mile\' && <>
+            {method==='mile' && <>
               <InputField label="1-Mile Walk Time" value={mileTime} onChange={setMileTime} min={8} max={25} step={0.5} suffix="min" />
             {/* Unit Toggle */}
             <div className="grid grid-cols-2 gap-1 p-1 bg-gray-50 rounded-xl">
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial\' ? \'🇺🇸 lbs / in' : '🌍 kg / cm'}
+                  {u === 'imperial' ? '🇺🇸 lbs / in' : '🌍 kg / cm'}
                 </button>
               ))}
             </div>
 
-              <InputField label={unit === 'imperial\' ? \'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial\' ? 66 : 30} max={unit === \'imperial\' ? 550 : 250} step={unit === \'imperial\' ? 1 : 0.5} suffix={unit === \'imperial\' ? \'lbs' : 'kg'} />
+              <InputField label={unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)'} value={weight} onChange={setWeight} min={unit === 'imperial' ? 66 : 30} max={unit === 'imperial' ? 550 : 250} step={unit === 'imperial' ? 1 : 0.5} suffix={unit === 'imperial' ? 'lbs' : 'kg'} />
               <InputField label="Heart Rate at End" value={restHR} onChange={setRestHR} min={60} max={200} step={1} suffix="bpm" />
             </>}
           </div>
@@ -83,14 +83,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <Card>
-            <h3 className="font-bold text-gray-900 mb-4">VO2 Max Fitness Norms ({gender==='male\'?\'Male':'Female'}, Age {age})</h3>
+            <h3 className="font-bold text-gray-900 mb-4">VO2 Max Fitness Norms ({gender==='male'?'Male':'Female'}, Age {age})</h3>
             <div className="space-y-2">
               {[
-                {cat:'Poor',     r:gender==='male\'?\'<38':'<28',   c:'bg-red-400'},
-                {cat:'Fair',     r:gender==='male\'?\'38-44':'28-35',c:'bg-orange-400'},
-                {cat:'Good',     r:gender==='male\'?\'44-50':'35-42',c:'bg-yellow-400'},
-                {cat:'Excellent',r:gender==='male\'?\'50-57':'42-49',c:'bg-green-500'},
-                {cat:'Superior', r:gender==='male\'?\'57+':'49+',   c:'bg-blue-500'},
+                {cat:'Poor',     r:gender==='male'?'<38':'<28',   c:'bg-red-400'},
+                {cat:'Fair',     r:gender==='male'?'38-44':'28-35',c:'bg-orange-400'},
+                {cat:'Good',     r:gender==='male'?'44-50':'35-42',c:'bg-yellow-400'},
+                {cat:'Excellent',r:gender==='male'?'50-57':'42-49',c:'bg-green-500'},
+                {cat:'Superior', r:gender==='male'?'57+':'49+',   c:'bg-blue-500'},
               ].map(f=>(
                 <div key={f.cat} className={`flex items-center gap-3 p-2 rounded-lg ${result.cat===f.cat?'ring-2 ring-offset-1 ring-gray-400 bg-gray-50':''}`}>
                   <div className={`w-3 h-3 rounded-full ${f.c}`} />
@@ -109,7 +109,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </Card>
             <Card>
               <p className="text-xs text-gray-500 font-medium">Fitness Age (est.)</p>
-              <p className="text-3xl font-black text-gray-900 mt-1" style={{fontFamily:"'Playfair Display', serif"}}>{result.cat==='Superior\'?age-8:result.cat===\'Excellent\'?age-5:result.cat===\'Good\'?age:age+5}</p>
+              <p className="text-3xl font-black text-gray-900 mt-1" style={{fontFamily:"'Playfair Display', serif"}}>{result.cat==='Superior'?age-8:result.cat==='Excellent'?age-5:result.cat==='Good'?age:age+5}</p>
               <p className="text-xs text-gray-400">years</p>
             </Card>
           </div>

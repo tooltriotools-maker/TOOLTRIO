@@ -19,7 +19,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(100)
   const [reps, setReps] = useState(5)
   const [bodyWeight, setBodyWeight] = useState(80)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const orm = Math.round(FORMULAS[0].calc(weight, reps))
   const bwRatio = (orm / bodyWeight).toFixed(2)

@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Calcium Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Calcium is the most abundant mineral in the human body — about 99% of it stored in bones and teeth, with the remaining 1% playing critical roles in muscle contraction, nerve signaling, and blood clotting. That 1% in circulation is so important that your body maintains it within a narrow range at all costs: if dietary calcium is insufficient, your body pulls calcium from your bones to keep blood levels stable. Over years and decades, this bone resorption leads to reduced bone mineral density and increased fracture risk.
 
 The challenge with calcium is that requirements vary dramatically by life stage and aren't always met by typical Western diets. Adolescents need 1,300mg per day — during peak bone mass development, this is when skeletal calcium deposits for life. Postmenopausal women need 1,200mg per day because estrogen decline accelerates bone turnover. Yet surveys consistently show that most American women consume only 600-900mg per day from food.

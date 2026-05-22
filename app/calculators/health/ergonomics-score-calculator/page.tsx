@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Ergonomics Score Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Musculoskeletal disorders from poor ergonomics are the leading cause of workplace injury in the United States — responsible for more than 30% of all lost-workday injuries and illnesses according to the Bureau of Labor Statistics. The cumulative damage builds over months and years as small postural compromises and repetitive movements create chronic loading patterns in the spine, shoulders, wrists, and hips that exceed the body's capacity to recover.
 
 The specific problems vary by work type: desk workers develop upper cross syndrome (forward head posture, rounded shoulders, tight hip flexors from extended sitting) and repetitive neck flexion from looking down at phones and low monitors. Standing workers and laborers face different patterns — lumbar disc loading from awkward lifting mechanics, plantar fasciitis from prolonged standing on hard surfaces, shoulder impingement from overhead work.

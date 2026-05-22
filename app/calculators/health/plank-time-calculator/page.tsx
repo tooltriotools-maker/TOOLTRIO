@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Plank Time Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The plank is one of the most misunderstood exercises in mainstream fitness. It's marketed primarily as a core toning exercise, but its actual value lies in developing isometric endurance in the muscles that stabilize the spine and pelvis during movement — a capacity that has direct carryover to almost every athletic activity and daily movement.
 
 Core stability, as distinct from core strength, is about maintaining position under load — preventing the spine from buckling or rotating when your arms and legs are moving and generating force. Research consistently shows that deficits in core stability are associated with lower back pain, hip and knee injury, and reduced athletic performance. The plank trains exactly this — sustained activation of the transversus abdominis, multifidus, internal obliques, and diaphragm under isometric demand.

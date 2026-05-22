@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Cycling Calorie Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Cycling burns more calories per hour than most people think — and far fewer than most cycling apps claim. A 155-pound cyclist riding at moderate intensity (12-14 mph on flat terrain) burns roughly 500-600 calories per hour. That number climbs dramatically with speed and grade: riding hard at 16-19 mph can reach 800-1,000+ calories per hour, and any significant climbing multiplies the caloric cost substantially.
 
 The challenge with cycling calorie estimates is that the same 30-minute ride can represent wildly different energy expenditure depending on actual speed maintained, terrain, rider weight, and whether the ride involved any sustained effort or was mostly coasting. Heart rate data improves accuracy significantly — calorie estimates tied to heart rate are more reliable than speed-based estimates because heart rate more directly reflects actual metabolic demand.

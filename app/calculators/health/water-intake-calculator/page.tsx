@@ -50,7 +50,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Water Intake Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Hydration is one of the most foundational pillars of human health and performance, yet individual water needs vary far more than the generic '8 glasses a day' recommendation suggests. Your actual daily water requirement depends on how much you weigh, how hard you exercise, what climate you live in, your age, and whether you are pregnant or breastfeeding — factors that can shift your optimal intake by a liter or more per day.
 
 This calculator uses a body-weight-based formula (30-35 mL/kg baseline) adjusted for activity level, environmental conditions, and individual factors to give you a personalized daily water target more relevant to your actual life than any population average could provide.

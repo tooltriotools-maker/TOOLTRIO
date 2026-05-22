@@ -12,7 +12,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [reps, setReps] = useState(8)
   const [bodyWeight, setBodyWeight] = useState(80)
   const [addedWeight, setAddedWeight] = useState(0)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
 
   const totalLoad = bodyWeight + addedWeight
   const orm = Math.round(totalLoad * (1 + reps/30))

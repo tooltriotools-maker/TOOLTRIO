@@ -9,7 +9,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 export default function CalculatorClient({ faqs }: Props) {
 
   const [text, setText] = useState('Hello, World! 🌍 Привет мир')
-  const [tab, setTab] = useState<'stats\'|\'chars\'|\'freq\'>(\'stats')
+  const [tab, setTab] = useState<'stats'|'chars'|'freq'>('stats')
 
   const analysis = useMemo(() => {
     if (!text) return null
@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs }: Props) {
     chars.forEach(c => { freq[c] = (freq[c]||0) + 1 })
     const topChars = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,10)
     const codepoints = chars.slice(0,30).map(c => ({ char:c, cp:`U+${c.codePointAt(0)?.toString(16).toUpperCase().padStart(4,'0')}`, name: c.charCodeAt(0) < 128 ? 'ASCII' : 'Unicode' }))
-    const rot13 = text.replace(/[a-zA-Z]/g, c => String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() < 'n\' ? 13 : -13)))
+    const rot13 = text.replace(/[a-zA-Z]/g, c => String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() < 'n' ? 13 : -13)))
     return { chars:chars.length, jsLen:text.length, bytes8, bytes16, words, lines, unique, nonAscii, topChars, codepoints, rot13 }
   }, [text])
 
@@ -43,11 +43,11 @@ export default function CalculatorClient({ faqs }: Props) {
         <div className="flex gap-1 mb-4">
           {(['stats','chars','freq'] as const).map(t=>(
             <button key={t} onClick={()=>setTab(t)} className={`px-4 py-2 rounded-xl text-sm font-bold capitalize transition-all ${tab===t?'bg-gray-900 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-              {t==='stats\'?\'Statistics':t==='chars\'?\'Codepoints':'Frequency'}
+              {t==='stats'?'Statistics':t==='chars'?'Codepoints':'Frequency'}
             </button>
           ))}
         </div>
-        {tab==='stats\' && (
+        {tab==='stats' && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
             {[
               {l:'Characters',v:analysis.chars,s:'Unicode-aware'},
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs }: Props) {
             ))}
           </div>
         )}
-        {tab==='chars\' && (
+        {tab==='chars' && (
           <div className="rounded-xl border p-4 overflow-x-auto" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             <table className="w-full text-sm">
               <thead><tr className="border-b border-gray-100">
@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <tbody>
                 {analysis.codepoints.map((c,i) => (
                   <tr key={i} className="border-b border-gray-50">
-                    <td className="p-2 font-mono text-lg">{c.char==='\n\'?\'':c.char===' \'?\'.':c.char}</td>
+                    <td className="p-2 font-mono text-lg">{c.char==='\n'?'':c.char===' '?'.':c.char}</td>
                     <td className="p-2 font-mono text-xs text-blue-600">{c.cp}</td>
                     <td className="p-2 text-xs text-gray-500">{c.name}</td>
                     <td className="p-2 font-mono text-xs text-gray-600">{c.char.codePointAt(0)}</td>
@@ -89,11 +89,11 @@ export default function CalculatorClient({ faqs }: Props) {
             </table>
           </div>
         )}
-        {tab==='freq\' && (
+        {tab==='freq' && (
           <div className="rounded-xl border p-4 space-y-2" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             {analysis.topChars.map(([c,n])=>(
               <div key={c} className="flex items-center gap-3">
-                <span className="font-mono w-8 text-center text-lg">{c==='\n\'?\'':c===' \'?\'.':c}</span>
+                <span className="font-mono w-8 text-center text-lg">{c==='\n'?'':c===' '?'.':c}</span>
                 <div className="flex-1 h-5 bg-gray-100 rounded-full overflow-hidden">
                   <div className="h-full bg-blue-400 rounded-full" style={{width:`${(n/Array.from(text).length)*100}%`}}/>
                 </div>

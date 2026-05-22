@@ -19,7 +19,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [goldRate, setGoldRate] = useState(8)
   const [sgbBonus, setSgbBonus] = useState(2.5) // SGB gives 2.5% extra interest
   const [years, setYears] = useState(10)
-  const [investmentType, setInvestmentType] = useState<'physical\' | \'sgb\' | \'goldetf\'>(\'sgb')
+  const [investmentType, setInvestmentType] = useState<'physical' | 'sgb' | 'goldetf'>('sgb')
 
   const result = useMemo(() => {
     const months = years * 12
@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     const sipInvested = monthly * months
 
     // Effective gold rate based on type
-    const effectiveGoldRate = investmentType === 'sgb\' ? goldRate + sgbBonus : goldRate
+    const effectiveGoldRate = investmentType === 'sgb' ? goldRate + sgbBonus : goldRate
     const goldMonthlyRate = effectiveGoldRate / 100 / 12
     let goldFV = 0
     for (let m = 1; m <= months; m++) {
@@ -94,7 +94,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Monthly Investment" value={monthly} onChange={setMonthly} min={500} max={500000} step={500} prefix="₹" />
             <InputField label="SIP Expected Return (p.a.)" value={sipRate} onChange={setSipRate} min={1} max={30} step={0.5} suffix="%" />
             <InputField label="Gold Appreciation (p.a.)" value={goldRate} onChange={setGoldRate} min={1} max={20} step={0.5} suffix="%" />
-            {investmentType === 'sgb\' && (
+            {investmentType === 'sgb' && (
               <InputField label="SGB Interest Bonus" value={sgbBonus} onChange={setSgbBonus} min={0} max={5} step={0.25} suffix="%" />
             )}
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />

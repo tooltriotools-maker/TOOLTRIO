@@ -11,7 +11,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(45)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [systolic, setSystolic] = useState(130)
   const [cholesterol, setCholesterol] = useState(210)
   const [hdl, setHdl] = useState(50)

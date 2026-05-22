@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Steps to Calories Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Step count has become one of the most tracked health metrics in the world — almost every smartphone and wearable device counts steps — but translating those steps into calorie expenditure requires accounting for variables that dramatically affect the result. A 130-pound woman walking at 3 mph burns roughly 0.04 calories per step. A 220-pound man walking at the same speed burns about 0.06 calories per step. Pace, incline, fitness level, and carrying weight all modify this further.
 
 The 10,000-step target originated as a Japanese marketing slogan from a 1960s pedometer manufacturer, not a medical recommendation — but subsequent research has given it some retrospective validation. A 2021 JAMA Internal Medicine study of 16,741 older women found that those averaging 7,500 steps per day had significantly lower mortality than those averaging 2,700 steps, and that benefits plateaued around 7,500 steps.

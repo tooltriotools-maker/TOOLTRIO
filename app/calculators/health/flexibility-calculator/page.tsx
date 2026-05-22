@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Flexibility Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Flexibility is the least trained fitness component for most adults, and also one of the most systematically lost with aging. Range of motion decreases gradually from the mid-20s onward, with the rate of decline accelerating after 50 unless actively maintained through consistent stretching. The practical consequence isn't abstract: loss of hip flexor and thoracic spine mobility directly contributes to lower back pain, difficulty with everyday movements, and increased fall risk in older adults.
 
 The science on static stretching has evolved significantly over the past two decades. The old recommendation to stretch cold before exercise has been replaced by a more nuanced understanding: dynamic warm-up (leg swings, hip circles, arm swings) is better pre-exercise preparation. Static stretching is most effective post-exercise when muscles are warm, or as a dedicated flexibility session separate from strength training.

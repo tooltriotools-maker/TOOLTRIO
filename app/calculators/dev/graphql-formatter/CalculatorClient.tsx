@@ -16,18 +16,18 @@ function formatGql(raw: string): { formatted: string; error: string | null } {
     let inStr = false
     for (let i = 0; i < s.length; i++) {
       const c = s[i]
-      if (c === '"\' && s[i-1] !== \'\\') { inStr = !inStr }
+      if (c === '"' && s[i-1] !== '\\') { inStr = !inStr }
       if (inStr) { result += c; continue }
       if (c === '{') {
         depth++
-        result += ' {\n' + '  \'.repeat(depth)
+        result += ' {\n' + '  '.repeat(depth)
       } else if (c === '}') {
         depth--
         result = result.trimEnd()
-        result += '\n' + '  \'.repeat(depth) + '}\n'
-        if (depth > 0) result += '  \'.repeat(depth)
+        result += '\n' + '  '.repeat(depth) + '}\n'
+        if (depth > 0) result += '  '.repeat(depth)
       } else if (c === ',' ) {
-        result += '\n' + '  \'.repeat(depth)
+        result += '\n' + '  '.repeat(depth)
       } else {
         result += c
       }
@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <div className="flex items-center justify-between mb-2">
             <label className="text-xs font-bold text-gray-500 uppercase">Formatted Output</label>
             <button onClick={() => copy(formatted, 'formatted')} className="flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700">
-              {copied==='formatted\' ? <><Check className="w-3.5 h-3.5"/>Copied!</> : <><Copy className="w-3.5 h-3.5"/>Copy</>}
+              {copied==='formatted' ? <><Check className="w-3.5 h-3.5"/>Copied!</> : <><Copy className="w-3.5 h-3.5"/>Copy</>}
             </button>
           </div>
           {error && <div className="bg-red-50 border border-red-200 rounded-xl p-3 mb-2 text-xs text-red-700 font-medium">{error}</div>}

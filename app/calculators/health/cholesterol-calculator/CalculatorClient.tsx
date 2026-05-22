@@ -13,14 +13,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [totalChol, setTotalChol] = useState(200)
   const [hdl, setHdl] = useState(55)
   const [triglycerides, setTriglycerides] = useState(120)
-  const [unit, setUnit] = useState<'mgdl\'|\'mmol\'>(\'mgdl')
+  const [unit, setUnit] = useState<'mgdl'|'mmol'>('mgdl')
   const [age, setAge] = useState(45)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [smoker, setSmoker] = useState(false)
   const [diabetic, setDiabetic] = useState(false)
 
-  const toMgdl = (v: number) => unit==='mmol\' ? Math.round(v*38.67) : v
-  const toMmol = (v: number) => unit==='mgdl\' ? (v/38.67).toFixed(2) : v
+  const toMgdl = (v: number) => unit==='mmol' ? Math.round(v*38.67) : v
+  const toMmol = (v: number) => unit==='mgdl' ? (v/38.67).toFixed(2) : v
 
   const result = useMemo(() => {
     const tc = toMgdl(totalChol), h = toMgdl(hdl), tg = toMgdl(triglycerides)
@@ -57,9 +57,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Lipid Panel</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'mgdl',label:'mg/dL (USA standard)'},{value:'mmol',label:'mmol/L (UK/EU standard)'}]} />
-            <InputField label={`Total Cholesterol (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={totalChol} onChange={setTotalChol} min={unit==='mgdl\'?100:2.6} max={unit===\'mgdl\'?400:10.3} step={unit===\'mgdl\'?1:0.1} suffix={unit===\'mgdl\'?\'mg/dL':'mmol/L'} />
-            <InputField label={`HDL (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={hdl} onChange={setHdl} min={unit==='mgdl\'?20:0.5} max={unit===\'mgdl\'?120:3.1} step={unit===\'mgdl\'?1:0.1} suffix={unit===\'mgdl\'?\'mg/dL':'mmol/L'} />
-            <InputField label={`Triglycerides (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={triglycerides} onChange={setTriglycerides} min={unit==='mgdl\'?50:0.6} max={unit===\'mgdl\'?1000:11.3} step={unit===\'mgdl\'?1:0.1} suffix={unit===\'mgdl\'?\'mg/dL':'mmol/L'} />
+            <InputField label={`Total Cholesterol (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={totalChol} onChange={setTotalChol} min={unit==='mgdl'?100:2.6} max={unit==='mgdl'?400:10.3} step={unit==='mgdl'?1:0.1} suffix={unit==='mgdl'?'mg/dL':'mmol/L'} />
+            <InputField label={`HDL (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={hdl} onChange={setHdl} min={unit==='mgdl'?20:0.5} max={unit==='mgdl'?120:3.1} step={unit==='mgdl'?1:0.1} suffix={unit==='mgdl'?'mg/dL':'mmol/L'} />
+            <InputField label={`Triglycerides (${unit==='mgdl'?'mg/dL':'mmol/L'})`} value={triglycerides} onChange={setTriglycerides} min={unit==='mgdl'?50:0.6} max={unit==='mgdl'?1000:11.3} step={unit==='mgdl'?1:0.1} suffix={unit==='mgdl'?'mg/dL':'mmol/L'} />
             <SelectField label="Age" value={String(age)} onChange={v=>setAge(Number(v))} options={[35,40,45,50,55,60,65,70].map(a=>({value:String(a),label:`${a} years`}))} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">

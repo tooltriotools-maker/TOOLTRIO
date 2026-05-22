@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Skin Health Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Skin health reflects the intersection of genetics, lifestyle, and environment in ways that become increasingly visible over time — and increasingly consequential. UV damage is cumulative and largely irreversible; the tanning you did in your 20s shows up as photoaging in your 40s and 50s. Acne in adulthood is more common than most people realize, affecting an estimated 15% of adults. Eczema, psoriasis, and rosacea are chronic conditions that require ongoing management. And skin cancer, while highly treatable when caught early, remains the most commonly diagnosed cancer in the United States.
 
 The four pillars of skin health are sun protection, skin barrier maintenance, targeted treatment for specific conditions, and regular professional screening. Most skin concerns — acne, dryness, irritation, early signs of aging — respond well to consistent topical regimens with scientifically supported ingredients: retinoids (the most evidence-backed anti-aging topical available), vitamin C (antioxidant protection and collagen support), niacinamide (anti-inflammatory and barrier support), and broad-spectrum SPF daily.

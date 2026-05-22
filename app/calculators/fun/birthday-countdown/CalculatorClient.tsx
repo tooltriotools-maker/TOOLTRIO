@@ -119,7 +119,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>A Saturday or Sunday birthday in your next cycle is worth planning for significantly further in advance than a weekday one -- the logistics of gathering people on weekends are easier but the competition for those weekend slots from other events is real.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If your birthday falls within two weeks of Christmas or another major holiday, your celebration window is compressed in a way that requires earlier planning than most. You know this. The countdown tool helps you see how many usable weekends you have before the date.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Use the countdown to your own birthday as a deadline anchor for something you've been meaning to do before you turn the next year older. "I want to have done X before I\'m 34" is a better motivational frame than a vague future intention.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Use the countdown to your own birthday as a deadline anchor for something you've been meaning to do before you turn the next year older. "I want to have done X before I'm 34" is a better motivational frame than a vague future intention.</span></li>
           </ul>
         </section>
 

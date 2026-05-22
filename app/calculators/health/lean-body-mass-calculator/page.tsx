@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Lean Body Mass Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Lean body mass — everything in your body that isn't fat — is one of the most useful and undertracked metrics in health and fitness. It encompasses muscle, bone, organs, water, and connective tissue. While people obsess over scale weight, lean body mass is actually the component most directly tied to metabolic rate, functional capacity, longevity, and the quality of body composition change during weight loss or gain.
 
 The clinical importance of lean mass has become clearer as research accumulates: each pound of muscle mass burns approximately 6-10 additional calories per day at rest compared to fat. Preserving or increasing lean mass during weight loss maintains metabolic rate, making weight maintenance easier. Sarcopenia — age-related muscle loss — starts in the 30s at a rate of roughly 3-5% per decade without resistance training, and accelerates after 60 with profound effects on functional independence and mortality risk.

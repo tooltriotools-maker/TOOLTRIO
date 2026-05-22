@@ -57,7 +57,7 @@ interface Result { r1: ZipInfo; r2: ZipInfo; miles: number; km: number }
 export default function ZipDistanceClient() {
   const [zip1, setZip1] = useState('')
   const [zip2, setZip2] = useState('')
-  const [filling, setFilling] = useState<'from\'|\'to\'>(\'from')
+  const [filling, setFilling] = useState<'from'|'to'>('from')
   const [result, setResult] = useState<Result | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -137,7 +137,7 @@ export default function ZipDistanceClient() {
             -- TO
           </button>
           <span className="text-xs text-gray-400 italic">
-            {filling==='from\' ? \'Click city to set FROM ZIP' : 'Click city to set TO ZIP'}
+            {filling==='from' ? 'Click city to set FROM ZIP' : 'Click city to set TO ZIP'}
           </span>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -145,8 +145,8 @@ export default function ZipDistanceClient() {
             <button key={p.zip} onClick={() => handleQuickFill(p.zip)}
               className="text-xs px-3 py-1.5 rounded-full border font-mono transition-all"
               style={{
-                borderColor: filling==='from\' ? \'rgba(134,239,172,0.6)' : 'rgba(147,197,253,0.6)',
-                color: filling==='from\' ? \'#15803d' : '#1d4ed8',
+                borderColor: filling==='from' ? 'rgba(134,239,172,0.6)' : 'rgba(147,197,253,0.6)',
+                color: filling==='from' ? '#15803d' : '#1d4ed8',
                 background:'#fff',
               }}>
               {p.zip} <span className="font-sans text-gray-400">({p.label})</span>
@@ -158,8 +158,8 @@ export default function ZipDistanceClient() {
       {/* ── ZIP inputs ───────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         {[
-          {label:'From ZIP', val:zip1, set:setZip1, ph:'e.g. 10001', color:'#22c55e', mode:'from\' as const},
-          {label:'To ZIP',   val:zip2, set:setZip2, ph:'e.g. 90210', color:'#3b82f6', mode:'to\'   as const},
+          {label:'From ZIP', val:zip1, set:setZip1, ph:'e.g. 10001', color:'#22c55e', mode:'from' as const},
+          {label:'To ZIP',   val:zip2, set:setZip2, ph:'e.g. 90210', color:'#3b82f6', mode:'to'   as const},
         ].map(f => (
           <div key={f.label}>
             <label className="text-sm font-semibold text-gray-600 block mb-1">{f.label}</label>

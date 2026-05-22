@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Pregnancy Weight Gain Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Appropriate weight gain during pregnancy is one of the most clinically significant modifiable factors for both maternal and infant outcomes. Gaining too little is associated with intrauterine growth restriction and preterm birth; gaining too much is associated with gestational diabetes, cesarean delivery, and difficulty losing weight postpartum. The optimal range depends primarily on pre-pregnancy BMI.
 
 The Institute of Medicine (IOM) guidelines establish the following ranges: underweight (BMI <18.5): 28-40 lbs; normal weight (BMI 18.5-24.9): 25-35 lbs; overweight (BMI 25-29.9): 15-25 lbs; obese (BMI ≥30): 11-20 lbs. These ranges are medically derived recommendations based on outcome data from tens of thousands of pregnancies.

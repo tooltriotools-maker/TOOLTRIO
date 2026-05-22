@@ -2,7 +2,7 @@ export interface CalculatorMeta {
   title: string
   description: string
   slug: string
-  category: 'finance\' | \'health'
+  category: 'finance' | 'health'
   icon: string
   color: string
   tags: string[]

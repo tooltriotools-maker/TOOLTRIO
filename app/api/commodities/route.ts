@@ -36,9 +36,9 @@ interface Result {
   sourceSummary: string[]
 }
 
-type CommodityKey = keyof Omit<Result, 'fetchedAt\' | \'sourceSummary\'>
+type CommodityKey = keyof Omit<Result, 'fetchedAt' | 'sourceSummary'>
 
-const SEEDS: Record<string, Omit<CPrice,'change\'|\'changePct\'|\'source\'|\'live\'|\'ts\'> & {prev:number}> = {
+const SEEDS: Record<string, Omit<CPrice,'change'|'changePct'|'source'|'live'|'ts'> & {prev:number}> = {
   gold:        {symbol:'XAU', name:'Gold',             price:3150.00, prev:3120.00, unit:'troy oz'},
   silver:      {symbol:'XAG', name:'Silver',           price:33.80,   prev:33.50,   unit:'troy oz'},
   platinum:    {symbol:'XPT', name:'Platinum',         price:960.00,  prev:950.00,  unit:'troy oz'},

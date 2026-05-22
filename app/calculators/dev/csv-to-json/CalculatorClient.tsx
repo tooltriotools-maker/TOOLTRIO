@@ -25,8 +25,8 @@ export default function CalculatorClient({ faqs }: Props) {
         const fields: string[] = []; let cur = '', inQ = false
         for (let i = 0; i < line.length; i++) {
           const c = line[i]
-          if (c === '"\' && !inQ) { inQ = true; continue }
-          if (c === '"\' && inQ) { if (line[i+1] === \'"') { cur += '"'; i++ } else inQ = false; continue }
+          if (c === '"' && !inQ) { inQ = true; continue }
+          if (c === '"' && inQ) { if (line[i+1] === '"') { cur += '"'; i++ } else inQ = false; continue }
           if (c === delimiter && !inQ) { fields.push(cur); cur = '' }
           else cur += c
         }
@@ -36,8 +36,8 @@ export default function CalculatorClient({ faqs }: Props) {
       const cast = (v: string) => {
         if (!inferTypes) return v
         if (v === 'true') return true; if (v === 'false') return false
-        if (v === 'null\' || v === \'') return null
-        const n = Number(v); return isNaN(n) || v === '\' ? v : n
+        if (v === 'null' || v === '') return null
+        const n = Number(v); return isNaN(n) || v === '' ? v : n
       }
       const data = lines.slice(1).map(line => {
         const vals = parseRow(line)

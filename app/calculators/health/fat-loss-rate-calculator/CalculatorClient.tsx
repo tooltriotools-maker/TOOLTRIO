@@ -12,10 +12,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(185)
   const [targetWeight, setTargetWeight] = useState(75)
   const [deficit, setDeficit] = useState(500)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
-  const wKg = unit==='imperial\' ? weight*0.453592 : weight
-  const tKg = unit==='imperial\' ? targetWeight*0.453592 : targetWeight
+  const wKg = unit==='imperial' ? weight*0.453592 : weight
+  const tKg = unit==='imperial' ? targetWeight*0.453592 : targetWeight
   const tolose = Math.max(0, wKg - tKg)
   const weeklyLoss = (deficit * 7) / 7700
   const weeksNeeded = weeklyLoss > 0 ? Math.ceil(tolose / weeklyLoss) : 0
@@ -30,8 +30,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Goals</h2>
           <div className="space-y-4">
             <SelectField label="Units" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label="Current Weight" value={weight} onChange={setWeight} min={40} max={300} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
-            <InputField label="Target Weight" value={targetWeight} onChange={setTargetWeight} min={40} max={300} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
+            <InputField label="Current Weight" value={weight} onChange={setWeight} min={40} max={300} step={1} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label="Target Weight" value={targetWeight} onChange={setTargetWeight} min={40} max={300} step={1} suffix={unit==='metric'?'kg':'lbs'} />
             <InputField label="Daily Calorie Deficit" value={deficit} onChange={setDeficit} min={100} max={1500} step={50} suffix="kcal" />
           </div>
           {aggressive && <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-semibold">⚠️ Deficit above 1000 kcal/day is aggressive. Consult a doctor.</div>}
@@ -42,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Time to Goal</p>
               <div className="text-6xl font-black text-rose-500 mb-2">{weeksNeeded} weeks</div>
-              <p className="text-gray-500">~= {monthsNeeded} months to lose {tolose.toFixed(1)} {unit==='metric\'?\'kg':'lbs'}</p>
+              <p className="text-gray-500">~= {monthsNeeded} months to lose {tolose.toFixed(1)} {unit==='metric'?'kg':'lbs'}</p>
             </div>
           </Card>
           <div className="grid grid-cols-3 gap-3">

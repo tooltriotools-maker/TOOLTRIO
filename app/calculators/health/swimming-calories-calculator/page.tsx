@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Swimming Calories Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Swimming is one of the most complete full-body workouts available — it simultaneously challenges cardiovascular fitness, muscular endurance, flexibility, and coordination across almost every major muscle group. Yet its calorie burn is frequently either overestimated (by people who feel exhausted after swimming) or underestimated (because the cool water suppresses the perceived exertion that makes effort obvious on land).
 
 The calorie math for swimming is more variable than for running or cycling because swim efficiency varies dramatically between swimmers. Technique — which determines drag resistance through the water and the energy cost of forward propulsion — is the dominant variable in swimming calorie expenditure at any given distance.

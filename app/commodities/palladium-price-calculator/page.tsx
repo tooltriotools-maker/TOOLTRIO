@@ -38,10 +38,10 @@ function PalladiumFAQ() {
 
 export default function Page() {
   const { data, loading, refresh } = useCommodityPrices(60)
-  const c = data['palladium\' as keyof typeof data]
+  const c = data['palladium' as keyof typeof data]
   const [weight, setWeight] = useState(10)
-  const [unit, setUnit] = useState<'gram\'|\'oz\'|\'kg\'>(\'gram')
-  const grams = unit==='gram\' ? weight : unit===\'oz\' ? weight*TROY_OZ_TO_GRAM : weight*1000
+  const [unit, setUnit] = useState<'gram'|'oz'|'kg'>('gram')
+  const grams = unit==='gram' ? weight : unit==='oz' ? weight*TROY_OZ_TO_GRAM : weight*1000
   const perGram = c.price / TROY_OZ_TO_GRAM
   const value = perGram * grams
 

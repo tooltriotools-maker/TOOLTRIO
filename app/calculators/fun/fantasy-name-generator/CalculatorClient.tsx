@@ -97,7 +97,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Select your character's race or archetype (elf, dwarf, human noble, rogue, mage, etc.) and the generator applies a phonetic template appropriate to that category. Elf names use soft consonants and flowing vowel sequences; orc names use hard stops and guttural combinations. The output gives a first name and a surname or clan name where relevant to the archetype, plus an optional epithet for characters who\'ve been around long enough to earn one.</p>
+          <p className="text-gray-700 leading-relaxed">Select your character's race or archetype (elf, dwarf, human noble, rogue, mage, etc.) and the generator applies a phonetic template appropriate to that category. Elf names use soft consonants and flowing vowel sequences; orc names use hard stops and guttural combinations. The output gives a first name and a surname or clan name where relevant to the archetype, plus an optional epithet for characters who've been around long enough to earn one.</p>
         </section>
 
         {/* Fun Fact */}

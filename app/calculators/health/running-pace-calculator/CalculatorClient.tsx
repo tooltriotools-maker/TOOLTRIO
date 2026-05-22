@@ -10,7 +10,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
-  const [mode, setMode] = useState<'pace\'|\'time\'|\'speed\'>(\'pace')
+  const [mode, setMode] = useState<'pace'|'time'|'speed'>('pace')
   const [distKm, setDistKm] = useState(10)
   const [paceMin, setPaceMin] = useState(5)
   const [paceSec, setPaceSec] = useState(30)
@@ -18,7 +18,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [timeMin, setTimeMin] = useState(55)
   const [timeSec, setTimeSec] = useState(0)
   const [speedKmh, setSpeedKmh] = useState(10)
-  const [paceUnit, setPaceUnit] = useState<'km\'|\'mi\'>(\'km')
+  const [paceUnit, setPaceUnit] = useState<'km'|'mi'>('km')
 
   const result = useMemo(() => {
     const paceTotalSec = paceMin*60 + paceSec
@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     
     let paceSecPerKm=0, totalSec=0, speed=0
     if (mode==='pace') {
-      paceSecPerKm = paceUnit==='km\' ? paceTotalSec : paceTotalSec/1.60934
+      paceSecPerKm = paceUnit==='km' ? paceTotalSec : paceTotalSec/1.60934
       totalSec = paceSecPerKm * distKm
       speed = 3600/paceSecPerKm
     } else if (mode==='time') {
@@ -73,21 +73,21 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Calculate" value={mode} onChange={v=>setMode(v as any)} options={[{value:'pace',label:'Finish Time from Pace'},{value:'time',label:'Pace from Finish Time'},{value:'speed',label:'Pace from Speed'}]} />
             <InputField label="Distance (km)" value={distKm} onChange={setDistKm} min={0.1} max={200} step={0.5} suffix="km" />
-            {mode==='pace\' && <>
+            {mode==='pace' && <>
               <SelectField label="Pace Unit" value={paceUnit} onChange={v=>setPaceUnit(v as any)} options={[{value:'km',label:'min/km'},{value:'mi',label:'min/mile'}]} />
               <div className="grid grid-cols-2 gap-2">
                 <InputField label="Min" value={paceMin} onChange={setPaceMin} min={1} max={30} step={1} suffix="min" />
                 <InputField label="Sec" value={paceSec} onChange={setPaceSec} min={0} max={59} step={1} suffix="sec" />
               </div>
             </>}
-            {mode==='time\' && <>
+            {mode==='time' && <>
               <div className="grid grid-cols-3 gap-1">
                 <InputField label="Hours" value={timeH} onChange={setTimeH} min={0} max={10} step={1} suffix="h" />
                 <InputField label="Min" value={timeMin} onChange={setTimeMin} min={0} max={59} step={1} suffix="m" />
                 <InputField label="Sec" value={timeSec} onChange={setTimeSec} min={0} max={59} step={1} suffix="s" />
               </div>
             </>}
-            {mode==='speed\' && <InputField label="Speed (km/h)" value={speedKmh} onChange={setSpeedKmh} min={3} max={30} step={0.1} suffix="km/h" />}
+            {mode==='speed' && <InputField label="Speed (km/h)" value={speedKmh} onChange={setSpeedKmh} min={3} max={30} step={0.1} suffix="km/h" />}
           </div>
           <div className="mt-5 space-y-2">
             <div className="p-3 bg-green-50 rounded-xl border border-green-200 grid grid-cols-2 gap-2 text-center">

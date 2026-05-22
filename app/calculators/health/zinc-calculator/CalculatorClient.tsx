@@ -12,11 +12,11 @@ const FOODS = [{n:'Oysters (100g)',mg:78},{n:'Beef (100g)',mg:6.3},{n:'Hemp seed
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [pregnant, setPregnant] = useState(false)
   const [veg, setVeg] = useState(false)
 
-  const base = pregnant?11:gender==='male\'?(age>=19?11:9):(age>=19?8:9)
+  const base = pregnant?11:gender==='male'?(age>=19?11:9):(age>=19?8:9)
   const rdi = veg ? Math.round(base * 1.5) : base
 
   return (
@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={1} max={100} step={1} suffix="yrs" />
             <label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={veg} onChange={e=>setVeg(e.target.checked)} className="accent-rose-500"/><span>Vegetarian / Vegan (+50% needed)</span></label>
-            {gender==='female\'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant</span></label>}
+            {gender==='female'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant</span></label>}
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">

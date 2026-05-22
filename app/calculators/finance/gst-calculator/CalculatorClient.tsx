@@ -19,7 +19,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const { fmt, currency } = useCurrency()
   const [amount, setAmount] = useState(10000)
   const [gstRate, setGstRate] = useState('18')
-  const [type, setType] = useState<'exclusive\' | \'inclusive\'>(\'exclusive')
+  const [type, setType] = useState<'exclusive' | 'inclusive'>('exclusive')
 
   const r = useMemo(() => calculateGST(amount, Number(gstRate), type), [amount, gstRate, type])
 
@@ -47,11 +47,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 {(['exclusive', 'inclusive'] as const).map(t => (
                   <button key={t} onClick={() => setType(t)}
                     className={`py-2.5 rounded-xl text-sm font-bold border-2 transition-all ${type === t ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                    {t === 'exclusive\' ? '+ Add GST' : \'GST Included'}
+                    {t === 'exclusive' ? '+ Add GST' : 'GST Included'}
                   </button>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-2">{type === 'exclusive\' ? \'GST added on top of amount entered' : 'Amount entered already includes GST'}</p>
+              <p className="text-xs text-gray-400 mt-2">{type === 'exclusive' ? 'GST added on top of amount entered' : 'Amount entered already includes GST'}</p>
             </div>
           </div>
           <div className="mt-5 grid grid-cols-2 gap-2">
@@ -154,7 +154,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">GST Input Tax Credit - How Businesses Benefit</h3>
-              <p>GST\'s biggest reform for businesses is Input Tax Credit (ITC). Businesses registered under GST can claim credit for GST paid on purchases (inputs) against GST collected on sales (output). This eliminates the \'cascading tax\' or \'tax on tax\' problem that existed under VAT/Service Tax. Example: Manufacturer buys raw materials ($1,000 + 18% GST = $180 paid). Sells finished product ($2,000 + 18% GST = $360 collected). ITC = $180. Net GST payable = $360 - $180 = $180. Without ITC, the manufacturer would pay $360 even after paying $180 at purchase - that\'s the cascading problem GST solved.</p>
+              <p>GST\'s biggest reform for businesses is Input Tax Credit (ITC). Businesses registered under GST can claim credit for GST paid on purchases (inputs) against GST collected on sales (output). This eliminates the 'cascading tax' or 'tax on tax' problem that existed under VAT/Service Tax. Example: Manufacturer buys raw materials ($1,000 + 18% GST = $180 paid). Sells finished product ($2,000 + 18% GST = $360 collected). ITC = $180. Net GST payable = $360 - $180 = $180. Without ITC, the manufacturer would pay $360 even after paying $180 at purchase - that\'s the cascading problem GST solved.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">GST Compliance - Returns, Filing, and Penalties</h3>
               <p>GST-registered businesses must file regular returns: Form 1099-1 (sales details) filed monthly or quarterly. Form 1099-3B (monthly summary with tax payment) filed monthly. Form 1099-9 (annual return) filed yearly. For smaller businesses (turnover under $2 million): Form 1099-4 quarterly. Late filing penalties: $50/day for Form 1099-1 and Form 1099-3B, $200/day for annual returns, subject to a maximum cap. Interest at 18% p.a. on late tax payments. Composition scheme: Businesses with turnover under $1.5 million can opt for a simplified flat-rate tax (1-6%) with fewer compliance requirements. Understanding GST helps businesses and individuals alike accurately calculate prices, quotations, invoices, and tax obligations.</p>
             </div>

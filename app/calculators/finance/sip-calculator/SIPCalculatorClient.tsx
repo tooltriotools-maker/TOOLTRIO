@@ -50,9 +50,9 @@ export default function SIPCalculatorClient({ faqs, structuredData, relatedCalcu
             <InputField
               label={`Monthly Investment (${currency.symbol})`}
               value={monthly} onChange={setMonthly}
-              min={currency.code === 'INR\' ? 500 : 50}
-              max={currency.code === 'INR\' ? 500000 : 50000}
-              step={currency.code === 'INR\' ? 500 : 50}
+              min={currency.code === 'INR' ? 500 : 50}
+              max={currency.code === 'INR' ? 500000 : 50000}
+              step={currency.code === 'INR' ? 500 : 50}
               prefix={currency.symbol}
             />
             <InputField label="Expected Annual Return" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%" />

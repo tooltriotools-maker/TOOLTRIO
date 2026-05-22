@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Body Surface Area Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Body surface area is a clinical measurement — most people will encounter it in the context of medication dosing, burn assessment, or chemotherapy calculation rather than general wellness tracking. Unlike BMI, which is a proxy for body fatness, BSA is a direct geometric estimate of the total area of a person's skin. It matters because many drugs distribute across body surfaces and some cancer treatments are dosed by BSA to reduce toxicity while maintaining efficacy.
 
 There are several validated formulas for estimating BSA, each developed from different population datasets: the Mosteller formula (simplest and widely used), the Du Bois formula (historically significant, derived from a small sample), the Haycock formula (more accurate in pediatric patients), and the Gehan-George formula. Results vary by a few percent between methods. This calculator provides results from multiple formulas so you can see the range and use whichever method is specified for your clinical context.

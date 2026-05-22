@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Macro Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Macros — short for macronutrients — are the three major categories of nutrients your body uses for energy: protein, carbohydrates, and fat. Each plays distinct and essential roles in body composition, performance, and health, and the ratio between them shapes how your body responds to training and diet.
 
 Unlike simple calorie counting, tracking macros gives you granular control over body composition outcomes. You can eat the same number of calories at completely different macro splits and get dramatically different results: a high-protein low-calorie diet preserves more muscle during fat loss than a low-protein low-calorie diet with the same total calories. A high-carbohydrate diet enables more intense training sessions than a high-fat low-carb diet at the same calories.

@@ -54,7 +54,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Yoga Calorie Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Yoga's caloric burn is frequently misunderstood in both directions — underestimated by people who dismiss it as not real exercise, and overestimated by fitness trackers that categorize vigorous Vinyasa as equivalent to jogging. The reality depends heavily on style, pace, intensity, and your own fitness level.
 
 The range runs roughly from 100-150 calories per hour for gentle restorative yoga (heart rate barely elevated), through 200-350 calories per hour for Hatha and moderate Vinyasa, to 450-600+ calories per hour for vigorous Power Yoga, Ashtanga, and Bikram. The latter intensities genuinely qualify as moderate-to-vigorous exercise by ACSM standards.

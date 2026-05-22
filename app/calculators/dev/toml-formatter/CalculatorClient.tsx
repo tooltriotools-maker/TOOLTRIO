@@ -7,7 +7,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('[server]\nhost = "localhost"\nport = 8080\ndebug = true\n\n[database]\nurl = "postgres://localhost/mydb"\nmax_connections = 25\n\n[features]\nenabled = ["auth", "api", "admin"]')
-  const [mode, setMode] = useState<'format\'|\'to-json\'>(\'format')
+  const [mode, setMode] = useState<'format'|'to-json'>('format')
   const [copied, setCopied] = useState(false)
 
   const result = useMemo(() => {
@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs }: Props) {
     mode===m ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
   }`}
 >
-  {m === 'format\' ? \'Format TOML' : 'TOML → JSON'}
+  {m === 'format' ? 'Format TOML' : 'TOML → JSON'}
 </button>
         ))}
       </div>
@@ -93,7 +93,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the TOML Formatter</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">TOML (Tom's Obvious Minimal Language) is a configuration file format used by Cargo (Rust), Hugo, Deno, and many other tools. Paste your TOML config into the left panel. Use Format mode to clean up spacing and consistency, or TOML → JSON to convert the config into JSON format (useful when integrating with JSON-based tooling). The converter handles strings, numbers, booleans, and arrays.</p>
-        <p className="text-sm text-gray-600">Common TOML files: Rust's Cargo.toml (package manifest), Hugo\'s config.toml, pyproject.toml (Python packaging), Deno\'s deno.json, and various Rust/Go application configs. TOML\'s key advantage over YAML is its strict, unambiguous specification - no indentation-sensitive parsing.</p>
+        <p className="text-sm text-gray-600">Common TOML files: Rust's Cargo.toml (package manifest), Hugo's config.toml, pyproject.toml (Python packaging), Deno's deno.json, and various Rust/Go application configs. TOML's key advantage over YAML is its strict, unambiguous specification - no indentation-sensitive parsing.</p>
       </div>
       <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent

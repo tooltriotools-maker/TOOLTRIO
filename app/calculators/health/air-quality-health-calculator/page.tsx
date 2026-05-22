@@ -49,7 +49,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Air Quality & Health Impact Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your local air quality index (AQI) number tells you how polluted the air is — but translating that number into personal health risk requires knowing your individual sensitivity, what activities you plan to do, and how long you will be outdoors. This calculator does exactly that conversion.
 
 Enter today's AQI (available from AirNow.gov or your weather app), your age and any respiratory or cardiovascular conditions, and your planned outdoor activity. The calculator returns: your personal risk classification, the maximum recommended outdoor exposure time, whether you should modify or cancel your planned exercise, and what protective measures are appropriate.

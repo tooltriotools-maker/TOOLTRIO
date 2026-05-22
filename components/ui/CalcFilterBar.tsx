@@ -88,7 +88,7 @@ export default function CalcFilterBar({ calculators, tagColors }: Props) {
       {/* Count */}
       <p className="text-xs text-gray-400 mb-4 font-medium">
         Showing {filtered.length} of {calculators.length} calculators
-        {active !== 'All\' && ` - ${FILTER_TABS.find(t => t.value === active)?.label}`}
+        {active !== 'All' && ` - ${FILTER_TABS.find(t => t.value === active)?.label}`}
         {search && ` - matching "${search}"`}
       </p>
 

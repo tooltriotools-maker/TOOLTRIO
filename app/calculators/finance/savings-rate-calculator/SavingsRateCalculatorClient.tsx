@@ -15,7 +15,7 @@ import { savingsRateSEOContent } from '@/lib/seo/calculator-seo-content'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 export default function SavingsRateCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR\' ? 10 : 1
+  const m = currency.code === 'INR' ? 10 : 1
 
   const [income, setIncome]       = useState(5000 * m)
   const [expenses, setExpenses]   = useState(3500 * m)

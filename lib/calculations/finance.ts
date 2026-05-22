@@ -254,8 +254,8 @@ export function calculateStepUpSIP(initialMonthly: number, annualStepUp: number,
 }
 
 /** Debt Payoff Calculator (Avalanche/Snowball) */
-export function calculateDebtPayoff(debts: { name: string; balance: number; rate: number; minPayment: number }[], extraPayment: number, method: 'avalanche\' | \'snowball') {
-  const sorted = [...debts].sort((a, b) => method === 'avalanche\' ? b.rate - a.rate : a.balance - b.balance)
+export function calculateDebtPayoff(debts: { name: string; balance: number; rate: number; minPayment: number }[], extraPayment: number, method: 'avalanche' | 'snowball') {
+  const sorted = [...debts].sort((a, b) => method === 'avalanche' ? b.rate - a.rate : a.balance - b.balance)
   let totalMonths = 0
   let totalInterest = 0
 
@@ -315,7 +315,7 @@ export const formatNumber = (n: number): string => new Intl.NumberFormat('en-IN'
 /** -- NEW CALCULATORS -- **/
 
 /** GST Calculator */
-export function calculateGST(amount: number, gstRate: number, type: 'exclusive\' | \'inclusive') {
+export function calculateGST(amount: number, gstRate: number, type: 'exclusive' | 'inclusive') {
   if (type === 'exclusive') {
     const gstAmount = (amount * gstRate) / 100
     const totalAmount = amount + gstAmount
@@ -368,7 +368,7 @@ export function calculateNPS(monthlyContribution: number, years: number, expecte
 }
 
 /** Gratuity Calculator */
-export function calculateGratuity(lastSalary: number, yearsOfService: number, type: 'covered\' | \'uncovered') {
+export function calculateGratuity(lastSalary: number, yearsOfService: number, type: 'covered' | 'uncovered') {
   let gratuity = 0
   if (type === 'covered') {
     // Covered under Gratuity Act: (Last Salary x 15/26 x Years of Service)
@@ -406,8 +406,8 @@ export function calculateSimpleInterest(principal: number, rate: number, years: 
 }
 
 /** Income Tax Calculator (India FY 2026-27) */
-export function calculateIncomeTax(grossIncome: number, regime: 'old\' | \'new', deductions: { sec80C: number; sec80D: number; hra: number; lta: number; stdDeduction: number }) {
-  const stdDeduction = regime === 'new\' ? 75000 : deductions.stdDeduction || 50000
+export function calculateIncomeTax(grossIncome: number, regime: 'old' | 'new', deductions: { sec80C: number; sec80D: number; hra: number; lta: number; stdDeduction: number }) {
+  const stdDeduction = regime === 'new' ? 75000 : deductions.stdDeduction || 50000
   let taxableIncome = grossIncome - stdDeduction
   if (regime === 'old') {
     taxableIncome -= Math.min(deductions.sec80C, 150000)
@@ -922,8 +922,8 @@ export function calculateRothIRA(
 }
 
 export function calculatePaycheck(
-  annualSalary: number, payPeriod: 'weekly\' | \'biweekly\' | \'semimonthly\' | \'monthly',
-  filingStatus: 'single\' | \'married\' | \'hoh', allowances: number,
+  annualSalary: number, payPeriod: 'weekly' | 'biweekly' | 'semimonthly' | 'monthly',
+  filingStatus: 'single' | 'married' | 'hoh', allowances: number,
   stateRate: number, retirement401k: number, healthInsurance: number, hsa: number
 ) {
   const periods = { weekly: 52, biweekly: 26, semimonthly: 24, monthly: 12 }
@@ -969,7 +969,7 @@ export function calculatePaycheck(
 }
 
 export function calculateCarDepreciation(
-  purchasePrice: number, age: number, makeType: 'luxury\' | \'standard\' | \'economy\' | \'truck',
+  purchasePrice: number, age: number, makeType: 'luxury' | 'standard' | 'economy' | 'truck',
   mileagePerYear: number
 ) {
   const firstYearDep: Record<string, number> = { luxury: 0.25, standard: 0.20, economy: 0.15, truck: 0.15 }
@@ -1012,7 +1012,7 @@ export function calculateDividendIncome(
 }
 
 export function calculateCollegeCost(
-  childAge: number, collegeType: 'public_instate\' | \'public_outstate\' | \'private\' | \'community',
+  childAge: number, collegeType: 'public_instate' | 'public_outstate' | 'private' | 'community',
   years: number, currentSavings: number, monthlySavings: number,
   investmentReturn: number, inflationRate: number = 6
 ) {
@@ -1034,7 +1034,7 @@ export function calculateCollegeCost(
 // --- 10 EUROPE-BASED CALCULATORS ---------------------------------------------
 
 export function calculateVAT(
-  amount: number, vatRate: number, type: 'exclusive\' | \'inclusive'
+  amount: number, vatRate: number, type: 'exclusive' | 'inclusive'
 ) {
   if (type === 'exclusive') {
     const vatAmount = amount * (vatRate / 100)
@@ -1048,7 +1048,7 @@ export function calculateVAT(
 
 export function calculateUKStampDuty(
   propertyPrice: number,
-  buyerType: 'firstTime\' | \'standard\' | \'additionalProperty',
+  buyerType: 'firstTime' | 'standard' | 'additionalProperty',
   isEnglandWales: boolean = true
 ) {
   let tax = 0
@@ -1131,11 +1131,11 @@ export function calculateEuropeanMortgage(
 export function calculateISA(
   currentBalance: number, annualContribution: number,
   annualReturn: number, years: number,
-  isaType: 'stocks\' | \'cash\' | \'lifetime'
+  isaType: 'stocks' | 'cash' | 'lifetime'
 ) {
-  const limit2026 = isaType === 'lifetime\' ? 4000 : 20000
+  const limit2026 = isaType === 'lifetime' ? 4000 : 20000
   const contribution = Math.min(annualContribution, limit2026)
-  const bonusPct = isaType === 'lifetime\' ? 0.25 : 0
+  const bonusPct = isaType === 'lifetime' ? 0.25 : 0
   const annualBonus = contribution * bonusPct
   const totalAnnualIn = contribution + annualBonus
   const r = annualReturn / 100
@@ -1800,7 +1800,7 @@ export function calculatePayoffDate(balance: number, annualRate: number, monthly
 }
 
 /** Budget Planner (50/30/20 rule) */
-export function calculateBudgetPlan(monthlyIncome: number, expenses: { name: string; amount: number; category: 'needs\' | \'wants\' | \'savings' }[]) {
+export function calculateBudgetPlan(monthlyIncome: number, expenses: { name: string; amount: number; category: 'needs' | 'wants' | 'savings' }[]) {
   const totalNeeds = expenses.filter(e => e.category === 'needs').reduce((s, e) => s + e.amount, 0)
   const totalWants = expenses.filter(e => e.category === 'wants').reduce((s, e) => s + e.amount, 0)
   const totalSavings = expenses.filter(e => e.category === 'savings').reduce((s, e) => s + e.amount, 0)

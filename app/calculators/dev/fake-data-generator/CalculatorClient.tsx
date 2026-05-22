@@ -10,7 +10,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const [count, setCount] = useState(5)
   const [fields, setFields] = useState(['name','email','phone','address','uuid','dob'])
-  const [format, setFormat] = useState<'json\'|\'csv\'>(\'json')
+  const [format, setFormat] = useState<'json'|'csv'>('json')
   const [data, setData] = useState<Record<string,string>[]>([])
   const [copied, setCopied] = useState(false)
 

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Dehydration Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Most people are mildly dehydrated most of the time and don't know it. By the time you feel thirsty, you've typically lost 1-2% of your body weight in fluid — enough to measurably impair cognitive performance, reduce physical endurance by 5-10%, and increase perceived effort. The sensation of thirst is a lagging indicator, not a real-time warning system.
 
 Fluid needs aren't fixed — they vary enormously based on sweat rate (which depends on heat, humidity, and exercise intensity), body size, kidney function, diet, and medications. The 8 glasses per day rule has no rigorous research backing it; it significantly underestimates needs for active people or anyone in hot environments.

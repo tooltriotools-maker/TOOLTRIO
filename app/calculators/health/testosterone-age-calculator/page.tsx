@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Testosterone Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Testosterone decline with age is real but gradual — and its significance varies enormously between individuals. Testosterone peaks in the late teens to early 20s, then declines at roughly 1-2% per year. By age 70, most men have testosterone levels 30-40% lower than their peak. This isn't disease; it's normal aging. The clinical question is whether levels have declined enough to cause symptoms that impair health and quality of life.
 
 Testosterone deficiency (hypogonadism) is a medical diagnosis requiring both low serum testosterone on multiple measurements and the presence of specific symptoms: reduced libido, erectile dysfunction, fatigue, decreased muscle mass, increased body fat, reduced bone density, and depressed mood. The diagnosis requires ruling out other causes of these symptoms — obesity, sleep apnea, insulin resistance, and chronic illness can all produce similar symptoms.

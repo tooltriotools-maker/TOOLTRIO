@@ -19,7 +19,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [fdRate, setFdRate] = useState(7)
   const [years, setYears] = useState(10)
   const [taxSlab, setTaxSlab] = useState(30)
-  const [mfType, setMfType] = useState<'equity\' | \'debt\'>(\'equity')
+  const [mfType, setMfType] = useState<'equity' | 'debt'>('equity')
 
   const result = useMemo(() => {
     const mfFV = lumpsum * Math.pow(1 + mfRate / 100, years)
@@ -84,7 +84,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 {(['equity', 'debt'] as const).map(t => (
                   <button key={t} onClick={() => setMfType(t)}
                     className={`py-2 rounded-xl text-xs font-bold border-2 capitalize transition-all ${mfType === t ? 'bg-green-100 border-green-400 text-green-700' : 'bg-gray-50 border-gray-200 text-gray-500'}`}>
-                    {t === 'equity\' ? \'📈 Equity' : '📊 Debt'}
+                    {t === 'equity' ? '📈 Equity' : '📊 Debt'}
                   </button>
                 ))}
               </div>
@@ -116,7 +116,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="MF Post-Tax Value" value={fmtCompact(result.mfPostTaxFV)} subValue={`Effective: ${result.mfEffectiveRate}%`} highlight={result.mfBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="FD Post-Tax Value" value={fmtCompact(result.fdPostTaxFV)} subValue={`Effective: ${result.fdEffectiveRate}%`} highlight={!result.mfBetter} icon={<Landmark className="w-4 h-4" />} />
-            <ResultCard label="Tax on MF" value={fmtCompact(result.mfTax)} subValue={mfType === 'equity\' ? \'LTCG 10%' : 'LTCG 20%+idx'} />
+            <ResultCard label="Tax on MF" value={fmtCompact(result.mfTax)} subValue={mfType === 'equity' ? 'LTCG 10%' : 'LTCG 20%+idx'} />
             <ResultCard label="Tax on FD" value={fmtCompact(result.fdTaxTotal)} subValue={`As income (${taxSlab}%)`} />
           </div>
 

@@ -84,13 +84,13 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">A well-chosen random fact is one of the best conversation-starters that exists -- better than most questions, because it gives the other person something to react to rather than something to answer. This generator pulls from a large, curated fact pool organized by strangeness level: interesting (facts that reframe familiar things), surprising (facts that contradict what you'd expect), and genuinely weird (facts that seem made up but aren\'t). Each fact comes with a source context. For facts that test you rather than just inform, the <Link href="/calculators/fun/trivia-quiz" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Trivia Quiz</Link> formats the same kind of knowledge as active recall questions.</p>
+          <p className="text-gray-600 leading-relaxed">A well-chosen random fact is one of the best conversation-starters that exists -- better than most questions, because it gives the other person something to react to rather than something to answer. This generator pulls from a large, curated fact pool organized by strangeness level: interesting (facts that reframe familiar things), surprising (facts that contradict what you'd expect), and genuinely weird (facts that seem made up but aren't). Each fact comes with a source context. For facts that test you rather than just inform, the <Link href="/calculators/fun/trivia-quiz" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Trivia Quiz</Link> formats the same kind of knowledge as active recall questions.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Hit generate and the fact draws from a pool of several hundred curated entries, weighted so the same fact doesn't repeat until you\'ve seen most of the pool. Category filters let you focus on science, history, language, food, animal behaviour, or geography. The "surprising" filter is calibrated for facts that consistently produce the "wait, really?" reaction -- not facts that are technically interesting but lack immediate impact.</p>
+          <p className="text-gray-700 leading-relaxed">Hit generate and the fact draws from a pool of several hundred curated entries, weighted so the same fact doesn't repeat until you've seen most of the pool. Category filters let you focus on science, history, language, food, animal behaviour, or geography. The "surprising" filter is calibrated for facts that consistently produce the "wait, really?" reaction -- not facts that are technically interesting but lack immediate impact.</p>
         </section>
 
         {/* Fun Fact */}

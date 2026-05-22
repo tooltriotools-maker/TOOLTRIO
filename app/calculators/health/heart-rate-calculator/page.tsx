@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Heart Rate Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your heart rate is the most accessible real-time window into how hard your cardiovascular system is working — and using that information intelligently can transform how you exercise. Instead of training by feel (too easy some days, too hard others), heart rate zones let you apply a precise, physiologically grounded intensity framework to every workout.
 
 This calculator computes your maximum heart rate using multiple age-based formulas, then uses your resting heart rate and the Karvonen Heart Rate Reserve method to generate personalized training zones that are calibrated to your actual fitness level — not just your age.

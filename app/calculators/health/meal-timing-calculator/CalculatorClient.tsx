@@ -12,13 +12,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [wakeTime, setWakeTime] = useState(7)
   const [sleepTime, setSleepTime] = useState(23)
   const [mealsPerDay, setMealsPerDay] = useState(3)
-  const [fastingProtocol, setFastingProtocol] = useState<'none\'|\'16:8\'|\'18:6\'|\'20:4\'>(\'none')
+  const [fastingProtocol, setFastingProtocol] = useState<'none'|'16:8'|'18:6'|'20:4'>('none')
 
   const awakeHours = sleepTime > wakeTime ? sleepTime - wakeTime : (24 - wakeTime) + sleepTime
-  const fastingHours = fastingProtocol === '16:8\' ? 16 : fastingProtocol === \'18:6\' ? 18 : fastingProtocol === \'20:4\' ? 20 : 0
-  const eatingWindow = fastingProtocol === 'none\' ? awakeHours : 24 - fastingHours
-  const firstMeal = fastingProtocol !== 'none\' ? wakeTime + (fastingHours - (24 - awakeHours)) : wakeTime + 1
-  const lastMeal = fastingProtocol !== 'none\' ? (wakeTime + (fastingHours - (24 - awakeHours)) + eatingWindow - 1) % 24 : sleepTime - 2
+  const fastingHours = fastingProtocol === '16:8' ? 16 : fastingProtocol === '18:6' ? 18 : fastingProtocol === '20:4' ? 20 : 0
+  const eatingWindow = fastingProtocol === 'none' ? awakeHours : 24 - fastingHours
+  const firstMeal = fastingProtocol !== 'none' ? wakeTime + (fastingHours - (24 - awakeHours)) : wakeTime + 1
+  const lastMeal = fastingProtocol !== 'none' ? (wakeTime + (fastingHours - (24 - awakeHours)) + eatingWindow - 1) % 24 : sleepTime - 2
 
   const fmtTime = (h: number) => {
     const hr = Math.floor(h) % 24

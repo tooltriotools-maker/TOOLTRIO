@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Zinc Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Zinc is involved in more enzymatic processes than almost any other mineral — over 300 enzymes require zinc as a cofactor, including those involved in DNA synthesis, protein production, cell division, wound healing, and immune function. The immune connection is particularly significant: zinc deficiency impairs T-cell and B-cell development and function, reduces natural killer cell activity, and reduces the inflammatory cytokine response to infection. This is why zinc supplementation within 24 hours of cold symptom onset reduces duration and severity in meta-analyses.
 
 Zinc deficiency is more common than most people expect, affecting an estimated 2 billion people worldwide. The challenge in diagnosing deficiency is that serum zinc is poorly sensitive — the body maintains serum levels within a narrow range even as cellular zinc depletes, meaning normal serum zinc doesn't rule out functional deficiency.

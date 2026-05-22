@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Calories Burned Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Every physical activity has a metabolic cost — a rate of energy expenditure above your resting baseline that depends on the activity's intensity, your body weight, and how long you do it. The framework for quantifying this is METs (metabolic equivalents of task): a 1 MET equals your resting metabolic rate (roughly 1 kcal/kg/hour), and every activity is assigned a MET value based on oxygen consumption measurements in research settings. Walking at 3.5 mph is about 3.5 METs. Running at 6 mph is about 10 METs. Compendium MET values for hundreds of activities have been validated and published by the ACSM.
 
 The most common mistake people make is overestimating how many calories exercise burns. A 45-minute moderate gym session burns 300-500 calories for most people — meaningful, but not enough to outrun a poor diet. Fitness trackers and cardio equipment consistently overestimate by 10-40% because they use simplified algorithms that don't account for fitness level, actual sustained pace, or individual metabolic variation.

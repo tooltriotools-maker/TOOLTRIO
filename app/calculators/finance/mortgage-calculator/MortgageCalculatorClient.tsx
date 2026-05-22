@@ -30,7 +30,7 @@ export default function MortgageCalculatorClient({ faqs, structuredData, related
   const [rate, setRate]               = useState(7.0)
   const [years, setYears]             = useState(30)
   const [propTaxRate, setPropTaxRate] = useState(1.2)
-  const [insuranceAmt, setInsuranceAmt] = useState(currency.code === 'INR\' ? 15000 : 1400)
+  const [insuranceAmt, setInsuranceAmt] = useState(currency.code === 'INR' ? 15000 : 1400)
   const [pmiRate, setPmiRate]         = useState(0.8)
 
   const downPayment  = Math.round(homePrice * downPayPct / 100)

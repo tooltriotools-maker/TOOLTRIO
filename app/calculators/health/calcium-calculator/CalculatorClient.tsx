@@ -12,11 +12,11 @@ const FOODS = [{n:'Milk (250ml)',mg:300},{n:'Yogurt (200g)',mg:250},{n:'Cheddar 
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [pregnant, setPregnant] = useState(false)
   const [intake, setIntake] = useState(800)
 
-  const rdi = age>=71?1200:age>=51&&gender==='female\'?1200:age>=19?1000:1300
+  const rdi = age>=71?1200:age>=51&&gender==='female'?1200:age>=19?1000:1300
   const adjusted = pregnant ? 1000 : rdi
   const gap = Math.max(0, adjusted - intake)
   const pct = Math.round(intake/adjusted*100)
@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={1} max={100} step={1} suffix="yrs" />
             <InputField label="Current Daily Intake" value={intake} onChange={setIntake} min={0} max={3000} step={50} suffix="mg" />
-            {gender==='female\'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant / Breastfeeding</span></label>}
+            {gender==='female'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant / Breastfeeding</span></label>}
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">

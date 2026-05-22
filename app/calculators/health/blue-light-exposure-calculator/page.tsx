@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Blue Light Exposure Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Blue light is everywhere — it's the dominant wavelength emitted by LED screens, modern LED lighting, and the sun. Most of the conversation about blue light focuses on sleep disruption, but the picture is more nuanced: blue light from screens at night genuinely does suppress melatonin and delay sleep onset, but the same blue light during the day plays an important role in alertness, mood, and circadian rhythm regulation. The problem isn't blue light itself — it's blue light at the wrong time.
 
 The mechanism is straightforward. Your eyes contain specialized photoreceptors called intrinsically photosensitive retinal ganglion cells (ipRGCs) that are particularly sensitive to short-wavelength blue light (~480nm). These cells signal the suprachiasmatic nucleus — your brain's master clock — to suppress melatonin production. Exposure to blue light at night tells your brain it's still daytime, delaying sleep onset by an average of 90 minutes in sensitive individuals.

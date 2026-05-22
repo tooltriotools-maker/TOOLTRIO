@@ -11,7 +11,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [deskHours, setDeskHours] = useState(8)
   const [standingPct, setStandingPct] = useState(30)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(165)
   const [walkingBreaks, setWalkingBreaks] = useState(3)
 

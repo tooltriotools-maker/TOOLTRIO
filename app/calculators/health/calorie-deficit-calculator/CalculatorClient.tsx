@@ -14,17 +14,17 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [targetWeight, setTargetWeight] = useState(75)
   const [height, setHeight] = useState(69)
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
-  const [activity, setActivity] = useState<'sedentary\'|\'light\'|\'moderate\'|\'active\'>(\'moderate')
+  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [activity, setActivity] = useState<'sedentary'|'light'|'moderate'|'active'>('moderate')
   const [weeks, setWeeks] = useState(20)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial\'?weight*0.453592:weight
-    const tKg = unit==='imperial\'?targetWeight*0.453592:targetWeight
-    const hCm = unit==='imperial\'?height*2.54:height
+    const wKg = unit==='imperial'?weight*0.453592:weight
+    const tKg = unit==='imperial'?targetWeight*0.453592:targetWeight
+    const hCm = unit==='imperial'?height*2.54:height
     const diff = wKg - tKg
-    const bmr = gender==='male\' ? 10*wKg+6.25*hCm-5*age+5 : 10*wKg+6.25*hCm-5*age-161
+    const bmr = gender==='male' ? 10*wKg+6.25*hCm-5*age+5 : 10*wKg+6.25*hCm-5*age-161
     const mults = {sedentary:1.2,light:1.375,moderate:1.55,active:1.725}
     const tdee = Math.round(bmr*mults[activity])
     const requiredDeficitPerDay = diff>0 ? Math.round((diff*7700)/weeks/7) : 0
@@ -46,8 +46,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric'},{value:'imperial',label:'Imperial'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={300} step={0.5} suffix={unit==='metric\'?\'kg':'lbs'} />
-            <InputField label={`Target Weight (${unit==='metric'?'kg':'lbs'})`} value={targetWeight} onChange={setTargetWeight} min={30} max={250} step={0.5} suffix={unit==='metric\'?\'kg':'lbs'} />
+            <InputField label={`Current Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={300} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
+            <InputField label={`Target Weight (${unit==='metric'?'kg':'lbs'})`} value={targetWeight} onChange={setTargetWeight} min={30} max={250} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={15} max={90} step={1} suffix="yrs" />
             <SelectField label="Activity Level" value={activity} onChange={v=>setActivity(v as any)} options={[{value:'sedentary',label:'Sedentary'},{value:'light',label:'Light (1-3x/wk)'},{value:'moderate',label:'Moderate (3-5x/wk)'},{value:'active',label:'Active (6-7x/wk)'}]} />
@@ -62,7 +62,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
           <div className={`p-4 rounded-xl border-2 ${result.safe?'bg-green-50 border-green-200':'bg-orange-50 border-orange-200'}`}>
             <p className={`font-bold ${result.safe?'text-green-700':'text-orange-700'}`}>{result.safe?'✅ This is a safe, sustainable deficit':'⚠️ This deficit is aggressive - consider extending your timeline'}</p>
-            <p className="text-sm text-gray-600 mt-1">Estimated weekly loss: {result.actualWeeklyLoss} {unit==='metric\'?\'kg':'lbs'}/week - Required deficit: {result.requiredDeficitPerDay} kcal/day</p>
+            <p className="text-sm text-gray-600 mt-1">Estimated weekly loss: {result.actualWeeklyLoss} {unit==='metric'?'kg':'lbs'}/week - Required deficit: {result.requiredDeficitPerDay} kcal/day</p>
           </div>
           <Card>
             <h3 className="font-bold text-gray-900 mb-3">Daily Macros at {result.targetCals} kcal</h3>

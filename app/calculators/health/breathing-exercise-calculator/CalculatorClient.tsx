@@ -19,17 +19,17 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [techniqueIdx, setTechniqueIdx] = useState(0)
   const [rounds, setRounds] = useState(5)
   const [active, setActive] = useState(false)
-  const [phase, setPhase] = useState<'inhale\'|\'hold1\'|\'exhale\'|\'hold2\'>(\'inhale')
+  const [phase, setPhase] = useState<'inhale'|'hold1'|'exhale'|'hold2'>('inhale')
   const [countdown, setCountdown] = useState(0)
   const [completedRounds, setCompletedRounds] = useState(0)
 
   const t = TECHNIQUES[techniqueIdx]
-  const phases: {key:'inhale\'|\'hold1\'|\'exhale\'|\'hold2',label:string,secs:number}[] = [
+  const phases: {key:'inhale'|'hold1'|'exhale'|'hold2',label:string,secs:number}[] = [
     {key:'inhale',label:'Inhale',secs:t.in},
     {key:'hold1',label:'Hold',secs:t.hold1},
     {key:'exhale',label:'Exhale',secs:t.out},
     {key:'hold2',label:'Hold',secs:t.hold2},
-  ].filter(p=>p.secs>0) as {key:'inhale\'|\'hold1\'|\'exhale\'|\'hold2',label:string,secs:number}[]
+  ].filter(p=>p.secs>0) as {key:'inhale'|'hold1'|'exhale'|'hold2',label:string,secs:number}[]
 
   const totalSecs = phases.reduce((s,p)=>s+p.secs,0)
   const totalMin = ((totalSecs * rounds) / 60).toFixed(1)

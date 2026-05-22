@@ -86,7 +86,7 @@ export function CommodityPriceCard({ commodity, emoji, href, currency = 'USD', f
 }
 
 // -- Compact ticker row variant ----------------------------------------------
-export function CommodityRow({ commodity, emoji, fxRate = 1, currencySymbol = '$' }: Omit<Props,'href\'>) {
+export function CommodityRow({ commodity, emoji, fxRate = 1, currencySymbol = '$' }: Omit<Props,'href'>) {
   const up = commodity.changePct >= 0
   return (
     <div className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">

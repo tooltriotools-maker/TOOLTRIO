@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Longevity Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Life expectancy is not fate — it is a probability distribution that your daily choices meaningfully shape. Research from the Harvard T.H. Chan School of Public Health found that adopting five healthy habits (never smoking, healthy BMI, regular physical activity, moderate alcohol, healthy diet) at age 50 was associated with 14 additional years of life for women and 12 for men compared to those who adopted none.
 
 This calculator uses validated actuarial models combined with lifestyle and medical history factors to estimate your personal life expectancy and — more usefully — quantify how many additional years specific behavior changes could add. The goal is not to deliver a fixed number but to show you which modifiable factors offer the greatest longevity return on investment.

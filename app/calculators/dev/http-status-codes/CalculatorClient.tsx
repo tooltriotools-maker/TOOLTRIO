@@ -34,8 +34,8 @@ export default function CalculatorClient({ faqs }: Props) {
   const [filter, setFilter] = useState('all')
 
   const filtered = CODES.filter(c =>
-    (filter==='all\'||c.cat===filter) &&
-    (search==='\'||String(c.code).includes(search)||c.label.toLowerCase().includes(search.toLowerCase()))
+    (filter==='all'||c.cat===filter) &&
+    (search===''||String(c.code).includes(search)||c.label.toLowerCase().includes(search.toLowerCase()))
   )
 
   return (

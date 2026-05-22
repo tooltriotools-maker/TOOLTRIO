@@ -20,7 +20,7 @@ const DEFAULT_ITEMS: LineItem[] = [
 
 export default function InvoiceCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt } = useCurrency()
-  const m = currency.code === 'INR\' ? 80 : 1
+  const m = currency.code === 'INR' ? 80 : 1
 
   const [items, setItems]         = useState<LineItem[]>(DEFAULT_ITEMS.map(i => ({ ...i, rate: Math.round(i.rate * m) })))
   const [taxRate, setTaxRate]     = useState(0)

@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Calorie Burned Walking Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Walking is metabolically underrated. It's low-intensity enough that it doesn't generate the afterburn effect of high-intensity exercise, but it's accessible, sustainable, and accumulates to meaningful calorie expenditure when done consistently throughout the day. A 160-pound person walking at 3.5 mph burns roughly 300-350 calories per hour — less than jogging, but easy enough to do for much longer and with far less recovery cost.
 
 The calorie calculation for walking is more variable than most people realize. Speed matters: walking faster burns disproportionately more calories because the mechanics of bipedal locomotion become more energetically expensive above certain speeds. Grade matters enormously: walking up a 10% incline increases calorie burn by 50-70% compared to flat terrain at the same speed. Body weight matters: heavier individuals burn more calories doing the same activity because they're moving more mass.

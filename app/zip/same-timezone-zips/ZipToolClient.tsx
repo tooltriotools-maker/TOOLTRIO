@@ -28,7 +28,7 @@ export default function ZipToolClient() {
       <ZipQuickFill onSelect={z => { setQuery(z); setTimeout(lookup, 50) }} />
       <div className="flex gap-2 mb-6">
         <input value={query} onChange={e=>setQuery(e.target.value)}
-          onKeyDown={e=>e.key==='Enter\'&&lookup()}
+          onKeyDown={e=>e.key==='Enter'&&lookup()}
           placeholder="Enter ZIP code or city name..."
           className="flex-1 border-2 rounded-xl px-4 py-3 focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />

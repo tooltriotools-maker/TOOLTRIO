@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Running Pace Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Running pace and race predictions are more science than guesswork when you have a recent race result to anchor from. The relationship between performance at different distances follows predictable physiological curves based on the energy system contributions that dominate at each distance. A 5K is run at roughly 95-100% of VO2 max; a marathon at roughly 75-85% of VO2 max for trained runners; a half marathon at approximately 85-92%. These physiological differences create systematic relationships between race times that allow accurate predictions.
 
 The most commonly used prediction models — Riegel's formula, Cameron's model, and Jack Daniels' VDOT tables — each take a different mathematical approach to the distance-performance relationship. Riegel works well between 5K and marathon; extreme extrapolations produce larger errors because the dominant energy systems shift more dramatically.

@@ -19,7 +19,7 @@ export default function ZipToolClient() {
   return (
     <div>
       <div className="flex gap-2 mb-6">
-        <input value={city} onChange={e=>setCity(e.target.value)} onKeyDown={e=>e.key==='Enter\'&&lookup()}
+        <input value={city} onChange={e=>setCity(e.target.value)} onKeyDown={e=>e.key==='Enter'&&lookup()}
           placeholder="Enter city name (e.g. New York, Boston, Austin)"
           className="flex-1 border-2 rounded-xl px-4 py-3 focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />

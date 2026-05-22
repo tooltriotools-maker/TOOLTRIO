@@ -11,16 +11,16 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const VEHICLE_TYPES = [
-  { label: '🚗 Economy (Honda, Toyota)', value: 'economy\' as const },
-  { label: '🚙 Standard (Chevy, Ford)', value: 'standard\' as const },
-  { label: '🛻 Truck/SUV (F-150, RAV4)', value: 'truck\' as const },
-  { label: '🏎️ Luxury (BMW, Mercedes)', value: 'luxury\' as const },
+  { label: '🚗 Economy (Honda, Toyota)', value: 'economy' as const },
+  { label: '🚙 Standard (Chevy, Ford)', value: 'standard' as const },
+  { label: '🛻 Truck/SUV (F-150, RAV4)', value: 'truck' as const },
+  { label: '🏎️ Luxury (BMW, Mercedes)', value: 'luxury' as const },
 ]
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const [purchasePrice, setPurchasePrice] = useState(35000)
   const [age, setAge] = useState(3)
-  const [makeType, setMakeType] = useState<'luxury\' | \'standard\' | \'economy\' | \'truck\'>(\'standard')
+  const [makeType, setMakeType] = useState<'luxury' | 'standard' | 'economy' | 'truck'>('standard')
   const [mileagePerYear, setMileagePerYear] = useState(15000)
 
   const result = useMemo(() => calculateCarDepreciation(purchasePrice, age, makeType, mileagePerYear),
@@ -133,7 +133,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="type" tick={{ fill: '#374151', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#374151', fontSize: 10 }} axisLine={false} tickLine={false} width={60} tickFormatter={v => `$${(v / 1000).toFixed(0)}k`} />
-                  <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, name) => [name === 'retained\' ? `${v}%` : fmt(v), name === \'retained\' ? \'Value Retained' : 'Current Value']} />
+                  <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, name) => [name === 'retained' ? `${v}%` : fmt(v), name === 'retained' ? 'Value Retained' : 'Current Value']} />
                   <Bar dataKey="value" name="Resale Value" radius={[4, 4, 0, 0]} label={{ position: 'top', fontSize: 10, fill: '#374151', formatter: (v: number) => `${Math.round(v / purchasePrice * 100)}%` }}>
                     {comparison.map((e, i) => <Cell key={i} fill={COLORS[i]} />)}
                   </Bar>

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Gratitude Practice Health Impact Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The relationship between gratitude practice and health outcomes has accumulated enough rigorous research over the past two decades to move from self-help platitude to legitimate psychological science. Randomized controlled trials have consistently found that structured gratitude interventions — specifically writing about things you're grateful for in detail, 3-5 times per week — produce measurable improvements in self-reported well-being, sleep quality, and social connection.
 
 The mechanisms involve multiple pathways. Gratitude activates the brain's reward circuitry, particularly the medial prefrontal cortex and anterior cingulate cortex. Regular gratitude practice appears to downregulate threat-focused processing — reducing the attentional bias toward negative stimuli that characterizes anxiety and depression. It also promotes prosocial behavior and strengthens social relationships.

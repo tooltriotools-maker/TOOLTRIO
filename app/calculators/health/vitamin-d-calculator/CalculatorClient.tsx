@@ -11,12 +11,12 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(35)
-  const [skinType, setSkinType] = useState<'fair\'|\'medium\'|\'olive\'|\'dark\'>(\'medium')
+  const [skinType, setSkinType] = useState<'fair'|'medium'|'olive'|'dark'>('medium')
   const [latitude, setLatitude] = useState(40)
   const [sunMinutesDay, setSunMinutesDay] = useState(15)
-  const [season, setSeason] = useState<'summer\'|\'autumn\'|\'winter\'|\'spring\'>(\'winter')
+  const [season, setSeason] = useState<'summer'|'autumn'|'winter'|'spring'>('winter')
   const [indoorJob, setIndoorJob] = useState(true)
-  const [currentD, setCurrentD] = useState<'deficient\'|\'insufficient\'|\'sufficient\'|\'optimal\'>(\'insufficient')
+  const [currentD, setCurrentD] = useState<'deficient'|'insufficient'|'sufficient'|'optimal'>('insufficient')
 
   const result = useMemo(() => {
     // Base IU need
@@ -26,8 +26,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     const skinFactor = {fair:1, medium:1.5, olive:2.5, dark:4}[skinType]
     
     // Latitude/season factor (UVB availability)
-    const uvbFactor = season==='winter\' ? (latitude>50?0:latitude>40?0.1:0.3) :
-                      season==='spring\'||season===\'autumn\' ? (latitude>50?0.4:0.7) : 1
+    const uvbFactor = season==='winter' ? (latitude>50?0:latitude>40?0.1:0.3) :
+                      season==='spring'||season==='autumn' ? (latitude>50?0.4:0.7) : 1
     
     // Sun IU production
     const sunIU = uvbFactor > 0 ? Math.round(1000 * (sunMinutesDay/15) * uvbFactor / skinFactor) : 0
@@ -42,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     
     // Deficit and supplement recommendation
     const currentLevelBonus = {deficient:0, insufficient:100, sufficient:0, optimal:0}[currentD]
-    const targetIU = baseIU + (currentD==='deficient\'?2000:currentD===\'insufficient\'?1000:0)
+    const targetIU = baseIU + (currentD==='deficient'?2000:currentD==='insufficient'?1000:0)
     const supplementIU = Math.max(0, targetIU - naturalIU - currentLevelBonus)
     const recommendedSupplement = supplementIU < 200 ? 0 :
       supplementIU < 600 ? 400 :

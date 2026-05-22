@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Athletic Performance Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Athletic performance is more measurable than most people realize. VO2 max — your body's maximum oxygen uptake capacity — can be estimated from a 1.5-mile run time or a 12-minute Cooper test with reasonable accuracy, and it's one of the strongest predictors of both athletic potential and long-term health. Power-to-weight ratio, speed endurance, and lactate threshold estimates can all be derived from field tests you can do without any specialized equipment.
 
 The reason these metrics matter beyond sports performance is that VO2 max in particular has a stronger association with cardiovascular mortality than almost any other measurable health marker. A study tracking over 120,000 patients found that low cardiorespiratory fitness carried a higher mortality risk than smoking, hypertension, or diabetes. Understanding where you stand gives you a concrete baseline to improve from.

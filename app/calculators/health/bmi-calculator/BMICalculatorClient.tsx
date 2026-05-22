@@ -13,13 +13,13 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function BMICalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
   const [height, setHeight] = useState(67)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
-  const [gender, setGender] = useState<'male\' | \'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male' | 'female'>('male')
   const [age, setAge] = useState(30)
 
   // Convert if imperial
-  const weightKg = unit === 'imperial\' ? weight * 0.453592 : weight
-  const heightCm = unit === 'imperial\' ? height * 2.54 : height
+  const weightKg = unit === 'imperial' ? weight * 0.453592 : weight
+  const heightCm = unit === 'imperial' ? height * 2.54 : height
 
   const result = useMemo(() => calculateBMI(weightKg, heightCm), [weightKg, heightCm])
 
@@ -46,7 +46,7 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
               {(['imperial', 'metric'] as const).map(u => (
                 <button key={u} onClick={() => setUnit(u)}
                   className={`py-2 rounded-xl text-xs font-semibold transition-all ${unit === u ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {u === 'imperial\' ? \'🇺🇸 US (lbs/in)' : '🌍 Metric (kg/cm)'}
+                  {u === 'imperial' ? '🇺🇸 US (lbs/in)' : '🌍 Metric (kg/cm)'}
                 </button>
               ))}
             </div>
@@ -55,14 +55,14 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
               {(['male', 'female'] as const).map(g => (
                 <button key={g} onClick={() => setGender(g)}
                   className={`py-2 rounded-xl text-sm font-semibold transition-all ${gender === g ? 'bg-rose-500 text-white' : 'text-gray-500'}`}>
-                  {g === 'male\' ? \'♂ Male' : '♀ Female'}
+                  {g === 'male' ? '♂ Male' : '♀ Female'}
                 </button>
               ))}
             </div>
             <InputField label="Age" value={age} onChange={setAge} min={5} max={100} step={1} suffix="yrs" />
-            <InputField label={unit === 'metric\' ? \'Weight (kg)' : 'Weight (lbs)'} value={weight} onChange={setWeight}
-              min={unit === 'metric\' ? 20 : 44} max={unit === \'metric\' ? 250 : 550} step={0.5}
-              suffix={unit === 'metric\' ? \'kg' : 'lb'} />
+            <InputField label={unit === 'metric' ? 'Weight (kg)' : 'Weight (lbs)'} value={weight} onChange={setWeight}
+              min={unit === 'metric' ? 20 : 44} max={unit === 'metric' ? 250 : 550} step={0.5}
+              suffix={unit === 'metric' ? 'kg' : 'lb'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
         </Card>
@@ -106,11 +106,11 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
               {bmiCategories.map(cat => (
                 <div key={cat.name}
                   className="p-3 rounded-xl border transition-all"
-                  style={{ background: result.category === cat.name || (cat.name === 'Normal\' && result.category === \'Normal Weight') ? `${cat.color}12` : 'transparent', borderColor: result.category === cat.name || (cat.name === 'Normal\' && result.category === \'Normal Weight') ? `${cat.color}40` : 'rgba(255,255,255,0.05)' }}>
+                  style={{ background: result.category === cat.name || (cat.name === 'Normal' && result.category === 'Normal Weight') ? `${cat.color}12` : 'transparent', borderColor: result.category === cat.name || (cat.name === 'Normal' && result.category === 'Normal Weight') ? `${cat.color}40` : 'rgba(255,255,255,0.05)' }}>
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-2.5 h-2.5 rounded-full" style={{ background: cat.color }} />
                     <span className="font-semibold text-white text-sm">{cat.name}</span>
-                    {(result.category === cat.name || (cat.name === 'Normal\' && result.category === \'Normal Weight')) && <span className="text-xs px-1.5 py-0.5 rounded-full font-bold ml-auto" style={{ background: `${cat.color}30`, color: cat.color }}>YOU</span>}
+                    {(result.category === cat.name || (cat.name === 'Normal' && result.category === 'Normal Weight')) && <span className="text-xs px-1.5 py-0.5 rounded-full font-bold ml-auto" style={{ background: `${cat.color}30`, color: cat.color }}>YOU</span>}
                   </div>
                   <p className="text-xs text-gray-500">BMI {cat.range}</p>
                 </div>
@@ -121,22 +121,22 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
           {/* Action card */}
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Your Health Action</h3>
-            {result.category === 'Normal Weight\' && (
+            {result.category === 'Normal Weight' && (
               <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-300 text-sm">
                 ✅ You are at a healthy weight. Maintain with regular exercise (150 min/week moderate) and a balanced diet.
               </div>
             )}
-            {result.category === 'Underweight\' && (
+            {result.category === 'Underweight' && (
               <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm">
                 💙 You should gain approximately <strong>{Math.abs(weightToGain).toFixed(1)} kg</strong> to reach healthy BMI. Focus on nutrient-dense foods and strength training.
               </div>
             )}
-            {result.category === 'Overweight\' && (
+            {result.category === 'Overweight' && (
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-sm">
                 ⚠️ You should lose approximately <strong>{weightToLose.toFixed(1)} kg</strong> to reach healthy BMI. A 500 kcal/day deficit leads to ~0.5 kg/week loss.
               </div>
             )}
-            {result.category === 'Obese\' && (
+            {result.category === 'Obese' && (
               <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm">
                 🚨 You should lose approximately <strong>{weightToLose.toFixed(1)} kg</strong>. Please consult a healthcare professional for a safe, supervised plan.
               </div>

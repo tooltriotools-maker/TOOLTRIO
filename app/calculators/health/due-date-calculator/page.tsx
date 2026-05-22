@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Due Date Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Pregnancy due dates are estimates, not deadlines. Naegele's rule — the standard calculation used by obstetricians for 200 years — adds 280 days (40 weeks) to the first day of your last menstrual period. This assumes a 28-day cycle with ovulation on day 14. Only about 4% of babies are born on their exact due date; roughly 80% arrive within two weeks on either side. The date is a clinical reference point for monitoring development and timing decisions, not a predictive certainty.
 
 Due date accuracy depends on how precisely you know your conception date or last period, and how accurately your cycle matches the 28-day assumption. Early ultrasound (before 12 weeks) is the most accurate dating method — measuring the crown-rump length of the embryo gives a gestational age estimate accurate to ±5-7 days.

@@ -17,9 +17,9 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function ClosingCostCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
-  const [homePrice, setHomePrice]   = useState(currency.code === 'INR\' ? 5000000 : 400000)
+  const [homePrice, setHomePrice]   = useState(currency.code === 'INR' ? 5000000 : 400000)
   const [downPct, setDownPct]       = useState(20)
-  const [downPayment, setDownPayment] = useState(currency.code === 'INR\' ? 1000000 : 80000)
+  const [downPayment, setDownPayment] = useState(currency.code === 'INR' ? 1000000 : 80000)
 
   const loanAmount = homePrice - downPayment
   const result = useMemo(() => calculateClosingCosts(homePrice, loanAmount, 'US'), [homePrice, loanAmount])

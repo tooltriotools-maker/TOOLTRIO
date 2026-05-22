@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Creatine Dosage Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Creatine monohydrate is the most researched supplement in sports science history — thousands of published studies, consistent results, and a safety record spanning 30+ years of widespread use. It doesn't make you stronger directly. It works by increasing your muscles' phosphocreatine stores, which replenish ATP faster during high-intensity efforts. More ATP availability in the first 1-10 seconds of maximal effort means you can maintain higher intensity for slightly longer, which over hundreds of training sessions translates to meaningful gains in strength and muscle mass.
 
 The research on creatine is clear: it improves performance in short, high-intensity activities (sprint intervals, heavy resistance training, explosive sports) and significantly enhances resistance training outcomes in terms of strength gains and lean mass. It does not meaningfully improve endurance performance, and its effects on casual exercise are modest. The 2-5 pound weight gain common in the first week is water weight from intramuscular water retention — not fat, not real muscle.

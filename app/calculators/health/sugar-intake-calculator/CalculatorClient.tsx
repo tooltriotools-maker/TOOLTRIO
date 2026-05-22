@@ -9,7 +9,7 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [age, setAge] = useState(35)
   const [softDrinks, setSoftDrinks] = useState(1)
   const [juice, setJuice] = useState(1)
@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     processedMeals * 12
   )
 
-  const limit = diabetes ? 25 : gender === 'male\' ? 36 : 25
+  const limit = diabetes ? 25 : gender === 'male' ? 36 : 25
   const limitWHO = 25 // WHO recommendation (5% of 2000kcal)
   const pct = Math.round(estimatedG / limit * 100)
   const teaspoons = (estimatedG / 4).toFixed(1)

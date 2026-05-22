@@ -13,7 +13,7 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const scale = currency.code === 'INR\' ? 80 : 1
+  const scale = currency.code === 'INR' ? 80 : 1
 
   const [currentAge, setCurrentAge] = useState(30)
   const [targetAge, setTargetAge] = useState(50)
@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [monthlySavings, setMonthlySavings] = useState(Math.round(2000 * scale))
   const [expectedReturn, setExpectedReturn] = useState(8)
   const [swr, setSwr] = useState(4)
-  const step = currency.code === 'INR\' ? 5000 : 500
+  const step = currency.code === 'INR' ? 5000 : 500
 
   const result = useMemo(() => calculateFIRE(currentAge, targetAge, monthlyExpenses, currentSavings, monthlySavings, expectedReturn, swr),
     [currentAge, targetAge, monthlyExpenses, currentSavings, monthlySavings, expectedReturn, swr])

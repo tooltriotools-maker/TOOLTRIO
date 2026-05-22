@@ -12,13 +12,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [waist, setWaist] = useState(80)
   const [height, setHeight] = useState(67)
   const [hip, setHip]   = useState(95)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [gender, setGender] = useState<'male'|'female'>('male')
 
   const result = useMemo(() => {
-    const wCm = unit==='imperial\' ? waist*2.54 : waist
-    const hCm = unit==='imperial\' ? height*2.54 : height
-    const hipCm = unit==='imperial\' ? hip*2.54 : hip
+    const wCm = unit==='imperial' ? waist*2.54 : waist
+    const hCm = unit==='imperial' ? height*2.54 : height
+    const hipCm = unit==='imperial' ? hip*2.54 : hip
     const whtr = wCm / hCm
     const whr  = wCm / hipCm
     let whtrCat='', whtrColor='', whtrAdvice=''
@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     else if (whtr < 0.55)  { whtrCat='Overweight';              whtrColor='text-yellow-600 bg-yellow-50'; whtrAdvice='Mildly elevated risk. Consider diet and exercise improvements.'}
     else if (whtr < 0.60)  { whtrCat='Obese';                   whtrColor='text-orange-600 bg-orange-50'; whtrAdvice='Significantly elevated cardiovascular risk. See a healthcare provider.'}
     else                    { whtrCat='Extremely Obese';         whtrColor='text-red-600 bg-red-50';     whtrAdvice='High risk. Immediate lifestyle changes and medical consultation recommended.'}
-    const whrRisk = gender==='male\' ? (whr > 0.95 ? \'Substantially Increased' : whr > 0.90 ? 'Increased' : 'Low') : (whr > 0.88 ? 'Substantially Increased' : whr > 0.85 ? 'Increased' : 'Low')
+    const whrRisk = gender==='male' ? (whr > 0.95 ? 'Substantially Increased' : whr > 0.90 ? 'Increased' : 'Low') : (whr > 0.88 ? 'Substantially Increased' : whr > 0.85 ? 'Increased' : 'Low')
     const idealMaxWaist = Math.round(hCm * 0.50)
     const toReduce = Math.max(0, Math.round(wCm - idealMaxWaist))
     return { whtr:Math.round(whtr*100)/100, whr:Math.round(whr*100)/100, whtrCat, whtrColor, whtrAdvice, whrRisk, idealMaxWaist, toReduce }
@@ -42,8 +42,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (cm)'},{value:'imperial',label:'Imperial (in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
-<InputField label={`Waist (${unit==='metric'?'cm':'in'})`} value={waist} onChange={setWaist} min={unit==='metric\'?40:16} max={unit===\'metric\'?180:71} step={0.5} suffix={unit===\'metric\'?\'cm':'in'} />
-            <InputField label={`Hip (${unit==='metric'?'cm':'in'})`} value={hip} onChange={setHip} min={unit==='metric\'?50:20} max={unit===\'metric\'?180:71} step={0.5} suffix={unit===\'metric\'?\'cm':'in'} />
+<InputField label={`Waist (${unit==='metric'?'cm':'in'})`} value={waist} onChange={setWaist} min={unit==='metric'?40:16} max={unit==='metric'?180:71} step={0.5} suffix={unit==='metric'?'cm':'in'} />
+            <InputField label={`Hip (${unit==='metric'?'cm':'in'})`} value={hip} onChange={setHip} min={unit==='metric'?50:20} max={unit==='metric'?180:71} step={0.5} suffix={unit==='metric'?'cm':'in'} />
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <p className="text-xs font-bold uppercase tracking-wide">Waist-to-Hip</p>
               <p className="text-4xl font-black my-1">{result.whr}</p>
               <p className="font-bold text-sm">{result.whrRisk} Risk</p>
-              <p className="text-xs mt-1 opacity-80">Target: {gender==='male\'?\'< 0.90':'< 0.85'}</p>
+              <p className="text-xs mt-1 opacity-80">Target: {gender==='male'?'< 0.90':'< 0.85'}</p>
             </div>
           </div>
           <Card>

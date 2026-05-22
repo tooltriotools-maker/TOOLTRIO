@@ -11,7 +11,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
   const [duration, setDuration] = useState(30)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [activity, setActivity] = useState('running_6mph')
 
   const ACTIVITIES: Record<string, {label: string; met: number; icon: string; cat: string}> = {
@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   const result = useMemo(() => {
-    const wKg = unit === 'imperial\' ? weight * 0.453592 : weight
+    const wKg = unit === 'imperial' ? weight * 0.453592 : weight
     const act = ACTIVITIES[activity]
     const calories = act.met * wKg * (duration / 60)
     const fatGrams = calories / 9 * 0.8
@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>
           <div className="space-y-5">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
             <InputField label="Duration" value={duration} onChange={setDuration} min={5} max={240} step={5} suffix="min" />
             <SelectField label="Activity" value={activity} onChange={setActivity} options={activityOptions} />
           </div>

@@ -534,16 +534,16 @@ export function generateCalculatorMetadata(params: {
   title: string
   description: string
   slug: string
-  category: 'finance\' | \'health\' | \'dev\' | \'fun'
+  category: 'finance' | 'health' | 'dev' | 'fun'
   keywords: string[]
-  region?: 'usa\' | \'uk\' | \'europe\' | \'india\' | \'global'
+  region?: 'usa' | 'uk' | 'europe' | 'india' | 'global'
 }): Metadata {
   const { title, description, slug, category, keywords, region = 'global' } = params
   const url = `${BASE_URL}/calculators/${category}/${slug}`
 
-  const catKW = category === 'health\' ? HEALTH_KEYWORDS
-    : category === 'finance\' ? FINANCE_KEYWORDS
-    : category === 'dev\' ? DEV_KEYWORDS
+  const catKW = category === 'health' ? HEALTH_KEYWORDS
+    : category === 'finance' ? FINANCE_KEYWORDS
+    : category === 'dev' ? DEV_KEYWORDS
     : FUN_KEYWORDS
 
   const regionKW = REGION_KW[region] || REGION_KW.global
@@ -556,10 +556,10 @@ export function generateCalculatorMetadata(params: {
   ]))
 
   // Better title templates for higher CTR and clearer intent
-  const regionLabel = region === 'usa\' ? \'USA'
-    : region === 'uk\' ? \'UK'
-    : region === 'europe\' ? \'Europe'
-    : region === 'india\' ? \'India' : ''
+  const regionLabel = region === 'usa' ? 'USA'
+    : region === 'uk' ? 'UK'
+    : region === 'europe' ? 'Europe'
+    : region === 'india' ? 'India' : ''
 
   // Title: use as-is — already formatted with | TOOLTRIO suffix
   const fullTitle = title

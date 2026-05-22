@@ -10,20 +10,20 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [timeZonesDiff, setTimeZonesDiff] = useState(8)
-  const [direction, setDirection] = useState<'east\'|\'west\'>(\'east')
+  const [direction, setDirection] = useState<'east'|'west'>('east')
   const [flightHours, setFlightHours] = useState(11)
   const [age, setAge] = useState(35)
 
   // Eastward travel is harder (fighting natural circadian delay)
   const severity = Math.round(
-    timeZonesDiff * (direction === 'east\' ? 1.2 : 0.8) +
+    timeZonesDiff * (direction === 'east' ? 1.2 : 0.8) +
     flightHours * 0.5 +
     (age > 50 ? 3 : 0)
   )
-  const recoveryDays = Math.ceil(timeZonesDiff * (direction === 'east\' ? 0.8 : 0.6))
-  const adaptDays = Math.round(timeZonesDiff / (direction === 'east\' ? 1.5 : 2))
+  const recoveryDays = Math.ceil(timeZonesDiff * (direction === 'east' ? 0.8 : 0.6))
+  const adaptDays = Math.round(timeZonesDiff / (direction === 'east' ? 1.5 : 2))
 
-  const melatoninTime = direction === 'east\' ? \'Take 0.5-5mg melatonin at destination bedtime (9-11pm local)' : 'Avoid melatonin; use light exposure to advance your clock'
+  const melatoninTime = direction === 'east' ? 'Take 0.5-5mg melatonin at destination bedtime (9-11pm local)' : 'Avoid melatonin; use light exposure to advance your clock'
 
   return (
     <CalculatorLayout title="Jet Lag Calculator" description="Calculate jet lag severity and recovery time based on time zones crossed and travel direction." icon="✈️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Time Zones" value={`${timeZonesDiff} zones`} />
             <ResultCard label="Recovery Days" value={`~${recoveryDays}`} highlight />
-            <ResultCard label="Direction" value={direction === 'east\' ? \'-> East' : '<- West'} />
+            <ResultCard label="Direction" value={direction === 'east' ? '-> East' : '<- West'} />
           </div>
           <Card>
             <h3 className="font-semibold text-gray-700 mb-3">Recovery Strategies</h3>

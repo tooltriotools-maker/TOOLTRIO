@@ -12,7 +12,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const [fileName, setFileName] = useState('')
   const [b64Only, setB64Only] = useState('')
   const [copied, setCopied] = useState('')
-  const [mode, setMode] = useState<'encode\'|\'decode\'>(\'encode')
+  const [mode, setMode] = useState<'encode'|'decode'>('encode')
   const [decodeInput, setDecodeInput] = useState('')
   const [decodedImg, setDecodedImg] = useState('')
   const fileRef = useRef<HTMLInputElement>(null)
@@ -65,12 +65,12 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="flex gap-2 mb-6">
         {(['encode','decode'] as const).map(m => (
           <button key={m} onClick={() => setMode(m)} className={`px-5 py-2.5 rounded-xl font-bold text-sm capitalize transition-all ${mode===m?'bg-blue-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-            {m === 'encode\' ? \'📷 Image -> Base64' : '🔓 Base64 -> Image'}
+            {m === 'encode' ? '📷 Image -> Base64' : '🔓 Base64 -> Image'}
           </button>
         ))}
       </div>
 
-      {mode === 'encode\' ? (
+      {mode === 'encode' ? (
         <>
           {/* Drop zone */}
           <div

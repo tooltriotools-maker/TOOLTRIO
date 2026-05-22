@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Conception Date Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Conceiving a pregnancy involves more variables than most couples anticipate before they start trying. For healthy couples having regular unprotected sex, roughly 80-85% will conceive within 12 months. About 50% will conceive within the first 3 months. The remaining 15-20% who haven't conceived at 12 months meet the clinical definition of infertility warranting evaluation — though most will eventually conceive, with or without assistance.
 
 The biggest factor in conception timing is age — specifically, female age. Fertility peaks in the early 20s and begins a gradual decline in the early 30s, with a more significant acceleration after 35 and a substantial decline after 40. This reflects declining egg quality and quantity.

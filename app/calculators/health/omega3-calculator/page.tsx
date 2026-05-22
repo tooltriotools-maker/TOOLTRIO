@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Omega-3 Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Omega-3 fatty acids are among the most studied nutrients in clinical medicine. The two marine omega-3s — EPA (eicosapentaenoic acid) and DHA (docosahexaenoic acid) — are the biologically active forms that produce the most documented health effects. ALA (alpha-linolenic acid), from plant sources like flaxseed and walnuts, requires conversion to EPA and DHA, but this conversion is inefficient (roughly 5-15% of ALA converts to EPA, and very little converts to DHA).
 
 The cardiovascular evidence is strong at clinically relevant doses. The REDUCE-IT trial showed that high-dose EPA (4g per day) reduced major cardiovascular events by 25% in high-risk patients. For brain health and cognitive function, DHA is structurally essential — it makes up roughly 40% of the fatty acids in brain gray matter. Adequate DHA during pregnancy and early childhood is critical for neural development.

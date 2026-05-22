@@ -13,9 +13,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [age, setAge] = useState(40)
   const [bmi, setBmi] = useState(26)
   const [waist, setWaist] = useState(85)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
-  const [family, setFamily] = useState<'none\'|\'grandparent\'|\'parent_sibling\'>(\'none')
-  const [activity, setActivity] = useState<'active\'|\'moderate\'|\'inactive\'>(\'moderate')
+  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [family, setFamily] = useState<'none'|'grandparent'|'parent_sibling'>('none')
+  const [activity, setActivity] = useState<'active'|'moderate'|'inactive'>('moderate')
   const [bp, setBp] = useState(false)
   const [gestational, setGestational] = useState(false)
 
@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     // BMI
     if (bmi>=25 && bmi<30) score+=1; else if (bmi>=30) score+=3
     // Waist (cm)
-    const waistLimit = gender==='male\' ? [94,102] : [80,88]
+    const waistLimit = gender==='male' ? [94,102] : [80,88]
     if (waist>=waistLimit[0] && waist<waistLimit[1]) score+=3; else if (waist>=waistLimit[1]) score+=4
     // Activity
     if (activity==='moderate') score+=1; else if (activity==='inactive') score+=2

@@ -11,20 +11,20 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(40)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [smoker, setSmoker] = useState(false)
   const [exSmoker, setExSmoker] = useState(false)
-  const [exercise, setExercise] = useState<'none\'|\'light\'|\'moderate\'|\'vigorous\'>(\'moderate')
+  const [exercise, setExercise] = useState<'none'|'light'|'moderate'|'vigorous'>('moderate')
   const [bmi, setBmi] = useState(24)
-  const [diet, setDiet] = useState<'poor\'|\'average\'|\'good\'|\'excellent\'>(\'good')
-  const [sleep, setSleep] = useState<'under6\'|\'7-8\'|\'over9\'>(\'7-8')
-  const [stress, setStress] = useState<'high\'|\'moderate\'|\'low\'>(\'moderate')
-  const [social, setSocial] = useState<'isolated\'|\'moderate\'|\'strong\'>(\'moderate')
-  const [alcohol, setAlcohol] = useState<'none\'|\'moderate\'|\'heavy\'>(\'moderate')
+  const [diet, setDiet] = useState<'poor'|'average'|'good'|'excellent'>('good')
+  const [sleep, setSleep] = useState<'under6'|'7-8'|'over9'>('7-8')
+  const [stress, setStress] = useState<'high'|'moderate'|'low'>('moderate')
+  const [social, setSocial] = useState<'isolated'|'moderate'|'strong'>('moderate')
+  const [alcohol, setAlcohol] = useState<'none'|'moderate'|'heavy'>('moderate')
   const [familyHistory, setFamilyHistory] = useState(false)
 
   const result = useMemo(() => {
-    const base = gender==='male\' ? 78.5 : 82.8 // US life expectancy
+    const base = gender==='male' ? 78.5 : 82.8 // US life expectancy
     let adj = 0
     if (smoker) adj -= 10; else if (exSmoker) adj -= 3
     if (exercise==='vigorous') adj += 5; else if (exercise==='moderate') adj += 3; else if (exercise==='none') adj -= 3
@@ -43,11 +43,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
     const improvements = [
       !smoker || exSmoker ? null : {action:'Quit smoking now',gain:10},
-      exercise==='none\' ? {action:\'Start exercising 150 min/week',gain:5} : exercise==='light\' ? {action:\'Increase to vigorous exercise',gain:2} : null,
-      social==='isolated\' ? {action:\'Strengthen social connections',gain:5} : null,
-      stress==='high\' ? {action:\'Stress management practice',gain:3} : null,
-      sleep==='under6\' ? {action:\'Prioritise 7-8 hours sleep',gain:3} : null,
-      diet==='poor\' ? {action:\'Adopt Mediterranean-style diet',gain:4} : diet==='average\' ? {action:\'Improve diet quality',gain:2} : null,
+      exercise==='none' ? {action:'Start exercising 150 min/week',gain:5} : exercise==='light' ? {action:'Increase to vigorous exercise',gain:2} : null,
+      social==='isolated' ? {action:'Strengthen social connections',gain:5} : null,
+      stress==='high' ? {action:'Stress management practice',gain:3} : null,
+      sleep==='under6' ? {action:'Prioritise 7-8 hours sleep',gain:3} : null,
+      diet==='poor' ? {action:'Adopt Mediterranean-style diet',gain:4} : diet==='average' ? {action:'Improve diet quality',gain:2} : null,
       bmi > 30 ? {action:'Lose weight to healthy BMI',gain:3} : null,
     ].filter(Boolean).sort((a:any,b:any)=>b.gain-a.gain).slice(0,4)
 

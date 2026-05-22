@@ -7,7 +7,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('banana\napple\ncherry\ndate\napple\nfig')
-  const [mode, setMode] = useState<'az\'|\'za\'|\'len-asc\'|\'len-desc\'|\'reverse\'|\'shuffle\'|\'unique\'>(\'az')
+  const [mode, setMode] = useState<'az'|'za'|'len-asc'|'len-desc'|'reverse'|'shuffle'|'unique'>('az')
   const [caseSensitive, setCaseSensitive] = useState(false)
   const [copied, setCopied] = useState(false)
 

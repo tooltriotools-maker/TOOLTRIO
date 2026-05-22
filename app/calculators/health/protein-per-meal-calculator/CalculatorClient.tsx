@@ -11,15 +11,15 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [weight, setWeight] = useState(165)
-  const [goal, setGoal] = useState<'maintain\'|\'gain\'|\'cut\'>(\'gain')
+  const [goal, setGoal] = useState<'maintain'|'gain'|'cut'>('gain')
   const [meals, setMeals] = useState(4)
   const [age, setAge] = useState(30)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
-  const [training, setTraining] = useState<'yes\'|\'no\'>(\'yes')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
+  const [training, setTraining] = useState<'yes'|'no'>('yes')
 
   const result = useMemo(() => {
-    const wKg = unit === 'imperial\' ? weight * 0.453592 : weight
-    const goalMult = goal === 'gain\' ? 2.0 : goal === \'cut\' ? 2.2 : 1.6
+    const wKg = unit === 'imperial' ? weight * 0.453592 : weight
+    const goalMult = goal === 'gain' ? 2.0 : goal === 'cut' ? 2.2 : 1.6
     const ageMult = age >= 65 ? 1.2 : 1.0 // older adults need more
     const totalDaily = Math.round(wKg * goalMult * ageMult)
     const perMeal = Math.round(totalDaily / meals)
@@ -42,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg)'},{value:'imperial',label:'Imperial (lbs)'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric\'?\'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={40} max={200} step={1} suffix={unit==='metric'?'kg':'lbs'} />
             <InputField label="Age" value={age} onChange={setAge} min={16} max={90} step={1} suffix="yrs" />
             <SelectField label="Goal" value={goal} onChange={v=>setGoal(v as any)} options={[{value:'gain',label:'Muscle gain'},{value:'maintain',label:'Maintain muscle'},{value:'cut',label:'Fat loss (preserve muscle)'}]} />
             <InputField label="Meals per day" value={meals} onChange={setMeals} min={2} max={8} step={1} suffix="meals" />
@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="p-3 bg-blue-50 rounded-xl border border-blue-200 text-center">
               <p className="text-xs font-bold text-blue-600 uppercase">Daily Total</p>
               <p className="text-3xl font-black text-blue-700">{result.totalDaily}g</p>
-              <p className="text-xs text-blue-500">{Math.round(result.totalDaily/(unit==='metric\'?weight:weight*0.453592)*10)/10}g per kg bodyweight</p>
+              <p className="text-xs text-blue-500">{Math.round(result.totalDaily/(unit==='metric'?weight:weight*0.453592)*10)/10}g per kg bodyweight</p>
             </div>
             <div className="p-3 bg-green-50 rounded-xl border-2 border-green-200 text-center">
               <p className="text-xs font-bold text-green-600 uppercase">Per Meal Target</p>
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               {result.SOURCES.map(s=>(
                 <div key={s.f} className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <p className="text-sm font-semibold text-gray-800">{s.f}</p>
-                  <p className="text-lg font-black text-green-600">{typeof s.g === 'number\' ? `${s.g}g` : s.g}</p>
+                  <p className="text-lg font-black text-green-600">{typeof s.g === 'number' ? `${s.g}g` : s.g}</p>
                 </div>
               ))}
             </div>

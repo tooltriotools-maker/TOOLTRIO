@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Pull-Up Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The pull-up is one of the most honest assessments of relative upper body strength — because you're lifting your entire bodyweight, heavier people can't compensate with absolute strength the way they can in pressing movements. This is what makes pull-ups one of the most respected bodyweight strength benchmarks.
 
 Military and law enforcement fitness standards almost universally include pull-ups because they measure the functional strength relevant to climbing, pulling over obstacles, and general upper body pulling strength. The Marine Corps PFT maximum score requires 23 pull-ups for male recruits under 25.

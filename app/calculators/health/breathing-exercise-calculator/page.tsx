@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Breathing Exercise Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Breathing is the only autonomic function you can consciously control — and that access point is why structured breathing exercises have measurable effects on heart rate, blood pressure, anxiety, and stress hormone levels. The mechanism isn't mystical: slow, controlled breathing directly activates the parasympathetic nervous system by stimulating the vagus nerve, lowering heart rate, and shifting your nervous system state from sympathetic (fight-or-flight) to parasympathetic (rest-and-digest).
 
 Different breathing patterns produce different physiological effects. Box breathing (4-4-4-4 seconds) is used by Navy SEALs and emergency personnel to maintain composure under acute stress — it works because the extended exhale and breath hold shift autonomic balance toward calm. The 4-7-8 technique has a longer exhale that maximizes parasympathetic activation. Resonance breathing (5-second inhale, 5-second exhale at around 6 breaths per minute) hits the resonant frequency of heart rate variability, producing the largest HRV changes of any breathing technique.

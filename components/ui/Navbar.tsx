@@ -114,7 +114,7 @@ const NAV = {
 const PREVIEW_COUNT = 10
 
 function DropdownMenu({ items, allHref, color, accent, type }: { items: typeof NAV.finance.items, allHref: string, color: string, accent: string, type: string }) {
-  const base = type === 'finance\' ? \'/calculators/finance' : type === 'health\' ? \'/calculators/health' : type === 'dev\' ? \'/calculators/dev' : '/calculators/fun'
+  const base = type === 'finance' ? '/calculators/finance' : type === 'health' ? '/calculators/health' : type === 'dev' ? '/calculators/dev' : '/calculators/fun'
   return (
     <div className="absolute top-full left-0 w-64 rounded-2xl py-2 shadow-2xl z-50"
       style={{ background:'#0d1425', border:`1px solid rgba(255,255,255,0.08)`, boxShadow:'0 24px 60px rgba(0,0,0,0.6)' }}>
@@ -221,7 +221,7 @@ export function Navbar() {
             {(Object.entries(NAV) as [string, typeof NAV.finance][]).map(([key, cfg]) => {
               const Icon = cfg.icon
               const isExpanded = expandedMobile === key
-              const base = key === 'finance\' ? \'/calculators/finance' : key === 'health\' ? \'/calculators/health' : key === 'dev\' ? \'/calculators/dev' : '/calculators/fun'
+              const base = key === 'finance' ? '/calculators/finance' : key === 'health' ? '/calculators/health' : key === 'dev' ? '/calculators/dev' : '/calculators/fun'
               return (
                 <div key={key}>
                   <button onClick={() => setExpandedMobile(isExpanded ? null : key)}

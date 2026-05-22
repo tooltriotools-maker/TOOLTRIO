@@ -53,7 +53,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Heart Age Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your heart can be older or younger than the rest of you — and knowing the gap is one of the most motivating pieces of health information you can have. Heart age expresses your cardiovascular risk as an age equivalent: if your heart age is 10 years older than your chronological age, you have the same cardiovascular risk as a healthy person 10 years older than you.
 
 The CDC estimates that 3 in 4 Americans have a heart age older than their actual age, by an average of 7 years for men and 5 years for women. That gap is driven primarily by modifiable risk factors: blood pressure, blood glucose, cholesterol, smoking status, weight, and physical activity. The Framingham Heart Study — the longest-running cardiovascular cohort study in history — established the risk models that underlie heart age calculations.

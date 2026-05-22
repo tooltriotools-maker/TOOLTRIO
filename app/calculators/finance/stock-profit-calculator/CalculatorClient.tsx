@@ -14,7 +14,7 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
-  const scale = currency.code === 'INR\' ? 1 : 1
+  const scale = currency.code === 'INR' ? 1 : 1
 
   const [buyPrice, setBuyPrice] = useState(150)
   const [sellPrice, setSellPrice] = useState(210)
@@ -22,9 +22,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [buyBrokerage, setBuyBrokerage] = useState(0)
   const [sellBrokerage, setSellBrokerage] = useState(0)
   const [taxRate, setTaxRate] = useState(15)
-  const [holdingType, setHoldingType] = useState<'short\' | \'long\'>(\'long')
+  const [holdingType, setHoldingType] = useState<'short' | 'long'>('long')
 
-  const effectiveTax = holdingType === 'short\' ? 22 : taxRate
+  const effectiveTax = holdingType === 'short' ? 22 : taxRate
 
   const result = useMemo(() => calculateStockProfit(buyPrice, sellPrice, quantity, buyBrokerage, sellBrokerage, effectiveTax),
     [buyPrice, sellPrice, quantity, buyBrokerage, sellBrokerage, effectiveTax])
@@ -87,10 +87,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 </button>
               ))}
             </div>
-            <p className="text-xs text-gray-400">{holdingType === 'short\' ? \'Under 1 year -- taxed as ordinary income (~22%)' : 'Over 1 year -- long-term capital gains rate'}</p>
+            <p className="text-xs text-gray-400">{holdingType === 'short' ? 'Under 1 year -- taxed as ordinary income (~22%)' : 'Over 1 year -- long-term capital gains rate'}</p>
           </div>
 
-          {holdingType === 'long\' && (
+          {holdingType === 'long' && (
             <div className="space-y-1">
               <label className="text-xs font-medium text-gray-600">LTCG Tax Rate (%)</label>
               <div className="flex gap-2">

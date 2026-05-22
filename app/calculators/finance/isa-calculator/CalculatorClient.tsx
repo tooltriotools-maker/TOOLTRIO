@@ -10,7 +10,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-type ISAType = 'stocks\' | \'cash\' | \'lifetime'
+type ISAType = 'stocks' | 'cash' | 'lifetime'
 
 const ISA_TYPES: { value: ISAType; label: string; icon: string; desc: string; defaultReturn: number; limit: number }[] = [
   { value: 'stocks', label: 'Stocks &amp; Shares ISA', icon: '📈', desc: 'Invest in funds, shares, ETFs', defaultReturn: 8, limit: 20000 },
@@ -112,7 +112,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
 
-          {isaType === 'lifetime\' && (
+          {isaType === 'lifetime' && (
             <div className="bg-purple-50 border border-purple-200 rounded-xl p-3 text-center">
               <p className="text-xs text-purple-600 font-semibold">Government Bonus</p>
               <p className="text-xl font-black text-purple-700">+{fmt(result.totalBonus)}</p>

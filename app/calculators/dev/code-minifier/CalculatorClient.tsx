@@ -31,7 +31,7 @@ function minifyJSON(json: string): string {
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('.container {\n  display: flex;\n  flex-direction: column;\n  /* comment */\n  padding: 16px;\n  margin: 0 auto;\n}')
-  const [type, setType] = useState<'css\'|\'html\'|\'json\'>(\'css')
+  const [type, setType] = useState<'css'|'html'|'json'>('css')
   const [copied, setCopied] = useState(false)
 
   const minify = () => {

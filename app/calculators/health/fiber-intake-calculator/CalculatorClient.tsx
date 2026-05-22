@@ -11,7 +11,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [calories, setCalories] = useState(2000)
   const [currentFiber, setCurrentFiber] = useState(15)
 
@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   const result = useMemo(() => {
-    const recommended = gender==='male\' ? (age<51?38:30) : (age<51?25:21)
+    const recommended = gender==='male' ? (age<51?38:30) : (age<51?25:21)
     const altRec = Math.round(calories/1000*14)
     const target = Math.max(recommended, altRec)
     const gap = Math.max(0, target - currentFiber)

@@ -10,7 +10,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-type CollegeType = 'public_instate\' | \'public_outstate\' | \'private\' | \'community'
+type CollegeType = 'public_instate' | 'public_outstate' | 'private' | 'community'
 
 const COLLEGE_TYPES: { value: CollegeType; label: string; current: number }[] = [
   { value: 'community', label: '🏫 Community College', current: 12000 },

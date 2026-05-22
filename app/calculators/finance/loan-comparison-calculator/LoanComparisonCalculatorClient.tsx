@@ -15,7 +15,7 @@ import { loanComparisonSEOContent } from '@/lib/seo/calculator-seo-content'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 export default function LoanComparisonCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
-  const m = currency.code === 'INR\' ? 20 : 1
+  const m = currency.code === 'INR' ? 20 : 1
 
   const [loans, setLoans] = useState([
     { name: 'Lender A', principal: 25000 * m, rate: 7.5, months: 60, fees: 0 },

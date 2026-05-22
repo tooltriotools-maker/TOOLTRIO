@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Sugar Intake Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `The distinction between different types of dietary sugar is important but often obscured in health messaging. Added sugars — sugars and syrups added to foods during processing or preparation — are the target of dietary recommendations, not naturally occurring sugars in whole fruit, dairy, or vegetables. A glass of apple juice and a whole apple contain similar grams of sugar, but produce very different blood glucose responses and satiety signals.
 
 The American Heart Association recommends limiting added sugars to 25 grams per day for women (6 teaspoons) and 36 grams for men (9 teaspoons). The average American consumes approximately 77 grams per day — three times the women's limit. The primary sources: sugar-sweetened beverages account for roughly 47% of added sugar intake.

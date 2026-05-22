@@ -10,7 +10,7 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(50)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [systolic, setSystolic] = useState(130)
   const [cholesterol, setCholesterol] = useState(5.5)
   const [hdl, setHdl] = useState(1.3)
@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [familyHistory, setFamilyHistory] = useState(false)
 
   // Simplified Framingham-like risk score
-  const ageScore = gender === 'male\' ? (age < 40 ? 0 : age < 50 ? 2 : age < 60 ? 5 : age < 70 ? 8 : 11) : (age < 40 ? 0 : age < 50 ? 1 : age < 60 ? 4 : age < 70 ? 7 : 10)
+  const ageScore = gender === 'male' ? (age < 40 ? 0 : age < 50 ? 2 : age < 60 ? 5 : age < 70 ? 8 : 11) : (age < 40 ? 0 : age < 50 ? 1 : age < 60 ? 4 : age < 70 ? 7 : 10)
   const bpScore = systolic < 120 ? 0 : systolic < 130 ? 1 : systolic < 140 ? 2 : systolic < 160 ? 3 : 5
   const cholScore = cholesterol < 4 ? 0 : cholesterol < 5 ? 1 : cholesterol < 6 ? 2 : cholesterol < 7 ? 3 : 4
   const hdlScore = hdl > 1.6 ? -2 : hdl > 1.3 ? -1 : hdl > 1.0 ? 0 : hdl > 0.8 ? 1 : 2

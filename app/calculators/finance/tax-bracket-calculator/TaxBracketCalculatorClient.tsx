@@ -38,7 +38,7 @@ const BRACKETS_2026 = {
 
 const STANDARD_DEDUCTION_2026 = { single: 15000, married: 30000, hoh: 22500 }
 
-function calcFederalTax(taxableIncome: number, filing: 'single\' | \'married') {
+function calcFederalTax(taxableIncome: number, filing: 'single' | 'married') {
   const brackets = BRACKETS_2026[filing]
   let tax = 0
   const breakdown = []
@@ -56,7 +56,7 @@ export default function TaxBracketCalculatorClient({ faqs, structuredData, relat
   const { fmt, fmtCompact } = useCurrency()
 
   const [grossIncome, setGrossIncome]   = useState(85000)
-  const [filing, setFiling]             = useState<'single\' | \'married\'>(\'single')
+  const [filing, setFiling]             = useState<'single' | 'married'>('single')
   const [k401Contrib, set401k]          = useState(7000)
   const [iraContrib, setIRA]            = useState(0)
   const [hsaContrib, setHSA]            = useState(0)
@@ -95,7 +95,7 @@ export default function TaxBracketCalculatorClient({ faqs, structuredData, relat
                 {(['single', 'married'] as const).map(f => (
                   <button key={f} onClick={() => setFiling(f)}
                     className={`py-2 rounded-xl text-sm font-semibold transition-all ${filing === f ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-                    {f === 'single\' ? \'Single' : 'Married MFJ'}
+                    {f === 'single' ? 'Single' : 'Married MFJ'}
                   </button>
                 ))}
               </div>

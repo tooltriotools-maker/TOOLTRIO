@@ -11,12 +11,12 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(165)
   const [height, setHeight] = useState(69)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial\' ? weight*0.453592 : weight
-    const hCm = unit==='imperial\' ? height*2.54 : height
+    const wKg = unit==='imperial' ? weight*0.453592 : weight
+    const hCm = unit==='imperial' ? height*2.54 : height
     // Three formulas
     let boer, james, hume
     if (gender==='male') {
@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={0.5} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={0.5} suffix={unit==='metric'?'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
           <div className="mt-5 p-4 bg-blue-50 rounded-xl text-center border border-blue-200">

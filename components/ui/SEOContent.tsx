@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export interface SEOContentProps {
   title: string
-  category: 'health\' | \'finance\' | \'dev\' | \'fun'
+  category: 'health' | 'finance' | 'dev' | 'fun'
   intro: string
   howItWorks: string
   benefits: { title: string; text: string }[]

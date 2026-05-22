@@ -13,14 +13,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [weight, setWeight] = useState(165)
   const [height, setHeight] = useState(69)
   const [age, setAge] = useState(35)
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [gender, setGender] = useState<'male'|'female'>('male')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const result = useMemo(() => {
-    const wKg = unit==='imperial\'?weight*0.453592:weight
-    const hCm = unit==='imperial\'?height*2.54:height
+    const wKg = unit==='imperial'?weight*0.453592:weight
+    const hCm = unit==='imperial'?height*2.54:height
     const bmi = wKg/((hCm/100)**2)
-    const score = Math.min(100,Math.max(0,Math.round(90 - (bmi-22)*3 + (age<50?5:0) + (gender==='female\'?2:0))))
+    const score = Math.min(100,Math.max(0,Math.round(90 - (bmi-22)*3 + (age<50?5:0) + (gender==='female'?2:0))))
     const level = score>=80?{l:'Excellent',c:'text-green-700 bg-green-50 border-green-200'}:score>=60?{l:'Good',c:'text-blue-700 bg-blue-50 border-blue-200'}:score>=40?{l:'Fair',c:'text-yellow-700 bg-yellow-50 border-yellow-200'}:{l:'Needs Improvement',c:'text-red-700 bg-red-50 border-red-200'}
     const bars = [
       {name:'Body Composition',val:Math.min(100,Math.max(0,Math.round(100-(bmi-22)*4))),color:'#3b82f6'},
@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="space-y-4">
             <SelectField label="Unit" value={unit} onChange={v=>setUnit(v as any)} options={[{value:'metric',label:'Metric (kg/cm)'},{value:'imperial',label:'Imperial (lbs/in)'}]} />
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
-            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric\'?30:66} max={unit===\'metric\'?200:440} step={1} suffix={unit===\'metric\'?\'kg':'lbs'} />
+            <InputField label={`Weight (${unit==='metric'?'kg':'lbs'})`} value={weight} onChange={setWeight} min={unit==='metric'?30:66} max={unit==='metric'?200:440} step={1} suffix={unit==='metric'?'kg':'lbs'} />
             <HeightField unit={unit} value={height} onChange={setHeight} />
 <InputField label="Age" value={age} onChange={setAge} min={15} max={90} step={1} suffix="yrs" />
           </div>

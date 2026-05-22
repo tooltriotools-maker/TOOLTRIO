@@ -96,7 +96,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.05)" />
                   <XAxis dataKey="year" tick={{ fill: '#6b7280', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#6b7280', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => fmt(v, true)} width={70} />
-                  <Tooltip contentStyle={{ background: '#ffffff', border: '1px solid #d1fae5', borderRadius: 10, boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} formatter={(v: number, name: string) => [name === 'nav\' ? `${currency.symbol}${v}` : fmt(v), name === \'nav\' ? \'NAV' : 'Portfolio Value']} labelFormatter={y => `Year ${y.replace('Y', '')}`} />
+                  <Tooltip contentStyle={{ background: '#ffffff', border: '1px solid #d1fae5', borderRadius: 10, boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }} formatter={(v: number, name: string) => [name === 'nav' ? `${currency.symbol}${v}` : fmt(v), name === 'nav' ? 'NAV' : 'Portfolio Value']} labelFormatter={y => `Year ${y.replace('Y', '')}`} />
                   <Line type="monotone" dataKey="value" name="Portfolio Value" stroke="#16a34a" strokeWidth={2.5} dot={false} />
                   <Line type="monotone" dataKey="nav" name="NAV" stroke="#3b82f6" strokeWidth={1.5} dot={false} strokeDasharray="4 3" />
                 </LineChart>

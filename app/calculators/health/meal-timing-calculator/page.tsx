@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Meal Timing Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `When you eat matters — not just what you eat. The timing of meals relative to sleep, activity, and circadian rhythms produces metabolic effects that are increasingly well-documented. The same 800-calorie meal consumed at 8am produces a different glycemic response, insulin demand, and fat storage signal than the same meal at 8pm — research shows that evening meals produce higher and more prolonged blood glucose spikes than identical morning meals in most people, independent of activity differences.
 
 The circadian clock coordinates metabolic processes throughout the day: insulin sensitivity peaks in the morning, digestive enzyme secretion is highest during daylight hours, and the mechanisms that process nutrients most efficiently are daylight-phase processes. Eating out of alignment with this rhythm — large evening meals, skipping breakfast, late-night snacking — produces repeated metabolic stress that contributes to insulin resistance, triglyceride elevation, and weight gain over time.

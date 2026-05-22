@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">So you want to know your villain name? Good. Every person has a darker alter-ego lurking somewhere -- the version of you that didn't get their coffee, got skipped for a promotion, or simply decided that society\'s rules are suggestions at best. This generator builds out your full evil identity: title, power, lair, and the one absurd master plan that will finally bring the world to its knees. It\'s also oddly useful for writers who need a quick antagonist for a <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">fantasy story</Link> or a tabletop campaign.</p>
+          <p className="text-gray-600 leading-relaxed">So you want to know your villain name? Good. Every person has a darker alter-ego lurking somewhere -- the version of you that didn't get their coffee, got skipped for a promotion, or simply decided that society's rules are suggestions at best. This generator builds out your full evil identity: title, power, lair, and the one absurd master plan that will finally bring the world to its knees. It's also oddly useful for writers who need a quick antagonist for a <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">fantasy story</Link> or a tabletop campaign.</p>
         </section>
 
         {/* How It Works */}

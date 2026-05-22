@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Iron Intake Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Iron deficiency is the most common nutritional deficiency worldwide, and in the United States it disproportionately affects women of reproductive age, pregnant women, distance runners, and vegetarians/vegans who rely solely on non-heme iron sources. The symptoms — fatigue, brain fog, reduced exercise tolerance, cold intolerance, brittle nails, and restless legs — develop so gradually that many people adapt to them without recognizing iron status as the cause.
 
 There are two forms of dietary iron with very different absorption rates. Heme iron, found exclusively in animal products, is absorbed at roughly 15-35% efficiency. Non-heme iron, found in plant foods, supplements, and fortified foods, is absorbed at only 2-20% efficiency — and this efficiency is dramatically influenced by what you eat alongside it. Vitamin C consumed in the same meal increases non-heme absorption by 2-3 times. Calcium, tannins (tea, coffee, red wine), and phytates significantly reduce absorption when consumed simultaneously.

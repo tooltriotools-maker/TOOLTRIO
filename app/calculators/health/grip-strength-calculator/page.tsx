@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Grip Strength Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Grip strength is one of the strongest predictors of all-cause mortality in middle-aged and older adults — a fact that surprises most people when they first encounter it. A landmark 2015 study in The Lancet tracking over 140,000 people across 17 countries found that grip strength was a stronger predictor of cardiovascular death than systolic blood pressure. A 5kg decrease in grip strength was associated with a 17% increase in cardiovascular mortality.
 
 Why does hand strength predict longevity? Grip strength is an integrative measure of overall skeletal muscle health, which in turn reflects metabolic reserve, physical capacity, and the biological aging of muscle tissue. Strong hands are a proxy for strong muscles throughout the body, and muscle mass is strongly protective against metabolic disease, disability, and mortality as we age.

@@ -9,11 +9,11 @@ import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
-  const [saunaType, setSaunaType] = useState<'traditional\'|\'infrared\'|\'steam\'>(\'traditional')
+  const [saunaType, setSaunaType] = useState<'traditional'|'infrared'|'steam'>('traditional')
   const [duration, setDuration] = useState(20)
   const [temp, setTemp] = useState(80)
   const [sessionsPerWeek, setSessionsPerWeek] = useState(3)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(165)
 
   const calBurn = Math.round(weight * 0.14 * duration)

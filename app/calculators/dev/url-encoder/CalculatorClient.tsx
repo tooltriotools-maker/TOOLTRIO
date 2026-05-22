@@ -8,7 +8,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 
 export default function CalculatorClient({ faqs }: Props) {
   const [input, setInput] = useState('https://example.com/search?q=hello world&lang=en&tag=c#code')
-  const [mode, setMode] = useState<'encode\'|\'decode\'>(\'encode')
+  const [mode, setMode] = useState<'encode'|'decode'>('encode')
   const [component, setComponent] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const error = outputError
 
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(()=>setCopied(false),1500) }
-  const swap = () => { setInput(output||''); setMode(m=>m==='encode\'?\'decode':'encode') }
+  const swap = () => { setInput(output||''); setMode(m=>m==='encode'?'decode':'encode') }
 
   const EXAMPLES = [
     {label:'URL with spaces', val:'https://example.com/my page?q=hello world'},

@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'One Rep Max Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your one-rep max (1RM) is the maximum weight you can lift for a single repetition with good form — the gold standard measure of absolute strength in a given movement. Knowing your 1RM matters because virtually all strength training percentage-based programming uses it as the reference point: when a program says do 4 sets of 5 at 80% of your 1RM, you need an accurate estimate of your max to train at the correct intensity.
 
 Testing your true 1RM directly carries injury risk if attempted without proper warm-up, technique, and spotting. For most people, submaximal estimations from multiple repetitions are nearly as accurate and carry far less risk.

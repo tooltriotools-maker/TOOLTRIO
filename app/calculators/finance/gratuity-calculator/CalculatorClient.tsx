@@ -17,7 +17,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const { fmt, currency } = useCurrency()
   const [lastSalary, setLastSalary] = useState(50000)
   const [yearsOfService, setYearsOfService] = useState(10)
-  const [type, setType] = useState<'covered\' | \'uncovered\'>(\'covered')
+  const [type, setType] = useState<'covered' | 'uncovered'>('covered')
 
   const r = useMemo(() => calculateGratuity(lastSalary, yearsOfService, type), [lastSalary, yearsOfService, type])
 
@@ -40,11 +40,11 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 {(['covered', 'uncovered'] as const).map(t => (
                   <button key={t} onClick={() => setType(t)}
                     className={`w-full py-2.5 px-4 rounded-xl text-sm font-bold border-2 text-left transition-all ${type === t ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
-                    {t === 'covered\' ? \'✅ Covered under Gratuity Act' : '⚠️ Not Covered (Govt formula)'}
+                    {t === 'covered' ? '✅ Covered under Gratuity Act' : '⚠️ Not Covered (Govt formula)'}
                   </button>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-2">{type === 'covered\' ? \'Formula: (Salary x 15 x Years) / 26' : 'Formula: (Salary x 15 x Years) / 30'}</p>
+              <p className="text-xs text-gray-400 mt-2">{type === 'covered' ? 'Formula: (Salary x 15 x Years) / 26' : 'Formula: (Salary x 15 x Years) / 30'}</p>
             </div>
           </div>
           <div className="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-700">

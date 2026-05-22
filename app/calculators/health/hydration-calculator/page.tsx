@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Hydration Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Proper hydration is one of those health fundamentals that's simultaneously obvious and chronically underachieved. Most adults are mildly dehydrated at some point every day — not dangerously, but enough to measurably impair cognitive performance, physical endurance, and mood. Research from the University of Connecticut found that mild dehydration of just 1.5% body weight loss reduced concentration, increased task difficulty perception, and worsened headache scores in young adults.
 
 Individual fluid needs vary much more than the 8 glasses a day rule suggests. A sedentary 130-pound woman in a temperate climate needs far less than an active 200-pound man in summer heat. Sweat rate during exercise varies by up to 3x between individuals at the same intensity. Altitude, certain medications, hot foods, and high-sodium diets all increase fluid requirements.

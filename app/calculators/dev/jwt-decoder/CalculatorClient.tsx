@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const result = token.trim() ? decodeJWT(token) : null
   const copy = (val: string, key: string) => { navigator.clipboard.writeText(val); setCopied(key); setTimeout(()=>setCopied(null),1500) }
 
-  const expStatus = result && !('error\' in result) && result.payload.exp
+  const expStatus = result && !('error' in result) && result.payload.exp
     ? result.payload.exp * 1000 > Date.now() ? 'valid' : 'expired'
     : null
 
@@ -55,15 +55,15 @@ export default function CalculatorClient({ faqs }: Props) {
           className="w-full font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none" />
       </div>
 
-      {result && ('error\' in result) && (
+      {result && ('error' in result) && (
         <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 font-semibold mb-4">{result.error}</div>
       )}
 
-      {result && !('error\' in result) && (
+      {result && !('error' in result) && (
         <div className="space-y-4">
           {expStatus && (
             <div className={`flex items-center gap-2 p-3 rounded-xl border ${expStatus==='valid'?'bg-green-50 border-green-300 text-green-800':'bg-red-50 border-red-300 text-red-800'}`}>
-              {expStatus==='valid\'?<Shield className="w-4 h-4"/>:<ShieldAlert className="w-4 h-4"/>}
+              {expStatus==='valid'?<Shield className="w-4 h-4"/>:<ShieldAlert className="w-4 h-4"/>}
               <span className="text-sm font-bold">Token is {expStatus}. Expires: {new Date(result.payload.exp*1000).toUTCString()}</span>
             </div>
           )}
@@ -84,7 +84,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-black text-gray-700">Signature</span>
               <button onClick={()=>copy(result.sig,'sig')} className="flex items-center gap-1 text-xs font-bold text-green-600">
-                {copied==='sig\'?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy
+                {copied==='sig'?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy
               </button>
             </div>
             <code className="font-mono text-xs text-gray-600 break-all">{result.sig}</code>

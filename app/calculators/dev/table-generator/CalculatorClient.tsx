@@ -6,7 +6,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
 type Row = string[]
-type OutputFormat = 'markdown\' | \'html\' | \'csv\' | \'json'
+type OutputFormat = 'markdown' | 'html' | 'csv' | 'json'
 
 const DEFAULT_HEADERS = ['Name', 'Age', 'City', 'Score']
 const DEFAULT_ROWS: Row[] = [
@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const [rows, setRows] = useState<Row[]>(DEFAULT_ROWS)
   const [format, setFormat] = useState<OutputFormat>('markdown')
   const [copied, setCopied] = useState(false)
-  const [alignment, setAlignment] = useState<'left\'|\'center\'|\'right\'>(\'left')
+  const [alignment, setAlignment] = useState<'left'|'center'|'right'>('left')
 
   const copy = (v: string) => { navigator.clipboard.writeText(v); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const updateCell = (r: number, c: number, v: string) => setRows(rows => rows.map((row,i) => i === r ? row.map((cell,j) => j === c ? v : cell) : row))
 
   const generate = useCallback((): string => {
-    const alignChar = alignment === 'center\' ? ':---:' : alignment === \'right\' ? \'---:' : '---'
+    const alignChar = alignment === 'center' ? ':---:' : alignment === 'right' ? '---:' : '---'
     switch (format) {
       case 'markdown': {
         const header = `| ${headers.join(' | ')} |`
@@ -76,7 +76,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </button>
           ))}
         </div>
-        {format === 'markdown\' && (
+        {format === 'markdown' && (
           <div className="flex rounded-2xl border overflow-hidden" style={{borderColor:'rgba(226,232,240,0.7)'}}>
             {(['left','center','right'] as const).map(a => (
               <button key={a} onClick={() => setAlignment(a)} className={`px-3 py-2 text-xs font-bold capitalize transition-all ${alignment===a?'bg-purple-600 text-white':'text-gray-600 hover:bg-gray-50'}`}>

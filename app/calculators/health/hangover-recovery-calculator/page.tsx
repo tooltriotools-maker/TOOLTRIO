@@ -52,7 +52,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Hangover Recovery Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `A hangover is not caused by dehydration alone — that's a widely held oversimplification. Alcohol does cause diuresis, but the fluid loss in a typical drinking occasion is modest and rarely explains the full severity of hangover symptoms. The more significant contributors are acetaldehyde toxicity (the primary metabolite of alcohol metabolism), immune activation and cytokine release, disrupted sleep architecture, and glutamate rebound causing anxiety and light sensitivity.
 
 The practical implication: pure water rehydration addresses one component of hangover but not the primary mechanisms. More effective is replacing electrolytes lost through diuresis (sodium, potassium, magnesium), eating something before or during drinking to slow alcohol absorption, and prioritizing sleep in the recovery timeline.

@@ -13,7 +13,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const [age, setAge] = useState(35)
   const [restingHR, setRestingHR] = useState(65)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const result = useMemo(() => {
     const maxHR = Math.round(208 - 0.7 * age)  // Tanaka formula

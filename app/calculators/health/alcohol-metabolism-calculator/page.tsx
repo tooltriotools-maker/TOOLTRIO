@@ -51,7 +51,7 @@ const faqs = [
 
 const seoContent = {
   title: 'Alcohol Metabolism Calculator',
-  category: 'health\' as const,
+  category: 'health' as const,
   intro: `Your body eliminates alcohol at a fixed rate — roughly 0.015 g/dL per hour regardless of how much coffee you drink, how much water you consume, or how much sleep you get. Nothing meaningfully speeds up the process. That rate is largely determined by your liver's capacity to metabolize ethanol via the enzyme alcohol dehydrogenase, and it doesn't change based on willpower or effort.
 
 What does change is how high your blood alcohol concentration (BAC) climbs in the first place. Body weight, sex, the number and type of drinks consumed, and how fast you drank all affect your peak BAC. Women typically reach higher BAC than men at the same number of drinks because of lower average total body water percentage and differences in first-pass alcohol metabolism. Food in your stomach slows alcohol absorption, reducing your peak BAC but not how long alcohol stays in your system.

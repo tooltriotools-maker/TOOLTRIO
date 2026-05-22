@@ -17,7 +17,7 @@ interface CalculatorLayoutProps {
   title: string
   description: string
   icon: string
-  category: 'Finance\' | \'Health\' | \'Dev\' | \'Fun'
+  category: 'Finance' | 'Health' | 'Dev' | 'Fun'
   children: ReactNode
   structuredData?: object[]
   relatedCalculators?: RelatedCalc[]
@@ -26,14 +26,14 @@ interface CalculatorLayoutProps {
 }
 
 export function CalculatorLayout({ title, description, icon, category, children, structuredData, relatedCalculators, blogSlug, slug }: CalculatorLayoutProps) {
-  const catColor = category === 'Finance\' ? \'text-green-700 bg-green-100 border-green-200'
-    : category === 'Health\' ? \'text-red-700 bg-red-100 border-red-200'
-    : category === 'Dev\' ? \'text-blue-700 bg-blue-100 border-blue-200'
+  const catColor = category === 'Finance' ? 'text-green-700 bg-green-100 border-green-200'
+    : category === 'Health' ? 'text-red-700 bg-red-100 border-red-200'
+    : category === 'Dev' ? 'text-blue-700 bg-blue-100 border-blue-200'
     : 'text-purple-700 bg-purple-100 border-purple-200'
   const isFinance = category === 'Finance'
-  const catPath = category === 'Finance\' ? \'finance'
-    : category === 'Health\' ? \'health'
-    : category === 'Dev\' ? \'dev'
+  const catPath = category === 'Finance' ? 'finance'
+    : category === 'Health' ? 'health'
+    : category === 'Dev' ? 'dev'
     : 'fun'
 
   // -- Auto-generated global schemas (injected on every calculator) --
@@ -52,7 +52,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
       '@type': 'WebApplication',
       name: title,
       description,
-      applicationCategory: category === 'Health\' ? \'HealthApplication' : 'FinancialApplication',
+      applicationCategory: category === 'Health' ? 'HealthApplication' : 'FinancialApplication',
       operatingSystem: 'Web Browser',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       isAccessibleForFree: true,
@@ -69,7 +69,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
       },
     },
     // Health-specific: MedicalWebPage schema
-    ...(category === 'Health\' ? [{
+    ...(category === 'Health' ? [{
       '@context': 'https://schema.org',
       '@type': 'MedicalWebPage',
       name: title,
@@ -94,7 +94,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
       tool: { '@type': 'HowToTool', name: title },
       isAccessibleForFree: true,
       totalTime: 'PT2M',
-      step: category === 'Health\' ? [
+      step: category === 'Health' ? [
         { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top of the calculator' },
         { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type directly into the input boxes or use the sliders to set your age, weight, height, and other relevant values' },
         { '@type': 'HowToStep', position: 3, name: 'View your instant results', text: 'Results calculate automatically as you type — no button to click' },

@@ -10,16 +10,16 @@ interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: an
 
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
 
-  const [gender, setGender] = useState<'male\'|\'female\'>(\'male')
+  const [gender, setGender] = useState<'male'|'female'>('male')
   const [height, setHeight] = useState(69)
   const [neck, setNeck] = useState(38)
   const [waist, setWaist] = useState(82)
   const [hip, setHip] = useState(95)
   const [age, setAge] = useState(25)
-  const [unit, setUnit] = useState<'imperial\' | \'metric\'>(\'imperial')
+  const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
 
   const result = useMemo(() => {
-    const toCm = (v: number) => unit==='imperial\' ? v*2.54 : v
+    const toCm = (v: number) => unit==='imperial' ? v*2.54 : v
     const hCm = toCm(height), nCm = toCm(neck), wCm = toCm(waist), hpCm = toCm(hip)
     
     let bf: number
@@ -39,10 +39,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     const passes = {
       army: bf <= armyLimit,
       marines: bf <= marineLimit,
-      navy: bf <= (gender==='male\'?age<40?23:25:age<40?33:35),
-      airforce: bf <= (gender==='male\'?age<30?20:age<40?24:26:age<30?28:age<40?32:34),
+      navy: bf <= (gender==='male'?age<40?23:25:age<40?33:35),
+      airforce: bf <= (gender==='male'?age<30?20:age<40?24:26:age<30?28:age<40?32:34),
     }
-    const lean = Math.round(height * (gender==='male\'?0.43:0.41)) // rough estimate
+    const lean = Math.round(height * (gender==='male'?0.43:0.41)) // rough estimate
     return { bf, armyLimit, passes, lean, category: bf<10?'Dangerously Lean':bf<18?'Lean/Athletic':bf<25?'Fit':bf<30?'Average':'High Body Fat' }
   }, [gender,height,neck,waist,hip,age,unit])
 
@@ -58,9 +58,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Gender" value={gender} onChange={v=>setGender(v as any)} options={[{value:'male',label:'Male'},{value:'female',label:'Female'}]} />
             <InputField label="Age" value={age} onChange={setAge} min={17} max={60} step={1} suffix="yrs" />
             <HeightField unit={unit} value={height} onChange={setHeight} />
-<InputField label={`Neck (${unit==='metric'?'cm':'in'})`} value={neck} onChange={setNeck} min={unit==='metric\'?25:10} max={unit===\'metric\'?60:24} step={unit===\'metric\'?0.5:0.25} suffix={unit===\'metric\'?\'cm':'in'} />
-            <InputField label={`Waist (${unit==='metric'?'cm':'in'})`} value={waist} onChange={setWaist} min={unit==='metric\'?55:22} max={unit===\'metric\'?150:59} step={unit===\'metric\'?0.5:0.25} suffix={unit===\'metric\'?\'cm':'in'} />
-            {gender==='female\' && <InputField label={`Hips (${unit===\'metric\'?\'cm':'in'})`} value={hip} onChange={setHip} min={unit==='metric'?70:28} max={unit==='metric'?150:59} step={unit==='metric'?0.5:0.25} suffix={unit==='metric'?'cm':'in'} />}
+<InputField label={`Neck (${unit==='metric'?'cm':'in'})`} value={neck} onChange={setNeck} min={unit==='metric'?25:10} max={unit==='metric'?60:24} step={unit==='metric'?0.5:0.25} suffix={unit==='metric'?'cm':'in'} />
+            <InputField label={`Waist (${unit==='metric'?'cm':'in'})`} value={waist} onChange={setWaist} min={unit==='metric'?55:22} max={unit==='metric'?150:59} step={unit==='metric'?0.5:0.25} suffix={unit==='metric'?'cm':'in'} />
+            {gender==='female' && <InputField label={`Hips (${unit==='metric'?'cm':'in'})`} value={hip} onChange={setHip} min={unit==='metric'?70:28} max={unit==='metric'?150:59} step={unit==='metric'?0.5:0.25} suffix={unit==='metric'?'cm':'in'} />}
           </div>
           <div className="mt-5 p-4 bg-gray-900 rounded-xl text-center">
             <p className="text-xs text-gray-400 font-bold uppercase">Body Fat %</p>

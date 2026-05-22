@@ -37,14 +37,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Your Goal</h2>
           <div className="space-y-5">
             <InputField label={`Target Amount (${currency.symbol})`} value={goalAmount} onChange={setGoalAmount}
-              min={currency.code === 'INR\' ? 10000 : 1000}
-              max={currency.code === 'INR\' ? 100000000 : 10000000}
-              step={currency.code === 'INR\' ? 10000 : 1000}
+              min={currency.code === 'INR' ? 10000 : 1000}
+              max={currency.code === 'INR' ? 100000000 : 10000000}
+              step={currency.code === 'INR' ? 10000 : 1000}
               prefix={currency.symbol}
             />
             <InputField label={`Current Savings (${currency.symbol})`} value={currentSavings} onChange={setCurrentSavings}
               min={0} max={goalAmount}
-              step={currency.code === 'INR\' ? 1000 : 100}
+              step={currency.code === 'INR' ? 1000 : 100}
               prefix={currency.symbol}
             />
             <InputField label="Expected Annual Return" value={annualRate} onChange={setAnnualRate} min={1} max={25} step={0.5} suffix="%" />
@@ -121,7 +121,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">How to Calculate Monthly Savings for Any Goal</h3>
-              <p>The Savings Goal Calculator answers the critical question: 'How much do I need to save every month to reach my financial goal?\' The formula is the Present Value of annuity reversed: Monthly Savings = FV x r / [(1+r)^n - 1], where FV = future value of goal, r = monthly return rate, n = months. For example, to accumulate $50 thousands in 10 years at 12% expected return: Monthly savings needed = $21,694. If you already have $5 thousands saved, the future value of that savings at 12% for 10 years = $15.5 thousands, reducing your monthly requirement to approximately $15,000. The calculator does all this instantly.</p>
+              <p>The Savings Goal Calculator answers the critical question: 'How much do I need to save every month to reach my financial goal?' The formula is the Present Value of annuity reversed: Monthly Savings = FV x r / [(1+r)^n - 1], where FV = future value of goal, r = monthly return rate, n = months. For example, to accumulate $50 thousands in 10 years at 12% expected return: Monthly savings needed = $21,694. If you already have $5 thousands saved, the future value of that savings at 12% for 10 years = $15.5 thousands, reducing your monthly requirement to approximately $15,000. The calculator does all this instantly.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Common Financial Goals and How Much to Save</h3>
               <p>Benchmarks for common financial goals at 12% expected return: Emergency fund ($5 thousands in 1 year): $39,500/month. Child's education ($30 thousands in 15 years): $7,500/month. Car down payment ($5 thousands in 3 years): $11,400/month. House down payment ($20 thousands in 5 years): $24,600/month. Vacation abroad ($3 thousands in 2 years): $11,000/month (use safer instruments like RD since horizon is short). Retirement ($2 millions in 20 years): $19,800/month. Each goal requires a different time horizon and therefore a different investment instrument with appropriate risk.</p>
             </div>
@@ -129,7 +129,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <h3 className="font-bold text-gray-800 mb-2">Choosing the Right Investment for Each Goal</h3>
               <p>Goal time horizon should dictate your investment vehicle: Short-term goals (less than 1 year): High-yield savings account, liquid mutual funds, short-duration debt funds, FDs. Medium-term goals (1-3 years): RD, FD ladder, conservative hybrid funds, arbitrage funds (tax-efficient). Medium-long term goals (3-5 years): Balanced advantage funds, aggressive hybrid funds, 3-year FDs with rollover. Long-term goals (5+ years): Equity mutual funds (SIP), 401(k) pension, Roth IRA, direct equity. The golden rule: never invest money you\'ll need within 3 years in equity. Market corrections can take 2-3 years to recover and you don\'t want to redeem at a loss.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">The Impact of Starting Early on Your Savings Goal</h3>
-              <p>Time is the most powerful variable in goal planning. To accumulate $1 million at 12% annual return: Starting at 25 (35 years): Only $2,143/month needed. Starting at 30 (30 years): $4,144/month. Starting at 35 (25 years): $7,500/month. Starting at 40 (20 years): $13,879/month. Starting at 45 (15 years): $26,445/month. Starting at 50 (10 years): $58,737/month. Starting 5 years later roughly doubles your monthly requirement. This exponential effect illustrates why 'Start now, start small\' is the most important principle of financial planning. Even $2,000-3,000/month started today is far better than waiting for the \'right time\' to invest larger amounts.</p>
+              <p>Time is the most powerful variable in goal planning. To accumulate $1 million at 12% annual return: Starting at 25 (35 years): Only $2,143/month needed. Starting at 30 (30 years): $4,144/month. Starting at 35 (25 years): $7,500/month. Starting at 40 (20 years): $13,879/month. Starting at 45 (15 years): $26,445/month. Starting at 50 (10 years): $58,737/month. Starting 5 years later roughly doubles your monthly requirement. This exponential effect illustrates why 'Start now, start small' is the most important principle of financial planning. Even $2,000-3,000/month started today is far better than waiting for the 'right time' to invest larger amounts.</p>
             </div>
           </div>
         </Card>

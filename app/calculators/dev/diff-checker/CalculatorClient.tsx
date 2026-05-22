@@ -9,7 +9,7 @@ interface Props { faqs: { question: string; answer: string }[] }
 function diff(a: string, b: string) {
   const aLines = a.split('\n')
   const bLines = b.split('\n')
-  const result: {type:'same\'|\'add\'|\'remove', text:string}[] = []
+  const result: {type:'same'|'add'|'remove', text:string}[] = []
   const maxLen = Math.max(aLines.length, bLines.length)
   for (let i=0; i<maxLen; i++) {
     if (i >= aLines.length) result.push({type:'add',text:bLines[i]})
@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="bg-gray-950 rounded-2xl overflow-hidden">
         {lines.map((line,i)=>(
           <div key={i} className={`flex items-start gap-2 px-4 py-1 font-mono text-sm ${line.type==='add'?'bg-green-900/30 text-green-300':line.type==='remove'?'bg-red-900/30 text-red-300':'text-gray-400'}`}>
-            <span className="w-4 flex-shrink-0 select-none">{line.type==='add\'?'+':line.type===\'remove\'?\'-':' '}</span>
+            <span className="w-4 flex-shrink-0 select-none">{line.type==='add'?'+':line.type==='remove'?'-':' '}</span>
             <span className="whitespace-pre-wrap break-all">{line.text}</span>
           </div>
         ))}
