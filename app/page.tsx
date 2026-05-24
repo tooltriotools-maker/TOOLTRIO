@@ -6,36 +6,48 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'TOOLTRIO — Free Finance, Health & Dev Calculators | 400+ Tools',
+    absolute: 'ToolTrio — Free Finance, Health & Dev Calculators | 400+ Tools',
   },
   description:
-    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest calculator, BMI, calorie calculator and 400+ more. No signup. Instant results.',
+    'ToolTrio is a free online calculator and tools website. Use finance calculators, health calculators, ZIP tools, developer utilities and 400+ free tools. Also searched as Tool Trio, Trio Tools and Tools Trio.',
   keywords: [
-    // Top USA volume keywords first
     'finance calculator', 'financial calculator', 'free financial calculator USA',
     'mortgage calculator', 'mortgage calculator USA 2026',
     '401k calculator', '401k calculator 2026', 'Roth IRA calculator USA',
     'compound interest calculator', 'compound interest calculator USA',
     'retirement calculator USA', 'loan calculator USA',
     'bmi calculator', 'bmi calculator USA', 'calorie calculator', 'TDEE calculator',
-    // Broad
+
     'calculator', 'calculators', 'online calculator', 'free calculator',
     'free online calculator', 'calculator no signup', 'instant calculator',
-    // Long tail
+
     'best mortgage calculator USA 2026', 'free 401k calculator with employer match',
     'compound interest calculator with monthly contributions USA',
     'retirement savings calculator USA free', 'BMI calculator for adults USA',
     'free calorie calculator no signup', 'financial calculator online free USA',
-    // Brand
-    'tooltrio.com', 'finance calculator online',
+
+    'tooltrio',
+    'tool trio',
+    'tooltrio.com',
+    'tooltrio tools',
+    'tool trio tools',
+    'trio tools',
+    'tools trio',
+    'trio tool',
+    'toolstrio',
+    'tooltrio calculator',
+    'tooltrio calculators',
+    'tooltrio free tools',
+    'tooltrio online tools',
+    'finance calculator online',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    title: 'ToolTrio — Free Finance, Health & Dev Calculators | 400+ Tools',
     description:
-      'Free online finance calculators trusted by Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators. No signup required.',
+      'Use ToolTrio for free finance calculators, health calculators, ZIP tools, developer utilities and 400+ free tools. No signup required.',
     url: 'https://tooltrio.com',
-    siteName: 'tooltrio.com',
+    siteName: 'ToolTrio',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630 }],
     type: 'website',
   },
@@ -112,38 +124,40 @@ const categories = [
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero — premium Apple/Stripe style */}
       <section className="relative overflow-hidden py-16 px-4">
-        {/* Hero glow orbs */}
-        <div className="hero-glow" style={{top:'-80px', left:'-60px'}} />
-        <div className="hero-glow" style={{bottom:'-80px', right:'-60px', background:'rgba(16,185,129,0.1)'}} />
+        <div className="hero-glow" style={{ top: '-80px', left: '-60px' }} />
+        <div className="hero-glow" style={{ bottom: '-80px', right: '-60px', background: 'rgba(16,185,129,0.1)' }} />
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-10" style={{background:'radial-gradient(circle, #16a34a, transparent)'}} />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10" style={{background:'radial-gradient(circle, #16a34a, transparent)'}} />
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #16a34a, transparent)' }} />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #16a34a, transparent)' }} />
         </div>
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(8px)', borderColor:'#d1fae5', color:'#15803d', boxShadow:'0 4px 16px rgba(22,163,74,0.1)'}}>
-            <span>⭐ Trusted by 2M+ Americans</span>
-            <span className="w-px h-3" style={{background:'#bbf7d0'}} />
-            <span>🔒 No Signup · No Ads · 100% Private</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
+            <span>⭐ 400+ Free Online Calculators & Tools</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>🔒 No Signup · Fast · Simple</span>
           </div>
-          {/* Main heading */}
-          <h1 className="font-black mb-4 leading-tight" style={{fontSize:'clamp(2rem,5vw,3.25rem)', color:'#0f172a', fontFamily:"'Playfair Display', serif"}}>
-            TOOLTRIO —{' '}
-            <span style={{color:'#16a34a'}}>Calculate Everything</span>
+
+          <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Playfair Display', serif" }}>
+            ToolTrio —{' '}
+            <span style={{ color: '#16a34a' }}>Calculate Everything</span>
           </h1>
-          <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{color:'#475569'}}>
+
+          <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
             Mortgage, 401k, compound interest, BMI and 400+ free calculators. Instant results, no signup.
           </p>
-          <p className="text-sm mb-8 max-w-xl mx-auto" style={{color:'#94a3b8'}}>
-            The #1 free calculator suite for Americans — accurate, fast, and completely private.
+
+          <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
+            Fast, simple and privacy-friendly calculators for finance, health, ZIP code and developer tools.
+            <br />
+            <span>Also searched as Tool Trio, Trio Tools, Tools Trio, Trio Tool and Toolstrio.</span>
           </p>
-          {/* Search */}
+
           <div className="max-w-2xl mx-auto">
             <GlobalSearch />
           </div>
-          {/* Popular quick links — premium pill chips */}
+
           <div className="flex flex-wrap justify-center gap-2 mt-6">
             {[
               { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
@@ -154,35 +168,29 @@ export default function HomePage() {
               { label: '📏 ZIP Distance', href: '/zip/zip-code-distance' },
               { label: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
             ].map(t => (
-              <Link
-                key={t.label}
-                href={t.href}
-                className="tag-pill text-xs"
-                style={{padding:'8px 16px'}}
-              >
+              <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
                 {t.label}
               </Link>
             ))}
           </div>
-          {/* Stats row */}
+
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
-              {val:'500+', label:'Free Tools'},
-              {val:'35+', label:'ZIP Utilities'},
-              {val:'100%', label:'Free Forever'},
-              {val:'0', label:'Signup Required'},
+              { val: '500+', label: 'Free Tools' },
+              { val: '35+', label: 'ZIP Utilities' },
+              { val: '100%', label: 'Free Forever' },
+              { val: '0', label: 'Signup Required' },
             ].map(s => (
               <div key={s.label} className="text-center">
-                <div className="text-2xl font-black" style={{color:'#16a34a'}}>{s.val}</div>
-                <div className="text-xs mt-0.5" style={{color:'#94a3b8'}}>{s.label}</div>
+                <div className="text-2xl font-black" style={{ color: '#16a34a' }}>{s.val}</div>
+                <div className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quick-access bar -- most searched calculators in USA */}
-      <section className="border-b py-4 px-4" style={{background:"#F0F7F0", borderColor:"#d1fae5"}}>
+      <section className="border-b py-4 px-4" style={{ background: '#F0F7F0', borderColor: '#d1fae5' }}>
         <div className="max-w-6xl mx-auto">
           <p className="text-xs text-gray-500 text-center mb-3 font-semibold uppercase tracking-wider">
             Most Popular in USA
@@ -200,11 +208,7 @@ export default function HomePage() {
               { name: 'Wealth Calculator', href: '/calculators/finance/wealth-calculator' },
               { name: 'Payoff Date Calculator', href: '/calculators/finance/payoff-date-calculator' },
             ].map(c => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all"
-              >
+              <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
               </Link>
             ))}
@@ -213,25 +217,21 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 py-10">
-        {/* Categories */}
         {categories.map(cat => (
           <section key={cat.label} className="mb-12">
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{fontFamily:"'Playfair Display', serif"}}>
+              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 <cat.icon className="w-6 h-6 text-green-600" />
                 {cat.label} Calculators
               </h2>
-        <Link href={cat.href} className="text-sm font-semibold text-green-600 hover:text-green-700">
-    View all {cat.label} calculators →
-</Link>
+              <Link href={cat.href} className="text-sm font-semibold text-green-600 hover:text-green-700">
+                View all {cat.label} calculators →
+              </Link>
             </div>
+
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
               {cat.calcs.map(c => (
-                <Link
-                  key={c.href}
-                  href={c.href}
-                  className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{background:'rgba(255,255,255,0.8)', borderColor:'rgba(255,255,255,0.5)', backdropFilter:'blur(8px)', boxShadow:'0 4px 16px rgba(15,23,42,0.05)', transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}
-                >
+                <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
                   <span className="flex items-center gap-2 mb-1">
                     <span className="text-xl">{c.icon}</span>
                     {c.badge && (
@@ -250,11 +250,11 @@ export default function HomePage() {
           </section>
         ))}
 
-        {/* USA-focused SEO content block -- rich, helpful, unique */}
-        <section className="mt-8 rounded-3xl p-8 border" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>
+        <section className="mt-8 rounded-3xl p-8 border" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', borderColor: 'rgba(255,255,255,0.5)', boxShadow: '0 8px 30px rgba(15,23,42,0.05)' }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Free Online Finance Calculators for Americans
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600 leading-relaxed">
             <div className="space-y-5">
               <div>
@@ -266,17 +266,10 @@ export default function HomePage() {
                   <Link href="/calculators/finance/home-loan-calculator" className="text-green-600 hover:underline font-medium">
                     mortgage calculator
                   </Link>{' '}
-                  shows your monthly payment including principal, interest, taxes, and insurance (PITI). Use it alongside our{' '}
-                  <Link href="/calculators/finance/home-affordability-calculator" className="text-green-600 hover:underline">
-                    home affordability calculator
-                  </Link>{' '}
-                  and{' '}
-                  <Link href="/calculators/finance/rent-vs-buy-calculator" className="text-green-600 hover:underline">
-                    rent vs buy calculator
-                  </Link>{' '}
-                  to make confident real estate decisions in 2026.
+                  shows your monthly payment including principal, interest, taxes, and insurance (PITI).
                 </p>
               </div>
+
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                   <span>🏛️</span> Retirement Calculators -- 401k, Roth IRA, FIRE
@@ -286,7 +279,7 @@ export default function HomePage() {
                   <Link href="/calculators/finance/401k-calculator" className="text-green-600 hover:underline font-medium">
                     401k calculator
                   </Link>
-                  {' '}(includes employer match),{' '}
+                  {' '}, {' '}
                   <Link href="/calculators/finance/roth-ira-calculator" className="text-green-600 hover:underline">
                     Roth IRA calculator
                   </Link>
@@ -294,9 +287,10 @@ export default function HomePage() {
                   <Link href="/calculators/finance/retirement-calculator" className="text-green-600 hover:underline">
                     retirement savings calculator
                   </Link>
-                  . All updated for 2026 IRS contribution limits.
+                  .
                 </p>
               </div>
+
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                   <span>💰</span> Investment &amp; Compound Interest
@@ -306,7 +300,7 @@ export default function HomePage() {
                   <Link href="/calculators/finance/compound-interest-calculator" className="text-green-600 hover:underline font-medium">
                     compound interest calculator
                   </Link>
-                  . Supports monthly contributions, annual compounding, and shows you an interactive growth chart. Also try our{' '}
+                  . Also try our{' '}
                   <Link href="/calculators/finance/fire-calculator" className="text-green-600 hover:underline">
                     FIRE calculator
                   </Link>{' '}
@@ -314,6 +308,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+
             <div className="space-y-5">
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
@@ -324,7 +319,7 @@ export default function HomePage() {
                   <Link href="/calculators/health/bmi-calculator" className="text-green-600 hover:underline font-medium">
                     BMI calculator
                   </Link>
-                  {' '}(CDC standards),{' '}
+                  ,{' '}
                   <Link href="/calculators/health/calorie-calculator" className="text-green-600 hover:underline">
                     calorie calculator
                   </Link>
@@ -332,21 +327,19 @@ export default function HomePage() {
                   <Link href="/calculators/health/tdee-calculator" className="text-green-600 hover:underline">
                     TDEE calculator
                   </Link>
-                  . Also includes{' '}
-                  <Link href="/calculators/health/macro-calculator" className="text-green-600 hover:underline">
-                    macro calculator
-                  </Link>{' '}
-                  for protein, carbs &amp; fat -- all based on NIH and USDA guidelines.
+                  .
                 </p>
               </div>
+
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>📊</span> Why Americans Trust Our Calculators
+                  <span>📊</span> Why Use ToolTrio Calculators
                 </h3>
                 <p>
-                  All 400+ calculators are completely free, require no signup, and run entirely in your browser. No data is ever stored or shared. Formulas follow IRS guidelines, CDC standards, and peer-reviewed financial research. Works seamlessly on mobile, tablet, and desktop.
+                  ToolTrio calculators are free, simple, fast and mobile-friendly. Most tools require no signup and are designed for quick everyday use.
                 </p>
               </div>
+
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
                   <span>🔄</span> Popular Comparisons
@@ -377,15 +370,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Trust signals with review schema signals */}
         <section className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { icon: '🆓', title: '100% Free Forever', desc: 'No signup, no credit card' },
-            { icon: '🔒', title: 'Private & Secure', desc: 'No data stored, ever' },
+            { icon: '🔒', title: 'Privacy-Friendly', desc: 'Simple browser tools' },
             { icon: '⚡', title: 'Instant Results', desc: 'Real-time calculations' },
             { icon: '📱', title: 'Works Everywhere', desc: 'Mobile, tablet & desktop' },
           ].map(f => (
-            <div key={f.title} className="text-center p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',borderColor:'rgba(187,247,208,0.6)',backdropFilter:'blur(6px)'}}>
+            <div key={f.title} className="text-center p-4 rounded-2xl border" style={{ background: 'rgba(240,253,244,0.8)', borderColor: 'rgba(187,247,208,0.6)', backdropFilter: 'blur(6px)' }}>
               <div className="text-2xl mb-1">{f.icon}</div>
               <p className="font-bold text-gray-900 text-sm">{f.title}</p>
               <p className="text-xs text-gray-500">{f.desc}</p>
@@ -393,39 +385,51 @@ export default function HomePage() {
           ))}
         </section>
 
-        {/* FAQ section -- targets featured snippets & AI answers */}
         <section className="mt-12">
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Frequently Asked Questions
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
                 q: 'What is the best free mortgage calculator?',
-                a: 'Our free mortgage calculator is one of the most comprehensive available. It calculates your monthly payment including principal, interest, property taxes, and homeowner\'s insurance (PMI) -- no signup required, instant results.',
+                a: 'Our free mortgage calculator calculates your monthly payment including principal, interest, property taxes, and homeowner insurance -- no signup required, instant results.',
               },
               {
                 q: 'How do I use a 401k calculator?',
-                a: 'Enter your current age, retirement age, current balance, monthly contribution, and employer match percentage. Our free 401k calculator uses 2026 IRS contribution limits and shows your projected balance at retirement.',
+                a: 'Enter your current age, retirement age, current balance, monthly contribution, and employer match percentage. The calculator shows your projected balance at retirement.',
               },
               {
                 q: 'What is compound interest and how is it calculated?',
-                a: 'Compound interest is interest earned on both your principal and previously accumulated interest. The formula is: A = P(1 + r/n)^(nt). Our compound interest calculator handles this automatically and shows monthly contribution growth.',
+                a: 'Compound interest is interest earned on both your principal and previously accumulated interest. The formula is: A = P(1 + r/n)^(nt).',
               },
               {
                 q: 'How accurate is the BMI calculator?',
-                a: 'Our BMI calculator uses the standard CDC formula: BMI = (weight in lbs x 703) / (height in inches)2. It follows CDC and NIH adult BMI categories (Underweight, Normal, Overweight, Obese) and is accurate for adults 20+.',
+                a: 'Our BMI calculator uses the standard BMI formula: BMI = (weight in lbs x 703) / (height in inches)2. It gives a quick adult BMI estimate.',
               },
               {
                 q: 'Are these calculators free to use?',
-                a: 'Yes, all 400+ calculators on tooltrio.com are 100% free with no signup, no registration, and no credit card required. We never store your data and there are no hidden fees.',
+                a: 'Yes, calculators on ToolTrio are free to use with no signup, no registration, and no credit card required.',
               },
               {
                 q: 'What is the difference between Roth IRA and Traditional IRA?',
-                a: 'Roth IRA contributions are made with after-tax dollars; withdrawals in retirement are tax-free. Traditional IRA contributions may be tax-deductible; withdrawals are taxed as ordinary income. Use our Roth vs Traditional IRA calculator to compare based on your tax situation.',
+                a: 'Roth IRA contributions are made with after-tax dollars; withdrawals in retirement are tax-free. Traditional IRA contributions may be tax-deductible; withdrawals are taxed as ordinary income.',
+              },
+              {
+                q: 'What is ToolTrio?',
+                a: 'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, developer utilities and daily-use tools.',
+              },
+              {
+                q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
+                a: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. These searches refer to ToolTrio.com.',
+              },
+              {
+                q: 'Is ToolTrio free?',
+                a: 'Yes, ToolTrio is free to use. Most tools require no signup and give instant results.',
               },
             ].map(({ q, a }) => (
-              <div key={q} className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
+              <div key={q} className="rounded-2xl border p-5" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
                 <h3 className="font-bold text-gray-900 text-sm mb-2">{q}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{a}</p>
               </div>
