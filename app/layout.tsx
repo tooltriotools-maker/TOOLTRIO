@@ -12,61 +12,79 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const siteUrl = 'https://tooltrio.com'
+const siteName = 'ToolTrio'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tooltrio.com'),
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
-    template: '%s',
+    default: 'ToolTrio - Free Online Tools, Calculators & Utilities',
+    template: '%s | ToolTrio',
   },
+
   description:
-    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',
+    'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, developer utilities and daily tools. Fast, simple, no signup.',
+
   keywords: [
-    'home loan calculator',
+    // Brand keywords
+    'tooltrio',
+    'tool trio',
+    'tooltrio.com',
+    'tooltrio tools',
+    'tool trio tools',
+    'trio tools',
+    'tools trio',
+    'trio tool',
+    'toolstrio',
+    'tooltrio calculator',
+    'tooltrio free tools',
+    'tooltrio online tools',
+    'tooltrio utilities',
+
+    // Main category keywords
+    'free online tools',
+    'online calculators',
+    'free calculators',
+    'finance calculators',
+    'health calculators',
+    'developer tools',
+    'zip code tools',
+    'utility tools',
+
+    // Finance keywords
+    'mortgage calculator',
     '401k calculator',
-    '401k calculator 2026',
     'Roth IRA calculator',
-    'retirement calculator USA',
     'compound interest calculator',
     'loan calculator',
     'investment calculator',
-    'income tax calculator USA',
+    'retirement calculator',
+    'tax calculator',
+    'budget calculator',
 
-    'best free financial calculator USA 2026',
-    'online financial tools no registration',
+    // Health keywords
+    'BMI calculator',
+    'calorie calculator',
+    'TDEE calculator',
+    'macro calculator',
+    'steps to calories calculator',
 
-    'finance calculator USA',
-    'free financial calculator USA',
-    'online calculator free',
-
-    'free mortgage calculator USA with taxes',
-    '401k calculator with employer match USA',
-    'compound interest calculator monthly contribution',
-    'loan payoff calculator USA early payment',
-    'debt payoff calculator snowball vs avalanche',
-    'budget planner calculator USA',
-    'income tax calculator USA 2026',
-    'fixed deposit calculator usa',
-    'random password generator free online',
-    'uuid generator free online',
-    'json formatter online free',
-    'finanace calculator',
-    'tax bracket calculator',
-    'steps to calories',
-
-    'tooltrio.com',
-    // TOOLTRIO Brand Keywords
-    'tooltrio', 'tool trio', 'trio tools', 'tooltrio.com', 'tooltrio tools',
-    'tooltrio free', 'tooltrio calculator', 'tooltrio zip code', 'zip code tooltrio',
-    'tooltrio zipcode tool', 'tooltrio free tools', 'tooltrio no signup',
-    'tooltrio instant results', 'tooltrio online', 'tooltrio utilities',
-    'tooltrio address tool', 'tooltrio postal tool', 'tooltrio zip lookup',
-    'free tools tooltrio', 'tooltrio finance tools', 'tooltrio health tools',
-
+    // Developer/tools keywords
+    'json formatter',
+    'uuid generator',
+    'password generator',
+    'random password generator',
+    'zip code lookup',
   ],
 
-  authors: [{ name: 'tooltrio Team', url: 'https://tooltrio.com' }],
-  creator: 'tooltrio.com',
-  publisher: 'tooltrio.com',
+  authors: [{ name: 'ToolTrio Team', url: siteUrl }],
+  creator: 'ToolTrio',
+  publisher: 'ToolTrio',
+
+  alternates: {
+    canonical: siteUrl,
+  },
 
   robots: {
     index: true,
@@ -83,26 +101,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://tooltrio.com',
-    siteName: 'tooltrio.com',
-    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    url: siteUrl,
+    siteName,
+    title: 'ToolTrio - Free Online Tools, Calculators & Utilities',
     description:
-      'Free online finance calculators trusted by Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators. No signup required.',
+      'Use ToolTrio for free finance calculators, health calculators, ZIP code tools, developer utilities and more. No signup required.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'tooltrio.com - Free Online Finance & Health Calculators',
+        alt: 'ToolTrio - Free Online Tools and Calculators',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    title: 'ToolTrio - Free Online Tools, Calculators & Utilities',
     description:
-      'Free mortgage, 401k, BMI, compound interest calculators. 400+ tools. No signup. Instant results.',
+      'Free online calculators, finance tools, health tools, ZIP code tools and developer utilities. Fast, simple, no signup.',
     images: ['/og-image.png'],
   },
 
@@ -117,43 +135,53 @@ export const metadata: Metadata = {
   },
 
   manifest: '/site.webmanifest',
-  category: 'finance',
+  category: 'utilities',
 }
-
-// Structured Data
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'tooltrio.com',
-  url: 'https://tooltrio.com',
-  logo: 'https://tooltrio.com/logo.png',
+  name: 'ToolTrio',
+  alternateName: [
+    'Tool Trio',
+    'ToolTrio Tools',
+    'Trio Tools',
+    'Tools Trio',
+    'Trio Tool',
+    'Toolstrio',
+    'tooltrio.com',
+  ],
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
   description:
-    'TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) — Free online finance, health, ZIP code, and developer tools. 400+ free calculators and utilities. No signup required. tooltrio.com',
+    'ToolTrio is a free online tools platform for calculators, finance tools, health tools, ZIP code tools, developer utilities and daily-use tools.',
   email: 'tooltrio1610@gmail.com',
   foundingDate: '2026',
   sameAs: [],
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
 }
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'tooltrio.com',
-  alternateName: ['TOOLTRIO', 'Tool Trio', 'ToolTrio', 'Trio Tools', 'tooltrio.com', 'Free Online Calculator', 'ZIP Code Lookup Tool'],
-  url: 'https://tooltrio.com',
+  name: 'ToolTrio',
+  alternateName: [
+    'Tool Trio',
+    'ToolTrio Tools',
+    'Trio Tools',
+    'Tools Trio',
+    'Trio Tool',
+    'Toolstrio',
+    'tooltrio.com',
+  ],
+  url: siteUrl,
   description:
-    'Free online finance calculators -- mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
+    'ToolTrio provides free online calculators, finance tools, health calculators, ZIP code tools, developer tools and simple utilities.',
   inLanguage: 'en-US',
-
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://tooltrio.com/?q={search_term_string}',
+      urlTemplate: `${siteUrl}/?q={search_term_string}`,
     },
     'query-input': 'required name=search_term_string',
   },
@@ -162,60 +190,65 @@ const websiteSchema = {
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'TOOLTRIO (tooltrio.com) — Free Online Calculators & ZIP Code Tools',
-  applicationCategory: 'FinanceApplication',
+  name: 'ToolTrio - Free Online Tools and Calculators',
+  alternateName: [
+    'Tool Trio',
+    'Trio Tools',
+    'Tools Trio',
+    'Toolstrio',
+  ],
+  applicationCategory: 'UtilitiesApplication',
   operatingSystem: 'Any',
-
+  url: siteUrl,
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
   },
-
   description:
-    'TOOLTRIO (also Tool Trio, ToolTrio, Trio Tools) — Free finance, health, ZIP code, and developer tools. 400+ utilities at tooltrio.com. No signup required.',
-
+    'ToolTrio offers free online calculators and utilities including finance calculators, health calculators, ZIP code tools, developer tools and daily-use tools.',
   featureList: [
-    'Mortgage Calculator with taxes and insurance',
-    '401k and Roth IRA retirement calculators',
-    'Compound interest calculator with monthly contributions',
-    'BMI, TDEE, calorie and macro health calculators',
-    'No signup or registration required',
-    'Instant real-time results',
-    'Mobile-friendly on all devices',
-    'Complete privacy - no data stored',
-    'ZIP code lookup and US postal tools',
-    'Developer tools and utilities',
-    'Also known as Tool Trio, ToolTrio, Trio Tools',
+    'Free online calculators',
+    'Finance calculators',
+    'Health calculators',
+    'ZIP code lookup tools',
+    'Developer utilities',
+    'Password generator',
+    'JSON formatter',
+    'UUID generator',
+    'No signup required',
+    'Instant results',
+    'Mobile-friendly tools',
   ],
 }
 
-const howToSchema = {
+const faqSchema = {
   '@context': 'https://schema.org',
-  '@type': 'HowTo',
-
-  name: 'How to Use Our Free Online Finance Calculators',
-
-  description:
-    'Step-by-step guide to using tooltrio.com free online calculators for mortgage, retirement, and more.',
-
-  step: [
+  '@type': 'FAQPage',
+  mainEntity: [
     {
-      '@type': 'HowToStep',
-      name: 'Choose a Calculator',
-      text: 'Browse our 400+ free calculators by category: Finance, Health, Dev Tools, or Fun. Use the search bar to find a specific calculator instantly.',
+      '@type': 'Question',
+      name: 'What is ToolTrio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'ToolTrio is a free online tools website that provides calculators, finance tools, health calculators, ZIP code tools, developer utilities and daily-use tools.',
+      },
     },
-
     {
-      '@type': 'HowToStep',
-      name: 'Enter Your Numbers',
-      text: 'Input your personal figures -- such as loan amount, interest rate, income, or body measurements. All fields have clear labels and helpful tooltips.',
+      '@type': 'Question',
+      name: 'Is ToolTrio free?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, ToolTrio is free to use and does not require signup for most tools.',
+      },
     },
-
     {
-      '@type': 'HowToStep',
-      name: 'Get Instant Results',
-      text: 'Results update in real time as you type. See charts, amortization tables, and detailed breakdowns -- all for free with no signup required.',
+      '@type': 'Question',
+      name: 'Is ToolTrio also searched as Tool Trio or Trio Tools?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio.',
+      },
     },
   ],
 }
@@ -228,31 +261,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Favicon */}
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
         <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        {/* Geo & SEO */}
         <meta name="geo.region" content="US" />
         <meta name="geo.placename" content="United States" />
         <meta name="language" content="English" />
         <meta name="content-language" content="en-US" />
         <meta name="rating" content="general" />
-        <meta name="revisit-after" content="3 days" />
 
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -277,19 +300,16 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(howToSchema),
+            __html: JSON.stringify(faqSchema),
           }}
         />
 
-        {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
           rel="stylesheet"
@@ -297,7 +317,6 @@ export default function RootLayout({
       </head>
 
       <body suppressHydrationWarning className="antialiased">
-        {/* Google Analytics GA4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XW8R1K19P7"
           strategy="afterInteractive"
