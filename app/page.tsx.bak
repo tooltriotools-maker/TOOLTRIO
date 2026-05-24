@@ -4,28 +4,90 @@ import HomeCategorySection from '@/components/ui/HomeCategorySection'
 import { Calculator, TrendingUp, Heart, ChevronRight, Zap, BarChart3, Shield, Globe, BookOpen, ArrowRight, Star, Users, CheckCircle, Clock, Code2, Smile } from 'lucide-react'
 import type { Metadata } from 'next'
 
+const siteUrl = 'https://tooltrio.com'
+const contactEmail = 'tooltrio.tools@gmail.com'
+const brandNames = ['ToolTrio', 'Tool Trio', 'Trio Tools', 'Tools Trio', 'Trio Tool', 'Toolstrio']
+
 export const metadata: Metadata = {
-  title: 'Free Finance &amp; Health Calculators 2026 — SIP, EMI, 401k, BMI, UK Tax | tooltrio.com',
-  description: '171 free calculators: SIP vs FD, 401k vs Roth IRA, UK income tax, ISA, mortgage, EMI, BMI, calories burned, macro, heart rate, due date. USA, UK, India, Europe. No signup. Instant results.',
+  title: 'ToolTrio — Free Online Calculators, Finance Tools, Health Tools & Developer Utilities',
+  description:
+    'ToolTrio is a free online tools website with finance calculators, health calculators, SIP, EMI, 401k, mortgage, BMI, calorie, ZIP code tools, developer utilities, commodity calculators and fun tools. Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.',
   keywords: [
-    'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',
-    'compound interest calculator', 'UK income tax calculator', 'ISA calculator UK',
-    'BMI calculator', 'mortgage calculator', 'FIRE calculator', 'retirement calculator',
-    'SIP vs FD calculator', '401k vs Roth IRA', 'UK stamp duty calculator',
-    'calorie calculator', 'heart rate calculator', 'macro calculator',
-    'free online calculators no signup', 'financial calculators India USA UK',
+    'tooltrio',
+    'tool trio',
+    'trio tools',
+    'tools trio',
+    'trio tool',
+    'toolstrio',
+    'tooltrio.com',
+    'tooltrio tools',
+    'tooltrio calculator',
+    'tooltrio calculators',
+    'tooltrio free tools',
+    'tooltrio online tools',
+
+    'free online calculators',
+    'free calculator',
+    'online calculator',
+    'finance calculator',
+    'financial calculator',
+    'health calculator',
+    'developer tools',
+    'free online tools no signup',
+
+    'SIP calculator',
+    'EMI calculator',
+    'compound interest calculator',
+    'mortgage calculator',
+    '401k calculator',
+    'Roth IRA calculator',
+    'UK income tax calculator',
+    'ISA calculator UK',
+    'BMI calculator',
+    'calorie calculator',
+    'macro calculator',
+    'heart rate calculator',
+    'ZIP code lookup',
+    'JSON formatter',
+    'UUID generator',
+    'password generator',
+    'gold price calculator',
+    'commodity calculator',
   ],
-  alternates: { canonical: 'https://tooltrio.com' },
+  alternates: { canonical: siteUrl },
   openGraph: {
-    title: '171 Free Finance &amp; Health Calculators — tooltrio.com',
-    description: 'Free calculators for SIP, EMI, 401k, UK tax, ISA, BMI, calories, macros and more. USA, UK, India, Europe. No signup, instant results.',
-    url: 'https://tooltrio.com',
-    siteName: 'tooltrio.com',
-    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630 }],
+    title: 'ToolTrio — Free Online Calculators & Tools',
+    description:
+      'Use ToolTrio for free finance calculators, health calculators, ZIP tools, developer utilities, commodity calculators and daily-use tools. No signup required.',
+    url: siteUrl,
+    siteName: 'ToolTrio',
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: 'ToolTrio - Free Online Calculators and Tools',
+      },
+    ],
     type: 'website',
   },
-  twitter: { card: 'summary_large_image', title: '171 Free Finance &amp; Health Calculators 2026', description: 'SIP, EMI, 401k, UK tax, BMI — 171 calculators, no signup, instant results.' },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ToolTrio — Free Online Calculators & Tools',
+    description:
+      'Free finance, health, ZIP code, commodity and developer tools. No signup. Instant results.',
+    images: [`${siteUrl}/og-image.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+    },
+  },
 }
 
 
@@ -259,6 +321,18 @@ const faqs = [
   { q: 'How often are the calculators updated?', a: 'Finance calculators are updated annually to reflect new IRS contribution limits, tax bracket adjustments, and regulatory changes. Health calculators are updated when major US health organizations revise their guidelines (CDC, NIH, AHA updates are monitored continuously). Developer tools are updated when standards bodies release new specifications. The last site-wide update was for the 2026 tax year.' },
   { q: 'Can I use these calculators for professional or commercial purposes?', a: 'Yes. Financial advisors, registered dietitians, software developers, educators, and other professionals use our calculators as reference tools and for client education. Results can be shared with clients, included in reports, and used in professional practice. No commercial license or attribution is required. For regulated financial or medical advice, always apply your professional judgment alongside our calculations.' },
   { q: 'What makes tooltrio.com different from other calculator sites?', a: 'Three things: depth, privacy, and US-focus. With 392 calculators across finance, health, developer tools, and fun categories, we offer the broadest free calculator library available to Americans. Every tool is privacy-first (zero data transmission, zero storage). And every finance calculator is built specifically for the US market — using American units, IRS tax laws, and US market benchmarks by default, unlike generic international calculators that require manual adjustment.' },
+{
+  q: 'What is ToolTrio?',
+  a: 'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, commodity calculators, developer utilities and daily-use tools.',
+},
+{
+  q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
+  a: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. These searches refer to ToolTrio.com.',
+},
+{
+  q: 'Is ToolTrio free?',
+  a: 'Yes. ToolTrio is free to use. Most tools require no signup and give instant results.',
+},
 ]
 
 // ─── Structured Data ─────────────────────────────────────────────────────────
@@ -266,23 +340,50 @@ const faqs = [
 const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'tooltrio.com',
-  url: 'https://tooltrio.com',
-  description: '68 free finance and health calculators for USA, UK, and Europe. No signup required.',
-  potentialAction: { '@type': 'SearchAction', target: 'https://tooltrio.com/calculators/finance/{search_term_string}', 'query-input': 'required name=search_term_string' },
-  publisher: { '@type': 'Organization', name: 'tooltrio.com', url: 'https://tooltrio.com', email: 'financecalculator1610@gmail.com' },
+  name: 'ToolTrio',
+  alternateName: brandNames,
+  url: siteUrl,
+  description:
+    'ToolTrio provides free online calculators and tools for finance, health, ZIP codes, commodities, developer utilities and daily-use calculations.',
+  inLanguage: 'en-US',
+  publisher: {
+    '@type': 'Organization',
+    name: 'ToolTrio',
+    url: siteUrl,
+    email: contactEmail,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'tooltrio.com',
-  url: 'https://tooltrio.com',
-  email: 'financecalculator1610@gmail.com',
-  description: 'Provider of 68 free finance and health calculators for USA, UK and Europe.',
+  name: 'ToolTrio',
+  alternateName: brandNames,
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  email: contactEmail,
+  description:
+    'ToolTrio is a free online tools website offering finance calculators, health calculators, ZIP code tools, commodity calculators, developer utilities and everyday calculators.',
   foundingDate: '2026',
-  areaServed: ['United States', 'United Kingdom', 'Europe'],
-  knowsAbout: ['Financial Calculators', 'Mortgage Calculator', '401k Calculator', 'UK Income Tax', 'ISA Calculator', 'Compound Interest', 'BMI Calculator', 'FIRE Calculator'],
+  areaServed: ['United States', 'United Kingdom', 'India', 'Europe'],
+  knowsAbout: [
+    'Finance Calculators',
+    'Health Calculators',
+    'SIP Calculator',
+    'EMI Calculator',
+    'Mortgage Calculator',
+    '401k Calculator',
+    'Compound Interest Calculator',
+    'BMI Calculator',
+    'ZIP Code Tools',
+    'Commodity Calculators',
+    'Developer Tools',
+  ],
 }
 
 const faqSchema = {
