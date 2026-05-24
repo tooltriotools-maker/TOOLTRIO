@@ -155,7 +155,7 @@ const organizationSchema = {
   logo: `${siteUrl}/logo.png`,
   description:
     'ToolTrio is a free online tools platform for calculators, finance tools, health tools, ZIP code tools, developer utilities and daily-use tools.',
-  email: 'tooltrio1610@gmail.com',
+  email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   sameAs: [],
 }
