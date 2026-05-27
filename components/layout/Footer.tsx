@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { TrendingUp, Heart, Mail, Shield, FileText, Info, BookOpen } from 'lucide-react'
+import { TrendingUp, Heart, Mail, Shield, FileText, Info, BookOpen, ExternalLink } from 'lucide-react'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -20,9 +20,8 @@ export function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              ToolTrio is a free online tools website for finance calculators, health calculators,
-              ZIP code tools, commodity calculators and developer utilities. Also searched as
-              Tool Trio, Trio Tools, Tools Trio and Toolstrio.
+           400+ free finance and health calculators for Americans. No signup, no ads, no data collection. Formulas sourced from IRS, CDC, NIH & CFPB. 
+              SIP, EMI, BMI, TDEE, retirement planning and more - instant results with charts.
             </p>
 
             <div className="flex items-center gap-2 text-sm">
@@ -173,18 +172,20 @@ export function Footer() {
         {/* SEO keyword-rich text block */}
         <div className="border-t border-gray-800 pt-8 mb-8">
           <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
-            <strong className="text-gray-500">ToolTrio.com</strong>, also searched as Tool Trio, Trio Tools,
-            Tools Trio and Toolstrio, provides free online calculators and tools for finance, health, ZIP codes,
-            commodities and developers. Calculate{' '}
-            <Link href="/calculators/finance/sip-calculator" className="text-gray-500 hover:text-gray-400">SIP returns</Link>,{' '}
-            <Link href="/calculators/finance/emi-calculator" className="text-gray-500 hover:text-gray-400">EMI</Link>,{' '}
-            <Link href="/calculators/finance/compound-interest-calculator" className="text-gray-500 hover:text-gray-400">compound interest</Link>,{' '}
-            <Link href="/calculators/finance/retirement-calculator" className="text-gray-500 hover:text-gray-400">retirement savings</Link>,{' '}
-            <Link href="/calculators/health/bmi-calculator" className="text-gray-500 hover:text-gray-400">BMI</Link>,{' '}
-            <Link href="/calculators/health/calorie-calculator" className="text-gray-500 hover:text-gray-400">calories</Link>,{' '}
-            <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code details</Link>,{' '}
-            <Link href="/commodities/gold-price-calculator" className="text-gray-500 hover:text-gray-400">gold price</Link>{' '}
-            and more. ToolTrio tools are fast, simple, mobile-friendly and free to use.
+              <strong className="text-gray-500">tooltrio.com</strong> - Free online calculators for personal finance and health. 
+            Calculate <Link href="/calculators/finance/sip-calculator" className="text-gray-500 hover:text-gray-400">SIP returns</Link>, 
+            <Link href="/calculators/finance/emi-calculator" className="text-gray-500 hover:text-gray-400"> EMI</Link>, 
+            <Link href="/calculators/finance/fd-calculator" className="text-gray-500 hover:text-gray-400"> FD maturity</Link>, 
+            <Link href="/calculators/finance/rd-calculator" className="text-gray-500 hover:text-gray-400"> RD interest</Link>, 
+            <Link href="/calculators/finance/compound-interest-calculator" className="text-gray-500 hover:text-gray-400"> compound interest</Link>, 
+            <Link href="/calculators/finance/cagr-calculator" className="text-gray-500 hover:text-gray-400"> CAGR</Link>, 
+            <Link href="/calculators/finance/xirr-calculator" className="text-gray-500 hover:text-gray-400"> XIRR</Link>, 
+            <Link href="/calculators/finance/retirement-calculator" className="text-gray-500 hover:text-gray-400"> retirement corpus</Link>, 
+            <Link href="/calculators/finance/home-loan-calculator" className="text-gray-500 hover:text-gray-400"> home loan</Link>, 
+            <Link href="/calculators/health/bmi-calculator" className="text-gray-500 hover:text-gray-400"> BMI</Link>, 
+            <Link href="/calculators/health/calorie-calculator" className="text-gray-500 hover:text-gray-400"> daily calories (TDEE)</Link>, 
+            <Link href="/calculators/health/sleep-cycle-calculator" className="text-gray-500 hover:text-gray-400"> sleep cycles</Link> and more. 
+            Supports USD ($), INR (₹), EUR (€). 100% free, no signup, no ads.
           </p>
         </div>
 
