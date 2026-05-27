@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   title: 'Disclaimer | ToolTrio Calculators, Finance Tools & Health Tools',
   description: 'Important disclaimer for tooltrio.com. Our calculators provide estimates for informational purposes only and do not constitute financial, medical, or legal advice.',
   alternates: { canonical: 'https://tooltrio.com/disclaimer' },
-  ],
-  alternates: { canonical: `${siteUrl}/disclaimer` },
+}
+  
   
 export default function DisclaimerPage() {
   return (
