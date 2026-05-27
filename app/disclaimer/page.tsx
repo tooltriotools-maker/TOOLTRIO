@@ -1,125 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { AlertTriangle, Info, TrendingUp, Heart, Scale } from 'lucide-react'
+import { AlertTriangle, Info, TrendingUp, Heart, Scale, FileText } from 'lucide-react'
 
 const siteUrl = 'https://tooltrio.com'
 const contactEmail = 'tooltrio.tools@gmail.com'
 
 export const metadata: Metadata = {
   title: 'Disclaimer | ToolTrio Calculators, Finance Tools & Health Tools',
-  description:
-    'Read the ToolTrio disclaimer for finance calculators, health calculators, SIP, EMI, mortgage, 401k, BMI, calorie, ZIP tools and developer utilities. ToolTrio results are estimates for informational purposes only.',
-  keywords: [
-    'ToolTrio disclaimer',
-    'tooltrio calculator disclaimer',
-    'Tool Trio disclaimer',
-    'Trio Tools disclaimer',
-    'Tools Trio disclaimer',
-    'finance calculator disclaimer',
-    'health calculator disclaimer',
-    'SIP calculator disclaimer',
-    'EMI calculator disclaimer',
-    'mortgage calculator disclaimer',
-    '401k calculator disclaimer',
-    'BMI calculator disclaimer',
-    'calorie calculator disclaimer',
-    'online calculator disclaimer',
-    'free online tools disclaimer',
+  description: 'Important disclaimer for tooltrio.com. Our calculators provide estimates for informational purposes only and do not constitute financial, medical, or legal advice.',
+  alternates: { canonical: 'https://tooltrio.com/disclaimer' },
   ],
   alternates: { canonical: `${siteUrl}/disclaimer` },
-  openGraph: {
-    title: 'Disclaimer | ToolTrio Calculators & Tools',
-    description:
-      'Important disclaimer for ToolTrio calculators and tools. Results are estimates and not financial, medical, legal or professional advice.',
-    url: `${siteUrl}/disclaimer`,
-    siteName: 'ToolTrio',
-    type: 'website',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'ToolTrio Disclaimer',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Disclaimer | ToolTrio Calculators & Tools',
-    description:
-      'ToolTrio calculator results are estimates for informational purposes only.',
-    images: [`${siteUrl}/og-image.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
-
-const disclaimerSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'ToolTrio Disclaimer',
-  url: `${siteUrl}/disclaimer`,
-  description:
-    'Disclaimer for ToolTrio calculators and tools. Results are estimates and do not constitute financial, medical, legal or professional advice.',
-  isPartOf: {
-    '@type': 'WebSite',
-    name: 'ToolTrio',
-    url: siteUrl,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'ToolTrio',
-    alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
-    url: siteUrl,
-    email: contactEmail,
-    logo: `${siteUrl}/logo.png`,
-  },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Are ToolTrio calculator results financial advice?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. ToolTrio calculator results are estimates for informational and educational purposes only and do not constitute financial advice.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are ToolTrio health calculator results medical advice?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. ToolTrio health calculator results are estimates and do not replace advice from a qualified healthcare provider.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How can I contact ToolTrio about this disclaimer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: `You can contact ToolTrio by email at ${contactEmail}.`,
-      },
-    },
-  ],
-}
-
+  
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(disclaimerSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         <nav className="flex items-center gap-2 mb-8 text-sm">
@@ -157,47 +53,45 @@ export default function DisclaimerPage() {
               icon: TrendingUp, color: 'bg-green-100 text-green-700',
               title: 'Financial Calculator Disclaimer',
               content: [
-                'All financial calculations on ToolTrio, including SIP, EMI, compound interest, CAGR, XIRR, retirement, mortgage, 401k, Roth IRA and loan calculators, are estimates based on the inputs you provide and standard mathematical formulas.',
-                'Results assume rates, timelines and values entered by the user. Real-world investment returns, interest rates, taxes, fees and market conditions may vary.',
-                'Past performance of mutual funds, stocks, real estate or any investment does not guarantee future results.',
-                'Loan and mortgage calculations may assume fixed interest rates. Variable-rate loans, fees, taxes and insurance can produce different results.',
-                'ToolTrio.com is not a registered financial advisor, broker, investment firm, tax advisor or lender. Nothing on this website constitutes personalized financial advice.',
-                'Before making investment, loan, tax or retirement planning decisions, consult a qualified financial, tax or legal professional.',
+                   'All financial calculations (SIP, EMI, compound interest, CAGR, XIRR, retirement, etc.) are estimates based on the inputs you provide and standard mathematical formulas.',
+                'Results assume constant rates of return, which real-world investments do not guarantee. Actual market returns will vary and may be significantly higher or lower than projected.',
+                'Past performance of mutual funds, stocks, or any investment does not guarantee future results.',
+                'Loan calculations assume fixed interest rates. Variable-rate loans will produce different results.',
+                'tooltrio.com is not a registered financial advisor, broker, or investment firm. Nothing on this website constitutes personalized financial advice.',
+                'Before making any investment, loan, or retirement planning decision, consult a qualified Certified Financial Planner (CFP), Registered Investment Advisor (RIA), or licensed financial professional.',
               ],
             },
             {
               icon: Heart, color: 'bg-rose-100 text-rose-700',
               title: 'Health Calculator Disclaimer',
               content: [
-                'All health calculations on ToolTrio, including BMI, BMR, TDEE, calorie needs, body fat, ideal weight, water intake, protein, sleep, pregnancy and ovulation calculators, are estimates based on general formulas and population-level research.',
-                'Individual results can vary based on genetics, medical conditions, medications, age, activity level and other personal factors not captured by calculators.',
-                'BMI is a screening estimate, not a diagnostic measure. It does not fully account for muscle mass, bone density, body composition or fat distribution.',
-                'Calorie, protein and nutrition calculations are starting estimates only. Individual metabolism and health needs vary widely.',
-                'Pregnancy and ovulation calculators provide estimates based on average cycle data. Actual dates may vary.',
-                'Nothing on ToolTrio constitutes medical advice or replaces guidance from a qualified healthcare provider, doctor, dietitian or certified health professional.',
-                'If you have a medical condition or health concern, consult your physician before making health, diet, exercise or lifestyle changes.',
-              ],
+                  'All health calculations (BMI, BMR, calorie needs, body fat, ideal weight, water intake, protein, sleep, pregnancy, ovulation) are estimates based on population-level research and scientific formulas.',
+                'Individual results will vary significantly based on genetics, medical conditions, medications, and other personal factors not captured by these calculators.',
+                'BMI is a screening tool, not a diagnostic measure. It does not account for muscle mass, bone density, or fat distribution.',
+                'Calorie and protein calculations are starting estimates - individual metabolism varies widely.',
+                'Pregnancy and ovulation calculators provide estimates based on average cycle lengths. Actual dates vary significantly.',
+                'Nothing on this website constitutes medical advice or replaces the guidance of a qualified healthcare provider, doctor, dietitian, or certified health professional.',
+                'If you have a medical condition or health concern, always consult your physician before making health or dietary changes.',
+              ]
             },
             {
               icon: Info, color: 'bg-blue-100 text-blue-700',
               title: 'General Information Disclaimer',
               content: [
-                'ToolTrio.com makes reasonable efforts to provide useful and accurate calculators, but we cannot guarantee that all calculations, formulas, content or results are error-free.',
-                'ToolTrio is not responsible for financial losses, health outcomes, legal consequences or decisions made based on the use of calculators, tools, guides or website content.',
-                'Blog articles, guides and educational content on ToolTrio are for informational purposes only and should not be used as the sole basis for any decision.',
-                'Tax rules, financial regulations, health guidance and legal requirements vary by country, state and personal situation. Consult a qualified professional for personalized advice.',
-                'We may modify, update, improve or discontinue any calculator, tool or content without notice.',
-              ],
+                 'tooltrio.com makes every effort to ensure the accuracy of our calculators, but we cannot guarantee that all calculations are free from errors.',
+                'We are not responsible for any financial losses, health outcomes, or decisions made based on the use of our calculators.',
+                'Blog articles and guides on this website are for educational purposes only and should not be used as the sole basis for any decision.',
+                'Tax implications of investments, loans, or financial decisions are highly jurisdiction-specific. Consult a tax professional for tax advice.',
+                'We reserve the right to modify, update, or discontinue any calculator or content without notice.',
+              ]
             },
             {
               icon: Scale, color: 'bg-violet-100 text-violet-700',
               title: 'Limitation of Liability',
               content: [
-                'To the maximum extent permitted by applicable law, ToolTrio.com and its operators shall not be liable for any direct, indirect, incidental, special, consequential or punitive damages arising from the use of our calculators, tools or website.',
-                'By using ToolTrio.com, you agree that you are using the calculators and tools at your own risk.',
-                'ToolTrio.com is provided "as is" and "as available" without warranties of any kind, express or implied.',
-                'This disclaimer is governed by and construed in accordance with applicable laws.',
-              ],
+                     'To the maximum extent permitted by applicable law, tooltrio.com and its operators shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of our calculators or website.',
+                'By using tooltrio.com, you agree that you are using the tools at your own risk and that the website is provided "as is" without warranties of any kind.',
+              ]
             },
           ].map(section => {
             const Icon = section.icon
