@@ -19,29 +19,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: 'ToolTrio - Free Online Tools, Calculators & Utilities',
-    template: '%s | ToolTrio',
+   default: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    template: '%s',
   },
 
   description:
-    'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, developer utilities and daily tools. Fast, simple, no signup.',
-
+    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.'
   keywords: [
     // Brand keywords
     'tooltrio',
     'tool trio',
-    'tooltrio.com',
-    'tooltrio tools',
-    'tool trio tools',
     'trio tools',
     'tools trio',
     'trio tool',
     'toolstrio',
-    'tooltrio calculator',
-    'tooltrio free tools',
-    'tooltrio online tools',
-    'tooltrio utilities',
-
+    'home loan calculator',
+   'retirement calculator USA',
     // Main category keywords
     'free online tools',
     'online calculators',
@@ -52,39 +45,37 @@ export const metadata: Metadata = {
     'zip code tools',
     'utility tools',
 
-    // Finance keywords
-    'mortgage calculator',
-    '401k calculator',
-    'Roth IRA calculator',
-    'compound interest calculator',
-    'loan calculator',
-    'investment calculator',
-    'retirement calculator',
-    'tax calculator',
-    'budget calculator',
+   'income tax calculator USA',
+    'best free financial calculator USA 2026',
+    'online financial tools no registration',
 
-    // Health keywords
-    'BMI calculator',
-    'calorie calculator',
-    'TDEE calculator',
-    'macro calculator',
-    'steps to calories calculator',
+    'finance calculator USA',
+    'free financial calculator USA',
+    'online calculator free',
 
-    // Developer/tools keywords
-    'json formatter',
-    'uuid generator',
-    'password generator',
-    'random password generator',
-    'zip code lookup',
+    'free mortgage calculator USA with taxes',
+    '401k calculator with employer match USA',
+    'compound interest calculator monthly contribution',
+    'loan payoff calculator USA early payment',
+    'debt payoff calculator snowball vs avalanche',
+    'budget planner calculator USA',
+    'income tax calculator USA 2026',
+    'fixed deposit calculator usa',
+    'random password generator free online',
+    'uuid generator free online',
+    'json formatter online free',
+    'finanace calculator',
+    'tax bracket calculator',
+    'steps to calories',
+
+
   ],
 
   authors: [{ name: 'ToolTrio Team', url: siteUrl }],
   creator: 'ToolTrio',
   publisher: 'ToolTrio',
 
-  alternates: {
-    canonical: siteUrl,
-  },
+
 
   robots: {
     index: true,
@@ -103,24 +94,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'ToolTrio - Free Online Tools, Calculators & Utilities',
+    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
     description:
-      'Use ToolTrio for free finance calculators, health calculators, ZIP code tools, developer utilities and more. No signup required.',
+       'Free online finance calculators trusted by Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators. No signup required.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ToolTrio - Free Online Tools and Calculators',
+        alt: 'ToolTrio -  Free Online Finance & Health Calculators',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'ToolTrio - Free Online Tools, Calculators & Utilities',
+    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
     description:
-      'Free online calculators, finance tools, health tools, ZIP code tools and developer utilities. Fast, simple, no signup.',
+      'Free mortgage, 401k, BMI, compound interest calculators. 400+ tools. No signup. Instant results.',
     images: ['/og-image.png'],
   },
 
@@ -135,47 +126,43 @@ export const metadata: Metadata = {
   },
 
   manifest: '/site.webmanifest',
-  category: 'utilities',
+  category: 'finance',
 }
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'ToolTrio',
+  name: 'tooltrio.com',
   alternateName: [
     'Tool Trio',
-    'ToolTrio Tools',
+    
     'Trio Tools',
     'Tools Trio',
     'Trio Tool',
     'Toolstrio',
-    'tooltrio.com',
+    'TOOLTRIO',
   ],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    'ToolTrio is a free online tools platform for calculators, finance tools, health tools, ZIP code tools, developer utilities and daily-use tools.',
+      'TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) — Free online finance, health, ZIP code, and developer tools. 400+ free calculators and utilities. No signup required. tooltrio.com',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   sameAs: [],
+   address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+  },
 }
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'ToolTrio',
-  alternateName: [
-    'Tool Trio',
-    'ToolTrio Tools',
-    'Trio Tools',
-    'Tools Trio',
-    'Trio Tool',
-    'Toolstrio',
-    'tooltrio.com',
-  ],
+ name: 'tooltrio.com',
+  alternateName: ['TOOLTRIO', 'Tool Trio', 'ToolTrio', 'Trio Tools', 'tooltrio.com', 'Free Online Calculator', 'ZIP Code Lookup Tool'],
   url: siteUrl,
   description:
-    'ToolTrio provides free online calculators, finance tools, health calculators, ZIP code tools, developer tools and simple utilities.',
+   'Free online finance calculators -- mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
   inLanguage: 'en-US',
   potentialAction: {
     '@type': 'SearchAction',
@@ -190,14 +177,8 @@ const websiteSchema = {
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'ToolTrio - Free Online Tools and Calculators',
-  alternateName: [
-    'Tool Trio',
-    'Trio Tools',
-    'Tools Trio',
-    'Toolstrio',
-  ],
-  applicationCategory: 'UtilitiesApplication',
+  name: 'TOOLTRIO (tooltrio.com) — Free Online Calculators & ZIP Code Tools',
+  applicationCategory: 'FinanceApplication',
   operatingSystem: 'Any',
   url: siteUrl,
   offers: {
@@ -206,49 +187,47 @@ const softwareSchema = {
     priceCurrency: 'USD',
   },
   description:
-    'ToolTrio offers free online calculators and utilities including finance calculators, health calculators, ZIP code tools, developer tools and daily-use tools.',
+    'TOOLTRIO (also Tool Trio, ToolTrio, Trio Tools) — Free finance, health, ZIP code, and developer tools. 400+ utilities at tooltrio.com. No signup required.',
   featureList: [
-    'Free online calculators',
-    'Finance calculators',
-    'Health calculators',
-    'ZIP code lookup tools',
-    'Developer utilities',
-    'Password generator',
-    'JSON formatter',
-    'UUID generator',
-    'No signup required',
-    'Instant results',
-    'Mobile-friendly tools',
+   'Mortgage Calculator with taxes and insurance',
+    '401k and Roth IRA retirement calculators',
+    'Compound interest calculator with monthly contributions',
+    'BMI, TDEE, calorie and macro health calculators',
+    'No signup or registration required',
+    'Instant real-time results',
+    'Mobile-friendly on all devices',
+    'Complete privacy - no data stored',
+    'ZIP code lookup and US postal tools',
+    'Developer tools and utilities',
+    'Also known as Tool Trio, ToolTrio, Trio Tools',
   ],
 }
 
-const faqSchema = {
+const howToSchema  = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
+   '@type': 'HowTo',
+
+  name: 'How to Use Our Free Online Finance Calculators',
+
+  description:
+    'Step-by-step guide to using tooltrio.com free online calculators for mortgage, retirement, and more.',
+
+  step: [
+
     {
-      '@type': 'Question',
-      name: 'What is ToolTrio?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio is a free online tools website that provides calculators, finance tools, health calculators, ZIP code tools, developer utilities and daily-use tools.',
-      },
+      '@type': 'HowToStep',
+      name: 'Choose a Calculator',
+      text: 'Browse our 400+ free calculators by category: Finance, Health, Dev Tools, or Fun. Use the search bar to find a specific calculator instantly.',
     },
     {
-      '@type': 'Question',
-      name: 'Is ToolTrio free?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, ToolTrio is free to use and does not require signup for most tools.',
-      },
+      '@type': 'HowToStep',
+      name: 'Enter Your Numbers',
+      text: 'Input your personal figures -- such as loan amount, interest rate, income, or body measurements. All fields have clear labels and helpful tooltips.',
     },
     {
-      '@type': 'Question',
-      name: 'Is ToolTrio also searched as Tool Trio or Trio Tools?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio.',
-      },
+       '@type': 'HowToStep',
+      name: 'Get Instant Results',
+      text: 'Results update in real time as you type. See charts, amortization tables, and detailed breakdowns -- all for free with no signup required.',
     },
   ],
 }
@@ -276,6 +255,8 @@ export default function RootLayout({
         <meta name="content-language" content="en-US" />
         <meta name="rating" content="general" />
 
+         <meta name="revisit-after" content="3 days" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -300,7 +281,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
+            __html: JSON.stringify(howToSchema),
           }}
         />
 
