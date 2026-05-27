@@ -9,6 +9,7 @@ export const metadata: Metadata = {
  title: 'About TOOLTRIO – Free Finance & Health Calculators',
   description: 'tooltrio.com provides 400+ free finance and health calculators for Americans - SIP, EMI, BMI, TDEE, and more. No signup, no ads. Built to help people make better financial and health decisions.',
   alternates: { canonical: 'https://tooltrio.com/about' },
+}
  
 
 const stats = [
