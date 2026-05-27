@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.'
+    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',
   keywords: [
     // Brand keywords
     'tooltrio',
