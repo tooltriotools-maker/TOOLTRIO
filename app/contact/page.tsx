@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Mail, Clock, CheckCircle, HelpCircle, Bug, Lightbulb, Globe } from 'lucide-react'
+import { Mail, MessageSquare, Clock, CheckCircle, HelpCircle, Bug, Lightbulb, Globe } from 'lucide-react'
 
 const siteUrl = 'https://tooltrio.com'
 const contactEmail = 'tooltrio.tools@gmail.com'
@@ -26,85 +26,7 @@ export const metadata: Metadata = {
     'health calculator support',
     'developer tools support',
   ],
-  alternates: { canonical: `${siteUrl}/contact` },
-  openGraph: {
-    title: 'Contact ToolTrio — Support & Feedback',
-    description:
-      'Get in touch with ToolTrio for calculator requests, support, feedback, bug reports and business inquiries.',
-    url: `${siteUrl}/contact`,
-    siteName: 'ToolTrio',
-    type: 'website',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Contact ToolTrio',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact ToolTrio — Support & Feedback',
-    description:
-      'Contact ToolTrio for support, calculator requests, feedback and bug reports.',
-    images: [`${siteUrl}/og-image.png`],
-  },
 }
-
-const contactPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ContactPage',
-  name: 'Contact ToolTrio',
-  url: `${siteUrl}/contact`,
-  description:
-    'Contact ToolTrio for support, feedback, bug reports, calculator requests, business inquiries and media questions.',
-  mainEntity: {
-    '@type': 'Organization',
-    name: 'ToolTrio',
-    alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
-    url: siteUrl,
-    email: contactEmail,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      email: contactEmail,
-      contactType: 'customer support',
-      availableLanguage: ['English'],
-    },
-  },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How can I contact ToolTrio?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: `You can contact ToolTrio by email at ${contactEmail}.`,
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I request a new calculator on ToolTrio?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. You can email ToolTrio with calculator ideas, feature requests and improvement suggestions.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I report a bug or calculation issue?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. You can report calculation errors, broken pages or technical bugs by emailing ToolTrio.',
-      },
-    },
-  ],
-}
-
 const contactReasons = [
   { icon: HelpCircle, title: 'General Questions', desc: 'Questions about ToolTrio calculators, tools, results or how to use a feature.', color: 'bg-blue-100 text-blue-700' },
   { icon: Bug, title: 'Report a Bug', desc: 'Found a calculation error, broken page or something not working? Let us know.', color: 'bg-red-100 text-red-700' },
@@ -115,14 +37,13 @@ const contactReasons = [
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+ 
 
       <div className="max-w-4xl mx-auto px-4 py-12">
         <nav className="flex items-center gap-2 mb-8 text-sm">
           <Link href="/" className="text-gray-500 hover:text-green-600">Home</Link>
           <span className="text-gray-300">/</span>
-          <span className="text-gray-900 font-semibold">Contact ToolTrio</span>
+          <span className="text-gray-900 font-semibold">Contact Us</span>
         </nav>
 
         <div className="text-center mb-12">
