@@ -7,85 +7,20 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 const lastUpdated = 'January 1, 2026'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | ToolTrio',
-  description:
-    'Read the ToolTrio privacy policy. Learn how ToolTrio handles calculator inputs, cookies, analytics, contact emails and privacy for free online tools and calculators.',
-  keywords: [
-    'ToolTrio privacy policy',
-    'tooltrio privacy',
-    'tool trio privacy policy',
-    'trio tools privacy',
-    'tools trio privacy',
-    'tooltrio data policy',
-    'tooltrio calculator privacy',
-    'free online tools privacy policy',
-    'calculator website privacy policy',
-  ],
-  alternates: { canonical: `${siteUrl}/privacy-policy` },
-  openGraph: {
-    title: 'Privacy Policy | ToolTrio',
-    description:
-      'ToolTrio privacy policy for free online calculators, finance tools, health tools, ZIP tools and developer utilities.',
-    url: `${siteUrl}/privacy-policy`,
-    siteName: 'ToolTrio',
-    type: 'website',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'ToolTrio Privacy Policy',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Privacy Policy | ToolTrio',
-    description:
-      'Learn how ToolTrio handles privacy for free online calculators and tools.',
-    images: [`${siteUrl}/og-image.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: 'Privacy Policy | TOOLTRIO',
+  description: 'tooltrio.com privacy policy. We collect zero personal data. No cookies, no tracking, no email required. Your financial data stays on your device.',
+  alternates: { canonical: 'https://tooltrio.com/privacy-policy' },
 }
 
-const privacyPolicySchema = {
-  '@context': 'https://schema.org',
-  '@type': 'PrivacyPolicy',
-  name: 'ToolTrio Privacy Policy',
-  url: `${siteUrl}/privacy-policy`,
-  dateModified: '2026-01-01',
-  publisher: {
-    '@type': 'Organization',
-    name: 'ToolTrio',
-    url: siteUrl,
-    email: contactEmail,
-  },
-  about: {
-    '@type': 'WebSite',
-    name: 'ToolTrio',
-    alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
-    url: siteUrl,
-  },
-}
+
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(privacyPolicySchema),
-        }}
-      />
 
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <nav className="flex items-center gap-2 mb-8 text-sm" aria-label="Breadcrumb">
-          <Link href="/" className="text-gray-500 hover:text-green-600">
-            Home
-          </Link>
+       <nav className="flex items-center gap-2 mb-8 text-sm">
+          <Link href="/" className="text-gray-500 hover:text-green-600">Home</Link>
           <span className="text-gray-300">/</span>
           <span className="text-gray-900 font-semibold">Privacy Policy</span>
         </nav>
@@ -96,25 +31,17 @@ export default function PrivacyPolicyPage() {
               <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1
-                className="text-3xl font-black text-gray-900"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                ToolTrio Privacy Policy
-              </h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Privacy Policy</h1>
               <p className="text-gray-500 text-sm">Last updated: {lastUpdated}</p>
             </div>
           </div>
 
           <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-6">
-            <p className="font-black text-green-800 text-lg mb-2">
-              🔒 The Short Version
-            </p>
+           <p className="font-black text-green-800 text-lg mb-2">🔒 The Short Version</p>
             <p className="text-green-700 leading-relaxed">
-              ToolTrio is designed to be simple and privacy-friendly. Most calculator
-              inputs are processed in your browser, and ToolTrio does not require account
-              creation to use its free online calculators and tools. If you contact us by
-              email, we use your email address only to reply to your message.
+                    <strong>We collect zero personal data.</strong> tooltrio.com does not use cookies for tracking, 
+              does not require account creation, does not collect email addresses, and does not sell or share any data with third parties. 
+              All calculations happen in your browser. Your financial numbers never leave your device.
             </p>
           </div>
         </div>
@@ -125,32 +52,35 @@ export default function PrivacyPolicyPage() {
               icon: Database,
               color: 'bg-blue-100 text-blue-700',
               title: '1. Information We Collect',
-              content: `ToolTrio does not require you to create an account to use most calculators and tools.
+               content: `tooltrio.com does not collect any personally identifiable information (PII). 
 
 We do not ask for:
-- Your name, phone number, or contact information to use calculators
+- Your name, email address, phone number, or any contact information
 - Financial account information or bank details
-- Payment information for free tools
+- Location data
+- Payment information
 
-The numbers you enter into calculators, such as investment amounts, loan values, body measurements, ZIP codes, or other inputs, are generally processed in your browser to provide instant results.`,
+The numbers you enter into our calculators (investment amounts, loan values, weight, etc.) are processed entirely in your browser and are never transmitted to our servers.`
             },
             {
-              icon: Cookie,
-              color: 'bg-amber-100 text-amber-700',
-              title: '2. Cookies, Preferences & Analytics',
-              content: `ToolTrio may use limited browser storage or cookies to remember basic preferences, such as currency or display settings.
+ icon: Cookie, color: 'bg-amber-100 text-amber-700',
+              title: '2. Cookies & Tracking',
+              content: `We do not use tracking cookies. We do not use:
+- Google Analytics or similar visitor tracking tools
+- Facebook Pixel or other social media tracking
+- Advertising networks or retargeting cookies
+- Session cookies that identify individual users
 
-ToolTrio may also use privacy-conscious analytics to understand general website performance, page usage, and technical issues. Analytics data is used in aggregate and is not used to identify individual users.
+We may use minimal technical cookies (e.g., to remember your currency preference) that do not contain personal information and are stored only on your device.`
 
-We do not sell personal information.`,
             },
             {
               icon: Eye,
               color: 'bg-rose-100 text-rose-700',
               title: '3. How We Use Information',
-              content: `ToolTrio uses information only to operate, improve, secure, and maintain the website.
+             content: `Since we collect no personal information, there is nothing to use. 
 
-If you contact us via email (${contactEmail}), we use your email address solely to respond to your inquiry. We do not add you to any mailing list without your consent, and we do not sell your email address.`,
+If you contact us via email (${contactEmail}), we use your email address solely to respond to your inquiry.We do not add you to any mailing list without your explicit consent, and we do not share your email with any third parties.`
             },
             {
               icon: Shield,
@@ -162,7 +92,7 @@ If you contact us via email (${contactEmail}), we use your email address solely 
 - Analytics and performance measurement
 - Security and abuse prevention
 
-These services help ToolTrio load quickly, remain secure, and improve user experience. Calculator inputs are not intentionally sold or shared for advertising purposes.`,
+None of these services receive your calculation inputs or personal financial data. We do not embed third-party advertising scripts, social media buttons that track you, or any other data-collecting third-party code.`
             },
             {
               icon: RefreshCw,
@@ -180,7 +110,7 @@ If you believe a child has provided personal information to ToolTrio, please con
 
 Email: ${contactEmail}
 
-We will review and respond to reasonable privacy requests as required by applicable law.`,
+Since we collect no personal data, there is nothing to access, correct, or delete. However, we are happy to answer any privacy questions you have.`
             },
           ].map(section => {
             const Icon = section.icon
