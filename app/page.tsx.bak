@@ -9,10 +9,9 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 const brandNames = ['ToolTrio', 'Tool Trio', 'Trio Tools', 'Tools Trio', 'Trio Tool', 'Toolstrio']
 
 export const metadata: Metadata = {
-  title: 'ToolTrio — Free Online Calculators, Finance Tools, Health Tools & Developer Utilities',
-  description:
-    'ToolTrio is a free online tools website with finance calculators, health calculators, SIP, EMI, 401k, mortgage, BMI, calorie, ZIP code tools, developer utilities, commodity calculators and fun tools. Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.',
-  keywords: [
+title: 'Free Finance &amp; Health Calculators 2026 — SIP, EMI, 401k, BMI, UK Tax | tooltrio.com',
+  description: '171 free calculators: SIP vs FD, 401k vs Roth IRA, UK income tax, ISA, mortgage, EMI, BMI, calories burned, macro, heart rate, due date. USA, UK, India, Europe. No signup. Instant results.',
+keywords: [
     'tooltrio',
     'tool trio',
     'trio tools',
@@ -20,74 +19,26 @@ export const metadata: Metadata = {
     'trio tool',
     'toolstrio',
     'tooltrio.com',
-    'tooltrio tools',
-    'tooltrio calculator',
-    'tooltrio calculators',
-    'tooltrio free tools',
-    'tooltrio online tools',
+ 
 
-    'free online calculators',
-    'free calculator',
-    'online calculator',
-    'finance calculator',
-    'financial calculator',
-    'health calculator',
-    'developer tools',
-    'free online tools no signup',
-
-    'SIP calculator',
-    'EMI calculator',
-    'compound interest calculator',
-    'mortgage calculator',
-    '401k calculator',
-    'Roth IRA calculator',
-    'UK income tax calculator',
-    'ISA calculator UK',
-    'BMI calculator',
-    'calorie calculator',
-    'macro calculator',
-    'heart rate calculator',
-    'ZIP code lookup',
-    'JSON formatter',
-    'UUID generator',
-    'password generator',
-    'gold price calculator',
-    'commodity calculator',
+      'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',
+    'compound interest calculator', 'UK income tax calculator', 'ISA calculator UK',
+    'BMI calculator', 'mortgage calculator', 'FIRE calculator', 'retirement calculator',
+    'SIP vs FD calculator', '401k vs Roth IRA', 'UK stamp duty calculator',
+    'calorie calculator', 'heart rate calculator', 'macro calculator',
+    'free online calculators no signup', 'financial calculators India USA UK',
   ],
   alternates: { canonical: siteUrl },
   openGraph: {
-    title: 'ToolTrio — Free Online Calculators & Tools',
-    description:
-      'Use ToolTrio for free finance calculators, health calculators, ZIP tools, developer utilities, commodity calculators and daily-use tools. No signup required.',
-    url: siteUrl,
-    siteName: 'ToolTrio',
-    images: [
-      {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'ToolTrio - Free Online Calculators and Tools',
-      },
-    ],
+   title: '171 Free Finance &amp; Health Calculators — tooltrio.com',
+    description: 'Free calculators for SIP, EMI, 401k, UK tax, ISA, BMI, calories, macros and more. USA, UK, India, Europe. No signup, instant results.',
+    url: 'https://tooltrio.com',
+    siteName: 'tooltrio.com',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630 }],
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ToolTrio — Free Online Calculators & Tools',
-    description:
-      'Free finance, health, ZIP code, commodity and developer tools. No signup. Instant results.',
-    images: [`${siteUrl}/og-image.png`],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-    },
-  },
+  twitter: { card: 'summary_large_image', title: '171 Free Finance &amp; Health Calculators 2026', description: 'SIP, EMI, 401k, UK tax, BMI — 171 calculators, no signup, instant results.' },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
 }
 
 
