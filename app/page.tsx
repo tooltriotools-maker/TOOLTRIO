@@ -425,18 +425,7 @@ export default function HomePage() {
                 q: 'What is the difference between Roth IRA and Traditional IRA?',
                  a: 'Roth IRA contributions are made with after-tax dollars; withdrawals in retirement are tax-free. Traditional IRA contributions may be tax-deductible; withdrawals are taxed as ordinary income. Use our Roth vs Traditional IRA calculator to compare based on your tax situation.',
               },
-              {
-                q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, developer utilities and daily-use tools.',
-              },
-              {
-                q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
-                a: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. These searches refer to ToolTrio.com.',
-              },
-              {
-                q: 'Is ToolTrio free?',
-                a: 'Yes, ToolTrio is free to use. Most tools require no signup and give instant results.',
-              },
+        
             ].map(({ q, a }) => (
               <div key={q} className="rounded-2xl border p-5" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
                 <h3 className="font-bold text-gray-900 text-sm mb-2">{q}</h3>
