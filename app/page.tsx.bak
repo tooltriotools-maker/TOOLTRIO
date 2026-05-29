@@ -272,18 +272,7 @@ const faqs = [
   { q: 'How often are the calculators updated?', a: 'Finance calculators are updated annually to reflect new IRS contribution limits, tax bracket adjustments, and regulatory changes. Health calculators are updated when major US health organizations revise their guidelines (CDC, NIH, AHA updates are monitored continuously). Developer tools are updated when standards bodies release new specifications. The last site-wide update was for the 2026 tax year.' },
   { q: 'Can I use these calculators for professional or commercial purposes?', a: 'Yes. Financial advisors, registered dietitians, software developers, educators, and other professionals use our calculators as reference tools and for client education. Results can be shared with clients, included in reports, and used in professional practice. No commercial license or attribution is required. For regulated financial or medical advice, always apply your professional judgment alongside our calculations.' },
   { q: 'What makes tooltrio.com different from other calculator sites?', a: 'Three things: depth, privacy, and US-focus. With 392 calculators across finance, health, developer tools, and fun categories, we offer the broadest free calculator library available to Americans. Every tool is privacy-first (zero data transmission, zero storage). And every finance calculator is built specifically for the US market — using American units, IRS tax laws, and US market benchmarks by default, unlike generic international calculators that require manual adjustment.' },
-{
-  q: 'What is ToolTrio?',
-  a: 'ToolTrio is a free online tools website with finance calculators, health calculators, ZIP code tools, commodity calculators, developer utilities and daily-use tools.',
-},
-{
-  q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
-  a: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. These searches refer to ToolTrio.com.',
-},
-{
-  q: 'Is ToolTrio free?',
-  a: 'Yes. ToolTrio is free to use. Most tools require no signup and give instant results.',
-},
+
 ]
 
 // ─── Structured Data ─────────────────────────────────────────────────────────
