@@ -133,7 +133,7 @@ export default function AboutPage() {
               { q: 'How accurate are the calculators?', a: 'All formulas are based on standard financial and medical formulas (Naegele\'s rule for pregnancy, US Navy method for body fat, standard EMI formula for loans, etc.) and verified against multiple sources.' },
               { q: 'What currencies are supported?', a: 'Currently US Dollar ($), Indian Rupee (₹), and Euro (€). Switch instantly from the currency selector in the header.' },
               { q: 'Can I use these calculators on mobile?', a: 'Yes! All calculators are fully responsive and work perfectly on mobile phones and tablets. Charts resize automatically.' },
-              { q: 'Who can I contact for questions or feedback?', a: 'Email us at tooltrio1610@gmail.com. We read every message and typically respond within 24 hours.' },
+              { q: 'Who can I contact for questions or feedback?', a: 'Email us at tooltrio.tools@gmail.com. We read every message and typically respond within 24 hours.' },
             ].map(faq => (
               <div key={faq.q} className="border-b border-gray-100 pb-5 last:border-0 last:pb-0">
                 <h3 className="font-bold text-gray-900 mb-1.5">{faq.q}</h3>
