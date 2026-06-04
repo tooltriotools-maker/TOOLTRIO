@@ -70,10 +70,10 @@ export function DevToolLayout({
       </nav>
 
       {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2">
-            <div className={`w-10 h-10 rounded-xl border flex items-center justify-center text-xl shadow-sm ${iconBg}`}>
+            <div className={`w-10 h-10 rounded-xl border flex items-center justify-center text-xl shadow-sm flex-shrink-0 ${iconBg}`}>
               {icon}
             </div>
             <span className={`text-xs font-bold px-3 py-1 rounded-full border ${badgeColor}`}>
@@ -81,7 +81,7 @@ export function DevToolLayout({
             </span>
           </div>
           <h1
-            className="text-3xl font-black text-gray-900 mb-1"
+            className="calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {icon} {title} <span className={accent}>| TOOLTRIO</span>
@@ -92,15 +92,10 @@ export function DevToolLayout({
         </div>
 
         {/* Export + Share pair */}
-        <div className="flex flex-col items-end gap-2 pt-1 flex-shrink-0">
-          <div className="flex items-center gap-2 flex-wrap justify-end">
+        <div className="flex-shrink-0">
+          <div className="calc-header-buttons flex items-center gap-2 flex-wrap">
             <ShareButton title={title} description={description} category={category as 'Finance' | 'Health' | 'Dev' | 'Fun'} />
-            <div className="hidden sm:flex">
-              <ExportButtonPair title={title} category={category} />
-            </div>
-            <div className="flex sm:hidden">
-              <ExportButtonPair title={title} category={category} compact />
-            </div>
+            <ExportButtonPair title={title} category={category} />
           </div>
         </div>
       </div>

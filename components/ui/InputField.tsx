@@ -53,10 +53,10 @@ export function InputField({ label, value, onChange, min = 0, max = 100, step = 
   }
 
   return (
-    <div className="space-y-1.5">
-      <div className="flex items-center justify-between">
-        <label className="text-sm font-semibold text-gray-700">{label}</label>
-        <div className="flex items-center gap-1 bg-white border-2 rounded-xl px-3 py-1.5 shadow-sm transition-all" style={{borderColor:'#bbf7d0',background:'rgba(255,255,255,0.9)'}}>
+    <div className="space-y-1.5 w-full">
+      <div className="flex items-center justify-between gap-2 flex-wrap">
+        <label className="text-sm font-semibold text-gray-700 flex-shrink-0">{label}</label>
+        <div className="flex items-center gap-1 bg-white border-2 rounded-xl px-3 py-1.5 shadow-sm transition-all flex-shrink-0" style={{borderColor:'#bbf7d0',background:'rgba(255,255,255,0.9)'}}>
           {prefix && <span className="text-green-600 text-sm font-bold">{prefix}</span>}
           <input
             type="text"
@@ -66,6 +66,7 @@ export function InputField({ label, value, onChange, min = 0, max = 100, step = 
             onFocus={handleFocus}
             onBlur={handleBlur}
             className="w-20 bg-transparent text-gray-900 font-bold text-sm text-right outline-none"
+            style={{fontSize:'16px'}}
           />
           {suffix && <span className="text-gray-500 text-sm font-medium">{suffix}</span>}
         </div>

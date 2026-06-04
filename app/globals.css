@@ -4,7 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── 1. PREMIUM COLOR PALETTE ──────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   TOOLTRIO GLOBAL STYLES — Fully Responsive (320px → 1920px)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS VARIABLES ───────────────────────────────────────────────── */
 :root {
   --primary: #16a34a;
   --primary-dark: #15803d;
@@ -14,15 +18,13 @@
   --text: #0f172a;
   --muted: #64748b;
   --border: #e2e8f0;
-
-  /* Legacy aliases */
   --background: #f8faf8;
   --foreground: #0f172a;
-  --card-border: rgba(22, 163, 74, 0.15);
+  --card-border: rgba(22,163,74,0.15);
   --brand: #16a34a;
   --brand-dark: #15803d;
   --brand-light: #22c55e;
-  --brand-glow: rgba(22, 163, 74, 0.2);
+  --brand-glow: rgba(22,163,74,0.2);
   --surface: #f9fafb;
   --surface-2: #f3f4f6;
   --text-primary: #0f172a;
@@ -30,12 +32,18 @@
   --text-muted: #94a3b8;
 }
 
-/* ── 2. PREMIUM FONT SETUP ─────────────────────────────────────── */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* ── RESET & BASE ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
-  /* ── 6. PREMIUM SOFT BACKGROUND (Apple/Stripe style) ─────────── */
   background:
     radial-gradient(circle at top left, rgba(34,197,94,0.08), transparent 30%),
     radial-gradient(circle at bottom right, rgba(16,185,129,0.08), transparent 30%),
@@ -44,20 +52,34 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100vw;
+  word-wrap: break-word;
+  overscroll-behavior-x: none;
 }
 
-/* ── 2. HEADINGS USE PLAYFAIR DISPLAY ─────────────────────────── */
+/* ── GLOBAL OVERFLOW PREVENTION ──────────────────────────────────── */
+img, svg, video, canvas, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+pre, code { max-width: 100%; overflow-x: auto; }
+table { max-width: 100%; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-/* ── 9. MICRO ANIMATIONS on interactive elements ──────────────── */
+/* ── TRANSITIONS ──────────────────────────────────────────────────── */
 button, a, input, select, .card-base, .calculator-card, .tag-pill, .primary-btn {
   transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
 }
 
-/* ── 10. PREMIUM NAVBAR (glass effect) ────────────────────────── */
+/* ── NAVBAR / HEADER ─────────────────────────────────────────────── */
 .navbar, header {
   position: sticky;
   top: 0;
@@ -67,73 +89,80 @@ button, a, input, select, .card-base, .calculator-card, .tag-pill, .primary-btn 
   border-bottom: 1px solid rgba(255,255,255,0.5);
   z-index: 1000;
 }
+@supports (-webkit-overflow-scrolling: touch) {
+  header { position: -webkit-sticky; position: sticky; }
+}
 
-/* ── 4. PREMIUM BUTTON DESIGN ─────────────────────────────────── */
+/* ── PRIMARY BUTTON ───────────────────────────────────────────────── */
 .primary-btn {
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
   border: none;
-  padding: 14px 28px;
+  padding: clamp(10px, 2.5vw, 14px) clamp(18px, 4vw, 28px);
   border-radius: 16px;
-  font-size: 15px;
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
   font-family: 'Inter', system-ui, sans-serif;
   box-shadow: 0 10px 25px rgba(34,197,94,0.25);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  white-space: nowrap;
+  min-height: 44px;
 }
 .primary-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 35px rgba(34,197,94,0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(34,197,94,0.35);
 }
 
-/* ── 5. PREMIUM CARD DESIGN ───────────────────────────────────── */
+/* ── CALCULATOR CARD ──────────────────────────────────────────────── */
 .calculator-card, .card-base {
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 24px;
-  padding: 24px;
+  border-radius: clamp(14px, 3vw, 24px);
+  padding: clamp(14px, 4vw, 24px);
   box-shadow: 0 8px 30px rgba(15,23,42,0.05);
-  transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  width: 100%;
 }
 .calculator-card:hover, .card-base:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(15,23,42,0.12);
   border-color: rgba(34,197,94,0.2);
 }
 
-/* ── 7. PREMIUM SEARCH BAR ────────────────────────────────────── */
+/* ── SEARCH BOX ───────────────────────────────────────────────────── */
 .search-box {
-  width: 620px;
-  height: 68px;
-  border-radius: 22px;
+  width: 100%;
+  max-width: 620px;
+  height: clamp(48px, 8vw, 68px);
+  border-radius: clamp(14px, 3vw, 22px);
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid #e2e8f0;
-  padding: 0 24px;
+  padding: 0 clamp(14px, 3vw, 24px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   font-family: 'Inter', system-ui, sans-serif;
 }
 .search-box:focus-within {
   border-color: #22c55e;
-  box-shadow: 0 0 0 5px rgba(34,197,94,0.12);
+  box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
 }
 
-/* ── 11. CHIP / PILL DESIGN ───────────────────────────────────── */
+/* ── TAG PILLS / CHIPS ────────────────────────────────────────────── */
 .tag-pill {
   background: white;
   border: 1px solid #dcfce7;
   color: #15803d;
-  padding: 10px 18px;
+  padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2.5vw, 18px);
   border-radius: 999px;
-  font-size: 14px;
+  font-size: clamp(11px, 1.8vw, 14px);
   font-family: 'Inter', system-ui, sans-serif;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(.4,0,.2,1);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  min-height: 36px;
 }
 .tag-pill:hover {
   background: #16a34a;
@@ -142,50 +171,167 @@ button, a, input, select, .card-base, .calculator-card, .tag-pill, .primary-btn 
   box-shadow: 0 8px 20px rgba(22,163,74,0.25);
 }
 
-/* ── 12. PREMIUM GLOW EFFECTS ─────────────────────────────────── */
+/* ── HERO GLOW ────────────────────────────────────────────────────── */
 .hero-glow {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: clamp(150px, 30vw, 400px);
+  height: clamp(150px, 30vw, 400px);
   background: rgba(34,197,94,0.12);
-  filter: blur(120px);
+  filter: blur(80px);
   z-index: -1;
   pointer-events: none;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
+/* ── SCROLLBAR ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #d1fae5; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #86efac; }
 
-/* Range Input */
+/* ── RANGE SLIDER ─────────────────────────────────────────────────── */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  height: 4px;
+  width: 100%;
+  height: clamp(4px, 1vw, 6px);
   background: #d1fae5;
-  border-radius: 2px;
+  border-radius: 3px;
   outline: none;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: clamp(22px, 5vw, 28px);
+  height: clamp(22px, 5vw, 28px);
   background: #16a34a;
   border-radius: 50%;
   cursor: pointer;
   border: 3px solid white;
   box-shadow: 0 2px 8px rgba(22,163,74,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
   box-shadow: 0 3px 12px rgba(22,163,74,0.5);
 }
+input[type="range"]::-moz-range-thumb {
+  width: clamp(22px, 5vw, 28px);
+  height: clamp(22px, 5vw, 28px);
+  background: #16a34a;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+}
 
-/* Gradient text */
+/* ── INPUTS (prevent iOS zoom & ensure touch targets) ────────────── */
+input, select, textarea, button {
+  font-size: max(16px, 1em);
+  min-height: 44px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+@media (min-width: 768px) {
+  input, select, textarea { font-size: inherit; min-height: unset; }
+  button { min-height: unset; }
+}
+
+/* ── TABLES — auto horizontal scroll on mobile ───────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-scroll-wrap,
+.calc-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+@media (max-width: 767px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+@media (min-width: 768px) {
+  table { display: table; }
+}
+
+.calc-table { min-width: 460px; }
+.calc-table th, .calc-table td {
+  padding: clamp(7px, 1.5vw, 10px) clamp(8px, 2vw, 14px);
+  text-align: right;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: clamp(0.72rem, 1.5vw, 0.875rem);
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .calc-table th, .calc-table td { white-space: normal; }
+}
+.calc-table th {
+  background: rgba(22,163,74,0.06);
+  color: #374151;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(0.65rem, 1.2vw, 0.72rem);
+  letter-spacing: 0.05em;
+}
+.calc-table td:first-child, .calc-table th:first-child { text-align: left; }
+.calc-table tr:hover td { background: rgba(22,163,74,0.03); }
+
+/* ── RECHARTS RESPONSIVE ─────────────────────────────────────────── */
+.recharts-wrapper,
+.recharts-responsive-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+.recharts-wrapper svg { width: 100% !important; height: auto !important; }
+.recharts-wrapper, .recharts-surface { overflow: visible !important; }
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 14px !important;
+  color: #0f172a !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  max-width: min(280px, 85vw) !important;
+}
+.recharts-legend-item-text {
+  color: #374151 !important;
+  font-size: clamp(10px, 1.8vw, 12px) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+.recharts-cartesian-grid line { stroke: #f0f0f0; }
+.recharts-tooltip-wrapper { z-index: 100; pointer-events: none; }
+
+/* ── INPUT FIELDS ─────────────────────────────────────────────────── */
+.input-base {
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  color: #0f172a;
+  font-family: 'Inter', system-ui, sans-serif;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-base:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.12);
+  outline: none;
+}
+
+/* ── BADGES ───────────────────────────────────────────────────────── */
+.badge-green, .badge-finance, .badge-health {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(9px, 1.5vw, 11px);
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.badge-green, .badge-finance { background: #dcfce7; color: #15803d; border: 1px solid rgba(22,163,74,0.2); }
+.badge-health { background: #fee2e2; color: #dc2626; border: 1px solid rgba(239,68,68,0.2); }
+
+/* ── GRADIENT TEXT ────────────────────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #15803d 0%, #16a34a 50%, #22c55e 100%);
   -webkit-background-clip: text;
@@ -193,7 +339,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background-clip: text;
 }
 
-/* Mesh background */
+/* ── MESH BACKGROUND ──────────────────────────────────────────────── */
 .mesh-bg {
   background-color: #f8faf8;
   background-image:
@@ -202,108 +348,323 @@ input[type="range"]::-webkit-slider-thumb:hover {
     radial-gradient(at 50% 100%, rgba(220,252,231,0.3) 0px, transparent 60%);
 }
 
-/* Card highlight (result cards) */
+/* ── RESULT CARDS ─────────────────────────────────────────────────── */
 .result-card-highlight {
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
   border: 1px solid rgba(22,163,74,0.3);
 }
 .result-card-default {
   background: rgba(255,255,255,0.8);
   border: 1px solid rgba(255,255,255,0.5);
 }
-
-/* Table */
-.calc-table { width: 100%; border-collapse: collapse; }
-.calc-table th, .calc-table td {
-  padding: 10px 14px;
-  text-align: right;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  font-size: 0.875rem;
-}
-.calc-table th {
-  background: rgba(22,163,74,0.06);
-  color: #374151;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-.calc-table td:first-child, .calc-table th:first-child { text-align: left; }
-.calc-table tr:hover td { background: rgba(22,163,74,0.03); }
-.calc-table td { color: #374151; }
-
-/* Input fields */
-.input-base {
-  background: rgba(255,255,255,0.85);
-  border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  color: #0f172a;
-  font-family: 'Inter', system-ui, sans-serif;
-  transition: border-color 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s cubic-bezier(.4,0,.2,1);
-}
-.input-base:focus {
-  border-color: #16a34a;
-  box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
-  outline: none;
+.result-value {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Tag / badge */
-.badge-green {
-  background: #dcfce7;
-  color: #15803d;
-  border: 1px solid rgba(22,163,74,0.2);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 999px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-.badge-finance { background: #dcfce7; color: #15803d; border: 1px solid rgba(22,163,74,0.2); }
-.badge-health  { background: #fee2e2; color: #dc2626; border: 1px solid rgba(239,68,68,0.2); }
-
-/* Recharts overrides */
-.recharts-tooltip-wrapper .recharts-default-tooltip {
-  background: rgba(255,255,255,0.95) !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 14px !important;
-  color: #0f172a !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-/* Prose (blog) */
-.prose-green h2 { color: #166534; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; }
-.prose-green h3 { color: #15803d; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-.prose-green p  { color: #374151; line-height: 1.75; margin-bottom: 1rem; font-family: 'Inter', system-ui, sans-serif; }
-.prose-green ul, .prose-green ol { color: #374151; padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose-green li { margin-bottom: 0.4rem; line-height: 1.7; }
+/* ── PROSE (blog) ─────────────────────────────────────────────────── */
+.prose-green h2 { color: #166534; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; font-size: clamp(1.1rem, 3vw, 1.4rem); }
+.prose-green h3 { color: #15803d; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: clamp(0.95rem, 2.5vw, 1.15rem); }
+.prose-green p  { color: #374151; line-height: 1.75; margin-bottom: 1rem; font-family: 'Inter', system-ui, sans-serif; font-size: clamp(0.88rem, 2.2vw, 1rem); }
+.prose-green ul, .prose-green ol { color: #374151; padding-left: 1.25rem; margin-bottom: 1rem; }
+.prose-green li { margin-bottom: 0.4rem; line-height: 1.7; font-size: clamp(0.88rem, 2.2vw, 1rem); }
 .prose-green a  { color: #16a34a; text-decoration: underline; text-underline-offset: 3px; }
 .prose-green strong { color: #0f172a; }
-.prose-green code { background: #f0fdf4; color: #15803d; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+.prose-green code { background: #f0fdf4; color: #15803d; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; word-break: break-all; }
 .prose-green blockquote { border-left: 3px solid #16a34a; padding-left: 1rem; color: #64748b; font-style: italic; margin: 1.5rem 0; }
 
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-}
-
+/* ── TICKER ANIMATION ─────────────────────────────────────────────── */
 @keyframes ticker {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* ── Recharts Fix (Next.js 14 App Router) ─────────────────────── */
-.recharts-wrapper, .recharts-surface { overflow: visible !important; }
-.recharts-wrapper svg { display: block; overflow: visible; }
-.recharts-cartesian-grid line,
-.recharts-cartesian-grid-horizontal line,
-.recharts-cartesian-grid-vertical line { stroke: #f0f0f0; }
-.recharts-bar-rectangle path, .recharts-bar-rectangle rect { shape-rendering: crispEdges; }
-.recharts-tooltip-wrapper { z-index: 100; pointer-events: none; }
-.recharts-legend-item-text {
-  color: #374151 !important;
-  font-size: 12px !important;
-  font-family: 'Inter', system-ui, sans-serif !important;
+/* ── SPINNER ──────────────────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── SHARE / TRIOBOT ANIMATIONS ───────────────────────────────────── */
+@keyframes shareBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes shareModalIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes trioPanelIn { from { opacity: 0; transform: scale(0.88) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes trioDot { 0%,80%,100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+@keyframes trioPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ── TAILWIND UTILITIES ───────────────────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   Mobile-first: 320px base → sm:640 → md:768 → lg:1024 → xl:1280
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── PAGE PADDING (tighter on mobile) ────────────────────────────── */
+.max-w-6xl, .max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+  padding-left: clamp(12px, 4vw, 32px);
+  padding-right: clamp(12px, 4vw, 32px);
+}
+
+/* ── CALCULATOR PAGE H1 ───────────────────────────────────────────── */
+.calc-page-h1 {
+  font-size: clamp(1.35rem, 5vw, 2.25rem) !important;
+  line-height: 1.2 !important;
+  word-break: break-word;
+}
+
+/* ── CALCULATOR HEADER BUTTON ROW ─────────────────────────────────── */
+.calc-header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .calc-header-buttons { width: auto; }
+}
+.calc-header-buttons button,
+.calc-header-buttons a {
+  font-size: clamp(11px, 1.8vw, 13px) !important;
+  padding: clamp(7px, 1.5vw, 10px) clamp(10px, 2vw, 16px) !important;
+  min-height: 40px;
+  flex: 1 1 auto;
+  justify-content: center;
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  .calc-header-buttons button,
+  .calc-header-buttons a { flex: 0 0 auto; }
+}
+
+/* ── PDF EXPORT BUTTONS ───────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Make PDF buttons stack-friendly */
+  [title="Download full report PDF"],
+  [title="Save results-only PDF — 1 page, just your numbers"] {
+    font-size: 11px !important;
+    padding: 8px 10px !important;
+    min-height: 40px !important;
+    flex: 1 1 auto !important;
+  }
+}
+
+/* ── SHARE BUTTON ─────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Share button compact on mobile */
+  .share-modal-panel {
+    border-radius: 24px 24px 0 0 !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* ── TRIOBOT PANEL ────────────────────────────────────────────────── */
+@media (max-width: 479px) {
+  /* Smaller gap from edge */
+  div[style*="bottom: 20px"][style*="right: 20px"],
+  div[style*="bottom:20px"][style*="right:20px"] {
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}
+
+/* ── GLOBAL SEARCH DROPDOWN ───────────────────────────────────────── */
+/* Already uses max-w-[calc(100vw-1rem)] — just ensure right-align on narrow */
+@media (max-width: 479px) {
+  div[class*="w-\\[480px\\]"] {
+    right: -60px !important;
+  }
+}
+
+/* ── HERO SECTION ─────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  section .font-black.text-gray-900 { font-size: clamp(1.6rem, 6vw, 2.5rem) !important; }
+  section p.text-lg { font-size: 0.95rem !important; }
+  section p.text-xl { font-size: 1rem !important; }
+  section .text-sm.mb-8 { font-size: 0.8rem !important; margin-bottom: 16px !important; }
+  /* Stat row */
+  div.flex.flex-wrap.justify-center.gap-6.mt-10 { gap: 16px !important; margin-top: 20px !important; }
+  div.flex.flex-wrap.justify-center.gap-6.mt-10 .text-2xl { font-size: 1.3rem !important; }
+}
+
+/* ── HOMEPAGE TOOL GRID CARDS ─────────────────────────────────────── */
+@media (max-width: 479px) {
+  /* Force 2-col on very small mobile for tool card grids */
+  section .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px !important; }
+  section .grid > a { padding: 8px 6px !important; }
+  section .grid > a .text-xl { font-size: 1rem !important; }
+  section .grid > a .text-xs { font-size: 10px !important; }
+}
+@media (min-width: 480px) and (max-width: 639px) {
+  section .grid.lg\:grid-cols-5 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  section .grid.md\:grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+/* ── CATEGORY SECTION HEADERS ─────────────────────────────────────── */
+@media (max-width: 639px) {
+  h2.text-2xl { font-size: 1.2rem !important; }
+  h2.text-3xl { font-size: 1.35rem !important; }
+  .flex.items-center.justify-between.mb-5 { flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+}
+
+/* ── POPULAR STRIP ────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  section.border-b .flex.flex-wrap.gap-2.justify-center { gap: 6px !important; }
+  section.border-b a { font-size: 11px !important; padding: 5px 10px !important; }
+}
+
+/* ── TRUST BADGES (4 columns → 2 columns) ─────────────────────────── */
+@media (max-width: 639px) {
+  .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── FAQ SECTION ──────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .grid.grid-cols-1.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+  .rounded-2xl.border.p-5 { padding: 14px 12px !important; }
+}
+
+/* ── SEO CONTENT BLOCK ────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .grid.grid-cols-1.md\:grid-cols-2.gap-8 { gap: 20px !important; }
+  .rounded-3xl.p-8 { padding: 16px !important; }
+  .text-2xl.font-black { font-size: 1.15rem !important; }
+}
+
+/* ── RELATED CALCULATORS GRID ─────────────────────────────────────── */
+@media (max-width: 639px) {
+  .grid.grid-cols-1.sm\:grid-cols-2.md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+}
+
+/* ── BLOG GUIDE CARD ──────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .flex.flex-col.sm\:flex-row.items-start.sm\:items-center.gap-4 { gap: 12px !important; }
+  .flex.flex-col.sm\:flex-row.items-start.sm\:items-center.gap-4 a.whitespace-nowrap { width: 100%; text-align: center; }
+}
+
+/* ── DEVTOOL LAYOUT ───────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .max-w-3xl.mx-auto.px-4.py-10 { padding-top: 20px !important; padding-bottom: 20px !important; }
+  /* Breadcrumb */
+  nav.flex.items-center.gap-2.text-xs { font-size: 10px !important; }
+  nav span.truncate { max-width: 140px; }
+  /* DevTool H1 */
+  .text-3xl.font-black.text-gray-900 { font-size: clamp(1.2rem, 5vw, 1.6rem) !important; }
+  /* DevTool header: stack title and buttons */
+  .flex.flex-wrap.items-start.justify-between.gap-4.mb-6 { flex-direction: column !important; }
+}
+
+/* ── ZIP TOOL LAYOUT ──────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .min-h-screen.bg-gray-50\/50.py-8.px-4 { padding: 16px 12px !important; }
+  .text-3xl.sm\:text-4xl.font-black { font-size: 1.5rem !important; }
+  /* Related tools horizontal scroll */
+  .grid.grid-cols-2.sm\:grid-cols-3.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── COMMODITY PAGES ──────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Commodity price card */
+  .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── COMMODITY TICKER ─────────────────────────────────────────────── */
+.commodity-ticker-wrap { overflow: hidden; width: 100%; }
+
+/* ── FOOTER ───────────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  footer .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-6 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+  }
+  footer .lg\:col-span-2 { grid-column: span 2 / span 2 !important; }
+  footer ul.space-y-2\.5 li { font-size: 13px; }
+  /* Bottom bar */
+  footer .flex.flex-col.sm\:flex-row { flex-direction: column !important; text-align: center; gap: 8px !important; }
+  footer .flex.flex-wrap.items-center.gap-4 { justify-content: center !important; }
+}
+
+/* ── HEADER ───────────────────────────────────────────────────────── */
+@media (max-width: 359px) {
+  /* Tiny iPhones: hide text logo to avoid overflow */
+  header span.font-black.text-xl { display: none !important; }
+}
+@media (max-width: 639px) {
+  /* Currency selector compact */
+  header button span.hidden.sm\:inline { display: none !important; }
+}
+
+/* ── MOBILE MENU ──────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .lg\:hidden { display: block; }
+  /* Ensure mobile menu doesn't overflow */
+  div.lg\:hidden.border-t { max-height: 75vh; overflow-y: auto; }
+}
+
+/* ── FINANCE / HEALTH HUB PAGES (category listing pages) ─────────── */
+@media (max-width: 639px) {
+  /* CalcFilterBar */
+  .flex.flex-wrap.gap-2 button { font-size: 11px !important; padding: 5px 10px !important; }
+  /* Tool listing grid */
+  .grid.grid-cols-1.sm\:grid-cols-2.md\:grid-cols-3.gap-3 { grid-template-columns: 1fr !important; }
+  .grid.grid-cols-2.sm\:grid-cols-3.md\:grid-cols-4.gap-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── BLOG PAGES ───────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Blog hero */
+  .text-4xl.md\:text-5xl { font-size: 1.6rem !important; }
+  /* Blog card grid */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 { grid-template-columns: 1fr !important; }
+  .grid.grid-cols-1.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+  /* Article */
+  article { padding: 0 !important; }
+}
+
+/* ── TEXTAREA IN DEV TOOLS ────────────────────────────────────────── */
+@media (max-width: 639px) {
+  textarea {
+    min-height: 100px;
+    font-size: 14px !important;
+    width: 100% !important;
+  }
+  pre, code {
+    font-size: 12px !important;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}
+
+/* ── INLINE NUMBER INPUTS IN CALCULATORS ─────────────────────────── */
+@media (max-width: 639px) {
+  /* Many calculators use inline styled inputs */
+  input[type="number"],
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  select {
+    width: 100% !important;
+    font-size: 16px !important;
+    min-height: 44px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* ── BUTTON ROW OVERRIDES ─────────────────────────────────────────── */
+@media (max-width: 479px) {
+  /* Any inline-flex button row: allow wrap */
+  .inline-flex, div[style*="display: inline-flex"] {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ── OVERFLOW SAFETY NET (catch-all) ─────────────────────────────── */
+@media (max-width: 639px) {
+  [style*="width:"] {
+    max-width: 100% !important;
+  }
+  [style*="min-width:"] {
+    min-width: 0 !important;
+  }
 }

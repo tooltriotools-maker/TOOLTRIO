@@ -569,19 +569,20 @@ export function GlobalSearch({ className }: { className?: string }) {
       {/* Trigger */}
       <button
         onClick={openSearch}
-        className="flex items-center gap-2 px-4 py-3 rounded-2xl border text-sm text-gray-500 min-w-[200px] group" style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(12px)', borderColor:'#e2e8f0', boxShadow:'0 4px 16px rgba(0,0,0,0.06)', transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}}
+        className="flex items-center gap-2 px-3 py-2 rounded-2xl border text-sm text-gray-500 w-full group"
+        style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(12px)', borderColor:'#e2e8f0', boxShadow:'0 4px 16px rgba(0,0,0,0.06)', transition:'all 0.3s cubic-bezier(.4,0,.2,1)', minHeight:'44px'}}
         onMouseEnter={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='#22c55e';el.style.boxShadow='0 0 0 4px rgba(34,197,94,0.1)';}}
         onMouseLeave={e=>{const el=e.currentTarget as HTMLElement;el.style.borderColor='#e2e8f0';el.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';}}
         aria-label="Search calculators and guides"
       >
         <Search className="w-3.5 h-3.5 text-gray-400 group-hover:text-green-500 flex-shrink-0" />
-        <span className="flex-1 text-left hidden sm:block">Search {TOTAL}+ tools...</span>
-        <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 text-gray-400 border border-gray-200 font-mono">⌘K</kbd>
+        <span className="flex-1 text-left text-sm">Search {TOTAL}+ tools...</span>
+        <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 text-gray-400 border border-gray-200 font-mono">⌘K</kbd>
       </button>
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-[480px] max-w-[calc(100vw-1rem)] border rounded-3xl z-[9999] overflow-hidden" style={{background:'rgba(255,255,255,0.92)', backdropFilter:'blur(16px)', WebkitBackdropFilter:'blur(16px)', borderColor:'rgba(255,255,255,0.6)', boxShadow:'0 20px 60px rgba(15,23,42,0.15)'}}>
+        <div className="absolute right-0 top-full mt-2 w-[min(480px,calc(100vw-16px))] border rounded-3xl z-[9999] overflow-hidden" style={{background:'rgba(255,255,255,0.96)', backdropFilter:'blur(16px)', WebkitBackdropFilter:'blur(16px)', borderColor:'rgba(255,255,255,0.6)', boxShadow:'0 20px 60px rgba(15,23,42,0.15)'}}>
           {/* Input */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
             <Search className="w-4 h-4 text-green-500 flex-shrink-0" />

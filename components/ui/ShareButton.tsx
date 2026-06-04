@@ -236,23 +236,26 @@ export function ShareButton({ title, description = '', category = 'Finance', url
             position: 'fixed', inset: 0, zIndex: 50000,
             background: 'rgba(15,23,42,0.55)',
             backdropFilter: 'blur(4px)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            padding: '16px',
+            display: 'flex', alignItems: 'flex-end',
+            justifyContent: 'center',
+            padding: '0',
             animation: 'shareBackdropIn 0.18s ease',
           }}
         >
-          {/* ── Modal Panel ── */}
+          {/* ── Modal Panel — bottom sheet on mobile, centered card on desktop ── */}
           <div
             ref={modalRef}
             style={{
               background: '#fff',
-              borderRadius: '24px',
-              boxShadow: '0 24px 60px rgba(15,23,42,0.22)',
+              borderRadius: '24px 24px 0 0',
+              boxShadow: '0 -8px 40px rgba(15,23,42,0.18)',
               width: '100%',
-              maxWidth: '420px',
-              overflow: 'hidden',
-              animation: 'shareModalIn 0.22s cubic-bezier(.34,1.56,.64,1)',
+              maxWidth: '480px',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              animation: 'shareModalIn 0.25s cubic-bezier(.34,1.56,.64,1)',
             }}
+            className="share-modal-panel"
           >
             {/* Header */}
             <div style={{

@@ -21,20 +21,22 @@ function pdfButtonStyle(bg: string, shadow: string): React.CSSProperties {
   return {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '6px',
-    padding: '10px 18px',
-    fontSize: '13px',
+    justifyContent: 'center',
+    gap: '5px',
+    padding: '9px 13px',
+    fontSize: '12px',
     fontWeight: 700,
     color: '#fff',
     border: 'none',
-    borderRadius: '12px',
+    borderRadius: '11px',
     cursor: 'pointer',
     background: bg,
     boxShadow: `0 4px 14px ${shadow}`,
     transition: 'filter .15s, transform .1s',
     userSelect: 'none',
     whiteSpace: 'nowrap',
-    flexShrink: 0,
+    minHeight: '40px',
+    flex: '1 1 auto',
   }
 }
 

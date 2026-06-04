@@ -582,8 +582,16 @@ export function TrioBot() {
 
   return (
     <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px', fontFamily: "'Segoe UI',system-ui,sans-serif" }}>
+      {/* ── TrioBot panel ── */}
       {open && (
-        <div style={{ width: '345px', background: 'white', borderRadius: '20px', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #e2e8f0', overflow: 'hidden', animation: 'trioPanelIn 0.25s cubic-bezier(.34,1.56,.64,1)', display: 'flex', flexDirection: 'column' }}>
+        <div style={{
+          width: 'min(345px, calc(100vw - 24px))',
+          background: 'white', borderRadius: '20px',
+          boxShadow: '0 8px 40px rgba(0,0,0,0.18)',
+          border: '1.5px solid #e2e8f0', overflow: 'hidden',
+          animation: 'trioPanelIn 0.25s cubic-bezier(.34,1.56,.64,1)',
+          display: 'flex', flexDirection: 'column'
+        }}>
 
           {/* Header */}
           <div style={{ background: `linear-gradient(135deg,${BOT},#1d4ed8)`, padding: '12px 14px 10px', color: 'white', flexShrink: 0 }}>

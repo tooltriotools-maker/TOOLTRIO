@@ -141,13 +141,13 @@ export function CalculatorLayout({ title, description, icon, category, children,
               </Link>
             )}
           </div>
-          <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
-              <p className="text-gray-500 text-base md:text-lg max-w-2xl leading-relaxed">{description}</p>
+              <h1 className="calc-page-h1 text-2xl sm:text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
+              <p className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mt-1">{description}</p>
             </div>
-            {/* Export + Share buttons */}
-            <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
+            {/* Export + Share buttons — wraps on mobile */}
+            <div className="calc-header-buttons flex items-center gap-2 flex-wrap">
               <ShareButton title={title} description={description} category={category} />
               <FullReportButton title={title} category={category} />
               <ResultsOnlyButton title={title} category={category} />
