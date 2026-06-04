@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { Copy, Check, RefreshCw } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -39,16 +39,16 @@ export default function CalculatorClient({ faqs }: Props) {
     { label: 'Hexadecimal (Base 16)', prefix: '0x', value: result.hex, color: 'bg-orange-50 border-orange-200 text-orange-900' },
   ] : []
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Base Converter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚡ Number Base Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Binary - Octal - Decimal - Hex - instant conversion</p>
-
+      return (
+    <DevToolLayout
+      title="Number Base Converter"
+      icon="⚡"
+      description="Binary - Octal - Decimal - Hex - instant conversion"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-3 mb-6">
           <div className="flex-1">
@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs }: Props) {
                   {copiedKey === r.label ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4 opacity-40" />}
                 </button>
               </div>
-            ))}
+    ))}
             <div className="grid grid-cols-2 gap-3 mt-2">
               <div className="p-3 rounded-2xl border text-center" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                 <p className="text-xs text-gray-500">Binary (grouped)</p>
@@ -153,7 +153,7 @@ chmod octal. File permissions use octal: chmod 755 means owner=7 (rwx), group=5 
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 
 }

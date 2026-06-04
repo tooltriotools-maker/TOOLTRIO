@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -29,16 +30,16 @@ export default function CalculatorClient({ faqs }: Props) {
     return { pct, usd:Math.round(usd), richer, poorerThan, daily, hourly, timesMedian, label }
   }, [income, currency, country])
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun &amp; Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">How Rich Am I?</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>💰 How Rich Am I? Global Wealth Check <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">See where your income ranks among the world's 8 billion people</p>
-      <div className="rounded-3xl border p-6 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="How Rich Am I? Global Wealth Check"
+      icon="💰"
+      description="See where your income ranks among the world's 8 billion people"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <div className="rounded-3xl border p-6 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-2 gap-3">
           <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Currency</label>
             <select value={currency} onChange={e=>setCurrency(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-3 font-bold focus:outline-none focus:border-green-400 bg-white">
@@ -63,7 +64,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <p className="text-lg font-black text-gray-900">{s.v}</p>
               <p className="text-xs text-gray-500">{s.l}</p>
             </div>
-          ))}
+    ))}
         </div>
         <div className="bg-yellow-50 rounded-xl border border-yellow-200 p-4 text-sm text-yellow-800">
           <p className="font-bold mb-1">💡 Put it in perspective</p>
@@ -193,6 +194,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

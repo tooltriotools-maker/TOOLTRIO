@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -19,16 +19,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const css = `.grid-container {\n  display: grid;\n  grid-template-columns: ${colTemplate};\n  grid-template-rows: ${rowTemplate};\n  column-gap: ${colGap}px;\n  row-gap: ${rowGap}px;\n}`
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">CSS Grid Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⊞ CSS Grid Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Design grid layouts visually - columns, rows, gaps and copy CSS</p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      return (
+    <DevToolLayout
+      title="⊞ CSS Grid Generator"
+      icon=""
+      description="Design grid layouts visually - columns, rows, gaps and copy CSS"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="space-y-4">
           <div className="rounded-2xl border p-5 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
             {[{l:'Columns',v:cols,s:setCols},{l:'Rows',v:rows,s:setRows}].map(({l,v,s})=>(
@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">{l}: {v}</label>
                 <input type="range" min={1} max={6} value={v} onChange={e=>s(Number(e.target.value))} className="w-full" />
               </div>
-            ))}
+    ))}
             <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">column-template</label>
               <input value={colTemplate} onChange={e=>setColTemplate(e.target.value)} className="w-full border border-gray-200 rounded-xl px-3 py-2 font-mono text-sm focus:outline-none" /></div>
             <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">row-template</label>
@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs }: Props) {
             ))}
           </div>
         </div>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="rounded-2xl border border-gray-200 h-64 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
             <div className="w-full h-full" style={{display:'grid',gridTemplateColumns:colTemplate,gridTemplateRows:rowTemplate,columnGap:`${colGap}px`,rowGap:`${rowGap}px`}}>
               {Array.from({length:cols*rows},(_,i)=>(
@@ -124,6 +124,6 @@ grid-template-areas for readable layout. Named areas make CSS self-documenting: 
 Subgrid for alignment across components. CSS Subgrid lets children align to parent grid tracks — use for card grids where footers need to align across cards.`}
         conclusion={`CSS Grid enables layouts previously requiring complex positioning hacks. The visual builder makes the two-dimensional nature concrete. For component layouts: [Flexbox Generator](/calculators/dev/flex-generator). For responsive sizing: [Responsive Breakpoints](/calculators/dev/responsive-breakpoints).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

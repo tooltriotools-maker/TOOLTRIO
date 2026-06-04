@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
-import PaceCalculatorClient from './PaceCalculatorClient'
+import dynamic from 'next/dynamic'
+const PaceCalculatorClient = dynamic(() => import('./PaceCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pace Calculator – Min/Mile & Min/Km | TOOLTRIO',

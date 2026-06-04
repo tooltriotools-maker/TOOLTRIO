@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {aggressive && <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-semibold">⚠️ Deficit above 1000 kcal/day is aggressive. Consult a doctor.</div>}
           {safe && <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-xl text-xs text-green-700 font-semibold">v Deficit in safe range (500 kcal/day = ~0.5kg/week)</div>}
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Time to Goal</p>

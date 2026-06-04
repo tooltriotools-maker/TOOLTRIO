@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`p-5 rounded-2xl border-2 ${result.statusColor}`}>
             <p className="text-xs font-bold uppercase tracking-wide opacity-70">Week {weeksPregnant} Status</p>
             <p className="text-2xl font-black my-1">{result.status}</p>

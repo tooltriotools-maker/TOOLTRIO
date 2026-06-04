@@ -1,7 +1,10 @@
+'use client'
 import { ReactNode } from 'react'
 import { Breadcrumb } from './Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, BookOpen } from 'lucide-react'
+import { FullReportButton, ResultsOnlyButton } from './ExportPDFButton'
+import { ShareButton } from './ShareButton'
 
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'tooltrio.com'
@@ -138,12 +141,24 @@ export function CalculatorLayout({ title, description, icon, category, children,
               </Link>
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
-          <p className="text-gray-500 text-base md:text-lg max-w-2xl leading-relaxed">{description}</p>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
+              <p className="text-gray-500 text-base md:text-lg max-w-2xl leading-relaxed">{description}</p>
+            </div>
+            {/* Export + Share buttons */}
+            <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
+              <ShareButton title={title} description={description} category={category} />
+              <FullReportButton title={title} category={category} />
+              <ResultsOnlyButton title={title} category={category} />
+            </div>
+          </div>
         </div>
 
-        {/* Main content */}
-        {children}
+        {/* Main content — wrapped so results-only PDF can target it */}
+        <div data-results="true">
+          {children}
+        </div>
 
         {/* Blog Guide Card */}
         {blogSlug && (

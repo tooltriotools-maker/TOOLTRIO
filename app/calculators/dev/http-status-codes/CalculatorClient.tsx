@@ -1,7 +1,6 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -38,16 +37,16 @@ export default function CalculatorClient({ faqs }: Props) {
     (search===''||String(c.code).includes(search)||c.label.toLowerCase().includes(search.toLowerCase()))
   )
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">HTTP Status Codes</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌐 HTTP Status Code Reference <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Quick reference for all common HTTP status codes with descriptions and use cases.</p>
-
+      return (
+    <DevToolLayout
+      title="HTTP Status Code Reference"
+      icon="🌐"
+      description="Quick reference for all common HTTP status codes with descriptions and use cases."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="flex flex-wrap gap-3 mb-5">
         <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search by code or name..."
           className="flex-1 min-w-48 px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:border-green-400 focus:outline-none" />
@@ -68,7 +67,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
             <p className="text-sm opacity-80">{c.desc}</p>
           </div>
-        ))}
+    ))}
         {filtered.length===0 && <div className="text-center py-8 text-gray-400">No status codes match your search.</div>}
       </div>
 
@@ -134,6 +133,6 @@ For HTTP debugging: look up status codes here, analyze response headers with [HT
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

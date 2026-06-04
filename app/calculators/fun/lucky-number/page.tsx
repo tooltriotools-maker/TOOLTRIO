@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateFunToolMetadata } from '@/lib/seo/metadata'
-import CalculatorClient from './CalculatorClient'
+import dynamic from 'next/dynamic'
+const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Lucky Number Calculator | TOOLTRIO',

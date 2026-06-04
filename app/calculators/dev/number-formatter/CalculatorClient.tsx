@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -35,16 +35,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const copy = (k: string, v: string) => { navigator.clipboard.writeText(v); setCopied(k); setTimeout(()=>setCopied(''),1500) }
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Number Formatter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔢 Number Formatter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Format numbers with thousands separators, currency, K/M/B and more</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Number Formatter"
+      icon="🔢"
+      description="Format numbers with thousands separators, currency, K/M/B and more"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="sm:col-span-2"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Number</label>
             <input value={num} onChange={e=>setNum(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-3 text-xl font-mono font-bold focus:outline-none" /></div>
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs }: Props) {
                   </button>
                 </div>
               </div>
-            ))}
+    ))}
           </div>
         )}
       </div>
@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
         <p className="text-sm text-gray-600">Use locale <strong>de-DE</strong> for European formatting (1.234.567,89). The Compact format converts large numbers to human-readable K/M/B notation useful for dashboards. Copy any format with one click to use directly in your code or spreadsheet.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Number Formatter"
         category="dev"
@@ -128,6 +128,6 @@ Number to words for legal documents. Legal and financial documents often require
 Scientific notation for extremes. Very large or very small numbers are more readable in scientific notation. Toggle here to see the scientific equivalent.`}
         conclusion={`Number formatting is context-dependent — what is correct in the US (1,234.56) is wrong in Germany (1.234,56). This formatter shows multiple locale formats simultaneously. For number operations: [Base Converter](/calculators/dev/base-converter) and [Bit Byte Converter](/calculators/dev/bit-byte-converter).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

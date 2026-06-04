@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`rounded-2xl p-6 border-2 ${riskLevel.bg}`}>
             <p className="text-xs font-bold uppercase tracking-wide text-gray-600 mb-1">Risk Assessment</p>
             <p className={`text-2xl font-black ${riskLevel.c}`}>{riskLevel.l}</p>

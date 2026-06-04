@@ -77,7 +77,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             ))}
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-5 rounded-2xl border-2 text-center" style={{background:'rgba(240,253,244,0.85)',borderColor:'rgba(134,239,172,0.7)',backdropFilter:'blur(8px)'}}>
               <p className="text-xs font-bold text-green-600 uppercase">Estimated Lifespan</p>

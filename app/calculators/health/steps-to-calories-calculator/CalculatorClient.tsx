@@ -50,7 +50,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 <SelectField label="Walking Pace" value={pace} onChange={v=>setPace(v as any)} options={[{value:'slow',label:'Slow (2.5 km/h)'},{value:'moderate',label:'Moderate (4 km/h)'},{value:'brisk',label:'Brisk (5.5 km/h)'},{value:'fast',label:'Fast (7 km/h)'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[{l:'Calories',v:String(result.calories),u:'kcal',c:'bg-orange-50 border-orange-200 text-orange-700'},{l:'Distance',v:result.distKm,u:'km',c:'bg-blue-50 border-blue-200 text-blue-700'},{l:'Time',v:String(result.timeMin),u:'min',c:'bg-purple-50 border-purple-200 text-purple-700'},{l:'Fat Burned',v:result.fat,u:'g',c:'bg-red-50 border-red-200 text-red-700'}].map(s=>(
               <div key={s.l} className={`p-3 rounded-xl border-2 text-center ${s.c}`}>

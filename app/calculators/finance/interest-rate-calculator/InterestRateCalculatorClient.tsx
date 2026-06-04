@@ -56,7 +56,7 @@ export default function InterestRateCalculatorClient({ faqs, structuredData, rel
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Your APR" value={`${result.apr}%`} subValue="Annual rate" highlight />
             <ResultCard label="Monthly Rate" value={`${result.monthlyRate}%`} subValue="Per month" />

@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <strong>Typical range:</strong> {TYPE_TEMPS[saunaType]}
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Calories Burned Per Session</p>

@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Fasting Protocol" value={fastingProtocol} onChange={v=>setFastingProtocol(v as any)} options={[{value:'none',label:'No fasting'},{value:'16:8',label:'16:8 (most popular)'},{value:'18:6',label:'18:6 (moderate)'},{value:'20:4',label:'20:4 (advanced)'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Eating Window</p>

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useCallback } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { Copy, Check, RefreshCw } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -32,16 +32,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const copyOne = (u: string) => { navigator.clipboard.writeText(fmt(u)); setCopied(u); setTimeout(()=>setCopied(null),1500) }
   const copyAll = () => { navigator.clipboard.writeText(uuids.map(fmt).join('\n')); setCopied('all'); setTimeout(()=>setCopied(null),1500) }
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">UUID Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🆔 UUID v4 Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate cryptographically random UUID v4 identifiers instantly in your browser.</p>
-
+      return (
+    <DevToolLayout
+      title="UUID v4 Generator"
+      icon="🆔"
+      description="Generate cryptographically random UUID v4 identifiers instantly in your browser."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap gap-4 mb-5">
           <div>
@@ -77,7 +77,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 {copied===u?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4 text-gray-500"/>}
               </button>
             </div>
-          ))}
+    ))}
         </div>
       </div>
 
@@ -145,6 +145,6 @@ Store as BINARY(16) not VARCHAR(36). Storing UUIDs as text (xxxxxxxx-xxxx-xxxx-x
 Version 1 vs 4 vs 7. Version 1 uses MAC address + timestamp (privacy risk, now deprecated). Version 4 is random (current standard for most uses). Version 7 is time-ordered random (preferred for database PKs).`}
         conclusion={`UUIDs are the most common globally unique identifier format. This generator creates cryptographically random v4 UUIDs and time-ordered v7 UUIDs for database primary keys. For realistic test data with UUIDs: [Fake Data Generator](/calculators/dev/fake-data-generator).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

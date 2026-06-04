@@ -110,7 +110,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </button>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Pension Pot" value={fmtK(result.finalPot)} highlight />
             <ResultCard label="Monthly Income" value={fmt(result.monthlyIncome)} subValue="4% + state pension" />

@@ -53,7 +53,7 @@ export default function ZipToolClient() {
                 <div>
                   <span className="font-black font-mono text-green-600 mr-3">{r.zip}</span>
                   <span className="font-semibold text-gray-800">{r.city}, {r.stateCode}</span>
-                  <div className="text-xs text-gray-400">{r.county} · {r.type}</div>
+                  <div className="text-xs text-gray-400">{r.county} · {r.type} · 👥 {r.population > 0 ? r.population.toLocaleString() : 'N/A'}</div>
                 </div>
                 <a href={`https://www.google.com/maps/search/?api=1&query=${r.lat},${r.lng}`}
                   target="_blank" rel="noopener noreferrer"

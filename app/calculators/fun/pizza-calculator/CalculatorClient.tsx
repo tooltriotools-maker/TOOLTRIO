@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -21,16 +22,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const SIZES = [{v:'small',d:'Small 10"',slices:6},{v:'medium',d:'Medium 12"',slices:8},{v:'large',d:'Large 14"',slices:10},{v:'xl',d:'XL 16"',slices:12}]
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Pizza Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🍕 Pizza Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Never under-order pizza again. Calculate exactly how many pizzas you need!</p>
-
+      return (
+    <DevToolLayout
+      title="Pizza Calculator"
+      icon="🍕"
+      description="Never under-order pizza again. Calculate exactly how many pizzas you need!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-5" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700">People: <span className="text-orange-600 font-black">{people}</span></label>
@@ -195,6 +196,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

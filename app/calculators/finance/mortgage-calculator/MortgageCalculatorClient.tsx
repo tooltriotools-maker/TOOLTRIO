@@ -113,7 +113,7 @@ export default function MortgageCalculatorClient({ faqs, structuredData, related
         </Card>
 
         {/* Results */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* PITI Breakdown */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Total Monthly (PITI)" value={fmt(totalMonthly)} subValue="Complete payment" highlight />

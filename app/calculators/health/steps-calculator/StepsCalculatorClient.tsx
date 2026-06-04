@@ -62,7 +62,7 @@ export default function StepsCalculatorClient({ faqs, structuredData, relatedCal
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Calories Burned" value={`${calories} cal`} subValue={`${steps.toLocaleString()} steps`} highlight />
             <ResultCard label="Distance" value={`${distanceMiles.toFixed(2)} mi`} subValue={`${distanceKm.toFixed(2)} km`} />

@@ -78,7 +78,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="TDEE (Daily)" value={`${result.tdee} kcal`} subValue="Total energy expenditure" highlight />
             <ResultCard label="BMR (Resting)" value={`${result.bmr} kcal`} subValue="At complete rest" />

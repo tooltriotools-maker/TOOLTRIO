@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -24,16 +24,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const addStop = () => setStops(s=>[...s,{color:'#22c55e',pos:75}])
   const removeStop = (i:number) => setStops(s=>s.filter((_,j)=>j!==i))
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">CSS Gradient</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎨 CSS Gradient Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Build linear, radial &amp; conic gradients visually - copy CSS instantly</p>
-      <div className="rounded-2xl mb-6 h-40 w-full" style={{background:css}} />
+      return (
+    <DevToolLayout
+      title="CSS Gradient Generator"
+      icon="🎨"
+      description="Build linear, radial &amp; conic gradients visually - copy CSS instantly"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-2xl mb-6 h-40 w-full" style={{background:css}} />
       <div className="rounded-3xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-2 mb-5">
           {(['linear','radial','conic'] as const).map(t=>(
@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <span className="text-xs font-mono w-10">{stop.pos}%</span>
               {stops.length>2&&<button onClick={()=>removeStop(i)} className="text-red-400 hover:text-red-600"><Trash2 className="w-4 h-4"/></button>}
             </div>
-          ))}
+    ))}
         </div>
         <div className="p-3 bg-gray-950 rounded-xl flex items-center justify-between">
           <code className="text-green-300 font-mono text-sm flex-1 mr-3 break-all">background: {css};</code>
@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </ol>
         <div className="p-3 bg-gray-950 rounded-xl"><code className="text-green-300 font-mono text-xs">background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);</code></div>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="CSS Gradient Generator"
         category="dev"
@@ -123,6 +123,6 @@ oklch for clean gradients. RGB color space produces a muddy grey mid-zone in som
 Check contrast on text. If placing text over a gradient background, verify contrast at both ends with [Color Contrast](/calculators/dev/color-contrast).`}
         conclusion={`CSS gradients are versatile but verbose to hand-code. This generator handles the syntax while you focus on the visual result. For complete component visual styling: add shadows with [Box Shadow Generator](/calculators/dev/box-shadow-generator) and check accessibility with [Color Contrast](/calculators/dev/color-contrast).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

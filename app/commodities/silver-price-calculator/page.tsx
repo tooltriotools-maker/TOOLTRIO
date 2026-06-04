@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState, useMemo } from 'react'
 import { useCommodityPrices, getSilverPurityPrices, TROY_OZ_TO_GRAM } from '@/hooks/useCommodityPrices'
 import { CommodityPriceCard } from '@/components/commodities/CommodityPriceCard'
@@ -22,7 +24,7 @@ function SilverFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Silver Price FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-slate-300 shadow-md':'border-gray-100 hover:border-slate-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -57,6 +59,11 @@ export default function Page() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Silver Price Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Silver Price Calculator" category="Commodities" />
+          <ExportButtonPair title="Silver Price Calculator" category="Finance" />
+      </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
           <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🥈 Silver Price Calculator - Live by Purity</h1>
@@ -64,7 +71,7 @@ export default function Page() {
         </div>
         <div className="flex items-center gap-2">
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => <button key={k} onClick={()=>setFxKey(k)} className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey===k?'bg-white shadow text-gray-900':'text-gray-500'}`}>{k}</button>)}
+            {Object.keys(FX).map((k: any) => <button key={k} onClick={()=>setFxKey(k)} className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey===k?'bg-white shadow text-gray-900':'text-gray-500'}`}>{k}</button>)}
           </div>
           <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl border border-slate-200">
             <RefreshCw className={`w-3.5 h-3.5 ${loading?'animate-spin':''}`} />Refresh
@@ -94,8 +101,8 @@ export default function Page() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Weight</label>
                 <div className="flex gap-2">
-                  <input type="number" step="0.1" value={weight} onChange={e=>setWeight(+e.target.value)} className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-slate-400 font-bold" />
-                  <select value={wUnit} onChange={e=>setWUnit(e.target.value as any)} className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
+                  <input type="number" step="0.1" value={weight} onChange={(e: any) =>setWeight(+e.target.value)} className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-slate-400 font-bold" />
+                  <select value={wUnit} onChange={(e: any) =>setWUnit(e.target.value as any)} className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
                     <option value="gram">gram</option><option value="oz">troy oz</option><option value="kg">kg</option>
                   </select>
                 </div>
@@ -141,7 +148,7 @@ export default function Page() {
         <div className="rounded-2xl p-5 bg-slate-50 border border-slate-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-slate-600">📊 Silver Key Facts — 2026</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'~88:1',n:'Gold-silver ratio April 2026 — historically silver is cheap'},{s:'92.5%',n:'Purity of 925 sterling silver — most common for jewellery'},{s:'~60%',n:'Silver demand that is industrial (solar, EVs, electronics)'},{s:'130mg',n:'Silver used per solar panel — green energy demand driver'},{s:'800M oz',n:'Annual global silver mine supply (vs 120M oz gold)'},{s:'$36/oz',n:'Approximate silver spot price, Q1 2026 (USD/troy oz)'}].map((k,i)=>(
+            {[{s:'~88:1',n:'Gold-silver ratio April 2026 — historically silver is cheap'},{s:'92.5%',n:'Purity of 925 sterling silver — most common for jewellery'},{s:'~60%',n:'Silver demand that is industrial (solar, EVs, electronics)'},{s:'130mg',n:'Silver used per solar panel — green energy demand driver'},{s:'800M oz',n:'Annual global silver mine supply (vs 120M oz gold)'},{s:'$36/oz',n:'Approximate silver spot price, Q1 2026 (USD/troy oz)'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-slate-100"><p className="text-lg font-black text-slate-600">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -179,7 +186,7 @@ export default function Page() {
               {t:'Checking Value of Inherited Silver',b:'Have old silverware, coins, or jewellery? Check the hallmark stamped on the piece (.999, .925, .900, or .800). Weigh it on a kitchen scale (postal scales work fine for silver given lower per-gram value). Enter weight and purity — you\'ll have the melt value in seconds. Dealer buyback is typically 85–90% of melt value.'},
               {t:'Silver Investment — Coins vs Bars',b:'Silver coins (American Eagle, Canadian Maple Leaf) carry a 15–25% premium over spot due to minting and distribution costs. Silver bars carry 3–8% premium. For pure investment, 10oz or 100oz bars from reputable refiners offer the lowest premium. For liquidity, recognizable government coins are easiest to sell. Both track .999 spot — use this calculator with purity .999 and your weight to see current value.'},
               {t:'Identifying Gold-Silver Rotation Opportunity',b:'When the gold-silver ratio exceeds 80 (as it does now at ~88), historically silver has outperformed gold over the following 2–3 years when the ratio reverts. Some investors hold most of their precious metal allocation in silver at these ratios, rotating back to gold when the ratio drops below 50. Use our Precious Metals Profit Calculator to model both positions.'},
-            ].map((u,i)=>(<div key={i} className="border-l-4 border-slate-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
+            ].map((u: any, i: number) =>(<div key={i} className="border-l-4 border-slate-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
           </div>
         </section>
 
@@ -198,7 +205,7 @@ export default function Page() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices per gram, tola & oz with GST'},{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum per gram and troy oz'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on any silver trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All your metals at live prices — total P&L dashboard'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Has gold beaten your mutual fund SIP? Find out.'},{e:'📊',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'Measure real purchasing power loss vs silver gains'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-slate-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices per gram, tola & oz with GST'},{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum per gram and troy oz'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on any silver trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All your metals at live prices — total P&L dashboard'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Has gold beaten your mutual fund SIP? Find out.'},{e:'📊',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'Measure real purchasing power loss vs silver gains'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-slate-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-slate-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-slate-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>

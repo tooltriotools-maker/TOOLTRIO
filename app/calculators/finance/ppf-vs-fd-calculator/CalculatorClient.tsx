@@ -89,7 +89,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="PPF Maturity" value={fmtCompact(result.ppfFV)} subValue="100% Tax-Free (EEE)" highlight={result.ppfBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="FD Post-Tax" value={fmtCompact(result.fdFV)} subValue={`Tax paid: ${fmtCompact(result.fdTax)}`} highlight={!result.ppfBetter} icon={<Landmark className="w-4 h-4" />} />

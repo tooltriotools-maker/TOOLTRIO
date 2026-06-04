@@ -4,60 +4,70 @@ import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 
 export default function ZipToolClient() {
   const [zip, setZip] = useState('')
-  const [count, setCount] = useState('10')
-  const [results, setResults] = useState<any[]>([])
-  const [origin, setOrigin] = useState<any>(null)
+  const [result, setResult] = useState<any>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  async function find(z?: string) {
-    const val=(z||zip).trim(); if(z) setZip(z)
-    if(!/^\d{5}$/.test(val)){setError('Enter a valid 5-digit ZIP');return}
-    setLoading(true);setError('')
-    const res = await fetch(`/api/zip/nearby?zip=${val}&radius=500&limit=${count}`)
-    const data = await res.json()
-    setLoading(false)
-    if(!res.ok){setError(data.error);return}
-    setOrigin(data.origin);setResults(data.results)
+  async function lookup(z?: string) {
+    const val = (z || zip).trim(); if (z) setZip(z)
+    if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); setResult(null); return }
+    setLoading(true); setError('')
+    const res = await fetch(`/api/zip/lookup?zip=${val}`)
+    const data = await res.json(); setLoading(false)
+    if (!res.ok) { setError(data.error); setResult(null); return }
+    setResult(data)
   }
 
   return (
     <div>
-      <ZipQuickFill onSelect={z=>find(z)} />
-      <div className="grid grid-cols-3 gap-3 mb-4">
-        <div className="col-span-2">
-          <label className="text-sm font-semibold text-gray-600 block mb-1">ZIP Code</label>
-          <input value={zip} onChange={e=>setZip(e.target.value.replace(/\D/g,''))} placeholder="e.g. 10001" maxLength={5}
-            className="w-full border-2 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-green-500"
-            style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />
-        </div>
-        <div>
-          <label className="text-sm font-semibold text-gray-600 block mb-1">Results</label>
-          <select value={count} onChange={e=>setCount(e.target.value)}
-            className="w-full border-2 rounded-xl px-3 py-3 focus:outline-none focus:border-green-500"
-            style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}}>
-            {['5','10','15','20'].map(n=><option key={n} value={n}>{n} nearest</option>)}
-          </select>
-        </div>
+      <ZipQuickFill onSelect={z => lookup(z)} />
+      <div className="flex gap-2 mb-6">
+        <input value={zip} onChange={e => setZip(e.target.value.replace(/\D/g, ''))} onKeyDown={e => e.key === 'Enter' && lookup()}
+          placeholder="Enter ZIP code (e.g. 10001)" maxLength={5}
+          className="flex-1 border-2 rounded-xl px-4 py-3 text-lg font-mono focus:outline-none focus:border-green-500" style={{ borderColor: '#e2e8f0' }} />
+        <button onClick={() => lookup()} disabled={loading} className="px-6 py-3 text-white font-bold rounded-xl disabled:opacity-60"
+          style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)', boxShadow: '0 4px 16px rgba(34,197,94,0.3)' }}>
+          {loading ? '…' : '📍 Find Nearby'}
+        </button>
       </div>
-      <button onClick={()=>find()} disabled={loading} className="w-full py-3 text-white font-bold rounded-xl mb-4 disabled:opacity-60"
-        style={{background:'linear-gradient(135deg,#22c55e,#16a34a)',boxShadow:'0 4px 16px rgba(34,197,94,0.3)'}}>
-        {loading?'Finding...':'Find Nearest ZIPs'}
-      </button>
-      {error&&<div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4">{error}</div>}
-      {results.length>0&&origin&&(
-        <div className="space-y-2 max-h-96 overflow-y-auto">
-          {results.map((r:any,i:number)=>(
-            <div key={r.zip} className="rounded-xl border p-3 flex items-center gap-3"
-              style={{background:'rgba(255,255,255,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
-              <span className="text-xs text-gray-400 w-6">#{i+1}</span>
-              <span className="font-black font-mono text-green-600 w-14">{r.zip}</span>
-              <div className="flex-1"><div className="font-semibold text-gray-800 text-sm">{r.city}, {r.stateCode}</div><div className="text-xs text-gray-400">{r.county}</div></div>
-              <span className="font-bold text-green-600 text-sm">{r.distance.toFixed(1)} mi</span>
-              <a href={`https://www.google.com/maps/dir/${origin.lat},${origin.lng}/${r.lat},${r.lng}`}
-                target="_blank" rel="noopener noreferrer" className="text-blue-500 px-2 py-1 rounded-lg hover:bg-blue-50 text-sm">🗺️</a>
+      {error && <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4 text-sm">{error}</div>}
+      {result && (
+        <div>
+          <div className="rounded-2xl border p-4 mb-4" style={{ background: 'rgba(240,253,244,0.7)', borderColor: 'rgba(187,247,208,0.6)' }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">📍 CENTER ZIP</span>
             </div>
-          ))}
+            <div className="flex flex-wrap gap-4 items-center">
+              <div className="text-3xl font-black text-green-600 font-mono">{result.zip}</div>
+              <div>
+                <div className="font-bold text-gray-900">{result.city}, {result.state}</div>
+                <div className="text-sm text-gray-500">{result.county} · 👥 {result.population > 0 ? result.population.toLocaleString() : 'N/A'}</div>
+              </div>
+            </div>
+          </div>
+
+          {result.nearby && result.nearby.length > 0 && (
+            <div>
+              <h3 className="text-sm font-bold text-gray-700 mb-2">Nearby ZIP Codes</h3>
+              <div className="space-y-2">
+                {result.nearby.map((n: any, i: number) => (
+                  <div key={i} className="flex items-center justify-between gap-3 rounded-xl border p-3 bg-white/80">
+                    <div className="flex items-center gap-3">
+                      <span className="w-6 h-6 rounded-full bg-green-100 text-green-700 text-xs font-black flex items-center justify-center">{i + 1}</span>
+                      <div>
+                        <span className="font-mono font-black text-green-700 mr-2">{n.zip}</span>
+                        <span className="text-gray-800 font-semibold">{n.city}, {n.stateCode}</span>
+                      </div>
+                    </div>
+                    <div className="text-right text-sm">
+                      <div className="font-bold text-gray-700">{n.distance ? `${n.distance.toFixed(1)} mi` : '—'}</div>
+                      <div className="text-xs text-gray-400">👥 {n.population > 0 ? n.population.toLocaleString() : 'N/A'}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

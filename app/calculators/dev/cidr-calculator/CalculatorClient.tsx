@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -42,16 +42,16 @@ export default function CalculatorClient({ faqs }: Props) {
     setTimeout(() => setCopied(''), 1500)
   }
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">CIDR Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌐 CIDR Subnet Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate network address, subnet mask, host range and more from CIDR notation</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="CIDR Subnet Calculator"
+      icon="🌐"
+      description="Calculate network address, subnet mask, host range and more from CIDR notation"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <label className="text-xs font-bold text-gray-500 uppercase block mb-2">CIDR Notation</label>
         <input
           value={cidr}
@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs }: Props) {
                   {copied === r.l ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
-            ))}
+    ))}
           </div>
         )}
       </div>
@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the CIDR Calculator</h2>
         <p className="text-gray-600 text-sm mb-4">Enter an IP address with CIDR prefix length (e.g. 10.0.0.0/8 or 192.168.1.100/24). The calculator computes: network address (first address), broadcast (last address), subnet mask, wildcard mask, first/last usable host addresses, and total hosts. Common subnets: /8 = 16M hosts (Class A), /16 = 65534 hosts, /24 = 254 hosts, /30 = 2 hosts (point-to-point links), /32 = single host.</p>
       </div>
-      <div className="mt-6 space-y-3">
+      <div className="mt-6 space-y-4" data-pdf-results>
         {faqs.map(f => (
           <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
@@ -146,6 +146,6 @@ Plan for growth. Allocate more IP space than you currently need — a /22 (1,024
 
 For complete network planning: calculate subnets here, check connectivity with [API Response Time](/calculators/dev/api-response-time), and measure throughput with [Bandwidth Calculator](/calculators/dev/bandwidth-calculator).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

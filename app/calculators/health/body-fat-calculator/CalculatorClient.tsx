@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* Big number */}
           <Card gradient>
             <div className="text-center py-2">

@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-gray-500">by {fmtC(result.difference)}</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Investment Value" value={fmtC(result.investFV)} subValue={`+${fmtC(result.investGain)} gain`} highlight={result.investBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Interest Saved" value={fmtC(result.interestSaved)} subValue="Gross savings" highlight={!result.investBetter} icon={<Home className="w-4 h-4" />} />

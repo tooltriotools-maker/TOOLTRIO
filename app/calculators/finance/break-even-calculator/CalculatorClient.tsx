@@ -62,7 +62,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           )}
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Break-Even Units" value={isValid ? r.breakEvenUnits.toLocaleString() : '-'} highlight icon={<Target className="w-4 h-4" />} />
             <ResultCard label="Break-Even Revenue" value={isValid ? fmt(r.breakEvenRevenue) : '-'} icon={<DollarSign className="w-4 h-4" />} />

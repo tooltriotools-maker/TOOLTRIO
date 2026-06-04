@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className={`font-bold mt-1 ${result.color}`}>{result.cat}</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">VO2 Max Fitness Norms ({gender==='male'?'Male':'Female'}, Age {age})</h3>
             <div className="space-y-2">

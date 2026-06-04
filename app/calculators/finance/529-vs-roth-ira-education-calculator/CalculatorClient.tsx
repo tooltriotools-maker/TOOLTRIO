@@ -78,7 +78,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-gray-500">by {fmtC(result.difference)} over {result.years} yrs</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="529 Plan Value" value={fmtC(result.plan529FV)} subValue="Tax-free for education" highlight={result.plan529Better} icon={<GraduationCap className="w-4 h-4" />} />
             <ResultCard label="Roth IRA Value" value={fmtC(result.rothPostTax)} subValue={`After ~${fedTaxRate}% earnings tax`} highlight={!result.plan529Better} icon={<TrendingUp className="w-4 h-4" />} />

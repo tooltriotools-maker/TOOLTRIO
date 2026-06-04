@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState } from 'react'
 import { useCommodityPrices } from '@/hooks/useCommodityPrices'
 import { CommodityPriceCard } from '@/components/commodities/CommodityPriceCard'
@@ -19,6 +21,11 @@ export default function Page() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Brent Crude Oil Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Brent Crude Calculator" category="Commodities" />
+          <ExportButtonPair title="Brent Crude Calculator" category="Finance" />
+      </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
           <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>⛽ Brent Crude Oil Calculator</h1>
@@ -38,8 +45,8 @@ export default function Page() {
             <h2 className="font-black text-gray-900 mb-4">Calculate barrel Cost</h2>
             <div className="mb-5">
               <label className="block text-sm font-semibold text-gray-700 mb-2">Quantity (barrel): <span className="text-orange-600 font-black">{qty.toLocaleString()}</span></label>
-              <input type="range" min="1" max="100000" step="100" value={qty} onChange={e=>setQty(+e.target.value)} className="w-full accent-orange-500" />
-              <input type="number" value={qty} onChange={e=>setQty(+e.target.value)} className="mt-2 w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-400 font-bold" />
+              <input type="range" min="1" max="100000" step="100" value={qty} onChange={(e: any) =>setQty(+e.target.value)} className="w-full accent-orange-500" />
+              <input type="number" value={qty} onChange={(e: any) =>setQty(+e.target.value)} className="mt-2 w-full px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-400 font-bold" />
             </div>
             <div className="bg-orange-50 rounded-2xl border border-orange-200 p-5 text-center mb-4">
               <p className="text-sm text-gray-500 mb-1">Total Value ({qty.toLocaleString()} barrels)</p>

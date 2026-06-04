@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             ))}
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`rounded-2xl p-6 border-2 ${tshStatus.bg}`}>
             <p className="text-xs font-bold uppercase tracking-wide text-gray-600 mb-1">TSH Level: {tsh} mIU/L</p>
             <p className={`text-3xl font-black ${tshStatus.c}`}>{tshStatus.l}</p>

@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next'
-import { allBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
+import { allBlogPosts, blogCategories } from '@/lib/blog/posts'
 
 const BASE = 'https://tooltrio.com'
 const now = new Date().toISOString()
 
-// -- USA Finance calculator slugs (INDEXED) ------------------------------------
+// ── USA Finance calculator slugs ──────────────────────────────────────────────
 const financeCalcsUSA = [
   '401k-calculator', '401k-early-withdrawal-vs-loan-calculator', '401k-vs-pension-calculator', '401k-vs-roth-ira-calculator', '401k-vs-taxable-account-calculator',
   '529-vs-roth-ira-education-calculator', '529-vs-utma-calculator',
@@ -26,9 +26,16 @@ const financeCalcsUSA = [
   'stock-profit-calculator', 'student-loan-calculator', 'term-vs-whole-life-calculator', 'tip-calculator',
   'traditional-ira-vs-taxable-account-calculator', 'us-real-estate-vs-reits-calculator', 'vanguard-vs-fidelity-etf-calculator', 'whole-market-vs-sp500-calculator',
   'xirr-calculator',
+  // New 2026 trending
+  'mortgage-calculator', 'auto-loan-calculator', 'biweekly-mortgage-calculator',
+  'down-payment-calculator', 'closing-cost-calculator', 'payoff-date-calculator',
+  'budget-planner-calculator', 'savings-rate-calculator', 'loan-comparison-calculator',
+  'annual-income-calculator', 'interest-rate-calculator',
+  'business-loan-calculator', 'weekly-budget-calculator', 'invoice-calculator',
+  'wealth-calculator', 'tax-bracket-calculator', 'roth-conversion-calculator',
 ]
 
-// -- India-specific finance calculators ----------------------------------------
+// ── India Finance ─────────────────────────────────────────────────────────────
 const financeCalcsIndia = [
   'elss-vs-nps-calculator', 'elss-vs-ppf-calculator', 'emi-calculator', 'emi-vs-sip-calculator', 'epf-vs-nps-calculator',
   'fd-calculator', 'fd-comparison-calculator', 'gratuity-calculator', 'gst-calculator', 'home-loan-calculator', 'hra-calculator',
@@ -43,7 +50,7 @@ const financeCalcsIndia = [
   'sukanya-samriddhi-vs-ppf-calculator', 'swp-calculator', 'term-vs-ulip-calculator',
 ]
 
-// -- UK-specific finance calculators -------------------------------------------
+// ── UK Finance ────────────────────────────────────────────────────────────────
 const financeCalcsUK = [
   'isa-calculator', 'isa-vs-sipp-uk-calculator', 'offset-mortgage-vs-savings-uk-calculator',
   'stocks-shares-isa-vs-cash-isa-calculator',
@@ -52,7 +59,7 @@ const financeCalcsUK = [
   'uk-premium-bonds-vs-cash-isa-calculator', 'uk-remortgage-vs-invest-calculator', 'uk-stamp-duty-calculator', 'uk-stocks-vs-bonds-calculator',
 ]
 
-// -- Europe-specific finance calculators ---------------------------------------
+// ── Europe Finance ────────────────────────────────────────────────────────────
 const financeCalcsEurope = [
   'euro-auto-loan-calculator', 'euro-bonds-vs-etf-calculator', 'europe-etf-vs-property-calculator', 'europe-growth-vs-value-etf-calculator',
   'europe-msci-world-vs-sp500-calculator', 'europe-property-vs-reit-calculator', 'european-mortgage-calculator', 'fire-europe-calculator',
@@ -60,7 +67,7 @@ const financeCalcsEurope = [
   'spain-pension-vs-etf-calculator', 'vat-calculator-europe',
 ]
 
-// -- Health calculators --------------------------------------------------------
+// ── Health ────────────────────────────────────────────────────────────────────
 const healthCalcs = [
   'age-calculator', 'air-quality-health-calculator', 'alcohol-calorie-calculator', 'alcohol-metabolism-calculator', 'altitude-sickness-calculator',
   'army-body-fat-calculator', 'athletic-performance-calculator', 'bac-calculator', 'blood-pressure-calculator', 'blue-light-exposure-calculator',
@@ -89,7 +96,7 @@ const healthCalcs = [
   'yoga-calories-calculator', 'zinc-calculator',
 ]
 
-// -- Commodity calculator slugs ------------------------------------------------
+// ── Commodities ───────────────────────────────────────────────────────────────
 const commodityCalcs = [
   'gold-price-calculator', 'silver-price-calculator', 'platinum-price-calculator',
   'palladium-price-calculator', 'crude-oil-calculator', 'brent-crude-calculator',
@@ -97,7 +104,7 @@ const commodityCalcs = [
   'commodity-portfolio-tracker',
 ]
 
-// -- Dev tools -----------------------------------------------------------------
+// ── Dev tools ─────────────────────────────────────────────────────────────────
 const devTools = [
   'json-formatter', 'regex-tester', 'base64-encoder', 'uuid-generator', 'hash-generator', 'color-converter',
   'unix-timestamp', 'base-converter', 'password-generator', 'url-encoder', 'html-encoder', 'css-unit-converter',
@@ -118,7 +125,7 @@ const devTools = [
   'xml-to-json', 'binary-text-converter', 'rsa-key-info', 'package-json-gen',
 ]
 
-// -- Fun tools -----------------------------------------------------------------
+// ── Fun tools ─────────────────────────────────────────────────────────────────
 const funTools = [
   'lucky-number', 'zodiac-calculator', 'love-compatibility', 'personality-quiz', 'random-name-generator',
   'superhero-name', 'villain-name', 'fantasy-name-generator', 'age-in-days', 'birthday-countdown',
@@ -128,145 +135,132 @@ const funTools = [
   'insult-generator', 'fortune-cookie', 'would-you-rather', 'trivia-quiz', 'random-fact-generator',
 ]
 
+// ── ZIP tools (ALL 35) ────────────────────────────────────────────────────────
+const zipTools = [
+  'address-to-zip',
+  'area-code-by-zip',
+  'city-to-zip',
+  'county-zip-codes',
+  'drive-time-by-zip',
+  'largest-zip-codes',
+  'multi-zip-distance',
+  'multiple-cities-in-zip',
+  'nearest-zip-code',
+  'same-timezone-zips',
+  'state-zip-codes',
+  'usps-address-format',
+  'zip-boundary-info',
+  'zip-by-area-code',
+  'zip-code-distance',
+  'zip-code-elevation',
+  'zip-code-format-guide',
+  'zip-code-generator',
+  'zip-code-lookup',
+  'zip-code-map',
+  'zip-code-population',
+  'zip-code-type',
+  'zip-code-validator',
+  'zip-plus-4-lookup',
+  'zip-time-converter',
+  'zip-to-area-code',
+  'zip-to-city',
+  'zip-to-coordinates',
+  'zip-to-county',
+  'zip-to-state',
+  'zip-to-timezone',
+  'zip-to-timezone-map',
+  'zip-to-zip-route',
+  'zips-by-city-name',
+  'zips-within-radius',
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  // ── Deduplicate allBlogPosts by slug (safety net) ──────────────────────────
+  const seenBlogSlugs = new Set<string>()
+  const uniqueBlogPosts = allBlogPosts.filter(p => {
+    if (seenBlogSlugs.has(p.slug)) return false
+    seenBlogSlugs.add(p.slug)
+    return true
+  })
+
   return [
-    // -- Core pages --
-    { url: BASE,                              lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
-    { url: `${BASE}/calculators/finance`,     lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/calculators/health`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/blog`,                    lastModified: now, changeFrequency: 'weekly',  priority: 0.9 },
-    { url: `${BASE}/about`,                   lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/methodology`,             lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/contact`,                 lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE}/privacy-policy`,          lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
-    { url: `${BASE}/disclaimer`,              lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
+    // ── Core pages ──────────────────────────────────────────────────────────
+    { url: BASE,                               lastModified: now, changeFrequency: 'weekly',  priority: 1.0  },
+    { url: `${BASE}/calculators/finance`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
+    { url: `${BASE}/calculators/health`,       lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
+    { url: `${BASE}/calculators/dev`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.80 },
+    { url: `${BASE}/calculators/fun`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
+    { url: `${BASE}/zip`,                      lastModified: now, changeFrequency: 'weekly',  priority: 0.85 },
+    { url: `${BASE}/commodities`,              lastModified: now, changeFrequency: 'hourly',  priority: 0.97 },
+    { url: `${BASE}/blog`,                     lastModified: now, changeFrequency: 'weekly',  priority: 0.90 },
+    { url: `${BASE}/about`,                    lastModified: now, changeFrequency: 'monthly', priority: 0.70 },
+    { url: `${BASE}/methodology`,              lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/contact`,                  lastModified: now, changeFrequency: 'monthly', priority: 0.60 },
+    { url: `${BASE}/privacy-policy`,           lastModified: now, changeFrequency: 'yearly',  priority: 0.40 },
+    { url: `${BASE}/disclaimer`,               lastModified: now, changeFrequency: 'yearly',  priority: 0.40 },
 
-    // -- Commodities hub --
-    { url: `${BASE}/commodities`, lastModified: now, changeFrequency: 'hourly' as const, priority: 0.97 },
-
-    // -- USA Finance calculators --
+    // ── Finance calculators ─────────────────────────────────────────────────
     ...financeCalcsUSA.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.88,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.88,
     })),
-
-    // -- New trending USA finance calculators (2026) --
-    ...[
-      'mortgage-calculator', 'auto-loan-calculator', 'biweekly-mortgage-calculator',
-      'down-payment-calculator', 'closing-cost-calculator', 'payoff-date-calculator',
-      'budget-planner-calculator', 'savings-rate-calculator', 'loan-comparison-calculator',
-      'annual-income-calculator', 'personal-loan-calculator', 'interest-rate-calculator',
-      'business-loan-calculator', 'weekly-budget-calculator', 'invoice-calculator',
-      'wealth-calculator', 'tax-bracket-calculator', 'roth-conversion-calculator',
-    ].map(slug => ({
-      url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.88,
-    })),
-
-    // -- India Finance calculators --
     ...financeCalcsIndia.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.88,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
     })),
-
-    // -- UK Finance calculators --
     ...financeCalcsUK.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.88,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
     })),
-
-    // -- Europe Finance calculators --
     ...financeCalcsEurope.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.88,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.83,
     })),
 
-    // -- Health calculators --
+    // ── Health calculators ──────────────────────────────────────────────────
     ...healthCalcs.map(slug => ({
       url: `${BASE}/calculators/health/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.85,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
     })),
 
-    // -- Commodity calculators --
+    // ── Commodity calculators ───────────────────────────────────────────────
     ...commodityCalcs.map(slug => ({
       url: `${BASE}/commodities/${slug}`,
-      lastModified: now,
-      changeFrequency: 'hourly' as const,
-      priority: 0.92,
+      lastModified: now, changeFrequency: 'hourly' as const, priority: 0.92,
     })),
 
-    // -- Dev tools --
-    ...devTools.map(s => ({
-      url: `${BASE}/calculators/dev/${s}`,
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
+    // ── Dev tools ───────────────────────────────────────────────────────────
+    ...devTools.map(slug => ({
+      url: `${BASE}/calculators/dev/${slug}`,
+      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.70,
     })),
 
-    // -- Fun tools --
-    ...funTools.map(s => ({
-      url: `${BASE}/calculators/fun/${s}`,
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
+    // ── Fun tools ───────────────────────────────────────────────────────────
+    ...funTools.map(slug => ({
+      url: `${BASE}/calculators/fun/${slug}`,
+      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.60,
     })),
 
-    // -- USA Finance Blog Posts 2026 --
-    ...[
-      'how-much-mortgage-can-i-afford-usa-2026', 'how-to-pay-off-mortgage-early-usa-2026',
-      'car-loan-calculator-usa-2026-rates-by-state', 'tax-bracket-guide-usa-2026-marginal-vs-effective',
-      'how-much-to-save-for-retirement-by-age-usa', 'budget-50-30-20-rule-usa-real-examples-2026',
-      'annual-salary-by-hourly-rate-usa-2026', 'down-payment-how-much-house-usa-2026',
-      'roth-ira-vs-401k-which-is-better-2026', 'wealth-building-guide-usa-2026-net-worth-by-age',
-    ].map(slug => ({
-      url: `${BASE}/blog/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.82,
+    // ── ZIP tools (ALL 35 — previously missing from sitemap) ────────────────
+    ...zipTools.map(slug => ({
+      url: `${BASE}/zip/${slug}`,
+      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.80,
     })),
 
-    // -- USA Finance Blog Posts Batch 2 --
-    ...[
-      'emergency-fund-calculator-usa-2026', 'compound-interest-guide-usa-how-to-grow-money-2026',
-      'social-security-claiming-strategy-usa-2026', 'credit-card-payoff-calculator-usa-interest-guide-2026',
-      'home-equity-heloc-vs-cashout-refinance-usa-2026', 'investment-property-calculator-usa-rental-income-2026',
-      'student-loan-payoff-strategies-usa-2026', 'dividend-investing-guide-usa-2026-passive-income',
-      'inflation-impact-calculator-usa-2026-purchasing-power', 'lease-vs-buy-car-calculator-usa-2026',
-      'fire-calculator-guide-usa-retire-early-2026', 'net-worth-by-age-usa-2026-how-do-you-compare',
-      'hsa-triple-tax-advantage-guide-usa-2026', 'real-estate-vs-stock-market-usa-2026-which-wins',
-    ].map(slug => ({
-      url: `${BASE}/blog/${slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.82,
-    })),
-
-    // -- All blog posts --
-    ...blogPosts.map(p => ({
+    // ── Blog posts — DYNAMIC: auto-includes every post in allBlogPosts ──────
+    // Adding a new post to lib/blog/posts.ts automatically adds it here.
+    // No manual sitemap edits needed ever again.
+    ...uniqueBlogPosts.map(p => ({
       url: `${BASE}/blog/${p.slug}`,
       lastModified: new Date(p.publishedAt).toISOString(),
       changeFrequency: 'monthly' as const,
-      priority: 0.78,
+      priority: 0.82,
     })),
 
-    // -- Blog categories --
+    // ── Blog categories — DYNAMIC: auto-includes every category ────────────
     ...blogCategories.map(cat => ({
       url: `${BASE}/blog/category/${cat.slug}`,
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
+      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.70,
     })),
   ]
 }

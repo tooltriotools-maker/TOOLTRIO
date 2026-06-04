@@ -67,7 +67,7 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
 </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* BMI Score Card */}
           <Card gradient>
             <div className="text-center py-2">

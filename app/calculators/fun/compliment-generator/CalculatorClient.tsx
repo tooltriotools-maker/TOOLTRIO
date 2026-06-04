@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -17,16 +18,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const next = () => setIdx(i => (i+1+Math.floor(Math.random()*(COMPLIMENTS.length-1)))%COMPLIMENTS.length)
   const copy = () => { navigator.clipboard.writeText(COMPLIMENTS[idx]); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Compliment Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>💐 Compliment Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">You deserve to hear something wonderful today. Click for your personalised compliment!</p>
-
+      return (
+    <DevToolLayout
+      title="Compliment Generator"
+      icon="💐"
+      description="You deserve to hear something wonderful today. Click for your personalised compliment!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl border-2 border-pink-200 p-8 text-center mb-6">
         <p className="text-2xl leading-relaxed text-gray-800 font-semibold min-h-24 flex items-center justify-center">{COMPLIMENTS[idx]}</p>
         <div className="flex items-center justify-center gap-3 mt-6">
@@ -166,6 +167,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

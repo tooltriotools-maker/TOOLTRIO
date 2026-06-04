@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -38,16 +38,16 @@ export default function CalculatorClient({ faqs }: Props) {
     return msg
   }, [ctype, scope, desc, body, breaking, footer])
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Git Commit Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>💬 Conventional Commit Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Write perfect semantic commit messages (Angular/Conventional Commits spec)</p>
-      <div className="rounded-3xl border p-6 mb-4 space-y-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Conventional Commit Generator"
+      icon="💬"
+      description="Write perfect semantic commit messages (Angular/Conventional Commits spec)"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-4 space-y-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Type</label>
           <div className="flex flex-wrap gap-2">
@@ -83,14 +83,14 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
           <pre className="font-mono text-sm p-4 bg-gray-950 text-green-300 rounded-xl whitespace-pre-wrap">{commit}</pre>
         </div>
-      )}
+    )}
       <div className="mt-6 rounded-2xl border p-6" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <h2 className="text-xl font-black text-gray-900 mb-2">How to Use the Git Commit Generator</h2>
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">The Conventional Commits specification creates a consistent, machine-readable commit history that enables automatic CHANGELOG generation and semantic versioning. Select your commit type (feat for new features, fix for bug fixes, docs for documentation), optionally add a scope (the part of the codebase affected), then write a short description in imperative mood ("add login page" not "added login page"). For complex changes, use the Body to explain the "why". Tick Breaking Change if the change is not backwards-compatible (this bumps the major semver version).</p>
         <div className="p-3 bg-gray-950 rounded-xl mb-4"><code className="text-green-300 font-mono text-sm">feat(auth): add OAuth2 Google login<br/><br/>Allows users to sign in with their Google account.<br/>Implements PKCE flow for enhanced security.<br/><br/>Closes #234</code></div>
         <p className="text-sm text-gray-600">Common tools that read conventional commits: semantic-release (auto version bumping), standard-version, conventional-changelog (auto CHANGELOG). GitHub and GitLab display the type prefix prominently in their UI, making your git log much easier to scan.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Git Commit Message Generator — Conventional Commits"
         category="dev"
@@ -138,6 +138,6 @@ One logical change per commit. A commit titled feat: add login, fix sidebar, upd
 BREAKING CHANGE in footer for majors. Add BREAKING CHANGE: description after a blank line for changes that warrant a major version bump in semantic-release.`}
         conclusion={`Commit messages are team documentation. A year of Conventional Commits gives you an automatically generated changelog and readable code narrative. For a complete repo setup: generate commits here, configure with [Gitignore Generator](/calculators/dev/gitignore-generator), manage dependencies with [Package JSON Generator](/calculators/dev/package-json-gen).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

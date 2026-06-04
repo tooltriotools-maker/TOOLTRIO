@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Your Half-Life" value={String(halfLife)} onChange={v => setHalfLife(Number(v))} options={[{value:'3',label:'Fast (3h) - smoker/athlete'},{value:'5.5',label:'Average (5.5h)'},{value:'7',label:'Slow (7h) - typical adult'},{value:'10',label:'Very slow (10h) - pregnant/pill'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`p-5 rounded-2xl border-2 text-center ${result.atSleep > 50 ? 'bg-red-50 border-red-300' : result.atSleep > 25 ? 'bg-yellow-50 border-yellow-300' : 'bg-green-50 border-green-300'}`}>
             <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Caffeine at Bedtime</p>
             <p className={`text-6xl font-black my-2 ${result.impactColor}`}>{result.atSleep}mg</p>

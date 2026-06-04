@@ -1,7 +1,6 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -39,16 +38,16 @@ const BWPRESETS = [
   { l: '5G ~300Mbps', bw: 300, u: 'Mbps' as const },
   { l: 'USB 3.0 5Gbps', bw: 5, u: 'Gbps' as const }
 ]
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Bandwidth Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📡 Bandwidth & Transfer Time Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate file transfer times based on file size and connection speed.</p>
-
+      return (
+    <DevToolLayout
+      title="Bandwidth & Transfer Time Calculator"
+      icon="📡"
+      description="Calculate file transfer times based on file size and connection speed."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-5" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700 mb-2 block">File Size</label>
@@ -137,6 +136,6 @@ CDN matters for large files. For files over 100MB delivered globally, the closes
 
 For complete network planning: calculate bandwidth here, measure actual response times with [API Response Time](/calculators/dev/api-response-time), and plan subnet sizing with [CIDR Calculator](/calculators/dev/cidr-calculator).`}
       />
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

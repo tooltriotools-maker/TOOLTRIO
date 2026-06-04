@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <HeightField unit={unit} value={height} onChange={setHeight} />
 </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-4">
             {[
               {l:'Weight',pct:result.weightPct,s:result.wStatus,icon:'⚖️'},

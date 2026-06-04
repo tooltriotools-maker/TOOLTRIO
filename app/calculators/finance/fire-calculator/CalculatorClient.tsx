@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* FIRE number & status */}
           <div className={`p-5 rounded-2xl border-2 ${result.isAchievable ? 'bg-green-50 border-green-300' : 'bg-amber-50 border-amber-300'}`}>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

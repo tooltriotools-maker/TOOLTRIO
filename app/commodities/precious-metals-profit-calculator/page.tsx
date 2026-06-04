@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState, useMemo } from 'react'
 import { useCommodityPrices, type CommodityData } from '@/hooks/useCommodityPrices'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts'
@@ -29,7 +31,7 @@ function PnlFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Precious Metals P&L FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-green-300 shadow-md':'border-gray-100 hover:border-green-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -101,6 +103,11 @@ export default function PreciousMetalsProfitPage() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Precious Metals P&amp;L Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Precious Metals Profit Calculator" category="Commodities" />
+          <ExportButtonPair title="Precious Metals Profit Calculator" category="Finance" />
+      </div>
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
@@ -109,7 +116,7 @@ export default function PreciousMetalsProfitPage() {
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => (
+            {Object.keys(FX).map((k: any) => (
               <button key={k} onClick={() => setFxKey(k)}
                 className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey === k ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}>{k}</button>
             ))}
@@ -124,7 +131,7 @@ export default function PreciousMetalsProfitPage() {
 
       {/* Metal selector */}
       <div className="flex gap-3 mb-6 flex-wrap">
-        {METALS.map(m => {
+        {METALS.map((m: any) => {
           const c = data[m.key]
           const up = c.changePct >= 0
           return (
@@ -156,7 +163,7 @@ export default function PreciousMetalsProfitPage() {
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Buy Price (USD per troy oz)</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
-                  <input type="number" step="1" min="0" value={buyPrice} onChange={e => setBuyPrice(+e.target.value)}
+                  <input type="number" step="1" min="0" value={buyPrice} onChange={(e: any) => setBuyPrice(+e.target.value)}
                     className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-yellow-400 font-bold" />
                 </div>
               </div>
@@ -166,9 +173,9 @@ export default function PreciousMetalsProfitPage() {
                   Quantity: <span className="text-yellow-600 font-black">{qty} troy oz</span>
                 </label>
                 <input type="range" min="0.1" max="1000" step="0.1" value={qty}
-                  onChange={e => setQty(+e.target.value)} className="w-full accent-yellow-500" />
+                  onChange={(e: any) => setQty(+e.target.value)} className="w-full accent-yellow-500" />
                 <div className="flex items-center gap-2 mt-1">
-                  <input type="number" step="0.1" min="0.1" value={qty} onChange={e => setQty(+e.target.value)}
+                  <input type="number" step="0.1" min="0.1" value={qty} onChange={(e: any) => setQty(+e.target.value)}
                     className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm font-bold" />
                   <span className="text-xs text-gray-400">{(qty * 31.1035).toFixed(1)}g</span>
                 </div>
@@ -177,7 +184,7 @@ export default function PreciousMetalsProfitPage() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Buy Fee / Premium: <span className="text-orange-600">{buyFee}%</span></label>
                 <input type="range" min="0" max="10" step="0.1" value={buyFee}
-                  onChange={e => setBuyFee(+e.target.value)} className="w-full accent-orange-500" />
+                  onChange={(e: any) => setBuyFee(+e.target.value)} className="w-full accent-orange-500" />
                 <p className="text-[11px] text-gray-400 mt-0.5">Dealer markup, mint premium, transaction cost</p>
               </div>
             </div>
@@ -206,7 +213,7 @@ export default function PreciousMetalsProfitPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Manual Sell Price</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-bold">$</span>
-                    <input type="number" step="1" min="0" value={sellPrice} onChange={e => setSellPrice(+e.target.value)}
+                    <input type="number" step="1" min="0" value={sellPrice} onChange={(e: any) => setSellPrice(+e.target.value)}
                       className="w-full pl-7 pr-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 font-bold" />
                   </div>
                 </div>
@@ -215,7 +222,7 @@ export default function PreciousMetalsProfitPage() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Sell Fee: <span className="text-orange-600">{sellFee}%</span></label>
                 <input type="range" min="0" max="10" step="0.1" value={sellFee}
-                  onChange={e => setSellFee(+e.target.value)} className="w-full accent-orange-500" />
+                  onChange={(e: any) => setSellFee(+e.target.value)} className="w-full accent-orange-500" />
               </div>
 
               <div>
@@ -223,7 +230,7 @@ export default function PreciousMetalsProfitPage() {
                   Holding Period: <span className="text-blue-600 font-black">{months} months</span>
                 </label>
                 <input type="range" min="1" max="120" value={months}
-                  onChange={e => setMonths(+e.target.value)} className="w-full accent-blue-600" />
+                  onChange={(e: any) => setMonths(+e.target.value)} className="w-full accent-blue-600" />
               </div>
             </div>
           </div>
@@ -275,7 +282,7 @@ export default function PreciousMetalsProfitPage() {
                 { label: 'Net Proceeds (after fee)',                                      val: fmt(results.netProc),     bold: true  },
                 { label: 'Total Fees Paid',                                               val: fmt(results.totalFees),   dim: true   },
                 { label: 'Net Profit / Loss',                                             val: `${isProfit?'+':''}${fmt(results.profit)}`, bold: true, accent: isProfit ? 'text-green-700 bg-green-50' : 'text-red-700 bg-red-50' },
-              ].map((row, i) => (
+              ].map((row: any, i: number) => (
                 <div key={i} className={`flex justify-between items-center px-3 py-2.5 rounded-lg mb-1 last:mb-0 ${row.accent ?? (row.bold ? 'bg-gray-50' : '')} ${row.dim ? 'opacity-70' : ''}`}>
                   <span className={`text-sm ${row.bold ? 'font-bold text-gray-900' : 'text-gray-600'}`}>{row.label}</span>
                   <span className={`font-black text-sm ${row.accent ?? 'text-gray-900'}`}>{row.val}</span>
@@ -292,7 +299,7 @@ export default function PreciousMetalsProfitPage() {
               <BarChart data={scenarios} margin={{ top: 5, right: 5, left: 10, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                 <XAxis dataKey="label" tick={{ fontSize: 10 }} />
-                <YAxis tickFormatter={v => `${SYM[fxKey]}${Math.abs(v) >= 1000 ? `${(v/1000).toFixed(0)}k` : v}`} tick={{ fontSize: 10 }} />
+                <YAxis tickFormatter={(v: any) => `${SYM[fxKey]}${Math.abs(v) >= 1000 ? `${(v/1000).toFixed(0)}k` : v}`} tick={{ fontSize: 10 }} />
                 <Tooltip formatter={(v: number) => [`${SYM[fxKey]}${v.toLocaleString()}`, 'P&amp;L']} />
                 <ReferenceLine y={0} stroke="#9ca3af" strokeWidth={1.5} />
                 <Bar dataKey="pnl" radius={[4,4,0,0]}
@@ -300,7 +307,7 @@ export default function PreciousMetalsProfitPage() {
                   label={false}
                   className="transition-all"
                 >
-                  {scenarios.map((s, i) => (
+                  {scenarios.map((s: any, i: number) => (
                     <rect key={i} fill={s.pnl >= 0 ? '#16a34a' : '#ef4444'} />
                   ))}
                 </Bar>
@@ -315,7 +322,7 @@ export default function PreciousMetalsProfitPage() {
               { n:'Gold Loan',    e:'🏦', h:'/commodities/gold-loan-calculator'        },
               { n:'Portfolio',    e:'🗂️', h:'/commodities/commodity-portfolio-tracker' },
               { n:'Crypto P&amp;L',   e:'₿',  h:'/calculators/finance/crypto-profit-calculator' },
-            ].map(l => (
+            ].map((l: any) => (
               <Link key={l.h} href={l.h}
                 className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-100 shadow-card hover:border-yellow-200 transition-all text-xs font-bold text-gray-700 group">
                 <span className="text-lg">{l.e}</span>{l.n}
@@ -333,7 +340,7 @@ export default function PreciousMetalsProfitPage() {
         <div className="rounded-2xl p-5 bg-green-50 border border-green-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-green-700">📊 Precious Metals P&L Key Facts — 2026</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'2–4%',n:'Typical dealer buy premium over spot — your hidden entry cost'},{s:'1–2%',n:'Dealer sell discount below spot — adds to your break-even gap'},{s:'~10.6%',n:'Gold 20-year annualized return USD (World Gold Council)'},{s:'3 years',n:'Holding period for LTCG tax benefit on physical gold in India'},{s:'20% + indexation',n:'Long-term capital gains tax on physical gold in India'},{s:'Break-even',n:'Buy price + all fees ÷ quantity — what you must exceed to profit'}].map((k,i)=>(
+            {[{s:'2–4%',n:'Typical dealer buy premium over spot — your hidden entry cost'},{s:'1–2%',n:'Dealer sell discount below spot — adds to your break-even gap'},{s:'~10.6%',n:'Gold 20-year annualized return USD (World Gold Council)'},{s:'3 years',n:'Holding period for LTCG tax benefit on physical gold in India'},{s:'20% + indexation',n:'Long-term capital gains tax on physical gold in India'},{s:'Break-even',n:'Buy price + all fees ÷ quantity — what you must exceed to profit'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-green-100"><p className="text-lg font-black text-green-700">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -355,7 +362,7 @@ export default function PreciousMetalsProfitPage() {
               {t:'Evaluating Whether to Sell Now',b:'Enter your exact buy price and quantity. Set sell price to the current live price (or manually enter if using over-the-counter). Enter realistic dealer fees. The result tells you: your actual net profit after all fees, annualized return, and whether you\'ve held long enough for LTCG tax benefits (3 years in India). If annualized return is below your FD or SIP return and you don\'t have a specific reason to hold, the numbers may support selling.'},
               {t:'Setting a Profit Target Before Buying',b:'Before entering a position, use the calculator in reverse: enter your planned buy price and fees. Adjust the sell price field to find what price gives you your target profit (e.g., 15% net return). This becomes your target sell level. Set a price alert at that level. Also check the break-even price — the gap between entry and break-even tells you the minimum appreciation you need before seeing any profit.'},
               {t:'Comparing Two Metal Positions',b:'Open two browser tabs with this calculator. Enter your gold position in one and silver in the other (or any two metals). Compare annualized returns side by side. If one is dramatically outperforming, it may be time to rebalance. This kind of side-by-side comparison is exactly what the gold-silver ratio trade exploits — rotating from the outperforming metal to the underperforming one when ratios reach extremes.'},
-            ].map((u,i)=>(<div key={i} className="border-l-4 border-green-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
+            ].map((u: any, i: number) =>(<div key={i} className="border-l-4 border-green-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
           </div>
         </section>
 
@@ -364,7 +371,7 @@ export default function PreciousMetalsProfitPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices to get current sell price'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver spot for 999/925/900/800 purity'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Aggregate all metal positions at live prices'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Compare gold ROI against your mutual fund SIP'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — who won?'},{e:'📈',n:'Stock Profit Calculator',h:'/calculators/finance/stock-profit-calculator',d:'Same P&L analysis for equity trades'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices to get current sell price'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver spot for 999/925/900/800 purity'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Aggregate all metal positions at live prices'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Compare gold ROI against your mutual fund SIP'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — who won?'},{e:'📈',n:'Stock Profit Calculator',h:'/calculators/finance/stock-profit-calculator',d:'Same P&L analysis for equity trades'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-green-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-green-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>

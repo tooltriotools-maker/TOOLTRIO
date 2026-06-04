@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -42,16 +43,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const fact = FACTS[idx]
   const copy = () => { navigator.clipboard.writeText(fact.fact); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Random Fact Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🤯 Random Fact Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Expand your mind with wild, verified, and mind-blowing facts from around the world!</p>
-
+      return (
+    <DevToolLayout
+      title="Random Fact Generator"
+      icon="🤯"
+      description="Expand your mind with wild, verified, and mind-blowing facts from around the world!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-8 mb-4">
         <div className="flex items-center gap-2 mb-4">
           <span className="px-3 py-1 bg-blue-100 border border-blue-300 text-blue-700 font-bold text-xs rounded-full">{fact.cat}</span>
@@ -192,6 +193,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <ResultCard label="SIP Final Value" value={fmtCompact(result.sipFV)} subValue={`Gain: ${fmtCompact(result.sipGain)}`} highlight={result.sipBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Stocks Final Value" value={fmtCompact(result.stockFV)} subValue={`Gain: ${fmtCompact(result.stockGain)}`} highlight={!result.sipBetter} icon={<BarChart2 className="w-4 h-4" />} />

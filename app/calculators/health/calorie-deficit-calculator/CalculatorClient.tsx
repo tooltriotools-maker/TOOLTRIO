@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Weeks to Goal" value={weeks} onChange={setWeeks} min={4} max={104} step={1} suffix="wks" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3 text-center">
             {[{l:'TDEE',v:result.tdee,u:'kcal/day',c:'bg-gray-50 border-gray-200 text-gray-700'},{l:'Target Calories',v:result.targetCals,u:'kcal/day',c:'bg-blue-50 border-blue-200 text-blue-700'},{l:'Daily Deficit',v:result.actualDeficit,u:'kcal/day',c:'bg-green-50 border-green-200 text-green-700'}].map(s=>(
               <div key={s.l} className={`p-4 rounded-xl border-2 ${s.c}`}><p className="text-xs font-bold uppercase opacity-70">{s.l}</p><p className="text-3xl font-black my-1">{s.v}</p><p className="text-xs opacity-70">{s.u}</p></div>

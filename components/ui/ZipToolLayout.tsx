@@ -1,5 +1,9 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
+
+
 
 interface RelatedTool { name: string; href: string; icon: string }
 interface FAQ { q: string; a: string }
@@ -134,18 +138,23 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
           ) : (
             <p className="text-gray-500 text-base max-w-xl mx-auto">{description}</p>
           )}
-          <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">
+          <div className="flex items-center justify-center gap-3 mt-4 flex-wrap">
             <span className="text-xs text-green-600 font-medium flex items-center gap-1">⚡ Optimized for USA Addresses</span>
             <span className="text-xs text-gray-400">•</span>
             <span className="text-xs text-green-600 font-medium">🆓 Free & Fast</span>
             <span className="text-xs text-gray-400">•</span>
             <span className="text-xs text-green-600 font-medium">🔒 No Data Stored</span>
           </div>
+          <div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
+            <ShareButton title={title} description={description} category="ZIP" />
+            <ExportButtonPair title={title} category="Dev" compact />
+          </div>
         </div>
 
         {/* ── MAIN TOOL CARD ────────────────────────────────────── */}
         <div className="rounded-3xl border bg-white p-6 sm:p-8 mb-6 shadow-sm"
-          style={{ borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 24px rgba(15,23,42,0.07)' }}>
+          style={{ borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 24px rgba(15,23,42,0.07)' }}
+          data-results="true">
           {children}
         </div>
 

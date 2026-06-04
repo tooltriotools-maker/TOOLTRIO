@@ -82,7 +82,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Roth After-Tax" value={fmtC(result.rothPostTax)} subValue="100% tax-free" highlight={result.rothBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="401k After-Tax" value={fmtC(result.tradPostTax)} subValue={`-${fmtC(result.tradTax)} tax`} highlight={!result.rothBetter} icon={<TrendingUp className="w-4 h-4" />} />

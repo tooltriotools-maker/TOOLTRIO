@@ -52,7 +52,7 @@ export default function AnnualIncomeCalculatorClient({ faqs, structuredData, rel
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Annual Gross" value={fmtCompact(result.grossAnnual)} subValue="Before taxes" highlight />
             <ResultCard label="Annual Net" value={fmtCompact(result.netAnnual)} subValue="Est. take-home" />

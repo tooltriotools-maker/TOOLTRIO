@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { Copy, Check, RefreshCw } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -58,17 +58,16 @@ export default function CalculatorClient({ faqs }: Props) {
     : (ratio||0) >= 3 ? { label: 'AA Large', color: 'text-yellow-600', bg: 'bg-yellow-50 border-yellow-300' }
     : { label: 'Fail', color: 'text-red-600', bg: 'bg-red-50 border-red-300' }
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Color Contrast Checker</span>
-      </nav>
-
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>♿ Color Contrast Checker (WCAG) <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Check color contrast ratios against WCAG 2.1 AA/AAA standards for accessible web design. Required for ADA compliance.</p>
-
+      return (
+    <DevToolLayout
+      title="Color Contrast Checker (WCAG)"
+      icon="♿"
+      description="Check color contrast ratios against WCAG 2.1 AA/AAA standards for accessible web design. Required for ADA compliance."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Controls */}
         <div className="space-y-4">
@@ -131,7 +130,7 @@ export default function CalculatorClient({ faqs }: Props) {
                   <span className={`text-lg flex-shrink-0`}>{item.pass ? '✅' : '❌'}</span>
                   <span className={`text-sm font-semibold ${item.pass?'text-green-800':'text-red-800'}`}>{item.label}</span>
                 </div>
-              ))}
+    ))}
             </div>
             <p className="text-xs text-gray-400 mt-3">Large text = 18px+ regular or 14px+ bold. {isLargeText?'v Your current size qualifies as large text.':'Your current size is normal text.'}</p>
           </div>
@@ -229,6 +228,6 @@ Use this alongside our Color Converter and Color Palette Generator for a complet
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

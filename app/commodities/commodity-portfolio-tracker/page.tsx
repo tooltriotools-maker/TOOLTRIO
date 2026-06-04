@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState, useMemo, useEffect } from 'react'
 import { useCommodityPrices, type CommodityData, COMMODITY_META, TROY_OZ_TO_GRAM } from '@/hooks/useCommodityPrices'
 import { PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend } from 'recharts'
@@ -47,7 +49,7 @@ function PortfolioFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Portfolio Tracker FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-indigo-300 shadow-md':'border-gray-100 hover:border-indigo-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -84,7 +86,7 @@ export default function CommodityPortfolioTrackerPage() {
   // Set default buy price when metal changes in add form
   useEffect(() => { setAddBuy(Math.round(data[addMetal].price)) }, [addMetal, data])
 
-  const rows = useMemo(() => holdings.map(h => {
+  const rows = useMemo(() => holdings.map((h: any) => {
     const livePrice  = data[h.metal].price
     const currentVal = livePrice * h.qty
     const costBasis  = h.buyPrice * h.qty
@@ -95,9 +97,9 @@ export default function CommodityPortfolioTrackerPage() {
   }), [holdings, data])
 
   const totals = useMemo(() => ({
-    currentVal: rows.reduce((s, r) => s + r.currentVal, 0),
-    costBasis:  rows.reduce((s, r) => s + r.costBasis,  0),
-    pnl:        rows.reduce((s, r) => s + r.pnl,        0),
+    currentVal: rows.reduce((s: any, r: any) => s + r.currentVal, 0),
+    costBasis:  rows.reduce((s: any, r: any) => s + r.costBasis,  0),
+    pnl:        rows.reduce((s: any, r: any) => s + r.pnl,        0),
   }), [rows])
 
   const totalPnlPct = totals.costBasis > 0 ? (totals.pnl / totals.costBasis) * 100 : 0
@@ -105,12 +107,12 @@ export default function CommodityPortfolioTrackerPage() {
 
   // Pie data
   const pieData = useMemo(() =>
-    rows.map((r, i) => ({ name: `${r.metaOpt.emoji} ${r.label || r.metaOpt.name}`, value: Math.round(r.currentVal * FX[fxKey]), color: COLORS[i % COLORS.length] }))
+    rows.map((r: any, i: number) => ({ name: `${r.metaOpt.emoji} ${r.label || r.metaOpt.name}`, value: Math.round(r.currentVal * FX[fxKey]), color: COLORS[i % COLORS.length] }))
   , [rows, fxKey])
 
   // Bar chart: cost vs current
   const barData = useMemo(() =>
-    rows.map(r => ({
+    rows.map((r: any) => ({
       name: r.metaOpt.emoji + ' ' + (r.label || r.metaOpt.name).slice(0, 8),
       cost:    Math.round(r.costBasis  * FX[fxKey]),
       current: Math.round(r.currentVal * FX[fxKey]),
@@ -124,15 +126,15 @@ export default function CommodityPortfolioTrackerPage() {
       id: `h${Date.now()}`, metal: addMetal, qty: addQty,
       buyPrice: addBuy, label: addLabel || metaOpt.name,
     }
-    setHoldings(prev => [...prev, newH])
+    setHoldings((prev: any) => [...prev, newH])
     setAddQty(1); setAddLabel(''); setShowAdd(false)
   }
 
-  function removeHolding(id: string) { setHoldings(prev => prev.filter(h => h.id !== id)) }
+  function removeHolding(id: string) { setHoldings(prev => prev.filter((h: any) => h.id !== id)) }
 
   function exportCSV() {
     const header = 'Label,Metal,Quantity,Buy Price,Cost Basis,Live Price,Current Value,P&amp;L,P&amp;L %'
-    const rows2 = rows.map(r =>
+    const rows2 = rows.map((r: any) =>
       `"${r.label}","${r.metaOpt.name}",${r.qty},${r.buyPrice.toFixed(2)},${r.costBasis.toFixed(2)},${r.livePrice.toFixed(2)},${r.currentVal.toFixed(2)},${r.pnl.toFixed(2)},${r.pnlPct.toFixed(2)}%`
     )
     const csv = [header, ...rows2].join('\n')
@@ -148,6 +150,11 @@ export default function CommodityPortfolioTrackerPage() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Commodity Portfolio Tracker</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Commodity Portfolio Tracker" category="Commodities" />
+          <ExportButtonPair title="Commodity Portfolio Tracker" category="Finance" />
+      </div>
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
@@ -156,7 +163,7 @@ export default function CommodityPortfolioTrackerPage() {
         </div>
         <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => (
+            {Object.keys(FX).map((k: any) => (
               <button key={k} onClick={() => setFxKey(k)}
                 className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey === k ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}>{k}</button>
             ))}
@@ -179,7 +186,7 @@ export default function CommodityPortfolioTrackerPage() {
           { label:'Total Cost',     val: fmt(totals.costBasis),                   sub:'invested',                               accent:'bg-gray-50 border-gray-200'                                 },
           { label:'Net P&amp;L',        val: `${totals.pnl>=0?'+':''}${fmt(totals.pnl)}`, sub:`${totalPnlPct>=0?'+':''}${totalPnlPct.toFixed(2)}% overall`, accent: isPortfolioUp ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200' },
           { label:'Live Source',    val: anyLive ? '● LIVE' : '○ Cached',         sub: lastFetched?.toLocaleTimeString() ?? '-', accent:'bg-gray-50 border-gray-200'                                },
-        ].map(c => (
+        ].map((c: any) => (
           <div key={c.label} className={`rounded-2xl border p-4 ${c.accent}`}>
             <p className="text-[11px] text-gray-500 font-semibold mb-1">{c.label}</p>
             <p className={`font-black text-gray-900 text-xl leading-tight ${c.label==='Net P&amp;L' ? (isPortfolioUp?'text-green-700':'text-red-700') : c.label==='Live Source' ? (anyLive?'text-green-600':'text-gray-500') : ''}`}>{c.val}</p>
@@ -208,24 +215,24 @@ export default function CommodityPortfolioTrackerPage() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
                   <div>
                     <label className="block text-[11px] font-semibold text-gray-500 mb-1">Metal</label>
-                    <select value={addMetal} onChange={e => setAddMetal(e.target.value as keyof CommodityData)}
+                    <select value={addMetal} onChange={(e: any) => setAddMetal(e.target.value as keyof CommodityData)}
                       className="w-full px-2.5 py-2 border border-gray-200 rounded-xl bg-white text-sm font-semibold">
-                      {METAL_OPTS.map(m => <option key={m.key} value={m.key}>{m.emoji} {m.name}</option>)}
+                      {METAL_OPTS.map((m: any) => <option key={m.key} value={m.key}>{m.emoji} {m.name}</option>)}
                     </select>
                   </div>
                   <div>
                     <label className="block text-[11px] font-semibold text-gray-500 mb-1">Quantity ({METAL_OPTS.find(m=>m.key===addMetal)?.unit})</label>
-                    <input type="number" step="0.01" min="0.01" value={addQty} onChange={e => setAddQty(+e.target.value)}
+                    <input type="number" step="0.01" min="0.01" value={addQty} onChange={(e: any) => setAddQty(+e.target.value)}
                       className="w-full px-2.5 py-2 border border-gray-200 rounded-xl font-bold text-sm" />
                   </div>
                   <div>
                     <label className="block text-[11px] font-semibold text-gray-500 mb-1">Buy Price (USD/unit)</label>
-                    <input type="number" step="1" min="0" value={addBuy} onChange={e => setAddBuy(+e.target.value)}
+                    <input type="number" step="1" min="0" value={addBuy} onChange={(e: any) => setAddBuy(+e.target.value)}
                       className="w-full px-2.5 py-2 border border-gray-200 rounded-xl font-bold text-sm" />
                   </div>
                   <div>
                     <label className="block text-[11px] font-semibold text-gray-500 mb-1">Label (optional)</label>
-                    <input type="text" value={addLabel} onChange={e => setAddLabel(e.target.value)}
+                    <input type="text" value={addLabel} onChange={(e: any) => setAddLabel(e.target.value)}
                       placeholder="e.g. Gold Sovereign" className="w-full px-2.5 py-2 border border-gray-200 rounded-xl text-sm" />
                   </div>
                 </div>
@@ -246,7 +253,7 @@ export default function CommodityPortfolioTrackerPage() {
                 <p className="text-3xl mb-2">📭</p>
                 <p className="text-sm font-semibold">No holdings yet. Add one above!</p>
               </div>
-            ) : rows.map((row, i) => {
+            ) : rows.map((row: any, i: number) => {
               const up = row.pnl >= 0
               return (
                 <div key={row.id} className="grid grid-cols-7 items-center px-5 py-3 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-all">
@@ -327,13 +334,13 @@ export default function CommodityPortfolioTrackerPage() {
               <div className="flex justify-center mb-3">
                 <PieChart width={180} height={180}>
                   <Pie data={pieData} cx={85} cy={85} innerRadius={50} outerRadius={80} dataKey="value" paddingAngle={3}>
-                    {pieData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                    {pieData.map((entry: any, i: number) => <Cell key={i} fill={entry.color} />)}
                   </Pie>
                   <Tooltip formatter={(v: number) => [`${SYM[fxKey]}${v.toLocaleString()}`, '']} />
                 </PieChart>
               </div>
               <div className="space-y-2">
-                {pieData.map((p, i) => (
+                {pieData.map((p: any, i: number) => (
                   <div key={i} className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: p.color }} />
@@ -358,11 +365,11 @@ export default function CommodityPortfolioTrackerPage() {
                 {anyLive ? 'LIVE' : 'CACHED'}
               </span>
             </div>
-            {METAL_OPTS.map(m => {
+            {METAL_OPTS.map((m: any) => {
               const c = data[m.key]
               const up = c.changePct >= 0
               return (
-                <Link key={m.key} href={COMMODITY_META[m.key].href}
+                <Link key={m.key} href={COMMODITY_META[m.key as keyof typeof COMMODITY_META].href}
                   className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-all">
                   <span className="flex items-center gap-2">
                     <span className="text-base">{m.emoji}</span>
@@ -388,7 +395,7 @@ export default function CommodityPortfolioTrackerPage() {
               { n:'Gold Price Calculator', e:'🥇', h:'/commodities/gold-price-calculator'       },
               { n:'Metals P&amp;L Calculator', e:'💰', h:'/commodities/precious-metals-profit-calculator' },
               { n:'Gold Loan Calculator',  e:'🏦', h:'/commodities/gold-loan-calculator'         },
-            ].map(l => (
+            ].map((l: any) => (
               <Link key={l.h} href={l.h}
                 className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-100 shadow-card hover:border-yellow-200 transition-all text-xs font-bold text-gray-700 group">
                 <span className="text-base">{l.e}</span>{l.n}
@@ -413,7 +420,7 @@ export default function CommodityPortfolioTrackerPage() {
         <div className="rounded-2xl p-5 bg-indigo-50 border border-indigo-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-indigo-700">📊 Portfolio Tracking Key Facts</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'5–15%',n:'Recommended precious metals allocation in a balanced portfolio'},{s:'60–70%',n:'Typical gold share within a precious metals sub-portfolio'},{s:'Weighted avg',n:'Average cost across multiple buys — what this tracker computes'},{s:'Rupee hedge',n:'INR-denominated gold gains when USD/INR falls — double benefit'},{s:'4 metals',n:'Track gold, silver, platinum & palladium in one dashboard'},{s:'Live P&L',n:'Unrealized gain/loss updated at real-time spot prices'}].map((k,i)=>(
+            {[{s:'5–15%',n:'Recommended precious metals allocation in a balanced portfolio'},{s:'60–70%',n:'Typical gold share within a precious metals sub-portfolio'},{s:'Weighted avg',n:'Average cost across multiple buys — what this tracker computes'},{s:'Rupee hedge',n:'INR-denominated gold gains when USD/INR falls — double benefit'},{s:'4 metals',n:'Track gold, silver, platinum & palladium in one dashboard'},{s:'Live P&L',n:'Unrealized gain/loss updated at real-time spot prices'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-indigo-100"><p className="text-lg font-black text-indigo-700">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -433,7 +440,7 @@ export default function CommodityPortfolioTrackerPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Trade-level ROI with dealer fees for any single position'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices in 5 currencies'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Benchmark your gold portfolio vs SIP returns'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical comparison'},{e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR for cross-currency portfolio valuation'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+            {[{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Trade-level ROI with dealer fees for any single position'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices in 5 currencies'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Benchmark your gold portfolio vs SIP returns'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical comparison'},{e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR for cross-currency portfolio valuation'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-indigo-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-indigo-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>

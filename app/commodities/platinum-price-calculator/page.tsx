@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState } from 'react'
 import { useCommodityPrices } from '@/hooks/useCommodityPrices'
 import { CommodityPriceCard } from '@/components/commodities/CommodityPriceCard'
@@ -22,7 +24,7 @@ function PlatinumFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Platinum FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-blue-300 shadow-md':'border-gray-100 hover:border-blue-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -52,6 +54,11 @@ export default function Page() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Platinum Price Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Platinum Price Calculator" category="Commodities" />
+          <ExportButtonPair title="Platinum Price Calculator" category="Finance" />
+      </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
           <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>💎 Platinum Price Calculator</h1>
@@ -67,7 +74,7 @@ export default function Page() {
           <div className="p-4 bg-blue-50 rounded-2xl border border-blue-100 text-xs text-gray-600 leading-relaxed">Platinum is rarer than gold. Key uses: catalytic converters (~40%), jewellery (~30%), lab equipment &amp; investment. Primarily mined in South Africa and Russia.</div>
           <div className="bg-white rounded-2xl border border-gray-100 shadow-card overflow-hidden">
             <div className="px-4 py-3 bg-gray-50 border-b border-gray-100"><p className="font-black text-gray-900 text-sm">Quick Reference</p></div>
-            {[['1 gram','1'],['5 grams','5'],['10 grams','10'],['1 troy oz','31.1035'],['100 grams','100'],['1 kg','1000']].map(([l,g]) => (
+            {[['1 gram','1'],['5 grams','5'],['10 grams','10'],['1 troy oz','31.1035'],['100 grams','100'],['1 kg','1000']].map(([l, g]) => (
               <div key={l} className="flex justify-between px-4 py-2.5 border-b border-gray-50 last:border-0 text-sm">
                 <span className="text-gray-600">{l}</span>
                 <span className="font-bold text-gray-900">${(perGram * parseFloat(g)).toFixed(2)}</span>
@@ -82,8 +89,8 @@ export default function Page() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Weight</label>
                 <div className="flex gap-2">
-                  <input type="number" step="0.01" value={weight} onChange={e=>setWeight(+e.target.value)} className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 font-bold" />
-                  <select value={unit} onChange={e=>setUnit(e.target.value as any)} className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
+                  <input type="number" step="0.01" value={weight} onChange={(e: any) =>setWeight(+e.target.value)} className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 font-bold" />
+                  <select value={unit} onChange={(e: any) =>setUnit(e.target.value as any)} className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
                     <option value="gram">gram</option><option value="oz">troy oz</option><option value="kg">kg</option>
                   </select>
                 </div>
@@ -100,7 +107,7 @@ export default function Page() {
             <div className="rounded-2xl border border-gray-100 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
               <p className="text-sm font-bold text-gray-700 mb-2">Per Weight Unit (USD)</p>
               <div className="grid grid-cols-3 gap-2">
-                {[['Per Gram', perGram],['Per Tola', perGram*11.6638],['Per Troy Oz', c.price],['Per 10g', perGram*10],['Per 100g', perGram*100],['Per Kg', perGram*1000]].map(([l,v]) => (
+                {[['Per Gram', perGram],['Per Tola', perGram*11.6638],['Per Troy Oz', c.price],['Per 10g', perGram*10],['Per 100g', perGram*100],['Per Kg', perGram*1000]].map(([l, v]) => (
                   <div key={l} className="bg-white rounded-xl p-2.5 text-center border border-gray-100">
                     <p className="text-[10px] text-gray-400 mb-0.5">{l}</p>
                     <p className="font-black text-gray-900 text-sm">${(v as number).toFixed(2)}</p>
@@ -126,7 +133,7 @@ export default function Page() {
         <div className="rounded-2xl p-5 bg-blue-50 border border-blue-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-blue-700">📊 Platinum Key Facts — 2026</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'~$960/oz',n:'Platinum spot price Q1 2026 — below gold for first time in decades'},{s:'Pt950',n:'Most common jewellery purity — 95% platinum'},{s:'~40%',n:'Share of platinum demand from diesel catalytic converters'},{s:'80%',n:'Global platinum supply from South Africa & Russia'},{s:'2× silver',n:'Platinum density — heaviest of the common jewellery metals'},{s:'H₂ fuel cells',n:'Emerging demand driver — platinum is key hydrogen catalyst'}].map((k,i)=>(
+            {[{s:'~$960/oz',n:'Platinum spot price Q1 2026 — below gold for first time in decades'},{s:'Pt950',n:'Most common jewellery purity — 95% platinum'},{s:'~40%',n:'Share of platinum demand from diesel catalytic converters'},{s:'80%',n:'Global platinum supply from South Africa & Russia'},{s:'2× silver',n:'Platinum density — heaviest of the common jewellery metals'},{s:'H₂ fuel cells',n:'Emerging demand driver — platinum is key hydrogen catalyst'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-blue-100"><p className="text-lg font-black text-blue-700">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -147,7 +154,7 @@ export default function Page() {
             {[
               {t:'Appraising Platinum Jewellery',b:'Check the hallmark: Pt950 (95% pure), Pt900 (90%), or Pt850 (85%). Weigh the piece. Enter weight into the calculator — this gives you the metal value at spot. Platinum jewellery typically has lower making charges than gold (5–12%) because the metal itself is more expensive. Dealer buyback is usually 85–90% of metal value. Compare this against what a jeweller is offering.'},
               {t:'Platinum as Portfolio Diversifier',b:'A 3–5% allocation to platinum adds diversification to a precious metals portfolio because platinum\'s price drivers (industrial/automotive, South African supply) differ from gold\'s (USD, central banks, sentiment). Platinum historically showed low correlation with both gold and equities over short time periods, though correlations increase during broad commodity market moves.'},
-            ].map((u,i)=>(<div key={i} className="border-l-4 border-blue-200 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
+            ].map((u: any, i: number) =>(<div key={i} className="border-l-4 border-blue-200 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
           </div>
         </section>
 
@@ -156,7 +163,7 @@ export default function Page() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices — 24K to 10K in 5 currencies'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'999/925/900/800 silver live prices per gram & oz'},{e:'⚗️',n:'Palladium Calculator',h:'/commodities/palladium-price-calculator',d:'Live palladium — the other platinum group metal'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI & break-even on any platinum trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All 4 metals at live prices — total portfolio view'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Gold, silver, platinum, palladium, oil & gas hub'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live gold karat prices — 24K to 10K in 5 currencies'},{e:'🥈',n:'Silver Calculator',h:'/commodities/silver-price-calculator',d:'999/925/900/800 silver live prices per gram & oz'},{e:'⚗️',n:'Palladium Calculator',h:'/commodities/palladium-price-calculator',d:'Live palladium — the other platinum group metal'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI & break-even on any platinum trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All 4 metals at live prices — total portfolio view'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Gold, silver, platinum, palladium, oil & gas hub'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-blue-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-blue-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>

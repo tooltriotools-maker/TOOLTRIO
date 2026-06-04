@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
-import CalorieBurnedWalkingCalculatorClient from './CalorieBurnedWalkingCalculatorClient'
+import dynamic from 'next/dynamic'
+const CalorieBurnedWalkingCalculatorClient = dynamic(() => import('./CalorieBurnedWalkingCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calories Burned Walking Calculator | TOOLTRIO',

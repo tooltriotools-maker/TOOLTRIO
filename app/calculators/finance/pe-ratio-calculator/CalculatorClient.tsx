@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
 
         {/* Results */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* Valuation verdict */}
           <div className={`rounded-2xl border p-5 ${valuationBg}`}>
             <div className="flex items-center justify-between flex-wrap gap-3">

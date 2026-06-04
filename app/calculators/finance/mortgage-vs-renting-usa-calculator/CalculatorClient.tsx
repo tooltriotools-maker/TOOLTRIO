@@ -98,7 +98,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-xl font-black" style={{ color: result.buyBetter ? '#3b82f6' : '#10b981' }}>{result.buyBetter ? 'Buy 🏠' : 'Rent 📈'} Wins</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Monthly Mortgage" value={fmtC(result.totalMonthlyBuy)} subValue={`EMI: ${fmtC(result.emi)}`} icon={<Home className="w-4 h-4" />} highlight={result.buyBetter} />
             <ResultCard label="Home Equity" value={fmtC(result.equity)} subValue={`Home val: ${fmtC(result.homeValueFinal)}`} highlight={result.buyBetter} />

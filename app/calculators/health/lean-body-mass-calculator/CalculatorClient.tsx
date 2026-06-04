@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-xs text-gray-400">{result.fatPct}% body fat</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">Formula Comparison</h3>
             <div className="grid grid-cols-3 gap-3 text-center">

@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -26,16 +27,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   useState(()=>{generate()})
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Random Name Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>👤 Random Name Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate realistic random names for characters, testing, or any creative project.</p>
-
+      return (
+    <DevToolLayout
+      title="Random Name Generator"
+      icon="👤"
+      description="Generate realistic random names for characters, testing, or any creative project."
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700 block mb-2">Gender</label>
@@ -67,7 +68,7 @@ export default function CalculatorClient({ faqs }: Props) {
               {copied===n?<Check className="w-3.5 h-3.5 text-green-600"/>:<Copy className="w-3.5 h-3.5 text-gray-400"/>}
             </button>
           </div>
-        ))}
+    ))}
       </div>
 
 
@@ -193,6 +194,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

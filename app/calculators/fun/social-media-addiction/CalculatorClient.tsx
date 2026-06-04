@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -25,16 +26,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const grade = pct>=80?{l:'Extreme Digital Dependency 🚨',c:'text-red-600',d:'Social media has become a core part of your nervous system. A digital detox is overdue.'}:pct>=60?{l:'Heavy User ⚠️',c:'text-orange-600',d:'Social media significantly shapes your daily routine. Consider scheduled phone-free time.'}:pct>=40?{l:'Moderate User 🟡',c:'text-yellow-600',d:'You use social media frequently but have some healthy boundaries. Keep working on them!'}:{l:'Healthy Relationship 🌿',c:'text-green-600',d:'You use social media mindfully. Your attention span is probably still intact - good work!'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Social Media Addiction Score</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📱 Social Media Addiction Test <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">How dependent are you on social media? Answer honestly - your screen time already knows the truth.</p>
-
+      return (
+    <DevToolLayout
+      title="Social Media Addiction Test"
+      icon="📱"
+      description="How dependent are you on social media? Answer honestly - your screen time already knows the truth."
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       {!done ? (
         <div className="space-y-4">
           {Qs.map((q,qi)=>(
@@ -49,7 +50,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 ))}
               </div>
             </div>
-          ))}
+    ))}
           <button onClick={()=>setDone(true)} disabled={answered<Qs.length}
             className={`w-full py-4 font-black rounded-2xl text-lg ${answered===Qs.length?'bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-90':'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
             {answered<Qs.length?`${Qs.length-answered} more to go...`:'See My Score!'}
@@ -189,6 +190,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -93,16 +93,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const copy = () => { navigator.clipboard.writeText(htaccess); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-blue-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">.htaccess Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚙️ .htaccess Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate Apache .htaccess files with HTTPS redirect, WWW handling, custom redirects, hotlink protection, caching, and more.</p>
-
+      return (
+    <DevToolLayout
+      title=".htaccess Generator"
+      icon="⚙️"
+      description="Generate Apache .htaccess files with HTTPS redirect, WWW handling, custom redirects, hotlink protection, caching, and more."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
@@ -153,7 +153,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <input value={r.to} onChange={e=>updateRedirect(i,'to',e.target.value)} placeholder="/new-path" className="flex-1 border border-gray-200 rounded-xl px-2 py-1.5 text-xs font-mono focus:outline-none focus:border-blue-400" />
                 <button onClick={()=>removeRedirect(i)} className="text-red-400 hover:text-red-600 p-1"><Trash2 className="w-3.5 h-3.5"/></button>
               </div>
-            ))}
+    ))}
           </div>
         </div>
 
@@ -210,6 +210,6 @@ According to W3Techs (2024), Apache powers approximately 28.2% of all websites, 
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

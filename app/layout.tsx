@@ -5,6 +5,12 @@ import './globals.css'
 import { CurrencyProvider } from '@/context/CurrencyContext'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ClientProviders } from '@/components/ui/ClientProviders'
+import dynamic from 'next/dynamic'
+const TrioBot = dynamic(() => import('@/components/ui/TrioBotWrapper'), {
+  ssr: false,
+  loading: () => null
+})
 
 export const viewport: Viewport = {
   themeColor: '#16a34a',
@@ -19,63 +25,60 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-   default: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
-    template: '%s',
+    default: 'ToolTrio — Free Finance & Health Calculators',
+    template: 'TOOLTRIO | %s',
   },
 
   description:
-    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest, BMI, calorie calculator and 400+ more. No signup. Instant results.',
+    'ToolTrio is a free finance and health calculator website. Use mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ more finance and health tools. No signup needed.',
+
   keywords: [
-    // Brand keywords
+    // Brand
     'tooltrio',
     'tool trio',
-    'trio tools',
-    'tools trio',
-    'trio tool',
-    'toolstrio',
-    'home loan calculator',
-   'retirement calculator USA',
-    // Main category keywords
-    'free online tools',
-    'online calculators',
-    'free calculators',
-    'finance calculators',
-    'health calculators',
-    'developer tools',
-    'zip code tools',
-    'utility tools',
-
-   'income tax calculator USA',
-    'best free financial calculator USA 2026',
-    'online financial tools no registration',
-
-    'finance calculator USA',
-    'free financial calculator USA',
-    'online calculator free',
-
-    'free mortgage calculator USA with taxes',
-    '401k calculator with employer match USA',
-    'compound interest calculator monthly contribution',
-    'loan payoff calculator USA early payment',
-    'debt payoff calculator snowball vs avalanche',
-    'budget planner calculator USA',
-    'income tax calculator USA 2026',
-    'fixed deposit calculator usa',
-    'random password generator free online',
-    'uuid generator free online',
-    'json formatter online free',
-    'finanace calculator',
-    'tax bracket calculator',
-    'steps to calories',
-
-
+    'tooltrio.com',
+    'tooltrio finance calculator',
+    'tooltrio health calculator',
+    'tooltrio calculator',
+    'finance and health calculator',
+    // Finance
+    'finance calculator',
+    'financial calculator',
+    'free financial calculator',
+    'mortgage calculator',
+    '401k calculator',
+    'compound interest calculator',
+    'retirement calculator',
+    'Roth IRA calculator',
+    'auto loan calculator',
+    'budget planner calculator',
+    'FIRE calculator',
+    'debt payoff calculator',
+    'net worth calculator',
+    'savings rate calculator',
+    'investment calculator',
+    // Health
+    'BMI calculator',
+    'calorie calculator',
+    'TDEE calculator',
+    'BMR calculator',
+    'macro calculator',
+    'body fat calculator',
+    'ideal weight calculator',
+    'water intake calculator',
+    'sleep calculator',
+    'pregnancy calculator',
+    'heart rate calculator',
+    'protein intake calculator',
   ],
 
-  authors: [{ name: 'ToolTrio Team', url: siteUrl }],
+  authors: [{ name: 'ToolTrio', url: siteUrl }],
   creator: 'ToolTrio',
   publisher: 'ToolTrio',
 
-
+  alternates: {
+    canonical: siteUrl,
+  },
 
   robots: {
     index: true,
@@ -94,24 +97,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    title: 'ToolTrio — Free Finance & Health Calculators',
     description:
-       'Free online finance calculators trusted by Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators. No signup required.',
+      'Mortgage, 401k, compound interest, BMI, calorie and 200+ free finance and health calculators. No signup required. Instant results.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ToolTrio -  Free Online Finance & Health Calculators',
+        alt: 'ToolTrio — Free Finance & Health Calculators',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    title: 'ToolTrio — Free Finance & Health Calculators',
     description:
-      'Free mortgage, 401k, BMI, compound interest calculators. 400+ tools. No signup. Instant results.',
+      'Free mortgage, 401k, BMI, calorie and 200+ finance and health calculators. No signup.',
     images: ['/og-image.png'],
   },
 
@@ -126,43 +129,46 @@ export const metadata: Metadata = {
   },
 
   manifest: '/site.webmanifest',
-  category: 'finance',
+  category: 'finance, health',
 }
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'tooltrio.com',
+  name: 'ToolTrio',
   alternateName: [
     'Tool Trio',
-    
+    'ToolTrio Finance Calculator',
+    'ToolTrio Health Calculator',
     'Trio Tools',
     'Tools Trio',
     'Trio Tool',
     'Toolstrio',
-    'TOOLTRIO',
+    'tooltrio.com',
   ],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-      'TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) — Free online finance, health, ZIP code, and developer tools. 400+ free calculators and utilities. No signup required. tooltrio.com',
+    'ToolTrio is a free finance and health calculator website offering mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ more tools.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   sameAs: [],
-   address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
 }
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
- name: 'tooltrio.com',
-  alternateName: ['TOOLTRIO', 'Tool Trio', 'ToolTrio', 'Trio Tools', 'tooltrio.com', 'Free Online Calculator', 'ZIP Code Lookup Tool'],
+  name: 'ToolTrio — Finance & Health Calculators',
+  alternateName: [
+    'Tool Trio',
+    'Trio Tools',
+    'Tools Trio',
+    'Toolstrio',
+    'tooltrio.com',
+  ],
   url: siteUrl,
   description:
-   'Free online finance calculators -- mortgage, 401k, compound interest, BMI, calorie and 400+ calculators.',
+    'Free finance and health calculators including mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required.',
   inLanguage: 'en-US',
   potentialAction: {
     '@type': 'SearchAction',
@@ -177,7 +183,12 @@ const websiteSchema = {
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'TOOLTRIO (tooltrio.com) — Free Online Calculators & ZIP Code Tools',
+  name: 'ToolTrio — Finance & Health Calculators',
+  alternateName: [
+    'Tool Trio',
+    'Trio Tools',
+    'Toolstrio',
+  ],
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Any',
   url: siteUrl,
@@ -187,47 +198,66 @@ const softwareSchema = {
     priceCurrency: 'USD',
   },
   description:
-    'TOOLTRIO (also Tool Trio, ToolTrio, Trio Tools) — Free finance, health, ZIP code, and developer tools. 400+ utilities at tooltrio.com. No signup required.',
+    'ToolTrio offers free finance and health calculators including mortgage, 401k, BMI, calorie, TDEE, compound interest and 200+ more tools. No signup required.',
   featureList: [
-   'Mortgage Calculator with taxes and insurance',
-    '401k and Roth IRA retirement calculators',
-    'Compound interest calculator with monthly contributions',
-    'BMI, TDEE, calorie and macro health calculators',
-    'No signup or registration required',
-    'Instant real-time results',
-    'Mobile-friendly on all devices',
-    'Complete privacy - no data stored',
-    'ZIP code lookup and US postal tools',
-    'Developer tools and utilities',
-    'Also known as Tool Trio, ToolTrio, Trio Tools',
+    'Free mortgage calculator',
+    'Free 401k calculator',
+    'Free compound interest calculator',
+    'Free Roth IRA calculator',
+    'Free retirement calculator',
+    'Free BMI calculator',
+    'Free calorie calculator',
+    'Free TDEE calculator',
+    'Free macro calculator',
+    'No signup required',
+    'Instant results',
+    'Mobile-friendly calculators',
   ],
 }
 
-const howToSchema  = {
+const faqSchema = {
   '@context': 'https://schema.org',
-   '@type': 'HowTo',
-
-  name: 'How to Use Our Free Online Finance Calculators',
-
-  description:
-    'Step-by-step guide to using tooltrio.com free online calculators for mortgage, retirement, and more.',
-
-  step: [
-
+  '@type': 'FAQPage',
+  mainEntity: [
     {
-      '@type': 'HowToStep',
-      name: 'Choose a Calculator',
-      text: 'Browse our 400+ free calculators by category: Finance, Health, Dev Tools, or Fun. Use the search bar to find a specific calculator instantly.',
+      '@type': 'Question',
+      name: 'What is ToolTrio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'ToolTrio is a free finance and health calculator website. It offers mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ finance and health tools.',
+      },
     },
     {
-      '@type': 'HowToStep',
-      name: 'Enter Your Numbers',
-      text: 'Input your personal figures -- such as loan amount, interest rate, income, or body measurements. All fields have clear labels and helpful tooltips.',
+      '@type': 'Question',
+      name: 'Are ToolTrio calculators free?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Every finance and health calculator on ToolTrio is completely free to use with no registration, no subscription and no hidden fees.',
+      },
     },
     {
-       '@type': 'HowToStep',
-      name: 'Get Instant Results',
-      text: 'Results update in real time as you type. See charts, amortization tables, and detailed breakdowns -- all for free with no signup required.',
+      '@type': 'Question',
+      name: 'Is ToolTrio also called Tool Trio or Trio Tools?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. All these names refer to ToolTrio.com.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What finance calculators does ToolTrio offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'ToolTrio offers mortgage calculator, 401k calculator, compound interest calculator, Roth IRA calculator, auto loan calculator, budget planner, FIRE calculator, debt payoff calculator and more.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What health calculators does ToolTrio offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'ToolTrio offers BMI calculator, calorie calculator, TDEE calculator, BMR calculator, macro calculator, body fat calculator, ideal weight calculator, water intake calculator and more.',
+      },
     },
   ],
 }
@@ -255,33 +285,28 @@ export default function RootLayout({
         <meta name="content-language" content="en-US" />
         <meta name="rating" content="general" />
 
-         <meta name="revisit-after" content="3 days" />
-        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
           }}
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(softwareSchema),
           }}
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(howToSchema),
+            __html: JSON.stringify(faqSchema),
           }}
         />
 
@@ -306,13 +331,10 @@ export default function RootLayout({
         <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-
             function gtag(){
               dataLayer.push(arguments);
             }
-
             gtag('js', new Date());
-
             gtag('config', 'G-XW8R1K19P7', {
               page_path: window.location.pathname,
             });
@@ -324,8 +346,10 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
+            <TrioBot />
           </div>
         </CurrencyProvider>
+        <ClientProviders />
       </body>
     </html>
   )

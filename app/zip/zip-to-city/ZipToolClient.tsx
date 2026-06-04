@@ -33,13 +33,33 @@ export default function ZipToCityClient() {
       </div>
       {error&&<div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4">{error}</div>}
       {result&&(
-        <div className="rounded-2xl border p-6 text-center" style={{background:'rgba(240,253,244,0.7)',borderColor:'rgba(187,247,208,0.6)'}}>
-          <div className="text-5xl font-black text-green-600 mb-2">{result.city}</div>
-          <div className="text-xl text-gray-600 mb-1">{result.county}</div>
-          <div className="text-lg text-gray-500 mb-4">{result.state} · {result.zip}</div>
+        <div className="rounded-2xl border p-6" style={{background:'rgba(240,253,244,0.7)',borderColor:'rgba(187,247,208,0.6)'}}>
+          <div className="text-center mb-5">
+            <div className="text-5xl font-black text-green-600 mb-1">{result.city}</div>
+            <div className="text-xl text-gray-600 mb-1">{result.county}</div>
+            <div className="text-lg text-gray-500">{result.state} · {result.zip}</div>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mb-5">
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">👥 Population</div>
+              <div className="font-black text-gray-900">{result.population > 0 ? result.population.toLocaleString() : 'N/A'}</div>
+            </div>
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">📬 ZIP Type</div>
+              <div className="font-black text-gray-900">{result.type}</div>
+            </div>
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">📞 Area Code</div>
+              <div className="font-black text-gray-900">({result.areaCode})</div>
+            </div>
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">🕐 Timezone</div>
+              <div className="font-black text-gray-900 text-sm">{result.tzLabel}</div>
+            </div>
+          </div>
           <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.city+', '+result.state)}`}
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-white font-semibold rounded-xl"
+            className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-white font-semibold rounded-xl"
             style={{background:'linear-gradient(135deg,#3b82f6,#2563eb)'}}>
             📍 View {result.city} on Google Maps
           </a>

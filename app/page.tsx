@@ -1,55 +1,58 @@
 import Link from 'next/link'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
-import HomeCategorySection from '@/components/ui/HomeCategorySection'
-import { TrendingUp, Heart, Code2, Smile, Star, Shield, Zap, Globe, CheckCircle } from 'lucide-react'
 import type { Metadata } from 'next'
+
+function Heart({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> }
+function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> }
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'TOOLTRIO  — Free Finance, Health & Dev Calculators | 400+ Tools',
+    absolute: 'ToolTrio — Free Finance & Health Calculators | Mortgage, BMI, 401k & More',
   },
   description:
-    'Free online finance calculators trusted by Americans. Mortgage calculator, 401k calculator, compound interest calculator, BMI, calorie calculator and 400+ more. No signup. Instant results.',
+    'ToolTrio is your go-to finance and health calculator website. Calculate mortgage payments, plan your 401k retirement, check your BMI, track calories and more — free, instant, no signup needed.',
   keywords: [
-      // Top USA volume keywords first
-    'finance calculator', 'financial calculator', 'free financial calculator USA',
-    'mortgage calculator', 'mortgage calculator USA 2026',
-    '401k calculator', '401k calculator 2026', 'Roth IRA calculator USA',
-    'compound interest calculator', 'compound interest calculator USA',
-    'retirement calculator USA', 'loan calculator USA',
-    'bmi calculator', 'bmi calculator USA', 'calorie calculator', 'TDEE calculator',
-
-    'calculator', 'calculators', 'online calculator', 'free calculator',
-    'free online calculator', 'calculator no signup', 'instant calculator',
-
-    'best mortgage calculator USA 2026', 'free 401k calculator with employer match',
-    'compound interest calculator with monthly contributions USA',
-    'retirement savings calculator USA free', 'BMI calculator for adults USA',
-    'free calorie calculator no signup', 'financial calculator online free USA',
-
-    'tooltrio',
-    'tool trio',
-    'tooltrio.com',
-    'trio tools',
-    'tools trio',
-    'trio tool',
-    'toolstrio',
-    'finance calculator online',
+    // Finance core
+    'finance calculator', 'financial calculator', 'free financial calculator',
+    'mortgage calculator', 'mortgage calculator USA', 'mortgage payment calculator',
+    '401k calculator', '401k calculator with employer match', 'Roth IRA calculator',
+    'compound interest calculator', 'compound interest calculator with monthly contributions',
+    'retirement calculator', 'retirement savings calculator USA',
+    'auto loan calculator', 'budget planner calculator', 'FIRE calculator',
+    'debt payoff calculator', 'net worth calculator', 'savings rate calculator',
+    'down payment calculator', 'SIP calculator', 'annual income calculator',
+    // Health core
+    'BMI calculator', 'bmi calculator for adults', 'calorie calculator',
+    'TDEE calculator', 'BMR calculator', 'macro calculator',
+    'body fat calculator', 'ideal weight calculator', 'water intake calculator',
+    'sleep cycle calculator', 'pregnancy calculator', 'heart rate calculator',
+    'calories burned calculator', 'protein intake calculator', 'blood pressure calculator',
+    // Brand
+    'tooltrio', 'tool trio', 'tooltrio.com', 'tooltrio finance calculator',
+    'tooltrio health calculator', 'tooltrio calculator',
+    'finance and health calculator', 'free finance calculator online',
+    'free health calculator online', 'finance health calculator website',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-  title: 'TOOLTRIO — Free Finance & Health Calculators | 400+ Tools',
+    title: 'ToolTrio — Free Finance & Health Calculators',
     description:
-        'Free online finance calculators trusted by Americans. Mortgage, 401k, compound interest, BMI, calorie and 400+ calculators. No signup required.',
+      'Mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ free finance and health calculators. No signup. Instant results.',
     url: 'https://tooltrio.com',
     siteName: 'ToolTrio',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630 }],
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ToolTrio — Free Finance & Health Calculators',
+    description: 'Mortgage, 401k, BMI, calorie and 200+ free calculators. No signup required.',
+    images: ['/og-image.png'],
+  },
 }
 
 const financeCalcs = [
-  { name: 'Mortgage Calculator', desc: 'Full PITI payment', href: '/calculators/finance/mortgage-calculator', icon: '🏡', badge: 'NEW' },
+  { name: 'Mortgage Calculator', desc: 'Full PITI payment', href: '/calculators/finance/mortgage-calculator', icon: '🏡', badge: 'Popular' },
   { name: '401k Calculator', desc: 'US retirement + match', href: '/calculators/finance/401k-calculator', icon: '🏛️', badge: 'USA' },
   { name: 'Compound Interest', desc: 'Power of compounding', href: '/calculators/finance/compound-interest-calculator', icon: '💰', badge: null },
   { name: 'Auto Loan Calculator', desc: 'Car loan with tax & fees', href: '/calculators/finance/auto-loan-calculator', icon: '🚗', badge: 'NEW' },
@@ -57,13 +60,13 @@ const financeCalcs = [
   { name: 'Budget Planner', desc: '50/30/20 rule', href: '/calculators/finance/budget-planner-calculator', icon: '📊', badge: 'NEW' },
   { name: 'FIRE Calculator', desc: 'Financial independence', href: '/calculators/finance/fire-calculator', icon: '🔥', badge: null },
   { name: 'Wealth Calculator', desc: 'Net worth + projection', href: '/calculators/finance/wealth-calculator', icon: '💎', badge: 'NEW' },
-  { name: 'Down Payment Calc', desc: 'Compare 5-20% down', href: '/calculators/finance/down-payment-calculator', icon: '💵', badge: 'NEW' },
+  { name: 'Down Payment Calc', desc: 'Compare 5–20% down', href: '/calculators/finance/down-payment-calculator', icon: '💵', badge: 'NEW' },
   { name: 'Savings Rate Calc', desc: 'Years to FIRE', href: '/calculators/finance/savings-rate-calculator', icon: '📈', badge: 'NEW' },
   { name: 'Payoff Date Calc', desc: 'When debt-free?', href: '/calculators/finance/payoff-date-calculator', icon: '📅', badge: 'NEW' },
   { name: 'UK Income Tax', desc: 'PAYE & take-home pay', href: '/calculators/finance/uk-income-tax-calculator', icon: '🏴', badge: 'UK' },
   { name: 'SIP Calculator', desc: 'Monthly SIP returns', href: '/calculators/finance/sip-calculator', icon: '📈', badge: 'India' },
   { name: 'Debt Payoff', desc: 'Avalanche & snowball', href: '/calculators/finance/debt-payoff-calculator', icon: '🔓', badge: null },
-  { name: 'Annual Income Calc', desc: 'Hourly -> annual salary', href: '/calculators/finance/annual-income-calculator', icon: '💵', badge: 'NEW' },
+  { name: 'Annual Income Calc', desc: 'Hourly → annual salary', href: '/calculators/finance/annual-income-calculator', icon: '💵', badge: 'NEW' },
 ]
 
 const healthCalcs = [
@@ -84,41 +87,10 @@ const healthCalcs = [
   { name: 'Intermittent Fasting', desc: '16:8 eating windows', href: '/calculators/health/intermittent-fasting-calculator', icon: '⏰', badge: null },
 ]
 
-const devCalcs = [
-  { name: 'JSON Formatter', desc: 'Format & validate JSON', href: '/calculators/dev/json-formatter', icon: '📋', badge: null },
-  { name: 'Regex Tester', desc: 'Live regex matcher', href: '/calculators/dev/regex-tester', icon: '🔍', badge: null },
-  { name: 'Color Converter', desc: 'HEX, RGB, HSL, CMYK', href: '/calculators/dev/color-converter', icon: '🎨', badge: null },
-  { name: 'Base64 Encoder', desc: 'Encode/decode Base64', href: '/calculators/dev/base64-encoder', icon: '🔐', badge: null },
-  { name: 'UUID Generator', desc: 'v4, ULID, NanoID', href: '/calculators/dev/uuid-generator', icon: '🆔', badge: null },
-  { name: 'Password Generator', desc: 'Strong passwords', href: '/calculators/dev/password-generator', icon: '🔒', badge: null },
-  { name: 'Unix Timestamp', desc: 'Epoch converter', href: '/calculators/dev/unix-timestamp', icon: '⏱️', badge: null },
-  { name: 'JWT Decoder', desc: 'Decode JWT tokens', href: '/calculators/dev/jwt-decoder', icon: '🎫', badge: null },
-  { name: 'Hash Generator', desc: 'MD5, SHA-256, SHA-512', href: '/calculators/dev/hash-generator', icon: '🔑', badge: null },
-  { name: 'SQL Formatter', desc: 'Format SQL queries', href: '/calculators/dev/sql-formatter', icon: '🗄️', badge: null },
-  { name: 'YAML Formatter', desc: 'YAML to JSON', href: '/calculators/dev/yaml-formatter', icon: '📄', badge: null },
-]
-
-const zipCalcs = [
-  { name: 'ZIP Code Lookup', desc: 'Full ZIP details', href: '/zip/zip-code-lookup', icon: '🔍', badge: null },
-  { name: 'ZIP Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
-  { name: 'ZIP to City', desc: 'Find city from ZIP', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
-  { name: 'City to ZIP', desc: 'Get ZIP for a city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
-  { name: 'ZIPs in Radius', desc: 'ZIPs within X miles', href: '/zip/zips-within-radius', icon: '🎯', badge: null },
-  { name: 'ZIP Map Viewer', desc: 'View ZIP on map', href: '/zip/zip-code-map', icon: '📍', badge: null },
-  { name: 'ZIP Timezone', desc: 'Timezone for ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: null },
-  { name: 'USPS Format', desc: 'Format addresses', href: '/zip/usps-address-format', icon: '📬', badge: null },
-]
-
-const categories = [
-  { label: 'Finance', icon: TrendingUp, href: '/calculators/finance', cls: 'bg-green-50 border-green-200 text-green-700', calcs: financeCalcs },
-  { label: 'Health', icon: Heart, href: '/calculators/health', cls: 'bg-rose-50 border-rose-200 text-rose-700', calcs: healthCalcs },
-  { label: 'Dev Tools', icon: Code2, href: '/calculators/dev', cls: 'bg-blue-50 border-blue-200 text-blue-700', calcs: devCalcs },
-  { label: 'ZIP Tools', icon: Globe, href: '/zip', cls: 'bg-teal-50 border-teal-200 text-teal-700', calcs: zipCalcs },
-]
-
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      {/* Hero */}
       <section className="relative overflow-hidden py-16 px-4">
         <div className="hero-glow" style={{ top: '-80px', left: '-60px' }} />
         <div className="hero-glow" style={{ bottom: '-80px', right: '-60px', background: 'rgba(16,185,129,0.1)' }} />
@@ -128,24 +100,27 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-               {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{background:'rgba(255,255,255,0.85)', backdropFilter:'blur(8px)', borderColor:'#d1fae5', color:'#15803d', boxShadow:'0 4px 16px rgba(22,163,74,0.1)'}}>
-            <span>⭐ Trusted by 2M+ Americans</span>
-            <span className="w-px h-3" style={{background:'#bbf7d0'}} />
-            <span>🔒 No Signup · No Ads · 100% Private</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
+            <span>💰 Finance Calculators</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>❤️ Health Calculators</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>🔒 Free · No Signup</span>
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Playfair Display', serif" }}>
-            TOOLTRIO  —{' '}
-            <span style={{ color: '#16a34a' }}>Calculate Everything</span>
+            ToolTrio —{' '}
+            <span style={{ color: '#16a34a' }}>Finance & Health Calculators</span>
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Mortgage, 401k, compound interest, BMI and 400+ free calculators. Instant results, no signup.
+            Free mortgage, 401k, compound interest, BMI and calorie calculators. Make smarter financial and health decisions — instant results, no signup.
           </p>
 
-      <p className="text-sm mb-8 max-w-xl mx-auto" style={{color:'#94a3b8'}}>
-            The #1 free calculator suite for Americans — accurate, fast, and completely private.
+          <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
+            Trusted finance and health calculators built for everyday decisions. Plan your retirement, calculate your BMI, track your calories and manage your budget — all in one place.
+            <br />
+            <span>Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.</span>
           </p>
 
           <div className="max-w-2xl mx-auto">
@@ -156,11 +131,11 @@ export default function HomePage() {
             {[
               { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
               { label: '401k Calculator', href: '/calculators/finance/401k-calculator' },
+              { label: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
               { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
               { label: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-              { label: '📮 ZIP Code Lookup', href: '/zip/zip-code-lookup' },
-              { label: '📏 ZIP Distance', href: '/zip/zip-code-distance' },
-              { label: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
+              { label: 'TDEE Calculator', href: '/calculators/health/tdee-calculator' },
+              { label: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
             ].map(t => (
               <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
                 {t.label}
@@ -170,8 +145,8 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
-              { val: '500+', label: 'Free Tools' },
-              { val: '35+', label: 'ZIP Utilities' },
+              { val: '200+', label: 'Finance Calculators' },
+              { val: '100+', label: 'Health Calculators' },
               { val: '100%', label: 'Free Forever' },
               { val: '0', label: 'Signup Required' },
             ].map(s => (
@@ -184,10 +159,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Popular strip */}
       <section className="border-b py-4 px-4" style={{ background: '#F0F7F0', borderColor: '#d1fae5' }}>
         <div className="max-w-6xl mx-auto">
           <p className="text-xs text-gray-500 text-center mb-3 font-semibold uppercase tracking-wider">
-            Most Popular in USA
+            Most Popular Finance & Health Calculators
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
@@ -195,12 +171,12 @@ export default function HomePage() {
               { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
               { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator' },
               { name: 'Auto Loan Calculator', href: '/calculators/finance/auto-loan-calculator' },
-              { name: 'Budget Planner', href: '/calculators/finance/budget-planner-calculator' },
               { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
-              { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
               { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-              { name: 'Wealth Calculator', href: '/calculators/finance/wealth-calculator' },
-              { name: 'Payoff Date Calculator', href: '/calculators/finance/payoff-date-calculator' },
+              { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
+              { name: 'Budget Planner', href: '/calculators/finance/budget-planner-calculator' },
+              { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator' },
+              { name: 'Retirement Calculator', href: '/calculators/finance/retirement-calculator' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
@@ -211,103 +187,121 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 py-10">
-        {categories.map(cat => (
-          <section key={cat.label} className="mb-12">
-            <div className="flex items-center justify-between mb-5">
-              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                <cat.icon className="w-6 h-6 text-green-600" />
-                {cat.label} Calculators
-              </h2>
-              <Link href={cat.href} className="text-sm font-semibold text-green-600 hover:text-green-700">
-                View all {cat.label} calculators →
+
+        {/* Finance Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <TrendingUp size={24} className="text-green-600" />
+              Finance Calculators
+            </h2>
+            <Link href="/calculators/finance" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all finance calculators →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {financeCalcs.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
               </Link>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-              {cat.calcs.map(c => (
-                <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                  <span className="flex items-center gap-2 mb-1">
-                    <span className="text-xl">{c.icon}</span>
-                    {c.badge && (
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
-                        {c.badge}
-                      </span>
-                    )}
-                  </span>
-                  <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">
-                    {c.name}
-                  </span>
-                  <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ))}
+        {/* Health Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <Heart size={24} className="text-rose-500" />
+              Health Calculators
+            </h2>
+            <Link href="/calculators/health" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all health calculators →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {healthCalcs.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-rose-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-rose-600 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-   {/* USA-focused SEO content block -- rich, helpful, unique */}
-        <section className="mt-8 rounded-3xl p-8 border" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>
-            Free Online Finance Calculators for Americans
+        {/* SEO Content Block */}
+        <section className="mt-8 rounded-3xl p-8 border" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', borderColor: 'rgba(255,255,255,0.5)', boxShadow: '0 8px 30px rgba(15,23,42,0.05)' }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Free Finance & Health Calculators — Built for Real Decisions
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600 leading-relaxed">
             <div className="space-y-5">
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🏠</span> Mortgage &amp; Home Loan Calculators
+                  <span>🏠</span> Mortgage & Home Loan Calculators
                 </h3>
                 <p>
-                  Our free{' '}
-                  <Link href="/calculators/finance/home-loan-calculator" className="text-green-600 hover:underline font-medium">
+                  Buying a home is one of the biggest financial decisions you will make. Our free{' '}
+                  <Link href="/calculators/finance/mortgage-calculator" className="text-green-600 hover:underline font-medium">
                     mortgage calculator
                   </Link>{' '}
-                   shows your monthly payment including principal, interest, taxes, and insurance (PITI). Use it alongside our{' '}
-                  <Link href="/calculators/finance/home-affordability-calculator" className="text-green-600 hover:underline">
-                    home affordability calculator
-                  </Link>{' '}
-                  and{' '}
-                  <Link href="/calculators/finance/rent-vs-buy-calculator" className="text-green-600 hover:underline">
-                    rent vs buy calculator
-                  </Link>{' '}
-                  to make confident real estate decisions in 2026.
+                  breaks down your monthly payment into principal, interest, taxes and insurance (PITI) so you know exactly what to expect before you sign.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🏛️</span> Retirement Calculators -- 401k, Roth IRA, FIRE
+                  <span>🏛️</span> Retirement Calculators — 401k, Roth IRA, FIRE
                 </h3>
                 <p>
-                  Plan your retirement with our free{' '}
+                  Whether you are just starting out or closing in on retirement, our free{' '}
                   <Link href="/calculators/finance/401k-calculator" className="text-green-600 hover:underline font-medium">
                     401k calculator
                   </Link>
-                {' '}(includes employer match),{' '}
+                  ,{' '}
                   <Link href="/calculators/finance/roth-ira-calculator" className="text-green-600 hover:underline">
                     Roth IRA calculator
                   </Link>
-                  , and{' '}
-                  <Link href="/calculators/finance/retirement-calculator" className="text-green-600 hover:underline">
-                    retirement savings calculator
-                  </Link>
-                       . All updated for 2026 IRS contribution limits.
+                  {' '}and{' '}
+                  <Link href="/calculators/finance/fire-calculator" className="text-green-600 hover:underline">
+                    FIRE calculator
+                  </Link>{' '}
+                  help you model your retirement savings and reach financial independence faster.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>💰</span> Investment &amp; Compound Interest
+                  <span>💰</span> Compound Interest & Investment Calculators
                 </h3>
                 <p>
-                  See the power of compounding with our{' '}
+                  Time in the market beats timing the market. See exactly how your money grows with our{' '}
                   <Link href="/calculators/finance/compound-interest-calculator" className="text-green-600 hover:underline font-medium">
                     compound interest calculator
                   </Link>
-                  . Supports monthly contributions, annual compounding, and shows you an interactive growth chart. Also try our{' '}
-                  <Link href="/calculators/finance/fire-calculator" className="text-green-600 hover:underline">
-                    FIRE calculator
-                  </Link>{' '}
-                  for financial independence planning.
+                  , which supports monthly contributions, variable rates and both annual and monthly compounding.
                 </p>
               </div>
             </div>
@@ -315,74 +309,70 @@ export default function HomePage() {
             <div className="space-y-5">
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>❤️</span> Health Calculators
+                  <span>⚖️</span> BMI & Body Composition Calculators
                 </h3>
                 <p>
-                  Track your health goals with our free{' '}
+                  Know your numbers with our free{' '}
                   <Link href="/calculators/health/bmi-calculator" className="text-green-600 hover:underline font-medium">
                     BMI calculator
                   </Link>
-                     {' '}(CDC standards),{' '}
-                  <Link href="/calculators/health/calorie-calculator" className="text-green-600 hover:underline">
+                  ,{' '}
+                  <Link href="/calculators/health/body-fat-calculator" className="text-green-600 hover:underline">
+                    body fat calculator
+                  </Link>
+                  {' '}and{' '}
+                  <Link href="/calculators/health/ideal-weight-calculator" className="text-green-600 hover:underline">
+                    ideal weight calculator
+                  </Link>
+                  . Each uses clinically referenced formulas so you get results you can actually trust.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <span>🔥</span> Calorie, TDEE & Macro Calculators
+                </h3>
+                <p>
+                  Reach your weight goals with a plan built around your body. Our{' '}
+                  <Link href="/calculators/health/calorie-calculator" className="text-green-600 hover:underline font-medium">
                     calorie calculator
                   </Link>
-                  , and{' '}
+                  ,{' '}
                   <Link href="/calculators/health/tdee-calculator" className="text-green-600 hover:underline">
                     TDEE calculator
                   </Link>
-                  . Also includes{' '}
+                  {' '}and{' '}
                   <Link href="/calculators/health/macro-calculator" className="text-green-600 hover:underline">
                     macro calculator
                   </Link>{' '}
-                  for protein, carbs &amp; fat -- all based on NIH and USDA guidelines.
+                  give you a personalised daily target for calories, protein, carbs and fat.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>📊</span> Why Americans Trust Our Calculators
+                  <span>📊</span> Popular Finance Comparisons
                 </h3>
                 <p>
-                  All 400+ calculators are completely free, require no signup, and run entirely in your browser. No data is ever stored or shared. Formulas follow IRS guidelines, CDC standards, and peer-reviewed financial research. Works seamlessly on mobile, tablet, and desktop.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🔄</span> Popular Comparisons
-                </h3>
-                <p>
-                  <Link href="/calculators/finance/roth-ira-vs-traditional-ira-calculator" className="text-green-600 hover:underline">
-                    Roth IRA vs Traditional IRA
-                  </Link>
-                  {' . '}
-                  <Link href="/calculators/finance/rent-vs-buy-calculator" className="text-green-600 hover:underline">
-                    Rent vs Buy
-                  </Link>
-                  {' . '}
-                  <Link href="/calculators/finance/pay-off-mortgage-vs-invest-calculator" className="text-green-600 hover:underline">
-                    Pay Off Mortgage vs Invest
-                  </Link>
-                  {' . '}
-                  <Link href="/calculators/finance/hsa-vs-fsa-calculator" className="text-green-600 hover:underline">
-                    HSA vs FSA
-                  </Link>
-                  {' . '}
-                  <Link href="/calculators/finance/cd-vs-hysa-calculator" className="text-green-600 hover:underline">
-                    CD vs HYSA
-                  </Link>
+                  <Link href="/calculators/finance/roth-ira-vs-traditional-ira-calculator" className="text-green-600 hover:underline">Roth IRA vs Traditional IRA</Link>
+                  {' · '}
+                  <Link href="/calculators/finance/rent-vs-buy-calculator" className="text-green-600 hover:underline">Rent vs Buy</Link>
+                  {' · '}
+                  <Link href="/calculators/finance/pay-off-mortgage-vs-invest-calculator" className="text-green-600 hover:underline">Pay Off Mortgage vs Invest</Link>
+                  {' · '}
+                  <Link href="/calculators/finance/cd-vs-hysa-calculator" className="text-green-600 hover:underline">CD vs HYSA</Link>
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-         {/* Trust signals with review schema signals */}
+        {/* Trust badges */}
         <section className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { icon: '🆓', title: '100% Free Forever', desc: 'No signup, no credit card' },
-            { icon: '🔒', title: 'Private & Secure', desc: 'No data stored, ever' },
-            { icon: '⚡', title: 'Instant Results', desc: 'Real-time calculations' },
+            { icon: '🔒', title: 'Privacy-Friendly', desc: 'Calculations stay in your browser' },
+            { icon: '⚡', title: 'Instant Results', desc: 'Real-time as you type' },
             { icon: '📱', title: 'Works Everywhere', desc: 'Mobile, tablet & desktop' },
           ].map(f => (
             <div key={f.title} className="text-center p-4 rounded-2xl border" style={{ background: 'rgba(240,253,244,0.8)', borderColor: 'rgba(187,247,208,0.6)', backdropFilter: 'blur(6px)' }}>
@@ -393,7 +383,7 @@ export default function HomePage() {
           ))}
         </section>
 
-         {/* FAQ section -- targets featured snippets & AI answers */}
+        {/* FAQ */}
         <section className="mt-12">
           <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Frequently Asked Questions
@@ -402,30 +392,37 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
+                q: 'What is ToolTrio?',
+                a: 'ToolTrio is a free finance and health calculator website. It offers mortgage calculators, retirement planners, BMI calculators, calorie trackers and 200+ other finance and health tools — no signup required.',
+              },
+              {
                 q: 'What is the best free mortgage calculator?',
-                         a: 'Our free mortgage calculator is one of the most comprehensive available. It calculates your monthly payment including principal, interest, property taxes, and homeowner\'s insurance (PMI) -- no signup required, instant results.',
+                a: 'Our free mortgage calculator shows your full monthly payment including principal, interest, property taxes and homeowner insurance. No signup, instant results.',
               },
               {
-                q: 'How do I use a 401k calculator?',
-                    a: 'Enter your current age, retirement age, current balance, monthly contribution, and employer match percentage. Our free 401k calculator uses 2026 IRS contribution limits and shows your projected balance at retirement.',
-              },
-              {
-                q: 'What is compound interest and how is it calculated?',
-                     a: 'Compound interest is interest earned on both your principal and previously accumulated interest. The formula is: A = P(1 + r/n)^(nt). Our compound interest calculator handles this automatically and shows monthly contribution growth.',
+                q: 'How do I use the 401k calculator?',
+                a: 'Enter your current age, retirement age, current balance, monthly contribution and employer match. The calculator projects your balance at retirement using compound growth.',
               },
               {
                 q: 'How accurate is the BMI calculator?',
-                     a: 'Our BMI calculator uses the standard CDC formula: BMI = (weight in lbs x 703) / (height in inches)2. It follows CDC and NIH adult BMI categories (Underweight, Normal, Overweight, Obese) and is accurate for adults 20+.',
+                a: 'Our BMI calculator uses the standard formula: BMI = (weight in lbs × 703) ÷ (height in inches)². It gives a quick reference for adults and is consistent with CDC guidelines.',
               },
               {
-                q: 'Are these calculators free to use?',
-                  a: 'Yes, all 400+ calculators on tooltrio.com are 100% free with no signup, no registration, and no credit card required. We never store your data and there are no hidden fees.',
+                q: 'What is TDEE and why does it matter?',
+                a: 'TDEE (Total Daily Energy Expenditure) is the total number of calories your body burns in a day. Knowing your TDEE helps you set accurate calorie targets for weight loss, maintenance or muscle gain.',
               },
               {
-                q: 'What is the difference between Roth IRA and Traditional IRA?',
-                 a: 'Roth IRA contributions are made with after-tax dollars; withdrawals in retirement are tax-free. Traditional IRA contributions may be tax-deductible; withdrawals are taxed as ordinary income. Use our Roth vs Traditional IRA calculator to compare based on your tax situation.',
+                q: 'What is compound interest and how is it calculated?',
+                a: 'Compound interest is interest earned on both your principal and previously accumulated interest. The formula is A = P(1 + r/n)^(nt). Over time, compounding turns small regular investments into significant wealth.',
               },
-        
+              {
+                q: 'Are ToolTrio calculators really free?',
+                a: 'Yes. Every finance and health calculator on ToolTrio is completely free to use with no registration, no subscription and no hidden fees.',
+              },
+              {
+                q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
+                a: 'Yes. ToolTrio is also searched as Tool Trio, Trio Tools, Tools Trio, Trio Tool and Toolstrio. All of these refer to ToolTrio.com.',
+              },
             ].map(({ q, a }) => (
               <div key={q} className="rounded-2xl border p-5" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
                 <h3 className="font-bold text-gray-900 text-sm mb-2">{q}</h3>

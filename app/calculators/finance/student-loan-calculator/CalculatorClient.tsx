@@ -104,7 +104,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           )}
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Paid Off In" value={`${result.years}y ${result.remainingMonths}m`} highlight />
             <ResultCard label="Total Interest" value={fmtK(result.totalInterest)} />

@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-orange-500">kcal from alcohol</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">Minutes of Exercise to Burn {totalCals} kcal</h3>
             <div className="grid grid-cols-2 gap-3">

@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-gray-500">by {fmtC(result.difference)}</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="ETF Final Value" value={fmtC(result.etfFV)} subValue={`Net ${result.etfNet}%`} highlight={result.etfBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Index Fund Value" value={fmtC(result.indexFV)} subValue={`Net ${result.indexNet}%`} highlight={!result.etfBetter} icon={<BarChart2 className="w-4 h-4" />} />

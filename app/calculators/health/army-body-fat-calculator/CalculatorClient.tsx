@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-gray-300 text-sm font-semibold">{result.category}</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">Military Branch Standards (Age {age})</h3>
             <div className="grid grid-cols-2 gap-3">

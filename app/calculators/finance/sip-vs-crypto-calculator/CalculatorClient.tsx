@@ -82,7 +82,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="SIP Value" value={fmtCompact(result.sipFV)} subValue={`Gain: ${fmtCompact(result.sipGain)}`} highlight={result.sipBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Crypto (Post-Tax)" value={fmtCompact(result.cryptoPostTax)} subValue={`Bull case ${cryptoRate}%`} highlight={!result.sipBetter} icon={<Zap className="w-4 h-4" />} />

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -31,16 +31,16 @@ export default function CalculatorClient({ faqs }: Props) {
     { name:'LinkedIn', limit:3000 },{ name:'SMS', limit:160 },{ name:'Meta desc', limit:160 },
   ]
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Word Counter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📝 Word Counter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Words - Characters - Reading time - Social platform limits</p>
-      <textarea value={text} onChange={e=>setText(e.target.value)} rows={8} placeholder="Type or paste your text here..."
+      return (
+    <DevToolLayout
+      title="Word Counter"
+      icon="📝"
+      description="Words - Characters - Reading time - Social platform limits"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <textarea value={text} onChange={e=>setText(e.target.value)} rows={8} placeholder="Type or paste your text here..."
         className="w-full p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none mb-4 text-gray-800 leading-relaxed" />
       {stats && <>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div key={s.l} className="p-3 rounded-2xl border text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(6px)',borderColor:'rgba(226,232,240,0.7)'}}>
               <p className="text-xs text-gray-400">{s.l}</p><p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.v}</p>
             </div>
-          ))}
+    ))}
         </div>
         <div className="rounded-2xl border p-5 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
           <h3 className="font-bold text-gray-900 mb-3">Social Platform Limits</h3>
@@ -112,7 +112,7 @@ Paste from any source. The counter handles HTML, Markdown, code, and plain text 
         conclusion={`Word and character counting is a constant task for technical writers, content creators, and developers checking against limits. This counter handles Unicode correctly and provides reading time estimation. For text transformation: [Text Case Converter](/calculators/dev/text-case-converter).`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
+    </DevToolLayout>
   )
 
 }

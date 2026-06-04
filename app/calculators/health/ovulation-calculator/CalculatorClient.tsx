@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <p className="text-xs text-gray-400 mt-3 leading-relaxed">This calculator is for informational purposes. Ovulation varies by individual. Consult a healthcare provider for family planning advice.</p>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {result && (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

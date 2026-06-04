@@ -116,7 +116,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* Main result panel */}
           <div className="p-6 rounded-2xl from-green-50 to-emerald-50 border-2 border-green-200" style={{background:'linear-gradient(135deg,rgba(240,253,244,0.9),rgba(236,253,245,0.9))'}}>
             <div className="grid grid-cols-3 gap-4 text-center">

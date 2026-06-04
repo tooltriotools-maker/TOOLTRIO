@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">Heart Rate Training Zones (Karvonen Method)</h3>
             <div className="space-y-3">

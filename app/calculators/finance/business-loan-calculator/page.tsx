@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import BusinessLoanCalculatorClient from './BusinessLoanCalculatorClient'
+import dynamic from 'next/dynamic'
+const BusinessLoanCalculatorClient = dynamic(() => import('./BusinessLoanCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Business Loan Calculator USA 2026 | TOOLTRIO',

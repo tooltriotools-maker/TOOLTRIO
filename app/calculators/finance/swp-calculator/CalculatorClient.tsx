@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Final Balance" value={fmt(Math.max(0, r.finalBalance || 0))} highlight={isCorpusSustainable} icon={<DollarSign className="w-4 h-4" />} />
             <ResultCard label="Total Withdrawn" value={fmt(r.totalWithdrawn || totalWithdrawn)} icon={<TrendingDown className="w-4 h-4" />} />

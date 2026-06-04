@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -30,16 +30,16 @@ export default function CalculatorClient({ faqs }: Props) {
     setRules(r=>r.map((rule,j)=>j===i?{...rule,disallows:val.split('\n')}:rule))
   }
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">robots.txt Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🤖 robots.txt Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate SEO-friendly robots.txt with crawler rules - Google, Bing, custom bots</p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      return (
+    <DevToolLayout
+      title="robots.txt Generator"
+      icon="🤖"
+      description="Generate SEO-friendly robots.txt with crawler rules - Google, Bing, custom bots"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
           {rules.map((rule,i)=>(
             <div key={i} className="bg-white rounded-2xl border border-gray-200 p-5 space-y-3">
@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <textarea value={rule.disallows.join('\n')} onChange={e=>updateDisallow(i,e.target.value)} rows={5}
                   className="w-full font-mono text-sm p-3 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none" /></div>
             </div>
-          ))}
+    ))}
           <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Sitemap URL</label>
             <input value={sitemap} onChange={e=>setSitemap(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-3 py-2.5 text-sm focus:outline-none" /></div>
           <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Crawl Delay: {crawlDelay}s (0 = none)</label>
@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">A robots.txt file tells web crawlers which pages they can and cannot visit. Select the User-agent (* means all bots, or target specific ones like Googlebot). Add the paths you want to block from indexing in the Disallow section - typically /admin/, /api/, /checkout/, /login/, /private/. Add your sitemap URL so crawlers can discover all your pages efficiently. Set crawl delay to limit how fast bots crawl your site if you have server load concerns.</p>
         <p className="text-sm text-gray-600"><strong>Important:</strong> robots.txt is a directive, not a security measure - malicious bots ignore it. Do not disallow pages you want indexed. Disallow: / blocks ALL crawling and will remove your site from search engines. Always test with Google Search Console's robots.txt tester after deploying.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Robots.txt Generator"
         category="dev"
@@ -122,6 +122,6 @@ Sitemap declaration. Add your sitemap URL: Sitemap: https://example.com/sitemap.
 Test with Google Search Console. After deploying, use Google robots.txt Tester in Search Console to verify rules are correctly interpreted by Googlebot.`}
         conclusion={`Robots.txt controls which pages search engines index and which they skip. This generator handles the syntax and shows all directives. For complete SEO setup: [Meta Tag Generator](/calculators/dev/meta-tag-generator) and [Open Graph Preview](/calculators/dev/open-graph-preview).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

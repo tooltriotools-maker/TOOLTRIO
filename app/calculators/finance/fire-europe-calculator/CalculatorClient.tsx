@@ -143,7 +143,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </button>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* FIRE Number hero */}
           <div className={`p-5 rounded-2xl border-2 ${result.isAchievable ? 'border-green-300' : 'border-amber-300'}`} style={{background: result.isAchievable ? 'rgba(240,253,244,0.8)' : 'rgba(255,251,235,0.8)', backdropFilter:'blur(8px)'}}>
             <div className="flex items-center justify-between mb-3">

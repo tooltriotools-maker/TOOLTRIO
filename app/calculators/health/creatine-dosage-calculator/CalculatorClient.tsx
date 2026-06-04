@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Primary goal" value={goal} onChange={v=>setGoal(v as any)} options={[{value:'strength',label:'Strength & Power'},{value:'endurance',label:'Endurance'},{value:'general',label:'General health'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-4">
             {phase === 'loading' ? <>
               <div className="p-5 bg-red-50 rounded-2xl border-2 border-red-200 text-center">

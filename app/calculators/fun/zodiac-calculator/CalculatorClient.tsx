@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -41,16 +42,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const compat = me && them ? (me.n===them.n ? 95 : COMPAT[me.t||'']?.includes(them.t||'') ? 85 : me.t===them.t ? 75 : 50) : 0
   const TYPE_COLORS: Record<string,string> = {Fire:'bg-red-100 text-red-700',Earth:'bg-green-100 text-green-700',Air:'bg-blue-100 text-blue-700',Water:'bg-indigo-100 text-indigo-700'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun &amp; Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Zodiac Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⭐ Zodiac Sign Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Find your zodiac sign, Chinese zodiac animal, and compatibility score</p>
-      <div className="rounded-3xl border p-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="⭐ Zodiac Sign Calculator"
+      icon=""
+      description="Find your zodiac sign, Chinese zodiac animal, and compatibility score"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <div className="rounded-3xl border p-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Your Birthday</label>
           <input type="date" value={dob} onChange={e=>setDob(e.target.value)} className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-xl px-4 py-3 focus:outline-none" /></div>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Partner's Birthday</label>
@@ -68,7 +69,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <p className="text-2xl mt-2">Year of the {s.chinese}</p>
                 <p className="text-xs mt-2 opacity-80 leading-relaxed">{s.tr}</p>
               </div>
-            ))}
+    ))}
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-5 text-center">
             <p className="font-bold text-gray-900 mb-2">💕 Compatibility Score</p>
@@ -201,6 +202,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

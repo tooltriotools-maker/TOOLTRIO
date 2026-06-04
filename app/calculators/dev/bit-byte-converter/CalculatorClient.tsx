@@ -1,7 +1,6 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -27,16 +26,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const fmt = (n: number) => n < 0.001 ? n.toExponential(3) : n < 1 ? n.toFixed(6) : n >= 1e12 ? (n/1e12).toFixed(4)+'T' : n.toLocaleString(undefined,{maximumFractionDigits:4})
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Bit/Byte Converter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>💾 Bit & Byte Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert between bits, bytes, kilobytes, megabytes, gigabytes, and terabytes instantly.</p>
-
+      return (
+    <DevToolLayout
+      title="Bit & Byte Converter"
+      icon="💾"
+      description="Convert between bits, bytes, kilobytes, megabytes, gigabytes, and terabytes instantly."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-3 mb-6">
           <input type="number" value={value} onChange={e=>setValue(+e.target.value)} step="any"
@@ -52,7 +51,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <span className={`text-sm font-semibold ${u.label===unit?'text-green-800':'text-gray-700'}`}>{u.label}</span>
               <span className={`font-mono font-black ${u.label===unit?'text-green-700':'text-gray-800'}`}>{fmt(totalBytes/u.bytes)}</span>
             </div>
-          ))}
+    ))}
         </div>
       </div>
 
@@ -111,6 +110,6 @@ Payload size limits. Many APIs cap payloads at 10 MB, 16 MB, or 64 MB. Convert h
 Database field sizing. A VARCHAR(255) column stores 255 bytes. UTF-8 characters use 1-4 bytes each. Calculate the worst-case byte size of your Unicode strings here.`}
         conclusion={`Bit/byte unit confusion causes real bugs — especially the 8x factor between bits (network speeds) and bytes (file sizes). This converter makes both SI and IEC units explicit. For network bandwidth planning: [Bandwidth Calculator](/calculators/dev/bandwidth-calculator).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

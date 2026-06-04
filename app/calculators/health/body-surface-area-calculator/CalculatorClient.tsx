@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-gray-500">m2</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-4">BSA by Formula</h3>
             <div className="grid grid-cols-2 gap-3">

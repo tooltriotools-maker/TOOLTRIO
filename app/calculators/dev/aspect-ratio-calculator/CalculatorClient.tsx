@@ -1,7 +1,6 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -21,16 +20,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const COMMON = [{w:16,h:9},{w:4,h:3},{w:21,h:9},{w:1,h:1},{w:9,h:16},{w:3,h:2},{w:5,h:4}]
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Aspect Ratio Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📐 Aspect Ratio Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate aspect ratios, find missing dimensions, and convert between common screen ratios.</p>
-      <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Aspect Ratio Calculator"
+      icon="📐"
+      description="Calculate aspect ratios, find missing dimensions, and convert between common screen ratios."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-2 gap-4 mb-5">
           <div>
             <label className="text-xs font-bold text-gray-500 block mb-1">Width (px)</label>
@@ -138,6 +137,6 @@ Square != circle. border-radius: 50% on a 200x100px element produces an ellipse.
           </details>
         ))}
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

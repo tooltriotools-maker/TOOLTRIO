@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import BiweeklyMortgageClient from './BiweeklyMortgageClient'
+import dynamic from 'next/dynamic'
+const BiweeklyMortgageClient = dynamic(() => import('./BiweeklyMortgageClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Biweekly Mortgage Calculator USA 2026 | TOOLTRIO',

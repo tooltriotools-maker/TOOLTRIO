@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-sm text-gray-500">by {fmtAuto(result.diff, isUSD)}</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Option A" value={fmtAuto(result.fv1, isUSD)} subValue={`${rate1}% return`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Option B" value={fmtAuto(result.fv2, isUSD)} subValue={`${rate2}% return`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />

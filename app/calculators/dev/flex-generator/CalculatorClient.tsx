@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -16,16 +16,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const css = `.container {\n  display: flex;\n  flex-direction: ${direction};\n  justify-content: ${justify};\n  align-items: ${align};\n  flex-wrap: ${wrap};\n  gap: ${gap}px;\n}`
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Flexbox Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔲 CSS Flexbox Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Build flexbox layouts visually - see changes live and copy the CSS</p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      return (
+    <DevToolLayout
+      title="CSS Flexbox Generator"
+      icon="🔲"
+      description="Build flexbox layouts visually - see changes live and copy the CSS"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-4">
           <div className="rounded-2xl border p-5 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
             {[{l:'flex-direction',v:direction,s:setDirection,opts:['row','row-reverse','column','column-reverse']},
@@ -37,14 +37,14 @@ export default function CalculatorClient({ faqs }: Props) {
                 <label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">{l}</label>
                 <select value={v} onChange={e=>s(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-3 py-2 font-mono text-sm focus:outline-none focus:border-green-400 bg-white">{opts.map(o=><option key={o} value={o}>{o}</option>)}</select>
               </div>
-            ))}
+    ))}
             <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">gap: {gap}px</label>
               <input type="range" min={0} max={48} value={gap} onChange={e=>setGap(Number(e.target.value))} className="w-full" /></div>
             <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Items: {items}</label>
               <input type="range" min={1} max={10} value={items} onChange={e=>setItems(Number(e.target.value))} className="w-full" /></div>
           </div>
         </div>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="rounded-2xl border border-gray-200 h-64 p-4" style={{background:'rgba(248,250,248,0.8)'}}>
             <div className="w-full h-full rounded-xl bg-white border-2 border-dashed border-gray-300 p-3"
               style={{display:'flex',flexDirection:direction as any,justifyContent:justify,alignItems:align,flexWrap:wrap as any,gap:`${gap}px`}}>
@@ -115,6 +115,6 @@ flex-direction: column swaps the axes. When direction is column, justify-content
 For 2D layouts, use [CSS Grid Generator](/calculators/dev/grid-generator). Flexbox is one-dimensional. If you need items to align across both rows and columns, use Grid.`}
         conclusion={`Flexbox is the layout model for most UI components — navbars, card rows, form fields, centering. The visual builder makes the axis model concrete. For 2D layouts: [CSS Grid Generator](/calculators/dev/grid-generator). For responsive sizing: [Responsive Breakpoints](/calculators/dev/responsive-breakpoints).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -25,16 +26,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const grade = pct>=80?{l:'Champion Procrastinator 🏆',c:'text-red-600',d:'You are a master of the art. Deadlines fear you - but not enough to motivate you.'}:pct>=60?{l:'Advanced Procrastinator 😅',c:'text-orange-600',d:'You put the "pro" in procrastination. Impressive dedication to delay.'}:pct>=40?{l:'Casual Procrastinator 😊',c:'text-yellow-600',d:'You procrastinate situationally. Not a problem... probably.'}:{l:'Productivity Unicorn 🦄',c:'text-green-600',d:'Are you even human? Nobody gets things done this efficiently.'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Procrastination Score</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⏳ Procrastination Score Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Find out your procrastination level. (You can do it later... or now, I guess.)</p>
-
+      return (
+    <DevToolLayout
+      title="⏳ Procrastination Score Calculator"
+      icon=""
+      description="Find out your procrastination level. (You can do it later... or now, I guess.)"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       {!submitted ? (
         <div className="space-y-4">
           {QUESTIONS.map((q,qi)=>(
@@ -49,7 +50,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 ))}
               </div>
             </div>
-          ))}
+    ))}
           <button onClick={()=>setSubmitted(true)} disabled={answered<QUESTIONS.length}
             className={`w-full py-4 font-black rounded-2xl text-lg transition-all ${answered===QUESTIONS.length?'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:opacity-90':'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
             {answered<QUESTIONS.length?`Answer ${QUESTIONS.length-answered} more question${QUESTIONS.length-answered!==1?'s':''}...`:'See My Score!'}
@@ -193,6 +194,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Zap } from 'lucide-react'
+import { Zap } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -18,15 +18,12 @@ export default function CalculatorClient({ faqs }: Props) {
   const reqPerSec = total > 0 ? (1000 / total).toFixed(1) : '0'
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">API Response Time Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚡ API Response Time Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Analyse API performance metrics, calculate throughput, and grade response times against industry benchmarks.</p>
-
+    <DevToolLayout
+      title="API Response Time Calculator"
+      description="Analyse API performance metrics, calculate throughput, and grade response times against industry benchmarks."
+      icon="⚡"
+      slug="api-response-time"
+    >
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         {[
           {label:'Time to First Byte (TTFB)', val:ttfb, set:setTtfb, max:5000, unit:'ms'},
@@ -35,8 +32,8 @@ export default function CalculatorClient({ faqs }: Props) {
           {label:'Daily Requests', val:requests, set:setRequests, max:100000, unit:'k'},
         ].map(f=>(
           <div key={f.label}>
-            <label className="text-sm font-semibold text-gray-700">{f.label}: <span className="text-green-600 font-black">{f.val.toLocaleString()} {f.unit}</span></label>
-            <input type="range" min={0} max={f.max} value={f.val} onChange={e=>f.set(+e.target.value)} className="w-full accent-green-600 mt-1" />
+            <label className="text-sm font-semibold text-gray-700">{f.label}: <span className="text-blue-600 font-black">{f.val.toLocaleString()} {f.unit}</span></label>
+            <input type="range" min={0} max={f.max} value={f.val} onChange={e=>f.set(+e.target.value)} className="w-full accent-blue-600 mt-1" />
             <input type="number" value={f.val} onChange={e=>f.set(+e.target.value)} className="mt-1 w-32 px-3 py-1.5 border border-gray-200 rounded-lg text-sm font-bold focus:outline-none" />
           </div>
         ))}
@@ -130,6 +127,7 @@ CORS and timing info. Browsers hide timing details for cross-origin requests unl
 
 For complete API debugging: measure response times here, build test requests with [curl Builder](/calculators/dev/curl-builder), and analyze response headers with [HTTP Headers Analyzer](/calculators/dev/http-headers-analyzer).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }
+

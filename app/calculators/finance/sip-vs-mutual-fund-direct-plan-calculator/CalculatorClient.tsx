@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <p className="text-xs text-gray-400 mt-1">Extra wealth from Direct Plan over {years} years</p>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Direct Plan Value" value={fmtCompact(result.directFV)} subValue={`${result.directReturn}% net`} highlight icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Regular Plan Value" value={fmtCompact(result.regularFV)} subValue={`${result.regularReturn}% net`} />

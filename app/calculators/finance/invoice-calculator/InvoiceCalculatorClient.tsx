@@ -53,7 +53,7 @@ export default function InvoiceCalculatorClient({ faqs, structuredData, relatedC
     <CalculatorLayout title="Invoice Calculator USA 2026" description="Add line items, apply tax and discounts, and calculate invoice totals for freelancers and businesses." icon="🧾" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="invoice-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Line Items</h2>

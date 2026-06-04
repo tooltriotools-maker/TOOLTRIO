@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -17,16 +18,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const rand = <T,>(a:T[])=>a[Math.floor(Math.random()*a.length)]
   const generate = () => setResult({name:`${rand(TITLES)} ${rand(MIDDLES)}${rand(NOUNS)}`,plan:rand(PLANS),lair:rand(LAIRS)})
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Villain Name Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>😈 Villain Name Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Discover your diabolical villain alter-ego, evil plan, and secret lair. Mwahaha!</p>
-
+      return (
+    <DevToolLayout
+      title="Villain Name Generator"
+      icon="😈"
+      description="Discover your diabolical villain alter-ego, evil plan, and secret lair. Mwahaha!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <button onClick={generate} className="w-full flex items-center justify-center gap-2 py-4 bg-gradient-to-r from-gray-800 to-gray-950 text-white font-black text-lg rounded-2xl hover:opacity-90 shadow-lg mb-6">
         <RefreshCw className="w-5 h-5" /> {result?'Try Another Villain':'Discover Your Villain Self'}
       </button>
@@ -49,7 +50,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
           </div>
         </div>
-      )}
+    )}
 
 
 
@@ -174,6 +175,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

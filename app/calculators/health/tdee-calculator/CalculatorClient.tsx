@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Goal" value={goal} onChange={v=>setGoal(v as any)} options={[{value:'lose',label:'🔥 Lose Fat'},{value:'maintain',label:'⚖️ Maintain'},{value:'gain',label:'💪 Build Muscle'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 rounded-xl text-center border border-gray-200">
               <p className="text-xs text-gray-500 font-medium">BMR (at rest)</p>

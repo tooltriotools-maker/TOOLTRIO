@@ -118,7 +118,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
           )}
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {mode === 'pace' && (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

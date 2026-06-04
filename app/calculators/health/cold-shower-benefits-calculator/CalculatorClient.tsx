@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Programme Duration" value={weeks} onChange={setWeeks} min={1} max={52} step={1} suffix="weeks" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-4">
             <Card>
               <p className="text-xs text-gray-500 mb-1">Mood / Anxiety Improvement</p>

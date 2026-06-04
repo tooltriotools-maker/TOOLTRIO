@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, Shield, ShieldAlert } from 'lucide-react'
+import { Copy, Check, Shield, ShieldAlert } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -31,16 +31,16 @@ export default function CalculatorClient({ faqs }: Props) {
     ? result.payload.exp * 1000 > Date.now() ? 'valid' : 'expired'
     : null
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">JWT Decoder</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔍 JWT Decoder <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Decode and inspect JSON Web Tokens. Header, payload, and signature - all decoded instantly in your browser.</p>
-
+      return (
+    <DevToolLayout
+      title="JWT Decoder"
+      icon="🔍"
+      description="Decode and inspect JSON Web Tokens. Header, payload, and signature - all decoded instantly in your browser."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-4 text-xs text-amber-800 font-semibold">
         🔐 This tool only DECODES the JWT - it does not verify the signature. Never paste production secrets here.
       </div>
@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs }: Props) {
               {expStatus==='valid'?<Shield className="w-4 h-4"/>:<ShieldAlert className="w-4 h-4"/>}
               <span className="text-sm font-bold">Token is {expStatus}. Expires: {new Date(result.payload.exp*1000).toUTCString()}</span>
             </div>
-          )}
+    )}
 
           {([['Header','header',result.header,'blue'],['Payload','payload',result.payload,'green']] as const).map(([title, key, data, color])=>(
             <div key={key} className={`bg-${color}-50 border border-${color}-200 rounded-2xl p-5`}>
@@ -151,6 +151,6 @@ iat (issued at) vs nbf (not before). iat is when the token was issued. nbf is wh
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

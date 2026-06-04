@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Age" value={age} onChange={setAge} min={5} max={90} step={1} suffix="yrs" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Jet Lag Severity Score</p>

@@ -71,7 +71,7 @@ export default function WeeklyBudgetCalculatorClient({ faqs, structuredData, rel
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label={weeklySurplus >= 0 ? 'Weekly Surplus' : 'Weekly Deficit'} value={fmt(Math.abs(weeklySurplus))} subValue={weeklySurplus >= 0 ? 'Saved per week' : 'Over budget!'} highlight />
             <ResultCard label="Savings Rate" value={`${Math.max(0, savingsRate)}%`} subValue={savingsRate >= 20 ? 'v Great' : savingsRate >= 10 ? '^ Keep going' : '⚠️ Low'} />

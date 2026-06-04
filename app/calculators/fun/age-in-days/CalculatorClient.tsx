@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -38,16 +39,16 @@ export default function CalculatorClient({ faqs }: Props) {
     return { days, hours, minutes, seconds, weeks, months, funFacts }
   }, [dob])
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun &amp; Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Age in Days</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎂 How Old Are You in Days? <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Discover your exact age in days, hours, minutes, and more mind-blowing stats</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="How Old Are You in Days?"
+      icon="🎂"
+      description="Discover your exact age in days, hours, minutes, and more mind-blowing stats"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Your Date of Birth</label>
         <input type="date" value={dob} onChange={e=>setDob(e.target.value)} className="w-full border-2 border-gray-200 focus:border-orange-400 rounded-xl px-4 py-3 text-xl focus:outline-none" />
       </div>
@@ -64,7 +65,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <p className="text-xs text-gray-400">{s.l}</p>
                 <p className="text-lg font-black text-gray-900">{s.v.toLocaleString()}</p>
               </div>
-            ))}
+    ))}
           </div>
           <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
             <p className="font-bold text-gray-900 mb-3">🤯 Mind-Blowing Life Stats</p>
@@ -201,6 +202,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

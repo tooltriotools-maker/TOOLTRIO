@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useCallback } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { Copy, Check, RefreshCw } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -105,17 +105,16 @@ export default function CalculatorClient({ faqs }: Props) {
     return { lightness, hex: rgbToHex(rgb.r, rgb.g, rgb.b), rgb }
   })
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Color Converter</span>
-      </nav>
-
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎨 Color Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert between HEX, RGB, HSL, and CSS formats. See contrast ratios, shades, and tints instantly.</p>
-
+      return (
+    <DevToolLayout
+      title="Color Converter"
+      icon="🎨"
+      description="Convert between HEX, RGB, HSL, and CSS formats. See contrast ratios, shades, and tints instantly."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         {/* Left - color preview & picker */}
         <div className="rounded-2xl border p-6 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
@@ -178,7 +177,7 @@ export default function CalculatorClient({ faqs }: Props) {
                   className="w-full h-2 rounded-full cursor-pointer outline-none"
                   style={{ accentColor: color }} />
               </div>
-            ))}
+    ))}
           </div>
 
           {/* HSL sliders */}
@@ -331,6 +330,6 @@ Pair it with our CSS Gradient Generator and Color Contrast tools for a complete 
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

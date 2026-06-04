@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="S&amp;P 500 Value" value={fmtC(result.sp500FV)} subValue={`+${fmtC(result.sp500Gain)} gain`} highlight icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Bonds Value" value={fmtC(result.bondFV)} subValue={`+${fmtC(result.bondGain)} gain`} icon={<Shield className="w-4 h-4" />} />

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -46,16 +46,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const updDep = (type: 'deps'|'devDeps', i: number, k: 'name'|'version', v: string) => setPkg(p=>({...p,[type]:p[type].map((d,j)=>j===i?{...d,[k]:v}:d)}))
   const delDep = (type: 'deps'|'devDeps', i: number) => setPkg(p=>({...p,[type]:p[type].filter((_,j)=>j!==i)}))
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">package.json Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📦 package.json Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Fill the wizard on the left, get your perfect package.json on the right</p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      return (
+    <DevToolLayout
+      title="package.json Generator"
+      icon="📦"
+      description="Fill the wizard on the left, get your perfect package.json on the right"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div className="rounded-xl border p-4 space-y-3" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">Basic Info</h3>
@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <input value={(pkg as any)[k]} onChange={e=>upd(k, e.target.value)} placeholder={ph}
                   className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-green-400" />
               </div>
-            ))}
+    ))}
             <div className="grid grid-cols-2 gap-3">
               <div><label className="text-xs font-medium text-gray-500 block mb-0.5">License</label>
                 <select value={pkg.license} onChange={e=>upd('license',e.target.value)} className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none bg-white">
@@ -163,7 +163,7 @@ Validate after editing. Paste the generated package.json into [JSON Formatter](/
         conclusion={`Getting exports, module type, and version ranges right the first time prevents hours of import failures. For the full Node.js project setup: generate package.json here, search packages with [npm Package Search](/calculators/dev/npm-package-search), and manage constraints with [Semver Calculator](/calculators/dev/semver-calculator).`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
+    </DevToolLayout>
   )
 
 }

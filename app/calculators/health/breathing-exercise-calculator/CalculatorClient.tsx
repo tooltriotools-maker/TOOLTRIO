@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="bg-gray-50 rounded-lg p-2"><p className="font-bold">{totalMin} min</p><p className="text-gray-500">Total time</p></div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {active ? (
             <Card gradient>
               <div className="text-center py-4">

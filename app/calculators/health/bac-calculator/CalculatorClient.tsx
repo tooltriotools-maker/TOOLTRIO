@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Hours Since First Drink" value={hours} onChange={setHours} min={0} max={12} step={0.5} suffix="hrs" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`p-5 rounded-2xl border-2 ${result.color}`}>
             <div className="flex items-center justify-between">
               <div>

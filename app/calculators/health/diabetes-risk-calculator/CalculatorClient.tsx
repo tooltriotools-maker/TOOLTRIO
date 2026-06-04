@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             ))}
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`p-6 rounded-2xl border-2 text-center ${result.color}`}>
             <p className="text-xs font-bold uppercase tracking-wide opacity-70">FINDRISC Score: {result.score}/26</p>
             <p className="text-3xl font-black my-2">{result.risk}</p>

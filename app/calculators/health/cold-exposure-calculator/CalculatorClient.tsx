@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
           {!safe && <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 font-semibold">⚠️ Duration exceeds recommended maximum for {experience} level ({maxSafe} min). Reduce session length to stay safe.</div>}
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Session Overview</p>

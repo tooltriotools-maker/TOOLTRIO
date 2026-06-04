@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -21,16 +22,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const grade = debt>10?{l:'Severe Sleep Debt 😴',c:'text-red-600',bg:'bg-red-50 border-red-300'}:debt>5?{l:'Moderate Sleep Debt 😪',c:'text-orange-600',bg:'bg-orange-50 border-orange-300'}:debt>0?{l:'Mild Sleep Debt 😊',c:'text-yellow-600',bg:'bg-yellow-50 border-yellow-300'}:{l:'Well Rested! 🌟',c:'text-green-600',bg:'bg-green-50 border-green-300'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Sleep Debt Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>😴 Sleep Debt Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Track how much sleep you owe your body this week. Your bed thanks you for caring.</p>
-
+      return (
+    <DevToolLayout
+      title="Sleep Debt Calculator"
+      icon="😴"
+      description="Track how much sleep you owe your body this week. Your bed thanks you for caring."
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700">Sleep goal per night: <span className="text-blue-600 font-black">{targetHours}h</span></label>
@@ -44,7 +45,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 onChange={e=>{const n=[...sleepHours];n[i]=+e.target.value;setSleepHours(n)}} className="flex-1 accent-blue-500" />
               <span className={`text-sm font-black w-10 text-right ${sleepHours[i]<targetHours?'text-red-600':sleepHours[i]>targetHours?'text-green-600':'text-gray-700'}`}>{sleepHours[i]}h</span>
             </div>
-          ))}
+    ))}
         </div>
       </div>
 
@@ -191,6 +192,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

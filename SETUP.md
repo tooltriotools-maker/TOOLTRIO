@@ -1,57 +1,69 @@
-# TOOLTRIO — Setup Instructions
+# TOOLTRIO Setup Guide
 
-## 1. Extract the ZIP
-Unzip this file — you will get a folder called `tooltrio-premium/`
+## Quick Start (Windows)
+Double-click `START_HERE.bat` — handles everything automatically.
 
-## 2. Navigate into the folder
+## Quick Start (Mac/Linux)
 ```bash
-cd tooltrio-premium
+bash start.sh
 ```
 
-> ⚠️ IMPORTANT: You must run all commands from INSIDE `tooltrio-premium/`, not from the parent folder.
-
-## 3. Install dependencies
+## Manual Setup
 ```bash
+# 1. Clear old cache (IMPORTANT)
+rm -rf .next
+
+# 2. Install dependencies (first time only)
 npm install
-```
 
-## 4. Run development server
-```bash
+# 3. Start dev server
 npm run dev
 ```
 
-## 5. Build for production
+Open http://localhost:3000 in your browser.
+
+## TrioBot AI Chat (Optional)
+TrioBot works without an API key using its built-in knowledge base.
+For full AI responses, add your Anthropic key to `.env.local`:
+```
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+Get a free key at https://console.anthropic.com
+
+## Why delete .next?
+The `.next` folder is Next.js's build cache. If you move the project, rename it,
+or upgrade Node.js, the old cache causes:
+  `TypeError: Cannot read properties of undefined (reading 'call')`
+Always delete `.next` before starting fresh.
+
+## Build for production
 ```bash
 npm run build
-npm start
+npm run start
 ```
 
-## Folder Structure (required files)
-```
-tooltrio-premium/
-├── context/
-│   └── CurrencyContext.tsx   ← Required
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   └── ui/
-│       ├── ZipToolLayout.tsx
-│       └── ZipQuickFill.tsx
-├── lib/
-│   └── data/
-│       └── us-zip-data.ts    ← 41,689 ZIP codes
-├── app/
-│   ├── zip/                  ← 35 ZIP tools
-│   └── calculators/          ← 400+ calculators
-└── tsconfig.json
-```
+## Deploy to Vercel
+1. Push to GitHub
+2. Connect repo to Vercel at vercel.com
+3. Add ANTHROPIC_API_KEY in Vercel Environment Variables
+4. Deploy automatically
 
 ## Troubleshooting
 
-**Error: Can't resolve '@/context/CurrencyContext'**
-- Make sure you are running `npm run dev` from INSIDE the `tooltrio-premium/` folder
-- The `context/` folder must be at `tooltrio-premium/context/CurrencyContext.tsx`
+**Site not loading / blank page**
+→ Delete `.next` folder and restart: `rm -rf .next && npm run dev`
 
-**Error: Module not found**  
-- Run `npm install` again from inside `tooltrio-premium/`
+**"Module not found" errors**
+→ Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
+
+**Port 3000 in use**
+→ Use a different port: `npm run dev -- -p 3001`
+
+**Node.js version issues**
+→ Requires Node.js 18 or higher. Check with: `node --version`
+
+**Exchange rates / commodity prices not loading**
+→ These use free external APIs. If they're down, fallback rates are used automatically.
+
+**ZIP tools not working**
+→ ZIP data is bundled locally — no internet required. Check that `lib/data/zips/` exists.

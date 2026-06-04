@@ -77,7 +77,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card>
             <h3 className="font-bold text-gray-900 mb-3">What This Means</h3>
             <p className="text-gray-600 text-sm leading-relaxed">{result.advice}</p>

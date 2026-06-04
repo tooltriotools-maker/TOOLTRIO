@@ -114,7 +114,7 @@ export default function WealthCalculatorClient({ faqs, structuredData, relatedCa
           </Card>
         </div>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Net Worth" value={fmtCompact(Math.abs(netWorth))} subValue={netWorth >= 0 ? 'Total wealth' : 'Negative NW'} highlight />
             <ResultCard label="Total Assets" value={fmtCompact(totalAssets)} subValue="Everything you own" />

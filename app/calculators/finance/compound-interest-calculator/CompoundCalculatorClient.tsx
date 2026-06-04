@@ -59,7 +59,7 @@ export default function CompoundCalculatorClient({ faqs, structuredData, related
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Maturity Amount" value={fmtCompact(result.maturityAmount)} subValue={fmt(result.maturityAmount)} highlight />
             <ResultCard label="Principal" value={fmtCompact(result.principal)} />

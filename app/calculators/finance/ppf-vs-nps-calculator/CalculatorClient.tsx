@@ -88,7 +88,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="PPF Corpus" value={fmtCompact(result.ppfFV)} subValue="100% accessible, tax-free" highlight={result.ppfBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="NPS Total Corpus" value={fmtCompact(result.npsTotalValue)} subValue={`60% lumpsum + pension`} highlight={!result.ppfBetter} icon={<Target className="w-4 h-4" />} />

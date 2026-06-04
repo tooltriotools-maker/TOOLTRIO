@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import BudgetPlannerCalculatorClient from './BudgetPlannerCalculatorClient'
+import dynamic from 'next/dynamic'
+const BudgetPlannerCalculatorClient = dynamic(() => import('./BudgetPlannerCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Budget Planner USA – 50/30/20 Rule | TOOLTRIO',

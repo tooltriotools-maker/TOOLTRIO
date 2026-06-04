@@ -1,8 +1,9 @@
 'use client'
-import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
+import { useState, useMemo } from 'react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
+import { ResultsOnlyButton } from '@/components/ui/ExportPDFButton'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -33,62 +34,68 @@ export default function CalculatorClient({ faqs }: Props) {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">JSON Formatter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📋 JSON Formatter &amp; Validator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Format - Validate - Minify - runs in your browser, nothing leaves your machine</p>
+    <DevToolLayout
+      title="JSON Formatter &amp; Validator"
+      icon="📋"
+      description="Format - Validate - Minify - runs in your browser, nothing leaves your machine"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Input JSON</label>
-            <button onClick={() => setInput('')} className="text-xs text-red-400 hover:text-red-600 font-semibold">Clear</button>
-          </div>
-          <textarea value={input} onChange={e => setInput(e.target.value)} placeholder="Paste JSON here..."
-            className="w-full h-80 font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none bg-gray-950 text-green-300" />
-          <p className="text-xs text-gray-400 mt-1">{input.length} chars - {result.size > 0 ? `${result.size} bytes minified` : ''}</p>
-        </div>
-
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex gap-1 flex-wrap">
-              {(['formatted', 'minified'] as const).map(m => (
-                <button key={m} onClick={() => setMode(m)}
-                  className={`px-3 py-1 text-xs font-bold rounded-lg capitalize transition-all ${mode === m ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{m}</button>
-              ))}
-              {mode === 'formatted' && (
-                <select value={indent} onChange={e => setIndent(Number(e.target.value))}
-                  className="ml-2 text-xs border border-gray-200 rounded-lg px-2 py-1 bg-white focus:outline-none">
-                  <option value={2}>2 spaces</option><option value={4}>4 spaces</option>
-                </select>
-              )}
+      {/* ── Results section (tagged for PDF export) ── */}
+      <div data-pdf-results>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Input JSON</label>
+              <button onClick={() => setInput('')} className="text-xs text-red-400 hover:text-red-600 font-semibold">Clear</button>
             </div>
-            <button onClick={copyOutput} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700">
-              {copiedMode === mode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />} Copy
-            </button>
+            <textarea value={input} onChange={e => setInput(e.target.value)} placeholder="Paste JSON here..."
+              className="w-full h-80 font-mono text-sm p-4 border-2 border-gray-200 focus:border-green-400 rounded-xl focus:outline-none resize-none bg-gray-950 text-green-300" />
+            <p className="text-xs text-gray-400 mt-1">{input.length} chars - {result.size > 0 ? `${result.size} bytes minified` : ''}</p>
           </div>
 
-          <div className={`h-80 rounded-xl border-2 overflow-hidden ${result.valid ? 'border-green-300' : 'border-red-400'}`}>
-            {result.valid
-              ? <pre className="w-full h-full font-mono text-sm p-4 bg-gray-950 text-green-300 overflow-auto whitespace-pre">{output || 'Output will appear here...'}</pre>
-              : <div className="p-4 bg-red-950 h-full"><p className="text-red-400 font-bold mb-2">❌ Invalid JSON</p><p className="text-red-300 font-mono text-xs leading-relaxed">{result.error}</p></div>
-            }
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex gap-1 flex-wrap">
+                {(['formatted', 'minified'] as const).map(m => (
+                  <button key={m} onClick={() => setMode(m)}
+                    className={`px-3 py-1 text-xs font-bold rounded-lg capitalize transition-all ${mode === m ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{m}</button>
+                ))}
+                {mode === 'formatted' && (
+                  <select value={indent} onChange={e => setIndent(Number(e.target.value))}
+                    className="ml-2 text-xs border border-gray-200 rounded-lg px-2 py-1 bg-white focus:outline-none">
+                    <option value={2}>2 spaces</option><option value={4}>4 spaces</option>
+                  </select>
+                )}
+              </div>
+              <button onClick={copyOutput} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700">
+                {copiedMode === mode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />} Copy
+              </button>
+            </div>
+
+            <div className={`h-80 rounded-xl border-2 overflow-hidden ${result.valid ? 'border-green-300' : 'border-red-400'}`}>
+              {result.valid
+                ? <pre className="w-full h-full font-mono text-sm p-4 bg-gray-950 text-green-300 overflow-auto whitespace-pre">{output || 'Output will appear here...'}</pre>
+                : <div className="p-4 bg-red-950 h-full"><p className="text-red-400 font-bold mb-2">❌ Invalid JSON</p><p className="text-red-300 font-mono text-xs leading-relaxed">{result.error}</p></div>
+              }
+            </div>
           </div>
         </div>
+
+        {result.valid && result.formatted && (
+          <div className="mt-3 flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex gap-4 text-sm text-gray-500">
+              <span>✅ Valid JSON</span>
+              <span>- {result.formatted.split('\n').length} lines formatted</span>
+              <span>- {result.size} bytes minified ({(result.size/1024).toFixed(1)} KB)</span>
+            </div>
+            <ResultsOnlyButton title="JSON Formatter & Validator" category="Dev" compact />
+          </div>
+        )}
       </div>
-
-      {result.valid && result.formatted && (
-        <div className="mt-3 flex gap-4 text-sm text-gray-500">
-          <span>✅ Valid JSON</span>
-          <span>- {result.formatted.split('\n').length} lines formatted</span>
-          <span>- {result.size} bytes minified ({(result.size/1024).toFixed(1)} KB)</span>
-        </div>
-      )}
-
+      {/* ── End results section ── */}
 
       <SEOContent
         title="JSON Formatter & Validator"
@@ -143,7 +150,7 @@ After formatting, chain to the [JSONPath Tester](/calculators/dev/json-path-test
 
 Combine it with [JSONPath Tester](/calculators/dev/json-path-tester) for field extraction and [JSON Schema Generator](/calculators/dev/json-schema-gen) to auto-generate validation schemas.`}
       />
-            <div className="mt-8 space-y-3">
+      <div className="mt-8 space-y-3">
         {faqs.map(f => (
           <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
@@ -151,7 +158,6 @@ Combine it with [JSONPath Tester](/calculators/dev/json-path-tester) for field e
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
-
 }

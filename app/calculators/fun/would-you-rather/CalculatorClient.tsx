@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -33,16 +34,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const next = () => { setChoice(null); setIdx(i=>(i+1)%QUESTIONS.length) }
   const pick = (c: 0|1) => { setChoice(c); setHistory(h=>[...h,{q,c}].slice(-5)) }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Would You Rather</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🤔 Would You Rather? <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">The classic dilemma game - which impossible choice would you make?</p>
-
+      return (
+    <DevToolLayout
+      title="Would You Rather?"
+      icon="🤔"
+      description="The classic dilemma game - which impossible choice would you make?"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <p className="text-xs font-bold text-gray-500 uppercase tracking-wide text-center mb-5">Would You Rather...</p>
         <div className="grid grid-cols-1 gap-3">
@@ -57,7 +58,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <div className="mt-4 p-4 bg-purple-50 border border-purple-200 rounded-xl text-center">
             <p className="font-bold text-purple-800">You chose: {choice===0?'🅰️':'🅱️'} {q[choice]}</p>
           </div>
-        )}
+    )}
         <button onClick={next} className="w-full mt-4 flex items-center justify-center gap-2 py-3 border-2 border-gray-200 rounded-xl font-bold text-gray-600 hover:bg-gray-50">
           <RefreshCw className="w-4 h-4" /> Next Question
         </button>
@@ -200,6 +201,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

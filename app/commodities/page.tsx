@@ -79,7 +79,7 @@ function FAQSection() {
       </h2>
       <p className="text-sm text-gray-500 mb-6">Detailed answers to the most common questions about gold, silver, platinum & palladium investing, pricing, and calculations.</p>
       <div className="space-y-2">
-        {FAQS.map((faq, i) => (
+        {FAQS.map((faq: any, i: number) => (
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open === i ? 'border-yellow-300 shadow-md' : 'border-gray-100 hover:border-yellow-200'}`}>
             <button
               onClick={() => setOpen(open === i ? null : i)}
@@ -96,7 +96,7 @@ function FAQSection() {
               <div className="px-5 pb-5">
                 <div className="h-px bg-yellow-100 mb-4" />
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  {faq.a.split(/(\[.*?\]\(.*?\))/g).map((part, j) => {
+                  {faq.a.split(/(\[.*?\]\(.*?\))/g).map((part: any, j: number) => {
                     const m = part.match(/^\[(.+?)\]\((.+?)\)$/)
                     if (m) return <Link key={j} href={m[2]} className="text-yellow-700 font-semibold underline underline-offset-2 hover:text-yellow-800">{m[1]}</Link>
                     return <span key={j}>{part}</span>
@@ -133,7 +133,7 @@ function RelatedCalculators() {
       <h2 id="related-calcs-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>🔗 Related Calculators</h2>
       <p className="text-sm text-gray-500 mb-5">Every tool you need for precious metals investing, pricing, and portfolio tracking — all with live spot prices.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-        {RELATED_CALCS.map(c => (
+        {RELATED_CALCS.map((c: any) => (
           <Link key={c.href} href={c.href}
             className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2">
@@ -171,7 +171,7 @@ function PreciousMetalsSEO() {
             { stat: '75% LTV', source: 'RBI maximum gold loan ratio for NBFCs (2024 circular)' },
             { stat: '~10.6% CAGR', source: 'Gold 20-year return in USD terms (World Gold Council)' },
             { stat: '31.1035g', source: '1 troy ounce — the global unit for all metal pricing' },
-          ].map((s, i) => (
+          ].map((s: any, i: number) => (
             <div key={i} className="bg-white rounded-xl p-3 border border-yellow-100">
               <p className="text-lg font-black text-yellow-700">{s.stat}</p>
               <p className="text-xs text-gray-500 mt-0.5">{s.source}</p>
@@ -228,7 +228,7 @@ function PreciousMetalsSEO() {
               { m: '🥈 Silver', price: '~$36', use: 'Industrial (solar, EVs), jewellery, investment', vol: 'Medium–High', href: '/commodities/silver-price-calculator' },
               { m: '💎 Platinum', price: '~$960', use: 'Diesel catalytic converters, jewellery', vol: 'Medium', href: '/commodities/platinum-price-calculator' },
               { m: '⚗️ Palladium', price: '~$980', use: 'Petrol catalytic converters, electronics', vol: 'High', href: '/commodities/palladium-price-calculator' },
-            ].map((row, i) => (
+            ].map((row: any, i: number) => (
               <tr key={i} className="hover:bg-gray-50 transition-all">
                 <td className="px-4 py-3 font-semibold text-gray-800">{row.m}</td>
                 <td className="px-4 py-3 font-black text-yellow-700">{row.price}</td>
@@ -271,7 +271,7 @@ function PreciousMetalsSEO() {
             title: 'Deciding Between Gold ETF vs Physical Gold',
             text: 'Physical gold has storage and insurance costs (0.3–0.5% p.a.) plus making charges at purchase. Gold ETFs have expense ratios of 0.4–0.6% p.a. and no storage cost, but no jewellery utility. Sovereign Gold Bonds (SGBs) offer 2.5% p.a. interest on top of gold price appreciation and are capital gains tax-free at maturity. Use our SIP vs Gold Calculator to compare a monthly SGB/ETF purchase against an equivalent SIP in equity mutual funds over your investment horizon.',
           },
-        ].map((uc, i) => (
+        ].map((uc: any, i: number) => (
           <div key={i} className="border-l-4 border-yellow-300 pl-5 bg-white rounded-r-2xl py-4 pr-4">
             <h4 className="font-black text-gray-900 mb-2 text-sm">{uc.title}</h4>
             <p className="text-gray-600 text-sm leading-relaxed">{uc.text}</p>
@@ -340,7 +340,7 @@ export default function CommoditiesPage() {
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* FX selector */}
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => (
+            {Object.keys(FX).map((k: any) => (
               <button key={k} onClick={() => setFxKey(k)}
                 className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey === k ? 'bg-white shadow text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>{k}</button>
             ))}
@@ -399,8 +399,8 @@ export default function CommoditiesPage() {
         <h2 className="text-xl font-black text-gray-900 mb-4">🏅 Precious Metals - Live Spot Prices</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PRECIOUS.map(key => (
-            <CommodityPriceCard key={key} commodity={data[key]} emoji={COMMODITY_META[key].emoji}
-              href={COMMODITY_META[key].href} loading={loading} />
+            <CommodityPriceCard key={key} commodity={data[key] as any} emoji={COMMODITY_META[key].emoji}
+              href={COMMODITY_META[key].href} loading={loading as any} />
           ))}
         </div>
       </section>
@@ -410,9 +410,9 @@ export default function CommoditiesPage() {
         <h2 className="text-xl font-black text-gray-900 mb-4">⚡ Energy Commodities - Live Prices</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ENERGY.map(key => (
-            <CommodityPriceCard key={key} commodity={data[key]} emoji={COMMODITY_META[key].emoji}
+            <CommodityPriceCard key={key} commodity={data[key] as any} emoji={COMMODITY_META[key].emoji}
               href={COMMODITY_META[key].href !== '/commodities' ? COMMODITY_META[key].href : undefined}
-              loading={loading} />
+              loading={loading as any} />
           ))}
         </div>
       </section>
@@ -449,7 +449,7 @@ export default function CommoditiesPage() {
       <section className="mb-10">
         <h2 className="text-xl font-black text-gray-900 mb-4">🧮 Commodity Calculators</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-          {CALCS.map(c => (
+          {CALCS.map((c: any) => (
             <Link key={c.href} href={c.href}
               className="group relative bg-white rounded-2xl border border-gray-100 shadow-card hover:border-yellow-200 hover:shadow-lg transition-all p-4 flex flex-col gap-3">
               {c.hot && <span className="absolute top-3 right-3 text-[10px] font-black px-1.5 py-0.5 bg-red-100 text-red-700 rounded-full border border-red-200">HOT</span>}

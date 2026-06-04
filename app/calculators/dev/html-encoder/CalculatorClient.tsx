@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, ArrowLeftRight } from 'lucide-react'
+import { Copy, Check, ArrowLeftRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -18,16 +18,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(()=>setCopied(false),1500) }
   const swap = () => { setInput(output); setMode(m=>m==='encode'?'decode':'encode') }
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">HTML Encoder</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏷️ HTML Encoder / Decoder <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Encode special characters to HTML entities or decode them back. Runs entirely in your browser.</p>
-
+      return (
+    <DevToolLayout
+      title="HTML Encoder / Decoder"
+      icon="🏷️"
+      description="Encode special characters to HTML entities or decode them back. Runs entirely in your browser."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap gap-3 mb-5">
           <div className="flex rounded-2xl border overflow-hidden" style={{borderColor:'rgba(226,232,240,0.7)'}}>
@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <span className="font-bold text-gray-900 w-4 text-center">{ch}</span>
               <span className="text-gray-500">{ent}</span>
             </div>
-          ))}
+    ))}
         </div>
       </div>
 
@@ -126,6 +126,6 @@ Ampersand must come first. When encoding manually, always encode & before the ot
 Test with a script tag. After encoding user input, try inputting a script tag and verify the output shows the literal text not an executing script.`}
         conclusion={`HTML encoding is non-negotiable for any application that renders user-provided content. The five mandatory characters are the entry points for XSS attacks when left unescaped. Pair this with the [HTML Validator](/calculators/dev/html-validator) and the [HTML Entity Reference](/calculators/dev/html-entity-ref).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

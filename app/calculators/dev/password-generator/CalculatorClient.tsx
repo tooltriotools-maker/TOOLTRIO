@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useCallback } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Shield } from 'lucide-react'
+import { Copy, Check, RefreshCw, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -41,16 +41,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   useState(() => { generate() })
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Password Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔑 Password Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate strong, random passwords. Runs entirely in your browser - never sent anywhere.</p>
-
+      return (
+    <DevToolLayout
+      title="Password Generator"
+      icon="🔑"
+      description="Generate strong, random passwords. Runs entirely in your browser - never sent anywhere."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700">Length: <span className="text-green-600">{length}</span></label>
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 {copied===p?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4 text-gray-400"/>}
               </button>
             </div>
-          )
+    )
         })}
       </div>
 
@@ -151,6 +151,6 @@ Do not use passwords as secrets in code. Use environment variables and secrets m
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

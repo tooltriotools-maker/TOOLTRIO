@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import ClosingCostCalculatorClient from './ClosingCostCalculatorClient'
+import dynamic from 'next/dynamic'
+const ClosingCostCalculatorClient = dynamic(() => import('./ClosingCostCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Closing Cost Calculator USA 2026 | TOOLTRIO',

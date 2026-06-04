@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -32,16 +33,16 @@ export default function CalculatorClient({ faqs }: Props) {
     setResult({ overall, categories, label })
   }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun &amp; Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Love Compatibility</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>💕 Love Compatibility Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Enter two names and birthdays to reveal your compatibility score</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Love Compatibility Calculator"
+      icon="💕"
+      description="Enter two names and birthdays to reveal your compatibility score"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
             <label className="text-xs font-bold text-pink-500 uppercase block mb-1.5">💖 Person 1</label>
@@ -71,7 +72,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <div className="flex justify-between text-sm mb-1"><span className="font-semibold text-gray-700">{c.name}</span><span className="font-black text-gray-900">{c.score}%</span></div>
                 <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-gradient-to-r from-pink-400 to-purple-500" style={{width:`${c.score}%`}}/></div>
               </div>
-            ))}
+    ))}
           </div>
         </div>
       )}
@@ -206,6 +207,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -68,16 +68,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const toggleField = (f: string) => setFields(prev => prev.includes(f) ? prev.filter(x=>x!==f) : [...prev, f])
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Fake Data Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎭 Fake Data Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate realistic test data - names, emails, addresses, UUIDs and more</p>
-      <div className="rounded-2xl border p-5 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Fake Data Generator"
+      icon="🎭"
+      description="Generate realistic test data - names, emails, addresses, UUIDs and more"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-2xl border p-5 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap gap-3 mb-4">
           <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1">Count</label>
             <select value={count} onChange={e=>setCount(Number(e.target.value))} className="border-2 border-gray-200 rounded-xl px-3 py-2 font-bold text-sm focus:outline-none focus:border-green-400 bg-white">
@@ -166,7 +166,7 @@ SQL INSERT for development seeding. The SQL output generates standard INSERT sta
         conclusion={`Realistic test data catches bugs that simplified values never reach — an apostrophe in a name or a plus sign in an email are common production bug triggers. This generator includes those edge cases by default. For the full workflow: generate here, convert to CSV with [JSON to CSV](/calculators/dev/json-to-csv), validate schemas with [JSON Schema Generator](/calculators/dev/json-schema-gen).`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 
 }

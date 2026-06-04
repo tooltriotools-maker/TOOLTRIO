@@ -101,7 +101,7 @@ export default function BudgetPlannerCalculatorClient({ faqs, structuredData, re
           </Card>
         </div>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label={result.surplus >= 0 ? 'Monthly Surplus' : 'Monthly Deficit'} value={fmt(Math.abs(result.surplus))} subValue={result.surplus >= 0 ? 'Unallocated' : 'Over budget!'} highlight />
             <ResultCard label="Savings Rate" value={`${result.savingsPct}%`} subValue={result.savingsPct >= 20 ? 'v On track' : '⚠️ Below 20%'} />

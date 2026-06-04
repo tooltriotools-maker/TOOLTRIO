@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label={`Hip (${unit==='metric'?'cm':'in'})`} value={hip} onChange={setHip} min={unit==='metric'?50:20} max={unit==='metric'?180:71} step={0.5} suffix={unit==='metric'?'cm':'in'} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-4">
             <div className={`p-4 rounded-xl text-center border-2 ${result.whtrColor}`}>
               <p className="text-xs font-bold uppercase tracking-wide">Waist-to-Height</p>

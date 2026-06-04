@@ -51,7 +51,7 @@ export default function DownPaymentCalculatorClient({ faqs, structuredData, rela
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Down Payment" value={fmtCompact(result.downPayment)} subValue={`${downPct}% of price`} highlight />
             <ResultCard label="Monthly PITI" value={fmt(result.totalMonthly)} subValue={downPct < 20 ? 'Incl. PMI' : 'No PMI!'} />

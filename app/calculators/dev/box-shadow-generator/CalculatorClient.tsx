@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -17,16 +17,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const css = `${inset?'inset ':' '}${x}px ${y}px ${blur}px ${spread}px ${color}`.trim()
   const fullCss = `box-shadow: ${css};`
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Box Shadow</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌑 CSS Box Shadow Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Build shadows visually - control every property and copy CSS instantly</p>
-      <div className="flex items-center justify-center py-16 rounded-2xl border border-gray-200 mb-6" style={{background:'rgba(248,250,248,0.8)'}}>
+      return (
+    <DevToolLayout
+      title="CSS Box Shadow Generator"
+      icon="🌑"
+      description="Build shadows visually - control every property and copy CSS instantly"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="flex items-center justify-center py-16 rounded-2xl border border-gray-200 mb-6" style={{background:'rgba(248,250,248,0.8)'}}>
         <div className="w-48 h-32 bg-white rounded-2xl" style={{boxShadow:css}} />
       </div>
       <div className="rounded-2xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="flex justify-between text-xs mb-1"><span className="font-bold text-gray-600">{l}</span><span className="font-mono text-gray-500">{v}px</span></div>
             <input type="range" min={min} max={max} value={v} onChange={e=>s(Number(e.target.value))} className="w-full" />
           </div>
-        ))}
+    ))}
         <div className="flex gap-4 mb-4">
           <div><label className="text-xs font-bold text-gray-600 block mb-1.5">Color</label>
             <input type="color" value={color.slice(0,7)} onChange={e=>setColor(e.target.value+'40')} className="w-12 h-10 rounded-xl cursor-pointer border border-gray-200 p-0.5" /></div>
@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
         <p className="text-sm text-gray-600">Tip: Use near-zero X and Y with high Blur (20-30px) and light colour for modern card shadows. Use negative spread to create a shadow that is smaller than the element for a floating effect.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="CSS Box Shadow Generator"
         category="dev"
@@ -105,6 +105,6 @@ Focus rings use zero blur. 0 0 0 3px rgba(59,130,246,0.5) — zero h/v offset, z
 Opacity matters more than blur. Decreasing shadow opacity looks more realistic. Real shadows have 10-20% opacity for soft, 30-40% for stronger depth.`}
         conclusion={`The difference between flat and elevated design is often two well-chosen shadow layers. This generator makes the 5-parameter syntax visual. For complete component styling: add gradients with [CSS Gradient Generator](/calculators/dev/css-gradient-generator) and round corners with [Border Radius Generator](/calculators/dev/border-radius-gen).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Interest Saved" value={fmt(r.interestSaved || 0)} highlight icon={<DollarSign className="w-4 h-4" />} />
             <ResultCard label="New Tenure" value={`${Math.floor((r.newMonths || tenure) / 12)}yr ${(r.newMonths || tenure) % 12}mo`} icon={<Calendar className="w-4 h-4" />} />

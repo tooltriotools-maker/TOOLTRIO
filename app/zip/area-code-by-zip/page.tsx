@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
-import ZipToolClient from './ZipToolClient'
+import dynamic from 'next/dynamic'
+const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = {
   title: 'Area Code by ZIP Code — Find Phone Area Code for Any ZIP 2026',

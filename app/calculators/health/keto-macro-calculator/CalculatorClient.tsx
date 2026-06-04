@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Keto Type" value={type} onChange={v=>setType(v as any)} options={[{value:'standard',label:'Standard Keto (SKD)'},{value:'targeted',label:'Targeted Keto (TKD)'},{value:'high-protein',label:'High Protein Keto'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="p-5 bg-yellow-50 rounded-2xl border-2 border-yellow-200 text-center">
             <p className="text-xs font-bold text-yellow-700 uppercase">Daily Calorie Target</p>
             <p className="text-4xl font-black text-yellow-800 my-1">{result.targetCals} kcal</p>

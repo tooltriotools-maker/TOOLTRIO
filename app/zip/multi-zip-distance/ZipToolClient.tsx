@@ -58,9 +58,9 @@ export default function ZipToolClient() {
             <div key={i} className="rounded-xl border p-3 flex items-center justify-between"
               style={{background:'rgba(255,255,255,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <div className="text-sm">
-                <span className="font-bold text-gray-800">{r.r1.zip} ({r.r1.city}, {r.r1.stateCode})</span>
+                <span className="font-bold text-gray-800">{r.r1.zip} ({r.r1.city}, {r.r1.stateCode})</span> <span className="text-xs text-gray-400">👥{r.r1.population > 0 ? r.r1.population.toLocaleString() : 'N/A'}</span>
                 <span className="text-gray-400 mx-2">→</span>
-                <span className="font-bold text-gray-800">{r.r2.zip} ({r.r2.city}, {r.r2.stateCode})</span>
+                <span className="font-bold text-gray-800">{r.r2.zip} ({r.r2.city}, {r.r2.stateCode})</span> <span className="text-xs text-gray-400">👥{r.r2.population > 0 ? r.r2.population.toLocaleString() : 'N/A'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-black text-green-600">{r.miles.toFixed(1)} mi</span>

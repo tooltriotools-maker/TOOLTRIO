@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Stroke / Style" value={String(stroke)} onChange={v=>setStroke(+v)} options={STROKES.map((s,i)=>({value:String(i),label:s.label}))} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Calories Burned</p>

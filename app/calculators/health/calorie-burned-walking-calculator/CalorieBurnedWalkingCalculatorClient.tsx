@@ -91,7 +91,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Calories Burned" value={`${calories} cal`} subValue={`${duration} min session`} highlight />
             <ResultCard label="3x Per Week" value={`${weekly3} cal`} subValue={`${(weekly3 / 3500).toFixed(2)} lbs/wk`} />

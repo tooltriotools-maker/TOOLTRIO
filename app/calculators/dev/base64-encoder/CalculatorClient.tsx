@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, ArrowLeftRight } from 'lucide-react'
+import { Copy, Check, ArrowLeftRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -37,16 +37,16 @@ export default function CalculatorClient({ faqs }: Props) {
     { label: 'URL', raw: 'https://example.com/path?q=test&lang=en' },
   ]
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Base64 Encoder/Decoder</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔐 Base64 Encoder / Decoder <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Encode or decode Base64 strings instantly - runs entirely in your browser, nothing sent to any server.</p>
-
+      return (
+    <DevToolLayout
+      title="Base64 Encoder / Decoder"
+      icon="🔐"
+      description="Encode or decode Base64 strings instantly - runs entirely in your browser, nothing sent to any server."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <div className="flex rounded-2xl border overflow-hidden" style={{borderColor:'rgba(226,232,240,0.7)'}}>
@@ -153,6 +153,6 @@ Data URIs for small images. data:image/png;base64,iVBORw0... embeds image data d
 HTTP Basic Auth is Base64. Authorization: Basic encoded-value is just username:password encoded in Base64. Decode any Basic Auth header here to see the credentials in plain text.`}
         conclusion={`Base64 is everywhere — JWTs, HTTP auth headers, data URIs, email attachments, and binary-to-text encoding. This encoder handles both standard and URL-safe variants with auto-detection. For JWT decoding: [JWT Decoder](/calculators/dev/jwt-decoder). For image encoding: [Image to Base64](/calculators/dev/image-base64).`}
       />
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

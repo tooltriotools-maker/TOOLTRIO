@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -27,16 +28,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const yearsLeft = Math.max(0, estimated - age)
   const pct = Math.round(age/estimated*100)
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Life Expectancy (Fun)</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⏳ Fun Life Expectancy Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-2">A lighthearted (not medical!) look at lifestyle factors and longevity.</p>
-      <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For entertainment only - not medical advice.</p>
+      return (
+    <DevToolLayout
+      title="⏳ Fun Life Expectancy Calculator"
+      icon=""
+      description="A lighthearted (not medical!) look at lifestyle factors and longevity."
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For entertainment only - not medical advice.</p>
 
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-2 gap-4">
@@ -60,7 +61,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <label className="text-sm font-bold text-gray-700">{f.l}: <span className="text-blue-600">{f.v}</span></label>
             <input type="range" min={f.min} max={f.max} value={f.v} onChange={e=>f.set(+e.target.value)} className="w-full accent-blue-500 mt-1" />
           </div>
-        ))}
+    ))}
         <div className="grid grid-cols-2 gap-3">
           {[{l:'🚬 Smoker',v:smoking,set:setSmoking},{l:'🥦 Eats vegetables daily',v:veg,set:setVeg}].map(f=>(
             <label key={f.l} className={`flex items-center gap-2 p-3 rounded-xl border-2 cursor-pointer ${f.v?'border-green-400 bg-green-50':'border-gray-200'}`}>
@@ -203,6 +204,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

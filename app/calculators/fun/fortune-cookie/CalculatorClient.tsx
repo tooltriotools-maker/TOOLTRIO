@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -40,16 +41,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const reset = () => { setCracked(false); setFortune(null) }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Fortune Cookie</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🥠 Fortune Cookie <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Crack open a fortune cookie and receive your wisdom for the day!</p>
-
+      return (
+    <DevToolLayout
+      title="Fortune Cookie"
+      icon="🥠"
+      description="Crack open a fortune cookie and receive your wisdom for the day!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       {!cracked ? (
         <div className="text-center py-12">
           <button onClick={crack} disabled={spinning}
@@ -61,7 +62,7 @@ export default function CalculatorClient({ faqs }: Props) {
             {spinning ? 'Cracking...' : 'Crack Open Your Fortune Cookie!'}
           </button>
         </div>
-      ) : fortune && (
+    ) : fortune && (
         <div className="space-y-4">
           <div className="bg-gradient-to-br from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-2xl p-8 text-center">
             <p className="text-4xl mb-4">🥠</p>
@@ -204,6 +205,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

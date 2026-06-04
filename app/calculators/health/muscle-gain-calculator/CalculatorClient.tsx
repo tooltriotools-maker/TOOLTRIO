@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Training Experience" value={experience} onChange={v=>setExperience(v as any)} options={[{value:'beginner',label:'Beginner (< 1 year)'},{value:'intermediate',label:'Intermediate (1-3 years)'},{value:'advanced',label:'Advanced (3+ years)'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Expected Monthly Muscle Gain</p>

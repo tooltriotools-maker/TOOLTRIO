@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -50,16 +51,16 @@ export default function CalculatorClient({ faqs }: Props) {
   }
   const reset = ()=>{setIdx(0);setScore(0);setAnswered(null);setDone(false)}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun &amp; Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Trivia Quiz</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🧠 Random Trivia Quiz <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Test your knowledge across 8 categories - 10 random questions</p>
-      {!done ? (
+      return (
+    <DevToolLayout
+      title="Random Trivia Quiz"
+      icon="🧠"
+      description="Test your knowledge across 8 categories - 10 random questions"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        {!done ? (
         <div className="rounded-3xl border p-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-700">{q.cat}</span>
@@ -76,7 +77,7 @@ export default function CalculatorClient({ faqs }: Props) {
             ))}
           </div>
         </div>
-      ) : (
+    ) : (
         <div className="rounded-3xl border p-8 text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
           <p className="text-6xl mb-4">{score>=8?'🏆':score>=6?'⭐':score>=4?'👍':'💪'}</p>
           <p className="text-3xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>{score}/10 Correct!</p>
@@ -207,6 +208,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

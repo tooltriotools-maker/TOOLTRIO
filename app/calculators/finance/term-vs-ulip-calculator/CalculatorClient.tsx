@@ -85,7 +85,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Term+SIP Corpus" value={fmtCompact(result.termSipFV)} subValue={`SIP gain: ${fmtCompact(result.sipGain)}`} highlight={result.termSipBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="ULIP Corpus" value={fmtCompact(result.ulipFV)} subValue={`After charges`} highlight={!result.termSipBetter} icon={<Shield className="w-4 h-4" />} />

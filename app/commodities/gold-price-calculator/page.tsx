@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState, useMemo } from 'react'
 import { useCommodityPrices, getGoldKaratPrices, GRAM_TO_TOLA, TROY_OZ_TO_GRAM } from '@/hooks/useCommodityPrices'
 import { CommodityPriceCard } from '@/components/commodities/CommodityPriceCard'
@@ -32,7 +34,7 @@ function GoldFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Gold Price FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-yellow-300 shadow-md':'border-gray-100 hover:border-yellow-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -84,6 +86,11 @@ export default function GoldPriceCalculatorPage() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Gold Price Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Gold Price Calculator" category="Commodities" />
+          <ExportButtonPair title="Gold Price Calculator" category="Finance" />
+      </div>
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
@@ -92,7 +99,7 @@ export default function GoldPriceCalculatorPage() {
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => (
+            {Object.keys(FX).map((k: any) => (
               <button key={k} onClick={() => setFxKey(k)}
                 className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey === k ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}>{k}</button>
             ))}
@@ -156,8 +163,8 @@ export default function GoldPriceCalculatorPage() {
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#fef9c3" />
                 <XAxis dataKey="t" tick={{fontSize:10}} interval={7} />
-                <YAxis domain={['auto','auto']} tick={{fontSize:10}} tickFormatter={v=>`$${v}`} width={65} />
-                <Tooltip formatter={(v:number)=>[`$${v.toLocaleString()}`, 'Gold USD/oz']} labelFormatter={l=>`Time: ${l}`} />
+                <YAxis domain={['auto','auto']} tick={{fontSize:10}} tickFormatter={(v: any)=>`$${v}`} width={65} />
+                <Tooltip formatter={(v:number)=>[`$${v.toLocaleString()}`, 'Gold USD/oz']} labelFormatter={(l: any)=>`Time: ${l}`} />
                 <Area type="monotone" dataKey="price" stroke="#f59e0b" strokeWidth={2.5} fill="url(#goldFill)" dot={false} />
               </AreaChart>
             </ResponsiveContainer>
@@ -173,9 +180,9 @@ export default function GoldPriceCalculatorPage() {
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Gold Weight</label>
                 <div className="flex gap-2">
-                  <input type="number" step="0.1" min="0" value={weight} onChange={e=>setWeight(+e.target.value)}
+                  <input type="number" step="0.1" min="0" value={weight} onChange={(e: any) =>setWeight(+e.target.value)}
                     className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-yellow-400 font-bold text-gray-900" />
-                  <select value={unit} onChange={e=>setUnit(e.target.value as any)}
+                  <select value={unit} onChange={(e: any) =>setUnit(e.target.value as any)}
                     className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
                     <option value="gram">gram</option>
                     <option value="tola">tola</option>
@@ -204,7 +211,7 @@ export default function GoldPriceCalculatorPage() {
                 Making Charges: <span className="text-yellow-600 font-black">{making}%</span>
                 <span className="text-[11px] text-gray-400 ml-1">(set 0 for raw bullion value)</span>
               </label>
-              <input type="range" min="0" max="30" step="0.5" value={making} onChange={e=>setMaking(+e.target.value)} className="w-full accent-yellow-500" />
+              <input type="range" min="0" max="30" step="0.5" value={making} onChange={(e: any) =>setMaking(+e.target.value)} className="w-full accent-yellow-500" />
               <div className="flex justify-between text-[11px] text-gray-400 mt-0.5"><span>0% bullion</span><span>15% typical</span><span>30% premium</span></div>
             </div>
 
@@ -232,7 +239,7 @@ export default function GoldPriceCalculatorPage() {
               { name:'Silver',      href:'/commodities/silver-price-calculator',            emoji:'🥈' },
               { name:'Metals P&amp;L', href:'/commodities/precious-metals-profit-calculator',  emoji:'💰' },
               { name:'Portfolio',   href:'/commodities/commodity-portfolio-tracker',        emoji:'🗂️' },
-            ].map(l => (
+            ].map((l: any) => (
               <Link key={l.href} href={l.href}
                 className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-100 shadow-card hover:border-yellow-200 transition-all text-xs font-bold text-gray-700 group">
                 <span className="text-lg">{l.emoji}</span>{l.name}
@@ -251,7 +258,7 @@ export default function GoldPriceCalculatorPage() {
         <div className="rounded-2xl p-5 bg-yellow-50 border border-yellow-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-yellow-700">📊 Gold Price Key Facts — 2026</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'31.1035g',n:'Grams in 1 troy ounce — the global gold pricing unit'},{s:'91.67%',n:'Gold purity of 22K — most popular jewellery karat in India'},{s:'15% + 3% GST',n:'India import duty + GST added to international spot price'},{s:'~8–25%',n:'Typical making charges range on gold jewellery in India'},{s:'$3,100–3,300',n:'Gold spot price range Q1 2026 (COMEX, USD per troy oz)'},{s:'1 Tola = 11.664g',n:'Standard South Asian weight unit used by jewellers'}].map((k,i)=>(
+            {[{s:'31.1035g',n:'Grams in 1 troy ounce — the global gold pricing unit'},{s:'91.67%',n:'Gold purity of 22K — most popular jewellery karat in India'},{s:'15% + 3% GST',n:'India import duty + GST added to international spot price'},{s:'~8–25%',n:'Typical making charges range on gold jewellery in India'},{s:'$3,100–3,300',n:'Gold spot price range Q1 2026 (COMEX, USD per troy oz)'},{s:'1 Tola = 11.664g',n:'Standard South Asian weight unit used by jewellers'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-yellow-100"><p className="text-lg font-black text-yellow-700">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -300,7 +307,7 @@ export default function GoldPriceCalculatorPage() {
               {t:'Verifying a Jeweller Quote',b:'Before paying, note the weight on the jewellery tag (e.g., 12.5g, 22K). Enter these into the calculator with 0% making charges to see pure metal value. Then ask the jeweller their making charge % — it should match the difference between what they quote and the metal value shown here. If they cannot justify the gap, negotiate or walk away.'},
               {t:'Calculating Total Cost with GST for India',b:'Select INR currency, enter your weight and karat, and set making charges to the jeweller\'s rate. The calculator shows pure metal value, making charges amount, jewellery value excluding GST, and total with 3% GST — exactly the 4-line breakdown on a proper GST invoice. Use this to cross-check before signing.'},
               {t:'Timing a Gold Purchase',b:'Gold prices dip predictably after US CPI data (if inflation is lower than expected), after Fed rate hike announcements, and during US dollar strength periods. Bookmark this page and check live prices during these windows. A 1% dip on a ₹5 lakh purchase saves ₹5,000.'},
-            ].map((u,i)=>(
+            ].map((u: any, i: number) =>(
               <div key={i} className="border-l-4 border-yellow-300 pl-5 py-3 bg-white rounded-r-2xl">
                 <h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4>
                 <p className="text-gray-600 text-sm leading-relaxed">{u.b}</p>
@@ -336,7 +343,7 @@ export default function GoldPriceCalculatorPage() {
               {e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical return comparison'},
               {e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR/AED rates for cross-border gold pricing'},
               {e:'📉',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'How much purchasing power has ₹1 lakh lost over time?'},
-            ].map(c=>(
+            ].map((c: any) =>(
               <Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></span>
                 <p className="text-[11px] text-gray-500 leading-relaxed flex-1">{c.d}</p>

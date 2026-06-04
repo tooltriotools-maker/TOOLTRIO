@@ -59,9 +59,9 @@ export default function ZipToolClient() {
         <div>
           <div className="rounded-2xl border p-4 mb-4" style={{background:'rgba(240,253,244,0.7)',borderColor:'rgba(187,247,208,0.6)'}}>
             <div className="flex items-center gap-3 text-sm">
-              <div className="text-center"><div className="font-black text-green-600 text-lg">{result.r1.zip}</div><div className="text-gray-500">{result.r1.city}</div></div>
+              <div className="text-center"><div className="font-black text-green-600 text-lg">{result.r1.zip}</div><div className="text-gray-500">{result.r1.city}</div><div className="text-xs text-gray-400">👥 {result.r1.population > 0 ? result.r1.population.toLocaleString() : 'N/A'}</div></div>
               <div className="flex-1 text-center text-gray-400 text-xs">✈ {result.miles.toFixed(1)} mi straight-line</div>
-              <div className="text-center"><div className="font-black text-green-600 text-lg">{result.r2.zip}</div><div className="text-gray-500">{result.r2.city}</div></div>
+              <div className="text-center"><div className="font-black text-green-600 text-lg">{result.r2.zip}</div><div className="text-gray-500">{result.r2.city}</div><div className="text-xs text-gray-400">👥 {result.r2.population > 0 ? result.r2.population.toLocaleString() : 'N/A'}</div></div>
             </div>
           </div>
           <a href={directionsUrl} target="_blank" rel="noopener noreferrer"

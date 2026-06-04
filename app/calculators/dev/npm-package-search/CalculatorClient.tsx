@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, Search, Package, ExternalLink } from 'lucide-react'
+import { Copy, Check, Search, Package, ExternalLink } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -49,16 +49,16 @@ export default function CalculatorClient({ faqs }: Props) {
     ? POPULAR_PACKAGES.filter(p => p.name.includes(q.toLowerCase()) || p.desc.toLowerCase().includes(q.toLowerCase()) || p.tags.some(t => t.includes(q.toLowerCase())))
     : POPULAR_PACKAGES
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-blue-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">npm Package Search</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📦 npm Package Search & Reference <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Search popular npm packages, view versions, licenses, and weekly downloads. Copy install commands instantly.</p>
-
+      return (
+    <DevToolLayout
+      title="npm Package Search & Reference"
+      icon="📦"
+      description="Search popular npm packages, view versions, licenses, and weekly downloads. Copy install commands instantly."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="bg-white border-2 border-gray-200 rounded-2xl px-4 py-3 flex items-center gap-3 mb-5 focus-within:border-blue-400 shadow-sm">
         <Search className="w-5 h-5 text-gray-400 flex-shrink-0" />
         <input value={q} onChange={e=>setQ(e.target.value)} className="flex-1 text-sm outline-none bg-transparent" placeholder="Search packages - react, axios, zod, tailwind..." />
@@ -101,7 +101,7 @@ export default function CalculatorClient({ faqs }: Props) {
               ))}
             </div>
           </div>
-        ))}
+    ))}
         {filtered.length === 0 && (
           <div className="text-center py-12 text-gray-400">
             <Package className="w-12 h-12 mx-auto mb-3 opacity-30" />
@@ -156,6 +156,6 @@ The concept of "dependency hell" - where conflicting transitive dependencies pre
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

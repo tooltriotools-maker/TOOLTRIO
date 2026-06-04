@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import CalculatorClient from './CalculatorClient'
+import dynamic from 'next/dynamic'
+const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 export const metadata: Metadata = generateCalculatorMetadata({ title: 'Roth IRA vs 401k Match Calculator USA | TOOLTRIO', description: 'Free Roth IRA Vs 401k Employer Match Calculator USA 2026. Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest. Includes real examples for $50k–$100k salary. Trusted by Americans for accurate, instant results.', slug: 'roth-ira-vs-401k-employer-match-calculator', category: 'finance', region: 'usa', keywords: [
  'roth ira vs 401k employer match calculator 2026',
  

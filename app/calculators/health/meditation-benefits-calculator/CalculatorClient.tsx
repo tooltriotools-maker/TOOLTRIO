@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Current stress level (1-10)" value={stressLevel} onChange={setStressLevel} min={1} max={10} step={1} suffix="/10" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Consistency Score</p>

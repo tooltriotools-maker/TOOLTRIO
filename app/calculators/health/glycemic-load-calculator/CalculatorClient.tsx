@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="flex justify-between"><span className="text-gray-500">Total carbs</span><span className="font-bold">{Math.round(food.carbs*servings)}g</span></div>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`rounded-2xl p-6 border-2 ${glLevel.bg}`}>
             <div className="flex items-center justify-between">
               <div>

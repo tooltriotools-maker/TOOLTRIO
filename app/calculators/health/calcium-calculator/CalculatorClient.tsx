@@ -33,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             {gender==='female'&&<label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={pregnant} onChange={e=>setPregnant(e.target.checked)} className="accent-rose-500"/><span>Pregnant / Breastfeeding</span></label>}
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Daily Calcium Target</p>

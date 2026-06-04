@@ -51,7 +51,7 @@ export default function PayoffDateCalculatorClient({ faqs, structuredData, relat
           )}
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Payoff Date" value={result.payoffDate} subValue={`${result.years}y ${result.remainingMonths}m`} highlight />
             <ResultCard label="Total Interest" value={fmtCompact(result.totalInterest)} subValue="Cost of loan" />

@@ -1,7 +1,6 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
-import { ChevronRight } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -28,16 +27,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const adds = lines.filter(l=>l.type==='add').length
   const removes = lines.filter(l=>l.type==='remove').length
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Diff Checker</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🔀 Text Diff Checker <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Compare two texts line by line and highlight additions, removals, and unchanged lines.</p>
-
+      return (
+    <DevToolLayout
+      title="Text Diff Checker"
+      icon="🔀"
+      description="Compare two texts line by line and highlight additions, removals, and unchanged lines."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Original</label>
@@ -63,7 +62,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="w-4 flex-shrink-0 select-none">{line.type==='add'?'+':line.type==='remove'?'-':' '}</span>
             <span className="whitespace-pre-wrap break-all">{line.text}</span>
           </div>
-        ))}
+    ))}
       </div>
 
 
@@ -122,6 +121,6 @@ Environment comparison. Copy .env.development and .env.production to the two pan
           </details>
         ))}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

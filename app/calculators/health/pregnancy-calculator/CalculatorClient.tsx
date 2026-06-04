@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           )}
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {result && (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <ResultCard label="Due Date" value={result.dueDate?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) || '-'} highlight icon={<Calendar className="w-4 h-4" />} />

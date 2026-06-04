@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Monthly EMI" value={fmt(result.emi)} highlight />
             <ResultCard label="Total Interest" value={fmtCompact(result.totalInterest)} subValue={`${((result.totalInterest / loanAmount) * 100).toFixed(1)}% of loan`} />

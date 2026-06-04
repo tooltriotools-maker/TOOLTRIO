@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <SelectField label="Weekly Change Rate" value={String(weeklyChange)} onChange={v=>setWeeklyChange(Number(v))} options={[{value:'0.25',label:'0.25 kg/week (slow)'},{value:'0.5',label:'0.5 kg/week (safe)'},{value:'0.75',label:'0.75 kg/week (moderate)'},{value:'1',label:'1 kg/week (aggressive)'}]} />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`p-5 rounded-2xl border-2 ${result.losing?'bg-blue-50 border-blue-200':'bg-green-50 border-green-200'} text-center`}>
             <p className="text-xs font-bold uppercase tracking-wide opacity-70">{result.losing?'Weight Loss':'Weight Gain'} Plan</p>
             <p className={`text-4xl font-black my-2 ${result.losing?'text-blue-700':'text-green-700'}`}>{result.diff} {unit==='metric'?'kg':'lbs'} to go</p>

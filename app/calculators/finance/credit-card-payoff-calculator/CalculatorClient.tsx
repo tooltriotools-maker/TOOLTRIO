@@ -50,7 +50,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {/* Savings banner */}
           {result.interestSaved > 0 && (
             <div className="bg-green-50 border border-green-200 rounded-2xl p-5">

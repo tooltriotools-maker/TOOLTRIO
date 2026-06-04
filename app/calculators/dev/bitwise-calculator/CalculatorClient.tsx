@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -36,18 +36,18 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
       <span className="text-xs font-mono text-gray-600 ml-1">{n>>>0}</span>
     </div>
-  )
+    )
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Bitwise Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⚙️ Bitwise Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">AND - OR - XOR - NOT - Shift - with bit visualisation</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Bitwise Calculator"
+      icon="⚙️"
+      description="AND - OR - XOR - NOT - Shift - with bit visualisation"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-4 mb-6 flex-wrap">
           {[{l:'Value A',v:a,s:setA},{l:'Value B',v:b,s:setB}].map(({l,v,s})=>(
             <div key={l}>
@@ -128,7 +128,7 @@ XOR for value swapping. a ^= b; b ^= a; a ^= b swaps two integers without a temp
         conclusion={`Bitwise operations are fundamental to low-level programming, network protocols, and permission systems. Seeing the binary representation alongside decimal and hex makes the operations concrete. For related operations: [Base Converter](/calculators/dev/base-converter) and [chmod Calculator](/calculators/dev/chmod-calculator).`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
+    </DevToolLayout>
   )
 
 }

@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import RothConversionCalculatorClient from './RothConversionCalculatorClient'
+import dynamic from 'next/dynamic'
+const RothConversionCalculatorClient = dynamic(() => import('./RothConversionCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Roth Conversion Calculator USA 2026 | TOOLTRIO',

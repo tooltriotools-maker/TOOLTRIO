@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -18,16 +19,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const generate = () => setInsult(`Thou ${rand(ADJ1)}, ${rand(ADJ2)} ${rand(NOUNS)}`)
   const copy = () => { navigator.clipboard.writeText(insult); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Shakespearean Insult Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎭 Shakespearean Insult Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-2">Generate gloriously old-fashioned insults straight from the Bard himself!</p>
-      <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For laughs only - never use to genuinely hurt anyone.</p>
+      return (
+    <DevToolLayout
+      title="Shakespearean Insult Generator"
+      icon="🎭"
+      description="Generate gloriously old-fashioned insults straight from the Bard himself!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+        <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For laughs only - never use to genuinely hurt anyone.</p>
 
       <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl border-2 border-purple-200 p-8 text-center mb-6">
         {insult ? (
@@ -170,6 +171,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

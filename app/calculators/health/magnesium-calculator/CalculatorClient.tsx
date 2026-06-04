@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <label className="flex items-center gap-2 text-sm font-semibold cursor-pointer"><input type="checkbox" checked={active} onChange={e=>setActive(e.target.checked)} className="accent-rose-500"/><span>Physically active (exercise 5+ days/week)</span></label>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Daily Magnesium Target</p>

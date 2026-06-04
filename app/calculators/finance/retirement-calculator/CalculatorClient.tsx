@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 gap-3">
             <ResultCard label="Corpus Required" value={fmtCompact(result.corpusRequired)} subValue={`At age ${retireAge}`} highlight />
             <ResultCard label="Monthly SIP Needed" value={fmt(result.monthlySIPRequired)} subValue={`For ${yearsToRetire} years`} />

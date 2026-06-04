@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -82,16 +82,16 @@ services:
     } catch (e: any) { return { output: '', error: e.message, valid: false } }
   }, [input, mode])
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">YAML Formatter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📄 YAML Formatter &amp; Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Format YAML ↔ JSON - Validate syntax - runs in your browser</p>
-      <div className="flex gap-2 mb-4">
+      return (
+    <DevToolLayout
+      title="YAML Formatter &amp; Converter"
+      icon="📄"
+      description="Format YAML ↔ JSON - Validate syntax - runs in your browser"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="flex gap-2 mb-4">
         {(['yaml','json'] as const).map(m => (
           <button key={m} onClick={()=>setMode(m)} className={`px-4 py-2 rounded-xl text-sm font-bold uppercase transition-all ${mode===m?'bg-green-600 text-white':'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
             {m==='yaml'?'YAML -> JSON':'JSON -> YAML'}
@@ -180,6 +180,6 @@ For infrastructure workflows: generate base configs with [Docker Compose Generat
           </details>
         ))}
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

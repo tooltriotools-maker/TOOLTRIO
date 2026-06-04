@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -23,16 +23,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">HTML Structure Validator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏗️ HTML Structure Validator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Runs entirely in your browser - no data sent to server</p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      return (
+    <DevToolLayout
+      title="HTML Structure Validator"
+      icon="🏗️"
+      description="Runs entirely in your browser - no data sent to server"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wide block mb-2">Input</label>
           <textarea value={input} onChange={e=>setInput(e.target.value)} rows={14} placeholder="Paste your input here..."
@@ -100,7 +100,7 @@ Validate template output. Paste rendered HTML from your server-side templates he
         conclusion={`HTML errors cause unexpected rendering differences across browsers. This validator catches structural issues before they reach production. For HTML transformation: [HTML Encoder](/calculators/dev/html-encoder) for escaping and [HTML to Markdown](/calculators/dev/html-to-markdown) for conversion.`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 
 }

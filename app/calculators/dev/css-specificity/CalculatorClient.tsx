@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Minus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -36,16 +36,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const COLORS = ['bg-red-500','bg-orange-500','bg-yellow-500','bg-green-500','bg-blue-500']
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">CSS Specificity</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎯 CSS Specificity Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-8">Calculate and compare CSS selector specificity scores - (A, B, C) breakdown</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="CSS Specificity Calculator"
+      icon="🎯"
+      description="Calculate and compare CSS selector specificity scores - (A, B, C) breakdown"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-2 mb-4">
           <input value={newSel} onChange={e=>setNewSel(e.target.value)} onKeyDown={e=>e.key==='Enter'&&add()} placeholder="Add a CSS selector... e.g. .nav #link:hover"
             className="flex-1 border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-2.5 font-mono text-sm focus:outline-none" />
@@ -110,7 +110,7 @@ Inline styles beat everything. style=color:red has specificity (1,0,0,0) — hig
                 <button onClick={()=>remove(selectors.indexOf(r.sel))} className="text-gray-300 hover:text-red-500"><Trash2 className="w-3.5 h-3.5"/></button>
               </div>
             </div>
-          ))}
+    ))}
         </div>
       </div>
       <div className="rounded-2xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)'}}>
@@ -125,7 +125,7 @@ Inline styles beat everything. style=color:red has specificity (1,0,0,0) — hig
         </div>
       </div>
       <div className="mt-4 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
+    </DevToolLayout>
   )
 
 }

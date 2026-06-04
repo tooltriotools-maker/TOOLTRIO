@@ -16,7 +16,7 @@ export default function ZipToolClient() {
   const [error, setError] = useState('')
   const [now, setNow] = useState(new Date())
 
-  useEffect(() => { const t = setInterval(()=>setNow(new Date()),1000); return()=>clearInterval(t) },[])
+  useEffect(()=>{ const t=setInterval(()=>setNow(new Date()),1000); return()=>clearInterval(t) },[])
 
   async function lookup(z?: string) {
     const val=(z||zip).trim(); if(z) setZip(z)
@@ -48,11 +48,27 @@ export default function ZipToolClient() {
       </div>
       {error&&<div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4">{error}</div>}
       {result&&(
-        <div className="rounded-2xl border p-6 text-center" style={{background:'rgba(240,253,244,0.7)',borderColor:'rgba(187,247,208,0.6)'}}>
-          <div className="text-3xl font-black text-green-600 mb-1">{TZ_LABELS[result.timezone]||result.timezone}</div>
-          <div className="text-sm text-gray-500 mb-3">{result.timezone}</div>
-          <div className="text-4xl font-mono font-bold text-gray-800 mb-3">{getLocalTime(result.timezone)}</div>
-          <div className="text-gray-500">Current local time in {result.city}, {result.stateCode}</div>
+        <div className="rounded-2xl border p-6" style={{background:'rgba(240,253,244,0.7)',borderColor:'rgba(187,247,208,0.6)'}}>
+          <div className="text-center mb-5">
+            <div className="text-3xl font-black text-green-600 mb-1">{TZ_LABELS[result.timezone]||result.timezone}</div>
+            <div className="text-sm text-gray-500 mb-3">{result.timezone}</div>
+            <div className="text-4xl font-mono font-bold text-gray-800 mb-2">{getLocalTime(result.timezone)}</div>
+            <div className="text-gray-500">Current local time in {result.city}, {result.stateCode}</div>
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">👥 Population</div>
+              <div className="font-black text-gray-900 text-sm">{result.population>0?result.population.toLocaleString():'N/A'}</div>
+            </div>
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">🏛️ County</div>
+              <div className="font-black text-gray-900 text-sm truncate">{result.county}</div>
+            </div>
+            <div className="rounded-xl border p-3 bg-white/70 text-center">
+              <div className="text-xs text-gray-400 mb-1">📬 ZIP Type</div>
+              <div className="font-black text-gray-900 text-sm">{result.type}</div>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -50,7 +50,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Current weekly km" value={currentWeeklyKm} onChange={setCurrentWeeklyKm} min={10} max={100} step={5} suffix="km" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Target Race Pace</p>

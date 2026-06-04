@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="bg-gradient-to-r from-blue-50 to-red-50 border border-gray-200 rounded-2xl p-5">
             <div className="grid grid-cols-2 gap-4">
               <div>

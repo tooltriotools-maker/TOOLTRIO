@@ -56,7 +56,7 @@ export default function SavingsRateCalculatorClient({ faqs, structuredData, rela
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Your Savings Rate" value={`${result.savingsRate}%`} subValue={result.savingsRate >= 20 ? 'v On track' : '⚠️ Build more'} highlight />
             <ResultCard label="Years to FIRE" value={result.yearsToFIRE > 100 ? '100+ yrs' : `${result.yearsToFIRE} yrs`} subValue="At current rate" />

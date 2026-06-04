@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -32,16 +33,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const info = getBirthday()
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Birthday Countdown</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🎂 Birthday Countdown <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">See exactly how long until your next birthday - down to the second!</p>
-
+      return (
+    <DevToolLayout
+      title="Birthday Countdown"
+      icon="🎂"
+      description="See exactly how long until your next birthday - down to the second!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <label className="text-sm font-bold text-gray-700 block mb-2">Your Birthday</label>
         <input type="date" value={dob} onChange={e=>setDob(e.target.value)}
@@ -55,7 +56,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <p className="text-3xl font-black text-pink-700">Happy Birthday!</p>
             <p className="text-gray-600 mt-2">You are {info.age} years old today!</p>
           </div>
-        ) : (
+    ) : (
           <div className="space-y-4">
             <div className="grid grid-cols-4 gap-3">
               {[['Days',info.days,'pink'],['Hours',info.hours,'purple'],['Minutes',info.mins,'blue'],['Seconds',info.secs,'green']].map(([l,v,c])=>(
@@ -206,6 +207,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

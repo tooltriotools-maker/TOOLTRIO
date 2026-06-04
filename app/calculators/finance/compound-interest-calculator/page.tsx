@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import CompoundCalculatorClient from './CompoundCalculatorClient'
+import dynamic from 'next/dynamic'
+const CompoundCalculatorClient = dynamic(() => import('./CompoundCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Compound Interest Calculator USA 2026 | TOOLTRIO',

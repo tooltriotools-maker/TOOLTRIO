@@ -117,7 +117,7 @@ export default function TaxBracketCalculatorClient({ faqs, structuredData, relat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Federal Tax" value={fmt(federalTax)} subValue={`Eff. rate ${effectiveRate}%`} highlight />
             <ResultCard label="Marginal Rate" value={marginalRate} subValue="Top bracket" />

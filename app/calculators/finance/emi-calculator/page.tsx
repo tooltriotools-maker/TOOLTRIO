@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import EMICalculatorClient from './EMICalculatorClient'
+import dynamic from 'next/dynamic'
+const EMICalculatorClient = dynamic(() => import('./EMICalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'EMI Calculator – Loan Payment USA 2026 | TOOLTRIO',

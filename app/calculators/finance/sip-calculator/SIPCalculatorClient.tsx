@@ -70,7 +70,7 @@ export default function SIPCalculatorClient({ faqs, structuredData, relatedCalcu
         </Card>
 
         {/* Results */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <ResultCard label="Total Value" value={fmtCompact(result.totalValue)} subValue={fmt(result.totalValue)} highlight icon={<DollarSign className="w-4 h-4" />} />
             <ResultCard label="Invested Amount" value={fmtCompact(result.totalInvested)} subValue={`${years}y x ${fmt(monthly)}/mo`} icon={<PiggyBank className="w-4 h-4" />} />

@@ -107,7 +107,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Portfolio Value" value={fmtK(result.finalPortfolioValue)} highlight />
             <ResultCard label="Monthly Income" value={fmt(result.monthlyIncome)} subValue="at end of period" />

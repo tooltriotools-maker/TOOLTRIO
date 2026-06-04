@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -44,16 +44,16 @@ export default function CalculatorClient({ faqs }: Props) {
 <meta name="twitter:title" content="${title}" />
 <meta name="twitter:description" content="${desc}" />${image ? `\n<meta name="twitter:image" content="${image}" />` : ''}`
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-blue-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Meta Tag Generator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏷️ Meta Tag Generator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Generate SEO meta tags, Open Graph tags, and Twitter Card tags for any webpage. Copy the complete &lt;head&gt; snippet instantly.</p>
-
+      return (
+    <DevToolLayout
+      title="Meta Tag Generator"
+      icon="🏷️"
+      description="Generate SEO meta tags, Open Graph tags, and Twitter Card tags for any webpage. Copy the complete &lt;head&gt; snippet instantly."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Form */}
         <div className="space-y-4">
@@ -189,6 +189,6 @@ The W3C's HTML specification defines which character entities and Unicode charac
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -48,16 +48,16 @@ export default function CalculatorClient({ faqs }: Props) {
     } catch (e: any) { return { json: '', count: 0, headers: [], error: e.message } }
   }, [csv, delimiter, inferTypes, pretty])
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">CSV to JSON</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📊 CSV to JSON Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert CSV data to JSON array - headers auto-detected, custom delimiter support</p>
-      <div className="flex flex-wrap gap-3 mb-4">
+      return (
+    <DevToolLayout
+      title="CSV to JSON Converter"
+      icon="📊"
+      description="Convert CSV data to JSON array - headers auto-detected, custom delimiter support"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="flex flex-wrap gap-3 mb-4">
         <div><label className="text-xs font-bold text-gray-500 block mb-1">Delimiter</label>
           <select value={delimiter} onChange={e=>setDelimiter(e.target.value)} className="border-2 border-gray-200 rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:border-green-400 bg-white">
             <option value=",">, (comma)</option><option value="\t"> → (tab)</option><option value=";">; (semicolon)</option><option value="|">| (pipe)</option>
@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="text-sm font-medium text-gray-700">{l}</span>
             <button onClick={()=>s(!v)} className={`w-10 h-5 rounded-full transition-all ${v?'bg-green-500':'bg-gray-300'}`}><div className={`w-4 h-4 bg-white rounded-full mx-0.5 transition-transform ${v?'translate-x-5':''}`}/></button>
           </div>
-        ))}
+    ))}
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div>
@@ -141,7 +141,7 @@ Validate after converting. Paste the JSON output into the [JSON Formatter](/calc
 For the full data transformation workflow: convert here, validate with [JSON Formatter](/calculators/dev/json-formatter), extract fields with [JSONPath Tester](/calculators/dev/json-path-tester).`}
       />
             <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-    </div>
+    </DevToolLayout>
   )
 
 }

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw } from 'lucide-react'
+import { Copy, Check, RefreshCw } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -59,16 +59,16 @@ export default function CalculatorClient({ faqs }: Props) {
     { label: '1 year ago', ts: now - 31536000 },
   ]
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-blue-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Unix Timestamp</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>⏱️ Unix Timestamp Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert between Unix timestamps and human-readable dates. Live current timestamp.</p>
-
+      return (
+    <DevToolLayout
+      title="⏱️ Unix Timestamp Converter"
+      icon=""
+      description="Convert between Unix timestamps and human-readable dates. Live current timestamp."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       {/* Live timestamp */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 mb-6 text-white">
         <div className="flex items-center justify-between mb-2">
@@ -116,7 +116,7 @@ export default function CalculatorClient({ faqs }: Props) {
                     {copied===k ? <Check className="w-3.5 h-3.5 text-green-600"/> : <Copy className="w-3.5 h-3.5 text-gray-400"/>}
                   </button>
                 </div>
-              ))}
+    ))}
             </div>
           ) : (
             <p className="text-gray-400 text-sm">Enter a Unix timestamp above</p>
@@ -215,6 +215,6 @@ Major databases store time as Unix timestamps internally: MySQL's UNIX_TIMESTAMP
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

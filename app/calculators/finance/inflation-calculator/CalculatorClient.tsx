@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Future Cost" value={fmtCompact(result.futureValue)} subValue={`In ${years} years`} highlight />
             <ResultCard label="Purchasing Power" value={fmtCompact(result.purchasingPower)} subValue="Real value today" />

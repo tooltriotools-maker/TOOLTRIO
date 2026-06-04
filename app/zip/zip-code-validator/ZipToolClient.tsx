@@ -2,54 +2,79 @@
 import { useState } from 'react'
 
 export default function ZipToolClient() {
-  const [zip, setZip] = useState('')
-  const [result, setResult] = useState<any>(null)
+  const [input, setInput] = useState('')
+  const [results, setResults] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
 
-  async function validate(val: string) {
-    setZip(val)
-    if (val.length !== 5) { setResult(null); return }
-    if (!/^\d{5}$/.test(val)) { setResult({ valid:false, reason:'ZIP codes must contain only digits (0-9)' }); return }
+  async function validate() {
+    const zips = input.split(/[\s,\n]+/).map(z => z.trim()).filter(z => z.length > 0)
+    if (!zips.length) return
     setLoading(true)
-    const res = await fetch(`/api/zip/lookup?zip=${val}`)
-    const data = await res.json()
+    const rows = await Promise.all(zips.map(async z => {
+      if (!/^\d{5}$/.test(z)) return { zip: z, valid: false, reason: 'Not 5 digits' }
+      const res = await fetch(`/api/zip/lookup?zip=${z}`)
+      const data = await res.json()
+      if (!res.ok) return { zip: z, valid: false, reason: 'Not found in USPS database' }
+      return { zip: z, valid: true, city: data.city, state: data.stateCode, county: data.county, population: data.population, type: data.type, areaCode: data.areaCode }
+    }))
+    setResults(rows)
     setLoading(false)
-    if (!res.ok) { setResult({ valid:false, reason:`ZIP ${val} not found in USPS database` }); return }
-    setResult({ valid:true, rec:data })
   }
+
+  const validCount = results.filter(r => r.valid).length
 
   return (
     <div>
-      <div className="mb-6">
-        <input value={zip} onChange={e=>validate(e.target.value)} placeholder="Type a 5-digit ZIP..." maxLength={5}
-          className="w-full border-2 rounded-xl px-4 py-4 text-2xl font-mono text-center focus:outline-none"
-          style={{borderColor: result?(result.valid?'#22c55e':'#ef4444'):'#e2e8f0',background:'rgba(255,255,255,0.9)',transition:'border-color 0.2s'}} />
-      </div>
-      {loading && <div className="text-center text-gray-400 text-sm">Checking...</div>}
-      {result && !loading && (
-        result.valid ? (
-          <div className="rounded-2xl border p-5 bg-green-50 border-green-200">
-            <div className="flex items-center gap-2 mb-4"><span className="text-2xl">✅</span><span className="text-xl font-bold text-green-700">Valid ZIP Code</span></div>
-            <div className="grid grid-cols-2 gap-2 text-sm">
-              {([['City',result.rec.city],['State',`${result.rec.state} (${result.rec.stateCode})`],['County',result.rec.county],['Type',result.rec.type]] as [string,string][]).map(([k,v])=>(
-                <div key={k} className="rounded-lg bg-white/70 p-2"><div className="text-xs text-gray-400">{k}</div><div className="font-semibold">{v}</div></div>
-              ))}
+      <textarea value={input} onChange={e => setInput(e.target.value)}
+        placeholder="Enter one or more ZIP codes, separated by commas, spaces, or new lines&#10;&#10;Example:&#10;10001, 90210, 60601&#10;99999&#10;00000"
+        rows={5}
+        className="w-full border-2 rounded-xl px-4 py-3 font-mono text-sm focus:outline-none focus:border-green-500 mb-3 resize-none"
+        style={{ borderColor: '#e2e8f0' }} />
+      <button onClick={validate} disabled={loading || !input.trim()} className="w-full py-3 text-white font-bold rounded-xl mb-6 disabled:opacity-60"
+        style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)', boxShadow: '0 4px 16px rgba(34,197,94,0.3)' }}>
+        {loading ? 'Validating…' : '✅ Validate ZIP Codes'}
+      </button>
+      {results.length > 0 && (
+        <div>
+          <div className="flex gap-3 mb-4">
+            <div className="flex-1 rounded-xl border p-3 text-center" style={{ background: 'rgba(240,253,244,0.7)', borderColor: 'rgba(187,247,208,0.6)' }}>
+              <div className="text-xs text-gray-500">Valid</div>
+              <div className="text-3xl font-black text-green-600">{validCount}</div>
+            </div>
+            <div className="flex-1 rounded-xl border p-3 text-center" style={{ background: 'rgba(254,242,242,0.7)', borderColor: 'rgba(254,202,202,0.6)' }}>
+              <div className="text-xs text-gray-500">Invalid</div>
+              <div className="text-3xl font-black text-red-500">{results.length - validCount}</div>
+            </div>
+            <div className="flex-1 rounded-xl border p-3 text-center bg-white/70">
+              <div className="text-xs text-gray-500">Total</div>
+              <div className="text-3xl font-black text-gray-700">{results.length}</div>
             </div>
           </div>
-        ) : (
-          <div className="rounded-2xl border p-5 bg-red-50 border-red-200">
-            <div className="flex items-center gap-2 mb-2"><span className="text-2xl">❌</span><span className="text-xl font-bold text-red-700">Invalid ZIP Code</span></div>
-            <p className="text-red-600 text-sm">{result.reason}</p>
+          <div className="space-y-2">
+            {results.map((r, i) => (
+              <div key={i} className={`rounded-xl border p-3 ${r.valid ? 'border-green-200 bg-green-50/60' : 'border-red-200 bg-red-50/60'}`}>
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono font-black text-lg">{r.zip}</span>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${r.valid ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                      {r.valid ? '✓ Valid' : '✗ Invalid'}
+                    </span>
+                  </div>
+                  {r.valid && <span className="text-sm text-gray-600">{r.city}, {r.state} · {r.county}</span>}
+                  {!r.valid && <span className="text-sm text-red-500">{r.reason}</span>}
+                </div>
+                {r.valid && (
+                  <div className="flex gap-4 mt-2 text-xs text-gray-500 flex-wrap">
+                    <span>👥 {r.population > 0 ? r.population.toLocaleString() : 'N/A'}</span>
+                    <span>📬 {r.type}</span>
+                    <span>📞 ({r.areaCode})</span>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        )
+        </div>
       )}
-      <div className="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-200">
-        <div className="font-semibold text-gray-700 mb-2 text-sm">Validation Rules:</div>
-        <ul className="text-sm text-gray-600 space-y-1">
-          <li>✓ Exactly 5 digits</li><li>✓ Only numbers (0–9)</li>
-          <li>✓ Must be an active USPS delivery area</li><li>✓ 41,000+ valid ZIPs covered</li>
-        </ul>
-      </div>
     </div>
   )
 }

@@ -1,4 +1,6 @@
 'use client'
+import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
+import { ShareButton } from '@/components/ui/ShareButton'
 import { useState, useMemo } from 'react'
 import { useCommodityPrices, getGoldKaratPrices, GRAM_TO_TOLA, TROY_OZ_TO_GRAM } from '@/hooks/useCommodityPrices'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
@@ -22,7 +24,7 @@ function GoldLoanFAQ() {
     <section>
       <h3 className="text-xl font-black text-gray-900 mb-4">❓ Gold Loan FAQ</h3>
       <div className="space-y-2">
-        {faqs.map((f,i)=>(
+        {faqs.map((f: any, i: number) =>(
           <div key={i} className={`bg-white rounded-2xl border transition-all ${open===i?'border-yellow-300 shadow-md':'border-gray-100 hover:border-yellow-200'}`}>
             <button onClick={()=>setOpen(open===i?null:i)} className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left">
               <span className="font-bold text-gray-900 text-sm leading-snug">{f.q}</span>
@@ -108,6 +110,11 @@ export default function GoldLoanCalculatorPage() {
         <Link href="/commodities" className="hover:text-gray-600">Commodities</Link> /
         <span className="text-gray-700 font-medium">Gold Loan Calculator</span>
       </nav>
+      {/* ── PDF Export Buttons ── */}
+      <div className="flex flex-wrap items-center gap-2 my-4">
+        <ShareButton title="Gold Loan Calculator" category="Commodities" />
+          <ExportButtonPair title="Gold Loan Calculator" category="Finance" />
+      </div>
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
@@ -116,7 +123,7 @@ export default function GoldLoanCalculatorPage() {
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
           <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
-            {Object.keys(FX).map(k => (
+            {Object.keys(FX).map((k: any) => (
               <button key={k} onClick={() => setFxKey(k)}
                 className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${fxKey === k ? 'bg-white shadow text-gray-900' : 'text-gray-500'}`}>{k}</button>
             ))}
@@ -143,9 +150,9 @@ export default function GoldLoanCalculatorPage() {
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-1">Gold Weight</label>
               <div className="flex gap-2">
-                <input type="number" step="0.5" min="1" value={weight} onChange={e => setWeight(+e.target.value)}
+                <input type="number" step="0.5" min="1" value={weight} onChange={(e: any) => setWeight(+e.target.value)}
                   className="flex-1 px-3 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-yellow-400 font-bold" />
-                <select value={wUnit} onChange={e => setWUnit(e.target.value as any)}
+                <select value={wUnit} onChange={(e: any) => setWUnit(e.target.value as any)}
                   className="px-3 py-2.5 border border-gray-200 rounded-xl bg-white font-semibold text-sm">
                   <option value="gram">gram</option>
                   <option value="tola">tola</option>
@@ -175,7 +182,7 @@ export default function GoldLoanCalculatorPage() {
             {/* LTV */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-1">Loan-to-Value (LTV): <span className="text-blue-600 font-black">{ltv}%</span></label>
-              <input type="range" min="50" max="90" step="5" value={ltv} onChange={e => setLtv(+e.target.value)} className="w-full accent-blue-600" />
+              <input type="range" min="50" max="90" step="5" value={ltv} onChange={(e: any) => setLtv(+e.target.value)} className="w-full accent-blue-600" />
               <div className="flex justify-between text-[11px] text-gray-400 mt-0.5"><span>50%</span><span>75% (RBI max)</span><span>90%</span></div>
             </div>
           </div>
@@ -187,7 +194,7 @@ export default function GoldLoanCalculatorPage() {
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-2">Repayment Type</label>
               <div className="grid grid-cols-2 gap-2">
-                {[['emi','EMI (Monthly)'],['bullet','Bullet (End)']].map(([v,l]) => (
+                {[['emi','EMI (Monthly)'],['bullet','Bullet (End)']].map(([v, l]) => (
                   <button key={v} onClick={() => setLoanType(v as any)}
                     className={`py-2.5 text-xs font-black rounded-xl transition-all ${loanType === v ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-blue-50'}`}>{l}</button>
                 ))}
@@ -197,14 +204,14 @@ export default function GoldLoanCalculatorPage() {
             {/* Rate */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-1">Annual Interest Rate: <span className="text-red-500 font-black">{rate}%</span></label>
-              <input type="range" min="7" max="26" step="0.5" value={rate} onChange={e => setRate(+e.target.value)} className="w-full accent-red-500" />
+              <input type="range" min="7" max="26" step="0.5" value={rate} onChange={(e: any) => setRate(+e.target.value)} className="w-full accent-red-500" />
               <div className="flex justify-between text-[11px] text-gray-400 mt-0.5"><span>7% (bank)</span><span>~12% avg</span><span>26% (NBFC)</span></div>
             </div>
 
             {/* Tenure */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">Tenure: <span className="text-green-600 font-black">{tenure} months</span></label>
-              <input type="range" min="3" max="48" step="3" value={tenure} onChange={e => setTenure(+e.target.value)} className="w-full accent-green-600" />
+              <input type="range" min="3" max="48" step="3" value={tenure} onChange={(e: any) => setTenure(+e.target.value)} className="w-full accent-green-600" />
               <div className="flex justify-between text-[11px] text-gray-400 mt-0.5"><span>3m</span><span>12m</span><span>24m</span><span>48m</span></div>
             </div>
           </div>
@@ -223,7 +230,7 @@ export default function GoldLoanCalculatorPage() {
                 sub: loanType === 'emi' ? `x ${tenure} months` : `Pay at end`,
                 accent: 'bg-green-50 border-green-200' },
               { label: 'Total Interest', val: fmt(totalInterest),         sub: `${rate}% p.a. - ${tenure}m`,          accent: 'bg-red-50 border-red-200' },
-            ].map(c => (
+            ].map((c: any) => (
               <div key={c.label} className={`rounded-2xl border p-4 text-center ${c.accent}`}>
                 <p className="text-[11px] text-gray-500 font-semibold mb-1">{c.label}</p>
                 <p className="font-black text-gray-900 text-xl leading-none">{c.val}</p>
@@ -240,12 +247,12 @@ export default function GoldLoanCalculatorPage() {
                 <div style={{ width: 120, height: 120, flexShrink: 0 }}>
                   <PieChart width={120} height={120}>
                     <Pie data={pieData} cx={55} cy={55} innerRadius={35} outerRadius={55} dataKey="value" paddingAngle={3}>
-                      {pieData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                      {pieData.map((entry: any, i: number) => <Cell key={i} fill={entry.color} />)}
                     </Pie>
                   </PieChart>
                 </div>
                 <div className="space-y-2 flex-1">
-                  {pieData.map(p => (
+                  {pieData.map((p: any) => (
                     <div key={p.name} className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
                         <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: p.color }} />
@@ -296,8 +303,8 @@ export default function GoldLoanCalculatorPage() {
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis dataKey="month" tickFormatter={v => `M${v}`} tick={{ fontSize:10 }} />
-                  <YAxis tickFormatter={v => `${SYM[fxKey]}${(v/1000).toFixed(0)}k`} tick={{ fontSize:10 }} />
+                  <XAxis dataKey="month" tickFormatter={(v: any) => `M${v}`} tick={{ fontSize:10 }} />
+                  <YAxis tickFormatter={(v: any) => `${SYM[fxKey]}${(v/1000).toFixed(0)}k`} tick={{ fontSize:10 }} />
                   <Tooltip formatter={(v:number) => [`${SYM[fxKey]}${v.toLocaleString()}`, '']} />
                   <Area type="monotone" dataKey="balance" stroke="#2563eb" fill="url(#balGrad)" strokeWidth={2} name="Balance" dot={false} />
                 </AreaChart>
@@ -311,7 +318,7 @@ export default function GoldLoanCalculatorPage() {
               <AlertCircle className="w-4 h-4 text-amber-600" /> Gold Loan Tips
             </h3>
             <div className="space-y-2">
-              {tips.map((t, i) => (
+              {tips.map((t: any, i: number) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
                   <span className="flex-shrink-0 text-base leading-tight">{t.icon}</span>
                   <span>{t.text}</span>
@@ -327,7 +334,7 @@ export default function GoldLoanCalculatorPage() {
               { n:'EMI Calc',   e:'🏦', h:'/calculators/finance/emi-calculator'           },
               { n:'Metals P&amp;L', e:'💰', h:'/commodities/precious-metals-profit-calculator' },
               { n:'Portfolio',  e:'🗂️', h:'/commodities/commodity-portfolio-tracker'       },
-            ].map(l => (
+            ].map((l: any) => (
               <Link key={l.h} href={l.h}
                 className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-100 shadow-card hover:border-yellow-200 transition-all text-xs font-bold text-gray-700 group">
                 <span className="text-lg">{l.e}</span>{l.n}
@@ -345,7 +352,7 @@ export default function GoldLoanCalculatorPage() {
         <div className="rounded-2xl p-5 bg-yellow-50 border border-yellow-100">
           <p className="text-xs font-bold uppercase tracking-wider mb-3 text-yellow-700">📊 Gold Loan Key Facts — India 2026</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{s:'75% LTV',n:'RBI maximum Loan-to-Value for gold loans (NBFCs & banks)'},{s:'8–24% p.a.',n:'Interest rate range: banks 8–11%, NBFCs 12–24%'},{s:'30 mins',n:'Typical NBFC gold loan disbursal time — same day'},{s:'₹25,000+',n:'Typical minimum gold loan amount at most lenders'},{s:'No CIBIL',n:'Gold loans do not require credit score check — fully secured'},{s:'3 months–3 yrs',n:'Typical gold loan tenure range in India'}].map((k,i)=>(
+            {[{s:'75% LTV',n:'RBI maximum Loan-to-Value for gold loans (NBFCs & banks)'},{s:'8–24% p.a.',n:'Interest rate range: banks 8–11%, NBFCs 12–24%'},{s:'30 mins',n:'Typical NBFC gold loan disbursal time — same day'},{s:'₹25,000+',n:'Typical minimum gold loan amount at most lenders'},{s:'No CIBIL',n:'Gold loans do not require credit score check — fully secured'},{s:'3 months–3 yrs',n:'Typical gold loan tenure range in India'}].map((k: any, i: number) =>(
               <div key={i} className="bg-white rounded-xl p-3 border border-yellow-100"><p className="text-lg font-black text-yellow-700">{k.s}</p><p className="text-xs text-gray-500 mt-0.5">{k.n}</p></div>
             ))}
           </div>
@@ -381,7 +388,7 @@ export default function GoldLoanCalculatorPage() {
             {[
               {t:'Emergency Medical or Education Expense',b:'Gold loans are India\'s fastest formal credit instrument for emergencies. Walk into a Muthoot or Manappuram branch with your gold, leave 30 minutes later with cash. No paperwork queue, no credit check, no guarantor. Calculate the total interest cost here first — for a 3-month emergency loan at 18% p.a., interest on ₹1 lakh is approximately ₹4,500 total. Compare against personal loan or credit card interest (36–42% p.a.) and the math is clear.'},
               {t:'Working Capital for Business',b:'Small business owners often use gold loans as working capital between inventory cycles. A saree shop owner pledges ₹5 lakh of family gold for 6 months to finance festival season inventory, repays from sales, and redeems gold. Interest at 15% p.a. for 6 months = ₹37,500. Compare against unsecured business loans at 18–24% p.a. — gold loans are significantly cheaper for those who have idle gold.'},
-            ].map((u,i)=>(<div key={i} className="border-l-4 border-yellow-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
+            ].map((u: any, i: number) =>(<div key={i} className="border-l-4 border-yellow-300 pl-5 py-3 bg-white rounded-r-2xl"><h4 className="font-black text-gray-900 mb-1 text-sm">{u.t}</h4><p className="text-gray-600 text-sm leading-relaxed">{u.b}</p></div>))}
           </div>
         </section>
 
@@ -390,7 +397,7 @@ export default function GoldLoanCalculatorPage() {
         <section>
           <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Know your gold\'s exact market value before the lender appraises it'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Calculate gold ROI and whether selling beats a loan'},{e:'💳',n:'Personal Loan Calculator',h:'/calculators/finance/personal-loan-calculator',d:'Compare gold loan cost vs personal loan — which is cheaper?'},{e:'🏠',n:'Home Loan Calculator',h:'/calculators/finance/home-loan-calculator',d:'Planning a home loan? Calculate EMI and total cost'},{e:'📊',n:'EMI Calculator',h:'/calculators/finance/emi-calculator',d:'Calculate EMI for any loan amount, rate & tenure'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Live gold, silver, platinum & palladium prices'},].map(c=>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
+            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Know your gold\'s exact market value before the lender appraises it'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Calculate gold ROI and whether selling beats a loan'},{e:'💳',n:'Personal Loan Calculator',h:'/calculators/finance/personal-loan-calculator',d:'Compare gold loan cost vs personal loan — which is cheaper?'},{e:'🏠',n:'Home Loan Calculator',h:'/calculators/finance/home-loan-calculator',d:'Planning a home loan? Calculate EMI and total cost'},{e:'📊',n:'EMI Calculator',h:'/calculators/finance/emi-calculator',d:'Calculate EMI for any loan amount, rate & tenure'},{e:'🏅',n:'All Commodities',h:'/commodities',d:'Live gold, silver, platinum & palladium prices'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
               <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
           </div>
         </section>

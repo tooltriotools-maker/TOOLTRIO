@@ -118,7 +118,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Yield to Maturity" value={`${result.ytm}%`} highlight />
             <ResultCard label="Annual Coupon" value={fmt(result.annualCoupon)} />

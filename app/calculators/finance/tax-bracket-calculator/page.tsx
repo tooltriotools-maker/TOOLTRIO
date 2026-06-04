@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
-import TaxBracketCalculatorClient from './TaxBracketCalculatorClient'
+import dynamic from 'next/dynamic'
+const TaxBracketCalculatorClient = dynamic(() => import('./TaxBracketCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Tax Bracket Calculator USA 2026 | TOOLTRIO',

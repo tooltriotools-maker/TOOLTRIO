@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <ResultCard label="XIRR (Annual Return)" value={xirr.xirr != null ? `${(xirr.xirr * 100).toFixed(2)}%` : 'N/A'} highlight icon={<Percent className="w-4 h-4" />} />
             <ResultCard label="Absolute Gain/Loss" value={fmt(totalReturned - totalInvested)} icon={<TrendingUp className="w-4 h-4" />} />

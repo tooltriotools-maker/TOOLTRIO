@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -19,16 +19,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const SIZES = [8,10,12,14,16,18,20,24,28,32,36,40,48,56,64,72,80,96,128]
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Pixel/REM Converter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📐 PX ↔ REM Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert between pixel and REM units for responsive CSS. Set your base font size and convert instantly.</p>
-
+      return (
+    <DevToolLayout
+      title="PX ↔ REM Converter"
+      icon="📐"
+      description="Convert between pixel and REM units for responsive CSS. Set your base font size and convert instantly."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="mb-5">
           <label className="text-sm font-bold text-gray-700">Base font size (root): <span className="text-green-600">{base}px</span></label>
@@ -145,6 +145,6 @@ Test at 200% browser zoom. Verify your layout works when rem values are effectiv
           </details>
         ))}
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

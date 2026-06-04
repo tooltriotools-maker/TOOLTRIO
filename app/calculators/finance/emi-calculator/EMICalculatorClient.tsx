@@ -84,7 +84,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
           </div>
         </Card>
 
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Monthly EMI" value={fmt(result.emi)} subValue="Fixed monthly payment" highlight />
             <ResultCard label="Total Interest" value={fmtCompact(result.totalInterest)} subValue={`${((result.totalInterest / principal) * 100).toFixed(1)}% of principal`} />

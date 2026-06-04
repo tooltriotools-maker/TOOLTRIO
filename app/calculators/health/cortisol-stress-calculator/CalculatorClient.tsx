@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </label>
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className={`rounded-2xl p-6 border-2 ${risk.bg}`}>
             <p className="text-xs font-bold uppercase tracking-wide text-gray-600 mb-1">Cortisol Risk Score</p>
             <div className="flex items-end gap-3">

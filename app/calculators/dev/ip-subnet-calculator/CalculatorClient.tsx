@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
 interface Props { faqs: { question: string; answer: string }[] }
@@ -38,16 +38,16 @@ export default function CalculatorClient({ faqs }: Props) {
     {label:'Loopback',ip:'127.0.0.0',prefix:8},
   ]
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">IP Subnet Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌐 IP Subnet Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate subnet masks, network addresses, broadcast addresses, and usable host ranges for any CIDR block.</p>
-
+      return (
+    <DevToolLayout
+      title="IP Subnet Calculator"
+      icon="🌐"
+      description="Calculate subnet masks, network addresses, broadcast addresses, and usable host ranges for any CIDR block."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div className="flex gap-3 mb-4">
           <input value={ip} onChange={e=>setIp(e.target.value)} placeholder="192.168.1.0"
@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 </button>
               </div>
             </div>
-          ))}
+    ))}
         </div>
       </div>
 
@@ -140,6 +140,6 @@ AWS adds 3 more reserved. In AWS VPCs, the first 4 addresses and the last 1 in e
 Same subnet check. IP1 & mask == IP2 & mask determines if two IPs are on the same subnet — the calculator shows this without manual AND operations.`}
         conclusion={`Subnet calculations underpin VPC design, network configuration, and firewall rules. This calculator handles the bit arithmetic automatically. For CIDR notation: [CIDR Calculator](/calculators/dev/cidr-calculator). For network bandwidth: [Bandwidth Calculator](/calculators/dev/bandwidth-calculator).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

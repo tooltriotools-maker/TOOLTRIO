@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -38,16 +39,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const type = done ? getType() : ''
   const typeInfo = TYPES[type] || {title:'The Unique One',emoji:'✨',desc:'Your personality defies categorisation - and that is perfectly you.'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Personality Quiz</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🧠 Personality Type Quiz <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Answer 4 quick questions to discover your MBTI-inspired personality type. Just for fun!</p>
-
+      return (
+    <DevToolLayout
+      title="Personality Type Quiz"
+      icon="🧠"
+      description="Answer 4 quick questions to discover your MBTI-inspired personality type. Just for fun!"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       {!done ? (
         <div className="space-y-4">
           {QUESTIONS.map((q,qi)=>(
@@ -62,7 +63,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 ))}
               </div>
             </div>
-          ))}
+    ))}
           <button onClick={()=>setDone(true)} disabled={answered<QUESTIONS.length}
             className={`w-full py-4 font-black rounded-2xl text-lg ${answered===QUESTIONS.length?'bg-gradient-to-r from-indigo-600 to-purple-700 text-white hover:opacity-90':'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
             {answered<QUESTIONS.length?`Answer ${QUESTIONS.length-answered} more...`:'Reveal My Type!'}
@@ -203,6 +204,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

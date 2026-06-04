@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Max Reps (at bodyweight)" value={reps} onChange={setReps} min={0} max={50} step={1} suffix="reps" />
           </div>
         </Card>
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Weighted 1RM</p>

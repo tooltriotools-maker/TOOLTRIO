@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import SIPCalculatorClient from './SIPCalculatorClient'
+import dynamic from 'next/dynamic'
+const SIPCalculatorClient = dynamic(() => import('./SIPCalculatorClient'), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+  )
+})
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'SIP Calculator India 2026 | TOOLTRIO',

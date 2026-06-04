@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -33,16 +34,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const halfLife = new Date()
   halfLife.setHours(halfLife.getHours() + 5 * cups)
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Coffee Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>☕ Coffee Caffeine Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Find out how much caffeine you're drinking and whether you\'re in the safe zone.</p>
-
+      return (
+    <DevToolLayout
+      title="Coffee Caffeine Calculator"
+      icon="☕"
+      description="Find out how much caffeine you're drinking and whether you\'re in the safe zone."
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700 block mb-2">Drink Type</label>
@@ -83,7 +84,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       <p className="text-xs text-gray-400 text-center mt-4">For entertainment. Consult a doctor for personal health advice.</p>
 
-      <div className="mt-6 space-y-3">
+      <div className="mt-6 space-y-4" data-pdf-results>
         {faqs.map(f=>(
           <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>
             <summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary>
@@ -221,6 +222,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
-  )
+    </DevToolLayout>
+    )
 }

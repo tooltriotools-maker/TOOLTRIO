@@ -1,4 +1,5 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -27,16 +28,16 @@ export default function CalculatorClient({ faqs }: Props) {
   const lifeYears = (lifeHours / 8760).toFixed(1)
   const grade = total>12?{l:'Screen Overload 😰',c:'text-red-600'}:total>8?{l:'Heavy User 😅',c:'text-orange-600'}:total>5?{l:'Average Screen Time 😊',c:'text-yellow-600'}:{l:'Healthy Screen Balance 🌿',c:'text-green-600'}
 
-  return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-pink-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/fun" className="hover:text-pink-600">Fun & Entertainment</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Screen Time Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📱 Screen Time Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate how much of your life you spend looking at screens. (Warning: may be terrifying.)</p>
-
+      return (
+    <DevToolLayout
+      title="Screen Time Calculator"
+      icon="📱"
+      description="Calculate how much of your life you spend looking at screens. (Warning: may be terrifying.)"
+      category="Fun"
+      parentPath="/calculators/fun"
+      parentLabel="Fun & Entertainment"
+    >
+  
       <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
         <div>
           <label className="text-sm font-bold text-gray-700">Your age: <span className="text-blue-600 font-black">{age}</span></label>
@@ -47,7 +48,7 @@ export default function CalculatorClient({ faqs }: Props) {
             <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">{app.icon} {app.name}: <span className="text-blue-600 font-black">{hours[i].toFixed(1)}h/day</span></label>
             <input type="range" min={0} max={16} step={0.5} value={hours[i]} onChange={e=>{const n=[...hours];n[i]=+e.target.value;setHours(n)}} className="w-full accent-blue-500 mt-1" />
           </div>
-        ))}
+    ))}
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-4">
@@ -187,6 +188,6 @@ export default function CalculatorClient({ faqs }: Props) {
         ]}
       />
       </div>
-    </div>
+    </DevToolLayout>
   )
 }

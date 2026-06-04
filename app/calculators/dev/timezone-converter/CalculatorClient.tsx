@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
+import { Copy, Check, RefreshCw, Download, Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -38,16 +38,16 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const copy = (k: string, v: string) => { navigator.clipboard.writeText(v); setCopied(k); setTimeout(()=>setCopied(''),1500) }
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-green-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-green-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Timezone Converter</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🌍 Timezone Converter <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Convert time between 20 world time zones instantly</p>
-      <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
+      return (
+    <DevToolLayout
+      title="Timezone Converter"
+      icon="🌍"
+      description="Convert time between 20 world time zones instantly"
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+        <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="sm:col-span-1"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Date &amp; Time</label>
             <input type="datetime-local" value={dateTime} onChange={e=>setDateTime(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-3 py-2.5 focus:outline-none" /></div>
@@ -64,7 +64,7 @@ export default function CalculatorClient({ faqs }: Props) {
                 <p className="font-black text-gray-900">{r.short}</p>
                 <p className="text-xs text-gray-500 mt-0.5">{r.full}</p>
               </div>
-            ))}
+    ))}
           </div>
         )}
       </div>
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
         <p className="text-sm text-gray-600">The World Clock panel at the bottom shows all 20 zones at once - ideal for finding a meeting time that works across multiple continents. Use the offset badge (e.g. GMT+5:30) to verify you have the right zone selected.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
       <SEOContent
         title="Timezone Converter — World Time Zone Tool"
         category="dev"
@@ -143,6 +143,6 @@ India has a 30-minute offset. IST is UTC+5:30, not a full hour. When scheduling 
 
 For complete time handling: convert zones here, build cron schedules with [Cron Expression Builder](/calculators/dev/cron-expression), and decode timestamp fields with [JWT Decoder](/calculators/dev/jwt-decoder).`}
       />
-    </div>
+    </DevToolLayout>
   )
 }

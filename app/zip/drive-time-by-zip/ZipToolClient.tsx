@@ -65,6 +65,8 @@ export default function ZipToolClient() {
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div className="rounded-xl bg-white/60 p-2"><div className="text-xs text-gray-400">Straight-line</div><div className="font-bold">{result.miles.toFixed(1)} mi</div></div>
               <div className="rounded-xl bg-white/60 p-2"><div className="text-xs text-gray-400">Est. drive</div><div className="font-bold">{result.driveMiles.toFixed(1)} mi</div></div>
+              <div className="rounded-xl bg-white/60 p-2"><div className="text-xs text-gray-400">👥 Pop (from)</div><div className="font-bold">{result.r1.population > 0 ? result.r1.population.toLocaleString() : 'N/A'}</div></div>
+              <div className="rounded-xl bg-white/60 p-2"><div className="text-xs text-gray-400">👥 Pop (to)</div><div className="font-bold">{result.r2.population > 0 ? result.r2.population.toLocaleString() : 'N/A'}</div></div>
             </div>
           </div>
           <a href={directionsUrl} target="_blank" rel="noopener noreferrer"

@@ -1,7 +1,7 @@
 'use client'
+import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, Copy, Check, Wifi, Download, Upload, Clock } from 'lucide-react'
+import { Copy, Check, Wifi, Download, Upload, Clock } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -51,16 +51,16 @@ export default function CalculatorClient({ faqs }: Props) {
     { label: 'Full HD Zoom meeting (1hr)', mb: 750, icon: '💻' },
   ]
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-        <Link href="/" className="hover:text-blue-600">Home</Link><ChevronRight className="w-3 h-3" />
-        <Link href="/calculators/dev" className="hover:text-blue-600">Dev Tools</Link><ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Network Speed Calculator</span>
-      </nav>
-      <h1 className="text-3xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>📡 Network Speed & File Transfer Calculator <span className="text-green-600">| TOOLTRIO</span></h1>
-      <p className="text-gray-500 mb-6">Calculate file download/upload times at any connection speed. Compare 3G, 4G, 5G, WiFi, and fiber speeds for common file sizes.</p>
-
+      return (
+    <DevToolLayout
+      title="Network Speed & File Transfer Calculator"
+      icon="📡"
+      description="Calculate file download/upload times at any connection speed. Compare 3G, 4G, 5G, WiFi, and fiber speeds for common file sizes."
+      category="Dev"
+      parentPath="/calculators/dev"
+      parentLabel="Dev Tools"
+    >
+  
       {/* Speed selector */}
       <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm mb-5">
         <h2 className="font-bold text-gray-900 mb-3">Select Connection Speed</h2>
@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs }: Props) {
               className="w-32 border-2 border-gray-200 rounded-xl px-3 py-2 text-sm font-mono focus:border-blue-400 focus:outline-none" />
             <span className="text-sm text-gray-500">Mbps</span>
           </div>
-        )}
+    )}
         <div className="mt-3 p-3 bg-blue-50 rounded-xl">
           <p className="text-sm font-bold text-blue-800">
             Selected: <span className="font-black">{SPEEDS[selectedSpeed].label}</span> - {mbps >= 1000 ? `${mbps/1000} Gbps` : `${mbps} Mbps`} = {mbytesPerSec.toFixed(1)} MB/s
@@ -189,6 +189,6 @@ Akamai's State of the Internet reports and Ookla's Speedtest Intelligence provid
           <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
         </details>)}
       </div>
-    </div>
+    </DevToolLayout>
   )
 }
