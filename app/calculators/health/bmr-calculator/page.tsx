@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BMR Calculator – Basal Metabolic Rate | TOOLTRIO',
+  title: 'BMR Calculator – Basal Metabolic Rate | ToolTrio',
   description: 'Free BMR Calculator 2026 — Calculate your Basal Metabolic Rate at complete rest. Uses Mifflin-St Jeor and Harris-Benedict equations. Real examples for men and women. Instant results, no signup.',
   slug: 'bmr-calculator',
   category: 'health',

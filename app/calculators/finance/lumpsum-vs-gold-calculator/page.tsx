@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Lump Sum vs Gold Calculator India 2026 | TOOLTRIO',
+ title: 'Lump Sum vs Gold Calculator India 2026 | ToolTrio',
  description: "Free lump sum vs gold calculator India 2026. Compare one-time equity mutual fund investment vs gold (SGB, ETF, physical) on returns, tax, and long-term wealth. Real examples for INR 1L-50L investments.",
  slug: 'lumpsum-vs-gold-calculator',
  category: 'finance',

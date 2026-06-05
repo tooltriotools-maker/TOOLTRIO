@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Weight Gain Calculator 2026 | TOOLTRIO',
+  title: 'Pregnancy Weight Gain Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Weight Gain Calculator 2026 — Accurate pregnancy weight gain based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-weight-gain-calculator',
   category: 'health',

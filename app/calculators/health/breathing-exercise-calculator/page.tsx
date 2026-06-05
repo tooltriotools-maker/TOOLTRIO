@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Breathing Exercise Calculator 2026 | TOOLTRIO',
+  title: 'Breathing Exercise Calculator 2026 | ToolTrio',
   description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breath hold targets, practice schedules, and track breathing capacity improvements. Free online breathing exercise calculator 2026. No signup required.',
   slug: 'breathing-exercise-calculator',
   category: 'health',

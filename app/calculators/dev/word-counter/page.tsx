@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Word Counter Online | TOOLTRIO',
+  title: 'Word Counter Online | ToolTrio',
   description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs in your browser.',
   slug: 'word-counter',
   keywords: ['word counter online free','character count tool browser','word count text online','count words characters sentences','word frequency counter free'],

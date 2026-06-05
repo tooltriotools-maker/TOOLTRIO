@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'How We Build Accurate Free Calculators | TOOLTRIO',
+  title: 'How We Build Accurate Free Calculators | ToolTrio',
   description:
     'Every calculator on tooltrio.com follows IRS guidelines, CDC standards, NIH research, CFPB rules, and SEC-validated formulas. Learn exactly how we source and verify every number.',
   keywords: [

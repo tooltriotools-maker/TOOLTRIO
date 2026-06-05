@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sleep Need Calculator 2026 | TOOLTRIO',
+  title: 'Sleep Need Calculator 2026 | ToolTrio',
   description: 'Free Sleep Need Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up optimization. Evidence-based sleep science. No signup.',
   slug: 'sleep-need-calculator',
   category: 'health',

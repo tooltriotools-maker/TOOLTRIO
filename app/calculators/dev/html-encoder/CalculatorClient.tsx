@@ -10,7 +10,7 @@ const encode = (s: string) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
 const decode = (s: string) => s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCharCode(+n)).replace(/&([a-z]+);/gi,(m,e)=>{const t=document.createElement('textarea');t.innerHTML=m;return t.value})
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [input, setInput] = useState('<h1 class="title">Hello "World" & \'Friends\'! <span className="text-green-600">| TOOLTRIO</span></h1>')
+  const [input, setInput] = useState('<h1 class="title">Hello "World" & \'Friends\'! <span className="text-green-600">| ToolTrio</span></h1>')
   const [mode, setMode] = useState<'encode'|'decode'>('encode')
   const [copied, setCopied] = useState(false)
 

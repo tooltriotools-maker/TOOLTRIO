@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Europe Growth vs Value ETF 2026 | TOOLTRIO',
+ title: 'Europe Growth vs Value ETF 2026 | ToolTrio',
  description: 'Free Europe growth vs value ETF calculator 2026. Compare European growth ETFs vs value ETFs on historical returns, volatility, and dividend yield. Real examples for EUR 10k-200k investments over 10-25 year horizons.',
  slug: 'europe-growth-vs-value-etf-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Calories Burned Calculator 2026 | TOOLTRIO',
+  title: 'Calories Burned Calculator 2026 | ToolTrio',
   description: 'Free Calories Burned Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common activities. MET-based formula used by fitness professionals.',
   slug: 'calories-burned-calculator',
   category: 'health',

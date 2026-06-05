@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Hearing Age Calculator 2026 | TOOLTRIO',
+  title: 'Hearing Age Calculator 2026 | ToolTrio',
   description: 'Free Hearing Age Calculator 2026 — Calculate hearing age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'hearing-age-calculator',
   category: 'health',

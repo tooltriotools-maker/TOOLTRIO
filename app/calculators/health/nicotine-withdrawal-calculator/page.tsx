@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Nicotine Withdrawal Calculator 2026 | TOOLTRIO',
+  title: 'Nicotine Withdrawal Calculator 2026 | ToolTrio',
   description: 'Calculate your predicted nicotine withdrawal timeline based on daily cigarettes smoked and years of use. See when peak cravings occur, when symptoms typically subside, and when long-term cravings diminish. Free online nicotine withdrawal calculator 2026. No signup required.',
   slug: 'nicotine-withdrawal-calculator',
   category: 'health',

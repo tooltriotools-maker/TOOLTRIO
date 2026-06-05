@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Color Contrast Checker – WCAG 2026 | TOOLTRIO',
+  title: 'Color Contrast Checker – WCAG 2026 | ToolTrio',
   description: 'Check color contrast ratios for WCAG 2.1 AA and AAA compliance. Instant pass/fail for normal text, large text, and UI components. Runs entirely in your browser.',
   slug: 'color-contrast',
   keywords: ['wcag color contrast checker online free','color contrast ratio calculator','aa aaa contrast test browser','accessible color checker free','contrast ratio tool web'],

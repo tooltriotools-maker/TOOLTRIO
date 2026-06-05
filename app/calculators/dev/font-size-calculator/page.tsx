@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Font Size Calculator – CSS clamp() | TOOLTRIO',
+  title: 'Font Size Calculator – CSS clamp() | ToolTrio',
   description: 'Calculate fluid typography scales using CSS clamp(). Set min and max font sizes across viewport breakpoints. Generates type scales and clamp() values. Runs in your browser.',
   slug: 'font-size-calculator',
   keywords: ['font size calculator online free','fluid typography calculator browser','clamp css font size generator','min max font size tool','responsive font scale calculator'],

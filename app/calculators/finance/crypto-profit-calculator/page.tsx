@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Crypto Profit Calculator USA 2026 | TOOLTRIO',
+ title: 'Crypto Profit Calculator USA 2026 | ToolTrio',
  description: 'Free crypto profit calculator USA 2026. Calculate profit or loss on any cryptocurrency trade including buy/sell fees, capital gains tax, and ROI. Real examples for Bitcoin, Ethereum, and altcoin trades.',
  slug: 'crypto-profit-calculator',
  category: 'finance',

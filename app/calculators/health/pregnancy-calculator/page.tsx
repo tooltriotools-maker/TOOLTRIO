@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Calculator 2026 | TOOLTRIO',
+  title: 'Pregnancy Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Calculator 2026 — Accurate pregnancy based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-calculator',
   category: 'health',

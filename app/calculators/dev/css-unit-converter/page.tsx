@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Unit Converter – px, rem, em | TOOLTRIO',
+  title: 'CSS Unit Converter – px, rem, em | ToolTrio',
   description: 'Convert between CSS units: px, rem, em, vw, vh, pt, cm, mm. Set custom base font size and viewport dimensions. Runs entirely in your browser.',
   slug: 'css-unit-converter',
   keywords: ['css unit converter online free','px to rem converter browser','rem to px calculator free','em to px converter online','vw vh to px converter','css units converter tool'],

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Lump Sum vs SIP Calculator India 2026 | TOOLTRIO',
+ title: 'Lump Sum vs SIP Calculator India 2026 | ToolTrio',
  description: 'Free lump sum vs SIP calculator India 2026. Compare investing all at once vs systematic investment plan monthly contributions. Real examples for INR 1L–25L investments.',
  slug: 'lumpsum-vs-sip-calculator',
  category: 'finance',

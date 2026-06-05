@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Calcium Calculator 2026 | TOOLTRIO',
+  title: 'Calcium Calculator 2026 | ToolTrio',
   description: 'Free Calcium Calculator 2026 — Calculate your daily calcium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'calcium-calculator',
   category: 'health',

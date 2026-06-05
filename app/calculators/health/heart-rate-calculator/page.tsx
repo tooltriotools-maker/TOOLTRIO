@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Heart Rate Calculator – Training Zones | TOOLTRIO',
+  title: 'Heart Rate Calculator – Training Zones | ToolTrio',
   description: 'Free Heart Rate Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
   slug: 'heart-rate-calculator',
   category: 'health',

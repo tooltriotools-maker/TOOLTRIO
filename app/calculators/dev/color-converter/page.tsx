@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Color Converter – HEX, RGB, HSL | TOOLTRIO',
+  title: 'Color Converter – HEX, RGB, HSL | ToolTrio',
   description: 'Convert colors between HEX, RGB, HSL, HSV, and CMYK formats instantly. Live preview. Runs entirely in your browser.',
   slug: 'color-converter',
   keywords: ['color converter online free','hex to rgb hsl browser','rgb to hex free','hsl to rgb converter online','cmyk to rgb converter','css color converter browser','color format converter free'],

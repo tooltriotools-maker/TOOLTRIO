@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sugar Intake Calculator 2026 | TOOLTRIO',
+  title: 'Sugar Intake Calculator 2026 | ToolTrio',
   description: 'Calculate your daily added sugar intake from common foods and compare against WHO guidelines (25g/day) and AHA recommendations (25g for women, 36g for men). Identify hidden sugar sources in your diet. Free online sugar intake calculator 2026. No signup required.',
   slug: 'sugar-intake-calculator',
   category: 'health',

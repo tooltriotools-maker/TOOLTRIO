@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Muni Bonds vs Corporate Bonds USA | TOOLTRIO',
+ title: 'Muni Bonds vs Corporate Bonds USA | ToolTrio',
  description: 'Free municipal bonds vs corporate bonds calculator USA 2026. Compare tax-free muni bonds vs taxable corporate bonds on after-tax yield based on your tax bracket. Real examples for $10k-$500k fixed income investments.',
  slug: 'municipal-bonds-vs-corporate-bonds-calculator',
  category: 'finance',

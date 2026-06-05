@@ -9,7 +9,7 @@ const SavingsRateCalculatorClient = dynamic(() => import('./SavingsRateCalculato
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Savings Rate Calculator USA 2026 | TOOLTRIO',
+ title: 'Savings Rate Calculator USA 2026 | ToolTrio',
  description: 'Free savings rate calculator USA 2026. Calculate your personal savings rate, time to financial independence, and how each 1% increase in savings rate accelerates your FIRE date. Real examples for $40k-$150k income levels.',
  slug: 'savings-rate-calculator',
  category: 'finance',

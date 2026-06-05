@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Simple Interest Calculator USA 2026 | TOOLTRIO',
+ title: 'Simple Interest Calculator USA 2026 | ToolTrio',
  description: 'Free simple interest calculator USA 2026. Calculate simple interest, total amount, and interest rate using the SI formula. Compare simple vs compound interest. Real examples for loans, savings, and short-term investments.',
  slug: 'simple-interest-calculator',
  category: 'finance',

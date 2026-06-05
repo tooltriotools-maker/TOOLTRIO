@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Personality Quiz – Myers-Briggs Style | TOOLTRIO',
+  title: 'Personality Quiz – Myers-Briggs Style | ToolTrio',
   description: 'Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free, no signup, instant results.',
   slug: 'personality-quiz',
   keywords: [

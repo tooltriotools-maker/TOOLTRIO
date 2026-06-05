@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CD Comparison Calculator USA 2026 | TOOLTRIO',
+ title: 'CD Comparison Calculator USA 2026 | ToolTrio',
  description: 'Free CD comparison calculator USA 2026. Compare up to 4 certificates of deposit simultaneously on APY, maturity value, and total interest. Real examples for $10k-$100k deposits at current 2026 CD rates.',
  slug: 'fd-comparison-calculator',
  category: 'finance',

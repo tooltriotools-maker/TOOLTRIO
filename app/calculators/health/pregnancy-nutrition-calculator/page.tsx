@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Nutrition Calculator 2026 | TOOLTRIO',
+  title: 'Pregnancy Nutrition Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Nutrition Calculator 2026 — Accurate pregnancy nutrition based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-nutrition-calculator',
   category: 'health',

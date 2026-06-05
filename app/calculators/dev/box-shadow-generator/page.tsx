@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Box Shadow Generator Online | TOOLTRIO',
+  title: 'CSS Box Shadow Generator Online | ToolTrio',
   description: 'Build CSS box shadows visually. Control offset, blur, spread, color, and inset. Copy ready CSS. Runs in your browser.',
   slug: 'box-shadow-generator',
   keywords: ['css box shadow generator online free','drop shadow css builder browser','box shadow preview tool','css shadow maker free','inset shadow generator online'],

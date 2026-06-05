@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Love Compatibility Calculator | TOOLTRIO',
+  title: 'Love Compatibility Calculator | ToolTrio',
   description: 'Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and instant.',
   slug: 'love-compatibility',
   keywords: [

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Inflammation Risk Calculator 2026 | TOOLTRIO',
+  title: 'Inflammation Risk Calculator 2026 | ToolTrio',
   description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your diet and lifestyle, with a prioritized anti-inflammation action plan. Free online inflammation risk calculator 2026. No signup required.',
   slug: 'inflammation-risk-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sweat Rate Calculator 2026 | TOOLTRIO',
+  title: 'Sweat Rate Calculator 2026 | ToolTrio',
   description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maintain performance, with sport-specific and weather-adjusted targets. Free online sweat rate calculator 2026. No signup required.',
   slug: 'sweat-rate-calculator',
   category: 'health',

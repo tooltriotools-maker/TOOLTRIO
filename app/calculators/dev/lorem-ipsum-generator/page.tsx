@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Lorem Ipsum Generator Online | TOOLTRIO',
+  title: 'Lorem Ipsum Generator Online | ToolTrio',
   description: 'Generate Lorem Ipsum placeholder text in words, sentences, or paragraphs. Classic and randomized variants. Used for design mockups and layout testing.',
   slug: 'lorem-ipsum-generator',
   keywords: ['lorem ipsum generator online free','placeholder text generator browser','dummy text generator free','lorem ipsum paragraphs words online','generate filler text free','lipsum generator browser'],

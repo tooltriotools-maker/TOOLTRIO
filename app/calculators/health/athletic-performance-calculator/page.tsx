@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Athletic Performance Calculator 2026 | TOOLTRIO',
+  title: 'Athletic Performance Calculator 2026 | ToolTrio',
   description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold pace, and performance comparisons to age-group standards. Free online athletic performance calculator 2026. No signup required.',
   slug: 'athletic-performance-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'HIIT Calculator – Intervals & Calories | TOOLTRIO',
+  title: 'HIIT Calculator – Intervals & Calories | ToolTrio',
   description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design protocols for fat burning, VO2 max, or anaerobic conditioning goals. Free online hiit calculator 2026. No signup required.',
   slug: 'hiit-calculator',
   category: 'health',

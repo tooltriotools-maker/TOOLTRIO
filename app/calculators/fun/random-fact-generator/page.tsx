@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Random Fact Generator | TOOLTRIO',
+  title: 'Random Fact Generator | ToolTrio',
   description: 'Generate random interesting facts about science, history, animals, space, food, and more. A new mind-blowing fact every click. Free, ad-free, no login needed.',
   slug: 'random-fact-generator',
   keywords: [

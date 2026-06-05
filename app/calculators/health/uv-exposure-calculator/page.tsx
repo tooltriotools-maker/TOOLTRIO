@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'UV Exposure Calculator 2026 | TOOLTRIO',
+  title: 'UV Exposure Calculator 2026 | ToolTrio',
   description: 'Calculate your daily UV radiation dose based on UV index, time of day, skin type, and exposure duration. Balance vitamin D production from sun exposure against cumulative skin cancer risk. Free online uv exposure calculator 2026. No signup required.',
   slug: 'uv-exposure-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Ovulation Calculator 2026 | TOOLTRIO',
+  title: 'Ovulation Calculator 2026 | ToolTrio',
   description: 'Free Ovulation Calculator 2026 — Accurate ovulation based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'ovulation-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'MSCI World vs S&P 500 Calculator 2026 | TOOLTRIO',
+ title: 'MSCI World vs S&P 500 Calculator 2026 | ToolTrio',
  description: 'Free MSCI World vs S&P 500 calculator for European investors 2026. Compare IWDA vs VUAA ETF returns, currency risk, and diversification. Real examples for EUR 10k-500k long-term investment portfolios.',
  slug: 'europe-msci-world-vs-sp500-calculator',
  category: 'finance',

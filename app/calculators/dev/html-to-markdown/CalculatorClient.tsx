@@ -55,7 +55,7 @@ function htmlToMd(html: string): string {
 }
 
 const SAMPLES = [
-  { label: 'Article', html: '<h1>Getting Started with React <span className="text-green-600">| TOOLTRIO</span></h1>\n<p>React is a <strong>JavaScript library</strong> for building user interfaces. It was created by <em>Facebook</em> in 2013.</p>\n<h2>Key Concepts</h2>\n<ul>\n<li>Components</li>\n<li>Props & State</li>\n<li>Hooks</li>\n</ul>\n<p>Learn more at <a href="https://react.dev">react.dev</a></p>' },
+  { label: 'Article', html: '<h1>Getting Started with React <span className="text-green-600">| ToolTrio</span></h1>\n<p>React is a <strong>JavaScript library</strong> for building user interfaces. It was created by <em>Facebook</em> in 2013.</p>\n<h2>Key Concepts</h2>\n<ul>\n<li>Components</li>\n<li>Props & State</li>\n<li>Hooks</li>\n</ul>\n<p>Learn more at <a href="https://react.dev">react.dev</a></p>' },
   { label: 'Code doc', html: '<h2>Installation</h2>\n<p>Install via npm:</p>\n<pre><code>npm install my-package</code></pre>\n<p>Then import: <code>import MyPkg from "my-package"</code></p>\n<blockquote><p>Note: Requires Node 18+</p></blockquote>' },
   { label: 'Simple para', html: '<p>This is a <strong>simple</strong> paragraph with <em>italic text</em> and a <a href="https://example.com">link</a>.</p>' },
 ]

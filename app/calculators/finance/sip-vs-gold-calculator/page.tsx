@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Gold Calculator India 2026 | TOOLTRIO',
+ title: 'SIP vs Gold Calculator India 2026 | ToolTrio',
  description: 'Free SIP vs gold calculator India 2026. Compare monthly SIP mutual fund returns vs gold investment (SGB, ETF, physical gold) over 5-25 years. Real examples for INR 5k-30k monthly investments.',
  slug: 'sip-vs-gold-calculator',
  category: 'finance',

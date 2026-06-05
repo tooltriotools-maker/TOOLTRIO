@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Fiber Intake Calculator 2026 | TOOLTRIO',
+  title: 'Fiber Intake Calculator 2026 | ToolTrio',
   description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Track fiber from food sources and assess whether supplementation is needed. Free online fiber intake calculator 2026. No signup required.',
   slug: 'fiber-intake-calculator',
   category: 'health',

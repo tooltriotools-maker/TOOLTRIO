@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sauna Benefits Calculator 2026 | TOOLTRIO',
+  title: 'Sauna Benefits Calculator 2026 | ToolTrio',
   description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly frequency, and adaptation level. Based on Finnish cohort and JAMA research. Free online sauna benefits calculator 2026. No signup required.',
   slug: 'sauna-benefits-calculator',
   category: 'health',

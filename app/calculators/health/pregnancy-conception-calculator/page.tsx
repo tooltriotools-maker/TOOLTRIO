@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Conception Date Calculator 2026 | TOOLTRIO',
+  title: 'Conception Date Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'pregnancy-conception-calculator',
   category: 'health',

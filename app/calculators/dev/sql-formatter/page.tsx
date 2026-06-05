@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'SQL Formatter & Beautifier Online | TOOLTRIO',
+  title: 'SQL Formatter & Beautifier Online | ToolTrio',
   description: 'Format and beautify SQL queries with proper indentation and keyword casing. Supports MySQL, PostgreSQL, SQLite, and T-SQL. Runs entirely in your browser.',
   slug: 'sql-formatter',
   keywords: ['sql formatter online free','sql query beautifier','mysql formatter browser','postgresql formatter free','sql pretty printer online','format sql query indentation free','sql code formatter no install','sql syntax formatter browser'],

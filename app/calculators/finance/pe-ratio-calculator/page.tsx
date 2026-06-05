@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'P/E Ratio Calculator USA 2026 | TOOLTRIO',
+ title: 'P/E Ratio Calculator USA 2026 | ToolTrio',
  description: 'Free P/E ratio calculator USA 2026. Calculate Price-to-Earnings ratio, PEG ratio, and estimated fair value for any stock. Compare against S&P 500 average and sector benchmarks. Real examples for growth and value stocks.',
  slug: 'pe-ratio-calculator',
  category: 'finance',

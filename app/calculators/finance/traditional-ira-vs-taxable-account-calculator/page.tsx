@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Traditional IRA vs Taxable Account USA | TOOLTRIO',
+ title: 'Traditional IRA vs Taxable Account USA | ToolTrio',
  description: "Free Traditional IRA vs taxable account calculator USA 2026. Compare Traditional IRA tax deduction plus deferred growth vs taxable brokerage investing. Real examples for $50k-$150k income with 20-30 year horizons.",
  slug: 'traditional-ira-vs-taxable-account-calculator',
  category: 'finance',

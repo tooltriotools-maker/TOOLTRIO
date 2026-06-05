@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '401k vs Roth IRA Calculator USA 2026 | TOOLTRIO',
+ title: '401k vs Roth IRA Calculator USA 2026 | ToolTrio',
  description: "Free 401k vs Roth IRA calculator USA 2026. Compare after-tax retirement wealth from Traditional 401k vs Roth IRA with 2026 contribution limits and tax brackets. Real examples for $50k-$150k income.",
  slug: '401k-vs-roth-ira-calculator',
  category: 'finance',

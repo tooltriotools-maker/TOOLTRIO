@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'SVG Optimizer – Reduce File Size | TOOLTRIO',
+  title: 'SVG Optimizer – Reduce File Size | ToolTrio',
   description: 'Optimize SVG files by removing unnecessary metadata, comments, and redundant attributes. Typically 40-70% size reduction. Runs entirely in your browser.',
   slug: 'svg-optimizer',
   keywords: ['svg optimizer online free','svgo browser tool','optimize svg code free','minify svg online','svg size reducer browser'],

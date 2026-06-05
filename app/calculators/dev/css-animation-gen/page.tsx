@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Animation Generator Online | TOOLTRIO',
+  title: 'CSS Animation Generator Online | ToolTrio',
   description: 'Build CSS keyframe animations visually. Configure timing functions, duration, iteration, and keyframe steps. Live preview with copy-ready CSS. Runs in your browser.',
   slug: 'css-animation-gen',
   keywords: ['css animation generator online free','css keyframe builder browser','css transition maker free','animate css tool online','css animation code generator'],

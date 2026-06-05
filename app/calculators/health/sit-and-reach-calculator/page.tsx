@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sit and Reach Calculator 2026 | TOOLTRIO',
+  title: 'Sit and Reach Calculator 2026 | ToolTrio',
   description: 'Calculate your hamstring and lower back flexibility percentile from sit-and-reach test results by age and sex. Compare against Cooper Institute norms and YMCA fitness standards with improvement targets. Free online sit and reach calculator 2026. No signup required.',
   slug: 'sit-and-reach-calculator',
   category: 'health',

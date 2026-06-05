@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Forex Profit Calculator USA 2026 | TOOLTRIO',
+ title: 'Forex Profit Calculator USA 2026 | ToolTrio',
  description: 'Free forex profit calculator USA 2026. Calculate profit or loss on currency exchange trades including pip value, position size, and leverage. Real examples for USD/EUR, USD/GBP, and major forex pairs.',
  slug: 'currency-profit-calculator',
  category: 'finance',

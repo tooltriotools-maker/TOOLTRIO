@@ -8,7 +8,7 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 
 export const metadata: Metadata = {
-  title: '30+ Free Fun Calculators 2026 | TOOLTRIO',
+  title: '30+ Free Fun Calculators 2026 | ToolTrio',
   description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, procrastination score and 22 more free fun tools. No signup, no ads, instant results.',
   keywords: [
     'fun calculators online free',

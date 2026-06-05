@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Age Calculator 2026 | TOOLTRIO',
+  title: 'Body Age Calculator 2026 | ToolTrio',
   description: 'Free Body Age Calculator 2026 — Calculate body age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'body-age-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Blue Light Exposure Calculator 2026 | TOOLTRIO',
+  title: 'Blue Light Exposure Calculator 2026 | ToolTrio',
   description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption. Get personalized recommendations for screen habits and blue light protection. Free online blue light exposure calculator 2026. No signup required.',
   slug: 'blue-light-exposure-calculator',
   category: 'health',

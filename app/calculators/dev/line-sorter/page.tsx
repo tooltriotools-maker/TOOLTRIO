@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Line Sorter Online | TOOLTRIO',
+  title: 'Line Sorter Online | ToolTrio',
   description: 'Sort lines alphabetically, numerically, by length, or reverse. Shuffle randomly. Trim whitespace and remove empty lines. Runs entirely in your browser.',
   slug: 'line-sorter',
   keywords: ['line sorter online free','sort lines alphabetically browser','sort text lines free','reverse sort lines online','line sorter no duplicates'],

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'FIRE Calculator USA 2026 | TOOLTRIO',
+ title: 'FIRE Calculator USA 2026 | ToolTrio',
  description: 'Free FIRE calculator USA 2026. Calculate your Financial Independence number, target net worth, and earliest possible retirement date using the 4% rule. Real examples for $60k–$150k income.',
  slug: 'fire-calculator',
  category: 'finance',

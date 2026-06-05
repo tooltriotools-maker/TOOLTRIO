@@ -190,8 +190,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/calculators/health`,       lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
     { url: `${BASE}/calculators/dev`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.80 },
     { url: `${BASE}/calculators/fun`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
-    { url: `${BASE}/zip`,                      lastModified: now, changeFrequency: 'weekly',  priority: 0.85 },
-    { url: `${BASE}/commodities`,              lastModified: now, changeFrequency: 'hourly',  priority: 0.97 },
+    { url: `${BASE}/zip`,                      lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
+    { url: `${BASE}/commodities`,              lastModified: now, changeFrequency: 'weekly',  priority: 0.85 },
     { url: `${BASE}/blog`,                     lastModified: now, changeFrequency: 'weekly',  priority: 0.90 },
     { url: `${BASE}/about`,                    lastModified: now, changeFrequency: 'monthly', priority: 0.70 },
     { url: `${BASE}/methodology`,              lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
@@ -202,7 +202,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Finance calculators ─────────────────────────────────────────────────
     ...financeCalcsUSA.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.88,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.90,
     })),
     ...financeCalcsIndia.map(slug => ({
       url: `${BASE}/calculators/finance/${slug}`,
@@ -220,25 +220,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Health calculators ──────────────────────────────────────────────────
     ...healthCalcs.map(slug => ({
       url: `${BASE}/calculators/health/${slug}`,
-      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.85,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.90,
     })),
 
     // ── Commodity calculators ───────────────────────────────────────────────
     ...commodityCalcs.map(slug => ({
       url: `${BASE}/commodities/${slug}`,
-      lastModified: now, changeFrequency: 'hourly' as const, priority: 0.92,
+      lastModified: now, changeFrequency: 'daily' as const, priority: 0.82,
     })),
 
     // ── Dev tools ───────────────────────────────────────────────────────────
     ...devTools.map(slug => ({
       url: `${BASE}/calculators/dev/${slug}`,
-      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.70,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65,
     })),
 
     // ── Fun tools ───────────────────────────────────────────────────────────
     ...funTools.map(slug => ({
       url: `${BASE}/calculators/fun/${slug}`,
-      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.60,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.55,
     })),
 
     // ── ZIP tools (ALL 35 — previously missing from sitemap) ────────────────
@@ -260,7 +260,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Blog categories — DYNAMIC: auto-includes every category ────────────
     ...blogCategories.map(cat => ({
       url: `${BASE}/blog/category/${cat.slug}`,
-      lastModified: now, changeFrequency: 'weekly' as const, priority: 0.70,
+      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65,
     })),
   ]
 }

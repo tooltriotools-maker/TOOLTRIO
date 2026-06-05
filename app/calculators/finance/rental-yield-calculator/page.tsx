@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Rental Yield Calculator USA & UK 2026 | TOOLTRIO',
+ title: 'Rental Yield Calculator USA & UK 2026 | ToolTrio',
  description: 'Free rental yield calculator 2026. Calculate gross yield, net yield after expenses, and cash-on-cash return for any buy-to-let or investment property. Real examples for GBP/USD 100k-600k properties.',
  slug: 'rental-yield-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ELSS vs NPS Calculator India 2026 | TOOLTRIO',
+ title: 'ELSS vs NPS Calculator India 2026 | ToolTrio',
  description: 'Free ELSS vs NPS calculator India 2026. Compare ELSS mutual fund vs NPS for Section 80C tax saving, returns, lock-in period, and retirement income. Real examples for INR 50k-2L annual investments.',
  slug: 'elss-vs-nps-calculator',
  category: 'finance',

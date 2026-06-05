@@ -19,7 +19,7 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 export const metadata: Metadata = {
   title: 'About ToolTrio | Who We Are & What We Build',
   description:
-    'ToolTrio builds free online calculators and tools for finance, health, ZIP codes and developers. Learn about our mission, values, and the 400+ free tools we offer — no signup, no ads.',
+    'ToolTrio is a free finance and health calculator website. We offer 200+ mortgage, 401k, BMI, calorie and health calculators. No signup, no ads, instant results.',
   keywords: [
     'about tooltrio','tooltrio mission','who built tooltrio','tooltrio team',
     'free calculator website','finance calculator platform','health calculator platform',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
     title: 'About ToolTrio | Who We Are & What We Build',
-    description: 'ToolTrio builds 400+ free calculators for finance, health, ZIP codes, developer tools and commodities. No ads, no signup, instant results.',
+    description: 'ToolTrio offers free finance and health calculators — mortgage, 401k, BMI, calorie, TDEE and 200+ more. No signup, no ads, instant results.',
     url: `${siteUrl}/about`,
     siteName: 'ToolTrio',
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About ToolTrio | Who We Are & What We Build',
-    description: '400+ free calculators. No ads, no signup. Finance, health, ZIP, dev tools.',
+    description: '200+ free finance and health calculators. No signup, no ads, instant results.',
     images: [`${siteUrl}/og-image.png`],
   },
   robots: { index: true, follow: true },

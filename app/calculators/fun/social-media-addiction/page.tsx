@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Social Media Addiction Score | TOOLTRIO',
+  title: 'Social Media Addiction Score | ToolTrio',
   description: 'Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back control. Free, instant.',
   slug: 'social-media-addiction',
   keywords: [

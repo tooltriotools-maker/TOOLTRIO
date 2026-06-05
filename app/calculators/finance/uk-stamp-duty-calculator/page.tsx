@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Stamp Duty Calculator 2026 | TOOLTRIO',
+ title: 'UK Stamp Duty Calculator 2026 | ToolTrio',
  description: 'Free UK stamp duty (SDLT) calculator 2026. Calculate stamp duty land tax for first-time buyers, standard purchases, and additional properties in England and Wales. Real examples for GBP 150k-1M property prices.',
  slug: 'uk-stamp-duty-calculator',
  category: 'finance',

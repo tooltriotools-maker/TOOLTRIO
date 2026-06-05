@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'VO2 Max Calculator 2026 | TOOLTRIO',
+  title: 'VO2 Max Calculator 2026 | ToolTrio',
   description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic fitness to age and sex norms from major exercise science databases. Free online vo2 max calculator 2026. No signup required.',
   slug: 'vo2-max-calculator',
   category: 'health',

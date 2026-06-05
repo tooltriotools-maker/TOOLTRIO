@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Tip Calculator USA – Bill Split & Gratuity | TOOLTRIO',
+ title: 'Tip Calculator USA – Bill Split & Gratuity | ToolTrio',
  description: 'Free tip calculator USA 2026. Calculate 15%, 18%, 20%, and custom tip amounts, split bills between any number of people. Real examples for $50–$500 restaurant bills.',
  slug: 'tip-calculator',
  category: 'finance',

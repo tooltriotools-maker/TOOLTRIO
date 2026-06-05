@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Gratitude Health Impact Calculator | TOOLTRIO',
+  title: 'Gratitude Health Impact Calculator | ToolTrio',
   description: 'Calculate the estimated health benefits of a consistent gratitude practice based on frequency, depth, and duration. Based on research showing gratitude effects on mental health, sleep quality, blood pressure, and immune function. Free online gratitude health calculator 2026. No signup required.',
   slug: 'gratitude-health-calculator',
   category: 'health',

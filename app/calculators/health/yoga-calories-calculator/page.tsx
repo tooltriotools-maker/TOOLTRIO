@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Yoga Calorie Calculator 2026 | TOOLTRIO',
+  title: 'Yoga Calorie Calculator 2026 | ToolTrio',
   description: 'Free Yoga Calories Calculator 2026. Calculate calories burned during yoga sessions by style, duration, and body weight. Includes Hatha, Vinyasa, Bikram, and restorative yoga comparisons.',
   slug: 'yoga-calories-calculator',
   category: 'health',

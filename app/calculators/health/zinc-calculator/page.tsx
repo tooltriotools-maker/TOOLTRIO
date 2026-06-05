@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Zinc Calculator 2026 | TOOLTRIO',
+  title: 'Zinc Calculator 2026 | ToolTrio',
   description: 'Free Zinc Calculator 2026 — Calculate your daily zinc needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
   slug: 'zinc-calculator',
   category: 'health',

@@ -13,7 +13,7 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 
 
 export const metadata: Metadata = {
-  title: 'Free Finance & Health Guides 2026 | TOOLTRIO',
+  title: 'Free Finance & Health Guides 2026 | ToolTrio',
   description: '157 in-depth guides on SIP investing, 401k vs Roth IRA, UK income tax, ISA, compound interest, FIRE, retirement planning, BMI, TDEE and more. USA, UK, India & Europe. Free, no signup.',
   keywords: [
     'finance guides 2026', 'investment guides india usa uk', 'SIP investing guide', '401k vs Roth IRA guide',

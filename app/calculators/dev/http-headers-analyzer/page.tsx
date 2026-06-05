@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTTP Headers Analyzer Online | TOOLTRIO',
+  title: 'HTTP Headers Analyzer Online | ToolTrio',
   description: 'Paste HTTP response headers to decode security headers, caching directives, CORS settings, and cookies. Runs in your browser.',
   slug: 'http-headers-analyzer',
   keywords: ['http headers analyzer online free','response headers checker browser','http header viewer free','analyze http response headers','cors headers checker online'],

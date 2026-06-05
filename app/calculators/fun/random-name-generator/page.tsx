@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Random Name Generator | TOOLTRIO',
+  title: 'Random Name Generator | ToolTrio',
   description: 'Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator online.',
   slug: 'random-name-generator',
   keywords: [

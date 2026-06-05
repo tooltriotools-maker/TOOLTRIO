@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Euro Bonds vs ETF Calculator 2026 | TOOLTRIO',
+ title: 'Euro Bonds vs ETF Calculator 2026 | ToolTrio',
  description: 'Free Euro bonds vs ETF calculator 2026. Compare German Bunds and European government bonds vs MSCI Europe ETF returns for EU investors. Real examples for EUR 10k-200k portfolios over 10-30 year horizons.',
  slug: 'euro-bonds-vs-etf-calculator',
  category: 'finance',

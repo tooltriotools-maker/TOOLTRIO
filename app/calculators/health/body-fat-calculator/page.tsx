@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Fat Calculator 2026 | TOOLTRIO',
+  title: 'Body Fat Calculator 2026 | ToolTrio',
   description: 'Free Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More accurate than BMI alone. Instant results.',
   slug: 'body-fat-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Running Pace Calculator 2026 | TOOLTRIO',
+  title: 'Running Pace Calculator 2026 | ToolTrio',
   description: 'Free Running Pace Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon distances. Instant results for all fitness levels.',
   slug: 'running-pace-calculator',
   category: 'health',

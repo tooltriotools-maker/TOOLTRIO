@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SWP Calculator India 2026 | TOOLTRIO',
+ title: 'SWP Calculator India 2026 | ToolTrio',
  description: 'Free SWP calculator India 2026. Calculate monthly income from mutual fund corpus using Systematic Withdrawal Plan, corpus depletion date, and sustainable withdrawal rate. Real examples for INR 50 lakh-5 crore retirement corpus.',
  slug: 'swp-calculator',
  category: 'finance',

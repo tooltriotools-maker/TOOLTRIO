@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Screen Time Calculator | TOOLTRIO',
+  title: 'Screen Time Calculator | ToolTrio',
   description: 'Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free, instant, no login.',
   slug: 'screen-time-calculator',
   keywords: [

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Roth IRA vs HSA Calculator USA 2026 | TOOLTRIO',
+ title: 'Roth IRA vs HSA Calculator USA 2026 | ToolTrio',
  description: 'Free Roth IRA vs HSA calculator USA 2026. Compare Roth IRA vs Health Savings Account as retirement vehicles on tax advantages, contribution limits, and withdrawal flexibility. Real examples for $50k-$120k income.',
  slug: 'roth-ira-vs-hsa-calculator',
  category: 'finance',

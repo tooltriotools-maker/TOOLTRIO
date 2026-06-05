@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Birthday Countdown Calculator | TOOLTRIO',
+  title: 'Birthday Countdown Calculator | ToolTrio',
   description: 'See exactly how many days, hours, minutes, and seconds until your next birthday. Live real-time countdown. Free, no login, works on any device.',
   slug: 'birthday-countdown',
   keywords: [

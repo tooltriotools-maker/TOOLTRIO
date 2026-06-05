@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'DCA vs Lump Sum Calculator USA 2026 | TOOLTRIO',
+ title: 'DCA vs Lump Sum Calculator USA 2026 | ToolTrio',
  description: "Free DCA vs lump sum calculator USA 2026. Compare monthly dollar-cost averaging vs investing all at once in the S&P 500. Based on Vanguard research and historical data. Real examples for $10k-$100k investments.",
  slug: 'dollar-cost-averaging-vs-lumpsum-usa-calculator',
  category: 'finance',

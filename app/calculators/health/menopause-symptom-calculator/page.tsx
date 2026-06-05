@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Menopause Symptom Calculator 2026 | TOOLTRIO',
+  title: 'Menopause Symptom Calculator 2026 | ToolTrio',
   description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized symptom burden score and explore management options. Free online menopause symptom calculator 2026. No signup required.',
   slug: 'menopause-symptom-calculator',
   category: 'health',

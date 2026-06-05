@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Procrastination Score Calculator | TOOLTRIO',
+  title: 'Procrastination Score Calculator | ToolTrio',
   description: 'Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free, instant, no signup.',
   slug: 'procrastination-score',
   keywords: [

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cold Shower Benefits Calculator 2026 | TOOLTRIO',
+  title: 'Cold Shower Benefits Calculator 2026 | ToolTrio',
   description: 'Calculate your cold shower benefit score based on temperature, duration, consistency, and adaptation level. See how cold showers affect energy, mood, immunity, recovery, and metabolism with evidence-based impact estimates. Free online cold shower benefits calculator 2026. No signup required.',
   slug: 'cold-shower-benefits-calculator',
   category: 'health',

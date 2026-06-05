@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'TOOLTRIO | Free USA ZIP Code Tools 2026 — 35+ Utilities',
+  title: 'ToolTrio | Free USA ZIP Code Tools 2026 — 35+ Utilities',
   description: 'Complete suite of free USA ZIP code tools. Lookup ZIP codes, find cities, calculate distances, check timezones, area codes and more. 35+ free ZIP code utilities. Free on TOOLTRIO — no signup needed.',
   keywords: ['zip code lookup','zip code tools','usa zip code','zip to city','city to zip','zip code distance','zip code map',
     'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'

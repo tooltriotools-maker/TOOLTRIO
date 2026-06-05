@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Grid Generator Online | TOOLTRIO',
+  title: 'CSS Grid Generator Online | ToolTrio',
   description: 'Build CSS Grid layouts visually. Configure columns, rows, gaps, and areas. Live preview with copy-ready CSS. Runs entirely in your browser.',
   slug: 'grid-generator',
   keywords: ['css grid generator online free','grid layout builder browser','css grid template generator','visual grid tool free','grid-template-columns generator'],

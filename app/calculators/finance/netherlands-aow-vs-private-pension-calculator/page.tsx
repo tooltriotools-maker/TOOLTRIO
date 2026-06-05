@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Netherlands AOW vs Pension 2026 | TOOLTRIO',
+ title: 'Netherlands AOW vs Pension 2026 | ToolTrio',
  description: 'Free Netherlands AOW vs private pension calculator 2026. Compare Dutch state AOW pension vs private pension (lijfrente) for retirement income planning. Real examples for EUR 40k-120k Dutch income levels.',
  slug: 'netherlands-aow-vs-private-pension-calculator',
  category: 'finance',

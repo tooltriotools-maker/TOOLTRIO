@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Sprint Calculator 2026 | TOOLTRIO',
+  title: 'Sprint Calculator 2026 | ToolTrio',
   description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether sprint training or power development is the priority. Free online sprint calculator 2026. No signup required.',
   slug: 'sprint-calculator',
   category: 'health',

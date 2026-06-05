@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'TOML Formatter & Validator Online | TOOLTRIO',
+  title: 'TOML Formatter & Validator Online | ToolTrio',
   description: 'Format and validate TOML configuration files. Convert between TOML and JSON. Used for Rust Cargo.toml, Python pyproject.toml, and Hugo. Runs in your browser.',
   slug: 'toml-formatter',
   keywords: ['toml formatter online free','toml validator browser','toml lint checker online','toml beautifier free','toml to json converter browser','validate toml syntax online'],

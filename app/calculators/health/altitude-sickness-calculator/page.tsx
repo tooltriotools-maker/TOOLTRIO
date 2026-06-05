@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Altitude Sickness Calculator 2026 | TOOLTRIO',
+  title: 'Altitude Sickness Calculator 2026 | ToolTrio',
   description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination elevation, ascent rate, and medical history. Free online altitude sickness calculator 2026. No signup required.',
   slug: 'altitude-sickness-calculator',
   category: 'health',

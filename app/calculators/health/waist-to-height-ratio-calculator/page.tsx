@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Waist-to-Height Ratio Calculator | TOOLTRIO',
+  title: 'Waist-to-Height Ratio Calculator | ToolTrio',
   description: 'Free Waist-to-Height Ratio Calculator 2026. Calculate your WHtR — one of the strongest predictors of cardiometabolic risk. Includes the \'keep waist under half your height\' evidence-based guide.',
   slug: 'waist-to-height-ratio-calculator',
   category: 'health',

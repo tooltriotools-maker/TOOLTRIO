@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Z-Index Manager Online | TOOLTRIO',
+  title: 'Z-Index Manager Online | ToolTrio',
   description: 'Understand and debug CSS z-index issues. Visualize stacking contexts, explain why z-index is not working, and build a z-index scale. Runs in your browser.',
   slug: 'z-index-manager',
   keywords: ['z-index manager online free','css z-index stacking tool','manage z-index layers browser','css stacking context visualizer','z-index calculator free'],

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Aspect Ratio Calculator Online | TOOLTRIO',
+  title: 'Aspect Ratio Calculator Online | ToolTrio',
   description: 'Calculate aspect ratios, resize dimensions while maintaining ratio, and convert between common ratios. Runs in your browser.',
   slug: 'aspect-ratio-calculator',
   keywords: ['aspect ratio calculator online free','image aspect ratio checker browser','16 9 4 3 ratio converter','video aspect ratio calculator','responsive image ratio tool free'],

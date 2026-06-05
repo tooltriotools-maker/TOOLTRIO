@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Sales Tax & GST Calculator USA 2026 | TOOLTRIO',
+ title: 'Sales Tax & GST Calculator USA 2026 | ToolTrio',
  description: 'Free sales tax and GST calculator USA 2026. Calculate tax-inclusive and tax-exclusive amounts, reverse-calculate pre-tax price, and compare rates across all US states. Real examples for $10-$10,000 purchases.',
  slug: 'gst-calculator',
  category: 'finance',

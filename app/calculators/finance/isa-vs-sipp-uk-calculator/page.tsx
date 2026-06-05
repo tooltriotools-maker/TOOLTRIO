@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'ISA vs SIPP Calculator UK 2026 | TOOLTRIO',
+ title: 'ISA vs SIPP Calculator UK 2026 | ToolTrio',
  description: "Free ISA vs SIPP UK calculator 2026. Compare Stocks and Shares ISA vs Self-Invested Personal Pension on after-tax wealth, flexibility, and retirement income. Real examples for GBP 20k-100k annual contributions.",
  slug: 'isa-vs-sipp-uk-calculator',
  category: 'finance',

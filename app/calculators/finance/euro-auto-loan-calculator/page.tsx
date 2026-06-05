@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Euro Auto Loan Calculator 2026 | TOOLTRIO',
+ title: 'Euro Auto Loan Calculator 2026 | ToolTrio',
  description: 'Free Euro auto loan calculator 2026. Calculate monthly payments for PCP, HP, and personal loan car finance across Europe. Real examples for EUR 15k–80k vehicles across UK, Germany, France, and Spain.',
  slug: 'euro-auto-loan-calculator',
  category: 'finance',

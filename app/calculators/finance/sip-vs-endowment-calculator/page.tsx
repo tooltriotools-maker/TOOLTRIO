@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Endowment Calculator India 2026 | TOOLTRIO',
+ title: 'SIP vs Endowment Calculator India 2026 | ToolTrio',
  description: 'Free SIP vs endowment calculator India 2026. Compare term insurance plus SIP strategy vs endowment insurance savings plan on returns, flexibility, and coverage. Real examples for INR 20k-100k annual premiums.',
  slug: 'sip-vs-endowment-calculator',
  category: 'finance',

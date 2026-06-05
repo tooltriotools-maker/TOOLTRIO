@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Entity Reference Online | TOOLTRIO',
+  title: 'HTML Entity Reference Online | ToolTrio',
   description: 'Complete reference of HTML character entities — named, numeric decimal, and hex. Search by character or entity name. Runs in your browser.',
   slug: 'html-entity-ref',
   keywords: ['html entity reference guide online','html special characters list','html entities cheat sheet free','html named entities browser','html character codes reference','&nbsp; &copy; entity lookup free'],

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Life Expectancy Calculator – Fun | TOOLTRIO',
+  title: 'Life Expectancy Calculator – Fun | ToolTrio',
   description: 'Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for entertainment. Free, no login.',
   slug: 'life-expectancy-fun',
   keywords: [

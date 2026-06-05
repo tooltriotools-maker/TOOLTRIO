@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Air Quality Health Calculator 2026 | TOOLTRIO',
+  title: 'Air Quality Health Calculator 2026 | ToolTrio',
   description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at current AQI levels for exercise and daily activity. Free online air quality health calculator 2026. No signup required.',
   slug: 'air-quality-health-calculator',
   category: 'health',

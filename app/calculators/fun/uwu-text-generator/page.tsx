@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'UWU Text Generator Online | TOOLTRIO',
+  title: 'UWU Text Generator Online | ToolTrio',
   description: 'Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, instant results, no login.',
   slug: 'uwu-text-generator',
   keywords: [

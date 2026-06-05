@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Trivia Quiz – Random Questions | TOOLTRIO',
+  title: 'Trivia Quiz – Random Questions | ToolTrio',
   description: 'Test your knowledge with 10 random trivia questions spanning science, history, pop culture, sports, geography, and more. Free trivia quiz online, instant scoring, no signup.',
   slug: 'trivia-quiz',
   keywords: [

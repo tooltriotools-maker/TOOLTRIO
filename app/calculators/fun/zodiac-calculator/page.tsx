@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Zodiac Sign Calculator | TOOLTRIO',
+  title: 'Zodiac Sign Calculator | ToolTrio',
   description: 'Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac calculator, no signup.',
   slug: 'zodiac-calculator',
   keywords: [

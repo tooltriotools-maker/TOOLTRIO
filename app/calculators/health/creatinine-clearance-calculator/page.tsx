@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Creatinine Clearance Calculator 2026 | TOOLTRIO',
+  title: 'Creatinine Clearance Calculator 2026 | ToolTrio',
   description: 'Calculate estimated kidney function using Creatinine Clearance (Cockcroft-Gault formula) and eGFR (CKD-EPI equation). Interpret results against CKD staging criteria and understand implications for drug dosing. Free online creatinine clearance calculator 2026. No signup required.',
   slug: 'creatinine-clearance-calculator',
   category: 'health',

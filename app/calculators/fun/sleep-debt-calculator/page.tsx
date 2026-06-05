@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Sleep Debt Calculator | TOOLTRIO',
+  title: 'Sleep Debt Calculator | ToolTrio',
   description: 'Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend sleep-ins are actually helping.',
   slug: 'sleep-debt-calculator',
   keywords: [

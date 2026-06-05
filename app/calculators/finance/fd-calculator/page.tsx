@@ -9,7 +9,7 @@ const FDCalculatorClient = dynamic(() => import('./FDCalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CD / Fixed Deposit Calculator USA 2026 | TOOLTRIO',
+ title: 'CD / Fixed Deposit Calculator USA 2026 | ToolTrio',
  description: 'Free CD and fixed deposit calculator USA 2026. Calculate interest earned, maturity value, and effective annual yield for any certificate of deposit. Real examples for $5k-$100k deposits at 4-6% rates.',
  slug: 'fd-calculator',
  category: 'finance',

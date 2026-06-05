@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Longevity Calculator 2026 | TOOLTRIO',
+  title: 'Longevity Calculator 2026 | ToolTrio',
   description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporating exercise, diet, sleep, social connection, smoking, BMI, and medical history. Free online longevity calculator 2026. No signup required.',
   slug: 'longevity-calculator',
   category: 'health',

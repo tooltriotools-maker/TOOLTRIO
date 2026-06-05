@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Income Tax Calculator USA 2026 | TOOLTRIO',
+ title: 'Income Tax Calculator USA 2026 | ToolTrio',
  description: 'Free income tax calculator USA 2026. Calculate your federal income tax, effective tax rate, and marginal bracket. Includes standard deductions and 2026 IRS tax brackets. Real examples for $40k–$200k income.',
  slug: 'income-tax-calculator',
  category: 'finance',

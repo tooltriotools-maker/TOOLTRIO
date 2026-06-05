@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Robots.txt Generator Online | TOOLTRIO',
+  title: 'Robots.txt Generator Online | ToolTrio',
   description: 'Generate robots.txt files with allow/disallow rules, crawl-delay, and sitemap declarations. Validates syntax. Runs entirely in your browser.',
   slug: 'robots-txt-generator',
   keywords: ['robots txt generator online free','robots.txt builder browser','create robots txt file free','disallow sitemap robots generator','robots txt syntax checker'],

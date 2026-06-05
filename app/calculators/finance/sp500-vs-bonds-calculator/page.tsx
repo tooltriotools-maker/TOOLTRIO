@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'S&P 500 vs Bonds Calculator USA 2026 | TOOLTRIO',
+ title: 'S&P 500 vs Bonds Calculator USA 2026 | ToolTrio',
  description: "Free S&P 500 vs bonds calculator USA 2026. Compare S&P 500 equity returns vs US bond returns over 10, 20, and 30 years at different allocations. Real examples for $50k-$500k investment portfolios.",
  slug: 'sp500-vs-bonds-calculator',
  category: 'finance',

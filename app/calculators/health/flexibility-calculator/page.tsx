@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Flexibility Calculator 2026 | TOOLTRIO',
+  title: 'Flexibility Calculator 2026 | ToolTrio',
   description: 'Assess your flexibility level based on sit-and-reach, shoulder mobility, hip flexor length, and hamstring flexibility tests. Get a personalized stretching plan with specific flexibility targets for your age and activity level. Free online flexibility calculator 2026. No signup required.',
   slug: 'flexibility-calculator',
   category: 'health',

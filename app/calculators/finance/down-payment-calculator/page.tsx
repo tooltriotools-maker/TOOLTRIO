@@ -9,7 +9,7 @@ const DownPaymentCalculatorClient = dynamic(() => import('./DownPaymentCalculato
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Down Payment Calculator USA 2026 | TOOLTRIO',
+ title: 'Down Payment Calculator USA 2026 | ToolTrio',
  description: 'Free down payment calculator USA 2026. Compare 3%, 5%, 10%, and 20% down payments side by side with PMI, monthly payment, and total cost. Real examples for $250k-$600k home prices.',
  slug: 'down-payment-calculator',
  category: 'finance',

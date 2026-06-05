@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Pay Off Mortgage vs Invest Calculator | TOOLTRIO',
+ title: 'Pay Off Mortgage vs Invest Calculator | ToolTrio',
  description: "Free pay off mortgage vs invest calculator USA 2026. Compare making extra mortgage payments vs investing in the stock market. Break-even return rate analysis included. Real examples for $200k-$500k mortgages.",
  slug: 'pay-off-mortgage-vs-invest-calculator',
  category: 'finance',

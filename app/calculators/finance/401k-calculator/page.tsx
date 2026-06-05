@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '401k Calculator USA 2026 | TOOLTRIO',
+ title: '401k Calculator USA 2026 | ToolTrio',
  description: 'Free 401k calculator USA 2026. Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest. Includes real examples for $50k–$100k salary.',
  slug: '401k-calculator',
  category: 'finance',

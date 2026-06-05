@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Annuity vs Lump Sum Calculator USA | TOOLTRIO',
+ title: 'Annuity vs Lump Sum Calculator USA | ToolTrio',
  description: "Free annuity vs lump sum calculator USA 2026. Compare guaranteed annuity income vs investing a lump sum payout. Break-even age analysis included. Real examples for $200k-$1M pension values.",
  slug: 'annuity-vs-lumpsum-calculator',
  category: 'finance',

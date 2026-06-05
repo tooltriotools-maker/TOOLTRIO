@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Timezone Converter Online | TOOLTRIO',
+  title: 'Timezone Converter Online | ToolTrio',
   description: 'Convert times between any two time zones. Shows UTC offset, DST status, and overlapping business hours. Runs entirely in your browser.',
   slug: 'timezone-converter',
   keywords: ['timezone converter online free','world time zone converter browser','convert between timezones','dst timezone calculator free','international time converter'],

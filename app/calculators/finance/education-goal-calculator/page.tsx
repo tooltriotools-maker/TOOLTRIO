@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Education Goal Savings Calculator USA | TOOLTRIO',
+ title: 'Education Goal Savings Calculator USA | ToolTrio',
  description: 'Free education goal calculator USA 2026. Calculate monthly savings needed to reach any college fund target with tuition inflation and 529 investment returns. Real examples for $50k-$300k education goals.',
  slug: 'education-goal-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Resting Metabolic Rate Calculator | TOOLTRIO',
+  title: 'Resting Metabolic Rate Calculator | ToolTrio',
   description: 'Calculate Resting Metabolic Rate (RMR) using Mifflin-St Jeor and Harris-Benedict equations. Understand the difference between measured RMR and calculated BMR, and what low or high RMR means for weight management. Free online resting metabolic rate calculator 2026. No signup required.',
   slug: 'resting-metabolic-rate-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cortisol & Stress Calculator 2026 | TOOLTRIO',
+  title: 'Cortisol & Stress Calculator 2026 | ToolTrio',
   description: 'Free Cortisol Stress Calculator 2026 — Assess and track your cortisol stress with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'cortisol-stress-calculator',
   category: 'health',

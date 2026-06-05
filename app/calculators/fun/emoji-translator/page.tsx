@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Emoji Translator – Text to Emoji | TOOLTRIO',
+  title: 'Emoji Translator – Text to Emoji | ToolTrio',
   description: 'Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social media. No signup.',
   slug: 'emoji-translator',
   keywords: [

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Dividend Calculator USA 2026 | TOOLTRIO',
+ title: 'Dividend Calculator USA 2026 | ToolTrio',
  description: 'Free dividend income calculator USA 2026. Calculate annual dividend income, yield on cost, dividend growth projections, and DRIP compounding. Real examples for $10k-$500k dividend portfolios.',
  slug: 'dividend-calculator',
  category: 'finance',

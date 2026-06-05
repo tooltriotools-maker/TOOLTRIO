@@ -9,7 +9,7 @@ const InterestRateCalculatorClient = dynamic(() => import('./InterestRateCalcula
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Interest Rate Calculator USA 2026 | TOOLTRIO',
+ title: 'Interest Rate Calculator USA 2026 | ToolTrio',
  description: 'Free interest rate calculator USA 2026. Calculate APR, effective annual rate, and monthly rate from any loan payment or investment return. Works for mortgages, car loans, credit cards, and savings. Real examples for common loan scenarios.',
  slug: 'interest-rate-calculator',
  category: 'finance',

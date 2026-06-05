@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Bitwise Calculator – AND, OR, XOR | TOOLTRIO',
+  title: 'Bitwise Calculator – AND, OR, XOR | ToolTrio',
   description: 'Perform AND, OR, XOR, NOT, and shift operations on binary values. Shows binary, decimal, and hex output. Runs in your browser.',
   slug: 'bitwise-calculator',
   keywords: ['bitwise calculator online free','and or xor not bit operations','bitwise operator calculator browser','binary bitwise operations free','bit manipulation tool online'],

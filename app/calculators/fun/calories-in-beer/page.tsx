@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Calories in Beer Calculator | TOOLTRIO',
+  title: 'Calories in Beer Calculator | ToolTrio',
   description: 'Calculate calories in any beer by type, ABV, and serving size. Find out how long it takes to burn off those pints. Free, instant, no login needed.',
   slug: 'calories-in-beer',
   keywords: [

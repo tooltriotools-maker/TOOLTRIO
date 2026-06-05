@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'College Cost Calculator USA 2026 | TOOLTRIO',
+ title: 'College Cost Calculator USA 2026 | ToolTrio',
  description: 'Free college cost calculator USA 2026. Calculate future tuition costs with inflation, 529 plan growth, and monthly savings needed. Real examples for in-state, out-of-state, and private universities.',
  slug: 'college-cost-calculator',
  category: 'finance',

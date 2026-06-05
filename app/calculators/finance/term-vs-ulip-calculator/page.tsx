@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Term vs ULIP Calculator India 2026 | TOOLTRIO',
+ title: 'Term vs ULIP Calculator India 2026 | ToolTrio',
  description: "Free term vs ULIP calculator India 2026. Compare Term Insurance plus SIP vs ULIP insurance-cum-investment plans on returns, costs, and flexibility. Real examples for INR 20k-100k annual premium scenarios.",
  slug: 'term-vs-ulip-calculator',
  category: 'finance',

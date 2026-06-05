@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: '.htaccess Generator Online | TOOLTRIO',
+  title: '.htaccess Generator Online | ToolTrio',
   description: 'Generate .htaccess rules for redirects, URL rewriting, HTTPS enforcement, caching headers, and CORS. Runs entirely in your browser.',
   slug: 'htaccess-generator',
   keywords: ['htaccess generator online free','apache htaccess builder browser','mod_rewrite generator free','301 redirect htaccess generator','apache config generator tool'],

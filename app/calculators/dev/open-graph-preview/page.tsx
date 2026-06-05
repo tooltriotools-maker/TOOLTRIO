@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Open Graph Preview Tool Online | TOOLTRIO',
+  title: 'Open Graph Preview Tool Online | ToolTrio',
   description: 'Preview how your Open Graph tags appear as link cards on Facebook, LinkedIn, Twitter, Slack, and Discord. Validate og:image dimensions. Runs in your browser.',
   slug: 'open-graph-preview',
   keywords: ['open graph preview tool online free','og tags preview browser','facebook link preview checker','og image preview tool','social share preview online'],

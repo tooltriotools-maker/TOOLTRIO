@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JWT Decoder & Inspector Online | TOOLTRIO',
+  title: 'JWT Decoder & Inspector Online | ToolTrio',
   description: 'Decode JWT tokens and inspect header, payload, and claims. Shows expiration, issued-at, and algorithm. Runs 100% in your browser — your token never leaves your device.',
   slug: 'jwt-decoder',
   keywords: ['jwt decoder online free','decode jwt token browser','json web token decoder','jwt payload viewer free','jwt claims parser online','verify jwt structure browser','jwt expiry checker free','decode jwt without server'],

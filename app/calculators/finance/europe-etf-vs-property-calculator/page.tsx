@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Europe ETF vs Property Calculator 2026 | TOOLTRIO',
+ title: 'Europe ETF vs Property Calculator 2026 | ToolTrio',
  description: 'Free Europe ETF vs property calculator 2026. Compare European index fund ETF returns vs real estate investment across UK, Germany, France, and Spain. Real examples for EUR 50k-500k investment amounts.',
  slug: 'europe-etf-vs-property-calculator',
  category: 'finance',

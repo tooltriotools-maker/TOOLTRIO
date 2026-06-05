@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'PPF vs FD Calculator India 2026 | TOOLTRIO',
+ title: 'PPF vs FD Calculator India 2026 | ToolTrio',
  description: 'Free PPF vs FD calculator India 2026. Compare PPF tax-free returns at 7.1% vs Fixed Deposit post-tax returns at your income tax slab. Real examples for INR 50k-1.5L annual investments across tax brackets.',
  slug: 'ppf-vs-fd-calculator',
  category: 'finance',

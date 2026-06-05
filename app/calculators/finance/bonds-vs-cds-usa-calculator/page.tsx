@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Bonds vs CDs Calculator USA 2026 | TOOLTRIO',
+ title: 'Bonds vs CDs Calculator USA 2026 | ToolTrio',
  description: "Free bonds vs CDs calculator USA 2026. Compare US Treasury bonds vs bank CDs on after-tax yield, state tax exemptions, liquidity, and FDIC protection. Real examples for $10k-$100k investments.",
  slug: 'bonds-vs-cds-usa-calculator',
  category: 'finance',

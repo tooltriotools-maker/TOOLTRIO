@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Break-Even Calculator USA 2026 | TOOLTRIO',
+ title: 'Break-Even Calculator USA 2026 | ToolTrio',
  description: 'Free break-even calculator USA 2026. Calculate your break-even point in units and revenue, contribution margin, and profit at any sales volume. Real examples for small businesses, startups, and products.',
  slug: 'break-even-calculator',
  category: 'finance',

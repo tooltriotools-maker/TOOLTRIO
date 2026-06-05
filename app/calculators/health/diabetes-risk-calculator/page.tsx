@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Diabetes Risk Calculator 2026 | TOOLTRIO',
+  title: 'Diabetes Risk Calculator 2026 | ToolTrio',
   description: 'Free Diabetes Risk Calculator 2026 — Assess your risk and calculate key health metrics using validated medical formulas. Based on CDC and ADA guidelines. No personal data stored. Instant results.',
   slug: 'diabetes-risk-calculator',
   category: 'health',

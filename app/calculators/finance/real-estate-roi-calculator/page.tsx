@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Real Estate ROI Calculator USA 2026 | TOOLTRIO',
+ title: 'Real Estate ROI Calculator USA 2026 | ToolTrio',
  description: 'Free real estate ROI calculator USA 2026. Calculate cap rate, cash-on-cash return, net operating income, and total ROI for any rental property. Real examples for $150k-$800k investment properties.',
  slug: 'real-estate-roi-calculator',
  category: 'finance',

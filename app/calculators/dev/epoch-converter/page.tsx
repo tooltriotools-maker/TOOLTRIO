@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Epoch / Unix Timestamp Converter | TOOLTRIO',
+  title: 'Epoch / Unix Timestamp Converter | ToolTrio',
   description: 'Convert Unix epoch timestamps with millisecond precision. Shows UTC, local time, and ISO 8601 simultaneously. Ideal for JavaScript debugging. Runs in your browser.',
   slug: 'epoch-converter',
   keywords: ['epoch converter online free','unix epoch to date browser','millisecond timestamp converter','epoch time calculator free','date to timestamp online'],

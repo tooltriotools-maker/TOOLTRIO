@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Roth IRA Calculator USA 2026 | TOOLTRIO',
+ title: 'Roth IRA Calculator USA 2026 | ToolTrio',
  description: 'Free Roth IRA calculator USA 2026. See how much your Roth IRA will be worth at retirement with tax-free compound growth and 2026 contribution limits. Real examples for $50k–$150k income.',
  slug: 'roth-ira-calculator',
  category: 'finance',

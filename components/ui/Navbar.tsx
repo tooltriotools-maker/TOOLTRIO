@@ -165,7 +165,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0 group">
             <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto",filter:"brightness(0) invert(1)"}} />
-            <span className="font-black text-xl tracking-tight text-white hidden sm:block">TOOLTRIO</span>
+            <span className="font-black text-xl tracking-tight text-white hidden sm:block">ToolTrio</span>
           </Link>
 
           {/* Search Bar - Desktop */}

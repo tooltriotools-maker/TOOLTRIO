@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'String Inspector Online | TOOLTRIO',
+  title: 'String Inspector Online | ToolTrio',
   description: 'Inspect strings character by character. Shows Unicode code points, UTF-8 byte sequences, ASCII codes, and string statistics. Runs in your browser.',
   slug: 'string-inspector',
   keywords: ['string inspector online free','string analyzer browser','string length byte count tool','unicode code points viewer','string character details free'],

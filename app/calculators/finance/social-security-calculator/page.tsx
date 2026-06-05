@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Social Security Calculator USA 2026 | TOOLTRIO',
+ title: 'Social Security Calculator USA 2026 | ToolTrio',
  description: 'Free Social Security calculator USA 2026. Estimate your monthly Social Security benefit based on earnings history, claiming age (62–70), and break-even analysis. Real examples for $50k–$100k earners.',
  slug: 'social-security-calculator',
  category: 'finance',

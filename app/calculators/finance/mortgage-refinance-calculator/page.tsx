@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mortgage Refinance Calculator USA 2026 | TOOLTRIO',
+ title: 'Mortgage Refinance Calculator USA 2026 | ToolTrio',
  description: 'Free mortgage refinance calculator USA 2026. Calculate monthly savings, break-even month, and total interest saved from refinancing. Real examples for $200k-$500k mortgages refinancing at 2026 rates.',
  slug: 'mortgage-refinance-calculator',
  category: 'finance',

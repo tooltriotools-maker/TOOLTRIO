@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Pig Latin Translator Online | TOOLTRIO',
+  title: 'Pig Latin Translator Online | ToolTrio',
   description: 'Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login required.',
   slug: 'pig-latin-converter',
   keywords: [

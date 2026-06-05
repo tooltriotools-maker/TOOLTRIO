@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Savings Account Calculator India | TOOLTRIO',
+ title: 'SIP vs Savings Account Calculator India | ToolTrio',
  description: 'Free SIP vs savings account calculator India 2026. See the opportunity cost of keeping money in a savings account vs investing in SIP mutual funds. Real examples for INR 50k-10 lakh savings balances.',
  slug: 'sip-vs-savings-account-calculator',
  category: 'finance',

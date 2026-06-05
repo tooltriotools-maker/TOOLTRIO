@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs PPF Calculator India 2026 | TOOLTRIO',
+ title: 'SIP vs PPF Calculator India 2026 | ToolTrio',
  description: "Free SIP vs PPF calculator India 2026. Compare SIP equity mutual fund returns vs PPF guaranteed 7.1% tax-free returns. Real examples for INR 5k-12,500/month (up to PPF annual limit) investments.",
  slug: 'sip-vs-ppf-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'String Hash Calculator Online | TOOLTRIO',
+  title: 'String Hash Calculator Online | ToolTrio',
   description: 'Calculate MD5, SHA-1, SHA-256, SHA-512, and other hashes from text input. Compare strings using hash equality. Runs entirely in your browser.',
   slug: 'string-hash-calc',
   keywords: ['string hash calculator online free','md5 hash string browser','sha256 of string free','compute hash value online','hash function calculator','string to md5 sha1 sha256 free'],

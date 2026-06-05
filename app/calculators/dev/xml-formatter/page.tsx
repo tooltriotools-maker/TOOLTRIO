@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'XML Formatter & Validator Online | TOOLTRIO',
+  title: 'XML Formatter & Validator Online | ToolTrio',
   description: 'Format and validate XML with syntax highlighting. Catches malformed tags, unmatched brackets, and encoding issues. Runs entirely in your browser.',
   slug: 'xml-formatter',
   keywords: ['xml formatter online free','xml beautifier browser','xml to json converter free','xml lint validator online','xml pretty print browser','xml syntax checker online','xml prettify no install'],

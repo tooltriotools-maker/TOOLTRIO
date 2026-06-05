@@ -84,7 +84,7 @@ export function DevToolLayout({
             className="calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            {icon} {title} <span className={accent}>| TOOLTRIO</span>
+            {icon} {title}
           </h1>
           {description && (
             <p className="text-gray-500 text-sm md:text-base max-w-xl leading-relaxed">{description}</p>

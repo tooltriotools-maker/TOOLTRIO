@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Meta Tag Generator – SEO & OG Tags | TOOLTRIO',
+  title: 'Meta Tag Generator – SEO & OG Tags | ToolTrio',
   description: 'Generate complete HTML meta tags for SEO, Open Graph (Facebook/LinkedIn), and Twitter Card previews. Copy-ready output. Runs in your browser.',
   slug: 'meta-tag-generator',
   keywords: ['meta tag generator online free','seo meta description generator','open graph meta tags builder','html head meta tags tool','twitter card generator browser'],

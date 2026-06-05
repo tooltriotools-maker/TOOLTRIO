@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'HSA vs FSA Calculator USA 2026 | TOOLTRIO',
+ title: 'HSA vs FSA Calculator USA 2026 | ToolTrio',
  description: "Free HSA vs FSA calculator USA 2026. Compare Health Savings Account vs Flexible Spending Account tax savings, limits, and rollover rules. Real examples for $50k–$120k income levels.",
  slug: 'hsa-vs-fsa-calculator',
  category: 'finance',

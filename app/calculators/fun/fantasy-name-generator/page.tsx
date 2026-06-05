@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Fantasy Name Generator | TOOLTRIO',
+  title: 'Fantasy Name Generator | ToolTrio',
   description: 'Generate unique fantasy names for elves, dwarves, wizards, dragons, orcs, and more. Perfect for D&D, RPGs, novels, and gaming characters. Free, instant, no login.',
   slug: 'fantasy-name-generator',
   keywords: [

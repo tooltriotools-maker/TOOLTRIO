@@ -9,7 +9,7 @@ function parseMarkdown(md: string): string {
   return md
     .replace(/^### (.*$)/gim,'<h3 class="text-lg font-bold mt-4 mb-2">$1</h3>')
     .replace(/^## (.*$)/gim,'<h2 class="text-xl font-bold mt-5 mb-2">$1</h2>')
-    .replace(/^# (.*$)/gim,'<h1 class="text-3xl font-black mt-6 mb-3">$1 <span className="text-green-600">| TOOLTRIO</span></h1>')
+    .replace(/^# (.*$)/gim,'<h1 class="text-3xl font-black mt-6 mb-3">$1 <span className="text-green-600">| ToolTrio</span></h1>')
     .replace(/\*\*\*(.*?)\*\*\*/g,'<strong><em>$1</em></strong>')
     .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
     .replace(/\*(.*?)\*/g,'<em>$1</em>')

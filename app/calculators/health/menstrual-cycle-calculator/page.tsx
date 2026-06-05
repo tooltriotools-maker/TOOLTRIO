@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Menstrual Cycle Calculator 2026 | TOOLTRIO',
+  title: 'Menstrual Cycle Calculator 2026 | ToolTrio',
   description: 'Free Menstrual Cycle Calculator 2026 — Accurate menstrual cycle based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'menstrual-cycle-calculator',
   category: 'health',

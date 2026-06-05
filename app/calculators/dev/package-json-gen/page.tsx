@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Package.json Generator Online | TOOLTRIO',
+  title: 'Package.json Generator Online | ToolTrio',
   description: 'Generate package.json files for Node.js projects. Configure name, version, scripts, dependencies, and metadata. Runs entirely in your browser.',
   slug: 'package-json-gen',
   keywords: ['package json generator online free','npm package.json builder browser','create package json free','npm init json generator','node package json creator online'],

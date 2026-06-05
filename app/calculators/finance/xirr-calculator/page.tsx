@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'XIRR Calculator – True Return Rate | TOOLTRIO',
+ title: 'XIRR Calculator – True Return Rate | ToolTrio',
  description: 'Free XIRR calculator USA 2026. Calculate the true annualized return (XIRR) for investment portfolios with multiple irregular deposits and withdrawals. Real examples for SIP investments, business cash flows, and portfolio analysis.',
  slug: 'xirr-calculator',
  category: 'finance',

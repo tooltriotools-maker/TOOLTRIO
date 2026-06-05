@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'JSON Formatter & Validator Online | TOOLTRIO',
+  title: 'JSON Formatter & Validator Online | ToolTrio',
   description: 'Format, validate, minify, and pretty-print JSON instantly. Catches syntax errors with line numbers. No data sent to any server — runs 100% in your browser.',
   slug: 'json-formatter',
   keywords: ['json formatter online free','json beautifier','pretty print json','json validator online','json lint free','format json browser','json minifier online','json syntax checker','json prettify no install','json formatter with syntax highlighting','how to format json online free','json parser browser no login'],

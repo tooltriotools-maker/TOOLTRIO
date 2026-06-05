@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'TOOLTRIO | ZIP Code Lookup — Full ZIP Code Details Free 2026',
+  title: 'ToolTrio | ZIP Code Lookup — Full ZIP Code Details Free 2026',
   description: 'Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup tool — no signup needed.',
   keywords: ['zip code lookup','us zip code lookup','zip code search usa','find city by zip code','zip code full details','zip code information lookup','what city is this zip code','zip code county finder','zip code timezone lookup','zip code coordinates lookup','free zip code lookup tool','zip code area code finder','us postal code lookup','zip code population data','zip code to city state county','tooltrio','tooltrio zip code','zip code tooltrio','tool trio','trio tools','tooltrio free tools'],
 }
@@ -153,7 +153,7 @@ export default function Page() {
       seoContent={seoContent}
     >
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"TOOLTRIO | ZIP Code Lookup — Full ZIP Code Details Free 2026\",\"description\":\"Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup\",\"url\":\"https://tooltrio.com/zip/zip-code-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ToolTrio | ZIP Code Lookup — Full ZIP Code Details Free 2026\",\"description\":\"Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup\",\"url\":\"https://tooltrio.com/zip/zip-code-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

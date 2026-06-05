@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'URL Encoder & Decoder Online | TOOLTRIO',
+  title: 'URL Encoder & Decoder Online | ToolTrio',
   description: 'Encode and decode URLs with percent encoding. Handles query strings, path segments, and full URLs. Distinguishes encodeURI vs encodeURIComponent. Runs in your browser.',
   slug: 'url-encoder',
   keywords: ['url encoder decoder online free','percent encode url browser','url encode special characters','urlencode javascript online','decode percent encoded url free','url percent encoding tool','encodeURIComponent online free'],

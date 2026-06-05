@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Mutual Fund Calculator India 2026 | TOOLTRIO',
+ title: 'Mutual Fund Calculator India 2026 | ToolTrio',
  description: 'Free mutual fund calculator USA 2026. See how expense ratios, front-end loads, and management fees erode long-term returns. Compare low-cost index funds vs actively managed funds. Real examples for $10k-$500k investments.',
  slug: 'mutual-fund-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Skin Health Calculator 2026 | TOOLTRIO',
+  title: 'Skin Health Calculator 2026 | ToolTrio',
   description: 'Free Skin Health Calculator 2026. Calculate your skin\'s UV damage exposure, estimated photoaging score, and personalized skincare recommendations based on lifestyle factors.',
   slug: 'skin-health-calculator',
   category: 'health',

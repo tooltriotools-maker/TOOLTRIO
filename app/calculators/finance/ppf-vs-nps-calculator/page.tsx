@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'PPF vs NPS Calculator India 2026 | TOOLTRIO',
+ title: 'PPF vs NPS Calculator India 2026 | ToolTrio',
  description: 'Free PPF vs NPS calculator India 2026. Compare Public Provident Fund guaranteed 7.1% returns vs NPS market-linked 10-12% for retirement planning. Real examples for INR 50k-1.5L annual contributions.',
  slug: 'ppf-vs-nps-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Base64 Encoder & Decoder Online | TOOLTRIO',
+  title: 'Base64 Encoder & Decoder Online | ToolTrio',
   description: 'Encode and decode Base64 strings instantly. Handles text, URLs, and binary data. Runs entirely in your browser — nothing is sent to any server.',
   slug: 'base64-encoder',
   keywords: ['base64 encoder decoder online free','encode decode base64 browser','base64url encoder free','image to base64 converter','file to base64 online','base64 encode string browser','jwt base64 decoder free','base64 no server upload'],

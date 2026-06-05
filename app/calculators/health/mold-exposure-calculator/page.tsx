@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Mold Exposure Health Calculator 2026 | TOOLTRIO',
+  title: 'Mold Exposure Health Calculator 2026 | ToolTrio',
   description: 'Assess your health risk from mold exposure based on symptom frequency, exposure duration, mold type, and individual sensitivity. Get personalized guidance on remediation priority and medical evaluation thresholds. Free online mold exposure calculator 2026. No signup required.',
   slug: 'mold-exposure-calculator',
   category: 'health',

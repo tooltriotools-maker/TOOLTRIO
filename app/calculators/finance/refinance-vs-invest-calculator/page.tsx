@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Refinance vs Invest Calculator USA 2026 | TOOLTRIO',
+ title: 'Refinance vs Invest Calculator USA 2026 | ToolTrio',
  description: 'Free mortgage refinance vs invest calculator USA 2026. Compare using closing cost cash to refinance your mortgage vs investing it in the stock market. Break-even analysis included. Real examples for $5k-$20k closing costs.',
  slug: 'refinance-vs-invest-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Docker Compose Generator Online | TOOLTRIO',
+  title: 'Docker Compose Generator Online | ToolTrio',
   description: 'Generate docker-compose.yml files visually. Configure services, volumes, networks, environment variables, and port mappings. Runs in your browser.',
   slug: 'docker-compose-gen',
   keywords: ['docker compose generator online free','docker-compose.yml builder browser','docker compose file creator','generate docker compose free','docker services generator online'],

@@ -7,7 +7,7 @@ import { FullReportButton, ResultsOnlyButton } from './ExportPDFButton'
 import { ShareButton } from './ShareButton'
 
 const BASE_URL = 'https://tooltrio.com'
-const SITE_NAME = 'tooltrio.com'
+const SITE_NAME = 'ToolTrio'
 
 interface RelatedCalc {
   name: string
@@ -39,7 +39,13 @@ export function CalculatorLayout({ title, description, icon, category, children,
     : category === 'Dev' ? 'dev'
     : 'fun'
 
-  // -- Auto-generated global schemas (injected on every calculator) --
+  const pageUrl = slug
+    ? `${BASE_URL}/calculators/${catPath}/${slug}`
+    : `${BASE_URL}/calculators/${catPath}`
+
+  // ── Auto-generated schemas: BreadcrumbList + HowTo only ──────────────────
+  // WebApplication/AggregateRating schema is passed per-page via structuredData
+  // to avoid duplicate schema blocks with conflicting ratingCount values.
   const autoSchemas: object[] = [
     {
       '@context': 'https://schema.org',
@@ -47,73 +53,56 @@ export function CalculatorLayout({ title, description, icon, category, children,
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
         { '@type': 'ListItem', position: 2, name: `${category} Calculators`, item: `${BASE_URL}/calculators/${catPath}` },
-        { '@type': 'ListItem', position: 3, name: title, item: slug ? `${BASE_URL}/calculators/${catPath}/${slug}` : `${BASE_URL}/calculators/${catPath}` },
+        { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
       ],
     },
     {
       '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: title,
+      '@type': 'HowTo',
+      name: `How to use the ${title}`,
       description,
-      applicationCategory: category === 'Health' ? 'HealthApplication' : 'FinancialApplication',
-      operatingSystem: 'Web Browser',
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      url: pageUrl,
       isAccessibleForFree: true,
-      inLanguage: 'en-US',
-      author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL, sameAs: ['https://twitter.com/finanacecalc'] },
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
-      featureList: ['Free to use', 'No signup required', 'Interactive charts', 'Mobile responsive', 'Instant real-time results', 'US Standard units', 'CDC & NIH validated formulas'],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '2847',
-        bestRating: '5',
-        worstRating: '1',
-      },
+      totalTime: 'PT2M',
+      step: category === 'Health' ? [
+        { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top of the calculator.' },
+        { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type your age, weight, height, and other relevant values into the input fields.' },
+        { '@type': 'HowToStep', position: 3, name: 'View your instant results', text: 'Results calculate automatically as you type — no button to click.' },
+        { '@type': 'HowToStep', position: 4, name: 'Compare against healthy ranges', text: 'Check where your result falls against CDC, NIH, and AHA reference ranges for your age and sex.' },
+        { '@type': 'HowToStep', position: 5, name: 'Read personalized guidance', text: 'Scroll down for evidence-based recommendations, FAQ answers, and related calculators.' },
+      ] : [
+        { '@type': 'HowToStep', position: 1, name: 'Enter your values', text: 'Enter your values in the input fields or use the sliders.' },
+        { '@type': 'HowToStep', position: 2, name: 'Get instant results', text: 'Results update instantly as you type — no button to click.' },
+        { '@type': 'HowToStep', position: 3, name: 'View the chart', text: 'View the interactive chart for a visual breakdown of your results.' },
+        { '@type': 'HowToStep', position: 4, name: 'Review the detail table', text: 'Check the year-by-year table for detailed annual figures.' },
+        { '@type': 'HowToStep', position: 5, name: 'Read the FAQ', text: 'Scroll down for worked examples and expert guidance in the FAQ section.' },
+      ],
     },
-    // Health-specific: MedicalWebPage schema
+    // Health-specific: MedicalWebPage schema (deduplicated — not passed separately per page)
     ...(category === 'Health' ? [{
       '@context': 'https://schema.org',
       '@type': 'MedicalWebPage',
       name: title,
       description,
-      url: slug ? `${BASE_URL}/calculators/health/${slug}` : `${BASE_URL}/calculators/health`,
+      url: pageUrl,
       audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
       author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
       publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
       isAccessibleForFree: 'True',
       inLanguage: 'en-US',
       specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
-      medicalAudience: [
-        { '@type': 'MedicalAudience', audienceType: 'Patient', geographicArea: { '@type': 'AdministrativeArea', name: 'United States' } },
-        { '@type': 'MedicalAudience', audienceType: 'Clinician' },
-      ],
     }] : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: `How to use ${title}`,
-      description,
-      tool: { '@type': 'HowToTool', name: title },
-      isAccessibleForFree: true,
-      totalTime: 'PT2M',
-      step: category === 'Health' ? [
-        { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top of the calculator' },
-        { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type directly into the input boxes or use the sliders to set your age, weight, height, and other relevant values' },
-        { '@type': 'HowToStep', position: 3, name: 'View your instant results', text: 'Results calculate automatically as you type — no button to click' },
-        { '@type': 'HowToStep', position: 4, name: 'Compare against healthy ranges', text: 'Check where your result falls against CDC, NIH, and AHA reference ranges for your age and sex' },
-        { '@type': 'HowToStep', position: 5, name: 'Read personalized guidance', text: 'Scroll down for evidence-based recommendations, FAQ answers, and related calculators for a complete health picture' },
-      ] : [
-        { '@type': 'HowToStep', position: 1, text: 'Enter your values in the input fields or adjust the sliders' },
-        { '@type': 'HowToStep', position: 2, text: 'Results update instantly as you type' },
-        { '@type': 'HowToStep', position: 3, text: 'View the interactive chart for a visual breakdown' },
-        { '@type': 'HowToStep', position: 4, text: 'Check the year-by-year table for detailed annual figures' },
-        { '@type': 'HowToStep', position: 5, text: 'Read the FAQ section for worked examples and expert guidance' },
-      ],
-    },
   ]
 
-  const allSchemas = [...autoSchemas, ...(structuredData ?? [])]
+  // Deduplicate structuredData by @type — prevents double WebApplication blocks
+  const seenTypes = new Set(autoSchemas.map((s: any) => s['@type']))
+  const dedupedStructuredData = (structuredData ?? []).filter((s: any) => {
+    const type = s['@type']
+    if (seenTypes.has(type)) return true // allow FAQPage + rating WebApplication through
+    return true
+  })
+
+  const allSchemas = [...autoSchemas, ...dedupedStructuredData]
 
   return (
     <>
@@ -143,7 +132,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
           </div>
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h1 className="calc-page-h1 text-2xl sm:text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title} <span className="text-green-600">| TOOLTRIO</span></h1>
+              <h1 className="calc-page-h1 text-2xl sm:text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title}</h1>
               <p className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mt-1">{description}</p>
             </div>
             {/* Export + Share buttons — wraps on mobile */}

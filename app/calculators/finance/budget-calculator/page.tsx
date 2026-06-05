@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Monthly Budget Calculator USA 2026 | TOOLTRIO',
+ title: 'Monthly Budget Calculator USA 2026 | ToolTrio',
  description: 'Free budget calculator USA 2026. Create a complete monthly budget, track income vs expenses, and see your savings rate instantly. Follows the 50/30/20 rule. Real examples for $40k–$100k income.',
  slug: 'budget-calculator',
  category: 'finance',

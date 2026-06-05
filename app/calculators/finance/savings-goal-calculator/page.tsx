@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Savings Goal Calculator USA 2026 | TOOLTRIO',
+ title: 'Savings Goal Calculator USA 2026 | ToolTrio',
  description: 'Free savings goal calculator USA 2026. Calculate exactly how much you need to save each month to reach any financial goal. Real examples for $10k–$500k goals over 1–30 years.',
  slug: 'savings-goal-calculator',
  category: 'finance',

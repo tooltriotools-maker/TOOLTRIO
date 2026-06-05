@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Regex Tester & Debugger Online | TOOLTRIO',
+  title: 'Regex Tester & Debugger Online | ToolTrio',
   description: 'Test regular expressions with real-time match highlighting, capture group display, and flag toggles. Runs in your browser — no server, no login.',
   slug: 'regex-tester',
   keywords: ['regex tester online free','regular expression tester browser','javascript regex tester','python regex tester online','pcre regex tester free','live regex match highlighter','regex with named groups tester','regex flags tester browser'],

@@ -7,7 +7,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
 })
-export const metadata: Metadata = generateCalculatorMetadata({ title: 'NSC vs PPF Calculator India 2026 | TOOLTRIO', description: 'Free NSC vs PPF calculator India 2026. Compare National Savings Certificate vs Public Provident Fund on returns, lock-in, and 80C tax benefits. Real examples for INR 10k–1.5L annual investments.', slug: 'nsc-vs-ppf-calculator', category: 'finance', keywords: [
+export const metadata: Metadata = generateCalculatorMetadata({ title: 'NSC vs PPF Calculator India 2026 | ToolTrio', description: 'Free NSC vs PPF calculator India 2026. Compare National Savings Certificate vs Public Provident Fund on returns, lock-in, and 80C tax benefits. Real examples for INR 10k–1.5L annual investments.', slug: 'nsc-vs-ppf-calculator', category: 'finance', keywords: [
  'nsc vs ppf calculator 2026',
  
  'nsc vs ppf calculator',

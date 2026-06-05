@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'VTI vs VOO Calculator USA 2026 | TOOLTRIO',
+ title: 'VTI vs VOO Calculator USA 2026 | ToolTrio',
  description: 'Free total market vs S&P 500 calculator USA 2026. Compare VTI (Total US Stock Market) vs VOO (S&P 500) on historical returns, small-cap exposure, and long-term wealth. Real examples for $10k-$500k index fund investments.',
  slug: 'whole-market-vs-sp500-calculator',
  category: 'finance',

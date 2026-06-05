@@ -260,7 +260,7 @@ function PreciousMetalsSEO() {
       <div className="space-y-4 mb-8">
         {[
           {
-            title: 'Commodities Calculator – Gold, Silver, Oil 2026 | TOOLTRIO',
+            title: 'Commodities Calculator – Gold, Silver, Oil 2026 | ToolTrio',
             text: 'Before visiting a jeweller, open the Gold Price Calculator, enter your target weight (e.g., 20 grams of 22K), and note the pure metal value. Then add the jeweller\'s making charges (ask them what % they charge). If their total price is more than 20% above the metal value, you\'re overpaying for making charges. Use this as your negotiation baseline. Track live gold prices with our real-time feed to catch the right buying window — gold often dips 1–2% after a US CPI data release.',
           },
           {

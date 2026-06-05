@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'EMI vs SIP Calculator India 2026 | TOOLTRIO',
+ title: 'EMI vs SIP Calculator India 2026 | ToolTrio',
  description: 'Free EMI vs SIP calculator India 2026. Compare paying home loan EMI vs investing the same amount in SIP mutual funds. Find the break-even return rate. Real examples for INR 20k-80k monthly amounts.',
  slug: 'emi-vs-sip-calculator',
  category: 'finance',

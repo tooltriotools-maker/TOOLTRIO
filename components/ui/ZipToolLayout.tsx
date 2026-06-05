@@ -346,7 +346,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
               <div className="sm:w-48 rounded-xl border-2 border-blue-100 bg-blue-50 p-4 flex flex-col items-center justify-center text-center">
                 <span className="text-4xl mb-2">{seoContent.successStory.icon}</span>
                 <div className="text-xs font-bold text-blue-700 uppercase tracking-wide">Resolved with</div>
-                <div className="text-sm font-black text-blue-900 mt-1">TOOLTRIO</div>
+                <div className="text-sm font-black text-blue-900 mt-1">ToolTrio</div>
                 <div className="text-xs text-blue-600 mt-1">ZIP Tools</div>
               </div>
             </div>
@@ -430,7 +430,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
         <div className="rounded-2xl border border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 p-6 mt-2">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-lg">🧰</span>
-            <h3 className="font-black text-gray-900 text-base">TOOLTRIO — Free ZIP Code Tool Suite</h3>
+            <h3 className="font-black text-gray-900 text-base">ToolTrio — Free ZIP Code Tool Suite</h3>
           </div>
           <p className="text-xs text-gray-600 leading-relaxed mb-3">
             TOOLTRIO (also searched as <em>Tool Trio</em>, <em>ToolTrio</em>, <em>Trio Tools</em>) is a free suite of 35+ US ZIP code tools. No signup, no rate limits. Every tool is free forever on tooltrio.com.

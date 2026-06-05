@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Pension Calculator 2026 | TOOLTRIO',
+ title: 'UK Pension Calculator 2026 | ToolTrio',
  description: 'Free UK pension calculator 2026. Calculate workplace pension pot size, auto-enrolment contributions, and projected monthly retirement income. Includes employer match and 2026 contribution rates. Real examples for GBP 25k-100k UK salaries.',
  slug: 'uk-pension-calculator',
  category: 'finance',

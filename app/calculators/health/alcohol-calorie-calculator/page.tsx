@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Alcohol Calorie Calculator 2026 | TOOLTRIO',
+  title: 'Alcohol Calorie Calculator 2026 | ToolTrio',
   description: 'Free Alcohol Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
   slug: 'alcohol-calorie-calculator',
   category: 'health',

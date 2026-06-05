@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'GraphQL Formatter Online | TOOLTRIO',
+  title: 'GraphQL Formatter Online | ToolTrio',
   description: 'Format and validate GraphQL queries, mutations, and schema definitions. Proper indentation and syntax validation. Runs entirely in your browser.',
   slug: 'graphql-formatter',
   keywords: ['graphql formatter online free','graphql query beautifier','graphql schema formatter','graphql prettier browser','graphql syntax highlighter online','format graphql query free'],

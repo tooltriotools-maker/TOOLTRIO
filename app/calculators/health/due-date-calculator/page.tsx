@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Due Date Calculator 2026 | TOOLTRIO',
+  title: 'Due Date Calculator 2026 | ToolTrio',
   description: 'Free Due Date Calculator 2026 — Accurate due date based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
   slug: 'due-date-calculator',
   category: 'health',

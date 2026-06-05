@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'NSC vs FD Calculator India 2026 | TOOLTRIO',
+ title: 'NSC vs FD Calculator India 2026 | ToolTrio',
  description: 'Free NSC vs FD calculator India 2026. Compare National Savings Certificate vs Fixed Deposit on post-tax returns, lock-in period, and Section 80C tax benefits. Real examples for INR 10k-5L investments.',
  slug: 'nsc-vs-fd-calculator',
  category: 'finance',

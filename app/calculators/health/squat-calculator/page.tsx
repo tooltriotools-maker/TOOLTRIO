@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Squat 1RM Calculator 2026 | TOOLTRIO',
+  title: 'Squat 1RM Calculator 2026 | ToolTrio',
   description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Compare your squat strength to age and sex standards. Free online squat calculator 2026. No signup required.',
   slug: 'squat-calculator',
   category: 'health',

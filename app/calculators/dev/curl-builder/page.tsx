@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'cURL Command Builder Online | TOOLTRIO',
+  title: 'cURL Command Builder Online | ToolTrio',
   description: 'Build curl commands from method, URL, headers, and body. Convert API requests to curl for documentation and debugging. Runs entirely in your browser.',
   slug: 'curl-builder',
   keywords: ['curl builder online free','curl command generator browser','build curl request visual','curl syntax generator free','curl post request builder online'],

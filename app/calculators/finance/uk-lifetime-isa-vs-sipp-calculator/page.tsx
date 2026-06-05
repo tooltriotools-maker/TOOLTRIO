@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Lifetime ISA vs SIPP Calculator 2026 | TOOLTRIO',
+ title: 'UK Lifetime ISA vs SIPP Calculator 2026 | ToolTrio',
  description: 'Free UK Lifetime ISA vs SIPP calculator 2026. Compare 25% LISA government bonus vs SIPP pension tax relief for UK retirement savings. Real examples for GBP 20k-60k UK income levels.',
  slug: 'uk-lifetime-isa-vs-sipp-calculator',
  category: 'finance',

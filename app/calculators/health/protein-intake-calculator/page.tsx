@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Protein Intake Calculator 2026 | TOOLTRIO',
+  title: 'Protein Intake Calculator 2026 | ToolTrio',
   description: 'Free Protein Intake Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level. Real examples for 150–250 lb individuals. No signup required.',
   slug: 'protein-intake-calculator',
   category: 'health',

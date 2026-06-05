@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cold Exposure Calculator 2026 | TOOLTRIO',
+  title: 'Cold Exposure Calculator 2026 | ToolTrio',
   description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold plunge protocols, safety thresholds, and recovery timing. Free online cold exposure calculator 2026. No signup required.',
   slug: 'cold-exposure-calculator',
   category: 'health',

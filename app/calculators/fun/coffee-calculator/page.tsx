@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Lifetime Caffeine Calculator | TOOLTRIO',
+  title: 'Lifetime Caffeine Calculator | ToolTrio',
   description: 'Calculate your lifetime coffee consumption, total caffeine intake, money spent on coffee, and how many cups you will drink before retirement. Free and instant.',
   slug: 'coffee-calculator',
   keywords: [

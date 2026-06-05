@@ -9,7 +9,7 @@ const SIPCalculatorClient = dynamic(() => import('./SIPCalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP Calculator India 2026 | TOOLTRIO',
+ title: 'SIP Calculator India 2026 | ToolTrio',
  description: 'Free SIP calculator India 2026. Calculate monthly SIP investment returns, total wealth at any CAGR, and the power of rupee cost averaging. Real examples for INR 1k-50k monthly SIP investments.',
  slug: 'sip-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'TDEE Calculator 2026 | TOOLTRIO',
+  title: 'TDEE Calculator 2026 | ToolTrio',
   description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Instant results for weight loss, maintenance, and muscle gain. Based on Harris-Benedict & Mifflin formulas.',
   slug: 'tdee-calculator',
   category: 'health',

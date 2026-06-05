@@ -1,7 +1,7 @@
 {
-  "name": "TOOLTRIO",
-  "short_name": "TOOLTRIO",
-  "description": "Free Finance, Health & Dev Calculators - 400+ Tools",
+  "name": "ToolTrio — Free Finance & Health Calculators",
+  "short_name": "ToolTrio",
+  "description": "Free finance and health calculators — mortgage, 401k, BMI, calorie, TDEE and 200+ more. No signup required.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#f0faf5",
@@ -25,6 +25,6 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["finance", "utilities", "productivity"],
+  "categories": ["finance", "health", "utilities"],
   "lang": "en-US"
 }

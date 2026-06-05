@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Fortune Cookie Generator | TOOLTRIO',
+  title: 'Fortune Cookie Generator | ToolTrio',
   description: 'Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the calories. Free online.',
   slug: 'fortune-cookie',
   keywords: [

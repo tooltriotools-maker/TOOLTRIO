@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CIDR / IP Subnet Calculator Online | TOOLTRIO',
+  title: 'CIDR / IP Subnet Calculator Online | ToolTrio',
   description: 'Calculate network address, broadcast address, subnet mask, host range, and usable IPs from any CIDR block. Essential for AWS VPC, firewall rules, and network planning.',
   slug: 'cidr-calculator',
   keywords: ['cidr calculator online free','cidr to subnet mask browser','cidr notation explained calculator','vpc cidr block calculator','aws cidr calculator free'],

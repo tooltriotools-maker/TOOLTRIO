@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Workout Excuse Generator | TOOLTRIO',
+  title: 'Workout Excuse Generator | ToolTrio',
   description: 'Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant, no signup.',
   slug: 'workout-excuse-generator',
   keywords: [

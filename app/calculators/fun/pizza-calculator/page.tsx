@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Pizza Calculator – How Many Pizzas? | TOOLTRIO',
+  title: 'Pizza Calculator – How Many Pizzas? | ToolTrio',
   description: 'Calculate exactly how many pizzas to order for any group size, appetite level, and pizza size. Never over- or under-order again. Free pizza party calculator online.',
   slug: 'pizza-calculator',
   keywords: [

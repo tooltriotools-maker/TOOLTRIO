@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Hydration Calculator 2026 | TOOLTRIO',
+  title: 'Hydration Calculator 2026 | ToolTrio',
   description: 'Free Hydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary adults. Evidence-based hydration targets. No signup.',
   slug: 'hydration-calculator',
   category: 'health',

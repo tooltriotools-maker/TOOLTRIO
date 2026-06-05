@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Semver Range Tester Online | TOOLTRIO',
+  title: 'Semver Range Tester Online | ToolTrio',
   description: 'Test semantic version range specifiers. See which versions match ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and other ranges. Runs entirely in your browser.',
   slug: 'semver-calculator',
   keywords: ['semver calculator online free','semantic versioning tool browser','npm semver range tester','semver version bump calculator','semver compatible versions checker'],

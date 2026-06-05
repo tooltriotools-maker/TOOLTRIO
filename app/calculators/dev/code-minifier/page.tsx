@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Code Minifier – JS, CSS & HTML | TOOLTRIO',
+  title: 'Code Minifier – JS, CSS & HTML | ToolTrio',
   description: 'Minify JavaScript, CSS, and HTML to reduce file size. Remove whitespace, comments, and redundant code. Runs in your browser.',
   slug: 'code-minifier',
   keywords: ['code minifier online free','html css js minifier browser','minify code online','compress javascript free','html minify no install'],

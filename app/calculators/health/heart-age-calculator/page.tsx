@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Heart Age Calculator 2026 | TOOLTRIO',
+  title: 'Heart Age Calculator 2026 | ToolTrio',
   description: 'Free Heart Age Calculator 2026. Calculate your cardiovascular biological age using American Heart Association standards. Assess your heart\'s biological age vs chronological age.',
   slug: 'heart-age-calculator',
   category: 'health',

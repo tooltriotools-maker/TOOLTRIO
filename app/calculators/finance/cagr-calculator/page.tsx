@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'CAGR Calculator USA 2026 | TOOLTRIO',
+ title: 'CAGR Calculator USA 2026 | ToolTrio',
  description: 'Free CAGR calculator USA 2026. Calculate compound annual growth rate for stocks, real estate, mutual funds, and business revenue. Reverse-calculate required price for any target return. Real examples for 1-20 year periods.',
  slug: 'cagr-calculator',
  category: 'finance',

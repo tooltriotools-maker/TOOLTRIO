@@ -13,7 +13,7 @@ function X({size=16,className=""}: {size?:number;className?:string}) { const w=s
 
 
 export const metadata: Metadata = {
-  title: '167 Free Finance Calculators 2026 | TOOLTRIO',
+  title: '167 Free Finance Calculators 2026 | ToolTrio',
   description: '167 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth calculator, auto loan, biweekly mortgage, closing costs, and more. No signup.',
   keywords: [
     'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',

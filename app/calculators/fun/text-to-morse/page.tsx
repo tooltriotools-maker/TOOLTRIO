@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Morse Code Translator Online | TOOLTRIO',
+  title: 'Morse Code Translator Online | ToolTrio',
   description: 'Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code translator with reference chart.',
   slug: 'text-to-morse',
   keywords: [

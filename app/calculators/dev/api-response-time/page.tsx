@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'API Response Time Calculator | TOOLTRIO',
+  title: 'API Response Time Calculator | ToolTrio',
   description: 'Calculate API response time budgets, latency breakdowns, and throughput. Plan SLA targets. Runs entirely in your browser.',
   slug: 'api-response-time',
   keywords: ['api response time tester online free','measure api latency browser','test api endpoint speed','api performance checker free','rest api response time tool'],

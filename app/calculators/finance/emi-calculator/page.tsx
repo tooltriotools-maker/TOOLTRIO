@@ -9,7 +9,7 @@ const EMICalculatorClient = dynamic(() => import('./EMICalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'EMI Calculator – Loan Payment USA 2026 | TOOLTRIO',
+ title: 'EMI Calculator – Loan Payment USA 2026 | ToolTrio',
  description: 'Free loan EMI calculator USA 2026. Calculate monthly loan payment (EMI), total interest paid, and complete amortization schedule for any loan type. Real examples for $10k-$500k loans at 3-20% interest.',
  slug: 'emi-calculator',
  category: 'finance',

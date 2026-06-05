@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'S&P 500 vs Real Estate Calculator USA | TOOLTRIO',
+ title: 'S&P 500 vs Real Estate Calculator USA | ToolTrio',
  description: 'Free S&P 500 vs real estate calculator USA 2026. Compare S&P 500 index fund returns vs US real estate investment including rental income, appreciation, and leverage. Real examples for $50k-$500k investment amounts.',
  slug: 'sp500-vs-real-estate-usa-calculator',
  category: 'finance',

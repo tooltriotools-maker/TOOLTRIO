@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Kidney Function Calculator 2026 | TOOLTRIO',
+  title: 'Kidney Function Calculator 2026 | ToolTrio',
   description: 'Estimate kidney function from blood creatinine level using CKD-EPI and Cockcroft-Gault equations. Understand CKD staging, what eGFR values mean for kidney health, and when to seek nephrology evaluation. Free online kidney function calculator 2026. No signup required.',
   slug: 'kidney-function-calculator',
   category: 'health',

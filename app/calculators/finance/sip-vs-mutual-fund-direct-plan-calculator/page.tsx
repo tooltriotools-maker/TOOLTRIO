@@ -7,7 +7,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
 })
-export const metadata: Metadata = generateCalculatorMetadata({ title: 'Regular vs Direct SIP Calculator India | TOOLTRIO', description: 'Free regular vs direct mutual fund SIP calculator India 2026. Compare regular plan vs direct plan SIP returns. Real examples for INR 5k–50k monthly SIP — see how fees erode long-term wealth.', slug: 'sip-vs-mutual-fund-direct-plan-calculator', category: 'finance', keywords: [
+export const metadata: Metadata = generateCalculatorMetadata({ title: 'Regular vs Direct SIP Calculator India | ToolTrio', description: 'Free regular vs direct mutual fund SIP calculator India 2026. Compare regular plan vs direct plan SIP returns. Real examples for INR 5k–50k monthly SIP — see how fees erode long-term wealth.', slug: 'sip-vs-mutual-fund-direct-plan-calculator', category: 'finance', keywords: [
  'sip vs mutual fund direct plan calculator 2026',
  
  'sip vs mutual fund direct plan calculator',

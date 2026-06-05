@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Intermittent Fasting Calculator 2026 | TOOLTRIO',
+  title: 'Intermittent Fasting Calculator 2026 | ToolTrio',
   description: 'Free Intermittent Fasting Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD protocols. Evidence-based results. No signup required.',
   slug: 'intermittent-fasting-calculator',
   category: 'health',

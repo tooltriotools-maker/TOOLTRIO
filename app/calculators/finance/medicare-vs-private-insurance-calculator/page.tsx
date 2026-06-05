@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Medicare vs Private Insurance USA 2026 | TOOLTRIO',
+ title: 'Medicare vs Private Insurance USA 2026 | ToolTrio',
  description: 'Free Medicare vs private insurance calculator USA 2026. Compare Medicare Parts A, B, C, D vs employer or marketplace private insurance for retirement healthcare costs. Real examples for ages 60-70 retirees.',
  slug: 'medicare-vs-private-insurance-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Age in Days Calculator – How Old Am I? | TOOLTRIO',
+  title: 'Age in Days Calculator – How Old Am I? | ToolTrio',
   description: 'Find out exactly how many days, hours, minutes, and seconds you have been alive. Plus heartbeats, breaths taken, and wild life stats. Free, instant, no signup.',
   slug: 'age-in-days',
   keywords: [

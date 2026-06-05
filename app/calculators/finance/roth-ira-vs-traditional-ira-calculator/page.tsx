@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Roth IRA vs Traditional IRA Calculator | TOOLTRIO',
+ title: 'Roth IRA vs Traditional IRA Calculator | ToolTrio',
  description: "Free Roth IRA vs Traditional IRA calculator USA 2026. Compare after-tax retirement wealth from Roth vs Traditional IRA contributions based on current and expected retirement tax rates. Real examples for $50k-$150k income.",
  slug: 'roth-ira-vs-traditional-ira-calculator',
  category: 'finance',

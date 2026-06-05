@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'HTML Encoder & Decoder Online | TOOLTRIO',
+  title: 'HTML Encoder & Decoder Online | ToolTrio',
   description: 'Escape HTML special characters to entities and unescape back. Prevents XSS by converting < > & and quotes. Runs in your browser.',
   slug: 'html-encoder',
   keywords: ['html encoder decoder online free','html entity encoder browser','html special characters encoder','html escape tool online','convert html entities free','&amp; &lt; &gt; encoder free'],

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pull-Up Calculator 2026 | TOOLTRIO',
+  title: 'Pull-Up Calculator 2026 | ToolTrio',
   description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to strength standards and estimate progression timeline. Free online pull up calculator 2026. No signup required.',
   slug: 'pull-up-calculator',
   category: 'health',

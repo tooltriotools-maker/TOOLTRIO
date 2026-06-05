@@ -7,7 +7,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
 })
-export const metadata: Metadata = generateCalculatorMetadata({ title: 'SCSS vs FD Calculator India 2026 | TOOLTRIO', description: 'Free Senior Citizen Savings Vs FD Calculator 2026. Calculate savings growth with high-yield accounts, CDs, and contribution strategies. Real examples for $5k–$100k starting balances. No signup required.', slug: 'senior-citizen-savings-vs-fd-calculator', category: 'finance', keywords: [
+export const metadata: Metadata = generateCalculatorMetadata({ title: 'SCSS vs FD Calculator India 2026 | ToolTrio', description: 'Free Senior Citizen Savings Vs FD Calculator 2026. Calculate savings growth with high-yield accounts, CDs, and contribution strategies. Real examples for $5k–$100k starting balances. No signup required.', slug: 'senior-citizen-savings-vs-fd-calculator', category: 'finance', keywords: [
  'senior citizen savings vs fd calculator 2026',
  
  'senior citizen savings vs fd calculator',

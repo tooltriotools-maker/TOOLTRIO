@@ -9,7 +9,7 @@ const LoanComparisonCalculatorClient = dynamic(() => import('./LoanComparisonCal
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Loan Comparison Calculator USA 2026 | TOOLTRIO',
+ title: 'Loan Comparison Calculator USA 2026 | ToolTrio',
  description: 'Free loan comparison calculator USA 2026. Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR. Real examples for $50k–$500k loan amounts.',
  slug: 'loan-comparison-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Currency Converter – Live Rates 2026 | TOOLTRIO',
+ title: 'Currency Converter – Live Rates 2026 | ToolTrio',
  description: 'Free currency converter USA 2026. Convert between USD, EUR, GBP, JPY, CAD, AUD, INR, and 30+ currencies with real-time exchange rates. Real examples for travel, business, and international transfers.',
  slug: 'currency-converter',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'CSS Filter Generator Online | TOOLTRIO',
+  title: 'CSS Filter Generator Online | ToolTrio',
   description: 'Build CSS filter effects visually — blur, brightness, contrast, grayscale, hue-rotate, saturate, sepia, and drop-shadow. Live preview with copy-ready CSS.',
   slug: 'css-filter-gen',
   keywords: ['css filter generator online free','css filter effects preview','blur brightness contrast css tool','css filter code builder free','image css filter generator'],

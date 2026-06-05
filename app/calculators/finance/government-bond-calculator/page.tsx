@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Government Bond Calculator USA 2026 | TOOLTRIO',
+ title: 'Government Bond Calculator USA 2026 | ToolTrio',
  description: 'Free government bond calculator USA 2026. Calculate yield to maturity, current yield, bond price, and duration for US Treasuries and European government bonds. Real examples for $10k-$500k bond investments.',
  slug: 'government-bond-calculator',
  category: 'finance',

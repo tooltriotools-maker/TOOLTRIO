@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cycling Calorie Calculator 2026 | TOOLTRIO',
+  title: 'Cycling Calorie Calculator 2026 | ToolTrio',
   description: 'Free Cycling Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
   slug: 'cycling-calories-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const BudgetPlannerCalculatorClient = dynamic(() => import('./BudgetPlannerCalcu
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Budget Planner USA – 50/30/20 Rule | TOOLTRIO',
+ title: 'Budget Planner USA – 50/30/20 Rule | ToolTrio',
  description: 'Free budget planner calculator USA 2026. Build a detailed monthly budget using the 50/30/20 rule. Track income, expenses, savings rate, and spending gaps. Real examples for $40k-$120k household income.',
  slug: 'budget-planner-calculator',
  category: 'finance',

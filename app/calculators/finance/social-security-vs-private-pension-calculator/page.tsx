@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Social Security vs Pension Calculator USA | TOOLTRIO',
+ title: 'Social Security vs Pension Calculator USA | ToolTrio',
  description: 'Free Social Security vs private pension calculator USA 2026. Compare lifetime income from Social Security vs a private pension or annuity. Break-even age analysis included. Real examples for $30k-$100k annual benefit scenarios.',
  slug: 'social-security-vs-private-pension-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Villain Name Generator | TOOLTRIO',
+  title: 'Villain Name Generator | ToolTrio',
   description: 'Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name generator, no signup.',
   slug: 'villain-name',
   keywords: [

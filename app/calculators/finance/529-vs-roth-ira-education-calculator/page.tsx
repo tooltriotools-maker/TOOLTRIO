@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: '529 vs Roth IRA Education Calculator | TOOLTRIO',
+ title: '529 vs Roth IRA Education Calculator | ToolTrio',
  description: "Free 529 vs Roth IRA education calculator USA 2026. Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact. Real examples for $5k-$20k annual savings.",
  slug: '529-vs-roth-ira-education-calculator',
  category: 'finance',

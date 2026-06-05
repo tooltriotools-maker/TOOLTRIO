@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Jet Lag Calculator 2026 | TOOLTRIO',
+  title: 'Jet Lag Calculator 2026 | ToolTrio',
   description: 'Calculate your predicted jet lag severity based on number of time zones crossed, travel direction, and departure time. Get a day-by-day sleep schedule adjustment plan to minimize jet lag symptoms. Free online jet lag calculator 2026. No signup required.',
   slug: 'jet-lag-calculator',
   category: 'health',

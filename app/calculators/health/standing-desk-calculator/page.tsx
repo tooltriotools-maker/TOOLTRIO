@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Standing Desk Calculator 2026 | TOOLTRIO',
+  title: 'Standing Desk Calculator 2026 | ToolTrio',
   description: 'Calculate the optimal sitting and standing ratio for your workday, estimated calorie burn increase from standing, and musculoskeletal risk from prolonged sitting versus standing based on research guidelines. Free online standing desk calculator 2026. No signup required.',
   slug: 'standing-desk-calculator',
   category: 'health',

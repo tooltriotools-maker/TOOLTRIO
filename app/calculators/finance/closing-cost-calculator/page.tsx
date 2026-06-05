@@ -9,7 +9,7 @@ const ClosingCostCalculatorClient = dynamic(() => import('./ClosingCostCalculato
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Closing Cost Calculator USA 2026 | TOOLTRIO',
+ title: 'Closing Cost Calculator USA 2026 | ToolTrio',
  description: 'Free closing cost calculator USA 2026. Estimate all closing costs including lender fees, title insurance, escrow, prepaid items, and recording fees. Real examples for $200k-$600k home purchases in all states.',
  slug: 'closing-cost-calculator',
  category: 'finance',

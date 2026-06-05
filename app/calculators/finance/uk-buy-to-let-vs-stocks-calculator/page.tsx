@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Buy-to-Let vs Stocks Calculator 2026 | TOOLTRIO',
+ title: 'UK Buy-to-Let vs Stocks Calculator 2026 | ToolTrio',
  description: "Free UK buy-to-let vs stocks calculator 2026. Compare UK rental property returns vs FTSE All-Share index investing on after-tax total return, income, and leverage. Real examples for GBP 100k-500k UK property investments.",
  slug: 'uk-buy-to-let-vs-stocks-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Bit & Byte Converter Online | TOOLTRIO',
+  title: 'Bit & Byte Converter Online | ToolTrio',
   description: 'Convert between bits, bytes, KB, MB, GB, TB, and PB. Decimal (SI) and binary (IEC) units. Runs in your browser.',
   slug: 'bit-byte-converter',
   keywords: ['bit byte converter online free','kb mb gb tb converter browser','data size unit converter','bytes to kilobytes calculator','storage unit converter free'],

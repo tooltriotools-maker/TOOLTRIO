@@ -9,7 +9,7 @@ const WealthCalculatorClient = dynamic(() => import('./WealthCalculatorClient'),
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Wealth Calculator USA 2026 | TOOLTRIO',
+ title: 'Wealth Calculator USA 2026 | ToolTrio',
  description: 'Free wealth calculator USA 2026. Calculate total net worth by tracking all assets and liabilities, compare to US wealth percentiles, and see your wealth trajectory. Real examples for every wealth level.',
  slug: 'wealth-calculator',
  category: 'finance',

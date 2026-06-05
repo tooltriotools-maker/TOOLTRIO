@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Stock Profit Calculator USA 2026 | TOOLTRIO',
+ title: 'Stock Profit Calculator USA 2026 | ToolTrio',
  description: 'Free stock profit calculator USA 2026. Calculate profit or loss from stock trades including brokerage fees, short-term and long-term capital gains tax. Real examples for $1k-$100k stock trades.',
  slug: 'stock-profit-calculator',
  category: 'finance',

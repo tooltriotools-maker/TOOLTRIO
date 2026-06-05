@@ -26,50 +26,20 @@ export const metadata: Metadata = {
 
   title: {
     default: 'ToolTrio — Free Finance & Health Calculators',
-    template: 'TOOLTRIO | %s',
+    template: '%s | ToolTrio',
   },
 
   description:
-    'ToolTrio is a free finance and health calculator website. Use mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ more finance and health tools. No signup needed.',
+    'ToolTrio offers free finance and health calculators — mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required. Instant results.',
 
   keywords: [
-    // Brand
-    'tooltrio',
-    'tool trio',
-    'tooltrio.com',
-    'tooltrio finance calculator',
-    'tooltrio health calculator',
-    'tooltrio calculator',
-    'finance and health calculator',
-    // Finance
-    'finance calculator',
-    'financial calculator',
-    'free financial calculator',
-    'mortgage calculator',
-    '401k calculator',
-    'compound interest calculator',
-    'retirement calculator',
-    'Roth IRA calculator',
-    'auto loan calculator',
-    'budget planner calculator',
-    'FIRE calculator',
-    'debt payoff calculator',
-    'net worth calculator',
-    'savings rate calculator',
-    'investment calculator',
-    // Health
-    'BMI calculator',
-    'calorie calculator',
-    'TDEE calculator',
-    'BMR calculator',
-    'macro calculator',
-    'body fat calculator',
-    'ideal weight calculator',
-    'water intake calculator',
-    'sleep calculator',
-    'pregnancy calculator',
-    'heart rate calculator',
-    'protein intake calculator',
+    'tooltrio', 'tool trio', 'tooltrio.com',
+    'finance calculator', 'financial calculator', 'free financial calculator',
+    'mortgage calculator', '401k calculator', 'compound interest calculator',
+    'retirement calculator', 'Roth IRA calculator', 'auto loan calculator',
+    'BMI calculator', 'calorie calculator', 'TDEE calculator', 'BMR calculator',
+    'macro calculator', 'body fat calculator', 'ideal weight calculator',
+    'free finance and health calculator', 'finance and health calculator',
   ],
 
   authors: [{ name: 'ToolTrio', url: siteUrl }],
@@ -132,20 +102,13 @@ export const metadata: Metadata = {
   category: 'finance, health',
 }
 
+// ── Global site-level schemas only (NOT page-level) ──────────────────────────
+// Rule: Organization + WebSite ONLY here. All calculator-level schemas go in pages.
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'ToolTrio',
-  alternateName: [
-    'Tool Trio',
-    'ToolTrio Finance Calculator',
-    'ToolTrio Health Calculator',
-    'Trio Tools',
-    'Tools Trio',
-    'Trio Tool',
-    'Toolstrio',
-    'tooltrio.com',
-  ],
+  alternateName: ['Tool Trio', 'ToolTrio Finance Calculator', 'ToolTrio Health Calculator', 'tooltrio.com'],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
@@ -158,14 +121,7 @@ const organizationSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'ToolTrio — Finance & Health Calculators',
-  alternateName: [
-    'Tool Trio',
-    'Trio Tools',
-    'Tools Trio',
-    'Toolstrio',
-    'tooltrio.com',
-  ],
+  name: 'ToolTrio',
   url: siteUrl,
   description:
     'Free finance and health calculators including mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required.',
@@ -178,88 +134,6 @@ const websiteSchema = {
     },
     'query-input': 'required name=search_term_string',
   },
-}
-
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'ToolTrio — Finance & Health Calculators',
-  alternateName: [
-    'Tool Trio',
-    'Trio Tools',
-    'Toolstrio',
-  ],
-  applicationCategory: 'FinanceApplication',
-  operatingSystem: 'Any',
-  url: siteUrl,
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-  description:
-    'ToolTrio offers free finance and health calculators including mortgage, 401k, BMI, calorie, TDEE, compound interest and 200+ more tools. No signup required.',
-  featureList: [
-    'Free mortgage calculator',
-    'Free 401k calculator',
-    'Free compound interest calculator',
-    'Free Roth IRA calculator',
-    'Free retirement calculator',
-    'Free BMI calculator',
-    'Free calorie calculator',
-    'Free TDEE calculator',
-    'Free macro calculator',
-    'No signup required',
-    'Instant results',
-    'Mobile-friendly calculators',
-  ],
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What is ToolTrio?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio is a free finance and health calculator website. It offers mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ finance and health tools.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are ToolTrio calculators free?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Every finance and health calculator on ToolTrio is completely free to use with no registration, no subscription and no hidden fees.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is ToolTrio also called Tool Trio or Trio Tools?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Some users search ToolTrio as Tool Trio, Trio Tools, Tools Trio, Trio Tool or Toolstrio. All these names refer to ToolTrio.com.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What finance calculators does ToolTrio offer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio offers mortgage calculator, 401k calculator, compound interest calculator, Roth IRA calculator, auto loan calculator, budget planner, FIRE calculator, debt payoff calculator and more.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What health calculators does ToolTrio offer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio offers BMI calculator, calorie calculator, TDEE calculator, BMR calculator, macro calculator, body fat calculator, ideal weight calculator, water intake calculator and more.',
-      },
-    },
-  ],
 }
 
 export default function RootLayout({
@@ -285,6 +159,7 @@ export default function RootLayout({
         <meta name="content-language" content="en-US" />
         <meta name="rating" content="general" />
 
+        {/* Site-level schemas only — no WebApplication/SoftwareApplication/FAQPage here */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -295,18 +170,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
           }}
         />
 

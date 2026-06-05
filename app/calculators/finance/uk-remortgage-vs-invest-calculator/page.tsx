@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Remortgage vs Invest Calculator 2026 | TOOLTRIO',
+ title: 'UK Remortgage vs Invest Calculator 2026 | ToolTrio',
  description: 'Free UK remortgage vs invest calculator 2026. Compare overpaying your UK mortgage vs investing in the stock market. Break-even return rate analysis included. Real examples for GBP 100k-400k remaining UK mortgages.',
  slug: 'uk-remortgage-vs-invest-calculator',
  category: 'finance',

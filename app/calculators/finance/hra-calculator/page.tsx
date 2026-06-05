@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'HRA Calculator India & USA 2026 | TOOLTRIO',
+ title: 'HRA Calculator India & USA 2026 | ToolTrio',
  description: 'Free HRA and housing allowance calculator USA 2026. Calculate tax exemption on house rent allowance, tax savings on rent paid, and net taxable salary. Real examples for INR 30k-150k monthly salary ranges.',
  slug: 'hra-calculator',
  category: 'finance',

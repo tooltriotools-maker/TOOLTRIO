@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Glycemic Load Calculator 2026 | TOOLTRIO',
+  title: 'Glycemic Load Calculator 2026 | ToolTrio',
   description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect blood sugar response and insulin secretion. Free online glycemic load calculator 2026. No signup required.',
   slug: 'glycemic-load-calculator',
   category: 'health',

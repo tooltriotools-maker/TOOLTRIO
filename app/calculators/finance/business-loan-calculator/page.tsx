@@ -9,7 +9,7 @@ const BusinessLoanCalculatorClient = dynamic(() => import('./BusinessLoanCalcula
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Business Loan Calculator USA 2026 | TOOLTRIO',
+ title: 'Business Loan Calculator USA 2026 | ToolTrio',
  description: 'Free business loan calculator USA 2026. Calculate monthly payments, total interest, and amortization schedule for any business loan. Real examples for $50k-$500k loans at 6-20% interest rates.',
  slug: 'business-loan-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Body Recomposition Calculator 2026 | TOOLTRIO',
+  title: 'Body Recomposition Calculator 2026 | ToolTrio',
   description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support simultaneous fat loss and muscle gain without a traditional bulk-cut cycle. Free online body recomposition calculator 2026. No signup required.',
   slug: 'body-recomposition-calculator',
   category: 'health',

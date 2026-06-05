@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'France PEA vs Assurance-Vie 2026 | TOOLTRIO',
+ title: 'France PEA vs Assurance-Vie 2026 | ToolTrio',
  description: 'Free France PEA vs Assurance-Vie calculator 2026. Compare Plan Epargne en Actions vs Assurance-Vie on tax efficiency, flexibility, and long-term wealth building for French investors. Real examples for EUR 10k-200k investments.',
  slug: 'france-pea-vs-assurance-vie-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Paycheck Calculator USA – Take-Home Pay | TOOLTRIO',
+ title: 'Paycheck Calculator USA – Take-Home Pay | ToolTrio',
  description: 'Free paycheck calculator USA 2026. Calculate your exact take-home pay after federal tax, state tax, Social Security, and Medicare deductions. Real examples for $40k–$150k salary.',
  slug: 'paycheck-calculator',
  category: 'finance',

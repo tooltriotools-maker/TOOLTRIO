@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Calorie Deficit Calculator 2026 | TOOLTRIO',
+  title: 'Calorie Deficit Calculator 2026 | ToolTrio',
   description: 'Free Calorie Deficit Calculator 2026 — Calculate the exact calorie deficit needed to reach your weight loss goal. Safe deficit ranges with timeline projections. Real examples for $500–$1000 calorie deficits. No signup.',
   slug: 'calorie-deficit-calculator',
   category: 'health',

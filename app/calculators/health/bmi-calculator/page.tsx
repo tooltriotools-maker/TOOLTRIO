@@ -9,7 +9,7 @@ const BMICalculatorClient = dynamic(() => import('./BMICalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'BMI Calculator USA 2026 | TOOLTRIO',
+  title: 'BMI Calculator USA 2026 | ToolTrio',
   description: 'Free BMI Calculator 2026 — Calculate your Body Mass Index using CDC & NIH standards. Instant results for adults with healthy weight range, category classification, and real examples. No signup required.',
   slug: 'bmi-calculator',
   category: 'health',

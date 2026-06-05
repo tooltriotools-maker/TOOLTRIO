@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Hash Generator – MD5, SHA-256 Online | TOOLTRIO',
+  title: 'Hash Generator – MD5, SHA-256 Online | ToolTrio',
   description: 'Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from any text input. Uses the Web Crypto API. Runs entirely in your browser — your input is never transmitted.',
   slug: 'hash-generator',
   keywords: ['hash generator online free','md5 sha256 hash browser','sha512 hash calculator online','string hash tool free','generate hash from text','checksum generator online','hash any string browser'],

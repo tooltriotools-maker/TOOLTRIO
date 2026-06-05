@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Mental Health Score Calculator 2026 | TOOLTRIO',
+  title: 'Mental Health Score Calculator 2026 | ToolTrio',
   description: 'Free Mental Health Score Calculator 2026 — Assess and track your mental health score with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'mental-health-score-calculator',
   category: 'health',

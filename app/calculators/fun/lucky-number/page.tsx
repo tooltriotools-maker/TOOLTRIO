@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Lucky Number Calculator | TOOLTRIO',
+  title: 'Lucky Number Calculator | ToolTrio',
   description: 'Calculate your life path number, expression number, and personal lucky numbers from your name and birthday using numerology. Free, instant, no signup needed.',
   slug: 'lucky-number',
   keywords: [

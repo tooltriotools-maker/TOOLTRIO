@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Markdown Preview Online | TOOLTRIO',
+  title: 'Markdown Preview Online | ToolTrio',
   description: 'Preview Markdown as rendered HTML in real time. Supports GFM tables, code highlighting, task lists, and strikethrough. Runs in your browser.',
   slug: 'markdown-preview',
   keywords: ['markdown preview online free','markdown editor browser','markdown to html preview','live markdown renderer','markdown viewer online free'],

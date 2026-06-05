@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Diff Checker – Compare Text Online | TOOLTRIO',
+  title: 'Diff Checker – Compare Text Online | ToolTrio',
   description: 'Compare two blocks of text or code and see differences highlighted line by line. Added, removed, and changed lines clearly marked. Runs entirely in your browser.',
   slug: 'diff-checker',
   keywords: ['diff checker online free','text comparison tool browser','compare two texts online','diff files online free','text diff side by side'],

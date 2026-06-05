@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Text Case Converter Online | TOOLTRIO',
+  title: 'Text Case Converter Online | ToolTrio',
   description: 'Convert text between camelCase, PascalCase, snake_case, kebab-case, SCREAMING_SNAKE_CASE, and Title Case instantly. Runs entirely in your browser.',
   slug: 'text-case-converter',
   keywords: ['text case converter online free','camelcase to snake_case browser','upper lower case converter','kebab case converter online','title case converter free','PascalCase converter tool'],

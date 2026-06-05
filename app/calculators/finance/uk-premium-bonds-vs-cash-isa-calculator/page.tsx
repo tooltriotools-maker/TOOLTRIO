@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Premium Bonds vs Cash ISA 2026 | TOOLTRIO',
+ title: 'UK Premium Bonds vs Cash ISA 2026 | ToolTrio',
  description: "Free UK Premium Bonds vs Cash ISA calculator 2026. Compare NS&I Premium Bonds prize rate vs best Cash ISA rates for UK savers. Includes probability analysis and tax-free comparison. Real examples for GBP 5k-50k savings.",
  slug: 'uk-premium-bonds-vs-cash-isa-calculator',
  category: 'finance',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Stress Level Calculator 2026 | TOOLTRIO',
+  title: 'Stress Level Calculator 2026 | ToolTrio',
   description: 'Free Stress Level Calculator 2026 — Assess and track your stress level with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
   slug: 'stress-level-calculator',
   category: 'health',

@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Duplicate Line Remover Online | TOOLTRIO',
+  title: 'Duplicate Line Remover Online | ToolTrio',
   description: 'Remove duplicate lines from any text. Sort, deduplicate, case-insensitive options. Works for lists, log files, and data cleanup. Runs entirely in your browser.',
   slug: 'duplicate-remover',
   keywords: ['duplicate line remover online free','remove duplicate lines browser','unique lines extractor free','deduplicate text online','remove repeated lines tool'],

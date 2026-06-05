@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Pregnancy Due Date Calculator 2026 | TOOLTRIO',
+  title: 'Pregnancy Due Date Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Due Date Calculator 2026. Calculate your accurate pregnancy due date using Naegele\'s Rule and Mittendorf-Williams standards. Includes trimester timeline and weekly milestones.',
   slug: 'pregnancy-due-date-calculator',
   category: 'health',

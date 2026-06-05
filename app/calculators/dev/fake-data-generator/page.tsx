@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Fake Data Generator Online | TOOLTRIO',
+  title: 'Fake Data Generator Online | ToolTrio',
   description: 'Generate realistic fake names, emails, addresses, phone numbers, UUIDs, and more for testing. Bulk output in JSON or CSV. Runs entirely in your browser.',
   slug: 'fake-data-generator',
   keywords: ['fake data generator online free','test data generator browser','mock user data generator','generate dummy names emails free','random person generator online','lorem ipsum data generator','fake api response generator'],

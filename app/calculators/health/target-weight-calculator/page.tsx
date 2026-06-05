@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Target Weight Calculator 2026 | TOOLTRIO',
+  title: 'Target Weight Calculator 2026 | ToolTrio',
   description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline assessment and safe rate-of-change guidance. Free online target weight calculator 2026. No signup required.',
   slug: 'target-weight-calculator',
   category: 'health',

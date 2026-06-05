@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: 'Image to Base64 Converter Online | TOOLTRIO',
+  title: 'Image to Base64 Converter Online | ToolTrio',
   description: 'Convert images to Base64 data URIs for inline embedding in HTML, CSS, and JavaScript. Supports PNG, JPEG, GIF, SVG, WebP. Runs entirely in your browser.',
   slug: 'image-base64',
   keywords: ['image to base64 online free','base64 image encoder browser','convert image to data uri free','image base64 string generator','inline image base64 tool'],

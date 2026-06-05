@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Age Calculator – Exact Age in Years 2026 | TOOLTRIO',
+  title: 'Age Calculator – Exact Age in Years 2026 | ToolTrio',
   description: 'Free Age Calculator 2026 — Calculate age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
   slug: 'age-calculator',
   category: 'health',

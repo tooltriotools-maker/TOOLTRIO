@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateDevToolMetadata({
-  title: '.gitignore Generator Online | TOOLTRIO',
+  title: '.gitignore Generator Online | ToolTrio',
   description: 'Generate .gitignore files for Node.js, Python, Ruby, Go, Java, macOS, Windows, and more. Select your stack and copy ready-to-use patterns. Runs in your browser.',
   slug: 'gitignore-generator',
   keywords: ['gitignore generator online free','.gitignore file builder browser','gitignore for node python java','create gitignore free online','gitignore template generator'],

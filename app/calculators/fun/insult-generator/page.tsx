@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Shakespearean Insult Generator | TOOLTRIO',
+  title: 'Shakespearean Insult Generator | ToolTrio',
   description: 'Generate dramatic Shakespearean insults, old English roasts, and creative put-downs. Funny, theatrical, and totally harmless. Free online insult generator, no signup.',
   slug: 'insult-generator',
   keywords: [

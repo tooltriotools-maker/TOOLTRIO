@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'PPF Calculator India 2026 | TOOLTRIO',
+ title: 'PPF Calculator India 2026 | ToolTrio',
  description: 'Free PPF calculator India 2026. Calculate PPF maturity value, year-by-year growth, and tax-free returns at 7.1% current rate. Includes partial withdrawal and loan eligibility. Real examples for INR 500-1.5L annual deposits.',
  slug: 'ppf-calculator',
  category: 'finance',

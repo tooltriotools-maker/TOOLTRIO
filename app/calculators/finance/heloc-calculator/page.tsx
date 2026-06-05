@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'HELOC Calculator USA 2026 | TOOLTRIO',
+ title: 'HELOC Calculator USA 2026 | ToolTrio',
  description: 'Free HELOC calculator USA 2026. Calculate your available home equity credit line, monthly interest-only payments, and total borrowing cost. Real examples for $50k-$400k home equity at 2026 HELOC rates.',
  slug: 'heloc-calculator',
  category: 'finance',

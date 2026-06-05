@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Meal Timing Calculator 2026 | TOOLTRIO',
+  title: 'Meal Timing Calculator 2026 | ToolTrio',
   description: 'Calculate optimal meal timing around your workout schedule. Find pre-workout meal timing and composition, post-workout nutrition window, intermittent fasting compatibility, and circadian rhythm-aligned eating schedule. Free online meal timing calculator 2026. No signup required.',
   slug: 'meal-timing-calculator',
   category: 'health',

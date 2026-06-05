@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'Dividend vs Growth Stocks Calculator USA | TOOLTRIO',
+ title: 'Dividend vs Growth Stocks Calculator USA | ToolTrio',
  description: 'Free dividend growth vs growth stocks calculator USA 2026. Compare dividend growth investing (SCHD, VYM) vs growth stocks (QQQ, VUG) on total return, income, and volatility. Real examples for $50k-$500k portfolios.',
  slug: 'dividend-growth-vs-growth-stocks-calculator',
  category: 'finance',

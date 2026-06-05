@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Fixed vs Tracker Mortgage 2026 | TOOLTRIO',
+ title: 'UK Fixed vs Tracker Mortgage 2026 | ToolTrio',
  description: 'Free UK fixed rate vs tracker mortgage calculator 2026. Compare 2-year, 5-year fixed rate vs Bank of England base rate tracker mortgages on total cost and rate risk. Real examples for GBP 150k-500k UK mortgages.',
  slug: 'uk-fixed-rate-vs-tracker-mortgage-calculator',
  category: 'finance',

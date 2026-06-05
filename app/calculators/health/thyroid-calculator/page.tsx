@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Thyroid Health Calculator 2026 | TOOLTRIO',
+  title: 'Thyroid Health Calculator 2026 | ToolTrio',
   description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understand when thyroid function warrants medical evaluation. Free online thyroid calculator 2026. No signup required.',
   slug: 'thyroid-calculator',
   category: 'health',

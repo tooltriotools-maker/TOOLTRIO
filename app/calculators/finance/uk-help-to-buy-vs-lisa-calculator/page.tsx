@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'UK Help to Buy vs LISA Calculator 2026 | TOOLTRIO',
+ title: 'UK Help to Buy vs LISA Calculator 2026 | ToolTrio',
  description: 'Free UK Help to Buy vs Lifetime ISA calculator 2026. Compare government bonuses, property price limits, and flexibility for first-time buyers. Real examples for GBP 20k-40k annual savings toward a first home.',
  slug: 'uk-help-to-buy-vs-lisa-calculator',
  category: 'finance',

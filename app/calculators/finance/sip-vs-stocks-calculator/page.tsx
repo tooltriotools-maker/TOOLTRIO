@@ -9,7 +9,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'SIP vs Stocks Calculator India 2026 | TOOLTRIO',
+ title: 'SIP vs Stocks Calculator India 2026 | ToolTrio',
  description: "Free SIP vs direct stocks calculator India 2026. Compare equity mutual fund SIP vs direct stock investing on returns, risk, and effort. Based on SEBI data on active vs passive investing outcomes. Real examples for INR 5k-50k monthly investments.",
  slug: 'sip-vs-stocks-calculator',
  category: 'finance',
