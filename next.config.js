@@ -7,12 +7,12 @@ const nextConfig = {
   poweredByHeader: false,
   trailingSlash:   false,
   reactStrictMode: false,
-  swcMinify:       true,   // faster minification
+  swcMinify:       true,
 
   experimental: {
-    webpackBuildWorker:              false, // Node 24 fix
+    webpackBuildWorker:              false,
     serverComponentsExternalPackages: ['fs', 'path'],
-    optimizePackageImports: [          // tree-shake large packages
+    optimizePackageImports: [
       'lucide-react',
       'recharts',
       '@/components/ui',
@@ -27,8 +27,6 @@ const nextConfig = {
       }
     }
 
-    // Split recharts + d3 into a single shared chunk
-    // This chunk is loaded ONCE and cached across all 178 calculator pages
     if (!isServer) {
       config.optimization = {
         ...config.optimization,
@@ -59,7 +57,6 @@ const nextConfig = {
             },
           },
         },
-        // Only disable concatenateModules in dev (Node 24 fix)
         ...(dev ? { concatenateModules: false } : {}),
       }
     }
@@ -83,12 +80,6 @@ const nextConfig = {
         ],
       },
       {
-        source: '/_next/static/chunks/recharts-bundle:hash*.js',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-        ],
-      },
-      {
         source: '/(.*)',
         headers: [
           { key: 'X-Content-Type-Options',  value: 'nosniff' },
@@ -103,6 +94,22 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // ── CRITICAL: www → non-www (fixes ALL duplicate page issues) ──────────
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.tooltrio.com' }],
+        destination: 'https://tooltrio.com/:path*',
+        permanent: true, // 301 redirect
+      },
+      // ── CRITICAL: http → https (fixes insecure URL duplicates) ────────────
+      {
+        source: '/:path*',
+        has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+        destination: 'https://tooltrio.com/:path*',
+        permanent: true,
+      },
+
+      // ── Trailing slash removal ─────────────────────────────────────────────
       { source: '/calculators/finance/:path*/', destination: '/calculators/finance/:path*', permanent: true },
       { source: '/calculators/health/:path*/',  destination: '/calculators/health/:path*',  permanent: true },
       { source: '/calculators/dev/:path*/',     destination: '/calculators/dev/:path*',     permanent: true },
@@ -113,6 +120,10 @@ const nextConfig = {
       { source: '/blog/',                       destination: '/blog',                        permanent: true },
       { source: '/commodities/:path*/',         destination: '/commodities/:path*',          permanent: true },
       { source: '/commodities/',                destination: '/commodities',                 permanent: true },
+      { source: '/zip/:path*/',                 destination: '/zip/:path*',                  permanent: true },
+      { source: '/zip/',                        destination: '/zip',                         permanent: true },
+
+      // ── Pregnancy duplicate redirect ───────────────────────────────────────
       { source: '/calculators/health/pregnancy-due-date-calculator',  destination: '/calculators/health/pregnancy-calculator', permanent: true },
       { source: '/calculators/health/pregnancy-due-date-calculator/', destination: '/calculators/health/pregnancy-calculator', permanent: true },
     ]

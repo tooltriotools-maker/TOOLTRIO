@@ -2,7 +2,11 @@ import { MetadataRoute } from 'next'
 import { allBlogPosts, blogCategories } from '@/lib/blog/posts'
 
 const BASE = 'https://tooltrio.com'
+// Use stable dates for static pages - prevents Google thinking ALL pages
+// changed on every build (which wastes crawl budget and confuses change signals)
 const now = new Date().toISOString()
+const STABLE_DATE = '2026-05-01T00:00:00.000Z'   // site launch date
+const CALC_DATE   = '2026-05-15T00:00:00.000Z'   // calculators published
 
 // ── USA Finance calculator slugs ──────────────────────────────────────────────
 const financeCalcsUSA = [
@@ -193,11 +197,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/zip`,                      lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
     { url: `${BASE}/commodities`,              lastModified: now, changeFrequency: 'weekly',  priority: 0.85 },
     { url: `${BASE}/blog`,                     lastModified: now, changeFrequency: 'weekly',  priority: 0.90 },
-    { url: `${BASE}/about`,                    lastModified: now, changeFrequency: 'monthly', priority: 0.70 },
-    { url: `${BASE}/methodology`,              lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/contact`,                  lastModified: now, changeFrequency: 'monthly', priority: 0.60 },
-    { url: `${BASE}/privacy-policy`,           lastModified: now, changeFrequency: 'yearly',  priority: 0.40 },
-    { url: `${BASE}/disclaimer`,               lastModified: now, changeFrequency: 'yearly',  priority: 0.40 },
+    { url: `${BASE}/about`,                    lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.70 },
+    { url: `${BASE}/methodology`,              lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/contact`,                  lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.60 },
+    { url: `${BASE}/privacy-policy`,           lastModified: STABLE_DATE, changeFrequency: 'yearly',  priority: 0.40 },
+    { url: `${BASE}/disclaimer`,               lastModified: STABLE_DATE, changeFrequency: 'yearly',  priority: 0.40 },
 
     // ── Finance calculators ─────────────────────────────────────────────────
     ...financeCalcsUSA.map(slug => ({
