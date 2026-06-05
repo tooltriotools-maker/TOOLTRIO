@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -110,10 +110,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Due Date Calculator', description: 'Calculate your estimated due date (EDD) using last menstrual period (LMP), known conception date, or ultrasound measurements. Includes pregnancy week ', url: 'https://tooltrio.com/calculators/health/due-date-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Due Date Calculator', description: 'Calculate your estimated due date (EDD) using last menstrual period (LMP), known conception date, or ultrasound measurements. Includes pregnancy week ', url: 'https://tooltrio.com/calculators/health/due-date-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Due Date Calculator', url: '/calculators/health/due-date-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Due Date Calculator', description: 'Calculate your estimated due date (EDD) using last menstrual period (LMP), known conception date, or ultrasound measurements. Includes pregnancy week ', url: 'https://tooltrio.com/calculators/health/due-date-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

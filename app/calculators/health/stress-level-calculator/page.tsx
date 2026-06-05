@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -121,10 +121,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Stress Level Calculator', description: 'Calculate your stress level using the validated Perceived Stress Scale (PSS-10). Assess cumulative life stressors, physiological stress markers, and g', url: 'https://tooltrio.com/calculators/health/stress-level-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Stress Level Calculator', description: 'Calculate your stress level using the validated Perceived Stress Scale (PSS-10). Assess cumulative life stressors, physiological stress markers, and g', url: 'https://tooltrio.com/calculators/health/stress-level-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Stress Level Calculator', url: '/calculators/health/stress-level-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Stress Level Calculator', description: 'Calculate your stress level using the validated Perceived Stress Scale (PSS-10). Assess cumulative life stressors, physiological stress markers, and g', url: 'https://tooltrio.com/calculators/health/stress-level-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

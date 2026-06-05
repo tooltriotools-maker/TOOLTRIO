@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [weight, height, age, gender, activity, goal, unit])
 
   return (
-    <CalculatorLayout title="Macro Calculator" description="Calculate your daily protein, carbs, and fat targets for weight loss, muscle gain, or maintenance based on your TDEE." icon="🥗" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Macro Calculator" description="Calculate your daily protein, carbs, and fat targets for weight loss, muscle gain, or maintenance based on your TDEE." icon="🥗" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="macro-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Profile</h2>

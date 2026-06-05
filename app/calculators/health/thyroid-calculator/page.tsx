@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Thyroid Health Calculator', description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understan', url: 'https://tooltrio.com/calculators/health/thyroid-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Thyroid Health Calculator', description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understan', url: 'https://tooltrio.com/calculators/health/thyroid-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Thyroid Health Calculator', url: '/calculators/health/thyroid-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Thyroid Health Calculator', description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understan', url: 'https://tooltrio.com/calculators/health/thyroid-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

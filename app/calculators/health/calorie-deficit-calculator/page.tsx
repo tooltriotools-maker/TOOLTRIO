@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -123,10 +123,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Calorie Deficit Calculator', description: 'Calculate the exact daily calorie deficit needed to reach your goal weight by your target date. Based on your TDEE and current vs target weight. Shows', url: 'https://tooltrio.com/calculators/health/calorie-deficit-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Calorie Deficit Calculator', description: 'Calculate the exact daily calorie deficit needed to reach your goal weight by your target date. Based on your TDEE and current vs target weight. Shows', url: 'https://tooltrio.com/calculators/health/calorie-deficit-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Calorie Deficit Calculator', url: '/calculators/health/calorie-deficit-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Calorie Deficit Calculator', description: 'Calculate the exact daily calorie deficit needed to reach your goal weight by your target date. Based on your TDEE and current vs target weight. Shows', url: 'https://tooltrio.com/calculators/health/calorie-deficit-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Gratitude Practice Health Impact Calculator', description: 'Calculate the estimated health benefits of a consistent gratitude practice based on frequency, depth, and duration. Based on research showing gratitud', url: 'https://tooltrio.com/calculators/health/gratitude-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Gratitude Practice Health Impact Calculator', description: 'Calculate the estimated health benefits of a consistent gratitude practice based on frequency, depth, and duration. Based on research showing gratitud', url: 'https://tooltrio.com/calculators/health/gratitude-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Gratitude Practice Health Impact Calculator', url: '/calculators/health/gratitude-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Gratitude Practice Health Impact Calculator', description: 'Calculate the estimated health benefits of a consistent gratitude practice based on frequency, depth, and duration. Based on research showing gratitud', url: 'https://tooltrio.com/calculators/health/gratitude-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

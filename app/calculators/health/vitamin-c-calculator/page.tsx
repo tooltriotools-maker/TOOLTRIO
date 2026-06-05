@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Vitamin C Calculator', description: 'Calculate your daily vitamin C requirements based on age, sex, smoking status, and health goals. Find optimal doses for immune support versus disease ', url: 'https://tooltrio.com/calculators/health/vitamin-c-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Vitamin C Calculator', description: 'Calculate your daily vitamin C requirements based on age, sex, smoking status, and health goals. Find optimal doses for immune support versus disease ', url: 'https://tooltrio.com/calculators/health/vitamin-c-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Vitamin C Calculator', url: '/calculators/health/vitamin-c-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Vitamin C Calculator', description: 'Calculate your daily vitamin C requirements based on age, sex, smoking status, and health goals. Find optimal doses for immune support versus disease ', url: 'https://tooltrio.com/calculators/health/vitamin-c-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

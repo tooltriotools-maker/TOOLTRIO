@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const standard = orm/bodyWeight > 2 ? 'Elite' : orm/bodyWeight > 1.75 ? 'Advanced' : orm/bodyWeight > 1.5 ? 'Intermediate' : orm/bodyWeight > 1 ? 'Beginner' : 'Novice'
 
   return (
-    <CalculatorLayout title="Squat Calculator" description="Calculate your squat one-rep max and strength standards using proven formulas." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Squat Calculator" description="Calculate your squat one-rep max and strength standards using proven formulas." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="squat-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Lift</h2>

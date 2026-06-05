@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const risk = totalRisk >= 70 ? {l:'High Health Risk',c:'text-red-600'} : totalRisk >= 40 ? {l:'Moderate Risk',c:'text-orange-600'} : {l:'Manageable Risk',c:'text-yellow-600'}
 
   return (
-    <CalculatorLayout title="Shift Work Health Calculator" description="Assess the health risks of shift work and get evidence-based strategies to minimise impact." icon="🌙" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Shift Work Health Calculator" description="Assess the health risks of shift work and get evidence-based strategies to minimise impact." icon="🌙" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="shift-work-health-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Work Pattern</h2>

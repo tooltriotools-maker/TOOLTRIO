@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="Government Bond Calculator USA 2026" description="Calculate yield to maturity, current yield, bond price, and duration for any government bond." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Government Bond Calculator USA 2026" description="Calculate yield to maturity, current yield, bond price, and duration for any government bond." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="government-bond-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Bond Details</h2>

@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const phaseColors: Record<string,string> = {inhale:'text-blue-600',hold1:'text-yellow-600',exhale:'text-green-600',hold2:'text-purple-600'}
 
   return (
-    <CalculatorLayout title="Breathing Exercise Calculator" description="Practice guided breathing exercises for stress relief, focus, and sleep with customisable timing." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Breathing Exercise Calculator" description="Practice guided breathing exercises for stress relief, focus, and sleep with customisable timing." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="breathing-exercise-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Exercise Settings</h2>

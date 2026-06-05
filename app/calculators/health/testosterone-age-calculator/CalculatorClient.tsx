@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     : ['Fatigue', 'Low libido', 'Mood changes', 'Irregular periods', 'Reduced bone density']
 
   return (
-    <CalculatorLayout title="Testosterone Age Calculator" description="Estimate how your lifestyle affects testosterone levels relative to age-based norms." icon="⚡" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Testosterone Age Calculator" description="Estimate how your lifestyle affects testosterone levels relative to age-based norms." icon="⚡" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="testosterone-age-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

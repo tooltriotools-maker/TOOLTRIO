@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -136,10 +136,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Heart Rate Calculator', description: 'Calculate maximum heart rate, target training zones (fat burn, cardio, peak), and estimated VO2max from resting heart rate. Uses age-predicted formulas and Karv', url: 'https://tooltrio.com/calculators/health/heart-rate-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Heart Rate Calculator', description: 'Calculate maximum heart rate, target training zones (fat burn, cardio, peak), and estimated VO2max from resting heart rate. Uses age-predicted formulas and Karv', url: 'https://tooltrio.com/calculators/health/heart-rate-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Heart Rate Calculator', url: '/calculators/health/heart-rate-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Heart Rate Calculator', description: 'Calculate maximum heart rate, target training zones (fat burn, cardio, peak), and estimated VO2max from resting heart rate. Uses age-predicted formulas and Karv', url: 'https://tooltrio.com/calculators/health/heart-rate-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

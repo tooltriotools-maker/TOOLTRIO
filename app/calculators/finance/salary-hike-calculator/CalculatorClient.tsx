@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const result = useMemo(() => calculateSalaryHike(currentSalary, hikePercent, years, annualHike, inflation), [currentSalary, hikePercent, years, annualHike, inflation])
 
   return (
-    <CalculatorLayout title="Salary Hike Calculator USA 2026" description="Calculate the exact after-tax impact of any salary raise and its lifetime investment value." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Salary Hike Calculator USA 2026" description="Calculate the exact after-tax impact of any salary raise and its lifetime investment value." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="salary-hike-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Salary Details</h2>

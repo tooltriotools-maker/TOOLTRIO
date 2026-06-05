@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Yoga Calorie Calculator', description: 'Calculate calories burned during different yoga styles based on body weight, session duration, and practice intensity. Compare calorie burn across yog', url: 'https://tooltrio.com/calculators/health/yoga-calories-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Yoga Calorie Calculator', description: 'Calculate calories burned during different yoga styles based on body weight, session duration, and practice intensity. Compare calorie burn across yog', url: 'https://tooltrio.com/calculators/health/yoga-calories-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Yoga Calorie Calculator', url: '/calculators/health/yoga-calories-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Yoga Calorie Calculator', description: 'Calculate calories burned during different yoga styles based on body weight, session duration, and practice intensity. Compare calorie burn across yog', url: 'https://tooltrio.com/calculators/health/yoga-calories-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

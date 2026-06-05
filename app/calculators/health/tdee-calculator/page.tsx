@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -62,10 +62,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'TDEE Calculator', description: 'Calculate your Total Daily Energy Expenditure (TDEE) using BMR and activity factors. Find your true maintenance calories using Mifflin-St Jeor or Katch-McArdle ', url: 'https://tooltrio.com/calculators/health/tdee-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'TDEE Calculator', description: 'Calculate your Total Daily Energy Expenditure (TDEE) using BMR and activity factors. Find your true maintenance calories using Mifflin-St Jeor or Katch-McArdle ', url: 'https://tooltrio.com/calculators/health/tdee-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'TDEE Calculator', url: '/calculators/health/tdee-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'TDEE Calculator', description: 'Calculate your Total Daily Energy Expenditure (TDEE) using BMR and activity factors. Find your true maintenance calories using Mifflin-St Jeor or Katch-McArdle ', url: 'https://tooltrio.com/calculators/health/tdee-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
         title: 'TDEE Calculator 2026',

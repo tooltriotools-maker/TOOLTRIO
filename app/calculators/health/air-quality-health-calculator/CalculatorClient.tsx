@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const recommendation = aqi <= 50 ? 'Great day for outdoor exercise!' : aqi <= 100 ? 'Unusually sensitive people should consider reducing prolonged outdoor exertion.' : aqi <= 150 ? 'Reduce prolonged outdoor exertion. Take more breaks.' : aqi <= 200 ? 'Avoid prolonged outdoor exertion. Move activities indoors.' : 'Avoid all outdoor activity. Keep windows closed.'
 
   return (
-    <CalculatorLayout title="Air Quality Health Calculator" description="Understand how air quality index (AQI) affects your health and get personalised recommendations." icon="🌬️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Air Quality Health Calculator" description="Understand how air quality index (AQI) affects your health and get personalised recommendations." icon="🌬️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="air-quality-health-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Settings</h2>

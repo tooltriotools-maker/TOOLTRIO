@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const melatoninTime = direction === 'east' ? 'Take 0.5-5mg melatonin at destination bedtime (9-11pm local)' : 'Avoid melatonin; use light exposure to advance your clock'
 
   return (
-    <CalculatorLayout title="Jet Lag Calculator" description="Calculate jet lag severity and recovery time based on time zones crossed and travel direction." icon="✈️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Jet Lag Calculator" description="Calculate jet lag severity and recovery time based on time zones crossed and travel direction." icon="✈️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="jet-lag-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Flight Details</h2>

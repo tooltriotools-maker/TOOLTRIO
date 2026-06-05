@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="401k Early Withdrawal vs Loan Calculator USA 2026" description="Compare the true cost of cashing out vs borrowing from your 401k — taxes, penalties, and lost growth included." icon="💸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="401k Early Withdrawal vs Loan Calculator USA 2026" description="Compare the true cost of cashing out vs borrowing from your 401k — taxes, penalties, and lost growth included." icon="💸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-early-withdrawal-vs-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

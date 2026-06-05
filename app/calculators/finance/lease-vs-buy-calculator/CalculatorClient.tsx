@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const winnerSaving = r.saving
 
   return (
-    <CalculatorLayout title="Lease vs Buy Car Calculator USA 2026" description="Compare total 5-year cost of leasing vs financing a vehicle including residual value and fees." icon="🚘" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Lease vs Buy Car Calculator USA 2026" description="Compare total 5-year cost of leasing vs financing a vehicle including residual value and fees." icon="🚘" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="lease-vs-buy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* Inputs */}

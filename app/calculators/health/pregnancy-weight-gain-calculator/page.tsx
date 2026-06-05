@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Pregnancy Weight Gain Calculator', description: 'Calculate recommended pregnancy weight gain based on your pre-pregnancy BMI. See trimester-specific weight gain targets, weekly gain patterns, and und', url: 'https://tooltrio.com/calculators/health/pregnancy-weight-gain-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Pregnancy Weight Gain Calculator', description: 'Calculate recommended pregnancy weight gain based on your pre-pregnancy BMI. See trimester-specific weight gain targets, weekly gain patterns, and und', url: 'https://tooltrio.com/calculators/health/pregnancy-weight-gain-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Pregnancy Weight Gain Calculator', url: '/calculators/health/pregnancy-weight-gain-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Pregnancy Weight Gain Calculator', description: 'Calculate recommended pregnancy weight gain based on your pre-pregnancy BMI. See trimester-specific weight gain targets, weekly gain patterns, and und', url: 'https://tooltrio.com/calculators/health/pregnancy-weight-gain-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

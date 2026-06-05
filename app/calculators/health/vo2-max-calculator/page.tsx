@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'VO2 Max Calculator', description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic f', url: 'https://tooltrio.com/calculators/health/vo2-max-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'VO2 Max Calculator', description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic f', url: 'https://tooltrio.com/calculators/health/vo2-max-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'VO2 Max Calculator', url: '/calculators/health/vo2-max-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'VO2 Max Calculator', description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic f', url: 'https://tooltrio.com/calculators/health/vo2-max-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -103,10 +103,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Cold Shower Benefits Calculator', description: 'Calculate your cold shower benefit score based on temperature, duration, consistency, and adaptation level. See how cold showers affect energy, mood, ', url: 'https://tooltrio.com/calculators/health/cold-shower-benefits-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Cold Shower Benefits Calculator', description: 'Calculate your cold shower benefit score based on temperature, duration, consistency, and adaptation level. See how cold showers affect energy, mood, ', url: 'https://tooltrio.com/calculators/health/cold-shower-benefits-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Cold Shower Benefits Calculator', url: '/calculators/health/cold-shower-benefits-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Cold Shower Benefits Calculator', description: 'Calculate your cold shower benefit score based on temperature, duration, consistency, and adaptation level. See how cold showers affect energy, mood, ', url: 'https://tooltrio.com/calculators/health/cold-shower-benefits-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Flexibility Calculator', description: 'Assess your flexibility level based on sit-and-reach, shoulder mobility, hip flexor length, and hamstring flexibility tests. Get a personalized stretc', url: 'https://tooltrio.com/calculators/health/flexibility-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Flexibility Calculator', description: 'Assess your flexibility level based on sit-and-reach, shoulder mobility, hip flexor length, and hamstring flexibility tests. Get a personalized stretc', url: 'https://tooltrio.com/calculators/health/flexibility-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Flexibility Calculator', url: '/calculators/health/flexibility-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Flexibility Calculator', description: 'Assess your flexibility level based on sit-and-reach, shoulder mobility, hip flexor length, and hamstring flexibility tests. Get a personalized stretc', url: 'https://tooltrio.com/calculators/health/flexibility-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

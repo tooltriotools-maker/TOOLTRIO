@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sleep Need Calculator', description: 'Calculate your personal optimal sleep duration based on age (NSF recommendations), chronotype (morning/evening preference), weekday vs weekend sleep d', url: 'https://tooltrio.com/calculators/health/sleep-need-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sleep Need Calculator', description: 'Calculate your personal optimal sleep duration based on age (NSF recommendations), chronotype (morning/evening preference), weekday vs weekend sleep d', url: 'https://tooltrio.com/calculators/health/sleep-need-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sleep Need Calculator', url: '/calculators/health/sleep-need-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sleep Need Calculator', description: 'Calculate your personal optimal sleep duration based on age (NSF recommendations), chronotype (morning/evening preference), weekday vs weekend sleep d', url: 'https://tooltrio.com/calculators/health/sleep-need-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

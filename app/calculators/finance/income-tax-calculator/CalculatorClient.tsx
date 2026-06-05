@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Income Tax Calculator USA 2026" description="Calculate your federal income tax, effective rate, and marginal bracket with 2026 IRS brackets." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Income Tax Calculator USA 2026" description="Calculate your federal income tax, effective rate, and marginal bracket with 2026 IRS brackets." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Tax Details - FY 2026-27</h2>

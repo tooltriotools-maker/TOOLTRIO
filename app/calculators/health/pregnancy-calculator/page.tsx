@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Pregnancy Calculator', description: 'Calculate your due date and current pregnancy week. See developmental milestones week by week, trimester breakdowns, and key medical appointment timin', url: 'https://tooltrio.com/calculators/health/pregnancy-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Pregnancy Calculator', description: 'Calculate your due date and current pregnancy week. See developmental milestones week by week, trimester breakdowns, and key medical appointment timin', url: 'https://tooltrio.com/calculators/health/pregnancy-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Pregnancy Calculator', url: '/calculators/health/pregnancy-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Pregnancy Calculator', description: 'Calculate your due date and current pregnancy week. See developmental milestones week by week, trimester breakdowns, and key medical appointment timin', url: 'https://tooltrio.com/calculators/health/pregnancy-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

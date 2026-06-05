@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [age,gender,systolic,cholesterol,hdl,smoker,diabetic,hypertensionMeds,bmi,exerciseDays,familyHistory])
 
   return (
-    <CalculatorLayout title="Heart Age Calculator" description="Find out if your heart is older or younger than your real age based on your cardiovascular risk factors." icon="❤️‍🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Heart Age Calculator" description="Find out if your heart is older or younger than your real age based on your cardiovascular risk factors." icon="❤️‍🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="heart-age-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Risk Factors</h2>

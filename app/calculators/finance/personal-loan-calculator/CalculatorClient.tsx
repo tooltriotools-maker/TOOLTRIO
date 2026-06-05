@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Personal Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and amortization for any personal loan." icon="💳" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Personal Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and amortization for any personal loan." icon="💳" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="personal-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Loan Details</h2>

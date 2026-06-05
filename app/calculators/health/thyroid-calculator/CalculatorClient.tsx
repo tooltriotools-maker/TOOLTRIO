@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const symptomMatch = tsh > 4 && hypoSymptoms >= 2 ? 'Symptoms consistent with hypothyroidism - discuss with GP' : tsh < 0.4 && hyperSymptoms >= 1 ? 'Symptoms consistent with hyperthyroidism - discuss with GP' : 'Symptoms do not strongly align with TSH result'
 
   return (
-    <CalculatorLayout title="Thyroid Health Calculator" description="Interpret your TSH level, assess thyroid symptoms, and understand what the results might mean." icon="🦋" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Thyroid Health Calculator" description="Interpret your TSH level, assess thyroid symptoms, and understand what the results might mean." icon="🦋" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="thyroid-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>

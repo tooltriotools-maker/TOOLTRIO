@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Body Recomposition Calculator', description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support s', url: 'https://tooltrio.com/calculators/health/body-recomposition-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Body Recomposition Calculator', description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support s', url: 'https://tooltrio.com/calculators/health/body-recomposition-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Body Recomposition Calculator', url: '/calculators/health/body-recomposition-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Body Recomposition Calculator', description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support s', url: 'https://tooltrio.com/calculators/health/body-recomposition-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

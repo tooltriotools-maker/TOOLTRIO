@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Loneliness Health Impact Calculator', description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social suppo', url: 'https://tooltrio.com/calculators/health/loneliness-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Loneliness Health Impact Calculator', description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social suppo', url: 'https://tooltrio.com/calculators/health/loneliness-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Loneliness Health Impact Calculator', url: '/calculators/health/loneliness-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Loneliness Health Impact Calculator', description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social suppo', url: 'https://tooltrio.com/calculators/health/loneliness-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

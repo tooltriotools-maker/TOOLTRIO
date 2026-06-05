@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -116,10 +116,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'BAC Calculator', description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how B', url: 'https://tooltrio.com/calculators/health/bac-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'BAC Calculator', description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how B', url: 'https://tooltrio.com/calculators/health/bac-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'BAC Calculator', url: '/calculators/health/bac-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'BAC Calculator', description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how B', url: 'https://tooltrio.com/calculators/health/bac-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

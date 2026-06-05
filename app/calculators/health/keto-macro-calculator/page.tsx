@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Keto Macro Calculator', description: 'Calculate ketogenic diet macros including net carb target (20-50g), protein allocation to prevent muscle loss, and fat for remaining calories. Find yo', url: 'https://tooltrio.com/calculators/health/keto-macro-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Keto Macro Calculator', description: 'Calculate ketogenic diet macros including net carb target (20-50g), protein allocation to prevent muscle loss, and fat for remaining calories. Find yo', url: 'https://tooltrio.com/calculators/health/keto-macro-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Keto Macro Calculator', url: '/calculators/health/keto-macro-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Keto Macro Calculator', description: 'Calculate ketogenic diet macros including net carb target (20-50g), protein allocation to prevent muscle loss, and fat for remaining calories. Find yo', url: 'https://tooltrio.com/calculators/health/keto-macro-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

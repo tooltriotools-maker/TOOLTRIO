@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -123,10 +123,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Macro Calculator', description: 'Calculate your daily macronutrient targets — protein, carbohydrates, and fat — based on your TDEE and specific goal. Supports fat loss, muscle buildin', url: 'https://tooltrio.com/calculators/health/macro-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Macro Calculator', description: 'Calculate your daily macronutrient targets — protein, carbohydrates, and fat — based on your TDEE and specific goal. Supports fat loss, muscle buildin', url: 'https://tooltrio.com/calculators/health/macro-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Macro Calculator', url: '/calculators/health/macro-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Macro Calculator', description: 'Calculate your daily macronutrient targets — protein, carbohydrates, and fat — based on your TDEE and specific goal. Supports fat loss, muscle buildin', url: 'https://tooltrio.com/calculators/health/macro-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

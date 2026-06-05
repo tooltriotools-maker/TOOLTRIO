@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Protein Per Meal Calculator', description: 'Calculate the ideal protein amount per meal based on your total daily protein target, number of meals, and body weight. Understand the 0.4 g/kg per me', url: 'https://tooltrio.com/calculators/health/protein-per-meal-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Protein Per Meal Calculator', description: 'Calculate the ideal protein amount per meal based on your total daily protein target, number of meals, and body weight. Understand the 0.4 g/kg per me', url: 'https://tooltrio.com/calculators/health/protein-per-meal-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Protein Per Meal Calculator', url: '/calculators/health/protein-per-meal-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Protein Per Meal Calculator', description: 'Calculate the ideal protein amount per meal based on your total daily protein target, number of meals, and body weight. Understand the 0.4 g/kg per me', url: 'https://tooltrio.com/calculators/health/protein-per-meal-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

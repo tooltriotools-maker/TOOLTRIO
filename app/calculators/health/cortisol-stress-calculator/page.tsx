@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Cortisol & Stress Calculator', description: 'Assess your chronic cortisol load and stress-related health risk based on sleep quality, exercise, diet, work hours, and life stressors. Get personali', url: 'https://tooltrio.com/calculators/health/cortisol-stress-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Cortisol & Stress Calculator', description: 'Assess your chronic cortisol load and stress-related health risk based on sleep quality, exercise, diet, work hours, and life stressors. Get personali', url: 'https://tooltrio.com/calculators/health/cortisol-stress-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Cortisol & Stress Calculator', url: '/calculators/health/cortisol-stress-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Cortisol & Stress Calculator', description: 'Assess your chronic cortisol load and stress-related health risk based on sleep quality, exercise, diet, work hours, and life stressors. Get personali', url: 'https://tooltrio.com/calculators/health/cortisol-stress-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

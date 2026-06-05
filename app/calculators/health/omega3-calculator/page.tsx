@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Omega-3 Calculator', description: 'Calculate your daily EPA and DHA omega-3 requirements based on health goals including heart health, inflammation reduction, brain function, and pregna', url: 'https://tooltrio.com/calculators/health/omega3-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Omega-3 Calculator', description: 'Calculate your daily EPA and DHA omega-3 requirements based on health goals including heart health, inflammation reduction, brain function, and pregna', url: 'https://tooltrio.com/calculators/health/omega3-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Omega-3 Calculator', url: '/calculators/health/omega3-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Omega-3 Calculator', description: 'Calculate your daily EPA and DHA omega-3 requirements based on health goals including heart health, inflammation reduction, brain function, and pregna', url: 'https://tooltrio.com/calculators/health/omega3-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

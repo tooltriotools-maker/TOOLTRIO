@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Pregnancy Nutrition Calculator', description: 'Calculate your additional calorie, protein, iron, folate, calcium, and DHA needs for each trimester of pregnancy. Get trimester-specific nutritional g', url: 'https://tooltrio.com/calculators/health/pregnancy-nutrition-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Pregnancy Nutrition Calculator', description: 'Calculate your additional calorie, protein, iron, folate, calcium, and DHA needs for each trimester of pregnancy. Get trimester-specific nutritional g', url: 'https://tooltrio.com/calculators/health/pregnancy-nutrition-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Pregnancy Nutrition Calculator', url: '/calculators/health/pregnancy-nutrition-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Pregnancy Nutrition Calculator', description: 'Calculate your additional calorie, protein, iron, folate, calcium, and DHA needs for each trimester of pregnancy. Get trimester-specific nutritional g', url: 'https://tooltrio.com/calculators/health/pregnancy-nutrition-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

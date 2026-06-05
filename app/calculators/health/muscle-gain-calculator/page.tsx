@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Muscle Gain Calculator', description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates ', url: 'https://tooltrio.com/calculators/health/muscle-gain-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Muscle Gain Calculator', description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates ', url: 'https://tooltrio.com/calculators/health/muscle-gain-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Muscle Gain Calculator', url: '/calculators/health/muscle-gain-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Muscle Gain Calculator', description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates ', url: 'https://tooltrio.com/calculators/health/muscle-gain-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

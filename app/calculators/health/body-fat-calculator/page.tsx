@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -60,10 +60,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Body Fat Calculator', description: 'Calculate your body fat percentage using the US Navy circumference method, BMI-based estimate, and athlete formulas. See fat mass vs lean mass, health risk cate', url: 'https://tooltrio.com/calculators/health/body-fat-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Body Fat Calculator', description: 'Calculate your body fat percentage using the US Navy circumference method, BMI-based estimate, and athlete formulas. See fat mass vs lean mass, health risk cate', url: 'https://tooltrio.com/calculators/health/body-fat-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Body Fat Calculator', url: '/calculators/health/body-fat-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Body Fat Calculator', description: 'Calculate your body fat percentage using the US Navy circumference method, BMI-based estimate, and athlete formulas. See fat mass vs lean mass, health risk cate', url: 'https://tooltrio.com/calculators/health/body-fat-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
         title: 'Body Fat Calculator 2026',

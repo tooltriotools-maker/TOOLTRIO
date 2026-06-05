@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Swimming Calories Calculator', description: 'Calculate calories burned swimming based on stroke type (freestyle, backstroke, breaststroke, butterfly), distance, duration, intensity, and body weig', url: 'https://tooltrio.com/calculators/health/swimming-calories-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Swimming Calories Calculator', description: 'Calculate calories burned swimming based on stroke type (freestyle, backstroke, breaststroke, butterfly), distance, duration, intensity, and body weig', url: 'https://tooltrio.com/calculators/health/swimming-calories-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Swimming Calories Calculator', url: '/calculators/health/swimming-calories-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Swimming Calories Calculator', description: 'Calculate calories burned swimming based on stroke type (freestyle, backstroke, breaststroke, butterfly), distance, duration, intensity, and body weig', url: 'https://tooltrio.com/calculators/health/swimming-calories-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

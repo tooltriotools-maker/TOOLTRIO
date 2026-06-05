@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const activityOptions = Object.entries(ACTIVITIES).map(([k,v]) => ({value:k, label:`${v.icon} ${v.label}`}))
 
   return (
-    <CalculatorLayout title="Calories Burned Calculator" description="Calculate calories burned for any exercise using MET values. Accurate calorie expenditure for workouts and daily activities." icon="🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Calories Burned Calculator" description="Calculate calories burned for any exercise using MET values. Accurate calorie expenditure for workouts and daily activities." icon="🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calories-burned-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

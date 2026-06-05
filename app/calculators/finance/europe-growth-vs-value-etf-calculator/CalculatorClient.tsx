@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Europe Growth vs Value ETF Calculator 2026" description="Compare European growth ETFs vs value ETFs on historical returns and dividend yield." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Europe Growth vs Value ETF Calculator 2026" description="Compare European growth ETFs vs value ETFs on historical returns and dividend yield." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="europe-growth-vs-value-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

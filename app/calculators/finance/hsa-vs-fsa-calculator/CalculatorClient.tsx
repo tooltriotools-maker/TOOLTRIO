@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [annualContrib, medicalExpenses, taxRate, returnRate, years])
 
   return (
-    <CalculatorLayout title="HSA vs FSA Calculator USA 2026" description="Compare Health Savings Account vs Flexible Spending Account tax savings, limits, and rollover rules." icon="🏥" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="HSA vs FSA Calculator USA 2026" description="Compare Health Savings Account vs Flexible Spending Account tax savings, limits, and rollover rules." icon="🏥" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hsa-vs-fsa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Account Details</h2>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Hydration Calculator', description: 'Calculate pre-, during-, and post-exercise hydration needs based on body weight, exercise duration, intensity, and environmental conditions. Designed ', url: 'https://tooltrio.com/calculators/health/hydration-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Hydration Calculator', description: 'Calculate pre-, during-, and post-exercise hydration needs based on body weight, exercise duration, intensity, and environmental conditions. Designed ', url: 'https://tooltrio.com/calculators/health/hydration-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Hydration Calculator', url: '/calculators/health/hydration-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Hydration Calculator', description: 'Calculate pre-, during-, and post-exercise hydration needs based on body weight, exercise duration, intensity, and environmental conditions. Designed ', url: 'https://tooltrio.com/calculators/health/hydration-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

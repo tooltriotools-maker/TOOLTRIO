@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Creatine Dosage Calculator', description: 'Calculate your optimal creatine monohydrate dose for loading (20g/day for 5 days) or maintenance (3-5g/day) phases based on body weight. Compare loadi', url: 'https://tooltrio.com/calculators/health/creatine-dosage-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Creatine Dosage Calculator', description: 'Calculate your optimal creatine monohydrate dose for loading (20g/day for 5 days) or maintenance (3-5g/day) phases based on body weight. Compare loadi', url: 'https://tooltrio.com/calculators/health/creatine-dosage-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Creatine Dosage Calculator', url: '/calculators/health/creatine-dosage-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Creatine Dosage Calculator', description: 'Calculate your optimal creatine monohydrate dose for loading (20g/day for 5 days) or maintenance (3-5g/day) phases based on body weight. Compare loadi', url: 'https://tooltrio.com/calculators/health/creatine-dosage-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

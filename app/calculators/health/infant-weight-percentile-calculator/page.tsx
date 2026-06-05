@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Infant Weight & Height Percentile Calculator', description: 'Calculate baby weight, height, and head circumference percentile using WHO and CDC growth charts. Track development from birth to 24 months.', url: 'https://tooltrio.com/calculators/health/infant-weight-percentile-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Infant Weight & Height Percentile Calculator', description: 'Calculate baby weight, height, and head circumference percentile using WHO and CDC growth charts. Track development from birth to 24 months.', url: 'https://tooltrio.com/calculators/health/infant-weight-percentile-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Infant Weight & Height Percentile Calculator', url: '/calculators/health/infant-weight-percentile-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Infant Weight & Height Percentile Calculator', description: 'Calculate baby weight, height, and head circumference percentile using WHO and CDC growth charts. Track development from birth to 24 months.', url: 'https://tooltrio.com/calculators/health/infant-weight-percentile-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

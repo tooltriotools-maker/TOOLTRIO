@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [val1, rate1, rate2, years])
 
   return (
-    <CalculatorLayout title="401k vs Taxable Account Calculator USA 2026" description="Compare tax-deferred 401k growth vs taxable brokerage account returns over 20–30 years." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="401k vs Taxable Account Calculator USA 2026" description="Compare tax-deferred 401k growth vs taxable brokerage account returns over 20–30 years." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-vs-taxable-account-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

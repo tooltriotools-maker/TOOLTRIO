@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Municipal Bonds vs Corporate Bonds Calculator USA 2026" description="Compare tax-free muni bonds vs taxable corporate bonds on after-tax yield for your bracket." icon="📜" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Municipal Bonds vs Corporate Bonds Calculator USA 2026" description="Compare tax-free muni bonds vs taxable corporate bonds on after-tax yield for your bracket." icon="📜" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="municipal-bonds-vs-corporate-bonds-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

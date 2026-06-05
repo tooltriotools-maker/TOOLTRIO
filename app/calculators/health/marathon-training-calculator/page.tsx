@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Marathon Training Calculator', description: 'Build a personalized marathon training plan based on your goal finish time, current weekly mileage, and available training weeks. Calculates long run ', url: 'https://tooltrio.com/calculators/health/marathon-training-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Marathon Training Calculator', description: 'Build a personalized marathon training plan based on your goal finish time, current weekly mileage, and available training weeks. Calculates long run ', url: 'https://tooltrio.com/calculators/health/marathon-training-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Marathon Training Calculator', url: '/calculators/health/marathon-training-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Marathon Training Calculator', description: 'Build a personalized marathon training plan based on your goal finish time, current weekly mileage, and available training weeks. Calculates long run ', url: 'https://tooltrio.com/calculators/health/marathon-training-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -117,10 +117,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Air Quality & Health Impact Calculator', description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at c', url: 'https://tooltrio.com/calculators/health/air-quality-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Air Quality & Health Impact Calculator', description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at c', url: 'https://tooltrio.com/calculators/health/air-quality-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Air Quality & Health Impact Calculator', url: '/calculators/health/air-quality-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Air Quality & Health Impact Calculator', description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at c', url: 'https://tooltrio.com/calculators/health/air-quality-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

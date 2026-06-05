@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Menstrual Cycle Calculator', description: 'Predict your next period, ovulation date, and fertile window based on your cycle length and last period date. Track cycle irregularities and understan', url: 'https://tooltrio.com/calculators/health/menstrual-cycle-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Menstrual Cycle Calculator', description: 'Predict your next period, ovulation date, and fertile window based on your cycle length and last period date. Track cycle irregularities and understan', url: 'https://tooltrio.com/calculators/health/menstrual-cycle-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Menstrual Cycle Calculator', url: '/calculators/health/menstrual-cycle-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Menstrual Cycle Calculator', description: 'Predict your next period, ovulation date, and fertile window based on your cycle length and last period date. Track cycle irregularities and understan', url: 'https://tooltrio.com/calculators/health/menstrual-cycle-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Menopause Symptom Calculator', description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized ', url: 'https://tooltrio.com/calculators/health/menopause-symptom-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Menopause Symptom Calculator', description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized ', url: 'https://tooltrio.com/calculators/health/menopause-symptom-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Menopause Symptom Calculator', url: '/calculators/health/menopause-symptom-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Menopause Symptom Calculator', description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized ', url: 'https://tooltrio.com/calculators/health/menopause-symptom-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

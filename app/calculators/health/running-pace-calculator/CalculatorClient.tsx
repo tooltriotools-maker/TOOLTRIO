@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [mode,distKm,paceMin,paceSec,timeH,timeMin,timeSec,speedKmh,paceUnit])
 
   return (
-    <CalculatorLayout title="Running Pace Calculator" description="Calculate pace, finish time, and speed. Predict race times and get training zones for any distance." icon="🏃" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Running Pace Calculator" description="Calculate pace, finish time, and speed. Predict race times and get training zones for any distance." icon="🏃" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="running-pace-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Calculate</h2>

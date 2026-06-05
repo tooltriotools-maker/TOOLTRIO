@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sweat Rate Calculator', description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maint', url: 'https://tooltrio.com/calculators/health/sweat-rate-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sweat Rate Calculator', description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maint', url: 'https://tooltrio.com/calculators/health/sweat-rate-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sweat Rate Calculator', url: '/calculators/health/sweat-rate-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sweat Rate Calculator', description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maint', url: 'https://tooltrio.com/calculators/health/sweat-rate-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

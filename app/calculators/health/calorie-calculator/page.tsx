@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -62,10 +62,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Calorie Calculator', description: 'Find your daily calorie needs using the Mifflin-St Jeor equation. Enter age, weight, height, and activity level to get TDEE plus calorie targets for fat loss, m', url: 'https://tooltrio.com/calculators/health/calorie-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Calorie Calculator', description: 'Find your daily calorie needs using the Mifflin-St Jeor equation. Enter age, weight, height, and activity level to get TDEE plus calorie targets for fat loss, m', url: 'https://tooltrio.com/calculators/health/calorie-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Calorie Calculator', url: '/calculators/health/calorie-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Calorie Calculator', description: 'Find your daily calorie needs using the Mifflin-St Jeor equation. Enter age, weight, height, and activity level to get TDEE plus calorie targets for fat loss, m', url: 'https://tooltrio.com/calculators/health/calorie-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
         title: 'Calorie Calculator 2026',

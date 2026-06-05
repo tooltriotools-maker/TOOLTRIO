@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -119,10 +119,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Intermittent Fasting Calculator', description: 'Calculate your intermittent fasting schedule based on your chosen fasting protocol (16:8, 18:6, 20:4, 5:2, OMAD). Find your eating window start/stop t', url: 'https://tooltrio.com/calculators/health/intermittent-fasting-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Intermittent Fasting Calculator', description: 'Calculate your intermittent fasting schedule based on your chosen fasting protocol (16:8, 18:6, 20:4, 5:2, OMAD). Find your eating window start/stop t', url: 'https://tooltrio.com/calculators/health/intermittent-fasting-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Intermittent Fasting Calculator', url: '/calculators/health/intermittent-fasting-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Intermittent Fasting Calculator', description: 'Calculate your intermittent fasting schedule based on your chosen fasting protocol (16:8, 18:6, 20:4, 5:2, OMAD). Find your eating window start/stop t', url: 'https://tooltrio.com/calculators/health/intermittent-fasting-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

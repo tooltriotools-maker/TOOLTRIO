@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   )
 
   return (
-    <CalculatorLayout title="Home Affordability Calculator USA 2026" description={`Find out how much home you can afford in ${currency.name} using the 28/36 rule.`} icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Home Affordability Calculator USA 2026" description={`Find out how much home you can afford in ${currency.name} using the 28/36 rule.`} icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="home-affordability-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your Finances</h2>

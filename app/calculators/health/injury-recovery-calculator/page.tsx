@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Injury Recovery Calculator', description: 'Estimate recovery time for common injuries (muscle strains, ligament sprains, stress fractures, tendonitis) based on injury grade, location, and treat', url: 'https://tooltrio.com/calculators/health/injury-recovery-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Injury Recovery Calculator', description: 'Estimate recovery time for common injuries (muscle strains, ligament sprains, stress fractures, tendonitis) based on injury grade, location, and treat', url: 'https://tooltrio.com/calculators/health/injury-recovery-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Injury Recovery Calculator', url: '/calculators/health/injury-recovery-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Injury Recovery Calculator', description: 'Estimate recovery time for common injuries (muscle strains, ligament sprains, stress fractures, tendonitis) based on injury grade, location, and treat', url: 'https://tooltrio.com/calculators/health/injury-recovery-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -108,10 +108,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Altitude Sickness Calculator', description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination ', url: 'https://tooltrio.com/calculators/health/altitude-sickness-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Altitude Sickness Calculator', description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination ', url: 'https://tooltrio.com/calculators/health/altitude-sickness-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Altitude Sickness Calculator', url: '/calculators/health/altitude-sickness-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Altitude Sickness Calculator', description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination ', url: 'https://tooltrio.com/calculators/health/altitude-sickness-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

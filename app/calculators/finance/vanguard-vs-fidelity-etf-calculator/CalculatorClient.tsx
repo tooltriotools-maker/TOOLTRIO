@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Vanguard vs Fidelity ETF Calculator USA 2026" description="Compare VOO vs FXAIX S&P 500 funds on expense ratio and long-term after-fee returns." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Vanguard vs Fidelity ETF Calculator USA 2026" description="Compare VOO vs FXAIX S&P 500 funds on expense ratio and long-term after-fee returns." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vanguard-vs-fidelity-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

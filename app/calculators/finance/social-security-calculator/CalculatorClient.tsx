@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899']
 
   return (
-    <CalculatorLayout title="Social Security Calculator USA 2026" description="Estimate your monthly Social Security benefit based on earnings history and claiming age." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Social Security Calculator USA 2026" description="Estimate your monthly Social Security benefit based on earnings history and claiming age." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="social-security-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your SSA Details</h2>

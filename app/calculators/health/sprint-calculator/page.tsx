@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sprint Calculator', description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether ', url: 'https://tooltrio.com/calculators/health/sprint-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sprint Calculator', description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether ', url: 'https://tooltrio.com/calculators/health/sprint-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sprint Calculator', url: '/calculators/health/sprint-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sprint Calculator', description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether ', url: 'https://tooltrio.com/calculators/health/sprint-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

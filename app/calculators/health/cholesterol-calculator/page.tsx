@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -120,10 +120,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Cholesterol Calculator', description: 'Calculate your LDL cholesterol, non-HDL cholesterol, total-to-HDL ratio, and Framingham 10-year cardiovascular risk from a standard lipid panel. Under', url: 'https://tooltrio.com/calculators/health/cholesterol-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Cholesterol Calculator', description: 'Calculate your LDL cholesterol, non-HDL cholesterol, total-to-HDL ratio, and Framingham 10-year cardiovascular risk from a standard lipid panel. Under', url: 'https://tooltrio.com/calculators/health/cholesterol-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Cholesterol Calculator', url: '/calculators/health/cholesterol-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Cholesterol Calculator', description: 'Calculate your LDL cholesterol, non-HDL cholesterol, total-to-HDL ratio, and Framingham 10-year cardiovascular risk from a standard lipid panel. Under', url: 'https://tooltrio.com/calculators/health/cholesterol-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

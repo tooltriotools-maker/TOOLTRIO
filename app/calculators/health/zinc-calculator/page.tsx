@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Zinc Calculator', description: 'Calculate your daily zinc requirements based on age, sex, pregnancy status, and dietary pattern. Assess zinc deficiency risk factors, find best dietar', url: 'https://tooltrio.com/calculators/health/zinc-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Zinc Calculator', description: 'Calculate your daily zinc requirements based on age, sex, pregnancy status, and dietary pattern. Assess zinc deficiency risk factors, find best dietar', url: 'https://tooltrio.com/calculators/health/zinc-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Zinc Calculator', url: '/calculators/health/zinc-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Zinc Calculator', description: 'Calculate your daily zinc requirements based on age, sex, pregnancy status, and dietary pattern. Assess zinc deficiency risk factors, find best dietar', url: 'https://tooltrio.com/calculators/health/zinc-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

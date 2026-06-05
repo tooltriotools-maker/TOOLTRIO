@@ -230,6 +230,10 @@ export function generateWebAppStructuredData(params: {
 }
 
 export function generateBreadcrumbStructuredData(items: { name: string; url: string }[]) {
+  // Auto-prefix relative URLs with BASE_URL to satisfy Google's absolute URL requirement
+  const toAbsolute = (url: string) =>
+    url.startsWith('http') ? url : `${BASE_URL}${url.startsWith('/') ? url : `/${url}`}`
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -237,7 +241,7 @@ export function generateBreadcrumbStructuredData(items: { name: string; url: str
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: item.url,
+      item: toAbsolute(item.url),
     })),
   }
 }

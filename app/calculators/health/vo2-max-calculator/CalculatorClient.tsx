@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [method, age, gender, cooperDist, maxHR, restHR, mileTime, weight])
 
   return (
-    <CalculatorLayout title="VO2 Max Calculator" description="Estimate your VO2 max from Cooper 12-min test, resting heart rate, or 1-mile walk test. Assess your cardiovascular fitness." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="VO2 Max Calculator" description="Estimate your VO2 max from Cooper 12-min test, resting heart rate, or 1-mile walk test. Assess your cardiovascular fitness." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vo2-max-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Test Method</h2>

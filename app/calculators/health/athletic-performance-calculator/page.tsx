@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -105,10 +105,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Athletic Performance Calculator', description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold', url: 'https://tooltrio.com/calculators/health/athletic-performance-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Athletic Performance Calculator', description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold', url: 'https://tooltrio.com/calculators/health/athletic-performance-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Athletic Performance Calculator', url: '/calculators/health/athletic-performance-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Athletic Performance Calculator', description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold', url: 'https://tooltrio.com/calculators/health/athletic-performance-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

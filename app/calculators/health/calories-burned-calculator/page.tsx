@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -109,10 +109,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Calories Burned Calculator', description: 'Calculate calories burned during any exercise or physical activity using validated MET (Metabolic Equivalent of Task) values. Covers running, cycling,', url: 'https://tooltrio.com/calculators/health/calories-burned-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Calories Burned Calculator', description: 'Calculate calories burned during any exercise or physical activity using validated MET (Metabolic Equivalent of Task) values. Covers running, cycling,', url: 'https://tooltrio.com/calculators/health/calories-burned-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Calories Burned Calculator', url: '/calculators/health/calories-burned-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Calories Burned Calculator', description: 'Calculate calories burned during any exercise or physical activity using validated MET (Metabolic Equivalent of Task) values. Covers running, cycling,', url: 'https://tooltrio.com/calculators/health/calories-burned-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const standardPayment = Math.ceil((loanBalance * (interestRate / 100 / 12)) / (1 - Math.pow(1 + interestRate / 100 / 12, -120)))
 
   return (
-    <CalculatorLayout title="Student Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and payoff date for any student loan balance." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Student Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and payoff date for any student loan balance." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="student-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Loan Details</h2>

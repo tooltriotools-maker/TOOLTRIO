@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Fiber Intake Calculator', description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Tr', url: 'https://tooltrio.com/calculators/health/fiber-intake-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Fiber Intake Calculator', description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Tr', url: 'https://tooltrio.com/calculators/health/fiber-intake-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Fiber Intake Calculator', url: '/calculators/health/fiber-intake-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Fiber Intake Calculator', description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Tr', url: 'https://tooltrio.com/calculators/health/fiber-intake-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

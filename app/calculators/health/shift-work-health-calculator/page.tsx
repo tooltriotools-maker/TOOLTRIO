@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Shift Work Health Risk Calculator', description: 'Assess the cumulative health risk of shift work including night shifts, rotating shifts, and irregular schedules. Calculate circadian disruption index', url: 'https://tooltrio.com/calculators/health/shift-work-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Shift Work Health Risk Calculator', description: 'Assess the cumulative health risk of shift work including night shifts, rotating shifts, and irregular schedules. Calculate circadian disruption index', url: 'https://tooltrio.com/calculators/health/shift-work-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Shift Work Health Risk Calculator', url: '/calculators/health/shift-work-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Shift Work Health Risk Calculator', description: 'Assess the cumulative health risk of shift work including night shifts, rotating shifts, and irregular schedules. Calculate circadian disruption index', url: 'https://tooltrio.com/calculators/health/shift-work-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

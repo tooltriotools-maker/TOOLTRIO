@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Iron Intake Calculator', description: 'Calculate your daily iron requirements based on age, sex, pregnancy status, and dietary pattern (omnivore vs vegetarian). Assess iron deficiency risk ', url: 'https://tooltrio.com/calculators/health/iron-intake-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Iron Intake Calculator', description: 'Calculate your daily iron requirements based on age, sex, pregnancy status, and dietary pattern (omnivore vs vegetarian). Assess iron deficiency risk ', url: 'https://tooltrio.com/calculators/health/iron-intake-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Iron Intake Calculator', url: '/calculators/health/iron-intake-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Iron Intake Calculator', description: 'Calculate your daily iron requirements based on age, sex, pregnancy status, and dietary pattern (omnivore vs vegetarian). Assess iron deficiency risk ', url: 'https://tooltrio.com/calculators/health/iron-intake-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

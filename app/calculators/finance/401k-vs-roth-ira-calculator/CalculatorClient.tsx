@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [annualContrib, currentAge, retirementAge, returnRate, taxRateNow, taxRateRetirement])
 
   return (
-    <CalculatorLayout title="401k vs Roth IRA Calculator USA 2026" description="Compare after-tax retirement wealth from Traditional 401k vs Roth IRA with 2026 contribution limits." icon="🇺🇸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="401k vs Roth IRA Calculator USA 2026" description="Compare after-tax retirement wealth from Traditional 401k vs Roth IRA with 2026 contribution limits." icon="🇺🇸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-vs-roth-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

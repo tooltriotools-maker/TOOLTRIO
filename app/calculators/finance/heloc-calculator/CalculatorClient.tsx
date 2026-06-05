@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const cltv = ((mortgageBalance + drawAmount) / homeValue * 100).toFixed(1)
 
   return (
-    <CalculatorLayout title="HELOC Calculator USA 2026" description="Calculate your available home equity credit line, monthly interest-only payments, and total cost." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="HELOC Calculator USA 2026" description="Calculate your available home equity credit line, monthly interest-only payments, and total cost." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="heloc-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Property &amp; Loan Details</h2>

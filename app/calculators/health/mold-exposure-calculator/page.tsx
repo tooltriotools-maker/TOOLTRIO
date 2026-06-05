@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Mold Exposure Health Risk Calculator', description: 'Assess your health risk from mold exposure based on symptom frequency, exposure duration, mold type, and individual sensitivity. Get personalized guid', url: 'https://tooltrio.com/calculators/health/mold-exposure-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Mold Exposure Health Risk Calculator', description: 'Assess your health risk from mold exposure based on symptom frequency, exposure duration, mold type, and individual sensitivity. Get personalized guid', url: 'https://tooltrio.com/calculators/health/mold-exposure-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Mold Exposure Health Risk Calculator', url: '/calculators/health/mold-exposure-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Mold Exposure Health Risk Calculator', description: 'Assess your health risk from mold exposure based on symptom frequency, exposure duration, mold type, and individual sensitivity. Get personalized guid', url: 'https://tooltrio.com/calculators/health/mold-exposure-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

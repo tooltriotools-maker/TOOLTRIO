@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Loan Prepayment Calculator USA 2026" description="Calculate interest saved and months eliminated with any extra monthly or lump sum payment." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Loan Prepayment Calculator USA 2026" description="Calculate interest saved and months eliminated with any extra monthly or lump sum payment." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="loan-prepayment-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Loan Details</h2>

@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }))
 
   return (
-    <CalculatorLayout title="XIRR Calculator USA 2026" description="Calculate the true annualized return for investment portfolios with multiple irregular cash flows." icon="📐" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="XIRR Calculator USA 2026" description="Calculate the true annualized return for investment portfolios with multiple irregular cash flows." icon="📐" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="xirr-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-base font-bold text-gray-900 mb-4">Cashflow Entries</h2>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -109,10 +109,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Cycling Calorie Calculator', description: 'Calculate calories burned cycling based on your weight, cycling speed or power output, duration, and terrain. Covers road cycling, mountain biking, st', url: 'https://tooltrio.com/calculators/health/cycling-calories-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Cycling Calorie Calculator', description: 'Calculate calories burned cycling based on your weight, cycling speed or power output, duration, and terrain. Covers road cycling, mountain biking, st', url: 'https://tooltrio.com/calculators/health/cycling-calories-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Cycling Calorie Calculator', url: '/calculators/health/cycling-calories-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Cycling Calorie Calculator', description: 'Calculate calories burned cycling based on your weight, cycling speed or power output, duration, and terrain. Covers road cycling, mountain biking, st', url: 'https://tooltrio.com/calculators/health/cycling-calories-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const status = pct > 150 ? {l:'Very High 🔴',c:'text-red-600'} : pct > 100 ? {l:'Over Limit ⚠️',c:'text-orange-600'} : pct > 75 ? {l:'Near Limit 🟡',c:'text-yellow-600'} : {l:'Within Limit v',c:'text-green-600'}
 
   return (
-    <CalculatorLayout title="Sodium Intake Calculator" description="Estimate your daily sodium intake and compare it to WHO/AHA recommendations." icon="🧂" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Sodium Intake Calculator" description="Estimate your daily sodium intake and compare it to WHO/AHA recommendations." icon="🧂" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sodium-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Daily Sodium Sources</h2>

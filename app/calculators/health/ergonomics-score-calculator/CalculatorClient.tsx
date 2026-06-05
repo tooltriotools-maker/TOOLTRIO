@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const rsi = Math.max(0, 100 - score - (deskHours <= 6 ? 10 : 0))
 
   return (
-    <CalculatorLayout title="Ergonomics Score Calculator" description="Score your workstation setup and identify risk factors for repetitive strain injuries." icon="🪑" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Ergonomics Score Calculator" description="Score your workstation setup and identify risk factors for repetitive strain injuries." icon="🪑" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ergonomics-score-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Workstation Setup</h2>

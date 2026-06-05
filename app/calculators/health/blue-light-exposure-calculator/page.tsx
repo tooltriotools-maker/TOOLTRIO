@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Blue Light Exposure Calculator', description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption', url: 'https://tooltrio.com/calculators/health/blue-light-exposure-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Blue Light Exposure Calculator', description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption', url: 'https://tooltrio.com/calculators/health/blue-light-exposure-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Blue Light Exposure Calculator', url: '/calculators/health/blue-light-exposure-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Blue Light Exposure Calculator', description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption', url: 'https://tooltrio.com/calculators/health/blue-light-exposure-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

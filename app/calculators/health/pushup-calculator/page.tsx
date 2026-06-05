@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Push-Up Calculator', description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized pr', url: 'https://tooltrio.com/calculators/health/pushup-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Push-Up Calculator', description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized pr', url: 'https://tooltrio.com/calculators/health/pushup-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Push-Up Calculator', url: '/calculators/health/pushup-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Push-Up Calculator', description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized pr', url: 'https://tooltrio.com/calculators/health/pushup-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

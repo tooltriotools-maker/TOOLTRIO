@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Squat Calculator', description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Co', url: 'https://tooltrio.com/calculators/health/squat-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Squat Calculator', description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Co', url: 'https://tooltrio.com/calculators/health/squat-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Squat Calculator', url: '/calculators/health/squat-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Squat Calculator', description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Co', url: 'https://tooltrio.com/calculators/health/squat-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

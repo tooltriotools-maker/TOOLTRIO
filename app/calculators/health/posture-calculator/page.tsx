@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Posture Assessment Calculator', description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targetin', url: 'https://tooltrio.com/calculators/health/posture-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Posture Assessment Calculator', description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targetin', url: 'https://tooltrio.com/calculators/health/posture-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Posture Assessment Calculator', url: '/calculators/health/posture-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Posture Assessment Calculator', description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targetin', url: 'https://tooltrio.com/calculators/health/posture-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

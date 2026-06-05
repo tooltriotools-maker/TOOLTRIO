@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Hangover Recovery Calculator', description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan', url: 'https://tooltrio.com/calculators/health/hangover-recovery-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Hangover Recovery Calculator', description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan', url: 'https://tooltrio.com/calculators/health/hangover-recovery-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Hangover Recovery Calculator', url: '/calculators/health/hangover-recovery-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Hangover Recovery Calculator', description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan', url: 'https://tooltrio.com/calculators/health/hangover-recovery-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

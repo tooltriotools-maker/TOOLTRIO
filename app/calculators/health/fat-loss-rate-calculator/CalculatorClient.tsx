@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const aggressive = deficit > 1000
 
   return (
-    <CalculatorLayout title="Fat Loss Rate Calculator" description="Calculate how long it will take to reach your target weight based on your calorie deficit." icon="🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Fat Loss Rate Calculator" description="Calculate how long it will take to reach your target weight based on your calorie deficit." icon="🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fat-loss-rate-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Goals</h2>

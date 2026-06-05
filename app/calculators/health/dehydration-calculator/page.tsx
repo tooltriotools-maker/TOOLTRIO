@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -108,10 +108,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Dehydration Calculator', description: 'Estimate your current dehydration level from body weight change or symptom severity. Calculate fluid deficit and create a rehydration plan with approp', url: 'https://tooltrio.com/calculators/health/dehydration-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Dehydration Calculator', description: 'Estimate your current dehydration level from body weight change or symptom severity. Calculate fluid deficit and create a rehydration plan with approp', url: 'https://tooltrio.com/calculators/health/dehydration-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Dehydration Calculator', url: '/calculators/health/dehydration-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Dehydration Calculator', description: 'Estimate your current dehydration level from body weight change or symptom severity. Calculate fluid deficit and create a rehydration plan with approp', url: 'https://tooltrio.com/calculators/health/dehydration-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [investment, nscRate, fdRate, taxSlab])
 
   return (
-    <CalculatorLayout title="NSC vs FD Calculator India 2026" description="Compare National Savings Certificate vs Fixed Deposit on post-tax returns and tax benefits." icon="📮" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="NSC vs FD Calculator India 2026" description="Compare National Savings Certificate vs Fixed Deposit on post-tax returns and tax benefits." icon="📮" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="nsc-vs-fd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

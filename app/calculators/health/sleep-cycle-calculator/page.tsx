@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -136,10 +136,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sleep Cycle Calculator', description: 'Calculate the best times to wake up or go to sleep based on 90-minute sleep cycle timing. Avoid waking mid-cycle to feel less groggy. Includes sleep debt tracke', url: 'https://tooltrio.com/calculators/health/sleep-cycle-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sleep Cycle Calculator', description: 'Calculate the best times to wake up or go to sleep based on 90-minute sleep cycle timing. Avoid waking mid-cycle to feel less groggy. Includes sleep debt tracke', url: 'https://tooltrio.com/calculators/health/sleep-cycle-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sleep Cycle Calculator', url: '/calculators/health/sleep-cycle-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sleep Cycle Calculator', description: 'Calculate the best times to wake up or go to sleep based on 90-minute sleep cycle timing. Avoid waking mid-cycle to feel less groggy. Includes sleep debt tracke', url: 'https://tooltrio.com/calculators/health/sleep-cycle-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

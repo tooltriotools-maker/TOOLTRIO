@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Standing Desk Calculator', description: 'Calculate the optimal sitting and standing ratio for your workday, estimated calorie burn increase from standing, and musculoskeletal risk from prolon', url: 'https://tooltrio.com/calculators/health/standing-desk-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Standing Desk Calculator', description: 'Calculate the optimal sitting and standing ratio for your workday, estimated calorie burn increase from standing, and musculoskeletal risk from prolon', url: 'https://tooltrio.com/calculators/health/standing-desk-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Standing Desk Calculator', url: '/calculators/health/standing-desk-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Standing Desk Calculator', description: 'Calculate the optimal sitting and standing ratio for your workday, estimated calorie burn increase from standing, and musculoskeletal risk from prolon', url: 'https://tooltrio.com/calculators/health/standing-desk-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

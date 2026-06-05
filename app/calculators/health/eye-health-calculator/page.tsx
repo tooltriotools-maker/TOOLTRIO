@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -106,10 +106,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Eye Health Calculator', description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light prot', url: 'https://tooltrio.com/calculators/health/eye-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Eye Health Calculator', description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light prot', url: 'https://tooltrio.com/calculators/health/eye-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Eye Health Calculator', url: '/calculators/health/eye-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Eye Health Calculator', description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light prot', url: 'https://tooltrio.com/calculators/health/eye-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

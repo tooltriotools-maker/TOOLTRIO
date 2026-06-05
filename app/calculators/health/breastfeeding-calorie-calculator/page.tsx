@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Breastfeeding Calorie Calculator', description: 'Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency. Includes protein and hydration guidance.', url: 'https://tooltrio.com/calculators/health/breastfeeding-calorie-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Breastfeeding Calorie Calculator', description: 'Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency. Includes protein and hydration guidance.', url: 'https://tooltrio.com/calculators/health/breastfeeding-calorie-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Breastfeeding Calorie Calculator', url: '/calculators/health/breastfeeding-calorie-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Breastfeeding Calorie Calculator', description: 'Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency. Includes protein and hydration guidance.', url: 'https://tooltrio.com/calculators/health/breastfeeding-calorie-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

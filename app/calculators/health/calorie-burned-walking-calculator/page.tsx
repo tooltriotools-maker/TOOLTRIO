@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalorieBurnedWalkingCalculatorClient = dynamic(() => import('./CalorieBurnedWalkingCalculatorClient'), {
   ssr: false,
@@ -113,10 +113,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Calorie Burned Walking Calculator', description: 'Calculate calories burned walking based on your body weight, walking speed, distance, and terrain incline. Includes flat walking, uphill hiking, tread', url: 'https://tooltrio.com/calculators/health/calorie-burned-walking-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Calorie Burned Walking Calculator', description: 'Calculate calories burned walking based on your body weight, walking speed, distance, and terrain incline. Includes flat walking, uphill hiking, tread', url: 'https://tooltrio.com/calculators/health/calorie-burned-walking-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Calorie Burned Walking Calculator', url: '/calculators/health/calorie-burned-walking-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Calorie Burned Walking Calculator', description: 'Calculate calories burned walking based on your body weight, walking speed, distance, and terrain incline. Includes flat walking, uphill hiking, tread', url: 'https://tooltrio.com/calculators/health/calorie-burned-walking-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

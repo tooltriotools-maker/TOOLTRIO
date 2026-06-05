@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, sipRate, stockRate, stockVolatility, years, brokerage])
 
   return (
-    <CalculatorLayout title="SIP vs Direct Stocks Calculator India 2026" description="Compare equity mutual fund SIP vs direct stock investing on returns, risk, and effort required." icon="📉" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="SIP vs Direct Stocks Calculator India 2026" description="Compare equity mutual fund SIP vs direct stock investing on returns, risk, and effort required." icon="📉" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-stocks-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

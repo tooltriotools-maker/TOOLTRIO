@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Chronic Inflammation Risk Calculator', description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your die', url: 'https://tooltrio.com/calculators/health/inflammation-risk-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Chronic Inflammation Risk Calculator', description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your die', url: 'https://tooltrio.com/calculators/health/inflammation-risk-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Chronic Inflammation Risk Calculator', url: '/calculators/health/inflammation-risk-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Chronic Inflammation Risk Calculator', description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your die', url: 'https://tooltrio.com/calculators/health/inflammation-risk-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

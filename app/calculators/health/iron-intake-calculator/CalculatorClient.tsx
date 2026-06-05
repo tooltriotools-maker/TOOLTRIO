@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const rdi = veg ? Math.round(base * 1.8) : base
 
   return (
-    <CalculatorLayout title="Iron Intake Calculator" description="Calculate your daily iron requirements based on age, gender, diet type, and reproductive status." icon="🔴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Iron Intake Calculator" description="Calculate your daily iron requirements based on age, gender, diet type, and reproductive status." icon="🔴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="iron-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

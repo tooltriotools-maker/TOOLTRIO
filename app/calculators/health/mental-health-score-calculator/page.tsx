@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Mental Health Score Calculator', description: 'Complete validated mental health screening tools including PHQ-9 for depression and GAD-7 for anxiety with clinical score interpretation. Calculate yo', url: 'https://tooltrio.com/calculators/health/mental-health-score-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Mental Health Score Calculator', description: 'Complete validated mental health screening tools including PHQ-9 for depression and GAD-7 for anxiety with clinical score interpretation. Calculate yo', url: 'https://tooltrio.com/calculators/health/mental-health-score-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Mental Health Score Calculator', url: '/calculators/health/mental-health-score-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Mental Health Score Calculator', description: 'Complete validated mental health screening tools including PHQ-9 for depression and GAD-7 for anxiety with clinical score interpretation. Calculate yo', url: 'https://tooltrio.com/calculators/health/mental-health-score-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

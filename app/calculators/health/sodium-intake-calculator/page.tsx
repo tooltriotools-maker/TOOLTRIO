@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sodium Intake Calculator', description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common', url: 'https://tooltrio.com/calculators/health/sodium-intake-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sodium Intake Calculator', description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common', url: 'https://tooltrio.com/calculators/health/sodium-intake-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sodium Intake Calculator', url: '/calculators/health/sodium-intake-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sodium Intake Calculator', description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common', url: 'https://tooltrio.com/calculators/health/sodium-intake-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

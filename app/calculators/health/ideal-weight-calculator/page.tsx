@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -119,10 +119,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Ideal Weight Calculator', description: 'Calculate your ideal body weight using four major clinical formulas: Hamwi, Devine, Robinson, and Miller. See the range of ideal weight estimates for ', url: 'https://tooltrio.com/calculators/health/ideal-weight-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Ideal Weight Calculator', description: 'Calculate your ideal body weight using four major clinical formulas: Hamwi, Devine, Robinson, and Miller. See the range of ideal weight estimates for ', url: 'https://tooltrio.com/calculators/health/ideal-weight-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Ideal Weight Calculator', url: '/calculators/health/ideal-weight-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Ideal Weight Calculator', description: 'Calculate your ideal body weight using four major clinical formulas: Hamwi, Devine, Robinson, and Miller. See the range of ideal weight estimates for ', url: 'https://tooltrio.com/calculators/health/ideal-weight-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

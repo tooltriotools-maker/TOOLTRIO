@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Running Pace Calculator', description: 'Calculate your running pace in minutes per mile or per kilometer from any race time and distance. Convert between pace formats and predict finish time', url: 'https://tooltrio.com/calculators/health/running-pace-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Running Pace Calculator', description: 'Calculate your running pace in minutes per mile or per kilometer from any race time and distance. Convert between pace formats and predict finish time', url: 'https://tooltrio.com/calculators/health/running-pace-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Running Pace Calculator', url: '/calculators/health/running-pace-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Running Pace Calculator', description: 'Calculate your running pace in minutes per mile or per kilometer from any race time and distance. Convert between pace formats and predict finish time', url: 'https://tooltrio.com/calculators/health/running-pace-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

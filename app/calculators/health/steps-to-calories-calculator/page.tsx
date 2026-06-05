@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Steps to Calories Calculator', description: 'Convert any step count to calories burned based on body weight and walking speed. Works for daily step goals, fitness tracker data, and pedometer read', url: 'https://tooltrio.com/calculators/health/steps-to-calories-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Steps to Calories Calculator', description: 'Convert any step count to calories burned based on body weight and walking speed. Works for daily step goals, fitness tracker data, and pedometer read', url: 'https://tooltrio.com/calculators/health/steps-to-calories-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Steps to Calories Calculator', url: '/calculators/health/steps-to-calories-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Steps to Calories Calculator', description: 'Convert any step count to calories burned based on body weight and walking speed. Works for daily step goals, fitness tracker data, and pedometer read', url: 'https://tooltrio.com/calculators/health/steps-to-calories-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

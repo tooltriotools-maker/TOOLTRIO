@@ -36,7 +36,7 @@ export default function BMICalculatorClient({ faqs, structuredData, relatedCalcu
   const weightToGain = result.idealWeightMin - weightKg
 
   return (
-    <CalculatorLayout title="BMI Calculator" description="Calculate your Body Mass Index and get personalized health insights and ideal weight range." icon="⚖️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="BMI Calculator" description="Calculate your Body Mass Index and get personalized health insights and ideal weight range." icon="⚖️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="bmi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Measurements</h2>

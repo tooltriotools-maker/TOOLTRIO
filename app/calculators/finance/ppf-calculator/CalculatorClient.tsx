@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="PPF Calculator India 2026" description="Calculate PPF maturity value, year-by-year growth, and tax-free returns at 7.1% current rate." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="PPF Calculator India 2026" description="Calculate PPF maturity value, year-by-year growth, and tax-free returns at 7.1% current rate." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ppf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">PPF Details</h2>

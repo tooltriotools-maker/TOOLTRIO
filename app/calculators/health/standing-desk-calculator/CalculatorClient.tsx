@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const recommendation = standingPct < 20 ? 'Aim for at least 20-30% standing time' : standingPct > 70 ? 'Balance standing with sitting to avoid fatigue and lower back strain' : 'Good standing/sitting balance! v'
 
   return (
-    <CalculatorLayout title="Standing Desk Calculator" description="Calculate the health and calorie benefits of using a standing desk compared to sitting all day." icon="🪑" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Standing Desk Calculator" description="Calculate the health and calorie benefits of using a standing desk compared to sitting all day." icon="🪑" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="standing-desk-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Desk Habits</h2>

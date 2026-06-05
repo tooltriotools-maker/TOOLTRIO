@@ -61,7 +61,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="UK Stamp Duty Calculator 2026" description="Calculate SDLT for England and Wales home purchases including first-time buyer relief." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="UK Stamp Duty Calculator 2026" description="Calculate SDLT for England and Wales home purchases including first-time buyer relief." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-stamp-duty-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Property Details</h2>

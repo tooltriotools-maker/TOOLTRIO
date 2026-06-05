@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const upperLimit = 2000
 
   return (
-    <CalculatorLayout title="Vitamin C Calculator" description="Calculate your daily vitamin C requirements and discover the best food sources." icon="🍊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Vitamin C Calculator" description="Calculate your daily vitamin C requirements and discover the best food sources." icon="🍊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vitamin-c-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

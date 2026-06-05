@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -109,10 +109,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'BMI Calculator for Children', description: 'Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy weight ranges for your child\'s age and s', url: 'https://tooltrio.com/calculators/health/bmi-for-children-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'BMI Calculator for Children', description: 'Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy weight ranges for your child\'s age and s', url: 'https://tooltrio.com/calculators/health/bmi-for-children-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'BMI Calculator for Children', url: '/calculators/health/bmi-for-children-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'BMI Calculator for Children', description: 'Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy weight ranges for your child\'s age and s', url: 'https://tooltrio.com/calculators/health/bmi-for-children-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

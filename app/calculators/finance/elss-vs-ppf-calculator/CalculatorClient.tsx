@@ -56,7 +56,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [yearlyAmount, elssRate, ppfRate, years, taxSlab])
 
   return (
-    <CalculatorLayout title="ELSS vs PPF Calculator India 2026" description="Compare ELSS mutual fund vs PPF for Section 80C tax savings, returns, and lock-in period." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="ELSS vs PPF Calculator India 2026" description="Compare ELSS mutual fund vs PPF for Section 80C tax savings, returns, and lock-in period." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="elss-vs-ppf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

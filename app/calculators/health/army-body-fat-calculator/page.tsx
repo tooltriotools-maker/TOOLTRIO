@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -113,10 +113,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'US Army Body Fat Calculator', description: 'Calculate body fat percentage using the US Army circumference tape method per Army Regulation 600-9. Check if you meet Army body fat standards for you', url: 'https://tooltrio.com/calculators/health/army-body-fat-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'US Army Body Fat Calculator', description: 'Calculate body fat percentage using the US Army circumference tape method per Army Regulation 600-9. Check if you meet Army body fat standards for you', url: 'https://tooltrio.com/calculators/health/army-body-fat-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'US Army Body Fat Calculator', url: '/calculators/health/army-body-fat-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'US Army Body Fat Calculator', description: 'Calculate body fat percentage using the US Army circumference tape method per Army Regulation 600-9. Check if you meet Army body fat standards for you', url: 'https://tooltrio.com/calculators/health/army-body-fat-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

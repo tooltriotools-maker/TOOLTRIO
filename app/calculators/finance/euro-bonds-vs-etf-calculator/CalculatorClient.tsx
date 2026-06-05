@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Euro Bonds vs ETF Calculator 2026" description="Compare German Bunds and European bonds vs MSCI Europe ETF returns for EU investors." icon="📜" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Euro Bonds vs ETF Calculator 2026" description="Compare German Bunds and European bonds vs MSCI Europe ETF returns for EU investors." icon="📜" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="euro-bonds-vs-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

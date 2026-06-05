@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sauna Benefits Calculator', description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly ', url: 'https://tooltrio.com/calculators/health/sauna-benefits-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sauna Benefits Calculator', description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly ', url: 'https://tooltrio.com/calculators/health/sauna-benefits-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sauna Benefits Calculator', url: '/calculators/health/sauna-benefits-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sauna Benefits Calculator', description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly ', url: 'https://tooltrio.com/calculators/health/sauna-benefits-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

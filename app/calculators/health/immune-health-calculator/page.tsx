@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Immune Health Score Calculator', description: 'Calculate your immune health score based on sleep, stress, nutrition, exercise, vitamin intake, and lifestyle habits. Get prioritized recommendations ', url: 'https://tooltrio.com/calculators/health/immune-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Immune Health Score Calculator', description: 'Calculate your immune health score based on sleep, stress, nutrition, exercise, vitamin intake, and lifestyle habits. Get prioritized recommendations ', url: 'https://tooltrio.com/calculators/health/immune-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Immune Health Score Calculator', url: '/calculators/health/immune-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Immune Health Score Calculator', description: 'Calculate your immune health score based on sleep, stress, nutrition, exercise, vitamin intake, and lifestyle habits. Get prioritized recommendations ', url: 'https://tooltrio.com/calculators/health/immune-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

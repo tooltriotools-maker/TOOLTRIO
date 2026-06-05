@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Body Age Calculator', description: 'Estimate your biological age based on fitness markers, lifestyle factors, metabolic health, and body composition. See how your body age compares to yo', url: 'https://tooltrio.com/calculators/health/body-age-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Body Age Calculator', description: 'Estimate your biological age based on fitness markers, lifestyle factors, metabolic health, and body composition. See how your body age compares to yo', url: 'https://tooltrio.com/calculators/health/body-age-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Body Age Calculator', url: '/calculators/health/body-age-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Body Age Calculator', description: 'Estimate your biological age based on fitness markers, lifestyle factors, metabolic health, and body composition. See how your body age compares to yo', url: 'https://tooltrio.com/calculators/health/body-age-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

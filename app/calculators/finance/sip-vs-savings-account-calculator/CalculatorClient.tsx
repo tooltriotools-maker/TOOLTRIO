@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, sipRate, savingsRate, years])
 
   return (
-    <CalculatorLayout title="SIP vs Savings Account Calculator India 2026" description="See the opportunity cost of keeping money in a savings account vs investing in SIP mutual funds." icon="🏧" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="SIP vs Savings Account Calculator India 2026" description="See the opportunity cost of keeping money in a savings account vs investing in SIP mutual funds." icon="🏧" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-savings-account-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

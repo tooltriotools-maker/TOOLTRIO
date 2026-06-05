@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Grip Strength Calculator', description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological agi', url: 'https://tooltrio.com/calculators/health/grip-strength-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Grip Strength Calculator', description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological agi', url: 'https://tooltrio.com/calculators/health/grip-strength-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Grip Strength Calculator', url: '/calculators/health/grip-strength-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Grip Strength Calculator', description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological agi', url: 'https://tooltrio.com/calculators/health/grip-strength-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

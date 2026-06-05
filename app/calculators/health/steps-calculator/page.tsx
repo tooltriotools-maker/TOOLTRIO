@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const StepsCalculatorClient = dynamic(() => import('./StepsCalculatorClient'), {
   ssr: false,
@@ -123,10 +123,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Steps Calculator', description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn ', url: 'https://tooltrio.com/calculators/health/steps-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Steps Calculator', description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn ', url: 'https://tooltrio.com/calculators/health/steps-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Steps Calculator', url: '/calculators/health/steps-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Steps Calculator', description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn ', url: 'https://tooltrio.com/calculators/health/steps-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

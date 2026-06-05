@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Magnesium Calculator', description: 'Calculate your daily magnesium requirements based on age, sex, and activity level. Assess dietary intake from food sources, identify deficiency risk f', url: 'https://tooltrio.com/calculators/health/magnesium-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Magnesium Calculator', description: 'Calculate your daily magnesium requirements based on age, sex, and activity level. Assess dietary intake from food sources, identify deficiency risk f', url: 'https://tooltrio.com/calculators/health/magnesium-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Magnesium Calculator', url: '/calculators/health/magnesium-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Magnesium Calculator', description: 'Calculate your daily magnesium requirements based on age, sex, and activity level. Assess dietary intake from food sources, identify deficiency risk f', url: 'https://tooltrio.com/calculators/health/magnesium-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

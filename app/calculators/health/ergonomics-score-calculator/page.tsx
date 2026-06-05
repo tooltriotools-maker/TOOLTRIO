@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -106,10 +106,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Ergonomics Score Calculator', description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboa', url: 'https://tooltrio.com/calculators/health/ergonomics-score-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Ergonomics Score Calculator', description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboa', url: 'https://tooltrio.com/calculators/health/ergonomics-score-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Ergonomics Score Calculator', url: '/calculators/health/ergonomics-score-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Ergonomics Score Calculator', description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboa', url: 'https://tooltrio.com/calculators/health/ergonomics-score-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

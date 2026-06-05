@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'UV Exposure Calculator', description: 'Calculate your daily UV radiation dose based on UV index, time of day, skin type, and exposure duration. Balance vitamin D production from sun exposur', url: 'https://tooltrio.com/calculators/health/uv-exposure-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'UV Exposure Calculator', description: 'Calculate your daily UV radiation dose based on UV index, time of day, skin type, and exposure duration. Balance vitamin D production from sun exposur', url: 'https://tooltrio.com/calculators/health/uv-exposure-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'UV Exposure Calculator', url: '/calculators/health/uv-exposure-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'UV Exposure Calculator', description: 'Calculate your daily UV radiation dose based on UV index, time of day, skin type, and exposure duration. Balance vitamin D production from sun exposur', url: 'https://tooltrio.com/calculators/health/uv-exposure-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

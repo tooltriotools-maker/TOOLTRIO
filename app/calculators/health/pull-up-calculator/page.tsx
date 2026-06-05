@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Pull-Up Calculator', description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to st', url: 'https://tooltrio.com/calculators/health/pull-up-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Pull-Up Calculator', description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to st', url: 'https://tooltrio.com/calculators/health/pull-up-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Pull-Up Calculator', url: '/calculators/health/pull-up-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Pull-Up Calculator', description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to st', url: 'https://tooltrio.com/calculators/health/pull-up-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

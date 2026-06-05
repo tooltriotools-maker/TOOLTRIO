@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, childAge, collegeAge, returnRate, stateTaxRate, fedTaxRate])
 
   return (
-    <CalculatorLayout title="529 vs Roth IRA Education Calculator USA 2026" description="Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="529 vs Roth IRA Education Calculator USA 2026" description="Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="529-vs-roth-ira-education-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

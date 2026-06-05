@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ].filter(d => d.value > 0)
 
   return (
-    <CalculatorLayout title="Paycheck Calculator USA 2026" description="Calculate your exact take-home pay after federal tax, state tax, Social Security, and Medicare." icon="💵" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Paycheck Calculator USA 2026" description="Calculate your exact take-home pay after federal tax, state tax, Social Security, and Medicare." icon="💵" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="paycheck-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Paycheck Details</h2>

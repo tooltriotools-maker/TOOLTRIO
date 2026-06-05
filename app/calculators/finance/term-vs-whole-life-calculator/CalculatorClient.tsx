@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [wholeLifePremium, termPremium, coverAmount, investReturn, years])
 
   return (
-    <CalculatorLayout title="Term vs Whole Life Insurance Calculator USA 2026" description="Compare term life plus investing the difference vs whole life insurance on wealth building." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Term vs Whole Life Insurance Calculator USA 2026" description="Compare term life plus investing the difference vs whole life insurance on wealth building." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-whole-life-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Policy Details</h2>

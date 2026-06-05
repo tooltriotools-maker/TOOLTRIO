@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }) || []
 
   return (
-    <CalculatorLayout title="Step-Up SIP Calculator India 2026" description="Calculate how increasing your SIP by 10–15% annually accelerates wealth vs a flat SIP." icon="🚀" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Step-Up SIP Calculator India 2026" description="Calculate how increasing your SIP by 10–15% annually accelerates wealth vs a flat SIP." icon="🚀" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="step-up-sip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Step-Up SIP Details</h2>

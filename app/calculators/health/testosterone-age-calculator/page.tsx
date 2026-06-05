@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Testosterone Calculator', description: 'Calculate where your testosterone level falls relative to age-adjusted normal ranges. Understand natural decline rates, symptoms of suboptimal levels,', url: 'https://tooltrio.com/calculators/health/testosterone-age-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Testosterone Calculator', description: 'Calculate where your testosterone level falls relative to age-adjusted normal ranges. Understand natural decline rates, symptoms of suboptimal levels,', url: 'https://tooltrio.com/calculators/health/testosterone-age-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Testosterone Calculator', url: '/calculators/health/testosterone-age-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Testosterone Calculator', description: 'Calculate where your testosterone level falls relative to age-adjusted normal ranges. Understand natural decline rates, symptoms of suboptimal levels,', url: 'https://tooltrio.com/calculators/health/testosterone-age-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

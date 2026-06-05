@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -111,10 +111,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'HIIT Calculator', description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design p', url: 'https://tooltrio.com/calculators/health/hiit-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'HIIT Calculator', description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design p', url: 'https://tooltrio.com/calculators/health/hiit-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'HIIT Calculator', url: '/calculators/health/hiit-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'HIIT Calculator', description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design p', url: 'https://tooltrio.com/calculators/health/hiit-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

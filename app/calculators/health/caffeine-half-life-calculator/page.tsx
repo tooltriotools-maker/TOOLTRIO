@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Caffeine Half-Life Calculator', description: 'Calculate how long caffeine stays in your system based on the amount consumed and time elapsed. Find the optimal cutoff time for your last coffee or t', url: 'https://tooltrio.com/calculators/health/caffeine-half-life-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Caffeine Half-Life Calculator', description: 'Calculate how long caffeine stays in your system based on the amount consumed and time elapsed. Find the optimal cutoff time for your last coffee or t', url: 'https://tooltrio.com/calculators/health/caffeine-half-life-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Caffeine Half-Life Calculator', url: '/calculators/health/caffeine-half-life-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Caffeine Half-Life Calculator', description: 'Calculate how long caffeine stays in your system based on the amount consumed and time elapsed. Find the optimal cutoff time for your last coffee or t', url: 'https://tooltrio.com/calculators/health/caffeine-half-life-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

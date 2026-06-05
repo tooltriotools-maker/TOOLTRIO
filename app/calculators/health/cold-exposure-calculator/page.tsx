@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Cold Exposure Calculator', description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold pl', url: 'https://tooltrio.com/calculators/health/cold-exposure-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Cold Exposure Calculator', description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold pl', url: 'https://tooltrio.com/calculators/health/cold-exposure-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Cold Exposure Calculator', url: '/calculators/health/cold-exposure-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Cold Exposure Calculator', description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold pl', url: 'https://tooltrio.com/calculators/health/cold-exposure-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

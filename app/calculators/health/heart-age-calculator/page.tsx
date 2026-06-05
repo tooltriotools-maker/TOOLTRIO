@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -113,10 +113,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Heart Age Calculator', description: 'Estimate your cardiovascular (heart) age relative to your chronological age using the Framingham-based heart age calculation. See how blood pressure, ', url: 'https://tooltrio.com/calculators/health/heart-age-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Heart Age Calculator', description: 'Estimate your cardiovascular (heart) age relative to your chronological age using the Framingham-based heart age calculation. See how blood pressure, ', url: 'https://tooltrio.com/calculators/health/heart-age-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Heart Age Calculator', url: '/calculators/health/heart-age-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Heart Age Calculator', description: 'Estimate your cardiovascular (heart) age relative to your chronological age using the Framingham-based heart age calculation. See how blood pressure, ', url: 'https://tooltrio.com/calculators/health/heart-age-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const COLORS = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444']
 
   return (
-    <CalculatorLayout title="Car Depreciation Calculator USA 2026" description="Calculate how much your vehicle loses in value per year and the true total cost of ownership." icon="🚗" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Car Depreciation Calculator USA 2026" description="Calculate how much your vehicle loses in value per year and the true total cost of ownership." icon="🚗" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="car-depreciation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Vehicle Details</h2>

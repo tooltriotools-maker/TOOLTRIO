@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Sugar Intake Calculator" description="Estimate your daily added sugar consumption and compare to WHO and AHA recommendations." icon="🍬" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Sugar Intake Calculator" description="Estimate your daily added sugar consumption and compare to WHO and AHA recommendations." icon="🍬" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sugar-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Daily Sugar Sources</h2>

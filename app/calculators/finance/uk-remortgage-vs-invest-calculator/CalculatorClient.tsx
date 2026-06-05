@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="UK Remortgage vs Invest Calculator 2026" description="Compare overpaying your UK mortgage vs investing in the stock market with ISA tax benefits." icon="🔄" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="UK Remortgage vs Invest Calculator 2026" description="Compare overpaying your UK mortgage vs investing in the stock market with ISA tax benefits." icon="🔄" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-remortgage-vs-invest-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

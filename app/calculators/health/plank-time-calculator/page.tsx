@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Plank Time Calculator', description: 'Calculate your core strength percentile from plank hold time by age and sex. Get a progressive plank training plan to improve core endurance and set r', url: 'https://tooltrio.com/calculators/health/plank-time-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Plank Time Calculator', description: 'Calculate your core strength percentile from plank hold time by age and sex. Get a progressive plank training plan to improve core endurance and set r', url: 'https://tooltrio.com/calculators/health/plank-time-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Plank Time Calculator', url: '/calculators/health/plank-time-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Plank Time Calculator', description: 'Calculate your core strength percentile from plank hold time by age and sex. Get a progressive plank training plan to improve core endurance and set r', url: 'https://tooltrio.com/calculators/health/plank-time-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

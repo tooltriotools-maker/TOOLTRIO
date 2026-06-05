@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Ovulation Calculator', description: 'Calculate your ovulation date and fertile window based on your last menstrual period and average cycle length. Understand the 5-day fertile window, LH', url: 'https://tooltrio.com/calculators/health/ovulation-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Ovulation Calculator', description: 'Calculate your ovulation date and fertile window based on your last menstrual period and average cycle length. Understand the 5-day fertile window, LH', url: 'https://tooltrio.com/calculators/health/ovulation-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Ovulation Calculator', url: '/calculators/health/ovulation-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Ovulation Calculator', description: 'Calculate your ovulation date and fertile window based on your last menstrual period and average cycle length. Understand the 5-day fertile window, LH', url: 'https://tooltrio.com/calculators/health/ovulation-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

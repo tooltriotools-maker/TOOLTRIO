@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Lean Body Mass Calculator', description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake, ', url: 'https://tooltrio.com/calculators/health/lean-body-mass-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Lean Body Mass Calculator', description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake, ', url: 'https://tooltrio.com/calculators/health/lean-body-mass-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Lean Body Mass Calculator', url: '/calculators/health/lean-body-mass-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Lean Body Mass Calculator', description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake, ', url: 'https://tooltrio.com/calculators/health/lean-body-mass-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

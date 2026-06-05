@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Savings Goal Calculator USA 2026" description={`Calculate how much to save monthly to reach your financial goal in ${currency.name}.`} icon="🎯" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Savings Goal Calculator USA 2026" description={`Calculate how much to save monthly to reach your financial goal in ${currency.name}.`} icon="🎯" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="savings-goal-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Your Goal</h2>

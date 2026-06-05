@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const BMICalculatorClient = dynamic(() => import('./BMICalculatorClient'), {
   ssr: false,
@@ -62,10 +62,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'BMI Calculator', description: 'Calculate your Body Mass Index instantly using CDC and NIH validated formulas. Supports pounds/inches and kg/cm. See your BMI category, healthy weight range, an', url: 'https://tooltrio.com/calculators/health/bmi-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'BMI Calculator', description: 'Calculate your Body Mass Index instantly using CDC and NIH validated formulas. Supports pounds/inches and kg/cm. See your BMI category, healthy weight range, an', url: 'https://tooltrio.com/calculators/health/bmi-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'BMI Calculator', url: '/calculators/health/bmi-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'BMI Calculator', description: 'Calculate your Body Mass Index instantly using CDC and NIH validated formulas. Supports pounds/inches and kg/cm. See your BMI category, healthy weight range, an', url: 'https://tooltrio.com/calculators/health/bmi-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
         title: 'BMI Calculator 2026',

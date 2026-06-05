@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [age,bmi,waist,gender,family,activity,bp,gestational])
 
   return (
-    <CalculatorLayout title="Type 2 Diabetes Risk Calculator" description="Assess your risk of developing Type 2 diabetes using evidence-based FINDRISC scoring. Get personalised prevention tips." icon="🩺" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Type 2 Diabetes Risk Calculator" description="Assess your risk of developing Type 2 diabetes using evidence-based FINDRISC scoring. Get personalised prevention tips." icon="🩺" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="diabetes-risk-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Risk Factors</h2>

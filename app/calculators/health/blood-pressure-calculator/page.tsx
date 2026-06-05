@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -132,10 +132,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Blood Pressure Calculator', description: 'Interpret your blood pressure reading using ACC/AHA 2017 guidelines. See if your BP is normal, elevated, Stage 1 or Stage 2 hypertension. Calculate pulse pressu', url: 'https://tooltrio.com/calculators/health/blood-pressure-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Blood Pressure Calculator', description: 'Interpret your blood pressure reading using ACC/AHA 2017 guidelines. See if your BP is normal, elevated, Stage 1 or Stage 2 hypertension. Calculate pulse pressu', url: 'https://tooltrio.com/calculators/health/blood-pressure-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Blood Pressure Calculator', url: '/calculators/health/blood-pressure-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Blood Pressure Calculator', description: 'Interpret your blood pressure reading using ACC/AHA 2017 guidelines. See if your BP is normal, elevated, Stage 1 or Stage 2 hypertension. Calculate pulse pressu', url: 'https://tooltrio.com/calculators/health/blood-pressure-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

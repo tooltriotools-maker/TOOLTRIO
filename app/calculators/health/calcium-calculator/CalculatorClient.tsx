@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const pct = Math.round(intake/adjusted*100)
 
   return (
-    <CalculatorLayout title="Calcium Calculator" description="Calculate your daily calcium needs and check if your intake meets recommended levels." icon="🦴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Calcium Calculator" description="Calculate your daily calcium needs and check if your intake meets recommended levels." icon="🦴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calcium-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

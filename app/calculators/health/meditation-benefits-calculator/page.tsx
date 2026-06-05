@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Meditation Benefits Calculator', description: 'Estimate the health benefits of your meditation practice based on style, frequency, session length, and consistency. Based on clinical research on med', url: 'https://tooltrio.com/calculators/health/meditation-benefits-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Meditation Benefits Calculator', description: 'Estimate the health benefits of your meditation practice based on style, frequency, session length, and consistency. Based on clinical research on med', url: 'https://tooltrio.com/calculators/health/meditation-benefits-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Meditation Benefits Calculator', url: '/calculators/health/meditation-benefits-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Meditation Benefits Calculator', description: 'Estimate the health benefits of your meditation practice based on style, frequency, session length, and consistency. Based on clinical research on med', url: 'https://tooltrio.com/calculators/health/meditation-benefits-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

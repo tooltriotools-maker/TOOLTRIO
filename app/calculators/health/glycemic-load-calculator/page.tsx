@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Glycemic Load Calculator', description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect b', url: 'https://tooltrio.com/calculators/health/glycemic-load-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Glycemic Load Calculator', description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect b', url: 'https://tooltrio.com/calculators/health/glycemic-load-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Glycemic Load Calculator', url: '/calculators/health/glycemic-load-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Glycemic Load Calculator', description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect b', url: 'https://tooltrio.com/calculators/health/glycemic-load-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

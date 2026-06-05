@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     : []
 
   return (
-    <CalculatorLayout title="SWP Calculator India 2026" description="Calculate monthly income from mutual fund corpus using Systematic Withdrawal Plan." icon="💸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="SWP Calculator India 2026" description="Calculate monthly income from mutual fund corpus using Systematic Withdrawal Plan." icon="💸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="swp-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">SWP Details</h2>

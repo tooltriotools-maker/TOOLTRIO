@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -115,10 +115,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Alcohol Calorie Calculator', description: 'Calculate the exact calories in any alcoholic drink by type, alcohol percentage, and serving size. Compare drinks by calorie density and find lower-ca', url: 'https://tooltrio.com/calculators/health/alcohol-calorie-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Alcohol Calorie Calculator', description: 'Calculate the exact calories in any alcoholic drink by type, alcohol percentage, and serving size. Compare drinks by calorie density and find lower-ca', url: 'https://tooltrio.com/calculators/health/alcohol-calorie-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Alcohol Calorie Calculator', url: '/calculators/health/alcohol-calorie-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Alcohol Calorie Calculator', description: 'Calculate the exact calories in any alcoholic drink by type, alcohol percentage, and serving size. Compare drinks by calorie density and find lower-ca', url: 'https://tooltrio.com/calculators/health/alcohol-calorie-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

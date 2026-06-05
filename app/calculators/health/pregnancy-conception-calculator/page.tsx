@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Conception Date Calculator', description: 'Calculate your likely conception date from your known due date or last menstrual period. Understand the conception window, how sperm and egg timing wo', url: 'https://tooltrio.com/calculators/health/pregnancy-conception-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Conception Date Calculator', description: 'Calculate your likely conception date from your known due date or last menstrual period. Understand the conception window, how sperm and egg timing wo', url: 'https://tooltrio.com/calculators/health/pregnancy-conception-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Conception Date Calculator', url: '/calculators/health/pregnancy-conception-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Conception Date Calculator', description: 'Calculate your likely conception date from your known due date or last menstrual period. Understand the conception window, how sperm and egg timing wo', url: 'https://tooltrio.com/calculators/health/pregnancy-conception-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

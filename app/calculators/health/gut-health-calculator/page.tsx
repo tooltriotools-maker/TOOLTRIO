@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Gut Health Score Calculator', description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get person', url: 'https://tooltrio.com/calculators/health/gut-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Gut Health Score Calculator', description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get person', url: 'https://tooltrio.com/calculators/health/gut-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Gut Health Score Calculator', url: '/calculators/health/gut-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Gut Health Score Calculator', description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get person', url: 'https://tooltrio.com/calculators/health/gut-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

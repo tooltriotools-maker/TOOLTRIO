@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -105,10 +105,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Breathing Exercise Calculator', description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breat', url: 'https://tooltrio.com/calculators/health/breathing-exercise-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Breathing Exercise Calculator', description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breat', url: 'https://tooltrio.com/calculators/health/breathing-exercise-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Breathing Exercise Calculator', url: '/calculators/health/breathing-exercise-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Breathing Exercise Calculator', description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breat', url: 'https://tooltrio.com/calculators/health/breathing-exercise-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

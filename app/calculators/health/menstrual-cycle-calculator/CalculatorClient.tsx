@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [lastPeriodDate, cycleLen, periodDuration, cycles])
 
   return (
-    <CalculatorLayout title="Menstrual Cycle Calculator" description="Predict next period, fertile window, and ovulation date based on your cycle length." icon="🌸" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Menstrual Cycle Calculator" description="Predict next period, fertile window, and ovulation date based on your cycle length." icon="🌸" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="menstrual-cycle-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Cycle</h2>

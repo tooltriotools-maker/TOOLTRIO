@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Sit-and-Reach Flexibility Calculator', description: 'Calculate your hamstring and lower back flexibility percentile from sit-and-reach test results by age and sex. Compare against Cooper Institute norms ', url: 'https://tooltrio.com/calculators/health/sit-and-reach-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Sit-and-Reach Flexibility Calculator', description: 'Calculate your hamstring and lower back flexibility percentile from sit-and-reach test results by age and sex. Compare against Cooper Institute norms ', url: 'https://tooltrio.com/calculators/health/sit-and-reach-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Sit-and-Reach Flexibility Calculator', url: '/calculators/health/sit-and-reach-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Sit-and-Reach Flexibility Calculator', description: 'Calculate your hamstring and lower back flexibility percentile from sit-and-reach test results by age and sex. Compare against Cooper Institute norms ', url: 'https://tooltrio.com/calculators/health/sit-and-reach-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

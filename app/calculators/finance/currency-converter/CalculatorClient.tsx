@@ -64,6 +64,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       structuredData={structuredData}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
+      slug="currency-converter"
     >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 

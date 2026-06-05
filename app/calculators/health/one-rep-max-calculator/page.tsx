@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'One Rep Max Calculator', description: 'Calculate your estimated one-rep maximum (1RM) for any lift using the Brzycki, Epley, Lombardi, and O\'Conner formulas. Calculate percentage-based trai', url: 'https://tooltrio.com/calculators/health/one-rep-max-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'One Rep Max Calculator', description: 'Calculate your estimated one-rep maximum (1RM) for any lift using the Brzycki, Epley, Lombardi, and O\'Conner formulas. Calculate percentage-based trai', url: 'https://tooltrio.com/calculators/health/one-rep-max-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'One Rep Max Calculator', url: '/calculators/health/one-rep-max-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'One Rep Max Calculator', description: 'Calculate your estimated one-rep maximum (1RM) for any lift using the Brzycki, Epley, Lombardi, and O\'Conner formulas. Calculate percentage-based trai', url: 'https://tooltrio.com/calculators/health/one-rep-max-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Calcium Calculator', description: 'Calculate your daily calcium requirements based on age, sex, and life stage. Track dietary calcium intake from food sources and determine if supplemen', url: 'https://tooltrio.com/calculators/health/calcium-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Calcium Calculator', description: 'Calculate your daily calcium requirements based on age, sex, and life stage. Track dietary calcium intake from food sources and determine if supplemen', url: 'https://tooltrio.com/calculators/health/calcium-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Calcium Calculator', url: '/calculators/health/calcium-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Calcium Calculator', description: 'Calculate your daily calcium requirements based on age, sex, and life stage. Track dietary calcium intake from food sources and determine if supplemen', url: 'https://tooltrio.com/calculators/health/calcium-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

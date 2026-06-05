@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -120,10 +120,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Vitamin D Calculator', description: 'Calculate your vitamin D needs based on age, sun exposure, skin tone, dietary intake, and risk factors. Find out if you need supplements and at what d', url: 'https://tooltrio.com/calculators/health/vitamin-d-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Vitamin D Calculator', description: 'Calculate your vitamin D needs based on age, sun exposure, skin tone, dietary intake, and risk factors. Find out if you need supplements and at what d', url: 'https://tooltrio.com/calculators/health/vitamin-d-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Vitamin D Calculator', url: '/calculators/health/vitamin-d-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Vitamin D Calculator', description: 'Calculate your vitamin D needs based on age, sun exposure, skin tone, dietary intake, and risk factors. Find out if you need supplements and at what d', url: 'https://tooltrio.com/calculators/health/vitamin-d-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -33,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Roth IRA Calculator USA 2026" description="See how much your Roth IRA will be worth at retirement with tax-free compound growth." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Roth IRA Calculator USA 2026" description="See how much your Roth IRA will be worth at retirement with tax-free compound growth." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="roth-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Roth IRA Details</h2>

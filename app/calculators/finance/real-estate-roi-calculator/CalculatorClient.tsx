@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Real Estate ROI Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, net operating income, and total ROI for any rental property." icon="🏘️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Real Estate ROI Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, net operating income, and total ROI for any rental property." icon="🏘️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="real-estate-roi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Property Details</h2>

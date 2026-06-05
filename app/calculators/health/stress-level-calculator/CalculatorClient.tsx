@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const opts = ['Never','Almost Never','Sometimes','Fairly Often','Very Often']
 
   return (
-    <CalculatorLayout title="Stress Level Calculator (PSS-10)" description="Validated Perceived Stress Scale assessment with personalised coping strategies. Scientifically backed stress measurement." icon="🧠" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Stress Level Calculator (PSS-10)" description="Validated Perceived Stress Scale assessment with personalised coping strategies. Scientifically backed stress measurement." icon="🧠" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="stress-level-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card>

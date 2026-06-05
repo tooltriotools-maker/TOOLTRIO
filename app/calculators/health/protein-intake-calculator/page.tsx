@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -129,10 +129,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Protein Intake Calculator', description: 'Calculate your optimal daily protein intake for muscle building, fat loss, athletic performance, or healthy aging. Based on body weight and goal. Get ', url: 'https://tooltrio.com/calculators/health/protein-intake-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Protein Intake Calculator', description: 'Calculate your optimal daily protein intake for muscle building, fat loss, athletic performance, or healthy aging. Based on body weight and goal. Get ', url: 'https://tooltrio.com/calculators/health/protein-intake-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Protein Intake Calculator', url: '/calculators/health/protein-intake-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Protein Intake Calculator', description: 'Calculate your optimal daily protein intake for muscle building, fat loss, athletic performance, or healthy aging. Based on body weight and goal. Get ', url: 'https://tooltrio.com/calculators/health/protein-intake-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

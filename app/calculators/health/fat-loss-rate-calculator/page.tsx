@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -108,10 +108,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Fat Loss Rate Calculator', description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss ', url: 'https://tooltrio.com/calculators/health/fat-loss-rate-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Fat Loss Rate Calculator', description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss ', url: 'https://tooltrio.com/calculators/health/fat-loss-rate-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Fat Loss Rate Calculator', url: '/calculators/health/fat-loss-rate-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Fat Loss Rate Calculator', description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss ', url: 'https://tooltrio.com/calculators/health/fat-loss-rate-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

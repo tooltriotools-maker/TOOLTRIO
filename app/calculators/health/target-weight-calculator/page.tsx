@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -114,10 +114,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Target Weight Calculator', description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline a', url: 'https://tooltrio.com/calculators/health/target-weight-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Target Weight Calculator', description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline a', url: 'https://tooltrio.com/calculators/health/target-weight-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Target Weight Calculator', url: '/calculators/health/target-weight-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Target Weight Calculator', description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline a', url: 'https://tooltrio.com/calculators/health/target-weight-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

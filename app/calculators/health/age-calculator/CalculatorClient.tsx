@@ -62,7 +62,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [birthDate, targetDate])
 
   return (
-    <CalculatorLayout title="Age Calculator" description="Calculate exact age in years, months, days and hours. Find days until next birthday and age on any date." icon="🎂" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Age Calculator" description="Calculate exact age in years, months, days and hours. Find days until next birthday and age on any date." icon="🎂" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="age-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
           <h2 className="text-base font-bold text-gray-900 mb-5">Date of Birth</h2>

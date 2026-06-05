@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -106,10 +106,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Dental Health Risk Calculator', description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medica', url: 'https://tooltrio.com/calculators/health/dental-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Dental Health Risk Calculator', description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medica', url: 'https://tooltrio.com/calculators/health/dental-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Dental Health Risk Calculator', url: '/calculators/health/dental-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Dental Health Risk Calculator', description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medica', url: 'https://tooltrio.com/calculators/health/dental-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

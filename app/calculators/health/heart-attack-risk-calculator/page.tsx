@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -113,10 +113,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Heart Attack Risk Calculator', description: 'Calculate your 10-year atherosclerotic cardiovascular disease (ASCVD) event risk using the ACC/AHA Pooled Cohort Equations. Based on age, sex, race, c', url: 'https://tooltrio.com/calculators/health/heart-attack-risk-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Heart Attack Risk Calculator', description: 'Calculate your 10-year atherosclerotic cardiovascular disease (ASCVD) event risk using the ACC/AHA Pooled Cohort Equations. Based on age, sex, race, c', url: 'https://tooltrio.com/calculators/health/heart-attack-risk-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Heart Attack Risk Calculator', url: '/calculators/health/heart-attack-risk-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Heart Attack Risk Calculator', description: 'Calculate your 10-year atherosclerotic cardiovascular disease (ASCVD) event risk using the ACC/AHA Pooled Cohort Equations. Based on age, sex, race, c', url: 'https://tooltrio.com/calculators/health/heart-attack-risk-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [weight,unit,activity,climate,exerciseMins,pregnant,breastfeeding])
 
   return (
-    <CalculatorLayout title="Hydration Calculator" description="Calculate your precise daily water and electrolyte needs based on body weight, activity, and climate." icon="💧" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Hydration Calculator" description="Calculate your precise daily water and electrolyte needs based on body weight, activity, and climate." icon="💧" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hydration-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

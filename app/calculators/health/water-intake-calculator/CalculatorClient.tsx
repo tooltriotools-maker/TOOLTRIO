@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const adjusted = schedule.map(s => ({ ...s, amount: Math.round(s.amount * (liters * 1000) / totalScheduled) }))
 
   return (
-    <CalculatorLayout title="Water Intake Calculator" description="Find your daily water intake needs based on weight, activity level, and climate. Get a personalized hydration schedule." icon="💧" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Water Intake Calculator" description="Find your daily water intake needs based on weight, activity level, and climate. Get a personalized hydration schedule." icon="💧" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="water-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

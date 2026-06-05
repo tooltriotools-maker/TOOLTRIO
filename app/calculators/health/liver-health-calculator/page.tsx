@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Liver Health Risk Calculator', description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and meta', url: 'https://tooltrio.com/calculators/health/liver-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Liver Health Risk Calculator', description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and meta', url: 'https://tooltrio.com/calculators/health/liver-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Liver Health Risk Calculator', url: '/calculators/health/liver-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Liver Health Risk Calculator', description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and meta', url: 'https://tooltrio.com/calculators/health/liver-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

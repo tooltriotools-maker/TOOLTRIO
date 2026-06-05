@@ -23,7 +23,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const formatMonths = (m: number) => m >= 12 ? `${Math.floor(m / 12)}y ${m % 12}m` : `${m}m`
 
   return (
-    <CalculatorLayout title="Credit Card Payoff Calculator USA 2026" description="Find your debt-free date, total interest paid, and savings from extra payments." icon="💳" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Credit Card Payoff Calculator USA 2026" description="Find your debt-free date, total interest paid, and savings from extra payments." icon="💳" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="credit-card-payoff-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Card Details</h2>

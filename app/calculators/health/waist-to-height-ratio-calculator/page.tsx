@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Waist-to-Height Ratio Calculator', description: 'Calculate your waist-to-height ratio (WHtR) — one of the strongest predictors of cardiometabolic risk. The \'keep your waist to less than half your hei', url: 'https://tooltrio.com/calculators/health/waist-to-height-ratio-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Waist-to-Height Ratio Calculator', description: 'Calculate your waist-to-height ratio (WHtR) — one of the strongest predictors of cardiometabolic risk. The \'keep your waist to less than half your hei', url: 'https://tooltrio.com/calculators/health/waist-to-height-ratio-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Waist-to-Height Ratio Calculator', url: '/calculators/health/waist-to-height-ratio-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Waist-to-Height Ratio Calculator', description: 'Calculate your waist-to-height ratio (WHtR) — one of the strongest predictors of cardiometabolic risk. The \'keep your waist to less than half your hei', url: 'https://tooltrio.com/calculators/health/waist-to-height-ratio-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

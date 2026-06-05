@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Pregnancy Due Date Calculator', description: 'Calculate your estimated due date from your last menstrual period (LMP), IVF embryo transfer date, or earliest ultrasound crown-rump length. Includes ', url: 'https://tooltrio.com/calculators/health/pregnancy-due-date-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Pregnancy Due Date Calculator', description: 'Calculate your estimated due date from your last menstrual period (LMP), IVF embryo transfer date, or earliest ultrasound crown-rump length. Includes ', url: 'https://tooltrio.com/calculators/health/pregnancy-due-date-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Pregnancy Due Date Calculator', url: '/calculators/health/pregnancy-due-date-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Pregnancy Due Date Calculator', description: 'Calculate your estimated due date from your last menstrual period (LMP), IVF embryo transfer date, or earliest ultrasound crown-rump length. Includes ', url: 'https://tooltrio.com/calculators/health/pregnancy-due-date-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -117,10 +117,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Diabetes Risk Calculator', description: 'Calculate your 10-year risk of developing type 2 diabetes using the American Diabetes Association risk screening tool. Based on age, weight, family hi', url: 'https://tooltrio.com/calculators/health/diabetes-risk-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Diabetes Risk Calculator', description: 'Calculate your 10-year risk of developing type 2 diabetes using the American Diabetes Association risk screening tool. Based on age, weight, family hi', url: 'https://tooltrio.com/calculators/health/diabetes-risk-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Diabetes Risk Calculator', url: '/calculators/health/diabetes-risk-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Diabetes Risk Calculator', description: 'Calculate your 10-year risk of developing type 2 diabetes using the American Diabetes Association risk screening tool. Based on age, weight, family hi', url: 'https://tooltrio.com/calculators/health/diabetes-risk-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

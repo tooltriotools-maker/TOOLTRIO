@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -107,10 +107,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Body Surface Area Calculator', description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn tre', url: 'https://tooltrio.com/calculators/health/body-surface-area-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Body Surface Area Calculator', description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn tre', url: 'https://tooltrio.com/calculators/health/body-surface-area-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Body Surface Area Calculator', url: '/calculators/health/body-surface-area-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Body Surface Area Calculator', description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn tre', url: 'https://tooltrio.com/calculators/health/body-surface-area-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -123,10 +123,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Longevity Calculator', description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporati', url: 'https://tooltrio.com/calculators/health/longevity-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Longevity Calculator', description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporati', url: 'https://tooltrio.com/calculators/health/longevity-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Longevity Calculator', url: '/calculators/health/longevity-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Longevity Calculator', description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporati', url: 'https://tooltrio.com/calculators/health/longevity-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

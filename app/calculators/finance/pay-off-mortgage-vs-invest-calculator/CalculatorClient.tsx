@@ -63,7 +63,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [extraPayment, mortgageRate, investRate, remainingBalance, remainingYears, taxRate])
 
   return (
-    <CalculatorLayout title="Pay Off Mortgage vs Invest Calculator USA 2026" description="Compare making extra mortgage payments vs investing in the stock market with break-even analysis." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Pay Off Mortgage vs Invest Calculator USA 2026" description="Compare making extra mortgage payments vs investing in the stock market with break-even analysis." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pay-off-mortgage-vs-invest-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Mortgage &amp; Investment Details</h2>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -108,10 +108,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Fasting Window Calculator', description: 'Calculate your exact fasting window timing for any IF protocol. Find when your eating window opens and closes, estimate autophagy activation timing, a', url: 'https://tooltrio.com/calculators/health/fasting-window-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Fasting Window Calculator', description: 'Calculate your exact fasting window timing for any IF protocol. Find when your eating window opens and closes, estimate autophagy activation timing, a', url: 'https://tooltrio.com/calculators/health/fasting-window-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Fasting Window Calculator', url: '/calculators/health/fasting-window-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Fasting Window Calculator', description: 'Calculate your exact fasting window timing for any IF protocol. Find when your eating window opens and closes, estimate autophagy activation timing, a', url: 'https://tooltrio.com/calculators/health/fasting-window-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

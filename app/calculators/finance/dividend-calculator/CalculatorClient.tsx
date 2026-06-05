@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Dividend Income Calculator USA 2026" description="Calculate annual dividend income, yield on cost growth, and DRIP compounding projections." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Dividend Income Calculator USA 2026" description="Calculate annual dividend income, yield on cost growth, and DRIP compounding projections." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="dividend-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Investment Setup</h2>

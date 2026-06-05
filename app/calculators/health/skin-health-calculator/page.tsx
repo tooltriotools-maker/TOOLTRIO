@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -112,10 +112,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Skin Health Calculator', description: 'Calculate UV damage exposure, estimated photoaging score, and personalized skincare recommendations based on lifestyle factors.', url: 'https://tooltrio.com/calculators/health/skin-health-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Skin Health Calculator', description: 'Calculate UV damage exposure, estimated photoaging score, and personalized skincare recommendations based on lifestyle factors.', url: 'https://tooltrio.com/calculators/health/skin-health-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Skin Health Calculator', url: '/calculators/health/skin-health-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Skin Health Calculator', description: 'Calculate UV damage exposure, estimated photoaging score, and personalized skincare recommendations based on lifestyle factors.', url: 'https://tooltrio.com/calculators/health/skin-health-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

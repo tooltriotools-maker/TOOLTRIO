@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -115,10 +115,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Age Calculator', description: 'Calculate your exact age in years, months, weeks, days, hours, and minutes from your date of birth. Also calculate age between any two dates, days unt', url: 'https://tooltrio.com/calculators/health/age-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Age Calculator', description: 'Calculate your exact age in years, months, weeks, days, hours, and minutes from your date of birth. Also calculate age between any two dates, days unt', url: 'https://tooltrio.com/calculators/health/age-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Age Calculator', url: '/calculators/health/age-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Age Calculator', description: 'Calculate your exact age in years, months, weeks, days, hours, and minutes from your date of birth. Also calculate age between any two dates, days unt', url: 'https://tooltrio.com/calculators/health/age-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

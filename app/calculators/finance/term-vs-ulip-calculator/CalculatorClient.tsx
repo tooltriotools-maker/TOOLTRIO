@@ -61,7 +61,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [annualPremium, sumAssured, termPremium, sipRate, ulipCharge, ulipRate, years])
 
   return (
-    <CalculatorLayout title="Term vs ULIP Calculator India 2026" description="Compare Term Insurance plus SIP vs ULIP plans on returns, costs, and insurance coverage." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Term vs ULIP Calculator India 2026" description="Compare Term Insurance plus SIP vs ULIP plans on returns, costs, and insurance coverage." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-ulip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

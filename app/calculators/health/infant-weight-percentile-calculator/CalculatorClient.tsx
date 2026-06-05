@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [age,ageUnit,weight,height,gender,unit])
 
   return (
-    <CalculatorLayout title="Baby & Child Growth Percentile Calculator" description="Track your child's weight and height percentiles using WHO and CDC growth chart data. Ages 0-20." icon="👶" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug}>
+    <CalculatorLayout title="Baby & Child Growth Percentile Calculator" description="Track your child's weight and height percentiles using WHO and CDC growth chart data. Ages 0-20." icon="👶" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="infant-weight-percentile-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Child Details</h2>

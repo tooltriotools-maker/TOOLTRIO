@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData, generateBreadcrumbStructuredData, generateMedicalWebPageSchema } from '@/lib/seo/metadata'
+import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
@@ -128,10 +128,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Water Intake Calculator', description: 'Calculate exactly how much water to drink daily based on body weight, physical activity, climate, and health goals. Goes beyond the \'8 glasses a day\' ', url: 'https://tooltrio.com/calculators/health/water-intake-calculator', category: 'HealthApplication' }),
-        generateMedicalWebPageSchema({ name: 'Water Intake Calculator', description: 'Calculate exactly how much water to drink daily based on body weight, physical activity, climate, and health goals. Goes beyond the \'8 glasses a day\' ', url: 'https://tooltrio.com/calculators/health/water-intake-calculator' }),
-        generateBreadcrumbStructuredData([{ name: 'Home', url: '/' }, { name: 'Health Calculators', url: '/calculators/health' }, { name: 'Water Intake Calculator', url: '/calculators/health/water-intake-calculator' }]),
-      ]}
+        generateWebAppStructuredData({ name: 'Water Intake Calculator', description: 'Calculate exactly how much water to drink daily based on body weight, physical activity, climate, and health goals. Goes beyond the \'8 glasses a day\' ', url: 'https://tooltrio.com/calculators/health/water-intake-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
