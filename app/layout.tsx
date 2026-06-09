@@ -203,11 +203,7 @@ export default function RootLayout({
             });
           `}
         </Script>
-          <Script
-    src="https://analytics.ahrefs.com/analytics.js"
-    data-key="jIkVQBehVT1yBNWeoEWTDA"
-    strategy="lazyOnload"
-  />
+  
 
 
         <CurrencyProvider>
