@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to Area Code — Find Phone Area Code by ZIP Code USA 2026',
-  description: 'Find the telephone area code for any US ZIP code instantly. Enter a ZIP and get the local phone area code. Free ZIP to area code lookup tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip to area code','zip code to area code','find area code by zip','zip code phone area code','zip to phone area code','area code from zip code','zip code area code converter','local area code by zip code','us zip code area code lookup','phone area code by zip code','zip code telephone area code','area code lookup by zip usa','what area code is zip code','zip code area code finder free','zip code to phone prefix',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP to Area Code — Telephone Area Code by ZIP USA Free | ToolTrio',
+  description: 'Find the telephone area code for any US ZIP code free. Instant lookup — enter a ZIP and get the area code and city instantly. No signup required.',
+  keywords: [
+    'zip to area code',
+    'zip code area code lookup',
+    'find area code from zip',
+    'what is area code for zip code',
+    'zip code phone area code finder',
+    'postal code to area code usa',
+    'telephone code from zip code free',
+    'area code lookup by zip usa',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-area-code' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-area-code',
+    siteName: 'ToolTrio',
+    title: 'ZIP to Area Code — Telephone Area Code by ZIP USA Free | ToolTrio',
+    description: 'Find the telephone area code for any US ZIP code free. Instant lookup — enter a ZIP and get the area code and city instantly. No signup required.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP to Area Code — Find Telephone Area Code by ZIP Code USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP to Area Code — Telephone Area Code by ZIP USA Free | ToolTrio',
+    description: 'Find the telephone area code for any US ZIP code free. Instant lookup — enter a ZIP and get the area code and city instantly. No signup required.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -118,7 +148,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="ZIP to Area Code" description="Find the local phone area code for any US ZIP code." icon="📞" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to Area Code — Find Phone Area Code by ZIP Code USA 2026\",\"description\":\"Find the telephone area code for any US ZIP code instantly. Enter a ZIP and get the local phone area code. Free ZIP to area code lookup tool. Free on \",\"url\":\"https://tooltrio.com/zip/zip-to-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to Area Code — Find Phone Area Code by ZIP USA 2026\",\"description\":\"Find the telephone area code for any US ZIP code instantly. Enter a ZIP and get the local phone area code. Free ZIP to area code lookup tool. Free on \",\"url\":\"https://tooltrio.com/zip/zip-to-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

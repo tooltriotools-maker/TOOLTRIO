@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Omega-3 Calculator 2026 | ToolTrio',
-  description: 'Free Omega3 Calculator 2026 — Calculate your daily omega3 needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Omega3 Calculator 2026 — Calculate your daily omega3 needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs).',
   slug: 'omega3-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'epa dha dose calculator',
     'omega 3 supplement dosage',
     'fish oil calculator',
-    'how much omega 3 per day',
-    'omega 3 for heart health dose',
-    'dha epa ratio calculator',
-    'omega 3 for inflammation',
-    'omega 3 for pregnancy',
-    'algae oil vs fish oil omega 3',
   ],
 })
 

@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Same Timezone ZIP Codes — Find All ZIPs in Same Timezone 2026',
-  description: 'Find all US ZIP codes in the same timezone as any ZIP code. Enter a ZIP and get a complete list of ZIP codes sharing the same timezone. Free tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['same timezone zip codes','zip codes in same timezone','find zip codes by timezone','zip codes eastern time','zip codes central time','zip codes pacific time','zip code timezone list','all zip codes in timezone','zip code same time zone','zip codes sharing timezone','zip code time zone filter','zip code timezone eastern','zip code timezone central','zip code timezone pacific','zip code timezone mountain',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Same Timezone ZIP Codes — All ZIPs in Same Time Zone | ToolTrio',
+  description: 'Find all US ZIP codes in the same timezone as any ZIP code free. Enter a ZIP and get a complete list of ZIP codes sharing the same time zone.',
+  keywords: [
+    'same timezone zip codes',
+    'zip codes in same timezone',
+    'find zip codes by timezone',
+    'all zip codes in eastern time',
+    'zip codes in pacific time zone',
+    'timezone zip code list usa free',
+    'zip codes same time zone finder',
+    'us zip codes by time zone lookup',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/same-timezone-zips' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/same-timezone-zips',
+    siteName: 'ToolTrio',
+    title: 'Same Timezone ZIP Codes — All ZIPs in Same Time Zone | ToolTrio',
+    description: 'Find all US ZIP codes in the same timezone as any ZIP code free. Enter a ZIP and get a complete list of ZIP codes sharing the same time zone.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Same Timezone ZIP Codes — Find All ZIPs in Same Time Zone USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Same Timezone ZIP Codes — All ZIPs in Same Time Zone | ToolTrio',
+    description: 'Find all US ZIP codes in the same timezone as any ZIP code free. Enter a ZIP and get a complete list of ZIP codes sharing the same time zone.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

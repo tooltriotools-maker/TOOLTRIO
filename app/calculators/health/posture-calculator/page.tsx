@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Posture Assessment Calculator 2026 | ToolTrio',
-  description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targeting your specific postural imbalances. Free online posture calculator 2026. No signup required.',
+  description: 'Score your posture based on head position, shoulder alignment, spinal curvature, and pelvic tilt. Get a personalized corrective exercise plan targeting.',
   slug: 'posture-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'forward head posture score',
     'rounded shoulders calculator',
     'spinal alignment assessment',
-    'posture correction calculator',
-    'text neck calculator',
-    'desk posture assessment',
-    'postural imbalance score',
-    'kyphosis lordosis assessment',
-    'corrective exercise plan posture',
   ],
 })
 

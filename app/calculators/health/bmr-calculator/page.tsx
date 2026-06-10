@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BMR Calculator – Basal Metabolic Rate | ToolTrio',
-  description: 'Free BMR Calculator 2026 — Calculate your Basal Metabolic Rate at complete rest. Uses Mifflin-St Jeor and Harris-Benedict equations. Real examples for men and women. Instant results, no signup.',
+  description: 'Free BMR Calculator 2026 — Calculate your Basal Metabolic Rate at complete rest. Uses Mifflin-St Jeor and Harris-Benedict equations. Real examples for men.',
   slug: 'bmr-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'basal metabolic rate calculator by age',
     'what is a normal bmr for my height and weight',
     'harris benedict bmr calculator',
-    'how to increase basal metabolic rate',
-    'bmr vs tdee difference explained',
-    'bmr calculator metric and imperial',
-    'bmr calculator for weight loss',
-    'does muscle increase bmr',
-    'bmr decline with age',
   ],
 })
 

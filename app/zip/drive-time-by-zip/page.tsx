@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Drive Time by ZIP Code — Estimated Drive Time Between ZIP Codes 2026',
-  description: 'Calculate estimated driving time between any two US ZIP codes. Get drive time in minutes, driving distance in miles, and route overview. Free tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['drive time by zip code','driving time between zip codes','zip code drive time calculator','how long to drive between zip codes','zip code to zip code drive time','estimated drive time zip code','zip code driving distance time','travel time by zip code','drive time zip code tool usa','commute time by zip code','drive time estimator zip','zip code road distance calculator','zip code travel time free','drive time zip to zip','zip code commute time calculator',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+  description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
+  keywords: [
+    'drive time by zip code',
+    'driving time between zip codes',
+    'estimated drive time zip',
+    'how long to drive between zip codes',
+    'zip code drive time calculator free',
+    'travel time between zip codes usa',
+    'driving distance time by zip free',
+    'estimated driving time zip code tool',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/drive-time-by-zip' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/drive-time-by-zip',
+    siteName: 'ToolTrio',
+    title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+    description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Drive Time by ZIP Code — Estimated Driving Time Between ZIPs Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+    description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -128,7 +158,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="Drive Time by ZIP" description="Get estimated driving time and distance between any two US ZIP codes." icon="🚗" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Drive Time by ZIP Code — Estimated Drive Time Between ZIP Codes 2026\",\"description\":\"Calculate estimated driving time between any two US ZIP codes. Get drive time in minutes, driving distance in miles, and route overview. Free tool. Fr\",\"url\":\"https://tooltrio.com/zip/drive-time-by-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Drive Time by ZIP Code — Estimate Travel Time USA 2026\",\"description\":\"Calculate estimated driving time between any two US ZIP codes. Get drive time in minutes, driving distance in miles, and route overview. Free tool. Fr\",\"url\":\"https://tooltrio.com/zip/drive-time-by-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

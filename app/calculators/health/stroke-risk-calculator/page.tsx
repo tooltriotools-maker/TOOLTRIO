@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Stroke Risk Calculator 2026 | ToolTrio',
-  description: 'Calculate your 10-year ischemic stroke risk using the Framingham Stroke Profile. Based on age, systolic blood pressure, cholesterol, smoking, diabetes, cardiovascular disease, and atrial fibrillation status. Free online stroke risk calculator 2026. No signup required.',
+  description: 'Calculate your 10-year ischemic stroke risk using the Framingham Stroke Profile. Based on age, systolic blood pressure, cholesterol, smoking, diabetes.',
   slug: 'stroke-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     '10 year stroke risk',
     'framingham stroke profile calculator',
     'ischemic stroke probability',
-    'stroke prevention calculator',
-    'atrial fibrillation stroke risk',
-    'blood pressure stroke risk',
-    'stroke risk by age',
-    'stroke risk factor assessment',
-    'stroke recurrence risk',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Meditation Benefits Calculator 2026 | ToolTrio',
-  description: 'Free Meditation Benefits Calculator 2026 — Assess and track your meditation benefits with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
+  description: 'Free Meditation Benefits Calculator 2026 — Assess and track your meditation benefits with evidence-based scoring. Actionable insights and improvement.',
   slug: 'meditation-benefits-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'meditation impact score',
     'how many minutes of meditation for benefits',
     'meditation and blood pressure research',
-    'meditation anxiety reduction calculator',
-    'mindfulness health benefits score',
-    'meditation practice assessment',
-    'transcendental meditation benefits',
-    'meditation sleep improvement',
-    'daily meditation health impact',
   ],
 })
 

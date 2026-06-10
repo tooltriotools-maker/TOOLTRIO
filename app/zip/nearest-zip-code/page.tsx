@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Nearest ZIP Code — Find the Closest ZIP Code to Any ZIP USA 2026',
-  description: 'Find the nearest ZIP code to any US ZIP code. Enter a ZIP and instantly get the closest neighboring ZIP codes sorted by distance. Free nearest ZIP finder. Free on TOOLTRIO — no signup needed.',
-  keywords: ['nearest zip code','closest zip code','find nearest zip code','zip codes near me','neighboring zip codes','zip codes closest to zip','find nearby zip codes','adjacent zip codes','zip code neighbors','nearest zip code finder usa','closest zip codes to location','zip code proximity finder','find next zip code','zip codes bordering zip','zip code nearest search',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+  description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
+  keywords: [
+    'nearest zip code',
+    'closest zip code',
+    'find nearest zip code free',
+    'zip code closest to another zip',
+    'neighboring zip codes finder',
+    'adjacent zip code lookup free',
+    'zip codes near me free tool',
+    'closest zip code by distance usa',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/nearest-zip-code' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/nearest-zip-code',
+    siteName: 'ToolTrio',
+    title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+    description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Nearest ZIP Code — Find the Closest ZIP Code to Any ZIP USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+    description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

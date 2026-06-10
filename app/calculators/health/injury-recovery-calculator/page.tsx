@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Injury Recovery Calculator 2026 | ToolTrio',
-  description: 'Estimate recovery time for common injuries (muscle strains, ligament sprains, stress fractures, tendonitis) based on injury grade, location, and treatment approach. Get a phase-by-phase return-to-activity timeline. Free online injury recovery calculator 2026. No signup required.',
+  description: 'Estimate recovery time for common injuries (muscle strains, ligament sprains, stress fractures, tendonitis) based on injury grade, location, and treatment.',
   slug: 'injury-recovery-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'muscle strain recovery calculator',
     'sprain healing time calculator',
     'stress fracture recovery timeline',
-    'tendonitis recovery calculator',
-    'return to sport timeline',
-    'injury severity grade calculator',
-    'physical therapy recovery calculator',
-    'soft tissue injury healing time',
-    'athlete injury recovery plan',
   ],
 })
 

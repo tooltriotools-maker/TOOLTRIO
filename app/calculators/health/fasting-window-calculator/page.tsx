@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Fasting Window Calculator 2026 | ToolTrio',
-  description: 'Free Fasting Window Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD protocols. Evidence-based results. No signup required.',
+  description: 'Free Fasting Window Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD.',
   slug: 'fasting-window-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'when does autophagy start fasting calculator',
     'fasting hours tracker',
     'eating window start time calculator',
-    '16 8 fasting window timing',
-    'autophagy fasting hours',
-    'fasting schedule by wake time',
-    'time restricted eating calculator',
-    'how many hours to fast for autophagy',
-    'fasting window calorie timing',
   ],
 })
 

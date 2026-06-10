@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sleep Need Calculator 2026 | ToolTrio',
-  description: 'Free Sleep Need Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up optimization. Evidence-based sleep science. No signup.',
+  description: 'Free Sleep Need Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up.',
   slug: 'sleep-need-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'ideal sleep time calculator 2026',
     'sleep need calculator',
     'how many hours of sleep do I need',
-    'optimal sleep duration by age',
-    'sleep debt calculator',
-    'chronotype sleep calculator',
-    'best bedtime calculator',
-    'sleep deprivation calculator',
-    'nsf sleep recommendations',
-    'teen adult sleep needs',
-    'sleep need by activity level',
   ],
 })
 

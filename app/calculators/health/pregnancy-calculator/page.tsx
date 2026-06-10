@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pregnancy Calculator 2026 | ToolTrio',
-  description: 'Free Pregnancy Calculator 2026 — Accurate pregnancy based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Pregnancy Calculator 2026 — Accurate pregnancy based on medical standards. Instant results with detailed timeline and guidance. No account required.',
   slug: 'pregnancy-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how many weeks pregnant',
     'pregnancy week by week calculator',
     'pregnancy milestone dates',
-    'trimester dates calculator',
-    'fetal development week by week',
-    'pregnancy appointment schedule',
-    'gestational age calculator',
-    'pregnancy test timing',
-    'pregnancy symptoms by week',
   ],
 })
 

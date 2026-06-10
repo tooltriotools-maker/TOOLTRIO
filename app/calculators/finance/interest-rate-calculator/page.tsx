@@ -10,20 +10,20 @@ const InterestRateCalculatorClient = dynamic(() => import('./InterestRateCalcula
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Interest Rate Calculator USA 2026 | ToolTrio',
- description: 'Free interest rate calculator USA 2026. Calculate APR, effective annual rate, and monthly rate from any loan payment or investment return. Works for mortgages, car loans, credit cards, and savings. Real examples for common loan scenarios.',
+ description: 'Free interest rate calculator USA 2026. Calculate APR, effective annual rate, and monthly rate from any loan payment or investment return. Works for.',
  slug: 'interest-rate-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'interest rate calculator 2026',
- 
- 'interest rate calculator', 'APR calculator', 'loan interest rate calculator',
- 'find interest rate from payment', 'what is my interest rate calculator',
- 'how to calculate interest rate on a loan', 'effective interest rate calculator',
- 'annual percentage rate calculator', 'loan APR calculator',
- 'interest rate comparison calculator', 'monthly interest rate calculator',
- 'reverse loan calculator', 'loan rate calculator',
- ],
+    'interest rate calculator 2026',
+    'interest rate calculator',
+    'APR calculator',
+    'loan interest rate calculator',
+    'find interest rate from payment',
+    'what is my interest rate calculator',
+    'how to calculate interest rate on a loan',
+    'effective interest rate calculator',
+  ],
 })
 
 const faqs = [

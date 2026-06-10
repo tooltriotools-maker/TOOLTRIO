@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'USPS Address Format — Official US Mailing Address Format Guide 2026',
-  description: 'Learn the correct USPS address format for letters, packages, and bulk mail. Complete guide to US mailing address standards including abbreviations and formatting rules. Free on TOOLTRIO — no signup needed.',
-  keywords: ['usps address format','us mailing address format','correct address format usa','usps address format guide','how to format us address','mailing address format united states','usps standard address format','address format for usps','us address format street','postal address format usa','usps address line format','correct way to write us address','usps addressing standards','domestic address format usa','address format mail usa',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'USPS Address Format Guide — US Mailing Address Rules | ToolTrio',
+  description: 'Learn the correct USPS address format for letters, packages, and bulk mail free. Complete guide to US mailing address rules, abbreviations, and USPS standards.',
+  keywords: [
+    'usps address format',
+    'correct mailing address format usa',
+    'usps address format guide',
+    'how to format a us mailing address',
+    'usps address format rules 2026',
+    'proper address format for mail',
+    'us postal address format standard',
+    'mailing address format usa free guide',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/usps-address-format' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/usps-address-format',
+    siteName: 'ToolTrio',
+    title: 'USPS Address Format Guide — US Mailing Address Rules | ToolTrio',
+    description: 'Learn the correct USPS address format for letters, packages, and bulk mail free. Complete guide to US mailing address rules, abbreviations, and USPS standards.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'USPS Address Format Guide — Correct US Mailing Address Rules 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'USPS Address Format Guide — US Mailing Address Rules | ToolTrio',
+    description: 'Learn the correct USPS address format for letters, packages, and bulk mail free. Complete guide to US mailing address rules, abbreviations, and USPS standards.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -138,7 +168,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="USPS Address Format" description="Complete guide to official USPS mailing address format rules and standards." icon="📬" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"USPS Address Format — Official US Mailing Address Format Guide 2026\",\"description\":\"Learn the correct USPS address format for letters, packages, and bulk mail. Complete guide to US mailing address standards including abbreviations and\",\"url\":\"https://tooltrio.com/zip/usps-address-format\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"USPS Address Format — Official US Mailing Guide 2026\",\"description\":\"Learn the correct USPS address format for letters, packages, and bulk mail. Complete guide to US mailing address standards including abbreviations and\",\"url\":\"https://tooltrio.com/zip/usps-address-format\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

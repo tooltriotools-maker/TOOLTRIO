@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Squat 1RM Calculator 2026 | ToolTrio',
-  description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming. Compare your squat strength to age and sex standards. Free online squat calculator 2026. No signup required.',
+  description: 'Calculate your estimated squat 1RM from any rep scheme and find percentage-based training weights for hypertrophy, strength, and power programming.',
   slug: 'squat-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'squat training weight calculator',
     'squat strength standards',
     'how much should I squat',
-    'squat reps to 1rm',
-    'back squat front squat calculator',
-    'squat to bodyweight ratio',
-    'squat strength percentile',
-    'squat training percentages',
-    'powerlifting squat standards',
   ],
 })
 

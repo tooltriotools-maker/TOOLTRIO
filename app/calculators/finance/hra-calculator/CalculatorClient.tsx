@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
 
           <Card>
-            <h3 className="text-sm font-bold text-gray-800 mb-4">Monthly &amp; Annual HRA Summary</h3>
+            <h3 className="text-sm font-bold text-gray-800 mb-4">Monthly & Annual HRA Summary</h3>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { title: 'Monthly', items: [['HRA Received', fmt(hra)], ['HRA Exemption', fmt(r.hraExemption)], ['Taxable HRA', fmt(r.taxableHRA)], ['Rent Paid', fmt(rentPaid)]] },

@@ -57,7 +57,7 @@ const aboutSchema = {
     email: contactEmail,
     logo: `${siteUrl}/logo.png`,
     foundingDate: '2026',
-    description: 'ToolTrio provides free online calculators with no signup, no ads, and instant results across finance, health, developer tools, ZIP code utilities, and commodities.',
+    description: 'ToolTrio provides free online calculators — no signup, no ads, instant results — across finance, health, developer tools, ZIP code utilities, and more.',
   },
 }
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Heart Attack Risk Calculator 2026 | ToolTrio',
-  description: 'Free Heart Attack Risk Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
+  description: 'Free Heart Attack Risk Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with.',
   slug: 'heart-attack-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cardiovascular risk calculator 2026',
     'heart attack risk calculator',
     '10 year cardiovascular risk calculator',
-    'ascvd risk score calculator',
-    'pooled cohort equation calculator',
-    'acc aha cardiovascular risk',
-    'heart attack probability calculator',
-    'cardiovascular risk assessment',
-    'heart disease risk calculator',
-    'statin decision calculator',
-    'pcsk9 eligibility risk score',
   ],
 })
 

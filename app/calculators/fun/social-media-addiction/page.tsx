@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Social Media Addiction Score | ToolTrio',
-  description: 'Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back control. Free, instant.',
+  description: 'Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back.',
   slug: 'social-media-addiction',
   keywords: [
     'social media addiction test',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'Instagram addiction test',
     'TikTok addiction quiz',
     'social media usage calculator',
-    'doomscrolling addiction test',
-    'social media detox quiz',
-    'how addicted to social media am I',
-    'social media addiction self test',
-    'social media dependence quiz',
-    'social media addiction signs quiz',
-    'social media vs real life calculator',
-    'social media addiction no signup',
-    'social media addiction 2026',
-    'compulsive phone checking quiz',
-    'FOMO calculator social media',
-    'social media addiction share result',
-    'social media health check quiz',
-    'smartphone addiction quiz',
-    'social media mental health quiz',
-    'how to know if you are addicted to social media',
-    'Bergen social media addiction scale',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

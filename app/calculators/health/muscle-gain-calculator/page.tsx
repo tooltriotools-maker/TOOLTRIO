@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Muscle Gain Calculator 2026 | ToolTrio',
-  description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates by training experience level and expected monthly lean mass progress. Free online muscle gain calculator 2026. No signup required.',
+  description: 'Calculate the calorie surplus, protein intake, and training frequency needed to maximize muscle growth. Includes realistic muscle gain rate estimates by.',
   slug: 'muscle-gain-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie surplus for muscle building',
     'how fast can I build muscle',
     'muscle growth rate calculator',
-    'lean bulking calorie calculator',
-    'muscle gain protein requirement',
-    'beginner vs advanced muscle gain rate',
-    'muscle building timeline calculator',
-    'muscle gain by training experience',
-    'natural muscle building potential',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Cholesterol Calculator 2026 | ToolTrio',
-  description: 'Free Cholesterol Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
+  description: 'Free Cholesterol Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with.',
   slug: 'cholesterol-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'ldl hdl ratio calculator cardiovascular risk',
     'total cholesterol to hdl ratio',
     'framingham risk score cholesterol',
-    'non hdl cholesterol calculator',
-    'what does my cholesterol mean',
-    'ldl cholesterol interpretation',
-    'cardiovascular risk from cholesterol',
-    'cholesterol levels by age chart',
-    'high cholesterol risk calculator',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Lean Body Mass Calculator 2026 | ToolTrio',
-  description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake, TDEE, and anesthetic drug dosing calculations. Free online lean body mass calculator 2026. No signup required.',
+  description: 'Calculate your lean body mass (fat-free mass) using the Boer formula, James formula, and Hume formula. Use lean body mass for precise protein intake.',
   slug: 'lean-body-mass-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'fat free mass calculator',
     'lean body mass formula',
     'boer formula lean body mass',
-    'lean mass vs fat mass',
-    'how to calculate lean body mass',
-    'lean mass from body fat percentage',
-    'lean body weight for drug dosing',
-    'lean mass and metabolic rate',
-    'lean body mass for protein targets',
   ],
 })
 

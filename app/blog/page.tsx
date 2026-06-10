@@ -14,20 +14,25 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 
 export const metadata: Metadata = {
   title: 'Free Finance & Health Guides 2026 | ToolTrio',
-  description: '157 in-depth guides on SIP investing, 401k vs Roth IRA, UK income tax, ISA, compound interest, FIRE, retirement planning, BMI, TDEE and more. USA, UK, India & Europe. Free, no signup.',
+  description: '157 in-depth guides on SIP investing, 401k vs Roth IRA, UK income tax, ISA, compound interest, FIRE, retirement planning, BMI, TDEE and more. USA, UK.',
   keywords: [
-    'finance guides 2026', 'investment guides india usa uk', 'SIP investing guide', '401k vs Roth IRA guide',
-    'UK income tax guide 2026', 'compound interest guide', 'retirement planning guide',
-    'FIRE financial independence guide', 'ISA guide UK 2026', 'BMI calculator guide',
-    'personal finance articles', 'free financial guides', 'financial education blog',
+    'finance guides 2026',
+    'investment guides india usa uk',
+    'SIP investing guide',
+    '401k vs Roth IRA guide',
+    'UK income tax guide 2026',
+    'compound interest guide',
+    'retirement planning guide',
+    'FIRE financial independence guide',
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
   openGraph: {
     title: '157 Expert Finance & Health Guides 2026',
     description: '157 expert guides on SIP, 401k, UK tax, ISA, retirement, FIRE, BMI and more. USA, UK, India & Europe.',
     url: 'https://tooltrio.com/blog',
-    siteName: 'tooltrio.com',
+    siteName: 'ToolTrio',
     type: 'website',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
   },
 }
 
@@ -96,19 +101,19 @@ export default function BlogPage() {
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
             <Link href="/" className="hover:text-green-600">Home</Link>
             <ChevronRight className="w-4 h-4" />
-            <span className="text-gray-900 font-semibold">Blog &amp; Guides</span>
+            <span className="text-gray-900 font-semibold">Blog & Guides</span>
           </nav>
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <div className="w-12 h-12 rounded-2xl bg-green-600 flex items-center justify-center shadow-lg">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance &amp; Health Guides</h1>
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance & Health Guides</h1>
               <p className="text-green-600 font-semibold text-sm mt-0.5">{blogPosts.length} Expert Guides - Free - No Signup</p>
             </div>
           </div>
           <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-            In-depth financial guides covering <strong>SIP investing</strong>, <strong>401k &amp; Roth IRA</strong>, <strong>UK income tax</strong>, <strong>retirement planning</strong>, <strong>FIRE</strong>, <strong>BMI &amp; health</strong>, and more - written for investors in India, USA, UK and Europe.
+            In-depth financial guides covering <strong>SIP investing</strong>, <strong>401k & Roth IRA</strong>, <strong>UK income tax</strong>, <strong>retirement planning</strong>, <strong>FIRE</strong>, <strong>BMI & health</strong>, and more - written for investors in India, USA, UK and Europe.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
             {Object.entries(CAT_CONFIG).map(([slug, cfg]) => {

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Life Expectancy Calculator – Fun | ToolTrio',
-  description: 'Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for entertainment. Free, no login.',
+  description: 'Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for.',
   slug: 'life-expectancy-fun',
   keywords: [
     'fun life expectancy calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'life expectancy quiz fun',
     'estimated life expectancy calculator free',
     'life expectancy based on habits',
-    'life expectancy calculator sleep diet exercise',
-    'how long will I live based on lifestyle',
-    'life span calculator online free',
-    'life expectancy test for fun',
-    'will I live to 100 calculator',
-    'life expectancy calculator no signup',
-    'how long will I live quiz',
-    'fun death calculator',
-    'longevity quiz online',
-    'years left to live calculator',
-    'life expectancy calculator 2026',
-    'how healthy am I calculator',
-    'lifestyle longevity calculator',
-    'life expectancy calculator viral',
-    'share life expectancy result',
-    'life expectancy factors calculator',
-    'healthy habits life calculator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Glycemic Load Calculator 2026 | ToolTrio',
-  description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect blood sugar response and insulin secretion. Free online glycemic load calculator 2026. No signup required.',
+  description: 'Calculate the glycemic load (GL) and glycemic index (GI) impact of any food or complete meal. Understand how different foods and combinations affect blood.',
   slug: 'glycemic-load-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'glycemic index calculator',
     'gl gi of foods calculator',
     'glycemic load of meals',
-    'blood sugar response food calculator',
-    'low glycemic load foods',
-    'glycemic load for diabetes',
-    'gi gl difference explained',
-    'rice vs pasta glycemic load',
-    'breakfast glycemic load',
   ],
 })
 

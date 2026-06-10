@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sauna Benefits Calculator 2026 | ToolTrio',
-  description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly frequency, and adaptation level. Based on Finnish cohort and JAMA research. Free online sauna benefits calculator 2026. No signup required.',
+  description: 'Calculate the estimated cardiovascular, recovery, longevity, and mental health benefits of your sauna practice based on temperature, duration, weekly.',
   slug: 'sauna-benefits-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'sauna session duration calculator',
     'sauna temperature health impact',
     'sauna frequency longevity',
-    'how long sauna for benefits',
-    'sauna cardiovascular benefits score',
-    'infrared vs traditional sauna calculator',
-    'sauna and all cause mortality',
-    'sauna protocol for recovery',
-    'weekly sauna impact on health',
   ],
 })
 

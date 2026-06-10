@@ -54,14 +54,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
             <InputField label="Monthly Investment" value={monthly} onChange={setMonthly} min={100} max={50000} step={100} prefix="$" />
-            <InputField label="S&amp;P 500 Return (Historical ~10.5%)" value={sp500Rate} onChange={setSp500Rate} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="S&P 500 Return (Historical ~10.5%)" value={sp500Rate} onChange={setSp500Rate} min={5} max={15} step={0.5} suffix="%" />
             <InputField label="Bond Yield" value={bondRate} onChange={setBondRate} min={2} max={8} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={5} max={40} step={5} suffix="Yrs" />
             <InputField label="Stocks Allocation (Blended)" value={allocation} onChange={setAllocation} min={0} max={100} step={10} suffix="%" />
           </div>
           <div className="mt-4 space-y-2 text-xs">
             <div className="p-2 bg-green-900/20 rounded-lg border border-green-800/30">
-              <p className="text-green-400 font-bold">S&amp;P 500 Historical Returns</p>
+              <p className="text-green-400 font-bold">S&P 500 Historical Returns</p>
               <p className="text-gray-400">~10.5% nominal | ~7.5% inflation-adjusted</p>
               <p className="text-gray-400">Best 30yr: 14.7% | Worst 30yr: 7.8%</p>
             </div>
@@ -74,13 +74,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="S&amp;P 500 Value" value={fmtC(result.sp500FV)} subValue={`+${fmtC(result.sp500Gain)} gain`} highlight icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="S&P 500 Value" value={fmtC(result.sp500FV)} subValue={`+${fmtC(result.sp500Gain)} gain`} highlight icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Bonds Value" value={fmtC(result.bondFV)} subValue={`+${fmtC(result.bondGain)} gain`} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label={`${allocation}/${100-allocation} Blended`} value={fmtC(result.blendedFV)} subValue="Stocks/Bonds mix" />
             <ResultCard label="Total Invested" value={fmtC(result.totalInvested)} subValue={`${years}yr x $${monthly}/mo`} />
           </div>
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-4">S&amp;P 500 vs Bonds Growth Over {years} Years</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">S&P 500 vs Bonds Growth Over {years} Years</h3>
             <div style={{ height: 250 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={result.yearlyData} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
@@ -97,7 +97,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <Area type="monotone" dataKey="invested" name="Invested" stroke="#94a3b8" strokeDasharray="4 2" strokeWidth={1.5} fill="none" />
                   <Area type="monotone" dataKey="bonds" name="Bonds" stroke="#3b82f6" fill="url(#gBonds)" strokeWidth={2} />
                   <Area type="monotone" dataKey="blended" name={`${allocation}/${100-allocation} Blended`} stroke="#f59e0b" fill="url(#gBl)" strokeWidth={2} />
-                  <Area type="monotone" dataKey="sp500" name="S&amp;P 500" stroke="#10b981" fill="url(#gSP)" strokeWidth={2.5} />
+                  <Area type="monotone" dataKey="sp500" name="S&P 500" stroke="#10b981" fill="url(#gSP)" strokeWidth={2.5} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>

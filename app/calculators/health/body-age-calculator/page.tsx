@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Body Age Calculator 2026 | ToolTrio',
-  description: 'Free Body Age Calculator 2026 — Calculate body age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
+  description: 'Free Body Age Calculator 2026 — Calculate body age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data.',
   slug: 'body-age-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'body age vs chronological age',
     'how to calculate biological age',
     'fitness age calculator',
-    'what is my real age health assessment',
-    'body age test online',
-    'lifestyle biological age quiz',
-    'aging markers calculator',
-    'cellular age calculator',
-    'longevity age test',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'Word Counter Online | ToolTrio',
-  description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs in your browser.',
+  description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs.',
   slug: 'word-counter',
   keywords: ['word counter online free','character count tool browser','word count text online','count words characters sentences','word frequency counter free'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'Word Counter — Words, Characters, Sentences, Reading Time',
-    description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs in your browser.',
+    description: 'Count words, characters, sentences, paragraphs, and estimate reading time. Works for blog posts, tweets, meta descriptions, and API response strings. Runs.',
     slug: 'word-counter',
     faqs,
   })

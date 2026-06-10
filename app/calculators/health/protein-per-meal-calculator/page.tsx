@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Protein Per Meal Calculator 2026 | ToolTrio',
-  description: 'Free Protein Per Meal Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level. Real examples for 150–250 lb individuals. No signup required.',
+  description: 'Free Protein Per Meal Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level.',
   slug: 'protein-per-meal-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'protein calculator for muscle gain 2026',
     'protein per meal calculator',
     'how much protein per meal',
-    'optimal protein distribution meals',
-    'muscle protein synthesis per meal',
-    'protein meal timing',
-    '40 gram protein per meal limit',
-    'protein for muscle per meal',
-    'daily protein split calculator',
-    'protein distribution for gains',
-    'leucine threshold per meal',
   ],
 })
 

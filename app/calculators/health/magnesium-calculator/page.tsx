@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Magnesium Calculator 2026 | ToolTrio',
-  description: 'Free Magnesium Calculator 2026 — Calculate your daily magnesium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Magnesium Calculator 2026 — Calculate your daily magnesium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs).',
   slug: 'magnesium-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much magnesium do I need',
     'magnesium deficiency risk calculator',
     'magnesium supplement guide',
-    'magnesium from food calculator',
-    'magnesium for sleep and anxiety',
-    'magnesium and blood pressure',
-    'magnesium glycinate vs oxide',
-    'signs of magnesium deficiency',
-    'magnesium for athletes',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pull-Up Calculator 2026 | ToolTrio',
-  description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to strength standards and estimate progression timeline. Free online pull up calculator 2026. No signup required.',
+  description: 'Calculate your pull-up strength percentile by age and sex, and find weighted pull-up targets for progression. Convert pull-up reps at bodyweight to.',
   slug: 'pull-up-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'pull up reps percentile',
     'weighted pull up calculator',
     'how many pull ups should I do',
-    'pull up standards by age',
-    'pull up progression calculator',
-    'chin up vs pull up comparison',
-    'pull up strength norms',
-    'lat pulldown to pull up',
-    'pull up for beginners program',
   ],
 })
 

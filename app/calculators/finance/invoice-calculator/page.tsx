@@ -10,19 +10,20 @@ const InvoiceCalculatorClient = dynamic(() => import('./InvoiceCalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Invoice Calculator USA 2026 | ToolTrio',
- description: 'Free invoice calculator USA 2026. Add line items, apply sales tax, discounts, and calculate invoice totals instantly. Perfect for freelancers and small businesses. Real examples for $500-$50,000 invoices.',
+ description: 'Free invoice calculator USA 2026. Add line items, apply sales tax, discounts, and calculate invoice totals instantly. Perfect for freelancers and small.',
  slug: 'invoice-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'invoice calculator 2026',
- 
- 'invoice calculator', 'invoice total calculator', 'freelance invoice calculator',
- 'invoice with tax calculator', 'invoice discount calculator', 'late fee calculator',
- 'invoice amount calculator', 'contractor invoice calculator', 'billing calculator',
- 'how to calculate invoice total', 'invoice tax calculator', 'simple invoice calculator',
- 'net 30 invoice calculator', 'invoice late payment calculator', 'service invoice calculator',
- ],
+    'invoice calculator 2026',
+    'invoice calculator',
+    'invoice total calculator',
+    'freelance invoice calculator',
+    'invoice with tax calculator',
+    'invoice discount calculator',
+    'late fee calculator',
+    'invoice amount calculator',
+  ],
 })
 
 const faqs = [

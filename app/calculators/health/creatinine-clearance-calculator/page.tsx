@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Creatinine Clearance Calculator 2026 | ToolTrio',
-  description: 'Calculate estimated kidney function using Creatinine Clearance (Cockcroft-Gault formula) and eGFR (CKD-EPI equation). Interpret results against CKD staging criteria and understand implications for drug dosing. Free online creatinine clearance calculator 2026. No signup required.',
+  description: 'Calculate estimated kidney function using Creatinine Clearance (Cockcroft-Gault formula) and eGFR (CKD-EPI equation). Interpret results against CKD.',
   slug: 'creatinine-clearance-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cockcroft gault formula calculator',
     'egfr calculator from creatinine',
     'kidney function calculator from creatinine',
-    'ckd staging calculator',
-    'creatinine clearance for drug dosing',
-    'kidney filtration rate calculator',
-    'what is normal creatinine clearance',
-    'egfr and kidney disease stages',
-    'creatinine to kidney function',
   ],
 })
 

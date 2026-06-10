@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Menstrual Cycle Calculator 2026 | ToolTrio',
-  description: 'Free Menstrual Cycle Calculator 2026 — Accurate menstrual cycle based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Menstrual Cycle Calculator 2026 — Accurate menstrual cycle based on medical standards. Instant results with detailed timeline and guidance. No.',
   slug: 'menstrual-cycle-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'period prediction calculator',
     'ovulation date calculator',
     'fertile window calculator',
-    'irregular period calculator',
-    'next period date calculator',
-    'menstrual cycle tracking',
-    'cycle length ovulation calculator',
-    'period cycle length calculator',
-    'when is my next period',
   ],
 })
 

@@ -10,34 +10,19 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: '401k Calculator USA 2026 | ToolTrio',
- description: 'Free 401k calculator USA 2026. Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest. Includes real examples for $50k–$100k salary.',
+ description: 'Free 401k calculator USA 2026. Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest.',
  slug: '401k-calculator',
  category: 'finance',
  keywords: [
- '401k calculator 2026',
- 
- '401k calculator with employer match 2026 USA',
- 'how much will my 401k be worth at retirement calculator',
- '401k calculator monthly contribution growth with chart',
- '401k contribution limit 2026 calculator USA',
- 
- '401k calculator before and after tax USA',
-
- '401k calculator USA',
- '401k calculator with employer match',
- '401k calculator 2026',
- 'retirement 401k calculator USA',
- '401k investment calculator',
- '401k growth calculator',
- '401k calculator monthly contribution',
- '401k returns calculator',
- '401k calculator with chart',
- '401k before and after tax calculator',
-
- '401k calculator',
- '401k retirement calculator',
- '401k contribution calculator'
- ],
+    '401k calculator 2026',
+    '401k calculator with employer match 2026 USA',
+    'how much will my 401k be worth at retirement calculator',
+    '401k calculator monthly contribution growth with chart',
+    '401k contribution limit 2026 calculator USA',
+    '401k calculator before and after tax USA',
+    '401k calculator USA',
+    '401k calculator with employer match',
+  ],
 })
 
 const faqs = [
@@ -62,7 +47,7 @@ const faqs = [
 
 const relatedCalculators = [
  { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator', icon: '🛡️', desc: 'Roth IRA growth' },
- { name: 'S&amp;P 500 vs Bonds', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', desc: 'Stocks vs bonds' },
+ { name: 'S&P 500 vs Bonds', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', desc: 'Stocks vs bonds' },
  { name: 'FIRE Calculator', href: '/calculators/finance/fire-calculator', icon: '🔥', desc: 'Financial independence' },
  { name: 'Paycheck Calculator', href: '/calculators/finance/paycheck-calculator', icon: '💵', desc: 'Take-home pay' },
  { name: 'HSA vs FSA', href: '/calculators/finance/hsa-vs-fsa-calculator', icon: '🏥', desc: 'Health savings accounts' },

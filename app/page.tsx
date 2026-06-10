@@ -12,12 +12,16 @@ export const metadata: Metadata = {
   description:
     'ToolTrio offers free finance and health calculators — mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required. Instant results.',
   keywords: [
-    'tooltrio', 'tool trio', 'tooltrio.com',
-    'finance calculator', 'free financial calculator',
-    'mortgage calculator', '401k calculator', 'compound interest calculator',
-    'retirement calculator', 'Roth IRA calculator',
-    'BMI calculator', 'calorie calculator', 'TDEE calculator',
-    'finance and health calculator', 'free finance and health calculator',
+    'finance calculator',
+    'free financial calculator',
+    'mortgage calculator',
+    '401k calculator',
+    'compound interest calculator',
+    'retirement calculator',
+    'Roth IRA calculator',
+    'BMI calculator',
+    'tooltrio',
+    'tool trio',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {

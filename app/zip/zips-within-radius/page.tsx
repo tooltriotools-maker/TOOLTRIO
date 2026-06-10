@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Codes Within Radius — Find All ZIPs Within Miles of a ZIP 2026',
-  description: 'Find all US ZIP codes within a specified radius in miles or kilometers from any center ZIP code. Free radius search tool for marketing, logistics, and territory planning. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zips within radius','zip codes within radius','zip codes within miles','zip codes within 10 miles','zip codes near zip code radius','find zip codes in radius','zip code radius search','all zip codes within distance','zip code mile radius tool','zip code radius finder usa','zip codes in 5 mile radius','zip codes in 25 mile radius','zip code proximity list','zip code catchment area','find nearby zip codes list',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Codes Within Radius — Find All ZIPs Within X Miles | ToolTrio',
+  description: 'Find all US ZIP codes within any radius in miles from a center ZIP code free. Enter a ZIP and radius to get every ZIP within that distance.',
+  keywords: [
+    'zip codes within radius',
+    'zip codes within miles',
+    'find zip codes near zip code',
+    'zip codes within 10 miles free',
+    'all zip codes in radius',
+    'zip code radius search usa',
+    'zip codes near me within miles',
+    'zip code distance radius finder free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zips-within-radius' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zips-within-radius',
+    siteName: 'ToolTrio',
+    title: 'ZIP Codes Within Radius — Find All ZIPs Within X Miles | ToolTrio',
+    description: 'Find all US ZIP codes within any radius in miles from a center ZIP code free. Enter a ZIP and radius to get every ZIP within that distance.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Codes Within Radius — Find All ZIPs Within X Miles Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Codes Within Radius — Find All ZIPs Within X Miles | ToolTrio',
+    description: 'Find all US ZIP codes within any radius in miles from a center ZIP code free. Enter a ZIP and radius to get every ZIP within that distance.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -146,7 +176,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="ZIPs Within Radius" description="Find all US ZIP codes within a specified mile or kilometer radius of any center ZIP." icon="🎯" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes Within Radius — Find All ZIPs Within Miles of a ZIP 2026\",\"description\":\"Find all US ZIP codes within a specified radius in miles or kilometers from any center ZIP code. Free radius search tool for marketing, logistics, and\",\"url\":\"https://tooltrio.com/zip/zips-within-radius\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes Within Radius — All ZIPs Within Miles 2026\",\"description\":\"Find all US ZIP codes within a specified radius in miles or kilometers from any center ZIP code. Free radius search tool for marketing, logistics, and\",\"url\":\"https://tooltrio.com/zip/zips-within-radius\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

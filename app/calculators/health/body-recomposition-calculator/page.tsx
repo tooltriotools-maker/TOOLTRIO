@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Body Recomposition Calculator 2026 | ToolTrio',
-  description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support simultaneous fat loss and muscle gain without a traditional bulk-cut cycle. Free online body recomposition calculator 2026. No signup required.',
+  description: 'Calculate targets for body recomposition — losing body fat while gaining muscle at the same time. Find your calorie and protein targets that support.',
   slug: 'body-recomposition-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'lose fat gain muscle simultaneously',
     'recomp calorie target',
     'body recomposition protein requirements',
-    'can you lose fat and gain muscle at same time',
-    'recomp vs bulk and cut',
-    'beginner body recomposition',
-    'body recomp for natural athletes',
-    'recomp calorie deficit or surplus',
-    'body recomposition timeline',
   ],
 })
 

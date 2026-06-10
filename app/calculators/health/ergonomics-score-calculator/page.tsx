@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Ergonomics Score Calculator 2026 | ToolTrio',
-  description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboard placement, and lighting against evidence-based ergonomics guidelines. Free online ergonomics score calculator 2026. No signup required.',
+  description: 'Assess your workstation ergonomics for neck, back, shoulder, wrist, and eye strain risk. Score your desk setup, chair height, monitor position, keyboard.',
   slug: 'ergonomics-score-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'office workstation ergonomics score',
     'desk setup ergonomics checker',
     'ergonomic risk factors calculator',
-    'home office ergonomics assessment',
-    'neck back pain workstation calculator',
-    'repetitive strain injury risk score',
-    'monitor height ergonomics calculator',
-    'ergonomic checklist score',
-    'work from home ergonomics',
   ],
 })
 

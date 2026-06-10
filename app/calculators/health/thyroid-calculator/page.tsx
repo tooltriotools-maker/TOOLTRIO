@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Thyroid Health Calculator 2026 | ToolTrio',
-  description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understand when thyroid function warrants medical evaluation. Free online thyroid calculator 2026. No signup required.',
+  description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understand.',
   slug: 'thyroid-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'tsh interpretation calculator',
     'thyroid function assessment',
     'hypothyroid symptom score',
-    'hyperthyroid symptom calculator',
-    'thyroid health check',
-    'low tsh high tsh interpretation',
-    'thyroid medication dose calculator',
-    'hashimoto thyroiditis risk',
-    'thyroid antibody test interpretation',
   ],
 })
 

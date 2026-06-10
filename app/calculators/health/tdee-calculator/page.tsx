@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'TDEE Calculator 2026 | ToolTrio',
-  description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Instant results for weight loss, maintenance, and muscle gain. Based on Harris-Benedict & Mifflin formulas.',
+  description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Instant results for weight loss, maintenance.',
   slug: 'tdee-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'maintenance calories calculator 2026',
     'tdee calculator with body fat percentage',
     'how to calculate total daily energy expenditure',
-    'maintenance calories by activity level',
-    'tdee for weight loss how much below',
-    'difference between bmr and tdee',
-    'tdee sedentary vs moderately active',
-    'katch mcardle tdee calculator',
-    'tdee calculator for women 40s',
-    'how does tdee change with weight loss',
-    'tdee for intermittent fasting',
   ],
 })
 

@@ -10,7 +10,7 @@ const BMICalculatorClient = dynamic(() => import('./BMICalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BMI Calculator USA 2026 | ToolTrio',
-  description: 'Free BMI Calculator 2026 — Calculate your Body Mass Index using CDC & NIH standards. Instant results for adults with healthy weight range, category classification, and real examples. No signup required.',
+  description: 'Free BMI Calculator 2026 — Calculate your Body Mass Index using CDC & NIH standards. Instant results for adults with healthy weight range, category.',
   slug: 'bmi-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'body mass index calculator 2026',
     'bmi calculator pounds and inches',
     'bmi calculator for adults over 40',
-    'what is a healthy bmi for a 5 foot 7 male',
-    'bmi chart for women by age and height',
-    'bmi 27 overweight or normal',
-    'how to lower bmi naturally',
-    'bmi calculator no app no signup',
-    'bmi and visceral fat relationship',
-    'bmi cutoffs for Asian Americans',
-    'does bmi account for muscle mass',
   ],
 })
 

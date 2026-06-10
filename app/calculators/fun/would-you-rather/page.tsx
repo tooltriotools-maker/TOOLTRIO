@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Would You Rather Generator | ToolTrio',
-  description: 'Generate wild, funny, and impossible Would You Rather questions. Perfect for parties, road trips, dates, and group chats. Free online Would You Rather generator, no login.',
+  description: 'Generate wild, funny, and impossible Would You Rather questions. Perfect for parties, road trips, dates, and group chats. Free online Would You Rather.',
   slug: 'would-you-rather',
   keywords: [
     'would you rather generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'would you rather for kids',
     'hard would you rather questions',
     'would you rather party game',
-    'would you rather road trip',
-    'would you rather date night',
-    'would you rather questions for couples',
-    'would you rather online free',
-    'would you rather generator no signup',
-    'best would you rather questions 2026',
-    'impossible would you rather',
-    'weird would you rather questions',
-    'would you rather clean questions',
-    'would you rather gross questions',
-    'would you rather deep questions',
-    'would you rather for friends',
-    'would you rather game online',
-    'would you rather generator share',
-    'would you rather icebreaker',
-    'would you rather team building',
-    'would you rather trivia',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

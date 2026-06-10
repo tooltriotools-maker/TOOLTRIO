@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'City to ZIP Code — Find ZIP Codes for Any US City 2026',
-  description: 'Find all ZIP codes for any US city. Enter a city name and state to get every ZIP code serving that city. Free city to ZIP code lookup tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['city to zip code','zip codes for city','find zip code by city','city name to zip code','zip code lookup by city','all zip codes in city','city zip code finder','what are the zip codes for city','zip codes in my city','zip code by city name usa','find all zips for city','city zip code list free','zip codes in houston','zip codes in chicago','zip codes in los angeles',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'City to ZIP Code — Find All ZIP Codes for Any US City | ToolTrio',
+  description: 'Find all ZIP codes for any US city free. Enter a city name and state to get every ZIP code serving that city. All 42,000+ US ZIP codes covered.',
+  keywords: [
+    'city to zip code',
+    'find zip code by city',
+    'zip codes for city name',
+    'all zip codes in a city',
+    'city name to zip code lookup free',
+    'what zip codes are in my city',
+    'city zip code finder usa',
+    'find all postal codes for city free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/city-to-zip' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/city-to-zip',
+    siteName: 'ToolTrio',
+    title: 'City to ZIP Code — Find All ZIP Codes for Any US City | ToolTrio',
+    description: 'Find all ZIP codes for any US city free. Enter a city name and state to get every ZIP code serving that city. All 42,000+ US ZIP codes covered.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'City to ZIP Code — Find All ZIP Codes for Any US City Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'City to ZIP Code — Find All ZIP Codes for Any US City | ToolTrio',
+    description: 'Find all ZIP codes for any US city free. Enter a city name and state to get every ZIP code serving that city. All 42,000+ US ZIP codes covered.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

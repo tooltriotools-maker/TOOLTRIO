@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Age Calculator – Exact Age in Years 2026 | ToolTrio',
-  description: 'Free Age Calculator 2026 — Calculate age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
+  description: 'Free Age Calculator 2026 — Calculate age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored.',
   slug: 'age-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how many days old am I calculator',
     'age calculator from date of birth',
     'days until my birthday calculator',
-    'age difference between two dates',
-    'generational cohort calculator millennial gen z',
-    'how old will I be in years calculator',
-    'age calculator weeks and months',
-    'life lived percentage calculator',
-    'age calculator for retirement planning',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Target Weight Calculator 2026 | ToolTrio',
-  description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline assessment and safe rate-of-change guidance. Free online target weight calculator 2026. No signup required.',
+  description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline.',
   slug: 'target-weight-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'weight loss calculator 2026',
     'target weight calculator',
     'goal weight and timeline calculator',
-    'how to calculate calories for target weight',
-    'realistic weight loss timeline',
-    'target weight by date calculator',
-    'healthy weight goal calculator',
-    'weight goal calculator',
-    'weight loss timeline by calorie deficit',
-    'how long to lose 20 pounds',
-    'goal weight calories needed',
   ],
 })
 

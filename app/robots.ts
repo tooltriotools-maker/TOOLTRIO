@@ -23,7 +23,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://tooltrio.com/sitemap.xml',
-    host: 'https://tooltrio.com',
+    sitemap: 'https://tooltrio.com/sitemap.xml'
   }
 }

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Dental Health Calculator 2026 | ToolTrio',
-  description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medical conditions. Get a personalized dental health action plan. Free online dental health calculator 2026. No signup required.',
+  description: 'Assess your risk for dental caries, periodontal disease, and tooth loss based on diet, oral hygiene habits, saliva flow, fluoride exposure, and medical.',
   slug: 'dental-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cavity risk assessment',
     'gum disease risk calculator',
     'tooth decay risk factors',
-    'dental health score quiz',
-    'periodontal disease risk assessment',
-    'cavity prevention calculator',
-    'oral health risk calculator',
-    'dental hygiene effectiveness score',
-    'fluoride intake calculator',
   ],
 })
 

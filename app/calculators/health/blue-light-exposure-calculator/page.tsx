@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Blue Light Exposure Calculator 2026 | ToolTrio',
-  description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption. Get personalized recommendations for screen habits and blue light protection. Free online blue light exposure calculator 2026. No signup required.',
+  description: 'Calculate your daily blue light exposure from screens, LEDs, and sunlight. Assess your risk for eye strain, macular degeneration, and sleep disruption.',
   slug: 'blue-light-exposure-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'screen time eye strain calculator',
     'blue light and sleep disruption',
     'blue light glasses worth it calculator',
-    'how much screen time causes eye damage',
-    'blue light filter recommendations',
-    'digital eye strain risk assessment',
-    'melatonin suppression blue light',
-    'blue light from phone vs sunlight',
-    'children screen time eye health',
   ],
 })
 

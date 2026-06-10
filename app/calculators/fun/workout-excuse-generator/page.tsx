@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Workout Excuse Generator | ToolTrio',
-  description: 'Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant, no signup.',
+  description: 'Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant.',
   slug: 'workout-excuse-generator',
   keywords: [
     'workout excuse generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'skip leg day excuse generator',
     'funny gym excuses online',
     'best workout excuses',
-    'excuses not to exercise',
-    'random excuse generator funny',
-    'lazy excuse generator',
-    'funny excuse generator online free',
-    'skip workout excuse ideas',
-    'excuses for missing gym',
-    'funny fitness excuse generator',
-    'workout skip generator 2026',
-    'gym excuse generator no signup',
-    'hilarious gym excuses',
-    'workout excuse for partner',
-    'workout excuse for personal trainer',
-    'workout excuse for friends',
-    'convincing gym excuse generator',
-    'absurd workout excuses',
-    'viral workout excuse tool',
-    'workout excuse share result',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

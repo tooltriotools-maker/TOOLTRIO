@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Fiber Intake Calculator 2026 | ToolTrio',
-  description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Track fiber from food sources and assess whether supplementation is needed. Free online fiber intake calculator 2026. No signup required.',
+  description: 'Calculate your optimal daily fiber intake based on age, sex, and health goals including heart health, blood sugar management, and digestive health. Track.',
   slug: 'fiber-intake-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much fiber per day',
     'fiber needs by age and sex',
     'soluble vs insoluble fiber calculator',
-    'fiber for cholesterol reduction',
-    'fiber and blood sugar management',
-    'dietary fiber tracker',
-    'fiber supplement guide',
-    'high fiber foods calculator',
-    'fiber intake for weight loss',
   ],
 })
 

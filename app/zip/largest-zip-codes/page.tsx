@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Largest ZIP Codes by Population — Most Populous US ZIP Codes 2026',
-  description: 'Discover the largest US ZIP codes by population, geographic area, and housing units. Free tool with Census ACS data. Free on TOOLTRIO — no signup needed.',
-  keywords: ['largest zip codes usa','most populous zip codes','biggest zip codes by population','largest zip code in america','zip code population ranking','highest population zip code usa','zip code by population size','top zip codes by residents','largest zip code area usa','zip code population density','most people in one zip code','zip code size comparison','zip code geographic area largest','zip code square miles','largest single zip code',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+  description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
+  keywords: [
+    'largest zip codes by population',
+    'most populous zip codes usa',
+    'biggest zip code in america',
+    'zip codes with most people',
+    'largest zip code area square miles',
+    'top populated zip codes usa free',
+    'zip code population ranking',
+    'highest population zip code usa',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/largest-zip-codes' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/largest-zip-codes',
+    siteName: 'ToolTrio',
+    title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+    description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Largest ZIP Codes by Population — Most Populous US ZIP Codes 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+    description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

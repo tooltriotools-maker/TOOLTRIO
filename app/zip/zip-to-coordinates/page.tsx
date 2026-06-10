@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to Coordinates — Latitude & Longitude by ZIP Code USA 2026',
-  description: 'Find the latitude and longitude coordinates for any US ZIP code. Get centroid lat/lng for geocoding, mapping, and distance calculations. Free ZIP to coordinates tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip to coordinates','zip code latitude longitude','zip code lat long','zip code coordinates lookup','latitude longitude by zip code','zip code centroid coordinates','zip code gps coordinates','find lat lng by zip code usa','zip code geocoding','zip code to latlong','get coordinates from zip code','zip code location coordinates','zip code decimal degrees','zip code mapping coordinates','zip code centroid lat lng',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+  description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+  keywords: [
+    'zip code to coordinates',
+    'zip code latitude longitude',
+    'find lat lng by zip code',
+    'zip code geocode lookup',
+    'zip to lat long free',
+    'zip code coordinates usa',
+    'coordinates of a zip code',
+    'zip code centroid location',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-coordinates' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-coordinates',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+    description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+    description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

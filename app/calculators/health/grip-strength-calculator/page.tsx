@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Grip Strength Calculator 2026 | ToolTrio',
-  description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological aging. Compare your strength to normative values from large population studies. Free online grip strength calculator 2026. No signup required.',
+  description: 'Calculate your grip strength percentile by age and sex. Understand how grip strength predicts all-cause mortality, muscle function, and biological aging.',
   slug: 'grip-strength-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'grip strength percentile calculator',
     'grip strength and longevity',
     'grip dynamometer percentile',
-    'handgrip strength norms',
-    'grip strength aging predictor',
-    'muscle strength assessment',
-    'grip strength for men women',
-    'grip strength test interpretation',
-    'low grip strength health risk',
   ],
 })
 

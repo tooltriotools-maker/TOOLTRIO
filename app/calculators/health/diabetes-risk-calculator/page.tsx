@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Diabetes Risk Calculator 2026 | ToolTrio',
-  description: 'Free Diabetes Risk Calculator 2026 — Assess your risk and calculate key health metrics using validated medical formulas. Based on CDC and ADA guidelines. No personal data stored. Instant results.',
+  description: 'Free Diabetes Risk Calculator 2026 — Assess your risk and calculate key health metrics using validated medical formulas. Based on CDC and ADA guidelines.',
   slug: 'diabetes-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'ada diabetes risk screening tool',
     'diabetes prevention score',
     '10 year diabetes risk calculator',
-    'prediabetes risk calculator',
-    'am i at risk for diabetes',
-    'diabetes risk by weight and age',
-    'family history diabetes risk',
-    'diabetes risk factors calculator',
-    'pre diabetes prevention calculator',
   ],
 })
 

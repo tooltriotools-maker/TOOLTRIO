@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Intermittent Fasting Calculator 2026 | ToolTrio',
-  description: 'Free Intermittent Fasting Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD protocols. Evidence-based results. No signup required.',
+  description: 'Free Intermittent Fasting Calculator 2026 — Calculate your fasting window, eating window, and projected fat loss. Real examples for 16:8, 18:6, and OMAD.',
   slug: 'intermittent-fasting-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'intermittent fasting eating window calculator',
     'how many hours should I fast',
     'omad calorie calculator',
-    '5 2 fasting calorie calculator',
-    'best fasting window for weight loss',
-    '18 6 vs 16 8 fasting comparison',
-    'intermittent fasting schedule by wake time',
-    'fasting window calories calculator',
-    'intermittent fasting for women hormones',
   ],
 })
 

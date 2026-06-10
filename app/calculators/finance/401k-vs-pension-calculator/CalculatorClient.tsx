@@ -106,7 +106,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <h3 className="text-sm font-semibold text-green-400 mb-2">📈 401k Advantages</h3>
               <ul className="text-xs text-gray-400 space-y-1">
                 <li>v Portable - take it when you switch jobs</li>
-                <li>v You control investments &amp; risk</li>
+                <li>v You control investments & risk</li>
                 <li>v Inherited by heirs if you die early</li>
                 <li>v Roth option for tax-free growth</li>
                 <li>✗ Market risk - can lose value</li>

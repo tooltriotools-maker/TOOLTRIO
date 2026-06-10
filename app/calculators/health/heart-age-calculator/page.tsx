@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cardiovascular risk calculator 2026',
     'heart age calculator',
     'cardiovascular age calculator',
-    'heart age vs chronological age',
-    'framingham heart age calculator',
-    'what is my heart age',
-    'heart age risk factors',
-    'heart age reduction strategies',
-    'cardiovascular biological age',
-    'heart health age assessment',
-    'reduce heart age calculator',
   ],
 })
 

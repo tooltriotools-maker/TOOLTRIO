@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Breathing Exercise Calculator 2026 | ToolTrio',
-  description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breath hold targets, practice schedules, and track breathing capacity improvements. Free online breathing exercise calculator 2026. No signup required.',
+  description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breath.',
   slug: 'breathing-exercise-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     '4 7 8 breathing calculator',
     'breathing exercise schedule calculator',
     'breath hold time calculator',
-    'wim hof breathing calculator',
-    'diaphragmatic breathing exercise',
-    'stress breathing technique timer',
-    'pranayama breathing calculator',
-    'lung capacity breathing exercises',
-    'breathing exercise for anxiety',
   ],
 })
 

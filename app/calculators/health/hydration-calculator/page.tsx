@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Hydration Calculator 2026 | ToolTrio',
-  description: 'Free Hydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary adults. Evidence-based hydration targets. No signup.',
+  description: 'Free Hydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary.',
   slug: 'hydration-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'sport hydration planning',
     'exercise hydration needs',
     'pre workout hydration calculator',
-    'during exercise fluid calculator',
-    'post exercise rehydration',
-    'sweat rate based hydration',
-    'electrolyte needs exercise calculator',
-    'marathon hydration plan',
-    'hot weather exercise hydration',
   ],
 })
 

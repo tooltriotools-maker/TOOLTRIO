@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'CSS clip-path Generator Online | ToolTrio',
-  description: 'Build CSS clip-path shapes visually — polygon, circle, ellipse, and inset. Live preview with copy-ready CSS. Create diagonal sections and custom shapes. Runs in your browser.',
+  description: 'Build CSS clip-path shapes visually — polygon, circle, ellipse, and inset. Live preview with copy-ready CSS. Create diagonal sections and custom shapes.',
   slug: 'css-clip-path',
   keywords: ['css clip path generator online free','clip-path maker browser','css polygon shape builder','clip path visual editor free','css shape generator online'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'CSS clip-path Generator — Shape Clipping Builder Free',
-    description: 'Build CSS clip-path shapes visually — polygon, circle, ellipse, and inset. Live preview with copy-ready CSS. Create diagonal sections and custom shapes. Runs in your browser.',
+    description: 'Build CSS clip-path shapes visually — polygon, circle, ellipse, and inset. Live preview with copy-ready CSS. Create diagonal sections and custom shapes.',
     slug: 'css-clip-path',
     faqs,
   })

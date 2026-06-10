@@ -134,7 +134,7 @@ export default function CalculatorClient({ faqs }: Props) {
               placeholder="Paste data:image/png;base64,... or just the base64 string..."
             />
             <button onClick={handleDecode} className="mt-3 px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all">
-              Decode &amp; Preview →
+              Decode & Preview →
             </button>
           </div>
           {decodedImg && (

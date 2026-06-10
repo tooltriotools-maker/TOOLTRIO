@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Superhero Name Generator | ToolTrio',
-  description: 'Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — instant results, no signup.',
+  description: 'Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — instant results.',
   slug: 'superhero-name',
   keywords: [
     'superhero name generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'superhero identity generator',
     'superhero name by personality',
     'superhero name creator',
-    'superhero name from real name',
-    'cool superhero name generator',
-    'superhero origin story generator',
-    'what superpower would I have quiz',
-    'superhero name for kids',
-    'superhero name for kids party',
-    'superhero costume name generator',
-    'comic book hero name generator',
-    'Marvel style name generator',
-    'DC style superhero name generator',
-    'superhero name generator 2026',
-    'superhero name no signup',
-    'custom superhero identity generator',
-    'superhero name share social media',
-    'superhero alter ego generator',
-    'superhero name viral tool',
-    'best superhero name generator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

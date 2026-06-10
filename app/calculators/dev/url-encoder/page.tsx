@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'URL Encoder & Decoder Online | ToolTrio',
-  description: 'Encode and decode URLs with percent encoding. Handles query strings, path segments, and full URLs. Distinguishes encodeURI vs encodeURIComponent. Runs in your browser.',
+  description: 'Encode and decode URLs with percent encoding. Handles query strings, path segments, and full URLs. Distinguishes encodeURI vs encodeURIComponent. Runs in.',
   slug: 'url-encoder',
   keywords: ['url encoder decoder online free','percent encode url browser','url encode special characters','urlencode javascript online','decode percent encoded url free','url percent encoding tool','encodeURIComponent online free'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'URL Encoder & Decoder — Percent Encoding Free Online',
-    description: 'Encode and decode URLs with percent encoding. Handles query strings, path segments, and full URLs. Distinguishes encodeURI vs encodeURIComponent. Runs in your browser.',
+    description: 'Encode and decode URLs with percent encoding. Handles query strings, path segments, and full URLs. Distinguishes encodeURI vs encodeURIComponent. Runs in.',
     slug: 'url-encoder',
     faqs,
   })

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'tool trio privacy','does tooltrio store my data','tooltrio no signup privacy',
     'tooltrio analytics policy','tooltrio cookie policy',
   ],
-  alternates: { canonical: `${siteUrl}/privacy-policy` },
+  alternates: { canonical: `${siteUrl/privacy-policy` },
   openGraph: {
     title: 'Privacy Policy | ToolTrio — How We Handle Your Data',
     description: 'ToolTrio does not require signup. Calculator inputs stay in your browser. Read our full privacy policy.',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privacy Policy | ToolTrio',
+    title: 'Privacy Policy | ToolTrio' },
     description: 'No signup, no stored inputs. Learn how ToolTrio handles privacy.',
     images: [`${siteUrl}/og-image.png`],
   },

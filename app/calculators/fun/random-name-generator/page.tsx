@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Random Name Generator | ToolTrio',
-  description: 'Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator online.',
+  description: 'Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator.',
   slug: 'random-name-generator',
   keywords: [
     'random name generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'username generator',
     'nickname generator online free',
     'character name generator',
-    'business name generator',
-    'pet name generator',
-    'random name picker',
-    'random name generator by origin',
-    'random American name generator',
-    'random English name generator',
-    'random Spanish name generator',
-    'random Japanese name generator',
-    'random name generator no signup',
-    'best random name generator 2026',
-    'random name generator for writing',
-    'fake name generator',
-    'random name for social media',
-    'username ideas generator',
-    'random name generator for games',
-    'unique name generator online',
-    'unusual name generator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

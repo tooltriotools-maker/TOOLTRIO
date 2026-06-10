@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calcium Calculator 2026 | ToolTrio',
-  description: 'Free Calcium Calculator 2026 — Calculate your daily calcium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Calcium Calculator 2026 — Calculate your daily calcium needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs).',
   slug: 'calcium-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much calcium do I need by age',
     'calcium supplement calculator',
     'dietary calcium intake tracker',
-    'calcium for bone health',
-    'calcium for women over 50',
-    'calcium absorption with vitamin d',
-    'calcium rich foods calculator',
-    'calcium deficiency risk',
-    'osteoporosis calcium calculator',
   ],
 })
 

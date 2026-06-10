@@ -10,20 +10,20 @@ const BusinessLoanCalculatorClient = dynamic(() => import('./BusinessLoanCalcula
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Business Loan Calculator USA 2026 | ToolTrio',
- description: 'Free business loan calculator USA 2026. Calculate monthly payments, total interest, and amortization schedule for any business loan. Real examples for $50k-$500k loans at 6-20% interest rates.',
+ description: 'Free business loan calculator USA 2026. Calculate monthly payments, total interest, and amortization schedule for any business loan. Real examples for.',
  slug: 'business-loan-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'business loan calculator 2026',
- 
- 'business loan calculator', 'small business loan calculator', 'SBA loan calculator',
- 'business loan payment calculator', 'SBA 7a loan calculator', 'equipment loan calculator',
- 'business loan interest calculator', 'debt service coverage ratio calculator',
- 'DSCR calculator', 'business financing calculator', 'commercial loan calculator',
- 'business loan monthly payment', 'how much business loan can I get',
- 'business loan calculator 2026', 'SBA loan payment calculator',
- ],
+    'business loan calculator 2026',
+    'business loan calculator',
+    'small business loan calculator',
+    'SBA loan calculator',
+    'business loan payment calculator',
+    'SBA 7a loan calculator',
+    'equipment loan calculator',
+    'business loan interest calculator',
+  ],
 })
 
 const faqs = [

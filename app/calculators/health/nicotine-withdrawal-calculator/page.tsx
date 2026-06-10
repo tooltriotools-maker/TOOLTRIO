@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Nicotine Withdrawal Calculator 2026 | ToolTrio',
-  description: 'Calculate your predicted nicotine withdrawal timeline based on daily cigarettes smoked and years of use. See when peak cravings occur, when symptoms typically subside, and when long-term cravings diminish. Free online nicotine withdrawal calculator 2026. No signup required.',
+  description: 'Calculate your predicted nicotine withdrawal timeline based on daily cigarettes smoked and years of use. See when peak cravings occur, when symptoms.',
   slug: 'nicotine-withdrawal-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how long nicotine withdrawal lasts',
     'nicotine craving timeline',
     'quit smoking withdrawal symptoms calculator',
-    'nicotine replacement therapy calculator',
-    'cigarette addiction calculator',
-    'withdrawal peak timing',
-    'nicotine dependence score',
-    'quit smoking benefits calculator',
-    'nicotine withdrawal severity',
   ],
 })
 

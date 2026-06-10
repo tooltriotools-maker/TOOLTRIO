@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sprint Calculator 2026 | ToolTrio',
-  description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether sprint training or power development is the priority. Free online sprint calculator 2026. No signup required.',
+  description: 'Calculate sprint speed in mph and m/s from any distance and time. Estimate anaerobic power output, compare to athletic benchmarks, and assess whether.',
   slug: 'sprint-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     '100 meter sprint time to mph',
     'sprint power calculator',
     '40 yard dash to mph',
-    'sprint speed percentile',
-    'anaerobic power sprint calculator',
-    'sprint performance assessment',
-    '40 yard dash calculator',
-    'sprint speed for sport',
-    'acceleration vs max velocity sprint',
   ],
 })
 

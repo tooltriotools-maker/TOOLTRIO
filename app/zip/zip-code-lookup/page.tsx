@@ -9,9 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ToolTrio | ZIP Code Lookup — Full ZIP Code Details Free 2026',
-  description: 'Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup tool — no signup needed.',
-  keywords: ['zip code lookup','us zip code lookup','zip code search usa','find city by zip code','zip code full details','zip code information lookup','what city is this zip code','zip code county finder','zip code timezone lookup','zip code coordinates lookup','free zip code lookup tool','zip code area code finder','us postal code lookup','zip code population data','zip code to city state county','tooltrio','tooltrio zip code','zip code tooltrio','tool trio','trio tools','tooltrio free tools'],
+  title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
+  description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+  keywords: [
+    'zip code lookup',
+    'look up zip code',
+    'zip code search usa',
+    'what city is zip code',
+    'zip code to city state county',
+    'find zip code details',
+    'us zip code information',
+    'zip code county lookup free',
+    'tooltrio',
+    'tooltrio zip code',
+  ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-lookup' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-lookup',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
+    description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Lookup — City, County, Timezone & More USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
+    description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -153,7 +185,7 @@ export default function Page() {
       seoContent={seoContent}
     >
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ToolTrio | ZIP Code Lookup — Full ZIP Code Details Free 2026\",\"description\":\"Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup\",\"url\":\"https://tooltrio.com/zip/zip-code-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Lookup — Full ZIP Code Details USA 2026 | ToolTrio\",\"description\":\"Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup\",\"url\":\"https://tooltrio.com/zip/zip-code-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

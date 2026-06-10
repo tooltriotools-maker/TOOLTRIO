@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Longevity Calculator 2026 | ToolTrio',
-  description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporating exercise, diet, sleep, social connection, smoking, BMI, and medical history. Free online longevity calculator 2026. No signup required.',
+  description: 'Estimate your personal life expectancy and identify years that can be added through lifestyle changes. Based on validated actuarial models incorporating.',
   slug: 'longevity-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how long will I live calculator',
     'life expectancy by lifestyle calculator',
     'healthy habits life expectancy',
-    'longevity factors calculator',
-    'smoking effect on life expectancy',
-    'exercise and longevity calculator',
-    'life span calculator by age and health',
-    'blue zone longevity factors',
-    'years gained from lifestyle changes',
   ],
 })
 

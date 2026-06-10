@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pregnancy Nutrition Calculator 2026 | ToolTrio',
-  description: 'Free Pregnancy Nutrition Calculator 2026 — Accurate pregnancy nutrition based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Pregnancy Nutrition Calculator 2026 — Accurate pregnancy nutrition based on medical standards. Instant results with detailed timeline and guidance.',
   slug: 'pregnancy-nutrition-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'pregnancy calorie needs by trimester',
     'pregnancy protein requirements',
     'folate folic acid pregnancy calculator',
-    'iron needs pregnancy calculator',
-    'pregnancy dha omega 3 calculator',
-    'calcium pregnancy calculator',
-    'pregnancy diet nutritional needs',
-    'prenatal nutrition tracker',
-    'trimester specific nutrition',
   ],
 })
 

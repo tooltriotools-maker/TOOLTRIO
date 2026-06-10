@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sleep Cycle Calculator 2026 | ToolTrio',
-  description: 'Free Sleep Cycle Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up optimization. Evidence-based sleep science. No signup.',
+  description: 'Free Sleep Cycle Calculator 2026 — Calculate your ideal sleep schedule and duration based on age and lifestyle. Includes REM cycle timing and wake-up.',
   slug: 'sleep-cycle-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'ideal sleep time calculator 2026',
     'sleep cycle calculator what time to wake up',
     'best time to wake up based on sleep cycles',
-    '90 minute sleep cycle calculator',
-    'how many sleep cycles do I need',
-    'sleep cycle calculator 7 hours',
-    'wake up feeling rested calculator',
-    'optimal bedtime calculator',
-    'sleep cycle timing alarm',
-    'rem sleep calculator',
-    'how to use sleep cycles to wake up refreshed',
   ],
 })
 

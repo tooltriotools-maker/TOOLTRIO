@@ -108,7 +108,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                 ))}
                 {r.cess > 0 && (
                   <div className="flex items-center justify-between p-2 rounded-lg bg-amber-50 border border-amber-100 text-xs">
-                    <p className="font-semibold text-amber-700">Health &amp; Education Cess (4%)</p>
+                    <p className="font-semibold text-amber-700">Health & Education Cess (4%)</p>
                     <p className="font-bold text-amber-700">{fmt(r.cess)}</p>
                   </div>
                 )}

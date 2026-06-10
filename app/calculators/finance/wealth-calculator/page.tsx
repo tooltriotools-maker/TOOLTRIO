@@ -10,19 +10,20 @@ const WealthCalculatorClient = dynamic(() => import('./WealthCalculatorClient'),
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Wealth Calculator USA 2026 | ToolTrio',
- description: 'Free wealth calculator USA 2026. Calculate total net worth by tracking all assets and liabilities, compare to US wealth percentiles, and see your wealth trajectory. Real examples for every wealth level.',
+ description: 'Free wealth calculator USA 2026. Calculate total net worth by tracking all assets and liabilities, compare to US wealth percentiles, and see your wealth.',
  slug: 'wealth-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'wealth calculator 2026',
- 
- 'wealth calculator', 'net worth wealth calculator', 'how to build wealth calculator',
- 'wealth growth calculator', 'how wealthy am I calculator', 'wealth projection calculator',
- 'personal wealth calculator', 'wealth by age calculator', 'am I wealthy calculator',
- 'wealth accumulation calculator', 'total wealth calculator', 'net worth calculator USA',
- 'how much wealth do I need to retire', 'wealth comparison calculator',
- ],
+    'wealth calculator 2026',
+    'wealth calculator',
+    'net worth wealth calculator',
+    'how to build wealth calculator',
+    'wealth growth calculator',
+    'how wealthy am I calculator',
+    'wealth projection calculator',
+    'personal wealth calculator',
+  ],
 })
 
 const faqs = [

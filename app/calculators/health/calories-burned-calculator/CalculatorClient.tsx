@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2">
           <Card>
-            <h3 className="font-bold text-gray-900 mb-4">Compare Activities (same duration &amp; weight)</h3>
+            <h3 className="font-bold text-gray-900 mb-4">Compare Activities (same duration & weight)</h3>
             <div className="space-y-2">
               {result.compares.sort((a,b)=>b.cal-a.cal).map(c=>(
                 <div key={c.name} className={`flex items-center gap-3 p-2 rounded-lg ${c.active?'bg-orange-50 border border-orange-200':''}`}>

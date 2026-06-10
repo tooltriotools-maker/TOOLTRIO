@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Pizza Calculator – How Many Pizzas? | ToolTrio',
-  description: 'Calculate exactly how many pizzas to order for any group size, appetite level, and pizza size. Never over- or under-order again. Free pizza party calculator online.',
+  description: 'Calculate exactly how many pizzas to order for any group size, appetite level, and pizza size. Never over- or under-order again. Free pizza party.',
   slug: 'pizza-calculator',
   keywords: [
     'how many pizzas do I need calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'pizza party calculator free',
     'how many pizzas for 10 people',
     'how many pizzas for 20 people',
-    'how many pizzas for 30 people',
-    'pizza calculator by group size',
-    'large pizza slices calculator',
-    'medium vs large pizza calculator',
-    'pizza per person calculator',
-    'how many slices in a pizza',
-    'pizza ordering guide online',
-    'pizza hunger level calculator',
-    'how much pizza to order',
-    'best pizza calculator 2026',
-    'pizza size comparison calculator',
-    'pizza cost per slice calculator',
-    'party pizza planning tool',
-    'pizza calculator kids vs adults',
-    'how many boxes of pizza calculator',
-    'pizza calculator no signup',
-    'pizza order estimate free',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

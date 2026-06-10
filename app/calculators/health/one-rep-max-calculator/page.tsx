@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'One Rep Max Calculator 2026 | ToolTrio',
-  description: 'Free One Rep Max Calculator 2026. Calculate your 1RM for any lift using Brzycki, Epley, Lombardi, and Conner formulas. Includes percentage-based training weights for strength and hypertrophy.\', strength, and power programs.',
+  description: 'Free One Rep Max Calculator 2026. Calculate your 1RM for any lift using Brzycki, Epley, Lombardi, and Conner formulas. Includes percentage-based training.', strength, and power programs.',
   slug: 'one-rep-max-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     '1rm calculator from reps',
     'how to calculate max bench press',
     '1rm estimation formula',
-    'percent of 1rm training calculator',
-    'brzycki formula 1rm',
-    'epley formula 1rm',
-    'strength training percentage calculator',
-    'squat deadlift 1rm calculator',
-    '1rm without maxing out',
   ],
 })
 

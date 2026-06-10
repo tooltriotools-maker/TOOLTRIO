@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Address to ZIP Code — Find ZIP Code for Any US Address 2026',
-  description: 'Find the ZIP code for any US street address. Enter a street address, city, and state to get the exact 5-digit ZIP code. Free address to ZIP lookup. Free on TOOLTRIO — no signup needed.',
-  keywords: ['address to zip code','find zip code by address','zip code for address','address zip code lookup','what is zip code for address','street address to zip','look up zip code by address','zip code from address usa','address zip code finder','find my zip code by address','zip code lookup by street','zip code from street address free','address to zip converter','postal code from address','zip code for my address',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio',
+  description: 'Find the ZIP code for any US street address free. Enter a street address, city, and state to get the exact ZIP code instantly. No signup required.',
+  keywords: [
+    'address to zip code',
+    'find zip code by address',
+    'what zip code is this address',
+    'street address to zip code lookup',
+    'zip code for my address free',
+    'look up zip code from address',
+    'address zip code finder usa',
+    'find postal code by address free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/address-to-zip' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/address-to-zip',
+    siteName: 'ToolTrio',
+    title: 'Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio',
+    description: 'Find the ZIP code for any US street address free. Enter a street address, city, and state to get the exact ZIP code instantly. No signup required.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Address to ZIP Code — Find ZIP Code for Any US Address Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio',
+    description: 'Find the ZIP code for any US street address free. Enter a street address, city, and state to get the exact ZIP code instantly. No signup required.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

@@ -165,7 +165,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
       <div className="mt-8">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Forex Profit Calculator -- Currency Trading, Exchange Rates &amp; True Costs USA 2026</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">Forex Profit Calculator -- Currency Trading, Exchange Rates & True Costs USA 2026</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">How Forex Profits Work</h3>

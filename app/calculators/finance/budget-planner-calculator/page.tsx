@@ -10,19 +10,20 @@ const BudgetPlannerCalculatorClient = dynamic(() => import('./BudgetPlannerCalcu
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Budget Planner USA – 50/30/20 Rule | ToolTrio',
- description: 'Free budget planner calculator USA 2026. Build a detailed monthly budget using the 50/30/20 rule. Track income, expenses, savings rate, and spending gaps. Real examples for $40k-$120k household income.',
+ description: 'Free budget planner calculator USA 2026. Build a detailed monthly budget using the 50/30/20 rule. Track income, expenses, savings rate, and spending gaps.',
  slug: 'budget-planner-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'budget planner calculator 2026',
- 
- 'budget planner calculator', 'monthly budget calculator', 'budget calculator',
- '50 30 20 rule calculator', 'personal budget calculator', 'household budget calculator',
- 'budget planner free', 'monthly budget planner', 'budget worksheet calculator',
- 'how to budget calculator', 'income expense calculator', 'budget tracker calculator',
- 'free budget planner USA', 'budget planning tool', 'where does my money go calculator',
- ],
+    'budget planner calculator 2026',
+    'budget planner calculator',
+    'monthly budget calculator',
+    'budget calculator',
+    '50 30 20 rule calculator',
+    'personal budget calculator',
+    'household budget calculator',
+    'budget planner free',
+  ],
 })
 
 const faqs = [

@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to City — Find City Name from ZIP Code USA 2026',
-  description: 'Find the city name for any US ZIP code instantly. Enter a 5-digit ZIP code and get the city, state, county, and alternate city names. Free ZIP to city lookup — no signup needed — free on TOOLTRIO.',
-  keywords: ['zip to city','zip code to city name','what city is zip code','find city from zip','us zip code city lookup','zip code city state','zip code city finder usa','what city is this zip code in','zip code to city and state','zip code preferred city name','zip code alternate city lookup','zip code mailing city','convert zip to city name free','zip code city county state lookup','zip to city converter online',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
+  description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+  keywords: [
+    'zip code to city',
+    'find city by zip code',
+    'what city is this zip code',
+    'zip code city lookup',
+    'zip to city name usa',
+    'city name from zip code',
+    'what city is in zip code',
+    'find city from postal code',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-city' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-city',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
+    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to City — Find City Name by ZIP Code Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
+    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

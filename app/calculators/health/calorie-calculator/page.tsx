@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calorie Calculator – Daily Intake 2026 | ToolTrio',
-  description: 'Free Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
+  description: 'Free Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples.',
   slug: 'calorie-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'how many calories should I eat a day to lose weight',
     'calorie calculator for weight loss by age',
-    'daily calorie intake calculator male 30 years old',
-    'how many calories to eat at maintenance',
-    'mifflin st jeor calorie calculator',
-    'calorie calculator for sedentary office worker',
-    'how many calories for 1 pound per week loss',
-    'calorie needs for breastfeeding mother',
-    'calorie calculator metric kg cm',
-    'best way to calculate daily calories',
   ],
 })
 

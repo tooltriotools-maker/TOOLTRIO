@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Cortisol & Stress Calculator 2026 | ToolTrio',
-  description: 'Free Cortisol Stress Calculator 2026 — Assess and track your cortisol stress with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
+  description: 'Free Cortisol Stress Calculator 2026 — Assess and track your cortisol stress with evidence-based scoring. Actionable insights and improvement strategies.',
   slug: 'cortisol-stress-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'chronic stress health risk calculator',
     'high cortisol symptoms checklist',
     'how to reduce cortisol naturally',
-    'stress load assessment calculator',
-    'cortisol and weight gain calculator',
-    'chronic stress and inflammation',
-    'cortisol test alternative online',
-    'adrenal fatigue risk calculator',
-    'cortisol morning spike assessment',
   ],
 })
 

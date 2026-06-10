@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Emoji Translator – Text to Emoji | ToolTrio',
-  description: 'Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social media. No signup.',
+  description: 'Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social.',
   slug: 'emoji-translator',
   keywords: [
     'text to emoji translator',
@@ -21,27 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'emoji decoder online',
     'emoji to text translator',
     'turn words into emoji',
-    'emoji caption generator',
-    'emojify text online',
-    'emoji translator for Instagram',
-    'text emoji art generator',
-    'emoji translator no signup',
-    'best emoji translator 2026',
-    'emoji converter free online',
-    'emoji translator for kids',
-    'what emoji means calculator',
-    'emoji translation tool',
-    'emoji riddle generator',
-    'emoji story converter',
-    'copy paste emoji translator',
-    'emoji chat translator',
-    'emoji translator viral',
-    'emoji translator share results',
-    'whatsapp emoji translator',
     'tooltrio.com',
-    'free calculator no signup',
-    'instant calculator results',
-    'fun calculator online free'
   ],
 })
 

@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="New Rate (Refi)" value={newRate} onChange={setNewRate} min={3} max={12} step={0.25} suffix="%" />
             <InputField label="Remaining Loan Years" value={remainingYears} onChange={setRemainingYears} min={5} max={30} step={1} suffix="Yrs" />
             <InputField label="Closing Costs" value={closingCosts} onChange={setClosingCosts} min={1000} max={30000} step={500} prefix="$" />
-            <InputField label="Investment Return (S&amp;P 500)" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="Investment Return (S&P 500)" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.refiWorthIt ? 'bg-blue-50 border-blue-300' : 'bg-green-50 border-green-300'}`}>
             <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Decision</p>

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sodium Intake Calculator 2026 | ToolTrio',
-  description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common food sources and understand the blood pressure-sodium relationship. Free online sodium intake calculator 2026. No signup required.',
+  description: 'Calculate your personalized daily sodium target based on blood pressure, age, kidney health, and cardiovascular risk. Track dietary sodium from common.',
   slug: 'sodium-intake-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'daily sodium limit calculator',
     'sodium and blood pressure calculator',
     'low sodium diet calculator',
-    'how much sodium per day',
-    'sodium sensitivity calculator',
-    'dietary sodium tracking',
-    'sodium restriction for hypertension',
-    'dash diet sodium calculator',
-    'sodium in processed foods calculator',
   ],
 })
 

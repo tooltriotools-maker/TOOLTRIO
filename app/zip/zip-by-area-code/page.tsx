@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Codes by Area Code — Find ZIP Codes for Any Phone Area Code 2026',
-  description: 'Find all US ZIP codes associated with any telephone area code. Enter an area code and get every ZIP code in that area code region. Free ZIP by area code tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip codes by area code','zip codes for area code','find zip codes by phone area code','area code to zip codes','what zip codes are in area code','area code zip code list','zip code list by area code','area code 212 zip codes','area code 310 zip codes','zip codes in area code region','area code zip code finder','telephone area code zip codes','npa zip code lookup','zip code area code directory','phone area code zip code list',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+  description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
+  keywords: [
+    'zip codes by area code',
+    'find zip codes for area code',
+    'area code zip code lookup',
+    'what zip codes are in area code',
+    'zip codes in phone area code',
+    'area code to zip code free',
+    'phone area code zip code finder',
+    'all zip codes in area code usa',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-by-area-code' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-by-area-code',
+    siteName: 'ToolTrio',
+    title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+    description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Codes by Area Code — All ZIP Codes for a Phone Area Code USA Free | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+    description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -128,7 +158,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="ZIP by Area Code" description="Find all ZIP codes associated with any US telephone area code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by Area Code — Find ZIP Codes for Any Phone Area Code 2026\",\"description\":\"Find all US ZIP codes associated with any telephone area code. Enter an area code and get every ZIP code in that area code region. Free ZIP by area co\",\"url\":\"https://tooltrio.com/zip/zip-by-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by Area Code — Find ZIPs for Any Area Code 2026\",\"description\":\"Find all US ZIP codes associated with any telephone area code. Enter an area code and get every ZIP code in that area code region. Free ZIP by area co\",\"url\":\"https://tooltrio.com/zip/zip-by-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

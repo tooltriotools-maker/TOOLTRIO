@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Resting Metabolic Rate Calculator | ToolTrio',
-  description: 'Calculate Resting Metabolic Rate (RMR) using Mifflin-St Jeor and Harris-Benedict equations. Understand the difference between measured RMR and calculated BMR, and what low or high RMR means for weight management. Free online resting metabolic rate calculator 2026. No signup required.',
+  description: 'Calculate Resting Metabolic Rate (RMR) using Mifflin-St Jeor and Harris-Benedict equations. Understand the difference between measured RMR and calculated.',
   slug: 'resting-metabolic-rate-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'rmr calculator',
     'resting metabolism calculator',
     'resting metabolic rate vs bmr',
-    'measured rmr online estimate',
-    'how to calculate resting metabolic rate',
-    'low rmr and weight gain',
-    'rmr by age',
-    'rmr testing vs estimation',
-    'resting energy expenditure',
   ],
 })
 

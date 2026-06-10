@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Ideal Weight Calculator 2026 | ToolTrio',
-  description: 'Free Ideal Weight Calculator 2026 — Calculate your ideal weight using 5 different medical formulas (Hamwi, Devine, Robinson, Miller, BMI). Real examples for men and women at different heights. No signup.',
+  description: 'Free Ideal Weight Calculator 2026 — Calculate your ideal weight using 5 different medical formulas (Hamwi, Devine, Robinson, Miller, BMI). Real examples.',
   slug: 'ideal-weight-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'weight loss calculator 2026',
     'ideal weight calculator by height and gender',
     'what is my ideal body weight',
-    'ideal weight range by height chart',
-    'hamwi formula ideal body weight',
-    'devine formula ideal weight',
-    'how much should I weigh for my height',
-    'ideal weight vs healthy bmi weight',
-    'ideal weight calculator metric',
-    'target weight for my height male female',
-    'what weight is healthy for 5 foot 7',
   ],
 })
 

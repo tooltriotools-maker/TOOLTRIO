@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Fantasy Name Generator | ToolTrio',
-  description: 'Generate unique fantasy names for elves, dwarves, wizards, dragons, orcs, and more. Perfect for D&D, RPGs, novels, and gaming characters. Free, instant, no login.',
+  description: 'Generate unique fantasy names for elves, dwarves, wizards, dragons, orcs, and more. Perfect for D&D, RPGs, novels, and gaming characters. Free, instant.',
   slug: 'fantasy-name-generator',
   keywords: [
     'fantasy name generator',
@@ -21,30 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'DnD character name generator',
     'D&D name generator free',
     'RPG character name generator',
-    'orc name generator',
-    'fantasy character name ideas',
-    'random fantasy name generator',
-    'best fantasy name generator 2026',
-    'free fantasy name generator online',
-    'elvish name generator',
-    'dwarven name generator',
-    'dark elf name generator',
-    'high elf name generator',
-    'half-elf name generator',
-    'tiefling name generator',
-    'halfling name generator',
-    'dragonborn name generator',
-    'warlock name generator',
-    'sorcerer name generator',
-    'paladin name generator',
-    'pathfinder name generator',
-    'fantasy novel name generator',
-    'game character name generator',
-    'unique fantasy names',
-    'cool fantasy name ideas',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

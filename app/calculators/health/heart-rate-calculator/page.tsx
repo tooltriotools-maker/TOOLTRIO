@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Heart Rate Calculator – Training Zones | ToolTrio',
-  description: 'Free Heart Rate Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
+  description: 'Free Heart Rate Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable.',
   slug: 'heart-rate-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cardiovascular risk calculator 2026',
     'maximum heart rate calculator by age',
     'target heart rate zone calculator',
-    'heart rate training zones calculator',
-    'karvonen formula heart rate reserve',
-    'resting heart rate and fitness level',
-    'heart rate zones for fat burning',
-    'how to calculate max heart rate',
-    'heart rate calculator for cardio fitness',
-    'zone 2 training heart rate',
-    'heart rate and vo2max estimation',
   ],
 })
 

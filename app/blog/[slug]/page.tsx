@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = allBlogPosts.find(p => p.slug === slug)
   if (!post) return { title: 'Post Not Found | ToolTrio' }
   return {
-    title: post.seoTitle,
+    title: post.seoTitle ,
     description: post.seoDescription,
     keywords: post.keywords,
     alternates: { canonical: `https://tooltrio.com/blog/${slug}` },
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://tooltrio.com/blog/${slug}`,
       siteName: 'ToolTrio',
       type: 'article',
+      images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio Blog' }],
     },
   }
 }
@@ -86,9 +87,15 @@ export default async function BlogPost({ params }: Props) {
     '@type': 'Article',
     headline: post.seoTitle,
     description: post.seoDescription,
-    author: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
+    author: {
+      '@type': 'Person',
+      name: 'ToolTrio Editorial Team',
+      url: 'https://tooltrio.com/about',
+      worksFor: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
+    },
     publisher: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
     datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     url: `https://tooltrio.com/blog/${post.slug}`,
     keywords: post.keywords.join(', '),
   }

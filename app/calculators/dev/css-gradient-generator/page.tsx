@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'CSS Gradient Generator Online | ToolTrio',
-  description: 'Build CSS gradients visually with live preview. Linear, radial, and conic gradients with multiple color stops. Copy ready-to-use CSS. Runs entirely in your browser.',
+  description: 'Build CSS gradients visually with live preview. Linear, radial, and conic gradients with multiple color stops. Copy ready-to-use CSS. Runs entirely in.',
   slug: 'css-gradient-generator',
   keywords: ['css gradient generator online free','linear gradient builder browser','radial gradient css maker','gradient css code generator','background gradient tool free','css gradient preview online'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'CSS Gradient Generator — Linear, Radial & Conic Free',
-    description: 'Build CSS gradients visually with live preview. Linear, radial, and conic gradients with multiple color stops. Copy ready-to-use CSS. Runs entirely in your browser.',
+    description: 'Build CSS gradients visually with live preview. Linear, radial, and conic gradients with multiple color stops. Copy ready-to-use CSS. Runs entirely in.',
     slug: 'css-gradient-generator',
     faqs,
   })

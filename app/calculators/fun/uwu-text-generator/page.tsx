@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'UWU Text Generator Online | ToolTrio',
-  description: 'Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, instant results, no login.',
+  description: 'Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, instant results.',
   slug: 'uwu-text-generator',
   keywords: [
     'uwu text generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'cute text generator online',
     'uwu text maker',
     'how to write in uwu',
-    'uwu language converter',
-    'owo text generator',
-    'anime speech converter',
-    'uwu generator no signup',
-    'uwu text copy paste',
-    'uwu translator online free',
-    'uwu speak generator 2026',
-    'uwu text for discord',
-    'uwu text for Twitter',
-    'uwu text for captions',
-    'what is uwu speak',
-    'uwu converter meme',
-    'cute speech pattern generator',
-    'uwu text generator viral',
-    'text to kawaii converter',
-    'uwuify text online',
-    'uwu text generator share',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

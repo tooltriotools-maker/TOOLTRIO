@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Zodiac Sign Calculator | ToolTrio',
-  description: 'Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac calculator, no signup.',
+  description: 'Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac.',
   slug: 'zodiac-calculator',
   keywords: [
     'zodiac sign calculator',
@@ -21,27 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'zodiac sign finder',
     'zodiac compatibility calculator',
     'zodiac personality traits',
-    'zodiac sign dates chart',
-    'what zodiac am I',
-    'zodiac sign meaning',
-    'zodiac sign by birth date free',
-    'horoscope sign calculator',
-    'sun sign calculator',
-    'rising sign calculator',
-    'moon sign calculator',
-    'Chinese zodiac year calculator',
-    'zodiac animal calculator',
-    'zodiac element calculator',
-    'zodiac lucky numbers',
-    'aries taurus gemini cancer calculator',
-    'leo virgo libra scorpio calculator',
-    'sagittarius capricorn aquarius pisces calculator',
-    'zodiac calculator no signup',
-    'best zodiac calculator 2026',
-    'zodiac sign compatibility test',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs }: Props) {
         </div>
       ) : (
         <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Date &amp; Time</label>
+          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Date & Time</label>
           <input type="datetime-local" value={dateStr} onChange={e=>setDateStr(e.target.value)}
             className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-4 py-3 text-lg focus:outline-none mb-4" />
           {dateResult && (

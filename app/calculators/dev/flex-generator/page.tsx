@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'Flexbox Generator Online | ToolTrio',
-  description: 'Build CSS Flexbox layouts visually. Toggle justify-content, align-items, flex-direction, flex-wrap, and gap. Live preview with copy-ready CSS. Runs in your browser.',
+  description: 'Build CSS Flexbox layouts visually. Toggle justify-content, align-items, flex-direction, flex-wrap, and gap. Live preview with copy-ready CSS. Runs in.',
   slug: 'flex-generator',
   keywords: ['flexbox generator online free','css flexbox builder browser','flexbox visual tool','css flex layout generator','flexbox code preview free'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'Flexbox Generator — Visual CSS Flexbox Layout Builder Free',
-    description: 'Build CSS Flexbox layouts visually. Toggle justify-content, align-items, flex-direction, flex-wrap, and gap. Live preview with copy-ready CSS. Runs in your browser.',
+    description: 'Build CSS Flexbox layouts visually. Toggle justify-content, align-items, flex-direction, flex-wrap, and gap. Live preview with copy-ready CSS. Runs in.',
     slug: 'flex-generator',
     faqs,
   })

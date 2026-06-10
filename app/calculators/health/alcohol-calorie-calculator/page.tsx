@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Alcohol Calorie Calculator 2026 | ToolTrio',
-  description: 'Free Alcohol Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
+  description: 'Free Alcohol Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real.',
   slug: 'alcohol-calorie-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'calories in beer by abv',
     'wine calorie calculator by glass size',
-    'how many calories in a shot of vodka',
-    'alcohol calorie calculator cocktails',
-    'light beer vs regular beer calories',
-    'calories in margarita',
-    'low calorie alcohol options',
-    'does alcohol calories count toward daily intake',
-    'alcohol and weight gain',
-    'calorie content of alcohol drinks',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Vitamin C Calculator 2026 | ToolTrio',
-  description: 'Free Vitamin C Calculator 2026 — Calculate your daily vitamin c needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Vitamin C Calculator 2026 — Calculate your daily vitamin c needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs).',
   slug: 'vitamin-c-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much vitamin c per day',
     'vitamin c for immune function',
     'vitamin c supplement dosage',
-    'vitamin c deficiency risk',
-    'high dose vitamin c immune support',
-    'vitamin c and collagen',
-    'vitamin c from food vs supplement',
-    'vitamin c tolerable upper limit',
-    'vitamin c deficiency symptoms',
   ],
 })
 

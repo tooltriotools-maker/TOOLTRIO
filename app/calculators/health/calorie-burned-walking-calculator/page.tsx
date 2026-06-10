@@ -10,7 +10,7 @@ const CalorieBurnedWalkingCalculatorClient = dynamic(() => import('./CalorieBurn
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calories Burned Walking Calculator | ToolTrio',
-  description: 'Free Calorie Burned Walking Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common activities. MET-based formula used by fitness professionals.',
+  description: 'Free Calorie Burned Walking Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common.',
   slug: 'calorie-burned-walking-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'calories burned walking calculator',
     'calories burned walking 1 mile by weight',
-    'walking calorie burn by speed',
-    'calories burned hiking uphill',
-    'treadmill calorie burn calculator',
-    'how many calories walking 30 minutes',
-    'walking vs running calorie burn',
-    'calories burned stair climbing',
-    'brisk walking calorie calculator',
-    'calories burned walking by body weight',
   ],
 })
 

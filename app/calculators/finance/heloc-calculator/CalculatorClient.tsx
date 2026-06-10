@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     <CalculatorLayout title="HELOC Calculator USA 2026" description="Calculate your available home equity credit line, monthly interest-only payments, and total cost." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="heloc-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
-          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Property &amp; Loan Details</h2>
+          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Property & Loan Details</h2>
           {[
             { label: 'Home Value', value: homeValue, set: setHomeValue, step: 5000 },
             { label: 'Mortgage Balance', value: mortgageBalance, set: setMortgageBalance, step: 5000 },

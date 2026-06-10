@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calories Burned Calculator 2026 | ToolTrio',
-  description: 'Free Calories Burned Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common activities. MET-based formula used by fitness professionals.',
+  description: 'Free Calories Burned Calculator 2026 — Calculate calories burned during exercise based on weight, duration, and intensity. Real examples for common.',
   slug: 'calories-burned-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'calories burned calculator by activity',
     'exercise calorie burn calculator',
-    'met values exercise calculator',
-    'how many calories burned running',
-    'calories burned cycling per hour',
-    'swimming calories burned calculator',
-    'strength training calorie burn',
-    'yoga calories burned calculator',
-    'sports calorie burn by weight',
-    'activity calorie counter',
   ],
 })
 

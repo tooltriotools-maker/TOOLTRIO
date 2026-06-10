@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
 
           <Card>
-            <h3 className="text-sm font-bold text-gray-800 mb-3">Hydration by Activity &amp; Climate</h3>
+            <h3 className="text-sm font-bold text-gray-800 mb-3">Hydration by Activity & Climate</h3>
             <div style={{ height: 180 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={[

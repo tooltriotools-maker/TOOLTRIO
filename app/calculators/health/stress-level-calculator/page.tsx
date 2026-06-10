@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Stress Level Calculator 2026 | ToolTrio',
-  description: 'Free Stress Level Calculator 2026 — Assess and track your stress level with evidence-based scoring. Actionable insights and improvement strategies. No personal data stored. Instant results.',
+  description: 'Free Stress Level Calculator 2026 — Assess and track your stress level with evidence-based scoring. Actionable insights and improvement strategies. No.',
   slug: 'stress-level-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'perceived stress scale calculator',
     'pss 10 stress assessment',
     'how stressed am I quiz',
-    'chronic stress health risk',
-    'stress impact score',
-    'stress reduction strategies',
-    'life stressor calculator',
-    'burnout risk calculator',
-    'stress and physical health',
   ],
 })
 

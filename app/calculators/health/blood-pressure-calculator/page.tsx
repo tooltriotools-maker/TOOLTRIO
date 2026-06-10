@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Blood Pressure Calculator 2026 | ToolTrio',
-  description: 'Free Blood Pressure Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with actionable recommendations. No personal data stored.',
+  description: 'Free Blood Pressure Calculator 2026 — Calculate your cardiovascular health metrics using American Heart Association standards. Risk assessment with.',
   slug: 'blood-pressure-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cardiovascular risk calculator 2026',
     'blood pressure calculator normal vs high',
     'what is stage 1 hypertension blood pressure',
-    'how to read blood pressure numbers',
-    'blood pressure 130 90 is that high',
-    'pulse pressure calculator',
-    'mean arterial pressure calculator',
-    'blood pressure categories ACC AHA 2017',
-    'high blood pressure risk calculator',
-    'blood pressure 140 over 90 stage 2',
-    'blood pressure by age normal range',
   ],
 })
 

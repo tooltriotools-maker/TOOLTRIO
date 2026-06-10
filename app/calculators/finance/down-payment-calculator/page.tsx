@@ -10,20 +10,20 @@ const DownPaymentCalculatorClient = dynamic(() => import('./DownPaymentCalculato
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Down Payment Calculator USA 2026 | ToolTrio',
- description: 'Free down payment calculator USA 2026. Compare 3%, 5%, 10%, and 20% down payments side by side with PMI, monthly payment, and total cost. Real examples for $250k-$600k home prices.',
+ description: 'Free down payment calculator USA 2026. Compare 3%, 5%, 10%, and 20% down payments side by side with PMI, monthly payment, and total cost. Real examples.',
  slug: 'down-payment-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'down payment calculator 2026',
- 
- 'down payment calculator', 'home down payment calculator', 'mortgage down payment calculator',
- 'how much down payment do I need', 'down payment percentage calculator',
- 'minimum down payment calculator', 'how to avoid PMI calculator',
- '20 percent down payment calculator', 'down payment vs monthly payment',
- 'how much to put down on a house', 'FHA down payment calculator',
- 'conventional loan down payment', 'first time home buyer down payment',
- ],
+    'down payment calculator 2026',
+    'down payment calculator',
+    'home down payment calculator',
+    'mortgage down payment calculator',
+    'how much down payment do I need',
+    'down payment percentage calculator',
+    'minimum down payment calculator',
+    'how to avoid PMI calculator',
+  ],
 })
 
 const faqs = [

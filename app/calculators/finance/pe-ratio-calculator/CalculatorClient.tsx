@@ -82,7 +82,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           {/* EPS & Price Projection chart */}
           <Card>
-            <h3 className="font-bold text-gray-900 mb-4">EPS &amp; Projected Price Growth</h3>
+            <h3 className="font-bold text-gray-900 mb-4">EPS & Projected Price Growth</h3>
             <ResponsiveContainer width="100%" height={220}>
               <LineChart data={result.projectedPrices}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

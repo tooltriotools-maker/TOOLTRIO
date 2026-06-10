@@ -10,20 +10,20 @@ const AnnualIncomeCalculatorClient = dynamic(() => import('./AnnualIncomeCalcula
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Annual Income Calculator USA 2026 | ToolTrio',
- description: 'Free annual income calculator USA 2026. Convert hourly wage to annual salary, weekly to monthly pay, and see your complete compensation breakdown. Real examples for $15-$75/hr and $30k-$200k salaries.',
+ description: 'Free annual income calculator USA 2026. Convert hourly wage to annual salary, weekly to monthly pay, and see your complete compensation breakdown. Real.',
  slug: 'annual-income-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'annual income calculator 2026',
- 
- 'annual income calculator', 'hourly to annual salary calculator', 'hourly wage to annual salary',
- 'how much do I make a year calculator', 'annual salary calculator',
- 'hourly rate to yearly salary', 'income calculator per year',
- '$25 an hour is how much a year', 'yearly income calculator',
- 'gross annual income calculator', 'take home pay calculator hourly',
- 'biweekly pay calculator', 'salary converter calculator', 'wage calculator USA',
- ],
+    'annual income calculator 2026',
+    'annual income calculator',
+    'hourly to annual salary calculator',
+    'hourly wage to annual salary',
+    'how much do I make a year calculator',
+    'annual salary calculator',
+    'hourly rate to yearly salary',
+    'income calculator per year',
+  ],
 })
 
 const faqs = [

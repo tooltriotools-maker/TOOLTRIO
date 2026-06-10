@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'US Army Body Fat Calculator 2026 | ToolTrio',
-  description: 'Free Army Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More accurate than BMI alone. Instant results.',
+  description: 'Free Army Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More.',
   slug: 'army-body-fat-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'us army body composition standards',
     'army body fat percentage chart by age',
     'ar 600-9 body fat calculator',
-    'army tape test calculator male female',
-    'pass army body fat test',
-    'army body fat limit by age',
-    'military fitness body fat',
-    'army height weight standards calculator',
-    'army physical fitness standards',
   ],
 })
 

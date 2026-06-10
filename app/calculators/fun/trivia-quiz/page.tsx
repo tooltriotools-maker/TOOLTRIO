@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Trivia Quiz – Random Questions | ToolTrio',
-  description: 'Test your knowledge with 10 random trivia questions spanning science, history, pop culture, sports, geography, and more. Free trivia quiz online, instant scoring, no signup.',
+  description: 'Test your knowledge with 10 random trivia questions spanning science, history, pop culture, sports, geography, and more. Free trivia quiz online, instant.',
   slug: 'trivia-quiz',
   keywords: [
     'trivia quiz online free',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'trivia questions and answers',
     'online trivia game free',
     'trivia quiz for adults',
-    'science trivia quiz',
-    'history trivia quiz online',
-    'pop culture trivia questions',
-    'sports trivia quiz online',
-    'geography trivia quiz',
-    'hard trivia questions',
-    'easy trivia quiz online',
-    'pub quiz questions online',
-    'trivia night practice',
-    'trivia quiz multiple choice',
-    'timed trivia quiz',
-    'trivia quiz score calculator',
-    'random general knowledge questions',
-    'trivia challenge online',
-    'trivia quiz kids',
-    'trivia quiz with answers explained',
-    'trivia quiz shareable score',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

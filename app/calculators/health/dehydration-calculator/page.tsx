@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Dehydration Calculator 2026 | ToolTrio',
-  description: 'Free Dehydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and sedentary adults. Evidence-based hydration targets. No signup.',
+  description: 'Free Dehydration Calculator 2026 — Calculate your daily water intake needs based on weight, activity, and climate. Real examples for athletes and.',
   slug: 'dehydration-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how to calculate fluid deficit',
     'dehydration symptoms severity calculator',
     'rehydration plan calculator',
-    'how much fluid lost dehydration',
-    'dehydration treatment calculator',
-    'sports dehydration calculator',
-    'dehydration from illness fluid replacement',
-    'oral rehydration calculator',
-    'dehydration 1 to 2 percent performance',
   ],
 })
 

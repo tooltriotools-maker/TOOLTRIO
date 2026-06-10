@@ -10,22 +10,20 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'ROI Calculator USA 2026 | ToolTrio',
- description: 'Free ROI calculator USA 2026. Calculate return on investment, net profit, and annualized ROI for any investment. Compare investment options side by side. Real examples for stocks, real estate, and business.',
+ description: 'Free ROI calculator USA 2026. Calculate return on investment, net profit, and annualized ROI for any investment. Compare investment options side by side.',
  slug: 'roi-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'roi calculator 2026',
- 
- 'roi calculator', 'roi calculator USA 2026', 'free roi calculator',
- 'annualized roi calculator', 'cagr calculator', 'investment return calculator',
- 'roi calculator with benchmarks', 'what is a good roi',
- 'roi calculator stocks real estate crypto', 'calculate roi online free',
- 'roi vs sp500 calculator', 'how to calculate annualized roi',
- 'investment roi calculator', 'roi formula calculator',
- 'net profit calculator', 'return on investment calculator',
- 'roi calculator no signup', 'best roi calculator 2026',
- ],
+    'roi calculator 2026',
+    'roi calculator',
+    'roi calculator USA 2026',
+    'free roi calculator',
+    'annualized roi calculator',
+    'cagr calculator',
+    'investment return calculator',
+    'roi calculator with benchmarks',
+  ],
 })
 
 const faqs = [

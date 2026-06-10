@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'uv skin damage calculator',
     'photoaging score calculator',
     'melanoma risk calculator',
-    'skin cancer risk assessment',
-    'skin type sun sensitivity calculator',
-    'sun protection calculator',
-    'fitzpatrick skin type',
-    'cumulative sun damage score',
-    'skin aging calculator',
   ],
 })
 

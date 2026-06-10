@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Breastfeeding Calorie Calculator 2026 | ToolTrio',
-  description: 'Free Breastfeeding Calorie Calculator 2026. Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency. Includes protein and hydration guidance.\', hydration targets, and nutrient priorities for optimal milk production and maternal health.',
+  description: 'Free Breastfeeding Calorie Calculator 2026. Calculate extra calorie needs while breastfeeding based on age, weight, activity, and feeding frequency.', hydration targets, and nutrient priorities for optimal milk production and maternal health.',
   slug: 'breastfeeding-calorie-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'breastfeeding calorie calculator',
     'how many extra calories while breastfeeding',
-    'calorie needs nursing mother',
-    'breastfeeding and weight loss calculator',
-    'how much water to drink while breastfeeding',
-    'protein intake breastfeeding',
-    'calorie needs exclusive breastfeeding',
-    'breastfeeding diet calculator',
-    'nursing calories per day',
-    'breastfeeding nutrition calculator',
   ],
 })
 

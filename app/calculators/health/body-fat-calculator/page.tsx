@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Body Fat Calculator 2026 | ToolTrio',
-  description: 'Free Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More accurate than BMI alone. Instant results.',
+  description: 'Free Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More.',
   slug: 'body-fat-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how to calculate body fat without calipers',
     'body fat percentage for women by age chart',
     'healthy body fat percentage men',
-    'body fat calculator using measurements',
-    'body fat vs bmi which is better',
-    'body fat calculator waist neck measurement',
-    'how to lower body fat percentage naturally',
-    'body fat ranges for athletes',
-    'what body fat percentage is visible abs',
   ],
 })
 

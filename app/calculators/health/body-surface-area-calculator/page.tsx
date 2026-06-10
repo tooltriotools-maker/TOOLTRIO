@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Body Surface Area Calculator 2026 | ToolTrio',
-  description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn treatment, and cardiac output calculations in clinical medicine. Free online body surface area calculator 2026. No signup required.',
+  description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn.',
   slug: 'body-surface-area-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'bsa calculator mosteller formula',
     'body surface area for chemotherapy dosing',
     'dubois formula bsa calculator',
-    'haycock formula bsa calculator',
-    'body surface area in square meters',
-    'bsa calculator adults',
-    'burn area body surface area',
-    'clinical bsa calculation',
-    'bsa for medication dosing',
   ],
 })
 

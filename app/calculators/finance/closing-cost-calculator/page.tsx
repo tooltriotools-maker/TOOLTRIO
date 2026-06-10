@@ -10,20 +10,20 @@ const ClosingCostCalculatorClient = dynamic(() => import('./ClosingCostCalculato
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Closing Cost Calculator USA 2026 | ToolTrio',
- description: 'Free closing cost calculator USA 2026. Estimate all closing costs including lender fees, title insurance, escrow, prepaid items, and recording fees. Real examples for $200k-$600k home purchases in all states.',
+ description: 'Free closing cost calculator USA 2026. Estimate all closing costs including lender fees, title insurance, escrow, prepaid items, and recording fees. Real.',
  slug: 'closing-cost-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'closing cost calculator 2026',
- 
- 'closing cost calculator', 'home closing cost calculator', 'mortgage closing costs estimate',
- 'how much are closing costs', 'closing costs calculator USA 2026',
- 'cash to close calculator', 'closing cost breakdown', 'title insurance calculator',
- 'how much cash do I need to close on a house', 'closing fees calculator',
- 'real estate closing costs', 'buyer closing costs calculator',
- 'lender fees calculator', 'escrow calculator home purchase',
- ],
+    'closing cost calculator 2026',
+    'closing cost calculator',
+    'home closing cost calculator',
+    'mortgage closing costs estimate',
+    'how much are closing costs',
+    'closing costs calculator USA 2026',
+    'cash to close calculator',
+    'closing cost breakdown',
+  ],
 })
 
 const faqs = [

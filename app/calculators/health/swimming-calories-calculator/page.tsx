@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Swimming Calories Calculator 2026 | ToolTrio',
-  description: 'Free Swimming Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
+  description: 'Free Swimming Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets.',
   slug: 'swimming-calories-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'swimming calorie calculator',
     'calories burned swimming by stroke',
-    'swimming 30 minutes calorie burn',
-    'freestyle vs breaststroke calories',
-    'competitive swimming calorie burn',
-    'swimming for weight loss calculator',
-    'lap swimming calorie calculator',
-    'calories swimming 1 hour',
-    'aqua aerobics calorie burn',
-    'swimming compared to running calories',
   ],
 })
 

@@ -10,21 +10,20 @@ const AutoLoanCalculatorClient = dynamic(() => import('./AutoLoanCalculatorClien
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Auto Loan Calculator USA 2026 | ToolTrio',
- description: 'Free auto loan calculator USA 2026. Calculate your exact monthly car payment, total interest cost, and amortization schedule. Real examples for $20k–$60k vehicle prices at 4–12% APR.',
+ description: 'Free auto loan calculator USA 2026. Calculate your exact monthly car payment, total interest cost, and amortization schedule. Real examples for $20k–$60k.',
  slug: 'auto-loan-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'auto loan calculator 2026',
- 
- 'auto loan calculator', 'car loan calculator', 'auto loan payment calculator',
- 'car payment calculator', 'auto loan calculator with tax and fees',
- 'used car loan calculator', 'new car loan calculator', 'vehicle loan calculator',
- 'auto loan monthly payment', 'car loan amortization calculator',
- 'auto loan calculator 2026', 'best auto loan rates 2026',
- 'auto loan calculator with trade in', 'how much car can I afford',
- 'car loan interest calculator', 'auto loan payoff calculator',
- ],
+    'auto loan calculator 2026',
+    'auto loan calculator',
+    'car loan calculator',
+    'auto loan payment calculator',
+    'car payment calculator',
+    'auto loan calculator with tax and fees',
+    'used car loan calculator',
+    'new car loan calculator',
+  ],
 })
 
 const faqs = [

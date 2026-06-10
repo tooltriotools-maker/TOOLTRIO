@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'How Rich Am I? Global Wealth Rank | ToolTrio',
-  description: 'Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people worldwide. Free.',
+  description: 'Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people.',
   slug: 'how-rich-am-i',
   keywords: [
     'how rich am I calculator',
@@ -21,27 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'top 1 percent income calculator',
     'how does my income compare globally',
     'global income comparison tool',
-    'how wealthy am I compared to others',
-    'rich or poor calculator',
-    'world wealth calculator',
-    'income percentile by country',
-    'am I in the top 10 percent',
-    'global income rank free',
-    'how much do I earn compared to the world',
-    'wealth comparison calculator 2026',
-    'richest people calculator',
-    'income inequality calculator',
-    'how rich am I compared to Jeff Bezos',
-    'how many people earn less than me',
-    'global median income comparison',
-    'developing world income comparison',
-    'income percentile USA calculator',
-    'income percentile UK calculator',
-    'how rich am I India',
     'tooltrio.com',
-    'free calculator no signup',
-    'instant calculator results',
-    'fun calculator online free'
   ],
 })
 

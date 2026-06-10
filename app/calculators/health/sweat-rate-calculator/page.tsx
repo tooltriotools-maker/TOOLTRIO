@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Sweat Rate Calculator 2026 | ToolTrio',
-  description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maintain performance, with sport-specific and weather-adjusted targets. Free online sweat rate calculator 2026. No signup required.',
+  description: 'Calculate your personal sweat rate from pre and post-exercise body weight measurements. Find how much fluid to drink per hour during exercise to maintain.',
   slug: 'sweat-rate-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how to calculate sweat rate',
     'fluid loss during exercise calculator',
     'hourly sweat rate formula',
-    'exercise hydration by sweat rate',
-    'sweat test calculator',
-    'how much water during exercise',
-    'sweat rate by sport',
-    'heat and sweat rate calculator',
-    'sports hydration by sweat loss',
   ],
 })
 

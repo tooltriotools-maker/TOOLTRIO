@@ -10,20 +10,20 @@ const BiweeklyMortgageClient = dynamic(() => import('./BiweeklyMortgageClient'),
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Biweekly Mortgage Calculator USA 2026 | ToolTrio',
- description: 'Free biweekly mortgage calculator USA 2026. See how switching to biweekly payments cuts years off your mortgage and saves thousands in interest. Real examples for $200k-$500k loans at 6-8% interest rates.',
+ description: 'Free biweekly mortgage calculator USA 2026. See how switching to biweekly payments cuts years off your mortgage and saves thousands in interest. Real.',
  slug: 'biweekly-mortgage-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'biweekly mortgage calculator 2026',
- 
- 'biweekly mortgage calculator', 'bi-weekly mortgage payment calculator',
- 'biweekly mortgage savings calculator', 'pay mortgage biweekly calculator',
- 'how much do I save paying mortgage biweekly', 'biweekly vs monthly mortgage',
- 'biweekly mortgage payoff calculator', 'extra mortgage payment calculator',
- 'mortgage interest savings calculator', 'pay off mortgage early calculator',
- 'biweekly mortgage 2026', 'accelerated mortgage payment calculator',
- ],
+    'biweekly mortgage calculator 2026',
+    'biweekly mortgage calculator',
+    'bi-weekly mortgage payment calculator',
+    'biweekly mortgage savings calculator',
+    'pay mortgage biweekly calculator',
+    'how much do I save paying mortgage biweekly',
+    'biweekly vs monthly mortgage',
+    'biweekly mortgage payoff calculator',
+  ],
 })
 
 const faqs = [

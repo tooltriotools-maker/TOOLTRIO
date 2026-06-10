@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BMI Calculator for Children 2026 | ToolTrio',
-  description: 'Free BMI for Children Calculator 2026. Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy weight ranges by age and sex.\', and what the percentile means for growth trajectory.',
+  description: 'Free BMI for Children Calculator 2026. Calculate BMI-for-age percentile for children and teens aged 2-19 using CDC growth charts. Understand healthy.', and what the percentile means for growth trajectory.',
   slug: 'bmi-for-children-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'body mass index calculator 2026',
     'bmi calculator for children',
     'bmi for age percentile calculator',
-    'child bmi calculator ages 2 to 19',
-    'healthy bmi range for 10 year old',
-    'overweight bmi percentile child',
-    'cdc growth chart calculator',
-    'bmi for teens calculator',
-    'child obesity bmi cutoff',
-    'pediatric bmi calculator',
-    'bmi for kids by age and height',
   ],
 })
 

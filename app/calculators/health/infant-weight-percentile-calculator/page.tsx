@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'weight loss calculator 2026',
     'infant weight percentile calculator',
     'baby weight chart calculator',
-    'who growth chart calculator',
-    'baby percentile by age',
-    'newborn weight percentile',
-    'infant growth chart calculator',
-    'baby height percentile 0 to 24 months',
-    'child growth tracking',
-    'is my baby growing normally',
-    'baby weight for age percentile',
   ],
 })
 

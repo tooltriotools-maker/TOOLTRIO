@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Shakespearean Insult Generator | ToolTrio',
-  description: 'Generate dramatic Shakespearean insults, old English roasts, and creative put-downs. Funny, theatrical, and totally harmless. Free online insult generator, no signup.',
+  description: 'Generate dramatic Shakespearean insults, old English roasts, and creative put-downs. Funny, theatrical, and totally harmless. Free online insult.',
   slug: 'insult-generator',
   keywords: [
     'Shakespearean insult generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'creative roast generator',
     'witty insult generator',
     'shakespearean roast generator',
-    'dramatic insult generator',
-    'best shakespearean insult',
-    'elizabethan insult generator',
-    'fake insult for friends funny',
-    'harmless insult generator',
-    'insult of the day generator',
-    'roast my friend generator',
-    'funny put down generator',
-    'shakespearean curse generator',
-    'insult generator no signup',
-    'olde english roast online',
-    'best insult generator 2026',
-    'dramatic roast line generator',
-    'insult generator for game night',
-    'historical insult generator',
-    'gentle roast generator friends',
-    'insult generator share results',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

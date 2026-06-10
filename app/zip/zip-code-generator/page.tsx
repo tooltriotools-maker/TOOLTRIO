@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Generator — Generate Random Valid US ZIP Codes 2026',
-  description: 'Generate random valid US ZIP codes for testing, development, and demos. Filter by state, type, or population range. Free ZIP code generator tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code generator','random zip code generator','generate zip codes usa','fake zip code generator','test zip code generator','valid zip code generator','random us zip code','zip code generator by state','zip code generator for testing','zip code random generator','generate random zip code','zip code test data generator','sample zip code generator','dummy zip code generator','zip code list generator',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Generator — Generate Random Valid ZIP Codes | ToolTrio',
+  description: 'Generate random valid US ZIP codes free. Filter by state, ZIP type, or population. Perfect for software testing, QA, demos, and sample data.',
+  keywords: [
+    'zip code generator',
+    'random zip code generator',
+    'generate valid us zip codes',
+    'fake zip code for testing',
+    'random zip code by state',
+    'us postal code generator free',
+    'zip code test data generator',
+    'valid random zip code usa free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-generator' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-generator',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Generator — Generate Random Valid ZIP Codes | ToolTrio',
+    description: 'Generate random valid US ZIP codes free. Filter by state, ZIP type, or population. Perfect for software testing, QA, demos, and sample data.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Generator — Generate Random Valid US ZIP Codes Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Generator — Generate Random Valid ZIP Codes | ToolTrio',
+    description: 'Generate random valid US ZIP codes free. Filter by state, ZIP type, or population. Perfect for software testing, QA, demos, and sample data.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

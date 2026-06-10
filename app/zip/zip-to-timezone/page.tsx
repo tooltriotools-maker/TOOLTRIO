@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to Timezone — Find Timezone by ZIP Code USA 2026',
-  description: 'Find the timezone for any US ZIP code instantly. Get IANA timezone ID, UTC offset, and daylight saving time status. Free ZIP to timezone lookup tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip to timezone','zip code timezone','find timezone by zip code','zip code time zone lookup','what timezone is zip code','zip code utc offset','zip code timezone converter','zip code dst','local timezone by zip','zip code timezone identifier','zip code timezone name','zip code iana timezone','zip code gmt offset','timezone lookup by zip usa','zip code time zone free tool',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
+  description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+  keywords: [
+    'zip code to timezone',
+    'find timezone by zip code',
+    'what timezone is zip code',
+    'zip code timezone lookup',
+    'zip to time zone usa',
+    'timezone from zip code free',
+    'what time zone is this zip code',
+    'zip code utc offset lookup',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-timezone' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-timezone',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
+    description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
+    description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

@@ -84,7 +84,7 @@ services:
 
       return (
     <DevToolLayout
-      title="YAML Formatter &amp; Converter"
+      title="YAML Formatter & Converter"
       icon="📄"
       description="Format YAML ↔ JSON - Validate syntax - runs in your browser"
       category="Dev"

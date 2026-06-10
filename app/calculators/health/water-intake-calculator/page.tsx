@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'daily water intake calculator for athletes',
     'water intake calculator for weight loss',
     'how many oz of water per day calculator',
-    'water intake by body weight and activity',
-    'hydration calculator for hot weather',
-    'how much water to drink during exercise',
-    'water intake for kidney health',
-    'electrolyte needs with water intake',
-    'signs you are not drinking enough water',
   ],
 })
 

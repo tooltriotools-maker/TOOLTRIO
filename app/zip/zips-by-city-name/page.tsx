@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Codes by City Name — Search ZIP Codes by Any City Name USA 2026',
-  description: 'Search for ZIP codes using any city or community name in the US. Find all ZIP codes that match a city name across all states. Free ZIP codes by city name tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip codes by city name','find zip code by city name','search zip codes by city','city name zip code search','zip code search by city','zip codes matching city name','city name to zip code','zip code lookup city name','find all zips for city name','city zip code search usa','zip code city name search','city name zip finder','zip code by community name','search zip by city free','zip code city name lookup',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Codes by City Name — Search All ZIPs by City Name | ToolTrio',
+  description: 'Search for all US ZIP codes matching any city name. Find every ZIP code serving cities or communities with a given name across all 50 US states.',
+  keywords: [
+    'zip codes by city name',
+    'find zip codes by city name',
+    'all zips for city name',
+    'search zip code by city name usa',
+    'city name zip code search free',
+    'what zip codes have city name',
+    'find zip by community name',
+    'zip code city name search all states',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zips-by-city-name' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zips-by-city-name',
+    siteName: 'ToolTrio',
+    title: 'ZIP Codes by City Name — Search All ZIPs by City Name | ToolTrio',
+    description: 'Search for all US ZIP codes matching any city name. Find every ZIP code serving cities or communities with a given name across all 50 US states.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Codes by City Name — Search All ZIPs for a City Name USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Codes by City Name — Search All ZIPs by City Name | ToolTrio',
+    description: 'Search for all US ZIP codes matching any city name. Find every ZIP code serving cities or communities with a given name across all 50 US states.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -136,7 +166,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="ZIPs by City Name" description="Search for all ZIP codes matching any city or community name across the US." icon="🔎" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by City Name — Search ZIP Codes by Any City Name USA 2026\",\"description\":\"Search for ZIP codes using any city or community name in the US. Find all ZIP codes that match a city name across all states. Free ZIP codes by city n\",\"url\":\"https://tooltrio.com/zip/zips-by-city-name\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by City Name — Search Any US City Name 2026\",\"description\":\"Search for ZIP codes using any city or community name in the US. Find all ZIP codes that match a city name across all states. Free ZIP codes by city n\",\"url\":\"https://tooltrio.com/zip/zips-by-city-name\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Creatine Dosage Calculator 2026 | ToolTrio',
-  description: 'Free Creatine Dosage Calculator 2026 — Calculate creatine dosage instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
+  description: 'Free Creatine Dosage Calculator 2026 — Calculate creatine dosage instantly with precise results. Evidence-based tool used by health professionals. No.',
   slug: 'creatine-dosage-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'creatine dosage by body weight',
     'how much creatine should I take',
     'creatine maintenance dose calculator',
-    'creatine loading vs no loading',
-    'creatine monohydrate dose timing',
-    'creatine for women dosage',
-    'creatine cycling protocol',
-    'creatine saturation timeline',
-    'creatine and water retention',
   ],
 })
 

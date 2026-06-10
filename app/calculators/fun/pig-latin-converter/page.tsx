@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Pig Latin Translator Online | ToolTrio',
-  description: 'Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login required.',
+  description: 'Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login.',
   slug: 'pig-latin-converter',
   keywords: [
     'pig latin translator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'pig latin text converter',
     'how to speak pig latin',
     'pig latin rules converter',
-    'pig latin name converter',
-    'pig latin sentence translator',
-    'online pig latin tool',
-    'pig latin decoder',
-    'pig latin to english translator',
-    'pig latin for kids',
-    'learn pig latin online',
-    'pig latin converter no signup',
-    'pig latin translator 2026',
-    'what is pig latin',
-    'pig latin examples online',
-    'pig latin game online',
-    'paragraph to pig latin converter',
-    'pig latin name generator',
-    'pig latin chat converter',
-    'secret language converter online',
-    'silly language converter free',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

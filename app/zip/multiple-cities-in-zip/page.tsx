@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Multiple Cities in a ZIP Code — Find All Cities in a ZIP Code USA 2026',
-  description: 'Find all cities and communities served by any US ZIP code. Some ZIP codes deliver to multiple cities — see every city name associated with a ZIP. Free tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['multiple cities in zip code','all cities in zip code','zip code multiple cities','cities in zip code','zip code cities list','zip code serves multiple cities','what cities are in zip code','zip code city names all','zip code alternate cities','zip code preferred and alternate cities','all communities in zip code','zip code city lookup all names','how many cities in zip code','zip code city list usa','zip code multiple city names',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Multiple Cities in a ZIP Code — All Cities by ZIP Free | ToolTrio',
+  description: 'Find all cities and communities served by any US ZIP code free. Some ZIP codes deliver to multiple cities — see every city name for any ZIP.',
+  keywords: [
+    'multiple cities in zip code',
+    'cities in a zip code',
+    'how many cities in zip code',
+    'all cities served by zip code',
+    'zip code multiple city names',
+    'what cities does a zip code cover',
+    'zip code city list free lookup',
+    'zip code serves multiple cities',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/multiple-cities-in-zip' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/multiple-cities-in-zip',
+    siteName: 'ToolTrio',
+    title: 'Multiple Cities in a ZIP Code — All Cities by ZIP Free | ToolTrio',
+    description: 'Find all cities and communities served by any US ZIP code free. Some ZIP codes deliver to multiple cities — see every city name for any ZIP.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Multiple Cities in a ZIP Code — All Cities in a ZIP Code Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Multiple Cities in a ZIP Code — All Cities by ZIP Free | ToolTrio',
+    description: 'Find all cities and communities served by any US ZIP code free. Some ZIP codes deliver to multiple cities — see every city name for any ZIP.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -124,7 +154,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="Multiple Cities in ZIP" description="Find every city and community name served by any US ZIP code." icon="🏘️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Multiple Cities in a ZIP Code — Find All Cities in a ZIP Code USA 2026\",\"description\":\"Find all cities and communities served by any US ZIP code. Some ZIP codes deliver to multiple cities — see every city name associated with a ZIP. Free\",\"url\":\"https://tooltrio.com/zip/multiple-cities-in-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Multiple Cities in a ZIP — Find All Cities in a ZIP USA 2026\",\"description\":\"Find all cities and communities served by any US ZIP code. Some ZIP codes deliver to multiple cities — see every city name associated with a ZIP. Free\",\"url\":\"https://tooltrio.com/zip/multiple-cities-in-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Menopause Symptom Calculator 2026 | ToolTrio',
-  description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized symptom burden score and explore management options. Free online menopause symptom calculator 2026. No signup required.',
+  description: 'Assess menopause symptom severity including hot flashes, night sweats, sleep disruption, mood changes, and vaginal symptoms. Calculate a personalized.',
   slug: 'menopause-symptom-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'hot flash frequency calculator',
     'menopause severity score',
     'perimenopause symptom assessment',
-    'menopause symptom tracker',
-    'menopause treatment options',
-    'hormone therapy candidate calculator',
-    'menopause and sleep calculator',
-    'menopause weight gain calculator',
-    'perimenopause vs menopause symptoms',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: '.env File Parser Online | ToolTrio',
-  description: 'Parse and validate .env files. View key-value pairs, detect syntax errors, and convert to JSON or export format. Runs entirely in your browser — secrets stay on your device.',
+  description: 'Parse and validate .env files. View key-value pairs, detect syntax errors, and convert to JSON or export format. Runs entirely in your browser — secrets.',
   slug: 'env-file-parser',
   keywords: ['env file parser online free','.env file viewer browser','environment variables parser','dotenv file reader free','env to json converter online'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: '.env File Parser — Validate and Inspect Environment Files Free',
-    description: 'Parse and validate .env files. View key-value pairs, detect syntax errors, and convert to JSON or export format. Runs entirely in your browser — secrets stay on your device.',
+    description: 'Parse and validate .env files. View key-value pairs, detect syntax errors, and convert to JSON or export format. Runs entirely in your browser — secrets.',
     slug: 'env-file-parser',
     faqs,
   })

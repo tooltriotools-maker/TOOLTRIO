@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Screen Time Calculator | ToolTrio',
-  description: 'Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free, instant, no login.',
+  description: 'Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free.',
   slug: 'screen-time-calculator',
   keywords: [
     'screen time calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'phone addiction calculator',
     'how many hours on phone per year',
     'lifetime phone usage calculator',
-    'screen time vs sleep comparison',
-    'how much time wasted on phone',
-    'social media screen time calculator',
-    'years spent on phone calculator',
-    'screen time reality check',
-    'screen time calculator free online',
-    'screen time calculator no signup',
-    'how much of my life on screen',
-    'screen time awareness tool',
-    'reduce screen time calculator',
-    'screen time vs life goals calculator',
-    'screen time wake up call',
-    'screen time addiction calculator',
-    'average screen time per day calculator',
-    'screen time 2026 statistics',
-    'screen time calculator share result',
-    'eye-opening screen time calculator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

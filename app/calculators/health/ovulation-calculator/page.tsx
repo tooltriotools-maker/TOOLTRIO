@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Ovulation Calculator 2026 | ToolTrio',
-  description: 'Free Ovulation Calculator 2026 — Accurate ovulation based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Ovulation Calculator 2026 — Accurate ovulation based on medical standards. Instant results with detailed timeline and guidance. No account required.',
   slug: 'ovulation-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'fertile window calculator',
     'when do I ovulate calculator',
     'ovulation date from period',
-    'lh surge ovulation timing',
-    'when to have sex to get pregnant calculator',
-    'ovulation tracking calculator',
-    'irregular cycle ovulation calculator',
-    'signs of ovulation calculator',
-    'conception timing calculator',
   ],
 })
 

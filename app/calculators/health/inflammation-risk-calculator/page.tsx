@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Inflammation Risk Calculator 2026 | ToolTrio',
-  description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your diet and lifestyle, with a prioritized anti-inflammation action plan. Free online inflammation risk calculator 2026. No signup required.',
+  description: 'Calculate your dietary inflammatory index (DII) and lifestyle inflammation burden. Identify pro-inflammatory and anti-inflammatory factors in your diet.',
   slug: 'inflammation-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'dietary inflammatory index calculator',
     'anti inflammatory diet score',
     'inflammation from lifestyle calculator',
-    'high sensitivity crp risk factors',
-    'chronic inflammation causes calculator',
-    'anti inflammatory foods score',
-    'inflammation and disease risk',
-    'lifestyle inflammation assessment',
-    'reduce inflammation naturally',
   ],
 })
 

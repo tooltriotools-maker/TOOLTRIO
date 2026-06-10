@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Procrastination Score Calculator | ToolTrio',
-  description: 'Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free, instant, no signup.',
+  description: 'Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free.',
   slug: 'procrastination-score',
   keywords: [
     'procrastination score calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'procrastinator type test',
     'procrastination assessment free',
     'do I procrastinate too much quiz',
-    'procrastination scale test',
-    'why do I procrastinate quiz',
-    'procrastination habit test',
-    'procrastination quiz no signup',
-    'procrastination personality test',
-    'procrastination cure quiz',
-    'how to stop procrastinating test',
-    'procrastination score viral',
-    'procrastination quiz for students',
-    'procrastination quiz for work',
-    'procrastination self assessment',
-    'pure procrastinator quiz',
-    'avoidant procrastinator test',
-    'decisional procrastinator quiz',
-    'perfectionist procrastinator test',
-    'procrastination score share results',
-    'funny procrastination calculator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

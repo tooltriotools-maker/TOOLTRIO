@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       return (
     <DevToolLayout
-      title="TOML Formatter &amp; Converter"
+      title="TOML Formatter & Converter"
       icon="⚙️"
       description="Format TOML configuration files and convert to JSON"
       category="Dev"

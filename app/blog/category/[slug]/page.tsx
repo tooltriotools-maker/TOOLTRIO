@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://tooltrio.com/blog/category/${slug}`,
       siteName: 'ToolTrio',
       type: 'website',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio Blog' }],
     },
   }
 }

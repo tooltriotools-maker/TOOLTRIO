@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Jet Lag Calculator 2026 | ToolTrio',
-  description: 'Calculate your predicted jet lag severity based on number of time zones crossed, travel direction, and departure time. Get a day-by-day sleep schedule adjustment plan to minimize jet lag symptoms. Free online jet lag calculator 2026. No signup required.',
+  description: 'Calculate your predicted jet lag severity based on number of time zones crossed, travel direction, and departure time. Get a day-by-day sleep schedule.',
   slug: 'jet-lag-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'jet lag recovery time by time zones',
     'east vs west jet lag recovery',
     'jet lag sleep schedule calculator',
-    'how to minimize jet lag',
-    'jet lag severity predictor',
-    'jet lag adjustment plan',
-    'jet lag business travel calculator',
-    'melatonin for jet lag timing',
-    'jet lag symptoms recovery',
   ],
 })
 

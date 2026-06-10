@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Population Lookup — US ZIP Code Demographics 2026',
-  description: 'Look up the population, housing units, and demographic data for any US ZIP code. Free ZIP code population tool based on Census ACS data. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code population','zip code population lookup','population by zip code usa','zip code demographics','zip code population data','how many people live in zip code','zip code census data','zip code population 2024','zip code population 2025','zip code population density','zip code household count','zip code housing units','zip code income data','acs zip code data','zip code population finder free',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+  description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
+  keywords: [
+    'zip code population',
+    'population by zip code',
+    'zip code demographics lookup',
+    'how many people live in zip code',
+    'zip code population data free',
+    'zip code housing units',
+    'demographic data by zip code',
+    'zip code population density usa',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-population' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-population',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+    description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Population Lookup — Demographics by ZIP Code Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+    description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

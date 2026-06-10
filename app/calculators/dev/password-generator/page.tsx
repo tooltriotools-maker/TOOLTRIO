@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'Password Generator – Secure & Free | ToolTrio',
-  description: 'Generate strong random passwords with configurable length and character sets. Uses crypto.getRandomValues() for true cryptographic randomness. Runs in your browser.',
+  description: 'Generate strong random passwords with configurable length and character sets. Uses crypto.getRandomValues() for true cryptographic randomness. Runs in.',
   slug: 'password-generator',
   keywords: ['password generator online free','secure random password browser','strong password maker free','cryptographically secure password generator','generate password no tracking','random password 20 characters free','password generator no signup no server'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'Password Generator — Cryptographically Secure, Free',
-    description: 'Generate strong random passwords with configurable length and character sets. Uses crypto.getRandomValues() for true cryptographic randomness. Runs in your browser.',
+    description: 'Generate strong random passwords with configurable length and character sets. Uses crypto.getRandomValues() for true cryptographic randomness. Runs in.',
     slug: 'password-generator',
     faqs,
   })

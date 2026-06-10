@@ -10,20 +10,20 @@ const PayoffDateCalculatorClient = dynamic(() => import('./PayoffDateCalculatorC
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Loan Payoff Date Calculator USA 2026 | ToolTrio',
- description: 'Free loan payoff date calculator USA 2026. Find your exact debt-free date and total interest paid for any loan with fixed payments or extra contributions. Real examples for mortgages, car loans, and personal loans.',
+ description: 'Free loan payoff date calculator USA 2026. Find your exact debt-free date and total interest paid for any loan with fixed payments or extra contributions.',
  slug: 'payoff-date-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'payoff date calculator 2026',
- 
- 'loan payoff date calculator', 'debt payoff date calculator', 'when will I pay off my loan',
- 'loan payoff calculator with extra payments', 'mortgage payoff date calculator',
- 'how long to pay off loan calculator', 'debt free date calculator',
- 'extra payment loan calculator', 'loan early payoff calculator',
- 'when will I be debt free', 'loan payoff schedule', 'pay off loan faster calculator',
- 'mortgage early payoff calculator', 'student loan payoff date',
- ],
+    'payoff date calculator 2026',
+    'loan payoff date calculator',
+    'debt payoff date calculator',
+    'when will I pay off my loan',
+    'loan payoff calculator with extra payments',
+    'mortgage payoff date calculator',
+    'how long to pay off loan calculator',
+    'debt free date calculator',
+  ],
 })
 
 const faqs = [

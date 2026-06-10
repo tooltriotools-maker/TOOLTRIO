@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Love Compatibility Calculator | ToolTrio',
-  description: 'Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and instant.',
+  description: 'Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and.',
   slug: 'love-compatibility',
   keywords: [
     'love compatibility calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'compatibility score calculator',
     'zodiac compatibility calculator',
     'relationship compatibility test online',
-    'how compatible are we calculator',
-    'love percentage calculator by name',
-    'crush compatibility calculator',
-    'soulmate calculator free',
-    'love calculator names free online',
-    'partner compatibility quiz',
-    'love match by birthday',
-    'numerology love compatibility',
-    'compatibility test for couples',
-    'how well do we match calculator',
-    'love compatibility 2026',
-    'best love calculator online',
-    'love compatibility no signup',
-    'are we meant to be calculator',
-    'love compatibility viral tool',
-    'share love compatibility result',
-    'celebrity compatibility calculator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

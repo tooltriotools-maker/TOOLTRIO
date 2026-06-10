@@ -138,7 +138,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       {/* 600-word SEO explanation */}
       <div className="mt-10">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Debt Payoff Calculator - Become Debt-Free Faster with Avalanche &amp; Snowball USA 2026</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">Debt Payoff Calculator - Become Debt-Free Faster with Avalanche & Snowball USA 2026</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Two Proven Debt Payoff Strategies</h3>

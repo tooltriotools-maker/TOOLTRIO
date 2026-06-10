@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Vitamin D Calculator 2026 | ToolTrio',
-  description: 'Free Vitamin D Calculator 2026 — Calculate your daily vitamin d needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Vitamin D Calculator 2026 — Calculate your daily vitamin d needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs).',
   slug: 'vitamin-d-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much vitamin d should I take',
     'vitamin d deficiency risk calculator',
     'vitamin d supplement dose by age',
-    'vitamin d sun exposure calculator by latitude',
-    'vitamin d blood level optimal range',
-    'vitamin d 1000 iu vs 2000 iu vs 5000 iu',
-    'vitamin d for immune function',
-    'vitamin d and bone health',
-    'vitamin d toxicity risk calculator',
   ],
 })
 

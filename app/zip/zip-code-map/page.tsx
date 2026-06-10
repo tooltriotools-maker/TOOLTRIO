@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Map — Interactive Map of US ZIP Codes 2026',
-  description: 'View any US ZIP code on an interactive map. Enter a ZIP code and see its boundaries, location, and surrounding ZIP codes on a map. Free ZIP code map tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code map','us zip code map','interactive zip code map','zip code boundary map','map zip code location','zip code on map','view zip code map usa','zip code area map','zip code boundary viewer','zip code location map','zip code neighborhood map','zip code area boundary','zip code district map','zip code territory map','zip code visual map',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+  description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
+  keywords: [
+    'zip code map',
+    'zip code on map',
+    'interactive zip code map usa',
+    'show zip code on map free',
+    'view zip code boundaries map',
+    'zip code location map',
+    'find zip code on map free',
+    'us zip code boundary map',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-map' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-map',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+    description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Map — View Any ZIP Code on Interactive Map Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+    description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

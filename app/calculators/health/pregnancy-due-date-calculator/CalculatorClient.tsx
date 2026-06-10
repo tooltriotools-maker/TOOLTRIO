@@ -94,7 +94,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         <div className="lg:col-span-2">
           {result && (
             <Card>
-              <h3 className="font-bold text-gray-900 mb-4">Pregnancy Timeline &amp; Milestones</h3>
+              <h3 className="font-bold text-gray-900 mb-4">Pregnancy Timeline & Milestones</h3>
               <div className="space-y-2 max-h-96 overflow-y-auto pr-1">
                 {result.milestones.map(m=>(
                   <div key={m.week} className={`flex items-start gap-3 p-2.5 rounded-lg ${m.past?'bg-green-50 border border-green-200':'bg-gray-50 border border-gray-100'}`}>

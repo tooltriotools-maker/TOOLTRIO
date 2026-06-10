@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Loneliness Health Calculator 2026 | ToolTrio',
-  description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social support network. Understand how loneliness compares to other health risk factors. Free online loneliness health calculator 2026. No signup required.',
+  description: 'Calculate the estimated health impact of chronic loneliness and social isolation based on connection frequency, relationship quality, and social support.',
   slug: 'loneliness-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'social isolation health risk',
     'chronic loneliness mortality risk',
     'social connection health score',
-    'loneliness and cardiovascular disease',
-    'loneliness risk assessment',
-    'how loneliness affects health',
-    'social support health benefits',
-    'loneliness equivalent smoking',
-    'health risks of isolation',
   ],
 })
 

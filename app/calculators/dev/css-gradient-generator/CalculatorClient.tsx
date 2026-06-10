@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <DevToolLayout
       title="CSS Gradient Generator"
       icon="🎨"
-      description="Build linear, radial &amp; conic gradients visually - copy CSS instantly"
+      description="Build linear, radial & conic gradients visually - copy CSS instantly"
       category="Dev"
       parentPath="/calculators/dev"
       parentLabel="Dev Tools"

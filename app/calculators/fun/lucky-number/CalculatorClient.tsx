@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <DevToolLayout
       title="Lucky Number Calculator"
       icon="🍀"
-      description="Discover your numerology lucky numbers based on your birth date &amp; name"
+      description="Discover your numerology lucky numbers based on your birth date & name"
       category="Fun"
       parentPath="/calculators/fun"
       parentLabel="Fun & Entertainment"

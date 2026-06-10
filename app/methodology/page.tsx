@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'How We Build Accurate Free Calculators | ToolTrio',
   description:
-    'Every calculator on tooltrio.com follows IRS guidelines, CDC standards, NIH research, CFPB rules, and SEC-validated formulas. Learn exactly how we source and verify every number.',
+    'Every calculator on tooltrio.com follows IRS guidelines, CDC standards, NIH research, CFPB rules, and SEC-validated formulas. Learn exactly how we source.',
   keywords: [
     'finance calculator methodology', 'accurate mortgage calculator formula', 'IRS 401k formula',
     'CDC BMI formula', 'NIH calorie calculation', 'compound interest formula SEC',
@@ -13,10 +13,11 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/methodology' },
   openGraph: {
-    title: 'Our Methodology -- How We Build Accurate Finance Calculators',
+    title: 'Our Methodology — How We Build Accurate Finance Calculators',
     description: 'All formulas follow IRS, CDC, NIH, CFPB, and SEC standards. Verified and peer-reviewed.',
     url: 'https://tooltrio.com/methodology',
     type: 'article',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio Methodology' }],
   },
 }
 
@@ -24,9 +25,9 @@ const methodologySchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'How tooltrio.com Builds Accurate, Trustworthy Calculators',
-  description: 'Our methodology for building finance, health, and investment calculators -- all sourced from IRS, CDC, NIH, CFPB, and SEC.',
-  author: { '@type': 'Organization', name: 'tooltrio.com', url: 'https://tooltrio.com' },
-  publisher: { '@type': 'Organization', name: 'tooltrio.com', url: 'https://tooltrio.com' },
+  description: 'Our methodology for building finance, health, and investment calculators — all sourced from IRS, CDC, NIH, CFPB, and SEC.',
+  author: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
+  publisher: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
   datePublished: '2026-01-01',
   dateModified: '2026-03-01',
   mainEntityOfPage: 'https://tooltrio.com/methodology',
@@ -44,7 +45,7 @@ const sources = [
     refs: [
       { name: 'IRS Publication 590-A (IRA Limits 2026)', url: 'https://www.irs.gov/publications/p590a', desc: '2026 IRA limits: $7,000 under 50, $8,000 age 50+. Income phase-out ranges and deductibility rules.' },
       { name: 'IRS 401k Resource Guide (2026)', url: 'https://www.irs.gov/retirement-plans/401k-resource-guide-plan-participants-401k-plan-overview', desc: '2026 limits: $23,500 employee (<50), $31,000 age 50+, $70,000 total (employee + employer).' },
-      { name: 'SEC Investor.gov -- Compound Interest', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator', desc: 'A = P(1 + r/n)^(nt) formula -- validated against SEC official investor calculator.' },
+      { name: 'SEC Investor.gov — Compound Interest', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator', desc: 'A = P(1 + r/n)^(nt) formula — validated against SEC official investor calculator.' },
       { name: 'FINRA Retirement Methodology', url: 'https://www.finra.org/investors/tools-calculators', desc: '4% withdrawal rate modeling, sequence-of-returns risk, Monte Carlo probability basis.' },
     ],
   },
@@ -57,13 +58,13 @@ const sources = [
     formulaDesc: 'Monthly payment M. P = principal, r = monthly interest rate (annual / 12), n = total payments (years x 12).',
     tools: ['Mortgage Calculator', 'Home Affordability', 'Refinance Calculator', 'Rent vs Buy'],
     refs: [
-      { name: 'CFPB -- Mortgage Payment Standards', url: 'https://www.consumerfinance.gov/owning-a-home/', desc: 'Monthly payment calculation, PMI threshold (< 20% down), PITI breakdown, amortization methodology.' },
-      { name: 'Freddie Mac -- Affordability Guidelines', url: 'https://www.freddiemac.com/', desc: 'DTI limits: 28% front-end (housing), 36% back-end (total debt). Standard for conventional loans.' },
-      { name: 'HUD -- FHA Loan Limits 2026', url: 'https://www.hud.gov/', desc: 'FHA county loan limits, MIP rates and cancellation rules.' },
+      { name: 'CFPB — Mortgage Payment Standards', url: 'https://www.consumerfinance.gov/owning-a-home/', desc: 'Monthly payment calculation, PMI threshold (< 20% down), PITI breakdown, amortization methodology.' },
+      { name: 'Freddie Mac — Affordability Guidelines', url: 'https://www.freddiemac.com/', desc: 'DTI limits: 28% front-end (housing), 36% back-end (total debt). Standard for conventional loans.' },
+      { name: 'HUD — FHA Loan Limits 2026', url: 'https://www.hud.gov/', desc: 'FHA county loan limits, MIP rates and cancellation rules.' },
     ],
   },
   {
-    category: 'Health -- BMI, Calories, Macros, Body Fat',
+    category: 'Health — BMI, Calories, Macros, Body Fat',
     icon: '❤️',
     bg: 'bg-rose-50 border-rose-200',
     header: 'bg-rose-600',
@@ -111,7 +112,7 @@ export default function MethodologyPage() {
             </div>
             <h1 className="text-4xl md:text-5xl font-black mb-5 leading-tight">Our Methodology</h1>
             <p className="text-gray-300 text-lg max-w-3xl leading-relaxed">
-              Every calculator on tooltrio.com follows published government standards and peer-reviewed research. We never guess -- every number has a source you can verify.
+              Every calculator on tooltrio.com follows published government standards and peer-reviewed research. We never guess — every number has a source you can verify.
             </p>
           </div>
         </div>
@@ -123,7 +124,7 @@ export default function MethodologyPage() {
               {[
                 { n: '1', title: 'Formula Verification', desc: 'Every formula is independently verified against 2+ official sources before deployment. We cross-check against IRS, CDC, and SEC official calculators.' },
                 { n: '2', title: 'Annual Updates', desc: 'Tax brackets, contribution limits, and rate tables are reviewed every January for new IRS, SSA, and government announcements.' },
-                { n: '3', title: 'No Rounding Errors', desc: 'All intermediate calculations use full floating-point precision. Rounding occurs only at display -- preventing compounding errors in multi-step calculations.' },
+                { n: '3', title: 'No Rounding Errors', desc: 'All intermediate calculations use full floating-point precision. Rounding occurs only at display — preventing compounding errors in multi-step calculations.' },
                 { n: '4', title: 'Edge Case Testing', desc: 'We test extreme values (zero income, maximum contributions, age 0-120) to ensure no calculation breaks or returns incorrect results.' },
               ].map(s => (
                 <div key={s.n} className="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100">
@@ -176,7 +177,7 @@ export default function MethodologyPage() {
           <section className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-10">
             <h2 className="font-bold text-amber-900 mb-3">⚠️ Important Limitations</h2>
             <div className="text-sm text-amber-800 leading-relaxed space-y-2">
-              <p>Our calculators provide <strong>estimates for educational purposes only</strong> -- not financial, tax, legal, or medical advice.</p>
+              <p>Our calculators provide <strong>estimates for educational purposes only</strong> — not financial, tax, legal, or medical advice.</p>
               <p>Tax brackets, contribution limits, and rate tables change annually. Always verify with IRS.gov or a licensed professional for real money decisions.</p>
               <p>Health calculations (BMI, TDEE, body fat) use population-based averages and may not apply to your individual circumstances.</p>
             </div>

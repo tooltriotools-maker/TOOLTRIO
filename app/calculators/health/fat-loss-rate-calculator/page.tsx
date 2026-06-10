@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Fat Loss Rate Calculator 2026 | ToolTrio',
-  description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss slows over time and how to adjust for metabolic adaptation. Free online fat loss rate calculator 2026. No signup required.',
+  description: 'Calculate your expected weekly fat loss rate from your calorie deficit size, current body fat percentage, and protein intake. Understand why fat loss.',
   slug: 'fat-loss-rate-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how fast can I lose fat',
     'weekly fat loss prediction',
     'calorie deficit to fat loss rate',
-    'safe fat loss rate per week',
-    'fat loss vs weight loss calculator',
-    'maximum fat loss rate',
-    'fat loss rate by body fat percentage',
-    'realistic fat loss timeline',
-    'why am i losing weight slower',
   ],
 })
 

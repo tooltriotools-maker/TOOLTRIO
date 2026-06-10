@@ -94,11 +94,14 @@ export function CalculatorLayout({ title, description, icon, category, children,
     }] : []),
   ]
 
-  // Deduplicate structuredData by @type — prevents double WebApplication blocks
-  const seenTypes = new Set(autoSchemas.map((s: any) => s['@type']))
+  // Deduplicate structuredData by @type — prevents double BreadcrumbList/HowTo blocks
+  const autoTypes = new Set(autoSchemas.map((s: any) => s['@type']))
   const dedupedStructuredData = (structuredData ?? []).filter((s: any) => {
     const type = s['@type']
-    if (seenTypes.has(type)) return true // allow FAQPage + rating WebApplication through
+    // FAQPage and WebApplication are page-specific — always allow through
+    if (type === 'FAQPage' || type === 'WebApplication') return true
+    // Block types already injected by autoSchemas (BreadcrumbList, HowTo, MedicalWebPage)
+    if (autoTypes.has(type)) return false
     return true
   })
 

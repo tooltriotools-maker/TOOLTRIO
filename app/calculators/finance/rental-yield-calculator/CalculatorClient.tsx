@@ -121,7 +121,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Annual Cashflow Breakdown</h3>
             <div style={{ height: 200 }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={[{ name: 'Annual P&amp;L', ...Object.fromEntries(cashflowBreakdown.map(d => [d.name, d.value])), 'Net Cashflow': result.annualCashflow }]} layout="vertical" margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
+                <BarChart data={[{ name: 'Annual P&L', ...Object.fromEntries(cashflowBreakdown.map(d => [d.name, d.value])), 'Net Cashflow': result.annualCashflow }]} layout="vertical" margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={false} />
                   <XAxis type="number" tick={{ fill: '#94a3b8', fontSize: 9 }} axisLine={false} tickLine={false} tickFormatter={v => `${symbol}${(v/1000).toFixed(0)}k`} />
                   <YAxis type="category" dataKey="name" tick={false} axisLine={false} tickLine={false} width={5} />

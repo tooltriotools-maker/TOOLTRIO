@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Testosterone Calculator 2026 | ToolTrio',
-  description: 'Free Testosterone Age Calculator 2026 — Calculate testosterone age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
+  description: 'Free Testosterone Age Calculator 2026 — Calculate testosterone age instantly with precise results. Evidence-based tool used by health professionals. No.',
   slug: 'testosterone-age-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'testosterone decline with age',
     'low testosterone symptoms calculator',
     'normal testosterone range by age',
-    'testosterone optimization calculator',
-    'testosterone and sleep exercise diet',
-    'testosterone testing age guide',
-    'free vs total testosterone calculator',
-    'testosterone for men over 40',
-    'hypogonadism risk assessment',
   ],
 })
 

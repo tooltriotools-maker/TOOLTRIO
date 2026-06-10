@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pregnancy Weight Gain Calculator 2026 | ToolTrio',
-  description: 'Free Pregnancy Weight Gain Calculator 2026 — Accurate pregnancy weight gain based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Pregnancy Weight Gain Calculator 2026 — Accurate pregnancy weight gain based on medical standards. Instant results with detailed timeline and.',
   slug: 'pregnancy-weight-gain-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'weight loss calculator 2026',
     'pregnancy weight gain calculator',
     'how much weight should I gain pregnant',
-    'pregnancy weight gain by bmi',
-    'trimester weight gain calculator',
-    'gestational weight gain guidelines',
-    'healthy pregnancy weight gain',
-    'overweight pregnancy weight gain',
-    'underweight pregnancy weight gain',
-    'twin pregnancy weight gain',
-    'iga weight gain guidelines',
   ],
 })
 

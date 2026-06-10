@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Zinc Calculator 2026 | ToolTrio',
-  description: 'Free Zinc Calculator 2026 — Calculate your daily zinc needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Zinc Calculator 2026 — Calculate your daily zinc needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant.',
   slug: 'zinc-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much zinc per day',
     'zinc deficiency risk calculator',
     'zinc supplement dosage',
-    'zinc for immune function',
-    'zinc and testosterone',
-    'dietary zinc tracker',
-    'zinc absorption inhibitors',
-    'zinc vs copper balance',
-    'zinc supplement for men',
   ],
 })
 

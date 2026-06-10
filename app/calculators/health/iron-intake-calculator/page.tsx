@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Iron Intake Calculator 2026 | ToolTrio',
-  description: 'Free Iron Intake Calculator 2026 — Calculate your daily iron intake needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes (DRIs). Instant results, no signup required.',
+  description: 'Free Iron Intake Calculator 2026 — Calculate your daily iron intake needs based on age, sex, and health status. Based on NIH Dietary Reference Intakes.',
   slug: 'iron-intake-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how much iron do I need',
     'iron deficiency risk calculator',
     'heme vs non heme iron calculator',
-    'iron absorption enhancers inhibitors',
-    'iron for vegetarians calculator',
-    'women iron needs menstruation',
-    'iron supplement need calculator',
-    'anemia risk iron calculator',
-    'dietary iron tracker',
   ],
 })
 

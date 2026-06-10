@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Validator — Check if a ZIP Code is Valid USA 2026',
-  description: 'Validate any US ZIP code instantly. Check if a ZIP code is active, real, and correctly formatted. Free ZIP code validation tool with city, state, and county confirmation. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code validator','validate zip code','check zip code valid','is this zip code valid','zip code validation tool','verify zip code usa','zip code format checker','valid us zip codes','zip code active checker','real zip code lookup','zip code verification free','5 digit zip code validator','zip code exists checker','validate postal code usa','zip code input validation',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Validator — Check if a ZIP Code Is Valid Free | ToolTrio',
+  description: 'Validate any US ZIP code free. Check if a ZIP code is real, active, and correctly formatted. Instantly verify ZIP codes for forms and address databases.',
+  keywords: [
+    'zip code validator',
+    'validate zip code usa',
+    'is this zip code valid',
+    'check zip code validity free',
+    'zip code verification tool',
+    'verify us zip code',
+    'zip code format checker',
+    'invalid zip code checker free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-validator' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-validator',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Validator — Check if a ZIP Code Is Valid Free | ToolTrio',
+    description: 'Validate any US ZIP code free. Check if a ZIP code is real, active, and correctly formatted. Instantly verify ZIP codes for forms and address databases.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Validator — Check if a ZIP Code Is Valid USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Validator — Check if a ZIP Code Is Valid Free | ToolTrio',
+    description: 'Validate any US ZIP code free. Check if a ZIP code is real, active, and correctly formatted. Instantly verify ZIP codes for forms and address databases.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

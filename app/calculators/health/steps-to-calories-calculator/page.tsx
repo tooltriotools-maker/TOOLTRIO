@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Steps to Calories Calculator 2026 | ToolTrio',
-  description: 'Free Steps To Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
+  description: 'Free Steps To Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets.',
   slug: 'steps-to-calories-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'steps to calories calculator',
     'convert steps to calories',
-    'how many calories per step',
-    '10000 steps calorie burn',
-    'steps burned to calories by weight',
-    'calorie burn from step count',
-    'pedometer calories calculator',
-    'fitbit steps to calories',
-    'walking steps to calorie converter',
-    'running steps calorie burn',
   ],
 })
 

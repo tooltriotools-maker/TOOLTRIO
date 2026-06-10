@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Type — Find the Type of Any US ZIP Code 2026',
-  description: 'Look up the type of any US ZIP code: Standard, P.O. Box, Unique, or Military. Know if a ZIP accepts physical deliveries. Free ZIP code type checker. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code type','zip code types','standard zip code','po box zip code','unique zip code','military zip code','zip code type lookup','find zip code type','what type is zip code','zip code type checker','zip code classification','zip code s p u m type','residential zip code','po box only zip code','zip code type finder usa',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+  description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
+  keywords: [
+    'zip code type',
+    'po box zip code lookup',
+    'military zip code type',
+    'standard zip code vs po box',
+    'is zip code a po box',
+    'apo fpo dpo zip code lookup',
+    'unique zip code lookup',
+    'zip code type checker usa free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-type' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-type',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+    description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Type Lookup — Standard, PO Box or Military ZIP USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+    description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

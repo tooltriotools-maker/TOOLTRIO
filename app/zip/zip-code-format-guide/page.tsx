@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Format Guide — US ZIP Code Format Rules 2026',
-  description: 'Complete guide to US ZIP code formats, types, ZIP+4, leading zeros, and best practices for storing and validating ZIP codes. Free reference guide. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code format','zip code format guide','us zip code format','zip code format rules','zip code leading zero','zip+4 format','zip code format regex','how to format zip code','zip code format usa','5 digit zip code format','zip code format validation','zip code format best practices','zip plus 4 format','zip code string format','zip code database format',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Format Guide — US ZIP Code Rules & Structure | ToolTrio',
+  description: 'Complete guide to US ZIP code formats: 5-digit, ZIP+4, leading zeros, USPS rules, and best practices for storing ZIP codes in databases. Free.',
+  keywords: [
+    'zip code format guide',
+    'us zip code format rules',
+    'zip code structure explained',
+    'how zip codes are formatted',
+    'zip code leading zeros rules',
+    'zip plus 4 format standard',
+    'storing zip codes in database',
+    'zip code format for developers free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-format-guide' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-format-guide',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Format Guide — US ZIP Code Rules & Structure | ToolTrio',
+    description: 'Complete guide to US ZIP code formats: 5-digit, ZIP+4, leading zeros, USPS rules, and best practices for storing ZIP codes in databases. Free.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Format Guide — US ZIP Code Rules & Structure 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Format Guide — US ZIP Code Rules & Structure | ToolTrio',
+    description: 'Complete guide to US ZIP code formats: 5-digit, ZIP+4, leading zeros, USPS rules, and best practices for storing ZIP codes in databases. Free.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

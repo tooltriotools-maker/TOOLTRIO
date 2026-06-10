@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes USA 2026',
-  description: 'Calculate the straight-line distance between any two US ZIP codes in miles or kilometers. Free ZIP code distance calculator with driving time estimates. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code distance calculator','distance between zip codes','miles between zip codes','zip code to zip code distance','zip code distance in miles','calculate distance by zip code usa','zip code km distance','zip code mileage calculator','how far between two zip codes','zip code radius distance tool','us zip code distance finder','straight line distance zip codes','zip code distance checker free','zip to zip distance miles','zip code proximity calculator',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
+  description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
+  keywords: [
+    'zip code distance calculator',
+    'distance between zip codes',
+    'miles between zip codes',
+    'how far between two zip codes',
+    'zip code to zip code distance',
+    'calculate distance by zip code free',
+    'zip code mileage calculator',
+    'two zip code distance miles',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-distance' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-distance',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
+    description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Distance Calculator — Miles Between Two ZIP Codes USA Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
+    description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

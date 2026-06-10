@@ -16,7 +16,7 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 export const metadata: Metadata = {
   title: 'Disclaimer | ToolTrio Calculator Results Are Estimates Only',
   description:
-    'ToolTrio calculator results are mathematical estimates for informational purposes. They are not financial advice, medical advice, or legal advice. Read the full disclaimer before making decisions.',
+    'ToolTrio calculator results are mathematical estimates for informational purposes. They are not financial advice, medical advice, or legal advice. Read.',
   keywords: [
     'tooltrio disclaimer','tooltrio calculator disclaimer','tool trio disclaimer',
     'are tooltrio results accurate','tooltrio not financial advice',

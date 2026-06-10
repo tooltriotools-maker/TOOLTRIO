@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Timezone Map — Visualize US Timezones by ZIP Code 2026',
-  description: 'View an interactive map of US timezones by ZIP code. See which timezone any ZIP code falls in on a visual map. Free ZIP timezone map tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code timezone map','us timezone map by zip','zip code time zone map','timezone map zip code','interactive timezone map zip','zip code on timezone map','view timezone by zip','us timezone map interactive','zip code timezone visualization','timezone boundaries zip code map','zip timezone visual map','us time zone map zip code lookup','map zip code timezone','timezone zone map zip','zip code timezone region map',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Timezone Map — Interactive US Timezone by ZIP | ToolTrio',
+  description: 'View an interactive map of US timezones by ZIP code free. See which timezone any ZIP falls in — Eastern, Central, Mountain, Pacific, Alaska, Hawaii.',
+  keywords: [
+    'zip code timezone map',
+    'us timezone map by zip code',
+    'interactive timezone map zip',
+    'zip code time zone map usa',
+    'timezone map by postal code free',
+    'us time zone zip code map',
+    'zip code timezone visual map',
+    'eastern central mountain pacific zip map',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-timezone-map' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-timezone-map',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Timezone Map — Interactive US Timezone by ZIP | ToolTrio',
+    description: 'View an interactive map of US timezones by ZIP code free. See which timezone any ZIP falls in — Eastern, Central, Mountain, Pacific, Alaska, Hawaii.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Timezone Map — Interactive US Timezone Map by ZIP Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Timezone Map — Interactive US Timezone by ZIP | ToolTrio',
+    description: 'View an interactive map of US timezones by ZIP code free. See which timezone any ZIP falls in — Eastern, Central, Mountain, Pacific, Alaska, Hawaii.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

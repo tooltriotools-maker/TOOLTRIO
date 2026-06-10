@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to State — Find the State for Any US ZIP Code 2026',
-  description: 'Find the state name and abbreviation for any US ZIP code instantly. Free ZIP to state lookup — covers all 50 states, DC, territories, and military codes. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip to state','zip code to state','find state by zip code','what state is zip code','zip code state lookup','zip code state finder usa','zip code state abbreviation','us zip code state identifier','which state is this zip code','zip code state name lookup free','zip to state converter online','5 digit zip code state finder','zip code state province lookup',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code to State — Which State Is Any ZIP Code In | ToolTrio',
+  description: 'Find the US state for any ZIP code free. Enter a 5-digit ZIP and instantly see the full state name and two-letter abbreviation. All US ZIPs covered.',
+  keywords: [
+    'zip code to state',
+    'what state is this zip code',
+    'find state by zip code',
+    'zip code state lookup',
+    'which state is zip code in',
+    'zip to state name',
+    'postal code to state usa',
+    'zip code state finder free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-to-state' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-to-state',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code to State — Which State Is Any ZIP Code In | ToolTrio',
+    description: 'Find the US state for any ZIP code free. Enter a 5-digit ZIP and instantly see the full state name and two-letter abbreviation. All US ZIPs covered.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to State — Find Which State a ZIP Code Is In Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code to State — Which State Is Any ZIP Code In | ToolTrio',
+    description: 'Find the US state for any ZIP code free. Enter a 5-digit ZIP and instantly see the full state name and two-letter abbreviation. All US ZIPs covered.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

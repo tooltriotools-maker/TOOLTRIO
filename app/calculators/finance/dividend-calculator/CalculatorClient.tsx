@@ -11,7 +11,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const PRESETS = [
-  { name: 'S&amp;P 500 (VOO)', yield: 1.4, price: 485, growth: 6 },
+  { name: 'S&P 500 (VOO)', yield: 1.4, price: 485, growth: 6 },
   { name: 'Dividend Aristocrats', yield: 2.5, price: 80, growth: 7 },
   { name: 'High Yield ETF (SCHD)', yield: 3.8, price: 78, growth: 8 },
   { name: 'REITs (VNQ)', yield: 4.5, price: 90, growth: 4 },

@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'County ZIP Codes — Find All ZIP Codes in a County USA 2026',
-  description: 'Find all ZIP codes within any US county. Enter a county name and state to get a complete list of ZIP codes with cities and population data. Free tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['county zip codes','zip codes by county','all zip codes in county','county zip code list','zip codes in los angeles county','zip codes in harris county','find zip codes for county','county zip code directory','zip codes for county name','zip code list by county usa','county zip code finder','zip code county lookup list','zip codes in specific county','all zip codes county state','county level zip code data',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+  description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
+  keywords: [
+    'county zip codes',
+    'zip codes by county',
+    'find zip codes in county',
+    'all zip codes in a county',
+    'county zip code list usa free',
+    'what zip codes are in this county',
+    'zip codes for county name',
+    'zip code county list lookup free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/county-zip-codes' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/county-zip-codes',
+    siteName: 'ToolTrio',
+    title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+    description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'County ZIP Codes — Find All ZIP Codes in Any US County Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+    description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

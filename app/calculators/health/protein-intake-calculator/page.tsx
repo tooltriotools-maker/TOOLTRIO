@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Protein Intake Calculator 2026 | ToolTrio',
-  description: 'Free Protein Intake Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level. Real examples for 150–250 lb individuals. No signup required.',
+  description: 'Free Protein Intake Calculator 2026 — Calculate daily protein needs for muscle gain, fat loss, or maintenance. Based on body weight and activity level.',
   slug: 'protein-intake-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'protein calculator for muscle gain 2026',
     'how much protein per day to build muscle',
     'protein intake calculator by body weight',
-    'protein for fat loss while preserving muscle',
-    'daily protein needs for women over 40',
-    'protein per meal calculator',
-    'high protein diet how much is too much',
-    'protein intake for endurance athletes',
-    'protein needs for older adults sarcopenia',
-    '0.8 g per kg protein recommendation',
-    'best protein sources complete amino acids',
   ],
 })
 

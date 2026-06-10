@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs }: Props) {
     >
         <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="sm:col-span-1"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Date &amp; Time</label>
+          <div className="sm:col-span-1"><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Date & Time</label>
             <input type="datetime-local" value={dateTime} onChange={e=>setDateTime(e.target.value)} className="w-full border-2 border-gray-200 focus:border-green-400 rounded-xl px-3 py-2.5 focus:outline-none" /></div>
           <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">From</label>
             <select value={fromTz} onChange={e=>setFromTz(e.target.value)} className="w-full border-2 border-gray-200 rounded-xl px-2 py-2.5 focus:outline-none focus:border-green-400 bg-white text-sm">{ZONES.map(z=><option key={z} value={z}>{z}</option>)}</select></div>

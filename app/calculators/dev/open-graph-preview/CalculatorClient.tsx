@@ -16,7 +16,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <DevToolLayout
       title="Open Graph Preview"
       icon="👁️"
-      description="Preview how your page looks when shared on Facebook, Twitter &amp; LinkedIn"
+      description="Preview how your page looks when shared on Facebook, Twitter & LinkedIn"
       category="Dev"
       parentPath="/calculators/dev"
       parentLabel="Dev Tools"

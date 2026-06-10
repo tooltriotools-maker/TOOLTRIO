@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Push-Up Calculator – Strength Norms | ToolTrio',
-  description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized progression targets for strength and endurance goals. Free online pushup calculator 2026. No signup required.',
+  description: 'Calculate your push-up performance percentile relative to age and sex norms from the Cooper Institute and Canadian Fitness Survey. Get personalized.',
   slug: 'pushup-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'push up reps percentile',
     'push up standards by age',
     'how many push ups should I do',
-    'push up fitness norms',
-    'push up strength assessment',
-    'decline push up calculator',
-    'push up test score',
-    'push up world record comparison',
-    'push up for beginners',
   ],
 })
 

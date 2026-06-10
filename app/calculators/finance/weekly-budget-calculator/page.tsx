@@ -10,18 +10,20 @@ const WeeklyBudgetCalculatorClient = dynamic(() => import('./WeeklyBudgetCalcula
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Weekly Budget Calculator USA 2026 | ToolTrio',
- description: 'Free weekly budget calculator USA 2026. Plan your weekly budget, track spending categories, and calculate weekly savings rate. Ideal for hourly and weekly-paid workers. Real examples for $500-$2,000 weekly income.',
+ description: 'Free weekly budget calculator USA 2026. Plan your weekly budget, track spending categories, and calculate weekly savings rate. Ideal for hourly and.',
  slug: 'weekly-budget-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'weekly budget calculator 2026',
- 
- 'weekly budget calculator', 'weekly spending calculator', 'budget tracker weekly',
- 'weekly expense tracker', 'weekly budget planner', 'how much should I spend per week',
- 'weekly grocery budget calculator', 'weekly money tracker', 'free weekly budget',
- 'weekly savings calculator', 'weekly income budget', 'personal finance weekly budget',
- ],
+    'weekly budget calculator 2026',
+    'weekly budget calculator',
+    'weekly spending calculator',
+    'budget tracker weekly',
+    'weekly expense tracker',
+    'weekly budget planner',
+    'how much should I spend per week',
+    'weekly grocery budget calculator',
+  ],
 })
 
 const faqs = [

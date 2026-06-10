@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Keto Macro Calculator 2026 | ToolTrio',
-  description: 'Free Keto Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples for weight loss and muscle building. Instant results.',
+  description: 'Free Keto Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples.',
   slug: 'keto-macro-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'macronutrient calculator 2026',
     'keto macro calculator',
     'ketogenic diet macro calculator',
-    'net carbs for ketosis',
-    'keto protein and fat ratio',
-    'how many carbs for ketosis',
-    'keto calorie calculator',
-    'ketosis macro split',
-    'keto for weight loss macros',
-    'low carb macro calculator',
-    'keto electrolyte needs calculator',
   ],
 })
 

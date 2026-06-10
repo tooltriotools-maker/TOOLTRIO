@@ -43,18 +43,18 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
             <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="$" />
-            <InputField label="S&amp;P 500 Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="S&P 500 Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
             <InputField label="TIPS Bonds Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
             <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'S&amp;P 500' : 'TIPS Bonds'} 🏆</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'S&P 500' : 'TIPS Bonds'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
             <div className="p-2 bg-green-900/20 rounded-lg text-center border border-green-800/30">
-              <p className="text-green-400 font-bold">S&amp;P 500</p>
+              <p className="text-green-400 font-bold">S&P 500</p>
               <p className="text-white font-bold text-base">{fmtC(result.fvA)}</p>
               <p className="text-gray-400">Gain: {fmtC(result.gainA)}</p>
             </div>
@@ -67,13 +67,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="S&amp;P 500" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="S&P 500" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="TIPS Bonds" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Invested" value={fmtC(result.invested)} subValue={`${years}yr x $${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'S&amp;P 500 wins' : 'TIPS Bonds wins'} highlight />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'S&P 500 wins' : 'TIPS Bonds wins'} highlight />
           </div>
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-4">S&amp;P 500 vs TIPS Bonds - Wealth Growth Over {years} Years</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">S&P 500 vs TIPS Bonds - Wealth Growth Over {years} Years</h3>
             <div style={{ height: 250 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={result.yearlyData} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
@@ -88,7 +88,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Area type="monotone" dataKey="invested" name="Contributed" stroke="#94a3b8" fill="none" strokeDasharray="4 2" strokeWidth={1.5} />
                   <Area type="monotone" dataKey="optB" name="TIPS Bonds" stroke="#3b82f6" fill={`url(#gBinflation)`} strokeWidth={2} />
-                  <Area type="monotone" dataKey="optA" name="S&amp;P 500" stroke="#10b981" fill={`url(#gAinflation)`} strokeWidth={2.5} />
+                  <Area type="monotone" dataKey="optA" name="S&P 500" stroke="#10b981" fill={`url(#gAinflation)`} strokeWidth={2.5} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -97,7 +97,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Year-by-Year Comparison</h3>
             <div className="overflow-y-auto max-h-52">
               <table className="calc-table">
-                <thead><tr><th>Year</th><th>Invested</th><th>S&amp;P 500</th><th>TIPS Bonds</th><th>Advantage</th></tr></thead>
+                <thead><tr><th>Year</th><th>Invested</th><th>S&P 500</th><th>TIPS Bonds</th><th>Advantage</th></tr></thead>
                 <tbody>
                   {result.yearlyData.filter((_, i) => i % 2 === 0 || i === result.yearlyData.length - 1).map(r => (
                     <tr key={r.year}>

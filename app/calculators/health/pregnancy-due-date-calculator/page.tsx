@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'ivf due date calculator',
     'due date from ultrasound calculator',
     'naegele rule due date',
-    'how accurate is due date calculator',
-    'due date calculator weeks pregnant',
-    'earliest ultrasound due date',
-    'due date probability calendar',
-    '40 weeks from lmp calculator',
-    'edd calculation methods',
   ],
 })
 

@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
   return (
     <DevToolLayout
-      title="JSON Formatter &amp; Validator"
+      title="JSON Formatter & Validator"
       icon="📋"
       description="Format - Validate - Minify - runs in your browser, nothing leaves your machine"
       category="Dev"

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Altitude Sickness Calculator 2026 | ToolTrio',
-  description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination elevation, ascent rate, and medical history. Free online altitude sickness calculator 2026. No signup required.',
+  description: 'Assess your risk of acute mountain sickness (AMS), high altitude pulmonary edema (HAPE), and high altitude cerebral edema (HACE) based on destination.',
   slug: 'altitude-sickness-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'acute mountain sickness risk by elevation',
     'acclimatization calculator',
     'how fast to ascend to avoid altitude sickness',
-    'altitude sickness symptoms prevention',
-    'diamox altitude sickness calculator',
-    'hape hace risk assessment',
-    'high altitude travel safety calculator',
-    'everest base camp altitude sickness',
-    'Kilimanjaro acclimatization',
   ],
 })
 

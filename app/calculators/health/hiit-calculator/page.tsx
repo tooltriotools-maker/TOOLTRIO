@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'HIIT Calculator – Intervals & Calories | ToolTrio',
-  description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design protocols for fat burning, VO2 max, or anaerobic conditioning goals. Free online hiit calculator 2026. No signup required.',
+  description: 'Calculate HIIT workout parameters including work-to-rest ratios, total session duration, estimated calorie burn, and heart rate zone targets. Design.',
   slug: 'hiit-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'hiit interval timing calculator',
     'hiit work rest ratio calculator',
     'calories burned hiit workout',
-    'hiit heart rate zones',
-    'tabata protocol calculator',
-    'hiit for fat loss parameters',
-    'hiit training frequency calculator',
-    'hiit vo2max improvement',
-    'high intensity interval training timing',
   ],
 })
 

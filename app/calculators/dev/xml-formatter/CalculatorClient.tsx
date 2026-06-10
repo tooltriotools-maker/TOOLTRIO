@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
       return (
     <DevToolLayout
-      title="XML Formatter &amp; Validator"
+      title="XML Formatter & Validator"
       icon="📰"
       description="Format, indent and minify XML - runs entirely in your browser"
       category="Dev"

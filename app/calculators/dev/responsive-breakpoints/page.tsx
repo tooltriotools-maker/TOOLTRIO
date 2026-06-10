@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'CSS Breakpoints Reference 2026 | ToolTrio',
-  description: 'Reference standard CSS breakpoints for all frameworks. Shows Tailwind, Bootstrap, and Material UI breakpoints in px and rem. Plan media queries. Runs in your browser.',
+  description: 'Reference standard CSS breakpoints for all frameworks. Shows Tailwind, Bootstrap, and Material UI breakpoints in px and rem. Plan media queries. Runs in.',
   slug: 'responsive-breakpoints',
   keywords: ['responsive breakpoints checker online free','css media query generator','mobile tablet desktop breakpoints','viewport breakpoints tool free','responsive design checker browser'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'Responsive Breakpoints — Standard CSS Breakpoints Reference',
-    description: 'Reference standard CSS breakpoints for all frameworks. Shows Tailwind, Bootstrap, and Material UI breakpoints in px and rem. Plan media queries. Runs in your browser.',
+    description: 'Reference standard CSS breakpoints for all frameworks. Shows Tailwind, Bootstrap, and Material UI breakpoints in px and rem. Plan media queries. Runs in.',
     slug: 'responsive-breakpoints',
     faqs,
   })

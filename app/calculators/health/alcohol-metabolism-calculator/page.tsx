@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Alcohol Metabolism Calculator 2026 | ToolTrio',
-  description: 'Calculate how long alcohol remains in your bloodstream based on drinks consumed, body weight, sex, and time elapsed. Understand BAC levels, metabolism rates, and safe timing for driving. Free online alcohol metabolism calculator 2026. No signup required.',
+  description: 'Calculate how long alcohol remains in your bloodstream based on drinks consumed, body weight, sex, and time elapsed. Understand BAC levels, metabolism.',
   slug: 'alcohol-metabolism-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'alcohol metabolism rate calculator',
     'bac clearance time calculator',
     'when is it safe to drive after drinking',
-    'alcohol half life in body',
-    'how fast does liver process alcohol',
-    'blood alcohol level over time',
-    'alcohol elimination rate by weight',
-    'standard drink calculator',
-    'next day BAC calculator',
   ],
 })
 

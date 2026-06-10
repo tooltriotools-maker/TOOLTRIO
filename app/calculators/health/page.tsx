@@ -7,28 +7,16 @@ const SITE_NAME = 'tooltrio.com'
 
 export const metadata: Metadata = {
   title: '124 Free Health Calculators 2026 | ToolTrio',
-  description: '124 free health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle, and more. CDC & NIH formulas. No signup. Instant results.',
+  description: '124 free health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle.',
   keywords: [
-    // Primary money keywords
-    'free health calculators','health calculators online free','best health calculators 2026',
-    'BMI calculator pounds inches','calorie calculator free','TDEE calculator free',
-    'BMR calculator online','body fat calculator free','macro calculator free',
-    'protein calculator free','heart attack risk calculator','blood pressure calculator',
-    'pregnancy calculator free','due date calculator free','ovulation calculator',
-    'sleep cycle calculator','intermittent fasting calculator','calorie deficit calculator',
-    // Category-level
-    'health and fitness calculators','nutrition calculators free','fitness calculators online',
-    'medical calculators free','body composition calculators','cardiovascular risk calculators',
-    'weight loss calculators free','pregnancy health tools','wellness calculators online',
-    // Trust
-    'CDC health calculator','NIH nutrition calculator','AHA heart calculator','ACSM fitness calculator',
-    'evidence based health tools','medically validated calculators USA',
-    'free health calculators no signup','health calculators no registration',
-    // Long-tail
-    'what is a good BMI calculator','how many calories should I eat calculator',
-    'how much protein do I need calculator','am I at risk for heart disease calculator',
-    'when is my due date calculator','best time to wake up calculator',
-    'how long to lose weight calculator','body fat percentage calculator free online',
+    'free health calculators',
+    'health calculators online free',
+    'best health calculators 2026',
+    'BMI calculator pounds inches',
+    'calorie calculator free',
+    'TDEE calculator free',
+    'BMR calculator online',
+    'body fat calculator free',
   ],
   alternates: { canonical: `${BASE_URL}/calculators/health` },
   openGraph: {

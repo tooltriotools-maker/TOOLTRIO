@@ -10,7 +10,7 @@ const PaceCalculatorClient = dynamic(() => import('./PaceCalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Pace Calculator – Min/Mile & Min/Km | ToolTrio',
-  description: 'Free Pace Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon distances. Instant results for all fitness levels.',
+  description: 'Free Pace Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon.',
   slug: 'pace-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how to calculate running pace',
     '5k pace calculator finish time',
     'marathon pace by goal time',
-    'pace per kilometer converter',
-    'sub 2 hour half marathon pace',
-    'treadmill speed to pace converter',
-    'easy run pace calculator',
-    'race time predictor',
-    'negative split calculator',
   ],
 })
 

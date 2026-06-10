@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Marathon Training Calculator 2026 | ToolTrio',
-  description: 'Free Marathon Training Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and marathon distances. Instant results for all fitness levels.',
+  description: 'Free Marathon Training Calculator 2026 — Calculate your running pace, finish time, and training zones. Real examples for 5K, 10K, half marathon, and.',
   slug: 'marathon-training-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'marathon training plan by goal time',
     'marathon weekly mileage calculator',
     'long run distance by week',
-    'marathon training pace calculator',
-    'beginner marathon training plan',
-    'marathon taper calculator',
-    'marathon speed work pace',
-    'sub 4 hour marathon training',
-    'marathon training schedule',
   ],
 })
 

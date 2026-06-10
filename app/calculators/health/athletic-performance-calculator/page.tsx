@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Athletic Performance Calculator 2026 | ToolTrio',
-  description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold pace, and performance comparisons to age-group standards. Free online athletic performance calculator 2026. No signup required.',
+  description: 'Calculate key athletic performance metrics including estimated VO2 max from field tests, relative strength, power-to-weight ratio, anaerobic threshold.',
   slug: 'athletic-performance-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'vo2 max field test calculator',
     'power to weight ratio calculator',
     'relative strength calculator',
-    'anaerobic threshold calculator',
-    'athletic fitness testing calculator',
-    'sports performance metrics',
-    'how do I compare to other athletes my age',
-    'sport specific fitness calculator',
-    'athlete fitness level assessment',
   ],
 })
 

@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'whtr calculator',
     'waist to height ratio normal range',
     'central obesity risk calculator',
-    'waist circumference health risk',
-    'waist to height vs bmi',
-    'abdominal obesity assessment',
-    'metabolic syndrome risk calculator',
-    'waist height ratio 0.5 rule',
-    'visceral fat estimation',
   ],
 })
 

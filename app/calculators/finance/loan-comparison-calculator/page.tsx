@@ -10,19 +10,20 @@ const LoanComparisonCalculatorClient = dynamic(() => import('./LoanComparisonCal
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Loan Comparison Calculator USA 2026 | ToolTrio',
- description: 'Free loan comparison calculator USA 2026. Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR. Real examples for $50k–$500k loan amounts.',
+ description: 'Free loan comparison calculator USA 2026. Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR. Real examples for.',
  slug: 'loan-comparison-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'loan comparison calculator 2026',
- 
- 'loan comparison calculator', 'compare loan offers calculator', 'loan comparison tool',
- 'best loan calculator', 'compare mortgage rates calculator', 'loan offer comparison',
- 'APR comparison calculator', 'which loan is better calculator',
- 'compare personal loan rates', 'mortgage comparison calculator 2026',
- 'loan cost comparison', 'total interest comparison calculator',
- ],
+    'loan comparison calculator 2026',
+    'loan comparison calculator',
+    'compare loan offers calculator',
+    'loan comparison tool',
+    'best loan calculator',
+    'compare mortgage rates calculator',
+    'loan offer comparison',
+    'APR comparison calculator',
+  ],
 })
 
 const faqs = [

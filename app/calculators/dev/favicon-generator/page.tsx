@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'Favicon Generator Online | ToolTrio',
-  description: 'Generate favicons in all required sizes from a single image. Creates 16x16, 32x32, 180x180 (Apple Touch), and 192x192 (Android) icons with the correct HTML. Runs in your browser.',
+  description: 'Generate favicons in all required sizes from a single image. Creates 16x16, 32x32, 180x180 (Apple Touch), and 192x192 (Android) icons with the correct.',
   slug: 'favicon-generator',
   keywords: ['favicon generator online free','favicon ico png svg browser','create favicon from text free','favicon from image generator','website favicon maker online'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'Favicon Generator — Create Multi-Size Favicons Free Online',
-    description: 'Generate favicons in all required sizes from a single image. Creates 16x16, 32x32, 180x180 (Apple Touch), and 192x192 (Android) icons with the correct HTML. Runs in your browser.',
+    description: 'Generate favicons in all required sizes from a single image. Creates 16x16, 32x32, 180x180 (Apple Touch), and 192x192 (Android) icons with the correct.',
     slug: 'favicon-generator',
     faqs,
   })

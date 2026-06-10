@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Elevation — Find Average Elevation by ZIP Code USA 2026',
-  description: 'Find the average elevation in feet and meters for any US ZIP code. Useful for altitude-sensitive applications, health, shipping, and geography. Free tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code elevation','elevation by zip code','zip code altitude','average elevation zip code','zip code elevation lookup','find elevation by zip code','zip code feet elevation','zip code meters elevation','altitude by zip code usa','zip code elevation data','elevation lookup zip code free','zip code terrain elevation','above sea level zip code','zip code mean elevation','zip code high altitude',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+  description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
+  keywords: [
+    'zip code elevation',
+    'elevation by zip code',
+    'find altitude by zip code',
+    'zip code average elevation feet',
+    'what is the elevation of zip code',
+    'zip code altitude lookup free',
+    'elevation data by zip code usa',
+    'zip code height above sea level',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-code-elevation' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-code-elevation',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+    description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Elevation — Average Elevation by ZIP Code Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+    description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

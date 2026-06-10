@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Eye Health Calculator 2026 | ToolTrio',
-  description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light protection needs, and nutritional support for long-term vision health. Free online eye health calculator 2026. No signup required.',
+  description: 'Assess your eye health risk from screen time, UV exposure, nutrition gaps, and lifestyle factors. Calculate recommended screen breaks, blue light.',
   slug: 'eye-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'screen time eye strain calculator',
     'macular degeneration risk assessment',
     'eye fatigue calculator',
-    '20 20 20 rule eye break timer',
-    'vision health score',
-    'blue light eye damage risk',
-    'eye nutrition calculator',
-    'UV exposure eye damage risk',
-    'digital eye strain prevention',
   ],
 })
 

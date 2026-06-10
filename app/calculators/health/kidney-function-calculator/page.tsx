@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Kidney Function Calculator 2026 | ToolTrio',
-  description: 'Estimate kidney function from blood creatinine level using CKD-EPI and Cockcroft-Gault equations. Understand CKD staging, what eGFR values mean for kidney health, and when to seek nephrology evaluation. Free online kidney function calculator 2026. No signup required.',
+  description: 'Estimate kidney function from blood creatinine level using CKD-EPI and Cockcroft-Gault equations. Understand CKD staging, what eGFR values mean for kidney.',
   slug: 'kidney-function-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'egfr calculator',
     'ckd staging from egfr',
     'kidney disease risk calculator',
-    'creatinine to egfr calculator',
-    'kidney health assessment',
-    'what is egfr kidney function',
-    'kidney function by age',
-    'chronic kidney disease stages',
-    'kidney function test interpretation',
   ],
 })
 

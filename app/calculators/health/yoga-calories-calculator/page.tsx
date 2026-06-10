@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Yoga Calorie Calculator 2026 | ToolTrio',
-  description: 'Free Yoga Calories Calculator 2026. Calculate calories burned during yoga sessions by style, duration, and body weight. Includes Hatha, Vinyasa, Bikram, and restorative yoga comparisons.',
+  description: 'Free Yoga Calories Calculator 2026. Calculate calories burned during yoga sessions by style, duration, and body weight. Includes Hatha, Vinyasa, Bikram.',
   slug: 'yoga-calories-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'yoga calorie calculator',
     'calories burned yoga by style',
-    'vinyasa yoga calorie burn',
-    'bikram hot yoga calories',
-    'hatha yoga calories per hour',
-    'yoga for weight loss calorie burn',
-    'how many calories burned in yoga',
-    'restorative yoga calorie burn',
-    'power yoga calorie calculator',
-    'yoga compared to other exercise calories',
   ],
 })
 

@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Boundary Info — ZIP Code Area & Border Details USA 2026',
-  description: 'Get boundary details for any US ZIP code: area in square miles, perimeter, bounding box, and neighboring ZIP codes. Free ZIP boundary information tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code boundary','zip code boundary info','zip code area square miles','zip code boundary data','zip code border details','zip code geographic boundary','zip code perimeter','zip code bounding box','zip code zcta boundary','zip code land area','zip code boundary finder','zip code geographic size','zip code area info','zip code boundary shape','zip boundary lookup usa',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'ZIP Code Boundary Info — ZIP Area & Border Details USA | ToolTrio',
+  description: 'Get boundary details for any US ZIP code free: area in square miles, perimeter, bounding box coordinates, and neighboring ZIP codes.',
+  keywords: [
+    'zip code boundary info',
+    'zip code boundary details',
+    'zip code area square miles',
+    'zip code perimeter data',
+    'zip code boundary coordinates free',
+    'zip code bounding box lookup',
+    'zip code border details usa',
+    'zip code geographic boundary free',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/zip-boundary-info' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/zip-boundary-info',
+    siteName: 'ToolTrio',
+    title: 'ZIP Code Boundary Info — ZIP Area & Border Details USA | ToolTrio',
+    description: 'Get boundary details for any US ZIP code free: area in square miles, perimeter, bounding box coordinates, and neighboring ZIP codes.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Boundary Info — ZIP Code Area & Border Details Free USA 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ZIP Code Boundary Info — ZIP Area & Border Details USA | ToolTrio',
+    description: 'Get boundary details for any US ZIP code free: area in square miles, perimeter, bounding box coordinates, and neighboring ZIP codes.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

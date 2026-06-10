@@ -13,7 +13,7 @@ interface Props { faqs: { question: string; answer: string }[]; structuredData: 
 type ISAType = 'stocks' | 'cash' | 'lifetime'
 
 const ISA_TYPES: { value: ISAType; label: string; icon: string; desc: string; defaultReturn: number; limit: number }[] = [
-  { value: 'stocks', label: 'Stocks &amp; Shares ISA', icon: '📈', desc: 'Invest in funds, shares, ETFs', defaultReturn: 8, limit: 20000 },
+  { value: 'stocks', label: 'Stocks & Shares ISA', icon: '📈', desc: 'Invest in funds, shares, ETFs', defaultReturn: 8, limit: 20000 },
   { value: 'cash', label: 'Cash ISA', icon: '💷', desc: 'Guaranteed savings rate', defaultReturn: 4.5, limit: 20000 },
   { value: 'lifetime', label: 'Lifetime ISA (LISA)', icon: '🏠', desc: '+25% govt bonus up to £4k/yr', defaultReturn: 7, limit: 4000 },
 ]

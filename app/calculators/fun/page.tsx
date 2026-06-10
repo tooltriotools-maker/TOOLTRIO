@@ -9,7 +9,7 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 export const metadata: Metadata = {
   title: '30+ Free Fun Calculators 2026 | ToolTrio',
-  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, procrastination score and 22 more free fun tools. No signup, no ads, instant results.',
+  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, procrastination score and 22 more free fun.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
@@ -19,35 +19,14 @@ export const metadata: Metadata = {
     'lucky number calculator',
     'trivia quiz online free',
     'random name generator',
-    'superhero name generator',
-    'would you rather generator',
-    'emoji translator online',
-    'morse code translator free',
-    'procrastination test online',
-    'sleep debt calculator',
-    'screen time calculator',
-    'how rich am I calculator',
-    'age in days calculator',
-    'birthday countdown timer',
-    'pizza calculator for group',
-    'coffee lifetime calculator',
-    'pig latin converter',
-    'uwu text generator',
-    'fortune cookie online',
-    'villain name generator',
-    'random fact generator',
-    'fun tools no signup',
-    'free entertainment calculators 2026',
-    'funny calculators online',
-    'tooltrio.com fun tools',
-    'free calculator no signup',
   ],
   alternates: { canonical: 'https://tooltrio.com/calculators/fun' },
   openGraph: {
-    title: '30 Free Fun & Entertainment Calculators – Zodiac, Trivia, Name Generators & More',
-    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator and 23 more free fun tools. Instant results, zero signup.',
+    title: '30 Free Fun Calculators – Zodiac, Trivia & Name Generators',
+    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator and 23 more free fun tools. Instant results.',
     url: 'https://tooltrio.com/calculators/fun',
     type: 'website',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
   },
 }
 
@@ -144,7 +123,7 @@ export default function FunPage() {
         <ChevronRight className="w-3 h-3" />
         <Link href="/calculators" className="hover:text-pink-600">Calculators</Link>
         <ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold">Fun &amp; Entertainment</span>
+        <span className="text-gray-700 font-semibold">Fun & Entertainment</span>
       </nav>
 
       {/* Hero */}
@@ -153,7 +132,7 @@ export default function FunPage() {
           <Smile className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Fun &amp; Entertainment</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Fun & Entertainment</h1>
           <p className="text-pink-600 font-semibold mt-0.5">30 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>

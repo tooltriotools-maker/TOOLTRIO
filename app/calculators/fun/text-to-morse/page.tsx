@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Morse Code Translator Online | ToolTrio',
-  description: 'Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code translator with reference chart.',
+  description: 'Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code.',
   slug: 'text-to-morse',
   keywords: [
     'morse code translator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'learn morse code online',
     'morse code chart online',
     'morse code generator',
-    'what is my name in morse code',
-    'sentence to morse code',
-    'morse code translator with sound',
-    'morse code audio player',
-    'morse code SOS signal',
-    'morse code alphabet chart',
-    'how to read morse code',
-    'morse code translator no signup',
-    'best morse code translator 2026',
-    'morse code practice tool',
-    'international morse code standard',
-    'morse code history',
-    'morse code numbers translator',
-    'morse code dots and dashes',
-    'morse code message converter',
-    'real time morse code translator',
-    'morse code translator kids',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

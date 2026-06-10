@@ -10,20 +10,20 @@ const TaxBracketCalculatorClient = dynamic(() => import('./TaxBracketCalculatorC
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Tax Bracket Calculator USA 2026 | ToolTrio',
- description: 'Free tax bracket calculator USA 2026. See exactly which 2026 federal tax brackets apply to your income, your marginal rate vs effective rate, and total tax owed. Real examples for $30k-$300k income levels.',
+ description: 'Free tax bracket calculator USA 2026. See exactly which 2026 federal tax brackets apply to your income, your marginal rate vs effective rate, and total.',
  slug: 'tax-bracket-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'tax bracket calculator 2026',
- 
- 'tax bracket calculator 2026', 'federal income tax calculator 2026', 'IRS tax bracket 2026',
- 'what tax bracket am I in 2026', 'marginal tax rate calculator', 'effective tax rate calculator',
- 'federal tax calculator 2026', 'income tax bracket calculator USA',
- 'how much federal tax do I owe', 'tax bracket 2026 single', 'tax bracket 2026 married',
- 'taxable income calculator', 'take home pay after tax calculator', 'AGI calculator',
- 'standard deduction 2026', '2026 tax brackets IRS',
- ],
+    'tax bracket calculator 2026',
+    'tax bracket calculator 2026',
+    'federal income tax calculator 2026',
+    'IRS tax bracket 2026',
+    'what tax bracket am I in 2026',
+    'marginal tax rate calculator',
+    'effective tax rate calculator',
+    'federal tax calculator 2026',
+  ],
 })
 
 const faqs = [

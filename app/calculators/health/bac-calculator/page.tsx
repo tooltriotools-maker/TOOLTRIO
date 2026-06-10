@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BAC Calculator – Blood Alcohol Level | ToolTrio',
-  description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how BAC changes over time and when you reach legal driving limits. Free online bac calculator 2026. No signup required.',
+  description: 'Calculate your estimated Blood Alcohol Concentration (BAC) from the number of drinks, drink type, body weight, sex, and time since drinking. See how BAC.',
   slug: 'bac-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'blood alcohol content calculator',
     'how many drinks to reach 0.08 bac',
     'bac calculator male female difference',
-    'widmark formula bac calculator',
-    'estimated bac by time calculator',
-    'standard drink bac calculator',
-    'legal driving limit bac by state',
-    'bac breathalyzer estimate',
-    'sobering up bac calculator',
   ],
 })
 

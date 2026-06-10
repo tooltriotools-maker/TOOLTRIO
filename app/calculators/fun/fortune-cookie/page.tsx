@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Fortune Cookie Generator | ToolTrio',
-  description: 'Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the calories. Free online.',
+  description: 'Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the.',
   slug: 'fortune-cookie',
   keywords: [
     'fortune cookie generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'fortune cookie quote generator',
     'daily fortune cookie online',
     'crack a fortune cookie online',
-    'fortune cookie lucky numbers',
-    'chinese fortune cookie online',
-    'fortune cookie messages funny',
-    'fortune cookie for today',
-    'fortune cookie reading online free',
-    'what does my fortune say',
-    'fortune cookie generator no signup',
-    'best fortune cookie generator 2026',
-    'fortune generator free',
-    'fortune of the day calculator',
-    'random fortune generator',
-    'fortune cookie affirmation',
-    'fortune cookie for birthday',
-    'fortune cookie share social media',
-    'fortune cookie message ideas',
-    'make your own fortune cookie online',
-    'fortune cookie wisdom quotes',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

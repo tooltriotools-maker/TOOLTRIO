@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'CSV to JSON Converter Online | ToolTrio',
-  description: 'Convert CSV data to JSON arrays or objects. Handles headers, custom delimiters, and quoted fields. Runs entirely in your browser — data never leaves your device.',
+  description: 'Convert CSV data to JSON arrays or objects. Handles headers, custom delimiters, and quoted fields. Runs entirely in your browser — data never leaves your.',
   slug: 'csv-to-json',
   keywords: ['csv to json converter online free','convert csv to json browser','csv parser to json','csv to json array online','csv columns to json keys free','import csv as json browser'],
 })
@@ -28,7 +28,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'CSV to JSON Converter — Free Online, Runs in Browser',
-    description: 'Convert CSV data to JSON arrays or objects. Handles headers, custom delimiters, and quoted fields. Runs entirely in your browser — data never leaves your device.',
+    description: 'Convert CSV data to JSON arrays or objects. Handles headers, custom delimiters, and quoted fields. Runs entirely in your browser — data never leaves your.',
     slug: 'csv-to-json',
     faqs,
   })

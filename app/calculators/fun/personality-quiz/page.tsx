@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Personality Quiz – Myers-Briggs Style | ToolTrio',
-  description: 'Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free, no signup, instant results.',
+  description: 'Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free.',
   slug: 'personality-quiz',
   keywords: [
     'personality quiz free online',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'personality quiz no signup',
     'what is my personality type',
     'free personality assessment online',
-    'personality type quiz 2026',
-    'fun personality quiz',
-    'INFJ INFP ENFJ ENFP test',
-    'ISTJ ISFJ ESTJ ESFJ test',
-    'INTJ INTP ENTJ ENTP test',
-    'ISTP ISFP ESTP ESFP test',
-    'big five personality test free',
-    '16 personalities test free',
-    'personality quiz for teens',
-    'personality quiz for work',
-    'personality type compatibility',
-    'what MBTI am I',
-    'personality test no email',
-    'personality quiz shareable result',
-    'personality quiz viral',
-    'am I an introvert or extrovert test',
-    'personality quiz for friends',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

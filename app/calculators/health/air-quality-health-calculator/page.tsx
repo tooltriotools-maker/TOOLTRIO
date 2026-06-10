@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Air Quality Health Calculator 2026 | ToolTrio',
-  description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at current AQI levels for exercise and daily activity. Free online air quality health calculator 2026. No signup required.',
+  description: 'Convert Air Quality Index (AQI) readings to personal health risk based on your age and existing conditions. Calculate safe outdoor exposure times at.',
   slug: 'air-quality-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'aqi safe levels for exercise',
     'pm2.5 health effects calculator',
     'air quality calculator for asthma',
-    'how long can I exercise in bad air quality',
-    'aqi by zip code health impact',
-    'wildfire smoke health risk calculator',
-    'air quality and lung health',
-    'pm2.5 to aqi calculator',
-    'outdoor exercise air quality guidelines',
   ],
 })
 

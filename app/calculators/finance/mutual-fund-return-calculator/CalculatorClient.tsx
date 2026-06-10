@@ -38,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const benchmarks = [
     { name: 'Your MF', value: r.currentValue, cagr: r.cagr },
     { name: 'FD (7%)', value: Math.round(r.investedAmount * Math.pow(1.07, years)), cagr: 7 },
-    { name: 'S&amp;P 500 (10%)', value: Math.round(r.investedAmount * Math.pow(1.10, years)), cagr: 10 },
+    { name: 'S&P 500 (10%)', value: Math.round(r.investedAmount * Math.pow(1.10, years)), cagr: 10 },
     { name: 'Gold (8%)', value: Math.round(r.investedAmount * Math.pow(1.08, years)), cagr: 8 },
   ]
 
@@ -187,7 +187,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
              <p><strong>Equity Mutual Funds:</strong> STCG (held less than 12 months) taxed at 20%. LTCG (held 12+ months) taxed at 12.5% above $1.25 thousand gains per year. <strong>Debt Mutual Funds:</strong> All gains added to income and taxed at income tax bracket (as of 2023 tax change). <strong>Hybrid Funds:</strong> Tax treatment depends on equity allocation. If equity ≥65%, treated as equity fund. Always consult a tax advisor for your specific situation.</p>
 
               <h3 className="font-bold text-gray-800 mb-2 mt-4">How to Use This Mutual Fund Return Calculator</h3>
-              <p>Simply enter: (1) Number of MF units you hold, (2) Purchase NAV when you bought, (3) Current NAV from your fund\'s page or app, (4) Holding period in years. The calculator instantly shows your current portfolio value, total gain or loss in rupees, absolute return percentage, and CAGR. You can also compare your MF performance against FD at 7%, S&amp;P 500 at 12% historical CAGR, and gold at 8% CAGR to assess if your fund is outperforming the market.</p>
+              <p>Simply enter: (1) Number of MF units you hold, (2) Purchase NAV when you bought, (3) Current NAV from your fund\'s page or app, (4) Holding period in years. The calculator instantly shows your current portfolio value, total gain or loss in rupees, absolute return percentage, and CAGR. You can also compare your MF performance against FD at 7%, S&P 500 at 12% historical CAGR, and gold at 8% CAGR to assess if your fund is outperforming the market.</p>
             </div>
           </div>
         </Card>

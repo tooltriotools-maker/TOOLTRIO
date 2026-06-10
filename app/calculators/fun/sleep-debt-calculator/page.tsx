@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Sleep Debt Calculator | ToolTrio',
-  description: 'Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend sleep-ins are actually helping.',
+  description: 'Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend.',
   slug: 'sleep-debt-calculator',
   keywords: [
     'sleep debt calculator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'sleep deficit calculator',
     'sleep debt recovery calculator',
     'how to calculate sleep debt',
-    'sleep debt buildup calculator',
-    'weekly sleep debt calculator',
-    'can you repay sleep debt calculator',
-    'sleep deprivation effects calculator',
-    'sleep hours needed calculator',
-    'how much sleep do I need calculator',
-    'sleep debt vs sleep need',
-    'chronic sleep deprivation calculator',
-    'sleep debt reset calculator',
-    'weekend sleep catch up calculator',
-    'sleep debt 2026',
-    'sleep debt calculator no signup',
-    'sleep quality calculator',
-    'is sleeping in on weekends helping',
-    'how tired am I calculator',
-    'sleep debt share result',
-    'sleep debt health impact calculator',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

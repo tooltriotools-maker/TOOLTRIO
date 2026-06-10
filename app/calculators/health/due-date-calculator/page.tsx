@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Due Date Calculator 2026 | ToolTrio',
-  description: 'Free Due Date Calculator 2026 — Accurate due date based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Due Date Calculator 2026 — Accurate due date based on medical standards. Instant results with detailed timeline and guidance. No account required.',
   slug: 'due-date-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'due date calculator last menstrual period',
     'estimated due date by conception date',
     'due date from ultrasound calculator',
-    'how many weeks pregnant am I',
-    'trimester calculator by due date',
-    'pregnancy milestone dates',
-    'due date calculator by ovulation',
-    'naegele rule due date calculator',
-    'ivf due date calculator',
   ],
 })
 

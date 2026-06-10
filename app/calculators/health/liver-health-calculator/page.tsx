@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Liver Health Calculator 2026 | ToolTrio',
-  description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and metabolic health markers. Get prioritized liver protection strategies. Free online liver health calculator 2026. No signup required.',
+  description: 'Assess your risk for non-alcoholic fatty liver disease (NAFLD) and liver dysfunction based on BMI, alcohol intake, diet quality, medications, and.',
   slug: 'liver-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'liver health assessment quiz',
     'nafld risk calculator',
     'liver function risk factors',
-    'liver health score',
-    'non alcoholic fatty liver risk',
-    'alcohol liver damage calculator',
-    'liver health diet assessment',
-    'liver protection strategies',
-    'liver enzyme elevation risk',
   ],
 })
 

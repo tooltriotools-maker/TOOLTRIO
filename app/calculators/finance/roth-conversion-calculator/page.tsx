@@ -10,7 +10,7 @@ const RothConversionCalculatorClient = dynamic(() => import('./RothConversionCal
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Roth Conversion Calculator USA 2026 | ToolTrio',
- description: 'Free Roth IRA conversion calculator USA 2026. Calculate the tax cost of converting Traditional IRA to Roth, break-even age, and long-term after-tax wealth benefit. Real examples for $25k-$200k conversion amounts.',
+ description: 'Free Roth IRA conversion calculator USA 2026. Calculate the tax cost of converting Traditional IRA to Roth, break-even age, and long-term after-tax wealth.',
  slug: 'roth-conversion-calculator',
  category: 'finance',
  region: 'usa',

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Hangover Recovery Calculator 2026 | ToolTrio',
-  description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan, nutrient replacement priorities, and estimated time to feel normal. Free online hangover recovery calculator 2026. No signup required.',
+  description: 'Calculate your personalized hangover recovery timeline based on drinks consumed, body weight, and time since drinking. Get a specific rehydration plan.',
   slug: 'hangover-recovery-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how long does a hangover last calculator',
     'hangover rehydration plan',
     'hangover cure calculator',
-    'how many drinks cause hangover',
-    'hangover timeline calculator',
-    'best foods for hangover recovery',
-    'electrolytes for hangover',
-    'hangover prevention calculator',
-    'hangover severity by drinks',
   ],
 })
 

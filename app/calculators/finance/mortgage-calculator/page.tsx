@@ -10,26 +10,20 @@ const MortgageCalculatorClient = dynamic(() => import('./MortgageCalculatorClien
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Mortgage Calculator USA 2026 | ToolTrio',
- description: 'Free mortgage calculator USA 2026. Calculate your complete monthly mortgage payment with principal, interest, taxes, insurance (PITI), and PMI. Real examples for $300k–$600k homes.',
+ description: 'Free mortgage calculator USA 2026. Calculate your complete monthly mortgage payment with principal, interest, taxes, insurance (PITI), and PMI. Real.',
  slug: 'mortgage-calculator',
  category: 'finance',
  region: 'usa',
  keywords: [
- 'mortgage calculator 2026',
- 
- 'mortgage calculator', 'mortgage calculator USA 2026', 'free mortgage calculator',
- 'mortgage calculator with taxes and insurance', 'PITI calculator', 'mortgage calculator PMI',
- 'monthly mortgage payment calculator', 'mortgage amortization calculator',
- 'mortgage payment calculator', 'home mortgage calculator',
- 'mortgage calculator with down payment', 'mortgage payment estimator',
- '30 year mortgage calculator', '15 year mortgage calculator',
- 'mortgage calculator with PMI and taxes', 'what is my mortgage payment',
- 'how much is my mortgage payment', 'mortgage payment breakdown',
- 'mortgage interest calculator', 'mortgage principal and interest',
- 'mortgage affordability calculator', 'biweekly mortgage calculator',
- 'refinance vs new mortgage', 'fixed rate mortgage calculator',
- 'ARM mortgage calculator', 'jumbo mortgage calculator',
- ],
+    'mortgage calculator 2026',
+    'mortgage calculator',
+    'mortgage calculator USA 2026',
+    'free mortgage calculator',
+    'mortgage calculator with taxes and insurance',
+    'PITI calculator',
+    'mortgage calculator PMI',
+    'monthly mortgage payment calculator',
+  ],
 })
 
 const faqs = [

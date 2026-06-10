@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <InputField label="Whole Life Annual Premium" value={wholeLifePremium} onChange={setWholeLifePremium} min={500} max={50000} step={100} prefix="$" />
             <InputField label="Equivalent Term Premium" value={termPremium} onChange={setTermPremium} min={100} max={5000} step={50} prefix="$" />
             <InputField label="Death Benefit / Cover" value={coverAmount} onChange={setCoverAmount} min={100000} max={5000000} step={100000} prefix="$" />
-            <InputField label="Investment Return (S&amp;P 500)" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="Investment Return (S&P 500)" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
             <InputField label="Policy Period" value={years} onChange={setYears} min={10} max={30} step={5} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.sipBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Hearing Age Calculator 2026 | ToolTrio',
-  description: 'Free Hearing Age Calculator 2026 — Calculate hearing age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored, complete privacy.',
+  description: 'Free Hearing Age Calculator 2026 — Calculate hearing age instantly with precise results. Evidence-based tool used by health professionals. No signup, no.',
   slug: 'hearing-age-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'high frequency hearing test',
     'noise damage hearing risk calculator',
     'hearing loss risk assessment',
-    'occupational noise exposure calculator',
-    'loud music hearing damage calculator',
-    'hearing age vs chronological age',
-    'noise induced hearing loss calculator',
-    'safe noise levels exposure time',
-    'headphone volume hearing damage',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Conception Date Calculator 2026 | ToolTrio',
-  description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Instant results with detailed timeline and guidance. No account required, complete privacy guaranteed.',
+  description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Instant results with detailed timeline and guidance.',
   slug: 'pregnancy-conception-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'when did I conceive calculator',
     'back calculate conception from due date',
     'conception window calculator',
-    'how to calculate conception date',
-    'most likely conception date',
-    'conception timing calculator',
-    'sperm egg fertilization timing',
-    'conception from due date',
-    'lmp to conception date',
   ],
 })
 

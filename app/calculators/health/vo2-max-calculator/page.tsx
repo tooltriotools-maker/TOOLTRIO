@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'VO2 Max Calculator 2026 | ToolTrio',
-  description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic fitness to age and sex norms from major exercise science databases. Free online vo2 max calculator 2026. No signup required.',
+  description: 'Estimate your VO2 max from the 1.5-mile run test, Cooper 12-minute run, Rockport walking test, beep test, or Astrand bike test. Compare your aerobic.',
   slug: 'vo2-max-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'aerobic capacity calculator',
     '1.5 mile run test vo2max',
     'cooper 12 minute run test',
-    'vo2 max field test calculator',
-    'rockport walking test vo2max',
-    'beep test vo2max calculator',
-    'fitness level by vo2max',
-    'vo2 max percentile by age',
-    'how to improve vo2 max',
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Macro Calculator – Protein, Carbs & Fat | ToolTrio',
-  description: 'Free Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples for weight loss and muscle building. Instant results.',
+  description: 'Free Macro Calculator 2026 — Calculate your optimal macros (protein, carbs, fat) for your specific goals. Based on TDEE and goal type. Real examples for.',
   slug: 'macro-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'macronutrient calculator 2026',
     'macro calculator for weight loss',
     'how to calculate macros for muscle building',
-    'macro split for cutting body fat',
-    'carb protein fat ratio calculator',
-    'macro calculator by body weight and goal',
-    'best macros for fat loss and muscle gain',
-    'keto macro calculator net carbs',
-    'macro calculator for women',
-    'endurance athlete macro split',
-    'how to count macros for beginners',
   ],
 })
 

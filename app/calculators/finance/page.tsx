@@ -13,23 +13,26 @@ function X({size=16,className=""}: {size?:number;className?:string}) { const w=s
 
 
 export const metadata: Metadata = {
-  title: '167 Free Finance Calculators 2026 | ToolTrio',
-  description: '167 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth calculator, auto loan, biweekly mortgage, closing costs, and more. No signup.',
+  title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
+  description: '167 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth.',
   keywords: [
-    'free finance calculators 2026', 'SIP calculator India', 'EMI calculator', '401k calculator USA',
-    'UK income tax calculator 2026', 'ISA calculator UK', 'stamp duty calculator', 'mortgage calculator',
-    'compound interest calculator', 'FIRE calculator', 'NPS calculator India', 'PPF calculator',
-    'SIP vs FD calculator', '401k vs Roth IRA', 'Roth IRA calculator', 'CAGR calculator',
-    'GST calculator India', 'HRA calculator', 'gratuity calculator', 'salary calculator India',
-    'free online finance calculators no signup', 'personal finance calculators',
+    'free finance calculators 2026',
+    'SIP calculator India',
+    'EMI calculator',
+    '401k calculator USA',
+    'UK income tax calculator 2026',
+    'ISA calculator UK',
+    'stamp duty calculator',
+    'mortgage calculator',
   ],
   alternates: { canonical: 'https://tooltrio.com/calculators/finance' },
   openGraph: {
-    title: '151 Free Finance Calculators 2026 - USA, UK, India & Europe',
-    description: '151 free finance calculators: SIP, EMI, 401k, Roth IRA, UK tax, ISA, mortgage, FIRE, compound interest and more. No signup required.',
+    title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
+    description: '167 free finance calculators: mortgage, SIP, 401k, EMI, Roth IRA, UK tax, ISA, FIRE, compound interest and more. No signup required.',
     url: 'https://tooltrio.com/calculators/finance',
-    siteName: 'tooltrio.com',
+    siteName: 'ToolTrio',
     type: 'website',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
   },
 }
 
@@ -118,7 +121,7 @@ const calculators = [
   { name: 'FIRE Europe Calculator', desc: 'Financial independence number using European SWR rates', href: '/calculators/finance/fire-europe-calculator', icon: '🔥', tag: 'Europe', popular: true },
   // v12 - 10 new calculators
   { name: 'P/E Ratio Calculator', desc: 'Stock valuation, PEG ratio & fair value estimate', href: '/calculators/finance/pe-ratio-calculator', icon: '📊', tag: 'Investment', popular: true },
-  { name: 'Crypto Profit Calculator', desc: 'Crypto buy/sell P&amp;L, ROI &amp; break-even price', href: '/calculators/finance/crypto-profit-calculator', icon: '₿', tag: 'Investment', popular: true },
+  { name: 'Crypto Profit Calculator', desc: 'Crypto buy/sell P&L, ROI & break-even price', href: '/calculators/finance/crypto-profit-calculator', icon: '₿', tag: 'Investment', popular: true },
   { name: 'Emergency Fund Calculator', desc: 'Target fund size & time to build financial safety net', href: '/calculators/finance/emergency-fund-calculator', icon: '🛡️', tag: 'Planning', popular: true },
   { name: 'Rent vs Buy Calculator', desc: 'True total cost: renting vs buying over 10+ years', href: '/calculators/finance/rent-vs-buy-calculator', icon: '🏠', tag: 'Planning', popular: true },
   { name: 'Salary Hike Calculator', desc: 'Raise impact on lifetime earnings & real purchasing power', href: '/calculators/finance/salary-hike-calculator', icon: '💰', tag: 'Salary', popular: false },
@@ -152,8 +155,8 @@ const calculators = [
   { name: '401k vs Roth IRA', desc: 'Pre-tax 401k vs after-tax Roth IRA - which wins after retirement taxes?', href: '/calculators/finance/401k-vs-roth-ira-calculator', icon: '🇺🇸', tag: 'USA', popular: true },
   { name: 'Roth vs Traditional IRA', desc: 'Roth IRA vs Traditional IRA after-tax retirement wealth', href: '/calculators/finance/roth-ira-vs-traditional-ira-calculator', icon: '💰', tag: 'USA', popular: true },
   { name: 'HSA vs FSA', desc: 'HSA triple tax advantage vs FSA use-it-or-lose-it', href: '/calculators/finance/hsa-vs-fsa-calculator', icon: '🏥', tag: 'USA', popular: true },
-  { name: 'S&amp;P 500 vs Bonds', desc: 'S&amp;P 500 index fund vs US bonds long-term wealth comparison', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', tag: 'USA', popular: true },
-  { name: 'Pay Off Mortgage vs Invest', desc: 'Extra mortgage payments vs S&amp;P 500 index fund investing', href: '/calculators/finance/pay-off-mortgage-vs-invest-calculator', icon: '🏠', tag: 'USA', popular: true },
+  { name: 'S&P 500 vs Bonds', desc: 'S&P 500 index fund vs US bonds long-term wealth comparison', href: '/calculators/finance/sp500-vs-bonds-calculator', icon: '📊', tag: 'USA', popular: true },
+  { name: 'Pay Off Mortgage vs Invest', desc: 'Extra mortgage payments vs S&P 500 index fund investing', href: '/calculators/finance/pay-off-mortgage-vs-invest-calculator', icon: '🏠', tag: 'USA', popular: true },
   { name: 'Term vs Whole Life Insurance', desc: 'Buy term + invest the rest vs whole life insurance USA', href: '/calculators/finance/term-vs-whole-life-calculator', icon: '🛡️', tag: 'USA', popular: true },
   { name: 'Index Fund vs ETF', desc: 'Mutual index fund vs ETF costs, returns & tax efficiency', href: '/calculators/finance/index-fund-vs-etf-calculator', icon: '📈', tag: 'USA', popular: false },
   { name: 'Mortgage vs Renting USA', desc: 'True cost of buying vs renting - US real estate market', href: '/calculators/finance/mortgage-vs-renting-usa-calculator', icon: '🏡', tag: 'USA', popular: true },
@@ -167,7 +170,7 @@ const calculators = [
   { name: 'SSY vs PPF', desc: 'Sukanya Samriddhi Yojana vs PPF for girl child savings', href: '/calculators/finance/sukanya-samriddhi-vs-ppf-calculator', icon: '👧', tag: 'VS', popular: true },
   { name: 'Annuity vs Lumpsum', desc: 'Pension annuity vs reinvesting lumpsum in mutual funds', href: '/calculators/finance/annuity-vs-lumpsum-calculator', icon: '💰', tag: 'VS', popular: false },
   { name: 'Roth IRA vs HSA', desc: 'Roth IRA vs HSA as retirement vehicles - triple tax advantage', href: '/calculators/finance/roth-ira-vs-hsa-calculator', icon: '🏥', tag: 'USA', popular: true },
-  { name: 'S&amp;P 500 vs Real Estate USA', desc: 'Index fund vs US real estate with rental income comparison', href: '/calculators/finance/sp500-vs-real-estate-usa-calculator', icon: '🏠', tag: 'USA', popular: true },
+  { name: 'S&P 500 vs Real Estate USA', desc: 'Index fund vs US real estate with rental income comparison', href: '/calculators/finance/sp500-vs-real-estate-usa-calculator', icon: '🏠', tag: 'USA', popular: true },
   { name: 'CD vs High-Yield Savings', desc: 'Certificate of Deposit vs HYSA - fixed rate vs flexibility', href: '/calculators/finance/cd-vs-hysa-calculator', icon: '🏦', tag: 'USA', popular: true },
   { name: '401k vs Taxable Account', desc: 'Tax-deferred 401k vs taxable brokerage - when each wins', href: '/calculators/finance/401k-vs-taxable-account-calculator', icon: '📉', tag: 'USA', popular: false },
   // v16 - 20 new USA + Europe VS calculators
@@ -178,7 +181,7 @@ const calculators = [
   { name: 'Bonds vs CDs USA', desc: 'US Treasury bonds vs bank CDs - yield, tax, liquidity compared', href: '/calculators/finance/bonds-vs-cds-usa-calculator', icon: '📜', tag: 'USA', popular: false },
   { name: 'Vanguard vs Fidelity ETF', desc: 'VOO vs FXAIX - expense ratio impact over 10, 20, 30 years', href: '/calculators/finance/vanguard-vs-fidelity-etf-calculator', icon: '📊', tag: 'USA', popular: true },
   { name: 'REIT vs Rental Property USA', desc: 'VNQ REIT ETF vs direct rental property returns compared', href: '/calculators/finance/reit-vs-direct-property-usa-calculator', icon: '🏢', tag: 'USA', popular: false },
-  { name: 'DCA vs Lump Sum USA', desc: 'Dollar cost averaging monthly vs investing lump sum S&amp;P 500', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator', icon: '💰', tag: 'USA', popular: true },
+  { name: 'DCA vs Lump Sum USA', desc: 'Dollar cost averaging monthly vs investing lump sum S&P 500', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator', icon: '💰', tag: 'USA', popular: true },
   { name: 'Traditional IRA vs Taxable', desc: 'IRA tax deduction vs taxable brokerage - after-tax wealth', href: '/calculators/finance/traditional-ira-vs-taxable-account-calculator', icon: '📉', tag: 'USA', popular: false },
   { name: 'ISA vs SIPP UK', desc: 'UK ISA flexible access vs SIPP pension with 20-45% tax relief', href: '/calculators/finance/isa-vs-sipp-uk-calculator', icon: '🇬🇧', tag: 'Europe', popular: true },
   { name: 'UK Pension vs ISA', desc: 'Workplace pension employer match vs Stocks and Shares ISA', href: '/calculators/finance/uk-pension-vs-isa-calculator', icon: '💷', tag: 'Europe', popular: true },
@@ -196,16 +199,16 @@ const calculators = [
   { name: 'SEP IRA vs Solo 401k', desc: 'SEP IRA vs Solo 401k for self-employed - contribution limits', href: '/calculators/finance/sep-ira-vs-solo-401k-calculator', icon: '👔', tag: 'USA', popular: true },
   { name: 'I Bonds vs TIPS', desc: 'Series I Savings Bonds vs TIPS - best inflation hedge USA', href: '/calculators/finance/i-bonds-vs-tips-calculator', icon: '🛡️', tag: 'USA', popular: false },
   { name: 'Muni Bonds vs Corp Bonds', desc: 'Tax-free municipal bonds vs corporate bonds after-tax yield', href: '/calculators/finance/municipal-bonds-vs-corporate-bonds-calculator', icon: '📜', tag: 'USA', popular: false },
-  { name: 'Total Market vs S&amp;P 500', desc: 'VTI total market vs VOO S&amp;P 500 long-term returns', href: '/calculators/finance/whole-market-vs-sp500-calculator', icon: '📊', tag: 'USA', popular: true },
+  { name: 'Total Market vs S&P 500', desc: 'VTI total market vs VOO S&P 500 long-term returns', href: '/calculators/finance/whole-market-vs-sp500-calculator', icon: '📊', tag: 'USA', popular: true },
   { name: 'Dividend vs Growth Stocks', desc: 'SCHD dividend growth vs QQQ growth stocks total return', href: '/calculators/finance/dividend-growth-vs-growth-stocks-calculator', icon: '💵', tag: 'USA', popular: true },
   { name: 'US Real Estate vs REITs', desc: 'Direct rental property vs REIT ETF (VNQ) returns USA', href: '/calculators/finance/us-real-estate-vs-reits-calculator', icon: '🏢', tag: 'USA', popular: true },
   { name: '529 vs UTMA Account', desc: '529 college savings vs UTMA custodial account', href: '/calculators/finance/529-vs-utma-calculator', icon: '🎓', tag: 'USA', popular: false },
-  { name: 'TIPS vs Stocks USA', desc: 'Inflation-protected TIPS vs S&amp;P 500 equities', href: '/calculators/finance/inflation-protected-bonds-vs-stocks-calculator', icon: '📈', tag: 'USA', popular: false },
+  { name: 'TIPS vs Stocks USA', desc: 'Inflation-protected TIPS vs S&P 500 equities', href: '/calculators/finance/inflation-protected-bonds-vs-stocks-calculator', icon: '📈', tag: 'USA', popular: false },
   { name: 'Cash-Out Refi vs HELOC', desc: 'Cash-out refinance vs HELOC for home equity access', href: '/calculators/finance/cash-out-refinance-vs-heloc-calculator', icon: '🏠', tag: 'USA', popular: true },
   { name: 'UK Lifetime ISA vs SIPP', desc: 'UK LISA 25% bonus vs SIPP 20-45% tax relief', href: '/calculators/finance/uk-lifetime-isa-vs-sipp-calculator', icon: '🇬🇧', tag: 'Europe', popular: true },
   { name: 'UK Pension Drawdown vs Annuity', desc: 'UK pension drawdown flexible vs annuity guaranteed', href: '/calculators/finance/uk-pension-drawdown-vs-annuity-calculator', icon: '💷', tag: 'Europe', popular: true },
   { name: 'UK Fixed vs Tracker Mortgage', desc: 'UK fixed-rate vs Bank of England tracker mortgage', href: '/calculators/finance/uk-fixed-rate-vs-tracker-mortgage-calculator', icon: '🏠', tag: 'Europe', popular: true },
-  { name: 'MSCI World vs S&amp;P 500 EU', desc: 'MSCI World (IWDA) vs S&amp;P 500 for European investors', href: '/calculators/finance/europe-msci-world-vs-sp500-calculator', icon: '🌍', tag: 'Europe', popular: true },
+  { name: 'MSCI World vs S&P 500 EU', desc: 'MSCI World (IWDA) vs S&P 500 for European investors', href: '/calculators/finance/europe-msci-world-vs-sp500-calculator', icon: '🌍', tag: 'Europe', popular: true },
   { name: 'UK Premium Bonds vs Cash ISA', desc: 'NS&I Premium Bonds vs best Cash ISA rates UK', href: '/calculators/finance/uk-premium-bonds-vs-cash-isa-calculator', icon: '🎟️', tag: 'Europe', popular: true },
   { name: 'Netherlands AOW vs Pension', desc: 'Dutch AOW state pension vs private pension planning', href: '/calculators/finance/netherlands-aow-vs-private-pension-calculator', icon: '🇳🇱', tag: 'Europe', popular: false },
   { name: 'Spain Pension vs ETF', desc: 'Spanish plan de pensiones vs index ETF investing', href: '/calculators/finance/spain-pension-vs-etf-calculator', icon: '🇪🇸', tag: 'Europe', popular: false },
@@ -294,8 +297,8 @@ export default function FinancePage() {
             <h2 className="text-xl font-black text-gray-900 mb-4">About Our 30 Finance Calculators</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-gray-600 leading-relaxed">
               <div><h3 className="font-bold text-gray-800 mb-2">Tax Calculators</h3><p>Our <strong>income tax calculator</strong> compares New vs Old regime for FY 2026-27. The <strong>GST calculator</strong> handles all rates (5%, 12%, 18%, 28%) with CGST/SGST/IGST breakdown. The <strong>HRA calculator</strong> finds your maximum tax exemption.</p></div>
-              <div><h3 className="font-bold text-gray-800 mb-2">Salary &amp; Employee Benefits</h3><p>The <strong>salary/CTC calculator</strong> breaks down your in-hand pay from CTC with PF, TDS, and professional tax. The <strong>gratuity calculator</strong> calculates your payout after 5+ years. The <strong>NPS calculator</strong> estimates retirement corpus and monthly pension.</p></div>
-              <div><h3 className="font-bold text-gray-800 mb-2">Investment Calculators</h3><p>Our <strong>PPF calculator</strong> shows EEE (triple tax-free) returns at 7.1%. The <strong>ROI calculator</strong> measures your investment return against benchmarks like Nifty 50 and S&amp;P 500. The <strong>XIRR calculator</strong> gives true annualized returns for SIPs.</p></div>
+              <div><h3 className="font-bold text-gray-800 mb-2">Salary & Employee Benefits</h3><p>The <strong>salary/CTC calculator</strong> breaks down your in-hand pay from CTC with PF, TDS, and professional tax. The <strong>gratuity calculator</strong> calculates your payout after 5+ years. The <strong>NPS calculator</strong> estimates retirement corpus and monthly pension.</p></div>
+              <div><h3 className="font-bold text-gray-800 mb-2">Investment Calculators</h3><p>Our <strong>PPF calculator</strong> shows EEE (triple tax-free) returns at 7.1%. The <strong>ROI calculator</strong> measures your investment return against benchmarks like Nifty 50 and S&P 500. The <strong>XIRR calculator</strong> gives true annualized returns for SIPs.</p></div>
             </div>
           </div>
         </div>

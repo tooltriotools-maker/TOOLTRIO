@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'State ZIP Codes — Browse All ZIP Codes by State USA 2026',
-  description: 'Browse all ZIP codes for any US state. Find every ZIP code in a state with city names and counties. Free state ZIP code directory tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['state zip codes','zip codes by state','all zip codes in state','list of zip codes by state','state zip code list','browse zip codes state','zip codes in california','zip codes in texas','zip codes in new york','zip codes in florida','complete zip code list by state','state zip code directory','us state zip code finder','zip code lookup by state','state zip code database free',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'State ZIP Codes — Browse All ZIP Codes by US State Free | ToolTrio',
+  description: 'Browse all ZIP codes for any US state free. Find every ZIP code in a state with city names, counties, and population data. All 50 states covered.',
+  keywords: [
+    'state zip codes',
+    'zip codes by state',
+    'all zip codes in a state',
+    'browse zip codes by state usa',
+    'list of zip codes in state free',
+    'state zip code list lookup',
+    'find all zip codes in state',
+    'complete zip code list by state',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/state-zip-codes' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/state-zip-codes',
+    siteName: 'ToolTrio',
+    title: 'State ZIP Codes — Browse All ZIP Codes by US State Free | ToolTrio',
+    description: 'Browse all ZIP codes for any US state free. Find every ZIP code in a state with city names, counties, and population data. All 50 states covered.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'State ZIP Codes — Browse All ZIP Codes by US State Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'State ZIP Codes — Browse All ZIP Codes by US State Free | ToolTrio',
+    description: 'Browse all ZIP codes for any US state free. Find every ZIP code in a state with city names, counties, and population data. All 50 states covered.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [

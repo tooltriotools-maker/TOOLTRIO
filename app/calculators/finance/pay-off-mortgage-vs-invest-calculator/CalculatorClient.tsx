@@ -66,12 +66,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     <CalculatorLayout title="Pay Off Mortgage vs Invest Calculator USA 2026" description="Compare making extra mortgage payments vs investing in the stock market with break-even analysis." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pay-off-mortgage-vs-invest-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
-          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Mortgage &amp; Investment Details</h2>
+          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Mortgage & Investment Details</h2>
           <div className="space-y-4">
             <InputField label="Extra Monthly Payment" value={extraPayment} onChange={setExtraPayment} min={100} max={10000} step={100} prefix="$" />
             <InputField label="Remaining Mortgage Balance" value={remainingBalance} onChange={setRemainingBalance} min={50000} max={2000000} step={10000} prefix="$" />
             <InputField label="Mortgage Interest Rate" value={mortgageRate} onChange={setMortgageRate} min={3} max={10} step={0.25} suffix="%" />
-            <InputField label="Investment Return (S&amp;P 500)" value={investRate} onChange={setInvestRate} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="Investment Return (S&P 500)" value={investRate} onChange={setInvestRate} min={5} max={15} step={0.5} suffix="%" />
             <InputField label="Remaining Loan Years" value={remainingYears} onChange={setRemainingYears} min={1} max={30} step={1} suffix="Yrs" />
             <InputField label="Your Tax Rate" value={taxRate} onChange={setTaxRate} min={0} max={37} step={1} suffix="%" />
           </div>
@@ -99,7 +99,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
                   <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, name) => [fmt(v), name]} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Bar dataKey="payoff" name="Pay Off Mortgage" fill="#3b82f6" radius={[4,4,0,0]} />
-                  <Bar dataKey="invest" name="Invest in S&amp;P 500" fill="#10b981" radius={[4,4,0,0]} />
+                  <Bar dataKey="invest" name="Invest in S&P 500" fill="#10b981" radius={[4,4,0,0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -109,7 +109,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <div className="grid grid-cols-2 gap-3 text-xs text-gray-400">
               <div className="space-y-2">
                 <p className="p-2 bg-blue-900/20 rounded-lg">🏠 <strong className="text-blue-400">Pay off mortgage:</strong> Guaranteed {mortgageRate}% return (interest saved). After {taxRate}% tax deduction, effective rate is {(mortgageRate * (1 - taxRate/100)).toFixed(1)}%</p>
-                <p className="p-2 bg-green-900/20 rounded-lg">📈 <strong className="text-green-400">Invest in market:</strong> Historical S&amp;P 500 returns {investRate}% - not guaranteed but proven over long periods</p>
+                <p className="p-2 bg-green-900/20 rounded-lg">📈 <strong className="text-green-400">Invest in market:</strong> Historical S&P 500 returns {investRate}% - not guaranteed but proven over long periods</p>
               </div>
               <div className="space-y-2">
                 <p className="p-2 bg-purple-900/20 rounded-lg">💡 <strong className="text-purple-400">Rule of thumb:</strong> If mortgage rate &lt; expected investment return after tax -{'>'} invest. Currently {mortgageRate}% mortgage vs {investRate}% expected return.</p>

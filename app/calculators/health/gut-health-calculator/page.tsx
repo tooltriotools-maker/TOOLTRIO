@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Gut Health Calculator 2026 | ToolTrio',
-  description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get personalized microbiome support strategies. Free online gut health calculator 2026. No signup required.',
+  description: 'Score your gut health based on diet diversity, fiber intake, fermented food consumption, antibiotic history, sleep, and digestive symptoms. Get.',
   slug: 'gut-health-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'microbiome health assessment',
     'digestive health quiz calculator',
     'gut health diet score',
-    'leaky gut risk calculator',
-    'gut bacteria diversity assessment',
-    'probiotic need calculator',
-    'gut health and inflammation',
-    'signs of poor gut health score',
-    'gut health improvement plan',
   ],
 })
 

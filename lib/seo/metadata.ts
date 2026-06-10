@@ -67,14 +67,23 @@ export function generateCalculatorMetadata(params: {
   ]))
 
   // Keep description within 150-160 chars and end with a clear value prop
-  const enrichedDescription = category === 'health'
-    ? (description.endsWith('.') ? description : `${description}. Free, no signup. US standard units. CDC & NIH validated.`)
+  const rawEnriched = category === 'health'
+    ? (description.endsWith('.') ? description : `${description}. Free, no signup. CDC & NIH validated.`)
     : category === 'dev'
-    ? (description.endsWith('.') ? description : `${description}. Runs 100% in your browser — no install, no signup required.`)
+    ? (description.endsWith('.') ? description : `${description}. Runs in browser — no install, no signup.`)
     : (description.endsWith('.') ? description : `${description}. Free, no signup, instant results.`)
+  // Hard-cap at 155 chars (word boundary) to prevent SERP truncation
+  const enrichedDescription = rawEnriched.length <= 155
+    ? rawEnriched
+    : (() => {
+        const cut = rawEnriched.slice(0, 155)
+        const lastSpace = cut.lastIndexOf(' ')
+        const trimmed = lastSpace > 120 ? cut.slice(0, lastSpace) : cut
+        return trimmed.replace(/[,;:—–\s]+$/, '') + '.'
+      })()
 
   return {
-    title,
+    title: { absolute: title },
     description: enrichedDescription,
     keywords: allKeywords,
     authors: [{ name: 'ToolTrio', url: BASE_URL }],
@@ -286,13 +295,24 @@ export function generateCalculatorRatingSchema(params: {
   ratingValue?: string
   ratingCount?: string
 }) {
+  // Derive correct applicationCategory from URL segment
+  const appCategory = params.url.includes('/health/')
+    ? 'HealthApplication'
+    : params.url.includes('/dev/')
+    ? 'DeveloperApplication'
+    : params.url.includes('/fun/')
+    ? 'EntertainmentApplication'
+    : params.url.includes('/commodities/')
+    ? 'FinanceApplication'
+    : 'FinancialApplication'
+
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: params.name,
     description: params.description,
     url: params.url,
-    applicationCategory: 'FinancialApplication',
+    applicationCategory: appCategory,
     operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',

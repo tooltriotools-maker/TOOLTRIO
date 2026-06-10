@@ -9,11 +9,41 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Multi-ZIP Distance — Calculate Distance Across Multiple ZIP Codes 2026',
-  description: 'Calculate total driving distance across multiple US ZIP codes in sequence. Plan multi-stop routes and get total mileage. Free multi-ZIP distance tool. Free on TOOLTRIO — no signup needed.',
-  keywords: ['multi zip distance','multiple zip code distance','distance across zip codes','zip code route distance','zip code sequence distance','total distance zip codes','multi stop zip distance','zip code mileage multiple','route distance zip codes','zip code distance multiple stops','total mileage zip to zip','zip code route planner distance','multiple zip code mileage','zip code distance chain','multi point zip distance',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Multi-ZIP Distance — Total Distance Across Multiple ZIPs | ToolTrio',
+  description: 'Calculate total distance across multiple US ZIP codes free. Enter a sequence of ZIPs to get the total route distance in miles. Multi-stop ZIP route planner.',
+  keywords: [
+    'multi zip distance calculator',
+    'distance across multiple zip codes',
+    'total distance between zip codes',
+    'route distance multiple zips free',
+    'multiple zip code distance tool',
+    'zip code route total distance',
+    'calculate mileage across zip codes',
+    'multi stop zip code distance',
+    'tooltrio',
+    'zip code tooltrio',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip/multi-zip-distance' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip/multi-zip-distance',
+    siteName: 'ToolTrio',
+    title: 'Multi-ZIP Distance — Total Distance Across Multiple ZIPs | ToolTrio',
+    description: 'Calculate total distance across multiple US ZIP codes free. Enter a sequence of ZIPs to get the total route distance in miles. Multi-stop ZIP route planner.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Multi-ZIP Distance — Total Distance Across Multiple ZIP Codes Free 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Multi-ZIP Distance — Total Distance Across Multiple ZIPs | ToolTrio',
+    description: 'Calculate total distance across multiple US ZIP codes free. Enter a sequence of ZIPs to get the total route distance in miles. Multi-stop ZIP route planner.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const relatedTools = [
@@ -128,7 +158,7 @@ export default function Page() {
   return (
     <ZipToolLayout title="Multi-ZIP Distance" description="Calculate total distance across a sequence of multiple US ZIP codes." icon="📐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Multi-ZIP Distance — Calculate Distance Across Multiple ZIP Codes 2026\",\"description\":\"Calculate total driving distance across multiple US ZIP codes in sequence. Plan multi-stop routes and get total mileage. Free multi-ZIP distance tool.\",\"url\":\"https://tooltrio.com/zip/multi-zip-distance\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Multi-ZIP Distance — Distance Across Multiple ZIPs 2026\",\"description\":\"Calculate total driving distance across multiple US ZIP codes in sequence. Plan multi-stop routes and get total mileage. Free multi-ZIP distance tool.\",\"url\":\"https://tooltrio.com/zip/multi-zip-distance\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

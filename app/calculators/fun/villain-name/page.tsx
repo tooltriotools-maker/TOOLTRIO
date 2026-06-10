@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Villain Name Generator | ToolTrio',
-  description: 'Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name generator, no signup.',
+  description: 'Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name.',
   slug: 'villain-name',
   keywords: [
     'villain name generator',
@@ -21,26 +21,7 @@ export const metadata: Metadata = generateFunToolMetadata({
     'supervillain identity generator',
     'villain origin story generator',
     'my villain name quiz',
-    'evil alter ego generator',
-    'villain name by personality',
-    'dark character name generator',
-    'villain name for DnD',
-    'villain name for writing',
-    'villain name for Halloween',
-    'villain name generator no signup',
-    'best villain name generator 2026',
-    'random villain name generator',
-    'villain name and power generator',
-    'villain name from real name',
-    'supervillain backstory generator',
-    'villain name share social media',
-    'villain name viral',
-    'funny villain name generator',
-    'scary villain name generator',
-    'villain name for kids',
     'tooltrio.com',
-    'free calculator no signup',
-    'fun calculator online free'
   ],
 })
 

@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Calorie Deficit Calculator 2026 | ToolTrio',
-  description: 'Free Calorie Deficit Calculator 2026 — Calculate the exact calorie deficit needed to reach your weight loss goal. Safe deficit ranges with timeline projections. Real examples for $500–$1000 calorie deficits. No signup.',
+  description: 'Free Calorie Deficit Calculator 2026 — Calculate the exact calorie deficit needed to reach your weight loss goal. Safe deficit ranges with timeline.',
   slug: 'calorie-deficit-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'calorie deficit calculator for weight loss',
     'how big a calorie deficit to lose weight',
-    'safe calorie deficit without losing muscle',
-    '500 calorie deficit how much weight loss',
-    'calorie deficit timeline to goal weight',
-    'minimum calorie intake on deficit',
-    'aggressive calorie deficit risks',
-    'calorie deficit calculator by date',
-    'reverse diet calorie calculator',
-    'metabolic adaptation calorie deficit',
   ],
 })
 

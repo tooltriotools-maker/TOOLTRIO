@@ -2,11 +2,41 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'ToolTrio | Free USA ZIP Code Tools 2026 — 35+ Utilities',
-  description: 'Complete suite of free USA ZIP code tools. Lookup ZIP codes, find cities, calculate distances, check timezones, area codes and more. 35+ free ZIP code utilities. Free on TOOLTRIO — no signup needed.',
-  keywords: ['zip code lookup','zip code tools','usa zip code','zip to city','city to zip','zip code distance','zip code map',
-    'tooltrio','tooltrio zip code','zip code tooltrio','tooltrio zipcode tool','tooltrio zip lookup','tool trio','trio tools','tooltrio free tools','tooltrio address tools','tooltrio postal tools'
+  title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
+  description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
+  keywords: [
+    'free zip code tools',
+    'us zip code tools online',
+    'zip code utilities free',
+    'zip code lookup tools usa',
+    'zip code calculator free',
+    'zip code finder tools',
+    'best zip code tools 2026',
+    'zip code search tools usa',
+    'tooltrio',
+    'tooltrio zip code',
   ],
+  alternates: { canonical: 'https://tooltrio.com/zip' },
+  openGraph: {
+    type: 'website',
+    url: 'https://tooltrio.com/zip',
+    siteName: 'ToolTrio',
+    title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
+    description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio' }],
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
+    description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
+    images: ['https://tooltrio.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 }
 
 const ZIP_TOOLS = [

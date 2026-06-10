@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Cycling Calorie Calculator 2026 | ToolTrio',
-  description: 'Free Cycling Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real examples for men and women of all ages. No signup.',
+  description: 'Free Cycling Calories Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real.',
   slug: 'cycling-calories-calculator',
   category: 'health',
   region: 'usa',
@@ -23,14 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'calorie needs calculator usa 2026',
     'cycling calorie calculator',
     'calories burned cycling by speed',
-    'calories burned stationary bike',
-    'indoor cycling calorie calculator',
-    'calories burned mountain biking',
-    'cycling watts to calories calculator',
-    'peloton calorie calculator',
-    'how many calories cycling 1 hour',
-    'cycling for weight loss calorie burn',
-    'cycling power output calories',
   ],
 })
 

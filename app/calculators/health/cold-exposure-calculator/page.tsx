@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Cold Exposure Calculator 2026 | ToolTrio',
-  description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold plunge protocols, safety thresholds, and recovery timing. Free online cold exposure calculator 2026. No signup required.',
+  description: 'Calculate safe cold water immersion parameters based on your adaptation level, water temperature, and health status. Find beginner to advanced cold plunge.',
   slug: 'cold-exposure-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'cold water immersion duration calculator',
     'cold exposure temperature time calculator',
     'safe cold plunge time by water temperature',
-    'wim hof cold exposure protocol',
-    'cold therapy health benefits calculator',
-    'cold shower vs cold plunge benefits',
-    'cold water immersion hypothermia risk',
-    'cold exposure adaptation calculator',
-    'cold plunge for inflammation',
   ],
 })
 

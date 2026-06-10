@@ -10,7 +10,7 @@ const StepsCalculatorClient = dynamic(() => import('./StepsCalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Steps Calculator – Steps to Miles 2026 | ToolTrio',
-  description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn a target number of calories or reach a distance goal. Free online steps calculator 2026. No signup required.',
+  description: 'Convert daily step count to miles, kilometers, and calories burned. Based on your height, weight, and walking speed. Calculate how many steps to burn a.',
   slug: 'steps-calculator',
   category: 'health',
   region: 'usa',
@@ -23,12 +23,6 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'how many steps in a mile by height',
     '10000 steps calories burned',
     'steps to kilometers converter',
-    'steps per day for weight loss',
-    'daily steps calorie calculator',
-    'step counter distance calculator',
-    'steps per mile by stride length',
-    '10000 steps a day benefits',
-    'steps calculator by height and weight',
   ],
 })
 
