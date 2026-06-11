@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   keywords: [
     'about tooltrio','tooltrio mission','who built tooltrio','tooltrio team',
     'free calculator website','finance calculator platform','health calculator platform',
-    'tooltrio about us','tool trio about','tooltrio story',
+    'tooltrio about us','tool trio about ','tooltrio story',
   ],
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
