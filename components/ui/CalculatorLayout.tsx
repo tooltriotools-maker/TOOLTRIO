@@ -22,6 +22,7 @@ interface CalculatorLayoutProps {
   icon: string
   category: 'Finance' | 'Health' | 'Dev' | 'Fun'
   children: ReactNode
+  /** @deprecated schemas now injected server-side in page.tsx — prop accepted but unused */
   structuredData?: object[]
   relatedCalculators?: RelatedCalc[]
   blogSlug?: string
@@ -43,75 +44,14 @@ export function CalculatorLayout({ title, description, icon, category, children,
     ? `${BASE_URL}/calculators/${catPath}/${slug}`
     : `${BASE_URL}/calculators/${catPath}`
 
-  // ── Auto-generated schemas: BreadcrumbList + HowTo only ──────────────────
-  // WebApplication/AggregateRating schema is passed per-page via structuredData
-  // to avoid duplicate schema blocks with conflicting ratingCount values.
-  const autoSchemas: object[] = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
-        { '@type': 'ListItem', position: 2, name: `${category} Calculators`, item: `${BASE_URL}/calculators/${catPath}` },
-        { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: `How to use the ${title}`,
-      description,
-      url: pageUrl,
-      isAccessibleForFree: true,
-      totalTime: 'PT2M',
-      step: category === 'Health' ? [
-        { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top of the calculator.' },
-        { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type your age, weight, height, and other relevant values into the input fields.' },
-        { '@type': 'HowToStep', position: 3, name: 'View your instant results', text: 'Results calculate automatically as you type — no button to click.' },
-        { '@type': 'HowToStep', position: 4, name: 'Compare against healthy ranges', text: 'Check where your result falls against CDC, NIH, and AHA reference ranges for your age and sex.' },
-        { '@type': 'HowToStep', position: 5, name: 'Read personalized guidance', text: 'Scroll down for evidence-based recommendations, FAQ answers, and related calculators.' },
-      ] : [
-        { '@type': 'HowToStep', position: 1, name: 'Enter your values', text: 'Enter your values in the input fields or use the sliders.' },
-        { '@type': 'HowToStep', position: 2, name: 'Get instant results', text: 'Results update instantly as you type — no button to click.' },
-        { '@type': 'HowToStep', position: 3, name: 'View the chart', text: 'View the interactive chart for a visual breakdown of your results.' },
-        { '@type': 'HowToStep', position: 4, name: 'Review the detail table', text: 'Check the year-by-year table for detailed annual figures.' },
-        { '@type': 'HowToStep', position: 5, name: 'Read the FAQ', text: 'Scroll down for worked examples and expert guidance in the FAQ section.' },
-      ],
-    },
-    // Health-specific: MedicalWebPage schema (deduplicated — not passed separately per page)
-    ...(category === 'Health' ? [{
-      '@context': 'https://schema.org',
-      '@type': 'MedicalWebPage',
-      name: title,
-      description,
-      url: pageUrl,
-      audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
-      author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
-      isAccessibleForFree: 'True',
-      inLanguage: 'en-US',
-      specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
-    }] : []),
-  ]
-
-  // Deduplicate structuredData by @type — prevents double BreadcrumbList/HowTo blocks
-  const autoTypes = new Set(autoSchemas.map((s: any) => s['@type']))
-  const dedupedStructuredData = (structuredData ?? []).filter((s: any) => {
-    const type = s['@type']
-    // FAQPage and WebApplication are page-specific — always allow through
-    if (type === 'FAQPage' || type === 'WebApplication') return true
-    // Block types already injected by autoSchemas (BreadcrumbList, HowTo, MedicalWebPage)
-    if (autoTypes.has(type)) return false
-    return true
-  })
-
-  const allSchemas = [...autoSchemas, ...dedupedStructuredData]
+  // ── Schema injection removed from this client component ──────────────────
+  // All JSON-LD schemas (BreadcrumbList, HowTo, FAQPage, WebApplication,
+  // MedicalWebPage) are now injected server-side in each page.tsx directly,
+  // ensuring they appear in the initial HTML response for Googlebot.
+  // See: lib/seo/metadata.ts → generateCalculatorPageSchemas()
 
   return (
     <>
-      {allSchemas.map((data, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
-      ))}
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <Breadcrumb items={[

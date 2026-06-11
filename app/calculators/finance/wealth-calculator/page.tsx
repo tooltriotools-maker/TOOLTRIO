@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function WealthCalculatorPage() {
- return <WealthCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <WealthCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="wealth-building-guide-usa-2026-net-worth-by-age" />
+    </>
 }

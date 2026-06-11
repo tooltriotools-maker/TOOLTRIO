@@ -48,4 +48,9 @@ const relatedCalculators = [
 
 const structuredData = [generateFAQStructuredData(faqs)]
 
-export default function Page() { return <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="fire-europe-guide-financial-independence-uk-germany-france-2026" /> }
+export default function Page() { return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="fire-europe-guide-financial-independence-uk-germany-france-2026" />
+    </> }

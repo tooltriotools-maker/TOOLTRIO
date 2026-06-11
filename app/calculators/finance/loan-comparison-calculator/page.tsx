@@ -45,6 +45,11 @@ const structuredData = [
 ]
 
 export default function LoanComparisonPage() {
- return <LoanComparisonCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <LoanComparisonCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="car-loan-calculator-usa-2026-rates-by-state" />
+    </>
 }

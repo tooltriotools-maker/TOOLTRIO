@@ -45,6 +45,11 @@ const structuredData = [
 ]
 
 export default function WeeklyBudgetPage() {
- return <WeeklyBudgetCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <WeeklyBudgetCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="budget-50-30-20-rule-usa-real-examples-2026" />
+    </>
 }

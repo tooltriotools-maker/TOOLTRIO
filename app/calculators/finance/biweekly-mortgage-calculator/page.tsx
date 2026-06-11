@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function BiweeklyMortgagePage() {
- return <BiweeklyMortgageClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <BiweeklyMortgageClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="how-to-pay-off-mortgage-early-usa-2026" />
+    </>
 }

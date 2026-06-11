@@ -37,7 +37,11 @@ const rc = [
  { name: 'Paycheck Calculator', href: '/calculators/finance/paycheck-calculator', icon: '💵', desc: 'Take-home pay' },
 ]
 export default function Page() {
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
  const slug = 'roth-ira-vs-401k-employer-match-calculator'
  const url = `https://tooltrio.com/calculators/finance/${slug}`
- return <CalculatorClient faqs={faqs} blogSlug="roth-vs-401k-employer-match-guide-usa-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={rc} />
+ return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+      <CalculatorClient faqs={faqs} blogSlug="roth-vs-401k-employer-match-guide-usa-2026" structuredData={[generateFAQStructuredData(faqs
+    </>)]} relatedCalculators={rc} />
 }

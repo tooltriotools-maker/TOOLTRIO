@@ -9,7 +9,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/cdn-cgi/',
-          '/_next/',
+          // NOTE: Do NOT disallow /_next/ — search engines need access to
+          // CSS/JS bundles under /_next/static/ for rendering and Core Web Vitals.
           '/static/',
         ],
       },

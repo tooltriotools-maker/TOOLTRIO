@@ -84,11 +84,15 @@ const structuredData = [
 
 export default function MortgageCalculatorPage() {
  return (
- <MortgageCalculatorClient
+ <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <MortgageCalculatorClient
  faqs={faqs}
  structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="best-mortgage-calculators-usa-2026"
  />
- )
+    </>)
 }

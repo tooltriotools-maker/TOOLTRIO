@@ -96,8 +96,12 @@ For more health-relevant body metrics, use [our BMI Calculator](/calculators/hea
 }
 
 export default function Page() {
+  
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
   return (
-    <CalculatorClient
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+      <CalculatorClient
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
@@ -105,5 +109,6 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
+    </>
   )
 }

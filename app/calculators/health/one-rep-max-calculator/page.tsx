@@ -101,7 +101,10 @@ Retest your maxes every 6-12 weeks as your strength improves. Using a stale 1RM 
 }
 
 export default function Page() {
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
     <CalculatorClient
       faqs={faqs}
       structuredData={[
@@ -110,5 +113,6 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
+    </>
   )
 }

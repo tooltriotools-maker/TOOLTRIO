@@ -52,12 +52,14 @@ const faqs = [
 ]
 
 export default function Page() {
- return (
- <EMICalculatorClient
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+ return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+       <EMICalculatorClient
  faqs={faqs}
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  blogSlug='emi-calculator-complete-guide-understand-home-car-personal-loans'
  />
- )
+    </>
 }

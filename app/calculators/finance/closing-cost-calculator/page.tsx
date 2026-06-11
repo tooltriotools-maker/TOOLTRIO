@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function ClosingCostPage() {
- return <ClosingCostCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <ClosingCostCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="down-payment-how-much-house-usa-2026" />
+    </>
 }

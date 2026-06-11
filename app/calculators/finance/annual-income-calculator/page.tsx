@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function AnnualIncomePage() {
- return <AnnualIncomeCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <AnnualIncomeCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="annual-salary-by-hourly-rate-usa-2026" />
+    </>
 }

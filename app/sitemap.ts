@@ -4,9 +4,12 @@ import { allBlogPosts, blogCategories } from '@/lib/blog/posts'
 const BASE = 'https://tooltrio.com'
 // Use stable dates for static pages - prevents Google thinking ALL pages
 // changed on every build (which wastes crawl budget and confuses change signals)
-const now = new Date().toISOString()
+// NOTE: Do NOT use new Date().toISOString() for static pages.
+// Signals to Google that EVERY page changed on every build → wastes crawl budget.
+// Update SITE_DATE manually only when core pages actually change.
 const STABLE_DATE = '2026-05-01T00:00:00.000Z'   // site launch date
 const CALC_DATE   = '2026-05-15T00:00:00.000Z'   // calculators published
+const SITE_DATE   = '2026-06-10T00:00:00.000Z'   // last meaningful site-wide update
 
 // ── USA Finance calculator slugs ──────────────────────────────────────────────
 const financeCalcsUSA = [
@@ -189,14 +192,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     // ── Core pages ──────────────────────────────────────────────────────────
-    { url: BASE,                               lastModified: now, changeFrequency: 'weekly',  priority: 1.0  },
-    { url: `${BASE}/calculators/finance`,      lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/calculators/health`,       lastModified: now, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/calculators/dev`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.80 },
-    { url: `${BASE}/calculators/fun`,          lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
-    { url: `${BASE}/zip`,                      lastModified: now, changeFrequency: 'weekly',  priority: 0.75 },
-    { url: `${BASE}/commodities`,              lastModified: now, changeFrequency: 'weekly',  priority: 0.85 },
-    { url: `${BASE}/blog`,                     lastModified: now, changeFrequency: 'weekly',  priority: 0.90 },
+    { url: BASE,                               lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 1.0  },
+    { url: `${BASE}/calculators/finance`,      lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.95 },
+    { url: `${BASE}/calculators/health`,       lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.95 },
+    { url: `${BASE}/calculators/dev`,          lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.80 },
+    { url: `${BASE}/calculators/fun`,          lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.75 },
+    { url: `${BASE}/zip`,                      lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.75 },
+    { url: `${BASE}/commodities`,              lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.85 },
+    { url: `${BASE}/blog`,                     lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.90 },
     { url: `${BASE}/about`,                    lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.70 },
     { url: `${BASE}/methodology`,              lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${BASE}/contact`,                  lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.60 },
@@ -230,7 +233,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Commodity calculators ───────────────────────────────────────────────
     ...commodityCalcs.map(slug => ({
       url: `${BASE}/commodities/${slug}`,
-      lastModified: now, changeFrequency: 'daily' as const, priority: 0.82,
+      lastModified: SITE_DATE, changeFrequency: 'daily' as const, priority: 0.82,
     })),
 
     // ── Dev tools ───────────────────────────────────────────────────────────
@@ -264,7 +267,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Blog categories — DYNAMIC: auto-includes every category ────────────
     ...blogCategories.map(cat => ({
       url: `${BASE}/blog/category/${cat.slug}`,
-      lastModified: now, changeFrequency: 'monthly' as const, priority: 0.65,
+      lastModified: SITE_DATE, changeFrequency: 'monthly' as const, priority: 0.65,
     })),
   ]
 }

@@ -100,8 +100,12 @@ Use [our Steps to Calories Calculator](/calculators/health/steps-to-calories-cal
 }
 
 export default function Page() {
+  
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
   return (
-    <CalorieBurnedWalkingCalculatorClient
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+      <CalorieBurnedWalkingCalculatorClient
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
@@ -109,5 +113,6 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
+    </>
   )
 }

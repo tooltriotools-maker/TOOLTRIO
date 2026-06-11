@@ -46,12 +46,14 @@ const relatedCalculators = [
 ]
 
 export default function Page() {
- return (
- <CalculatorClient
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+ return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+       <CalculatorClient
  faqs={faqs}
  blogSlug="bonds-vs-cds-safe-investment-guide-usa-2026"
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  />
- )
+    </>
 }

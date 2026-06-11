@@ -44,12 +44,14 @@ const relatedCalculators = [
 ]
 
 export default function Page() {
- return (
- <SIPCalculatorClient
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+ return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+       <SIPCalculatorClient
  faqs={faqs}
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  blogSlug="sip-calculator-guide-how-to-grow-wealth-with-systematic-investment"
  />
- )
+    </>
 }

@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function InvoicePage() {
- return <InvoiceCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <InvoiceCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="small-business-finance-guide-usa-2026" />
+    </>
 }

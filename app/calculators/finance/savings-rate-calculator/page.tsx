@@ -44,6 +44,11 @@ const structuredData = [
 ]
 
 export default function SavingsRatePage() {
- return <SavingsRateCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <SavingsRateCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="how-much-to-save-for-retirement-by-age-usa" />
+    </>
 }

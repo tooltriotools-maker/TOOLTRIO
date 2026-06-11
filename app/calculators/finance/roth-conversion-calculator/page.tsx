@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function RothConversionPage() {
- return <RothConversionCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <RothConversionCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="roth-ira-vs-401k-which-is-better-2026" />
+    </>
 }

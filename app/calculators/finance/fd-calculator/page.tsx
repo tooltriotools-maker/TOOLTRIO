@@ -47,12 +47,14 @@ const faqs = [
 ]
 
 export default function Page() {
- return (
- <FDCalculatorClient
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+ return <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
+       <FDCalculatorClient
  faqs={faqs}
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  blogSlug='compound-interest-guide-eighth-wonder-of-the-world'
  />
- )
+    </>
 }

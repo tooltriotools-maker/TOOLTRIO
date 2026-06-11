@@ -46,6 +46,11 @@ const structuredData = [
 ]
 
 export default function InterestRatePage() {
- return <InterestRateCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+ return <>
+      {structuredData.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <InterestRateCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
  blogSlug="how-much-mortgage-can-i-afford-usa-2026" />
+    </>
 }

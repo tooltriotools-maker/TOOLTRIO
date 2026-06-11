@@ -338,3 +338,83 @@ export function generateCalculatorRatingSchema(params: {
   // }
   return schema
 }
+
+/**
+ * generateCalculatorPageSchemas — server-side schema generator for page.tsx
+ * Generates BreadcrumbList, HowTo, and (for health) MedicalWebPage schemas.
+ * Call this in page.tsx and render alongside FAQPage/WebApplication schemas.
+ *
+ * Usage in page.tsx:
+ *   const schemas = [
+ *     ...generateCalculatorPageSchemas({ title, description, slug, category }),
+ *     generateFAQStructuredData(faqs),
+ *     generateCalculatorRatingSchema({ name, description, url }),
+ *   ]
+ *   // Then render: {schemas.map((s, i) => <script key={i} type="application/ld+json" ... />)}
+ */
+export function generateCalculatorPageSchemas(params: {
+  title: string
+  description: string
+  slug: string
+  category: 'finance' | 'health' | 'dev' | 'fun'
+}) {
+  const { title, description, slug, category } = params
+  const catPath = category
+  const pageUrl = `${BASE_URL}/calculators/${catPath}/${slug}`
+  const catLabel = category === 'finance' ? 'Finance'
+    : category === 'health' ? 'Health'
+    : category === 'dev' ? 'Dev'
+    : 'Fun'
+
+  const schemas: object[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+        { '@type': 'ListItem', position: 2, name: `${catLabel} Calculators`, item: `${BASE_URL}/calculators/${catPath}` },
+        { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: `How to use the ${title}`,
+      description,
+      url: pageUrl,
+      isAccessibleForFree: true,
+      totalTime: 'PT2M',
+      step: category === 'health' ? [
+        { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top.' },
+        { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type your age, weight, height, and other values into the input fields.' },
+        { '@type': 'HowToStep', position: 3, name: 'View instant results', text: 'Results calculate automatically as you type.' },
+        { '@type': 'HowToStep', position: 4, name: 'Compare against healthy ranges', text: 'Check where your result falls against CDC, NIH, and AHA reference ranges.' },
+        { '@type': 'HowToStep', position: 5, name: 'Read personalized guidance', text: 'Scroll down for evidence-based recommendations, FAQ answers, and related calculators.' },
+      ] : [
+        { '@type': 'HowToStep', position: 1, name: 'Enter your values', text: 'Enter your values in the input fields or use the sliders.' },
+        { '@type': 'HowToStep', position: 2, name: 'Get instant results', text: 'Results update instantly as you type — no button to click.' },
+        { '@type': 'HowToStep', position: 3, name: 'View the chart', text: 'View the interactive chart for a visual breakdown of your results.' },
+        { '@type': 'HowToStep', position: 4, name: 'Review the detail table', text: 'Check the year-by-year table for detailed annual figures.' },
+        { '@type': 'HowToStep', position: 5, name: 'Read the FAQ', text: 'Scroll down for worked examples and expert guidance in the FAQ section.' },
+      ],
+    },
+  ]
+
+  if (category === 'health') {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'MedicalWebPage',
+      name: title,
+      description,
+      url: pageUrl,
+      audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
+      author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
+      publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
+      isAccessibleForFree: 'True',
+      inLanguage: 'en-US',
+      specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
+    })
+  }
+
+  return schemas
+}
