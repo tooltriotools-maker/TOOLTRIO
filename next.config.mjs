@@ -62,6 +62,13 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, s-maxage=60, stale-while-revalidate=300' },
         ],
       },
+      // Commodity pages serve live prices — short CDN TTL keeps data fresh
+      {
+        source: '/commodities/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, s-maxage=30, stale-while-revalidate=120' },
+        ],
+      },
     ]
   },
 

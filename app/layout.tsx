@@ -82,6 +82,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
+    site: '@tooltrio',
+    creator: '@tooltrio',
     title: 'ToolTrio — Free Finance & Health Calculators',
     description:
       'Free mortgage, 401k, BMI, calorie and 200+ finance and health calculators. No signup.',
@@ -144,7 +146,7 @@ const websiteSchema = {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/?q={search_term_string}`,
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
     },
     'query-input': 'required name=search_term_string',
   },

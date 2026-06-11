@@ -37,6 +37,16 @@ export const metadata: Metadata = {
   },
 }
 
+
+const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tooltrio.com"}, {"@type": "ListItem", "position": 2, "name": "Commodities", "item": "https://tooltrio.com/commodities"}, {"@type": "ListItem", "position": 3, "name": "Brent Crude Calculator \u2013 Live Oil Price per Barrel", "item": "https://tooltrio.com/commodities/brent-crude-calculator"}]}
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Brent Crude Calculator \u2013 Live Oil Price per Barrel", "description": "Calculate Brent crude oil price per barrel, gallon, and litre at live spot prices. Global oil benchmark calculator. Free, instant, no signup.", "url": "https://tooltrio.com/commodities/brent-crude-calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}, "isAccessibleForFree": true, "inLanguage": "en-US", "author": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}, "publisher": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}}
+
 export default function Page() {
-  return <Client />
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
+      <Client />
+    </>
+  )
 }

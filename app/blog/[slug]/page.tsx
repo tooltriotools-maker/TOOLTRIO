@@ -87,22 +87,47 @@ export default async function BlogPost({ params }: Props) {
     '@type': 'Article',
     headline: post.seoTitle,
     description: post.seoDescription,
+    image: {
+      '@type': 'ImageObject',
+      url: 'https://tooltrio.com/og-image.png',
+      width: 1200,
+      height: 630,
+    },
     author: {
       '@type': 'Person',
       name: 'ToolTrio Editorial Team',
       url: 'https://tooltrio.com/about',
       worksFor: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
     },
-    publisher: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'ToolTrio',
+      url: 'https://tooltrio.com',
+      logo: { '@type': 'ImageObject', url: 'https://tooltrio.com/logo.png' },
+    },
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    // updatedAt falls back to publishedAt if the post hasn't been revised
+    dateModified: post.updatedAt ?? post.publishedAt,
     url: `https://tooltrio.com/blog/${post.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://tooltrio.com/blog/${post.slug}` },
     keywords: post.keywords.join(', '),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tooltrio.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://tooltrio.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.category, item: `https://tooltrio.com/blog/category/${post.categorySlug}` },
+      { '@type': 'ListItem', position: 4, name: post.seoTitle, item: `https://tooltrio.com/blog/${post.slug}` },
+    ],
   }
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <div className="min-h-screen bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20">
         <div className="max-w-4xl mx-auto px-4 py-8">

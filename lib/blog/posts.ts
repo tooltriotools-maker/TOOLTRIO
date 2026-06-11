@@ -7,6 +7,8 @@ export interface BlogPost {
   categorySlug: string
   readTime: string
   publishedAt: string
+  /** Optional: set this when a post is meaningfully revised. Falls back to publishedAt in schemas. */
+  updatedAt?: string
   author: string
   tags: string[]
   relatedCalc: { name: string; href: string }

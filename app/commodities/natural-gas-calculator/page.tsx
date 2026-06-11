@@ -36,6 +36,16 @@ export const metadata: Metadata = {
   },
 }
 
+
+const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tooltrio.com"}, {"@type": "ListItem", "position": 2, "name": "Commodities", "item": "https://tooltrio.com/commodities"}, {"@type": "ListItem", "position": 3, "name": "Natural Gas Calculator \u2013 Live Price per MMBtu", "item": "https://tooltrio.com/commodities/natural-gas-calculator"}]}
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Natural Gas Calculator \u2013 Live Price per MMBtu", "description": "Calculate natural gas price per MMBtu, therm, cubic foot, and cubic meter at live spot prices. Free natural gas price calculator, no signup.", "url": "https://tooltrio.com/commodities/natural-gas-calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}, "isAccessibleForFree": true, "inLanguage": "en-US", "author": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}, "publisher": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}}
+
 export default function Page() {
-  return <Client />
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
+      <Client />
+    </>
+  )
 }

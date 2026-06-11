@@ -37,6 +37,16 @@ export const metadata: Metadata = {
   },
 }
 
+
+const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tooltrio.com"}, {"@type": "ListItem", "position": 2, "name": "Commodities", "item": "https://tooltrio.com/commodities"}, {"@type": "ListItem", "position": 3, "name": "Crude Oil Calculator \u2013 WTI Price per Barrel & Gallon", "item": "https://tooltrio.com/commodities/crude-oil-calculator"}]}
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Crude Oil Calculator \u2013 WTI Price per Barrel & Gallon", "description": "Calculate WTI crude oil cost per barrel, gallon, litre, and metric ton at live spot prices. US benchmark oil price calculator. Free, no signup.", "url": "https://tooltrio.com/commodities/crude-oil-calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}, "isAccessibleForFree": true, "inLanguage": "en-US", "author": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}, "publisher": {"@type": "Organization", "name": "ToolTrio", "url": "https://tooltrio.com"}}
+
 export default function Page() {
-  return <Client />
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
+      <Client />
+    </>
+  )
 }

@@ -8,7 +8,10 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   )
 })
 
-export const metadata: Metadata = generateCalculatorMetadata({
+// This page has a permanent 301 redirect to /calculators/health/pregnancy-calculator
+// Marking noindex prevents duplicate content penalty if crawled before redirect fires
+export const metadata: Metadata = {
+  ...generateCalculatorMetadata({
   title: 'Pregnancy Due Date Calculator 2026 | ToolTrio',
   description: 'Free Pregnancy Due Date Calculator 2026. Calculate your accurate pregnancy due date using Naegele\'s Rule and Mittendorf-Williams standards. Includes trimester timeline and weekly milestones.',
   slug: 'pregnancy-due-date-calculator',
@@ -24,7 +27,10 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'due date from ultrasound calculator',
     'naegele rule due date',
   ],
-})
+  }),
+  // Noindex: this URL has a permanent redirect to /calculators/health/pregnancy-calculator
+  robots: { index: false, follow: false },
+}
 
 const relatedCalculators = [
 

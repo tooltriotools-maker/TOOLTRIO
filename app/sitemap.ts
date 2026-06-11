@@ -93,7 +93,8 @@ const healthCalcs = [
   'meditation-benefits-calculator', 'menopause-symptom-calculator', 'menstrual-cycle-calculator', 'mental-health-score-calculator', 'mold-exposure-calculator',
   'muscle-gain-calculator', 'nicotine-withdrawal-calculator', 'omega3-calculator', 'one-rep-max-calculator', 'ovulation-calculator',
   'pace-calculator', 'plank-time-calculator', 'posture-calculator', 'pregnancy-calculator', 'pregnancy-conception-calculator',
-  'pregnancy-due-date-calculator', 'pregnancy-nutrition-calculator', 'pregnancy-weight-gain-calculator', 'protein-intake-calculator', 'protein-per-meal-calculator',
+  // 'pregnancy-due-date-calculator' — REMOVED: permanent 301 redirect to pregnancy-calculator (never include redirected URLs in sitemap)
+  'pregnancy-nutrition-calculator', 'pregnancy-weight-gain-calculator', 'protein-intake-calculator', 'protein-per-meal-calculator',
   'pull-up-calculator', 'pushup-calculator', 'resting-metabolic-rate-calculator', 'running-pace-calculator', 'sauna-benefits-calculator',
   'shift-work-health-calculator', 'sit-and-reach-calculator', 'skin-health-calculator', 'sleep-cycle-calculator', 'sleep-need-calculator',
   'sodium-intake-calculator', 'sprint-calculator', 'squat-calculator', 'standing-desk-calculator', 'steps-calculator', 'steps-to-calories-calculator',

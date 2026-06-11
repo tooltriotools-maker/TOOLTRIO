@@ -1,0 +1,10 @@
+# TypeScript incremental build cache — not needed for Vercel builds
+tsconfig.tsbuildinfo
+
+# Local dev scripts
+DEV_MODE.bat
+START_HERE.bat
+SETUP.md
+README_SETUP.md
+README_START_HERE.txt
+start.sh
