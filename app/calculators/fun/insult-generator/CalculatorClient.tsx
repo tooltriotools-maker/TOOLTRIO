@@ -1,27 +1,114 @@
 'use client'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
-import { ChevronRight, RefreshCw, Copy, Check } from 'lucide-react'
+import {  RefreshCw, Copy, Check } from 'lucide-react'
 
 interface Props { faqs: { question: string; answer: string }[] }
+const CHARACTER = [
+  'artless','bawdy','beslubbering','bootless','churlish',
+  'clouted','craven','currish','dankish','dissembling',
+  'droning','errant','fawning','fobbing','frothy',
+  'gleeking','goatish','gorbellied','impertinent','jarring',
+  'loggerheaded','lumpish','mammering','mangled','paunchy',
+  'pribbling','puking','puny','qualling','rank',
+  'reeky','roguish','ruttish','saucy','spleeny',
+  'spongy','surly','tottering','unmuzzled','vain',
+  'venomed','villainous','warped','wayward','weedy',
+  'yeasty','witless','brainless','miserly','cantankerous'
+]
 
-const ADJ1 = ['lily-livered','codfish','pernicious','bootless','churlish','impertinent','lumpish','fusty','loggerheaded','dankish']
-const ADJ2 = ['idle-headed','beef-witted','elf-skinned','dog-hearted','earth-vexing','fly-bitten','onion-eyed','milk-livered','beetle-headed','motley-minded']
-const NOUNS = ['canker-blossom!','foot-licker!','malt-worm!','flap-mouthed clod!','pigeon-egg!','moldwarp!','hedge-pig!','mumble-news!','skainsmate!','puttock!']
+const PHYSICAL = [
+  'beef-witted','beetle-headed','boil-brained','clay-brained',
+  'crook-pated','dog-hearted','earth-vexing','elf-skinned',
+  'fat-kidneyed','fen-sucked','fly-bitten','fool-born',
+  'full-gorged','goose-witted','guts-griping','half-faced',
+  'hedge-born','horn-mad','idle-headed','ill-breeding',
+  'knotty-pated','long-tongued','maggot-pated','milk-livered',
+  'motley-minded','muddy-mettled','onion-eyed','pickle-herring',
+  'pigeon-livered','plume-plucked','rough-hewn','rump-fed',
+  'sheep-biting','spur-galled','swag-bellied','tardy-gaited',
+  'threadbare','tickle-brained','toad-spotted','weather-bitten',
+  'worm-eaten','crooked-nosed','flea-bitten','foggy-minded',
+  'addle-headed','bat-eared','crow-footed','stoop-shouldered',
+  'wart-faced','snail-brained'
+]
 
+const NOUNS = [
+  'canker-blossom','foot-licker','malt-worm','moldwarp',
+  'hedge-pig','mumble-news','skainsmate','puttock',
+  'knave','miscreant','varlot','wag-tail',
+  'harpy','whey-face','vassal','flap-dragon',
+  'giglet','minnow','pumpion','nut-hook',
+  'codpiece','apple-john','barnacle','bladder',
+  'boar-pig','clack-dish','coxcomb','dewberry',
+  'fustilarian','lewdster','lout','maggot',
+  'muck-spout','nightsoil','pignut','rascal',
+  'scullion','toad','villain','weasel',
+  'worm','jackanapes','mooncalf','addlepate',
+  'dunghill','turnip-brain','mudlark','ragamuffin',
+  'hedge-creeper','tavern-rat'
+]
+
+const ENDINGS = [
+  'forsooth!',
+  'and be gone!',
+  'by my troth!',
+  'thou vexest all creation!',
+  'the crows laugh at thee!',
+  'thy wit hath abandoned thee!',
+  'thy shadow is ashamed of thee!',
+  'even the goats mock thee!',
+  'thou art the jest of every tavern!',
+  'thy face frightens daylight!',
+  'fortune rejecteth thee!',
+  'thy brain is fit only for pudding!',
+  'thou hast mastered nonsense!',
+  'thy logic limps on a broken crutch!',
+  'thou bewilderest simpletons!',
+  'thy judgment is forever suspect!',
+  'thou art a calamity in human form!',
+  'thy destiny is to be ignored!',
+  'thy arrogance exceedeth thy abilities!',
+  'thou art a cautionary tale!',
+  'thy foolishness knoweth no bounds!',
+  'all who hear thee sigh in despair!',
+  'the dogs refuse thy company!',
+  'thy reputation precedeth thee!',
+  'thou art as welcome as rain at harvest!',
+  'thy company burdeneth the cheerful!',
+  'the village fool surpasseth thee!',
+  'thou offendest mine eyes!',
+  'thy words carry neither weight nor meaning!',
+  'away with thee!'
+]
 export default function CalculatorClient({ faqs }: Props) {
   const [insult, setInsult] = useState('')
   const [copied, setCopied] = useState(false)
 
-  const rand = <T,>(arr: T[]) => arr[Math.floor(Math.random()*arr.length)]
-  const generate = () => setInsult(`Thou ${rand(ADJ1)}, ${rand(ADJ2)} ${rand(NOUNS)}`)
+const rand = <T,>(arr: T[]) =>
+  arr[Math.floor(Math.random() * arr.length)];
+
+const generated = useRef(new Set<string>());
+
+
+const generate = () => {
+  let result = '';
+
+  do {
+    result = `Thou ${rand(CHARACTER)}, ${rand(CHARACTER)}, ${rand(PHYSICAL)}, ${rand(PHYSICAL)} ${rand(NOUNS)}, ${rand(ENDINGS)}`;
+  } while (generated.current.has(result));
+
+ generated.current.add(result);
+  setInsult(result);
+};
+
   const copy = () => { navigator.clipboard.writeText(insult); setCopied(true); setTimeout(()=>setCopied(false),1500) }
 
       return (
     <DevToolLayout
-      title="Shakespearean Insult Generator"
+     title="Shakespeare Insult Generator"
       icon="🎭"
       description="Generate gloriously old-fashioned insults straight from the Bard himself!"
       category="Fun"
@@ -62,14 +149,14 @@ export default function CalculatorClient({ faqs }: Props) {
 
         {/* What It Does */}
         <section>
-          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Sometimes you want to express displeasure but the word you're reaching for is either too mild or too crude. Enter the Shakespearean insult -- an art form that communicates genuine contempt through baroque, poetic language that sounds more impressive than it is venomous. This generator produces multi-layered insults built from Elizabethan English vocabulary -- the kind of thing you can say in polite company because most people won't know what you're calling them. A good companion piece to the <Link href="/calculators/fun/compliment-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Compliment Generator</Link> for people who like to cover all emotional registers.</p>
+          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Shakespeare Insult Generator Do?</h2>
+          <p className="text-gray-600 leading-relaxed">This Shakespeare insult generator creates funny Shakespearean insults, Elizabethan roasts, and old English comebacks inspired by the language of William Shakespeare. <Link href="/calculators/fun/compliment-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Compliment Generator</Link> for people who like to cover all emotional registers.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">The generator combines an article, an adjective, a body-or-character-related insult noun, and optionally a dramatic closing phrase. The vocabulary pulls from documented Shakespearean and early modern English insults -- words that appeared in actual plays. The combinations are random but filtered to avoid truly offensive modern connotations, keeping the output theatrical rather than genuinely harmful. The more times you generate, the weirder and funnier the combinations get.</p>
+          <p className="text-gray-700 leading-relaxed">The generator combines Shakespearean character traits, physical descriptors, classic Elizabethan nouns, and dramatic closing phrases to create authentic Shakespeare-style insults. With more than 468 million possible combinations, users can generate unique Shakespearean insults for years without exhausting the available results. Many of the words are inspired by real Shakespeare plays and Elizabethan vocabulary.</p>
         </section>
 
         {/* Fun Fact */}
@@ -99,6 +186,25 @@ export default function CalculatorClient({ faqs }: Props) {
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
           <p className="text-gray-600 text-sm leading-relaxed">The insult "you blocks, you stones, you worse than senseless things" (Julius Caesar, Act 1) was used by Shakespeare to address a crowd of Roman commoners, making it technically a group insult rated for crowds of two or more. Useful to know.</p>
         </section>
+
+<section>
+  <h2 className="text-xl font-black text-gray-900 mb-4">
+    Example Shakespearean Insults
+  </h2>
+
+  <p className="text-gray-600 mb-4">
+    Here are some examples generated by the Shakespeare Insult Generator:
+  </p>
+
+  <ul className="space-y-3 text-gray-700 italic">
+    <li>• Thou goatish, mangled, fen-sucked, toad-spotted skainsmate, away with thee!</li>
+    <li>• Thou loggerheaded, weedy, onion-eyed moldwarp, by my troth!</li>
+    <li>• Thou villainous, spleeny, dog-hearted tavern-rat, thou vexest all creation!</li>
+    <li>• Thou artless, rank, flea-bitten hedge-pig, the crows laugh at thee!</li>
+    <li>• Thou roguish, wayward, crook-pated jackanapes, and be gone!</li>
+  </ul>
+</section>
+
 
         {/* FAQs */}
         <section>
@@ -153,10 +259,17 @@ export default function CalculatorClient({ faqs }: Props) {
       <SEOContent
         title=""
         category="fun"
-        intro={`The art of the Shakespearean insult is a lost cultural treasure. When the Bard wrote 'Thou art as loathsome as a toad,' he was participating in a tradition of elaborate, creative verbal sparring that has been replaced by the one-word vulgarity. This generator celebrates the creativity of insults that require genuine linguistic effort — the kind that would land in a 16th century tavern debate rather than a Twitter comment section.
+        intro={`
+         # Shakespeare Insult Generator
 
-**Long-tail searches answered here:** shakespearean insult generator free online usa, funny fake insult generator free tool, creative insult maker no signup free, shakespeare insult creator free online usa, theatrical insult generator for fun free, old english insult generator free tool, elizabethan era insult vocabulary generator free, shakespeare play insult reference generator usa free, victorian era proper insult generator free online, pirate insult generator for costume event free usa, medieval court insult creator free tool online, how shakespeare constructed insults guide free usa, funny mock debate insult generator free online, comeback generator for argument practice free usa, dramatic villain monologue insult creator free`}
-        howItWorks={`The generator combines three-part Shakespearean insult construction: an adjective of character (villainous, lily-livered, tickle-brained), a noun modifier (canker-blossom, hedge-pig, flap-dragon), and a base insult (knave, lout, miscreant). The combinations produce technically correct Shakespearean-style invective.`}
+This free Shakespeare insult generator creates funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks inspired by the language of William Shakespeare.
+
+Unlike most Shakespeare insult generators online, this tool can generate over 468 million unique Shakespearean insult combinations, making repeated results extremely rare.
+
+Whether you need a Shakespeare roast for a party, a funny Elizabethan comeback, a classroom activity, a creative writing prompt, or simply want to explore Shakespearean language, this Shakespearean insult generator provides endless entertainment.
+
+`}
+        howItWorks={`The generator combines Shakespearean adjectives, character traits, physical descriptors, classic Elizabethan nouns, and dramatic endings to create authentic Shakespeare-style insults. With more than 468 million possible combinations, users can generate unique Shakespearean insults for years without exhausting the available results. Many of the words are inspired by real Shakespeare plays and Elizabethan vocabulary.`}
         tipsSection={`These are purely for entertainment and theatrical fun — NOT for actual use against real people. The Shakespearean insult is best deployed in jest with willing participants who appreciate the form. It's the verbal equivalent of a foam sword fight.`}
         conclusion={`Creativity in language — even antagonistic language — is a form of wit. Shakespeare's insults have survived 400 years precisely because they're inventive rather than merely vulgar. Enjoy them in the spirit of linguistic playfulness they represent.`}
         benefits={[

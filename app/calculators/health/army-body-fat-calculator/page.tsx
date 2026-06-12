@@ -9,16 +9,30 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'US Army Body Fat Calculator 2026 | ToolTrio',
-  description: 'Free Army Body Fat Calculator 2026 — Calculate body fat percentage using Navy, BMI, and skinfold methods. Healthy ranges for men and women by age. More.',
+  title: 'Army Body Fat Calculator (AR 600-9 Tape Test) | Army Standards 2026',
+  description:
+    'Calculate Army body fat percentage using the official AR 600-9 tape test. Check Army body fat standards by age and gender. Instant Army pass/fail results.',
   slug: 'army-body-fat-calculator',
   category: 'health',
   region: 'usa',
   keywords: [
+    'army body fat calculator',
+    'army tape test calculator',
+    'ar 600-9 calculator',
+    'army body fat standards',
+    'army body fat chart',
+    'army body composition calculator',
+    'army body fat percentage calculator',
+    'army tape test standards',
+    'army body composition program',
+    'army height and weight calculator',
+    'army body fat calculator male',
+    'army body fat calculator female',
+
     'army body fat calculator 2026',
     'free army body fat calculator',
     'army body fat calculator usa 2026',
-    'army body fat calculator free 2026',
+
     'army body fat calculator tape method',
     'us army body composition standards',
     'army body fat percentage chart by age',
@@ -40,6 +54,22 @@ const relatedCalculators = [
 ]
 
 const faqs = [
+  {
+  question: 'What is the maximum Army body fat percentage allowed?',
+  answer: 'Army body fat standards vary by age and gender. Men are generally limited to 20–26% body fat while women are limited to 30–36% body fat depending on age group.'
+},
+{
+  question: 'How do I pass the Army tape test?',
+  answer: 'Accurate measurements, reducing waist circumference, maintaining muscle mass, and following Army Regulation 600-9 guidelines can improve tape test results.'
+},
+{
+  question: 'What is the Army Body Composition Program (ABCP)?',
+  answer: 'The Army Body Composition Program is a structured program for soldiers who exceed Army body fat standards. Participants receive counseling, fitness support, and monitoring until standards are met.'
+},
+{
+  question: 'Is the Army tape test the same as BMI?',
+  answer: 'No. BMI uses only height and weight. The Army tape test uses neck, waist, and hip measurements to estimate body fat percentage.'
+},
   {question:'What are the US Army body fat standards for 2024?',answer:'Under Army Regulation 600-9, Army body fat standards vary by age and sex. For males: age 17-20: 20%; age 21-27: 22%; age 28-39: 24%; age 40+: 26%. For females: age 17-20: 30%; age 21-27: 32%; age 28-39: 34%; age 40+: 36%. Soldiers who exceed the weight screening table entry points are flagged for tape testing — a three-site circumference measurement. Soldiers exceeding body fat standards are enrolled in the Army Body Composition Program (ABCP).',},
   {question:'How does the Army circumference tape method work?',answer:'The Army tape method uses circumference measurements to estimate body fat percentage. For men: measure neck at the Adam\'s apple (slight downward slope) and waist at the navel. For women: measure neck, waist at natural waist (smallest point), and hips at maximum protrusion. Measurements are taken in inches to the nearest 0.5 inch, with three measurements averaged. The Army uses a standardized lookup table (not a formula directly) that converts these circumferences to a body fat estimate. Two trained personnel should take measurements and all must agree within 0.5 inches.',},
   {question:'Is the Army tape test accurate?',answer:'The Army circumference method has a standard error of approximately 3-4% body fat compared to DEXA scans — similar accuracy to 3-site skinfold calipers. It tends to overestimate body fat in mesomorphic (muscular, thick-necked) soldiers and underestimate in certain body shapes. Some soldiers pass the tape test despite poor fitness, while others fail despite excellent cardiovascular fitness. The Army has been evaluating alternative body composition assessment methods including DEXA and 3D body scanning as more accurate alternatives to the tape method.',},

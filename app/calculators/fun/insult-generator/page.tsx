@@ -9,23 +9,62 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Shakespearean Insult Generator | ToolTrio',
-  description: 'Generate dramatic Shakespearean insults, old English roasts, and creative put-downs. Funny, theatrical, and totally harmless. Free online insult.',
+  title: 'Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio',
+  description:
+    'Free Shakespeare Insult Generator. Create funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks instantly. Generate over 468 million unique Shakespeare-style insults.',
+
   slug: 'insult-generator',
+
   keywords: [
-    'Shakespearean insult generator',
-    'Shakespeare insult generator free',
-    'random insult generator',
-    'old English insult generator',
-    'funny insult generator online',
+    'shakespeare insult generator',
+    'shakespearean insult generator',
+    'shakespeare roast generator',
+    'shakespearean roast generator',
+    'shakespeare insults',
+    'shakespearean insults',
+    'random shakespeare insult',
+    'funny shakespeare insults',
+    'shakespeare comeback generator',
+    'shakespearean comeback generator',
+    'old english insult generator',
+    'old english roast generator',
+    'elizabethan insult generator',
+    'elizabethan roast generator',
+    'william shakespeare insults',
+    'bard insult generator',
     'creative roast generator',
     'witty insult generator',
-    'shakespearean roast generator',
-    'tooltrio.com',
-  ],
+    'funny insult generator',
+    'roast generator',
+    'tooltrio'
+  ]
 })
-
 const faqs = [
+  {
+  question: 'Why is this Shakespeare insult generator different?',
+  answer: 'Unlike many Shakespeare insult generators that recycle a small set of phrases, this tool can generate more than 468 million unique Shakespeare-style insults using multiple adjective, noun, and ending combinations.'
+},
+{
+  question: 'What is a Shakespeare insult generator?',
+  answer: 'A Shakespeare insult generator creates funny Shakespearean insults inspired by the language, vocabulary, and theatrical style used by William Shakespeare.'
+},
+{
+  question: 'How many insults can this generator create?',
+  answer: 'This tool can generate more than 468 million unique Shakespearean insult combinations, making repeated results extremely rare.'
+},
+{
+  question: 'What is an Elizabethan insult?',
+  answer: 'An Elizabethan insult is a humorous or dramatic insult written in the style of the Elizabethan era, the period when William Shakespeare lived and wrote.'
+},
+{
+  question: 'Can I use these Shakespeare roasts for free?',
+  answer: 'Yes. You can generate unlimited Shakespearean roasts and insults completely free without creating an account.'
+},
+{
+  question: 'Are these real Shakespeare insults?',
+  answer: 'Many of the words come directly from Shakespeare\'s plays, while the generator combines them into new Shakespeare-style insults.'
+},
+
   {
     question: 'What makes Shakespearean insults so satisfying?',
     answer: 'The theatrical language makes them feel dramatic without being genuinely cruel. Calling someone "a villainous, clay-brained moldwarp" hits differently than a modern insult — it is absurd enough that both parties know it is playful. Shakespeare\'s actual insults from plays like King Lear and A Midsummer Night\'s Dream were shockingly creative, and this generator draws on that tradition.'
@@ -58,6 +97,7 @@ const faqs = [
     question: 'Can I share my insult on social media?',
     answer: 'Yes — each result has a copy button and share options. Posting a dramatic Shakespearean insult to a friend\'s timeline tends to get strong engagement because it is so unexpected. "Thou art a boil, a plague sore" reads very differently than a modern put-down, and people stop scrolling to read it twice.'
   },
+  
 ]
 
 export default function Page() { return <CalculatorClient faqs={faqs} /> }
