@@ -37,7 +37,11 @@ const rc = [
  { name: 'Income Tax India', href: '/calculators/finance/income-tax-calculator', icon: '📋', desc: 'Tax calculator' },
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) } return <>
+  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  return (
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
-      <CalculatorClient faqs={faqs} blogSlug="nsc-vs-ppf-government-savings-india-2026" structuredData={[generateFAQStructuredData(faqs
-    </>)]} relatedCalculators={rc} /> }
+      <CalculatorClient faqs={faqs} blogSlug="nsc-vs-ppf-government-savings-india-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={rc} />
+    </>
+  )
+}
