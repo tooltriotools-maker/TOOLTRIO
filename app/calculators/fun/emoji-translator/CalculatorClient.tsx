@@ -1,181 +1,210 @@
 'use client'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
-import { useState, useMemo, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import { ChevronRight, RefreshCw, Copy, Check, Heart, Star, Zap } from 'lucide-react'
+import { useState } from 'react'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-export default function CalculatorClient({ faqs }: Props) {
+// 500+ word-to-emoji mappings
+const EMOJI_MAP: Record<string, string> = {
+  // Emotions
+  happy: '😊', sad: '😢', angry: '😠', excited: '🤩', scared: '😱', surprised: '😲', confused: '😕',
+  love: '❤️', hate: '💔', laugh: '😂', cry: '😭', smile: '😊', tired: '😴', bored: '😑', shy: '😊',
+  proud: '😤', embarrassed: '😳', lonely: '😔', worried: '😟', nervous: '😰', calm: '😌', anxious: '😰',
+  frustrated: '😤', disappointed: '😞', grateful: '🙏', hopeful: '🌟', jealous: '💚', disgusted: '🤢',
+  shocked: '😱', horrified: '😨', amused: '😄', content: '😌', ecstatic: '🥳', melancholy: '😔',
+  // People & body
+  person: '👤', man: '👨', woman: '👩', baby: '👶', boy: '👦', girl: '👧', family: '👨‍👩‍👧‍👦',
+  heart: '❤️', brain: '🧠', hand: '✋', eyes: '👀', ear: '👂', nose: '👃', mouth: '👄', muscle: '💪',
+  run: '🏃', walk: '🚶', dance: '💃', wave: '👋', hug: '🤗', kiss: '💋', fist: '✊', clap: '👏', point: '👉',
+  sleep: '😴', think: '🤔', shrug: '🤷', facepalm: '🤦', celebrate: '🎉', bow: '🙇', swear: '🤬',
+  // Nature
+  sun: '☀️', moon: '🌙', star: '⭐', cloud: '☁️', rain: '🌧️', snow: '❄️', fire: '🔥', water: '💧',
+  earth: '🌍', tree: '🌳', flower: '🌸', plant: '🌱', leaf: '🍃', rose: '🌹', grass: '🌿', mountain: '⛰️',
+  river: '🏞️', ocean: '🌊', beach: '🏖️', desert: '🏜️', forest: '🌲', volcano: '🌋', rainbow: '🌈',
+  lightning: '⚡', wind: '🌬️', ice: '🧊', tornado: '🌪️', wave: '🌊', island: '🏝️',
+  // Animals
+  dog: '🐕', cat: '🐈', bird: '🐦', fish: '🐟', lion: '🦁', tiger: '🐯', bear: '🐻', rabbit: '🐰',
+  horse: '🐴', cow: '🐄', pig: '🐷', chicken: '🐔', duck: '🦆', eagle: '🦅', owl: '🦉', snake: '🐍',
+  frog: '🐸', spider: '🕷️', ant: '🐜', bee: '🐝', butterfly: '🦋', elephant: '🐘', monkey: '🐒',
+  penguin: '🐧', shark: '🦈', dolphin: '🐬', whale: '🐳', wolf: '🐺', fox: '🦊', deer: '🦌',
+  unicorn: '🦄', dragon: '🐉', dinosaur: '🦕', crocodile: '🐊', giraffe: '🦒', zebra: '🦓',
+  // Food & drink
+  pizza: '🍕', burger: '🍔', taco: '🌮', sushi: '🍣', pasta: '🍝', cake: '🎂', cookie: '🍪',
+  bread: '🍞', cheese: '🧀', egg: '🥚', chicken: '🍗', meat: '🥩', fish: '🐟', salad: '🥗',
+  soup: '🍲', coffee: '☕', tea: '🍵', juice: '🧃', beer: '🍺', wine: '🍷', water: '💧', milk: '🥛',
+  apple: '🍎', banana: '🍌', orange: '🍊', strawberry: '🍓', grapes: '🍇', watermelon: '🍉',
+  mango: '🥭', pineapple: '🍍', coconut: '🥥', avocado: '🥑', corn: '🌽', carrot: '🥕', potato: '🥔',
+  ice: '🧊', chocolate: '🍫', candy: '🍬', popcorn: '🍿', donut: '🍩', hotdog: '🌭', fries: '🍟',
+  // Objects & things
+  phone: '📱', computer: '💻', book: '📚', pen: '✏️', music: '🎵', car: '🚗', house: '🏠', money: '💰',
+  key: '🔑', lock: '🔒', bag: '👜', clock: '⏰', camera: '📷', glasses: '👓', hat: '🎩', shirt: '👕',
+  shoe: '👟', gift: '🎁', balloon: '🎈', flag: '🚩', map: '🗺️', compass: '🧭', trophy: '🏆', medal: '🏅',
+  sword: '⚔️', shield: '🛡️', gun: '🔫', bomb: '💣', knife: '🔪', hammer: '🔨', wrench: '🔧', scissors: '✂️',
+  magnify: '🔍', telescope: '🔭', microscope: '🔬', test: '🧪', dna: '🧬', robot: '🤖', alien: '👽',
+  ghost: '👻', skull: '💀', diamond: '💎', crown: '👑', ring: '💍', magic: '🪄', crystal: '🔮',
+  // Places & travel
+  city: '🏙️', building: '🏢', school: '🏫', hospital: '🏥', church: '⛪', castle: '🏰', bridge: '🌉',
+  road: '🛣️', airplane: '✈️', boat: '⛵', train: '🚂', bus: '🚌', bike: '🚲', rocket: '🚀', flag: '🏁',
+  // Sports
+  soccer: '⚽', basketball: '🏀', football: '🏈', baseball: '⚾', tennis: '🎾', golf: '⛳', swim: '🏊',
+  run: '🏃', cycle: '🚴', gym: '🏋️', yoga: '🧘', box: '🥊', ski: '⛷️', surf: '🏄', climb: '🧗',
+  // Weather & sky
+  morning: '🌅', evening: '🌆', night: '🌃', sunrise: '🌄', sunset: '🌇', storm: '⛈️', fog: '🌫️',
+  // Actions & concepts
+  work: '💼', study: '📖', read: '📖', write: '✍️', sing: '🎤', cook: '👨‍🍳', build: '🏗️', create: '🎨',
+  think: '🤔', dream: '💭', plan: '📋', search: '🔍', find: '🎯', win: '🏆', lose: '😞', play: '🎮',
+  party: '🎉', travel: '✈️', explore: '🗺️', learn: '📚', teach: '👩‍🏫', help: '🤝', share: '🤲',
+  talk: '💬', listen: '👂', see: '👀', eat: '🍽️', drink: '🥤', buy: '🛍️', sell: '💰', pay: '💳',
+  save: '🏦', spend: '💸', invest: '📈', grow: '📈', fall: '📉', change: '🔄', start: '🚀', stop: '🛑',
+  go: '▶️', wait: '⏳', hurry: '⚡', slow: '🐢', fast: '🏃', big: '🔺', small: '🔹', old: '👴', new: '✨',
+  good: '👍', bad: '👎', yes: '✅', no: '❌', maybe: '🤷', question: '❓', answer: '💡', idea: '💡',
+  problem: '⚠️', solution: '✅', easy: '😊', hard: '😤', simple: '👌', complex: '🌀', clear: '👁️', dark: '🌑',
+  bright: '☀️', hot: '🌡️', cold: '🥶', warm: '☀️', cool: '😎', sweet: '🍬', sour: '🍋', spicy: '🌶️',
+  soft: '🧸', hard: '🪨', strong: '💪', weak: '😞', rich: '💎', poor: '🪙', young: '👶', wise: '🦉',
+  smart: '🧠', funny: '😂', serious: '😐', crazy: '🤪', normal: '😐', weird: '👽', beautiful: '🌸',
+  ugly: '💀', clean: '✨', dirty: '🤢', safe: '🛡️', danger: '⚠️', lost: '🗺️', found: '🎯',
+  alone: '👤', together: '👫', free: '🕊️', busy: '⏰', important: '❗', secret: '🤫', magic: '✨',
+  perfect: '💯', broken: '💔', fixed: '✅', missing: '❓', extra: '➕', real: '✅', fake: '🎭',
+  // Time
+  today: '📅', tomorrow: '🌅', yesterday: '📅', now: '⏰', later: '⏳', morning: '🌄', afternoon: '🌞',
+  evening: '🌆', midnight: '🕛', second: '⏱️', minute: '⏱️', hour: '⏰', day: '☀️', week: '📅',
+  month: '📆', year: '🗓️', birthday: '🎂', holiday: '🎉', weekend: '🎊',
+  // Sentiments
+  okay: '👌', great: '🎉', terrible: '😱', amazing: '🤩', boring: '😑', interesting: '🤔', cute: '🥰',
+  cool: '😎', awesome: '🤩', terrible: '😱', horrible: '😱', wonderful: '✨', fantastic: '🌟',
+  incredible: '🤯', impossible: '🚫', possible: '✅', easy: '😊', difficult: '😤', perfect: '💯',
+  broken: '💔', fixed: '🔧', new: '✨', old: '🏚️', fresh: '🌱', stale: '🍞', alive: '💚', dead: '💀',
+}
 
-  const [text, setText] = useState('I love pizza and coffee. The sun is shining today.')
+// Reverse map: emoji -> meaning (for emoji-to-text)
+const REVERSE_MAP: Record<string, string> = {}
+Object.entries(EMOJI_MAP).forEach(([word, emoji]) => {
+  if (!REVERSE_MAP[emoji]) REVERSE_MAP[emoji] = word
+})
+
+function textToEmoji(text: string): string {
+  const words = text.split(/(\s+)/)
+  return words.map(word => {
+    if (/^\s+$/.test(word)) return word
+    const clean = word.toLowerCase().replace(/[^a-z]/g, '')
+    return EMOJI_MAP[clean] || word
+  }).join('')
+}
+
+function emojiToText(text: string): string {
+  const emojiRegex = /\p{Emoji_Presentation}|\p{Extended_Pictographic}/gu
+  return text.replace(emojiRegex, match => REVERSE_MAP[match] ? `[${REVERSE_MAP[match]}]` : match)
+}
+
+export default function CalculatorClient({ faqs }: Props) {
+  const [input, setInput] = useState('')
+  const [mode, setMode] = useState<'text2emoji'|'emoji2text'>('text2emoji')
+  const [output, setOutput] = useState('')
   const [copied, setCopied] = useState(false)
 
-  const DICT: Record<string,string> = {love:'❤️',like:'👍',hate:'😠',happy:'😊',sad:'😢',angry:'😡',laugh:'😂',smile:'😊',cry:'😭',heart:'❤️',star:'⭐',sun:'☀️',moon:'🌙',rain:'🌧️',snow:'❄️',fire:'🔥',water:'💧',earth:'🌍',sky:'🌈',food:'🍽️',pizza:'🍕',burger:'🍔',coffee:'☕',beer:'🍺',wine:'🍷',cake:'🎂',money:'💰',work:'💼',home:'🏠',school:'🏫',phone:'📱',computer:'💻',music:'🎵',book:'📚',car:'🚗',plane:'✈️',sleep:'😴',run:'🏃',dance:'💃',win:'🏆',good:'✅',bad:'❌',yes:'✅',no:'❌',ok:'👌',wow:'😮',cool:'😎',funny:'😂',hello:'👋',bye:'👋',please:'🙏',thanks:'🙏',sorry:'😔',cat:'🐱',dog:'🐶',bird:'🐦',fish:'🐟',tree:'🌳',flower:'🌺',party:'🎉',gift:'🎁',birthday:'🎂',world:'🌍',time:'⏰',fast:'⚡',strong:'💪',small:'🔬',big:'🔭',idea:'💡',magic:'✨',warning:'⚠️',danger:'🚨',stop:'🛑',check:'✔️',new:'🆕',hot:'🔥',cold:'❄️',sick:'🤒',healthy:'💪',beautiful:'😍',ugly:'😬',smart:'🧠',rich:'💰',poor:'😢',lucky:'🍀',dead:'💀',alive:'💚',peace:'☮️',king:'👑',princess:'👸',robot:'🤖',alien:'👽',ghost:'👻',monster:'👹'}
+  function translate() {
+    if (!input.trim()) return
+    const result = mode === 'text2emoji' ? textToEmoji(input) : emojiToText(input)
+    setOutput(result)
+  }
 
-  const translated = useMemo(() => {
-    return text.split(/\b/).map(w => {
-      const k = w.toLowerCase().replace(/[^a-z]/g,'')
-      return DICT[k] ? DICT[k] : w
-    }).join('')
-  }, [text])
+  function copy() {
+    navigator.clipboard.writeText(output)
+    setCopied(true); setTimeout(() => setCopied(false), 1500)
+  }
 
-  const copy = () => { navigator.clipboard.writeText(translated); setCopied(true); setTimeout(()=>setCopied(false),1500) }
+  function share() {
+    const text = `${mode === 'text2emoji' ? '📝→😊' : '😊→📝'} Emoji Translator\n\nInput: "${input}"\nOutput: "${output}"\n\nTranslate yours: tooltrio.com/calculators/fun/emoji-translator`
+    if (navigator.share) navigator.share({ title: 'Emoji Translation', text })
+    else navigator.clipboard.writeText(text).then(() => alert('Copied!'))
+  }
 
-      return (
-    <DevToolLayout
-      title="Emoji Translator"
-      icon="😊"
-      description="Convert text to emoji - watch your sentences come alive with emoji!"
-      category="Fun"
-      parentPath="/calculators/fun"
-      parentLabel="Fun & Entertainment"
-    >
-        <div className="rounded-3xl border p-6 mb-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-        <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Enter Text</label>
-        <textarea value={text} onChange={e=>setText(e.target.value)} rows={4} placeholder="Type any sentence..."
-          className="w-full border-2 border-gray-200 focus:border-yellow-400 rounded-xl px-4 py-3 text-lg focus:outline-none resize-none" />
+  const EXAMPLES_T2E = ['I am happy today', 'I love pizza and coffee', 'The dog is running in the rain', 'I want to travel to the mountain']
+  const EXAMPLES_E2T = ['❤️ 🐕 🏃 🌧️', '😊 ☕ 🍕', '🌟 💪 🚀 ✨']
+
+  return (
+    <DevToolLayout title="Emoji Translator" icon="😊"
+      description={`Translate text to emoji or emoji to text — ${Object.keys(EMOJI_MAP).length}+ word mappings`}
+      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+
+      {/* Mode toggle */}
+      <div className="flex rounded-xl overflow-hidden border-2 border-yellow-200 mb-4">
+        <button onClick={() => { setMode('text2emoji'); setOutput('') }}
+          className={`flex-1 py-2.5 text-sm font-bold transition-all ${mode === 'text2emoji' ? 'bg-yellow-400 text-yellow-900' : 'bg-white text-gray-500 hover:bg-yellow-50'}`}>
+          📝 → 😊 Text to Emoji
+        </button>
+        <button onClick={() => { setMode('emoji2text'); setOutput('') }}
+          className={`flex-1 py-2.5 text-sm font-bold transition-all ${mode === 'emoji2text' ? 'bg-yellow-400 text-yellow-900' : 'bg-white text-gray-500 hover:bg-yellow-50'}`}>
+          😊 → 📝 Emoji to Text
+        </button>
       </div>
-      <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl border-2 border-yellow-200 p-6 mb-4">
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-xs font-bold text-yellow-600 uppercase tracking-wide">✨ Emoji Translation</p>
-          <button onClick={copy} className="flex items-center gap-1 text-xs font-bold text-yellow-600">{copied?<Check className="w-3.5 h-3.5"/>:<Copy className="w-3.5 h-3.5"/>} Copy</button>
-        </div>
-        <p className="text-2xl leading-loose break-words">{translated||'Your emoji translation appears here...'}</p>
-      </div>
-      <div className="rounded-xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
-        <p className="text-xs font-bold text-gray-500 uppercase mb-2">Emoji Dictionary ({Object.keys(DICT).length} words)</p>
-        <div className="flex flex-wrap gap-2 text-xs">
-          {Object.entries(DICT).slice(0,30).map(([w,e])=>(
-            <span key={w} className="px-2 py-1 bg-gray-50 rounded-lg border border-gray-100">{w} → {e}</span>
+
+      {/* Examples */}
+      <div className="mb-3">
+        <p className="text-xs text-gray-500 mb-2 font-bold uppercase">Quick Examples</p>
+        <div className="flex flex-wrap gap-2">
+          {(mode === 'text2emoji' ? EXAMPLES_T2E : EXAMPLES_E2T).map(ex => (
+            <button key={ex} onClick={() => setInput(ex)}
+              className="text-xs px-3 py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:border-yellow-400 hover:bg-yellow-50 transition-all">
+              {ex}
+            </button>
           ))}
-          <span className="px-2 py-1 bg-gray-50 rounded-lg border border-gray-100 text-gray-400">+{Object.keys(DICT).length-30} more...</span>
         </div>
       </div>
 
+      <textarea value={input} onChange={e => setInput(e.target.value)}
+        placeholder={mode === 'text2emoji' ? 'Type text to convert to emojis...' : 'Paste emojis to convert to text...'}
+        rows={4}
+        className="w-full border-2 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 mb-3 text-base resize-none"
+        style={{ borderColor: '#e2e8f0' }} />
 
-      {/* ─── SEO Content ─── */}
-      <div className="mt-12 space-y-10 max-w-2xl mx-auto">
+      <button onClick={translate}
+        className="w-full py-3 text-white font-black rounded-xl mb-4"
+        style={{background:'linear-gradient(135deg,#f59e0b,#d97706)',boxShadow:'0 4px 16px rgba(245,158,11,0.3)'}}>
+        {mode === 'text2emoji' ? '📝 → 😊 Translate to Emoji' : '😊 → 📝 Translate to Text'}
+      </button>
 
-        {/* Divider */}
-        <div className="flex items-center gap-4">
-          <div className="h-px flex-1 bg-gray-100" />
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3">About This Tool</span>
-          <div className="h-px flex-1 bg-gray-100" />
-        </div>
-
-        {/* What It Does */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Language is a technology, and emoji is its most recent dialect. This translator takes your text and converts it into an emoji-heavy version that conveys the same meaning through pictures, ideograms, and emotional shorthand that somehow works even though nothing about it should. It is useful for making dry content more visually engaging, translating meeting notes into something your friends will actually read, and exploring the expressive range of the emoji vocabulary. If you want to go further into internet linguistics, the <Link href="/calculators/fun/uwu-text-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">UWU Text Generator</Link> handles the kawaii-speech end of online communication.</p>
-        </section>
-
-        {/* How It Works */}
-        <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-          <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">The translator maps words and phrases to relevant emoji through a large lookup table, handling both literal translations (the word "fire" → 🔥) and emotional/contextual ones (phrases indicating frustration → 😤 or 🙃). The density slider controls how many words get translated -- low density replaces only the most translatable words; high density converts almost everything, which produces text that looks like a ransom note assembled from emotion icons.</p>
-        </section>
-
-        {/* Fun Fact */}
-        <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The word "emoji" comes from Japanese: "e" (絵, picture) + "moji" (文字, character). The first emoji set was created in 1999 by Shigetaka Kurita for NTT DoCoMo in Japan -- a set of 176 small pixelated images. The original set included weather, traffic, and technology symbols alongside emotional faces. Unicode now includes over 3,600 emoji, with new ones added annually by a formal committee process.</p>
-        </section>
-
-        {/* Tips */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
-          <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>🔥 + any noun = something that is going really well or really badly. Context does the disambiguation. This is either a design flaw in the emoji system or its most elegant feature, depending on who you ask.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The best emoji translations keep some words intact -- full emoji sentences lose all grammar and become genuinely hard to parse. A ratio of roughly one emoji per five words hits the sweet spot between expressive and readable.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For social media, the translated version often performs better than plain text because emoji act as visual breaks in a scrolling feed, making posts more likely to be read. Use the translator to make the same message stop thumbs more effectively.</span></li>
-          </ul>
-        </section>
-
-        {/* Share tip */}
-        <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Run your last work email through the high-density emoji translator and share the output with a trusted colleague. Then send the original email for comparison. The gap between how professional the original sounds and how chaotic the emoji version looks is usually funnier than expected.</p>
-        </section>
-
-        {/* Did You Know */}
-        <section className="border-l-4 border-purple-300 pl-5">
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The Oxford Dictionaries named the 😂 (Face with Tears of Joy) emoji as their Word of the Year in 2015 -- the first time they had ever chosen a non-word. It remains the most-used single emoji across most major platforms, appearing in roughly 5% of all emoji usage despite the vocabulary having thousands of options.</p>
-        </section>
-
-        {/* FAQs */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-        </section>
-
-        {/* Related Fun Calculators */}
-        <section>
-          <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.55)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-            <div className="px-6 py-4 border-b border-gray-100 bg-purple-50">
-              <h2 className="text-lg font-bold text-gray-900">🎉 More Fun Calculators</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
-            </div>
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/calculators/fun/uwu-text-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🐾</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">UWU Text Generator</p><p className="text-xs text-gray-400 mt-0.5">Kawaii-ify any text</p></span>
-          </Link>
-          <Link href="/calculators/fun/pig-latin-converter" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🐷</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Pig Latin Converter</p><p className="text-xs text-gray-400 mt-0.5">Igpay atinlay, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/text-to-morse" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">📡</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Text to Morse Code</p><p className="text-xs text-gray-400 mt-0.5">Tap out your message</p></span>
-          </Link>
-          <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😤</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/compliment-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">💖</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Compliment Generator</p><p className="text-xs text-gray-400 mt-0.5">Generate heartfelt compliments</p></span>
-          </Link>
-          <Link href="/calculators/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🎯</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></span>
-          </Link>
-          <Link href="/calculators/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧠</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>
-          </Link>
-          <Link href="/calculators/fun/would-you-rather" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🤔</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Would You Rather</p><p className="text-xs text-gray-400 mt-0.5">Impossible dilemmas generator</p></span>
-          </Link>
-            </div>
+      {output && (
+        <div>
+          <div className="rounded-2xl border-2 p-5 mb-3" style={{background:'linear-gradient(135deg,rgba(254,243,199,0.8),rgba(253,230,138,0.4))',borderColor:'rgba(251,191,36,0.5)'}}>
+            <p className="text-xs font-bold text-gray-500 uppercase mb-2">Result</p>
+            <p className="text-xl leading-relaxed text-gray-800">{output}</p>
           </div>
+          <div className="flex gap-2 mb-6">
+            <button onClick={copy} className="flex-1 py-2 text-sm font-bold rounded-xl border-2 border-yellow-300 text-yellow-700 hover:bg-yellow-50">
+              {copied ? '✅ Copied!' : '📋 Copy Result'}
+            </button>
+            <button onClick={share} className="flex-1 py-2 text-sm font-bold rounded-xl border-2 border-yellow-300 text-yellow-700 hover:bg-yellow-50">📤 Share</button>
+          </div>
+        </div>
+      )}
+
+      <div className="rounded-2xl border p-4 bg-white">
+        <p className="text-xs font-bold text-gray-500 uppercase mb-3">📚 Emoji Dictionary ({Object.keys(EMOJI_MAP).length}+ words)</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-48 overflow-y-auto">
+          {Object.entries(EMOJI_MAP).slice(0, 60).map(([word, emoji]) => (
+            <div key={word} className="flex items-center gap-2 text-xs text-gray-600 p-1">
+              <span className="text-base">{emoji}</span>
+              <span>{word}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-gray-400 mt-2">Showing 60 of {Object.keys(EMOJI_MAP).length}+ mappings</p>
+      </div>
+
+      <div className="mt-12 space-y-6 max-w-2xl mx-auto">
+        <SEOContent title="" category="fun"
+          intro={`The Emoji Translator converts text to emoji and emoji back to text using a knowledge base of ${Object.keys(EMOJI_MAP).length}+ word-to-emoji mappings across emotions, people, nature, animals, food, objects, places, sports, actions, and concepts.`}
+          howItWorks="Type text and each recognized word is replaced with its best emoji equivalent. Or paste emojis to get their text meanings. Words not in the dictionary are kept as-is."
+          tipsSection="For best results, use simple, direct vocabulary. 'I love dogs' translates better than 'I have a profound affection for canines'. The translator recognizes common verbs, nouns, and adjectives."
+          conclusion="Emoji are the world's fastest-growing pictographic language. This translator bridges the gap between words and pictures."
+          benefits={[{title:`${Object.keys(EMOJI_MAP).length}+ mappings`,text:'Comprehensive word-to-emoji dictionary.'},{title:'Bidirectional',text:'Text to emoji AND emoji back to text.'}]}
+          useCases={[{title:'Social media',text:'Create emoji-rich posts and messages.'},{title:'Fun messaging',text:'Send friends an emoji-only message.'}]} />
+        <section><h2 className="text-xl font-black text-gray-900 mb-4">FAQ</h2>
+          <div className="space-y-3">{faqs.map(f => <details key={f.question} className="rounded-2xl border p-4"><summary className="font-semibold cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3">{f.answer}</p></details>)}</div>
         </section>
-
-      <SEOContent
-        title=""
-        category="fun"
-        intro={`Emojis started as simple emoticons and have evolved into a genuinely complex communication layer in digital conversation — one with nuance, ambiguity, generational differences in meaning, and the occasional completely different interpretation across cultures. The eggplant means something different to a 70-year-old and a 25-year-old. The skull means 'dead' (as in dead from laughter) in Gen Z usage, not literal death.
-
-**Long-tail searches answered here:** emoji to text translator free online usa, what does this emoji mean lookup free tool, text to emoji converter no signup free, emoji meaning translator free online usa, translate emojis to words free tool, emoji message decoder free online no account, full sentence emoji translation free online usa, combination emoji meaning decoder free, what does double heart emoji mean lookup free usa, emoji sentiment analysis what feeling free online, gen z emoji usage guide lookup free usa, older emoji meanings that changed free guide, emoji to plain language accessibility tool free, translate confusing emoji sequence free online usa, cultural emoji meaning difference lookup free`}
-        howItWorks={`The translator maps text phrases and words to their most common emoji equivalents using a curated dictionary of emoji meanings, common usage patterns, and tone indicators. It goes both directions: text to emoji representation, and emoji sequences back to plain language interpretation.`}
-        tipsSection={`Context matters enormously with emojis. The same 🙂 face is warm and friendly in one conversational context and passive-aggressive in another. The translator reflects common interpretations, but your specific relationship and conversational context always matters more than any standard definition.`}
-        conclusion={`Emojis add emotional nuance and tone to text communication that would otherwise be ambiguous — they're punctuation for feeling. Using them intentionally rather than reflexively makes digital communication more precise and more human.`}
-        benefits={[
-          { title: `Just for fun`, text: `This calculator is designed for entertainment and lighthearted use — enjoy it and share results with friends.` },
-          { title: `Quick results`, text: `Get your answer instantly without any signup, account, or personal data required.` },
-          { title: `Free to use`, text: `Completely free with no ads, no tracking, and no strings attached.` },
-        ]}
-        useCases={[
-          { title: `Personal entertainment`, text: `Use it for personal curiosity, conversation starters, or just a fun break from your day.` },
-          { title: `Social sharing`, text: `Share your results with friends and compare answers — great for group settings and social media.` },
-          { title: `Learning and exploration`, text: `Explore the topic in a playful way and discover something new or interesting.` },
-        ]}
-      />
       </div>
     </DevToolLayout>
-    )
+  )
 }

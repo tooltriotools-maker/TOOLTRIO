@@ -109,10 +109,10 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           Army Body Fat Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          A 180 lb male with a 34" waist and 15" neck has an estimated body fat of <strong>18%</strong> (Navy method) — within the "fitness" range of 14–17%. A woman with similar proportions would be at approximately 25%.
+          A male soldier who is 69 inches (5&apos;9&quot;) tall with a 34&quot; waist (measured at the navel) and a 15&quot; neck has an estimated body fat of approximately <strong>18%</strong> using the U.S. Army AR 600-9 circumference formula — placing him in the &quot;fitness&quot; range and within Army standards for ages 21–27 (22% limit).
         </p>
         <p className="text-sm text-gray-600">
-          This Army Body Fat 2026 gives a more accurate picture of health than BMI alone, distinguishing between fat mass and lean muscle mass.
+          All measurements follow Army Regulation 600-9 protocol: neck just below the larynx, waist at the navel for males. The AR 600-9 formula gives a more accurate picture of body composition than BMI alone, distinguishing fat mass from lean muscle mass.
         </p>
       </Card>
       <SEOContent {...seoContent} category="health" />

@@ -13,7 +13,7 @@ export const metadata: Metadata = generateFunToolMetadata({
   description:
     'Free Shakespeare Insult Generator. Create funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks instantly. Generate over 468 million unique Shakespeare-style insults.',
 
-  slug: 'insult-generator',
+  slug: 'shakespeare-insult-generator',
 
   keywords: [
     'shakespeare insult generator',

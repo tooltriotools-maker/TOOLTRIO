@@ -2,197 +2,127 @@
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, RefreshCw, Copy, Check } from 'lucide-react'
+import { generateUniqueName, generateNameMeaning, MALE_FIRSTS, FEMALE_FIRSTS, SURNAMES, NAME_PREFIX, NAME_MID, NAME_SUFFIX } from '@/lib/fun/nameData'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-const FIRST_M = ['James','Oliver','Noah','Liam','Ethan','Lucas','Mason','Logan','Henry','Owen','Aiden','Carter','Caleb','Dylan','Isaac']
-const FIRST_F = ['Emma','Olivia','Ava','Sophia','Isabella','Mia','Charlotte','Amelia','Harper','Evelyn','Abigail','Emily','Ella','Grace','Lily']
-const LAST = ['Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis','Martinez','Wilson','Anderson','Taylor','Thomas','Moore','Jackson','White','Harris','Martin','Thompson','Young']
+// Estimate unique combos
+const TOTAL_COMBOS = (MALE_FIRSTS.length + FEMALE_FIRSTS.length + NAME_PREFIX.length * NAME_MID.length * NAME_SUFFIX.length) * SURNAMES.length
 
 export default function CalculatorClient({ faqs }: Props) {
   const [gender, setGender] = useState<'male'|'female'|'any'>('any')
-  const [count, setCount] = useState(8)
-  const [names, setNames] = useState<string[]>([])
-  const [copied, setCopied] = useState<string|null>(null)
+  const [count, setCount] = useState(1)
+  const [names, setNames] = useState<Array<{first: string; last: string; meaning: string}>>([])
+  const [expandedIdx, setExpandedIdx] = useState<number|null>(null)
 
-  const rand = <T,>(a:T[])=>a[Math.floor(Math.random()*a.length)]
-  const generate = () => {
-    const firsts = gender==='male' ? FIRST_M : gender==='female' ? FIRST_F : [...FIRST_M,...FIRST_F]
-    setNames(Array.from({length:count}, ()=>`${rand(firsts)} ${rand(LAST)}`))
+  function generate() {
+    const generated = Array.from({length: count}, () => {
+      const n = generateUniqueName(gender)
+      return {...n, meaning: ''}
+    })
+    setNames(generated)
+    setExpandedIdx(null)
   }
-  const copy = (n:string) => { navigator.clipboard.writeText(n); setCopied(n); setTimeout(()=>setCopied(null),1500) }
-  const copyAll = () => { navigator.clipboard.writeText(names.join('\n')); setCopied('all'); setTimeout(()=>setCopied(null),1500) }
 
-  useState(()=>{generate()})
+  function expandMeaning(idx: number) {
+    if (expandedIdx === idx) { setExpandedIdx(null); return }
+    const n = names[idx]
+    if (!n.meaning) {
+      const updated = [...names]
+      updated[idx] = {...n, meaning: generateNameMeaning(n.first)}
+      setNames(updated)
+    }
+    setExpandedIdx(idx)
+  }
 
-      return (
-    <DevToolLayout
-      title="Random Name Generator"
-      icon="👤"
-      description="Generate realistic random names for characters, testing, or any creative project."
-      category="Fun"
-      parentPath="/calculators/fun"
-      parentLabel="Fun & Entertainment"
-    >
-  
-      <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
+  function share(first: string, last: string) {
+    const text = `👤 Random Name Generated: ${first} ${last}\nGenerate yours: tooltrio.com/calculators/fun/random-name-generator`
+    if (navigator.share) navigator.share({ title: 'Random Name', text })
+    else navigator.clipboard.writeText(`${first} ${last}`).then(() => alert('Name copied!'))
+  }
+
+  const totalMillions = Math.round(TOTAL_COMBOS / 1_000_000)
+
+  return (
+    <DevToolLayout title="Random Name Generator" icon="👤"
+      description={`Generate ${totalMillions}M+ unique names with detailed meaning and origin`}
+      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+
+      <div className="rounded-3xl border p-5 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <div>
-          <label className="text-sm font-bold text-gray-700 block mb-2">Gender</label>
-          <div className="flex rounded-xl border border-gray-200 overflow-hidden w-fit">
-            {(['any','male','female'] as const).map(g=>(
-              <button key={g} onClick={()=>setGender(g)} className={`px-5 py-2 text-sm font-bold capitalize ${gender===g?'bg-green-600 text-white':'text-gray-600 hover:bg-gray-50'}`}>{g}</button>
+          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Gender</label>
+          <div className="flex rounded-xl overflow-hidden border-2 border-purple-200">
+            {(['any','male','female'] as const).map(g => (
+              <button key={g} onClick={() => setGender(g)}
+                className={`flex-1 py-2.5 text-sm font-bold transition-all ${gender === g ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}>
+                {g === 'any' ? '⚡ Any' : g === 'male' ? '♂ Male' : '♀ Female'}
+              </button>
             ))}
           </div>
         </div>
         <div>
-          <label className="text-sm font-bold text-gray-700">Count: <span className="text-green-600 font-black">{count}</span></label>
-          <input type="range" min={1} max={20} value={count} onChange={e=>setCount(+e.target.value)} className="w-full accent-green-600 mt-1" />
+          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">How many? <span className="text-purple-700 font-black">{count}</span></label>
+          <input type="range" min={1} max={20} value={count} onChange={e => setCount(+e.target.value)} className="w-full accent-purple-500" />
+          <div className="flex justify-between text-xs text-gray-400 mt-1"><span>1</span><span>10</span><span>20</span></div>
         </div>
-        <div className="flex gap-3">
-          <button onClick={generate} className="flex-1 flex items-center justify-center gap-2 py-3 bg-green-600 text-white font-black rounded-xl hover:bg-green-700">
-            <RefreshCw className="w-4 h-4" /> Generate Names
-          </button>
-          <button onClick={copyAll} className="flex items-center gap-2 px-4 py-3 border border-gray-200 rounded-xl font-bold hover:bg-gray-50 text-sm">
-            {copied==='all'?<Check className="w-4 h-4 text-green-600"/>:<Copy className="w-4 h-4"/>} Copy All
-          </button>
-        </div>
+        <button onClick={generate}
+          className="w-full py-3 text-white font-black rounded-xl"
+          style={{background:'linear-gradient(135deg,#8b5cf6,#7c3aed)',boxShadow:'0 4px 16px rgba(139,92,246,0.3)'}}>
+          👤 Generate {count} Name{count > 1 ? 's' : ''}
+        </button>
+        <p className="text-xs text-center text-gray-400">~{totalMillions}M+ unique name combinations in knowledge base</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2">
-        {names.map(n=>(
-          <div key={n} className="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-xl group">
-            <span className="font-semibold text-gray-800 text-sm">{n}</span>
-            <button onClick={()=>copy(n)} className="opacity-0 group-hover:opacity-100 p-1.5 hover:bg-gray-100 rounded-lg transition-all">
-              {copied===n?<Check className="w-3.5 h-3.5 text-green-600"/>:<Copy className="w-3.5 h-3.5 text-gray-400"/>}
-            </button>
-          </div>
-    ))}
-      </div>
-
-
-
-      {/* ─── SEO Content ─── */}
-      <div className="mt-12 space-y-10 max-w-2xl mx-auto">
-
-        {/* Divider */}
-        <div className="flex items-center gap-4">
-          <div className="h-px flex-1 bg-gray-100" />
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3">About This Tool</span>
-          <div className="h-px flex-1 bg-gray-100" />
+      {names.length > 0 && (
+        <div className="space-y-3">
+          {names.map((n, idx) => (
+            <div key={idx} className="rounded-2xl border overflow-hidden" style={{background:'rgba(255,255,255,0.9)',borderColor:'rgba(226,232,240,0.7)'}}>
+              <div className="p-4 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-lg font-black text-purple-700 flex-shrink-0">
+                  {n.first.charAt(0)}
+                </div>
+                <div className="flex-1">
+                  <div className="text-xl font-black text-gray-900">{n.first} <span className="text-purple-600">{n.last}</span></div>
+                  <div className="text-xs text-gray-400">Click name meaning for 3,000-word deep dive</div>
+                </div>
+                <div className="flex gap-2">
+                  <button onClick={() => share(n.first, n.last)} className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 text-sm">📤</button>
+                  <button onClick={() => navigator.clipboard.writeText(`${n.first} ${n.last}`).then(() => alert('Copied!'))} className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 text-sm">📋</button>
+                  <button onClick={() => expandMeaning(idx)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${expandedIdx === idx ? 'bg-purple-600 text-white' : 'border border-purple-300 text-purple-700 hover:bg-purple-50'}`}>
+                    {expandedIdx === idx ? 'Hide' : '🔍 Meaning'}
+                  </button>
+                </div>
+              </div>
+              {expandedIdx === idx && n.meaning && (
+                <div className="border-t p-5 bg-purple-50/50">
+                  <div className="space-y-3">
+                    {n.meaning.split('\n\n').map((para, i) => {
+                      if (para.startsWith('## ')) return <h2 key={i} className="text-lg font-black text-gray-900 mt-4 mb-2">{para.replace('## ','')}</h2>
+                      if (para.startsWith('### ')) return <h3 key={i} className="text-base font-black text-gray-800 mt-3 mb-1">{para.replace('### ','')}</h3>
+                      if (para.startsWith('---')) return <hr key={i} className="border-gray-200 my-3" />
+                      if (!para.trim()) return null
+                      return <p key={i} className="text-sm text-gray-700 leading-relaxed">{para}</p>
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
+      )}
 
-        {/* What It Does */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Sometimes you need a name and you need it now. A character for a story, an NPC for tonight's game session, a placeholder in a mockup, an alias for a throwaway account -- whatever the reason, you shouldn't be spending ten minutes on this. This generator produces realistic first-and-last-name combinations from weighted name pools reflecting actual name frequency data, so you get names that feel plausible rather than randomly assembled. For names that feel more fantastical or unusual, the <Link href="/calculators/fun/fantasy-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Fantasy Name Generator</Link> is the better starting point.</p>
+      <div className="mt-12 space-y-6 max-w-2xl mx-auto">
+        <SEOContent title="" category="fun"
+          intro={`The Random Name Generator contains ${totalMillions}M+ unique name combinations across male, female, and neutral names with authentic surnames. Each generated name comes with a detailed 3,000-word exploration of its meaning, etymology, and life themes.`}
+          howItWorks="Select gender preference and count, then generate. Click 'Meaning' on any name to reveal a deep dive into its etymology, numerological profile, career themes, relationship patterns, health tendencies, and famous bearers."
+          tipsSection="For fiction writers: generate 5-10 names and notice which feel most 'right' for your character. The gut response to a name is meaningful."
+          conclusion="Names are not arbitrary labels. They carry history, culture, sound symbolism, and meaning that shapes both how others perceive us and how we perceive ourselves."
+          benefits={[{title:`${totalMillions}M+ combos`,text:'Enormous variety across all name types.'},{title:'Deep meanings',text:'3,000-word exploration for every name generated.'}]}
+          useCases={[{title:'Fiction writing',text:'Generate authentic character names with depth.'},{title:'Baby names',text:'Explore meanings before choosing a name for life.'}]} />
+        <section><h2 className="text-xl font-black text-gray-900 mb-4">FAQ</h2>
+          <div className="space-y-3">{faqs.map(f => <details key={f.question} className="rounded-2xl border p-4"><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3">{f.answer}</p></details>)}</div>
         </section>
-
-        {/* How It Works */}
-        <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-          <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">The generator draws from statistically common first names and surnames, weighted by frequency, with optional gender and cultural filters. You can generate a single name or a batch of names for populating a cast of characters or a list of fictional accounts. The surname pool is intentionally broad -- not just Anglo-Saxon names, but a mix reflecting actual population demographics in major English-speaking countries.</p>
-        </section>
-
-        {/* Fun Fact */}
-        <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The most common surname in the world is Wang (or its variants), shared by roughly 100 million people. In the United States, the most common surname is Smith -- a name that originated as an occupational surname for metalworkers, and there were a lot of metalworkers in medieval England. Occupational surnames (Smith, Baker, Cooper, Thatcher) make up a surprisingly large share of the most common surnames in English.</p>
-        </section>
-
-        {/* Tips */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
-          <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For realistic fiction, use first names that were popular 20-30 years before your character's age -- a 35-year-old character in 2026 would plausibly be named something popular in 1988-1995. This small detail makes characters feel more grounded.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you're naming a villain or antagonist, slightly unusual first names (not bizarre, just less common) tend to read as more threatening than completely ordinary names. "Victor" reads more ominous than "Dave" even without any other context.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For placeholder names in UI mockups or test data, generate a batch and use the third or fourth name in the list -- the first names are often the most common and will distract reviewers who recognize them as obviously generic.</span></li>
-          </ul>
-        </section>
-
-        {/* Share tip */}
-        <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Generate a random name and then immediately check how many people have that exact name on LinkedIn. The results are either surprisingly many or exactly zero, and both outcomes are interesting.</p>
-        </section>
-
-        {/* Did You Know */}
-        <section className="border-l-4 border-purple-300 pl-5">
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The UK government publishes the full list of baby names registered each year, including names given to only one child that year. These lists contain names like "Royalblue," "Ikea," and "Abcde" (pronounced "Ab-sid-ee"). Name data is, quietly, one of the strangest datasets in existence.</p>
-        </section>
-
-        {/* FAQs */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-        </section>
-
-        {/* Related Fun Calculators */}
-        <section>
-          <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.55)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-            <div className="px-6 py-4 border-b border-gray-100 bg-purple-50">
-              <h2 className="text-lg font-bold text-gray-900">🎉 More Fun Calculators</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
-            </div>
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/calculators/fun/fantasy-name-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧙</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Fantasy Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Elves, dwarves & wizards</p></span>
-          </Link>
-          <Link href="/calculators/fun/villain-name" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😈</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Villain Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Your evil alter-ego awaits</p></span>
-          </Link>
-          <Link href="/calculators/fun/superhero-name" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🦸</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Superhero Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Discover your hero identity</p></span>
-          </Link>
-          <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😤</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/compliment-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">💖</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Compliment Generator</p><p className="text-xs text-gray-400 mt-0.5">Generate heartfelt compliments</p></span>
-          </Link>
-          <Link href="/calculators/fun/pig-latin-converter" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🐷</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Pig Latin Converter</p><p className="text-xs text-gray-400 mt-0.5">Igpay atinlay, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🎯</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></span>
-          </Link>
-          <Link href="/calculators/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧠</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>
-          </Link>
-            </div>
-          </div>
-        </section>
-
-      <SEOContent
-        title=""
-        category="fun"
-        intro={`Names carry more information than they appear to — about cultural origin, era, gender norms, family patterns, and sometimes even socioeconomic associations that affect how the named person is perceived. Novelists, game designers, parents, and businesses all need names for different reasons, and the right name for each context requires different thinking.
-
-**Long-tail searches answered here:** random name generator free online usa, random person name generator free tool no signup, fake name generator for testing free online, random character name generator free usa, unique random name creator free tool, random first and last name generator free online, random name generator with nationality option free, random american name generator free online usa, random baby name generator free tool no signup, random character name for novel free generator usa, random name generator by ethnicity culture free, random medieval name generator free online usa, random name for game username free generator, random full name with middle name generator free usa, unique random surname generator free online`}
-        howItWorks={`The generator pulls from curated name databases organized by cultural origin, popularity era, and style category. You can select parameters — culture of origin, gender presentation, naming era (classic, contemporary, fictional) — to get names that fit your specific need.`}
-        tipsSection={`For fictional characters: choose names that are distinctive enough to be memorable but not so unusual that they distract from the narrative. For business names: test pronunciation and Google-ability before committing. For characters from a specific culture: research authentic naming conventions rather than relying on stereotypes.`}
-        conclusion={`Names shape perception more than most people consciously realize. Audit bias research shows that names with different perceived cultural origins receive different callback rates on identical resumes. This isn't a reason to avoid authentic cultural names — it's a reason to be aware of the context in which names operate.`}
-        benefits={[
-          { title: `Just for fun`, text: `This calculator is designed for entertainment and lighthearted use — enjoy it and share results with friends.` },
-          { title: `Quick results`, text: `Get your answer instantly without any signup, account, or personal data required.` },
-          { title: `Free to use`, text: `Completely free with no ads, no tracking, and no strings attached.` },
-        ]}
-        useCases={[
-          { title: `Personal entertainment`, text: `Use it for personal curiosity, conversation starters, or just a fun break from your day.` },
-          { title: `Social sharing`, text: `Share your results with friends and compare answers — great for group settings and social media.` },
-          { title: `Learning and exploration`, text: `Explore the topic in a playful way and discover something new or interesting.` },
-        ]}
-      />
       </div>
     </DevToolLayout>
   )

@@ -2,203 +2,154 @@
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { useState } from 'react'
-import Link from 'next/link'
-import { ChevronRight, RefreshCw, Copy, Check } from 'lucide-react'
+import { generateFantasyName, generateCharacterProfile, FANTASY_PREFIXES, FANTASY_SUFFIXES } from '@/lib/fun/heroVillainData'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-const RACES = {
-  elf: {prefix:['Aer','Cel','Eld','Syl','Ara','Thal','Fin','Mir','Ael','Gal'],suffix:['indor','ithil','enwe','anor','ithien','avel','adel','imir','aelas','idhren']},
-  dwarf: {prefix:['Bor','Dur','Thor','Grim','Bald','Kaz','Ulf','Dag','Bryn','Vor'],suffix:['in','ak','och','dur','im','bir','onn','ek','ur','grim']},
-  human: {prefix:['Ald','Bran','Cas','Dar','Ed','Fen','Gar','Hal','Ivan','Jor'],suffix:['ric','win','mer','ian','on','thor','ald','gar','wyn','bert']},
-  orc: {prefix:['Grak','Thok','Mog','Zug','Bruk','Krag','Drak','Worg','Grul','Torg'],suffix:['ash','ok','ug','urk','mag','ul','rath','ak','oth','zug']},
-  wizard: {prefix:['Zar','Mal','Sar','Cal','Thar','Elr','Mor','Gal','Bel','Vel'],suffix:['adus','imor','ithon','oran','andor','istus','ibus','amon','ador','iroth']},
-}
+const RACES = [
+  { id: 'elf', label: '🧝 Elf', desc: 'Graceful, ancient, melodic names' },
+  { id: 'dwarf', label: '⚒️ Dwarf', desc: 'Strong, guttural, clan-driven names' },
+  { id: 'orc', label: '💪 Orc', desc: 'Fierce, harsh, battle-forged names' },
+  { id: 'human', label: '🧑 Human', desc: 'Varied, relatable, culturally rich' },
+  { id: 'mage', label: '🧙 Mage', desc: 'Arcane, flowing, mystical names' },
+]
 
-const TITLES = {
-  elf:['the Swift','the Wise','Moonshadow','of the Ancient Wood','Starweaver'],
-  dwarf:['Ironheart','Stonefist','the Unyielding','Goldbeard','of the Deep Halls'],
-  human:['the Bold','the Wanderer','Brightblade','of the Northlands','the Steadfast'],
-  orc:['the Crusher','Bloodfang','the Mighty','Skullsplitter','the Relentless'],
-  wizard:['the Arcane','Spellbinder','of the Infinite','Runekeeper','the Mystical'],
-}
+const totalCombos = Object.keys(FANTASY_PREFIXES).reduce((total, race) => {
+  return total + (FANTASY_PREFIXES[race].length * (FANTASY_SUFFIXES[race]?.length || 30))
+}, 0)
 
 export default function CalculatorClient({ faqs }: Props) {
-  const [race, setRace] = useState<keyof typeof RACES>('elf')
+  const [race, setRace] = useState('elf')
   const [count, setCount] = useState(5)
-  const [names, setNames] = useState<string[]>([])
-  const [copied, setCopied] = useState<string|null>(null)
+  const [names, setNames] = useState<Array<{name: string; profile: string}>>([])
+  const [expandedIdx, setExpandedIdx] = useState<number|null>(null)
 
-  const rand = <T,>(a: T[]) => a[Math.floor(Math.random()*a.length)]
-  const generate = () => {
-    const r = RACES[race]; const t = TITLES[race]
-    setNames(Array.from({length:count},()=>`${rand(r.prefix)}${rand(r.suffix)} ${rand(t)}`))
+  function generate() {
+    const generated = Array.from({length: count}, () => ({
+      name: generateFantasyName(race),
+      profile: ''
+    }))
+    setNames(generated)
+    setExpandedIdx(null)
   }
-  const copy = (n:string) => { navigator.clipboard.writeText(n); setCopied(n); setTimeout(()=>setCopied(null),1500) }
 
-  useState(()=>{ generate() })
+  function expandProfile(idx: number) {
+    if (expandedIdx === idx) { setExpandedIdx(null); return }
+    if (!names[idx].profile) {
+      const updated = [...names]
+      updated[idx] = { ...names[idx], profile: generateCharacterProfile(names[idx].name, 'fantasy', race) }
+      setNames(updated)
+    }
+    setExpandedIdx(idx)
+  }
 
-      return (
-    <DevToolLayout
-      title="Fantasy Name Generator"
-      icon="⚔️"
-      description="Generate epic fantasy character names for your RPG, novel, or game!"
-      category="Fun"
-      parentPath="/calculators/fun"
-      parentLabel="Fun & Entertainment"
-    >
-  
-      <div className="rounded-2xl border p-6 mb-4 shadow-sm space-y-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
+  function share(name: string) {
+    const raceInfo = RACES.find(r => r.id === race)
+    const text = `⚔️ My Fantasy Name: ${name}\n🏰 Race: ${raceInfo?.label}\n\nGenerate yours: tooltrio.com/calculators/fun/fantasy-name-generator`
+    if (navigator.share) navigator.share({ title: 'Fantasy Name', text })
+    else navigator.clipboard.writeText(name).then(() => alert('Copied!'))
+  }
+
+  const raceColors: Record<string, string> = {
+    elf: 'from-emerald-600 to-teal-600',
+    dwarf: 'from-amber-700 to-orange-700',
+    orc: 'from-green-800 to-lime-700',
+    human: 'from-blue-600 to-indigo-600',
+    mage: 'from-purple-600 to-violet-700',
+  }
+  const raceGlow: Record<string, string> = {
+    elf: 'rgba(16,185,129,0.3)',
+    dwarf: 'rgba(217,119,6,0.3)',
+    orc: 'rgba(22,163,74,0.3)',
+    human: 'rgba(37,99,235,0.3)',
+    mage: 'rgba(124,58,237,0.3)',
+  }
+
+  return (
+    <DevToolLayout title="Fantasy Name Generator" icon="⚔️"
+      description={`Generate unique fantasy names across 5 races — ${Math.round(totalCombos / 1000)}K+ unique combinations`}
+      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+
+      <div className="rounded-3xl border p-5 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <div>
-          <label className="text-sm font-bold text-gray-700 block mb-2">Race / Class</label>
-          <div className="grid grid-cols-5 gap-2">
-            {(Object.keys(RACES) as (keyof typeof RACES)[]).map(r=>(
-              <button key={r} onClick={()=>setRace(r)} className={`py-2 rounded-xl border-2 text-xs font-bold capitalize ${race===r?'bg-purple-600 border-purple-600 text-white':'border-gray-200 hover:border-purple-300'}`}>{r}</button>
+          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Race / Species</label>
+          <div className="space-y-2">
+            {RACES.map(r => (
+              <button key={r.id} onClick={() => setRace(r.id)}
+                className={`w-full text-left p-3 rounded-xl border-2 transition-all ${race === r.id ? 'border-purple-500 bg-purple-50' : 'border-gray-200 hover:border-purple-300'}`}>
+                <div className="font-bold text-sm text-gray-800">{r.label}</div>
+                <div className="text-xs text-gray-500">{r.desc}</div>
+              </button>
             ))}
           </div>
         </div>
+
         <div>
-          <label className="text-sm font-bold text-gray-700">Generate: <span className="text-purple-600 font-black">{count} names</span></label>
-          <input type="range" min={1} max={10} value={count} onChange={e=>setCount(+e.target.value)} className="w-full accent-purple-600 mt-1" />
+          <label className="text-xs font-bold text-gray-500 uppercase block mb-2">
+            How many names? <span className="text-purple-700 font-black">{count}</span>
+          </label>
+          <input type="range" min={1} max={20} value={count} onChange={e => setCount(+e.target.value)} className="w-full accent-purple-500" />
+          <div className="flex justify-between text-xs text-gray-400 mt-1"><span>1</span><span>10</span><span>20</span></div>
         </div>
-        <button onClick={generate} className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-600 to-indigo-700 text-white font-black rounded-xl hover:opacity-90">
-          <RefreshCw className="w-4 h-4" /> Generate Names
+
+        <button onClick={generate}
+          className={`w-full py-4 text-white font-black text-lg rounded-xl transition-all hover:-translate-y-1 bg-gradient-to-r ${raceColors[race]}`}
+          style={{boxShadow:`0 6px 20px ${raceGlow[race]}`}}>
+          ⚔️ Generate {count} {RACES.find(r => r.id === race)?.label.split(' ').slice(1).join(' ')} Name{count > 1 ? 's' : ''}
         </button>
+        <p className="text-xs text-center text-gray-400">{Math.round(totalCombos/1000)}K+ unique fantasy name combinations</p>
       </div>
 
-      <div className="space-y-2">
-        {names.map(n=>(
-          <div key={n} className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border border-purple-100">
-            <span className="font-bold text-gray-900">{n}</span>
-            <button onClick={()=>copy(n)} className="p-1.5 hover:bg-purple-100 rounded-lg">
-              {copied===n?<Check className="w-4 h-4 text-purple-600"/>:<Copy className="w-4 h-4 text-gray-400"/>}
-            </button>
-          </div>
-    ))}
-      </div>
-
-
-
-      {/* ─── SEO Content ─── */}
-      <div className="mt-12 space-y-10 max-w-2xl mx-auto">
-
-        {/* Divider */}
-        <div className="flex items-center gap-4">
-          <div className="h-px flex-1 bg-gray-100" />
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3">About This Tool</span>
-          <div className="h-px flex-1 bg-gray-100" />
+      {names.length > 0 && (
+        <div className="space-y-3">
+          {names.map((n, idx) => (
+            <div key={idx} className="rounded-2xl border overflow-hidden" style={{background:'rgba(255,255,255,0.9)',borderColor:'rgba(226,232,240,0.7)'}}>
+              <div className="p-4 flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${raceColors[race]} flex items-center justify-center text-white font-black text-sm flex-shrink-0`}>
+                  {n.name.charAt(0)}
+                </div>
+                <div className="flex-1">
+                  <div className="text-xl font-black text-gray-900">{n.name}</div>
+                  <div className="text-xs text-gray-400">{RACES.find(r => r.id === race)?.label} · Click profile for 3k-word backstory</div>
+                </div>
+                <div className="flex gap-2">
+                  <button onClick={() => share(n.name)} className="p-2 rounded-lg hover:bg-gray-100 text-sm">📤</button>
+                  <button onClick={() => navigator.clipboard.writeText(n.name).then(() => alert('Copied!'))} className="p-2 rounded-lg hover:bg-gray-100 text-sm">📋</button>
+                  <button onClick={() => expandProfile(idx)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${expandedIdx === idx ? 'bg-purple-600 text-white' : 'border border-purple-300 text-purple-700 hover:bg-purple-50'}`}>
+                    {expandedIdx === idx ? 'Hide' : '📖 Profile'}
+                  </button>
+                </div>
+              </div>
+              {expandedIdx === idx && n.profile && (
+                <div className="border-t p-5 bg-purple-50/30">
+                  <div className="space-y-3">
+                    {n.profile.split('\n\n').map((para, i) => {
+                      if (para.startsWith('## ')) return <h2 key={i} className="text-xl font-black text-gray-900 mt-4 mb-2">{para.replace('## ','')}</h2>
+                      if (para.startsWith('### ')) return <h3 key={i} className="text-base font-black text-gray-800 mt-3 mb-1">{para.replace('### ','')}</h3>
+                      if (para.startsWith('---')) return <hr key={i} className="border-gray-200 my-3" />
+                      if (!para.trim()) return null
+                      return <p key={i} className="text-sm text-gray-700 leading-relaxed">{para}</p>
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
+      )}
 
-        {/* What It Does */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Naming a fantasy character is genuinely hard. Too simple and they sound like a username; too elaborate and no one can remember them by chapter three. This generator builds names tuned for specific races and archetypes -- elves get lyrical, vowel-heavy names; dwarves get consonant-heavy compound names; rogues get short, forgettable names that match the character. It is built for writers, tabletop players, and anyone who has been staring at a "Name Your Character" screen for longer than is reasonable. If you need a villain's name to go with your hero, the <Link href="/calculators/fun/villain-name" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Villain Name Generator</Link> can handle that in parallel.</p>
+      <div className="mt-12 space-y-6 max-w-2xl mx-auto">
+        <SEOContent title="" category="fun"
+          intro={`Generate authentic fantasy names across 5 races — Elf, Dwarf, Orc, Human, and Mage. Each name follows race-specific phonetic conventions and comes with a full 3,000-word character backstory.`}
+          howItWorks="Select a race, choose how many names you want, and generate. Click 'Profile' on any name to reveal a complete character backstory including origin, powers, weaknesses, and place in the world."
+          tipsSection="For worldbuilding: generate 20 names from the same race to establish the phonetic conventions of your world's culture. Patterns will emerge that make future naming feel authentic."
+          conclusion="Great fantasy names aren't random — they follow linguistic rules specific to each culture. This generator uses those rules to produce names that feel real."
+          benefits={[{title:'5 unique races',text:'Each with authentic phonetic conventions.'},{title:'3k profiles',text:'Full character backstories on demand.'}]}
+          useCases={[{title:'D&D characters',text:'Generate authentic RPG character names.'},{title:'Novel writing',text:'Build a consistent fantasy naming system.'}]} />
+        <section><h2 className="text-xl font-black text-gray-900 mb-4">FAQ</h2>
+          <div className="space-y-3">{faqs.map(f => <details key={f.question} className="rounded-2xl border p-4"><summary className="font-semibold cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3">{f.answer}</p></details>)}</div>
         </section>
-
-        {/* How It Works */}
-        <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-          <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Select your character's race or archetype (elf, dwarf, human noble, rogue, mage, etc.) and the generator applies a phonetic template appropriate to that category. Elf names use soft consonants and flowing vowel sequences; orc names use hard stops and guttural combinations. The output gives a first name and a surname or clan name where relevant to the archetype, plus an optional epithet for characters who've been around long enough to earn one.</p>
-        </section>
-
-        {/* Fun Fact */}
-        <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Tolkien, who basically invented modern fantasy naming conventions, was a professional linguist who constructed complete grammatical systems for Elvish before writing a single word of story. He believed names had to feel linguistically consistent within their culture -- the reason Elvish names sound like they could be real words is because, within Tolkien's constructed languages, they are.</p>
-        </section>
-
-        {/* Tips */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
-          <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The best fantasy names are pronounceable out loud on first read by a stranger. If you need to add a pronunciation guide, the name is too complex for a protagonist -- save those for secondary characters the reader has time to learn.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Generate five names for your character type and then combine elements from two of them -- take the first syllable of one and the ending of another. The hybrid is usually better than either original, and it's genuinely yours.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For tabletop games, keep a short list of pre-generated names ready before your session. The moment the DM asks for your character's name while everyone waits is not the time for inspiration. The <Link href="/calculators/fun/random-name-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Random Name Generator</Link> is good for NPCs if you need realistic-sounding modern names instead.</span></li>
-          </ul>
-        </section>
-
-        {/* Share tip */}
-        <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Drop your generated character name into your friend group and dare them to write a one-sentence backstory for it. "Draveth the Ashen, outcast of the Northern Holds" reliably produces better collaborative fiction than "what should we do this Saturday."</p>
-        </section>
-
-        {/* Did You Know */}
-        <section className="border-l-4 border-purple-300 pl-5">
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">In Dungeons & Dragons, player characters are statistically most likely to be named "Kira," "Zara," "Raven," or "Ash" -- names that work in fantasy but also sound like they could belong to a real person. The fantasy name sweet spot is names that feel plausible without feeling pedestrian.</p>
-        </section>
-
-        {/* FAQs */}
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <div className="space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
-        </section>
-
-        {/* Related Fun Calculators */}
-        <section>
-          <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.55)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
-            <div className="px-6 py-4 border-b border-gray-100 bg-purple-50">
-              <h2 className="text-lg font-bold text-gray-900">🎉 More Fun Calculators</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
-            </div>
-            <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/calculators/fun/villain-name" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😈</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Villain Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Your evil alter-ego awaits</p></span>
-          </Link>
-          <Link href="/calculators/fun/superhero-name" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🦸</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Superhero Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Discover your hero identity</p></span>
-          </Link>
-          <Link href="/calculators/fun/random-name-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🎲</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Name Generator</p><p className="text-xs text-gray-400 mt-0.5">Names for any character</p></span>
-          </Link>
-          <Link href="/calculators/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🎯</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></span>
-          </Link>
-          <Link href="/calculators/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧠</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>
-          </Link>
-          <Link href="/calculators/fun/pig-latin-converter" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🐷</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Pig Latin Converter</p><p className="text-xs text-gray-400 mt-0.5">Igpay atinlay, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/insult-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😤</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></span>
-          </Link>
-          <Link href="/calculators/fun/would-you-rather" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🤔</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Would You Rather</p><p className="text-xs text-gray-400 mt-0.5">Impossible dilemmas generator</p></span>
-          </Link>
-            </div>
-          </div>
-        </section>
-
-      <SEOContent
-        title=""
-        category="fun"
-        intro={`A character's name is the first thing you give them, and it does more work than most writers realize. The right name evokes a world, suggests a personality, and feels inevitable once you've chosen it. The wrong name creates cognitive friction every time you or your reader encounters it. Good fantasy name generation draws on linguistics, phonesthetics (the sounds that feel 'sharp' or 'soft' or 'ancient'), and the internal consistency of your world's naming conventions.
-
-**Long-tail searches answered here:** fantasy character name generator free online usa, random fantasy name generator no signup free, elf dwarf warrior mage name generator free, dnd character name generator free tool usa, epic fantasy name creator free online, rpg character name generator free no account, dark fantasy villain name generator free online usa, high fantasy elf name generator free tool, tolkien inspired name generator for characters free usa, fantasy dwarf clan name generator free online, dragon name generator for fantasy story free usa, fantasy place city kingdom name generator free, halfling gnome name generator free online usa, forgotten realms naming convention generator free, light vs dark fantasy character name generator free`}
-        howItWorks={`The generator uses phoneme combinations derived from different linguistic traditions — Nordic, Celtic, Elvish-influenced, Eastern European, invented — to produce names that feel coherent within specific genre conventions. You can select the style, role (warrior, mage, rogue, noble), and culture type to get names that fit your setting.`}
-        tipsSection={`For consistent world-building, decide on 2-3 phoneme patterns for your world's primary cultures before naming characters. Elvish-feeling names might favor soft consonants (l, r, n) and long vowels. Orcish names might favor hard consonants (k, g, dr). Consistency in a world's naming scheme makes it feel real.`}
-        conclusion={`Names shape how readers and players experience characters before any action occurs. A well-chosen name is a small piece of world-building that pays dividends every time it appears on the page. Use these generated names as starting points — often the right name is one you'll tweak or combine from multiple generations.`}
-        benefits={[
-          { title: `Just for fun`, text: `This calculator is designed for entertainment and lighthearted use — enjoy it and share results with friends.` },
-          { title: `Quick results`, text: `Get your answer instantly without any signup, account, or personal data required.` },
-          { title: `Free to use`, text: `Completely free with no ads, no tracking, and no strings attached.` },
-        ]}
-        useCases={[
-          { title: `Personal entertainment`, text: `Use it for personal curiosity, conversation starters, or just a fun break from your day.` },
-          { title: `Social sharing`, text: `Share your results with friends and compare answers — great for group settings and social media.` },
-          { title: `Learning and exploration`, text: `Explore the topic in a playful way and discover something new or interesting.` },
-        ]}
-      />
       </div>
     </DevToolLayout>
   )
