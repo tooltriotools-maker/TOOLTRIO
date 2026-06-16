@@ -103,7 +103,7 @@ const NAV = {
       { name:'Procrastination Score', slug:'procrastination-score', icon:'⏳' },
       { name:'Random Name Gen', slug:'random-name-generator', icon:'🎲' },
       { name:'Pig Latin', slug:'pig-latin-converter', icon:'🐷' },
-      { name:'Insult Generator', slug:'insult-generator', icon:'💬' },
+      { name:'Shakespeare Insult Generator', slug:'shakespeare-insult-generator', icon:'💬' },
       { name:'Compliment Gen', slug:'compliment-generator', icon:'💐' },
       { name:'UwU Text', slug:'uwu-text-generator', icon:'🐱' },
     ],

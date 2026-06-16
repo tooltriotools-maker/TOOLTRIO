@@ -140,7 +140,7 @@ const funTools = [
   'life-expectancy-fun', 'how-rich-am-i', 'coffee-calculator', 'sleep-debt-calculator', 'social-media-addiction',
   'screen-time-calculator', 'calories-in-beer', 'pizza-calculator', 'workout-excuse-generator', 'procrastination-score',
   'emoji-translator', 'text-to-morse', 'pig-latin-converter', 'uwu-text-generator', 'compliment-generator',
-  'insult-generator', 'fortune-cookie', 'would-you-rather', 'trivia-quiz', 'random-fact-generator',
+  'shakespeare-insult-generator', 'fortune-cookie', 'would-you-rather', 'trivia-quiz', 'random-fact-generator',
 ]
 
 // ── ZIP tools (ALL 35) ────────────────────────────────────────────────────────
@@ -244,7 +244,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
 
     // ── Fun tools ───────────────────────────────────────────────────────────
-    ...funTools.map(slug => ({
+    // Shakespeare Insult Generator — highest priority
+    {
+      url: `${BASE}/calculators/fun/shakespeare-insult-generator`,
+      lastModified: CALC_DATE, changeFrequency: 'weekly' as const, priority: 1.0,
+    },
+    ...funTools.filter(slug => slug !== 'shakespeare-insult-generator').map(slug => ({
       url: `${BASE}/calculators/fun/${slug}`,
       lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.55,
     })),

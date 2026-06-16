@@ -401,7 +401,7 @@ export const TOOL_ITEMS: ToolItem[] = [
   { name: 'Fantasy Name Generator', href: '/calculators/fun/fantasy-name-generator', cat: 'fun', catLabel: 'Fun', kw: 'fantasy name generator' },
   { name: 'Fortune Cookie', href: '/calculators/fun/fortune-cookie', cat: 'fun', catLabel: 'Fun', kw: 'fortune cookie' },
   { name: 'How Rich Am I', href: '/calculators/fun/how-rich-am-i', cat: 'fun', catLabel: 'Fun', kw: 'how rich am i' },
-  { name: 'Insult Generator', href: '/calculators/fun/insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'insult generator' },
+  { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator' },
   { name: 'Life Expectancy Fun', href: '/calculators/fun/life-expectancy-fun', cat: 'fun', catLabel: 'Fun', kw: 'life expectancy fun' },
   { name: 'Love Compatibility', href: '/calculators/fun/love-compatibility', cat: 'fun', catLabel: 'Fun', kw: 'love compatibility' },
   { name: 'Lucky Number', href: '/calculators/fun/lucky-number', cat: 'fun', catLabel: 'Fun', kw: 'lucky number' },
