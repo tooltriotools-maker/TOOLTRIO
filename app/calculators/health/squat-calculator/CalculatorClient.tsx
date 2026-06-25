@@ -6,7 +6,8 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FORMULAS = [
   {name:'Epley',calc:(w:number,r:number)=>w*(1+r/30)},
@@ -15,7 +16,7 @@ const FORMULAS = [
   {name:'Mayhew',calc:(w:number,r:number)=>100*w/(52.2+41.9*Math.exp(-0.055*r))},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(100)
   const [reps, setReps] = useState(5)
   const [bodyWeight, setBodyWeight] = useState(80)
@@ -26,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const standard = orm/bodyWeight > 2 ? 'Elite' : orm/bodyWeight > 1.75 ? 'Advanced' : orm/bodyWeight > 1.5 ? 'Intermediate' : orm/bodyWeight > 1 ? 'Beginner' : 'Novice'
 
   return (
-    <CalculatorLayout title="Squat Calculator" description="Calculate your squat one-rep max and strength standards using proven formulas." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="squat-calculator">
+    <CalculatorLayout title="Squat Calculator" description="Calculate your squat one-rep max and strength standards using proven formulas." icon="🏋️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="squat-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Lift</h2>

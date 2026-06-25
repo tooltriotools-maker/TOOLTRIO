@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { DollarSign, TrendingUp, Calendar, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [monthlyDeposit, setMonthlyDeposit] = useState(5000)
   const [rate, setRate] = useState(6.5)
@@ -30,7 +31,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Recurring Deposit Calculator India 2026" description="Calculate RD maturity value, total interest earned, and month-by-month growth." icon="🏧" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rd-calculator">
+    <CalculatorLayout title="Recurring Deposit Calculator India 2026" description="Calculate RD maturity value, total interest earned, and month-by-month growth." icon="🏧" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">RD Details</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [altitude, setAltitude] = useState(3500)
   const [ascentRate, setAscentRate] = useState(500)
   const [acclimatisedDays, setAcclimatisedDays] = useState(2)
@@ -28,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const o2sat = Math.max(70, 98 - (altitude / 1000) * 3.5)
 
   return (
-    <CalculatorLayout title="Altitude Sickness Calculator" description="Assess your risk of altitude sickness based on elevation, ascent rate, and symptoms." icon="🏔️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="altitude-sickness-calculator">
+    <CalculatorLayout title="Altitude Sickness Calculator" description="Assess your risk of altitude sickness based on elevation, ascent rate, and symptoms." icon="🏔️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="altitude-sickness-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Altitude Details</h2>

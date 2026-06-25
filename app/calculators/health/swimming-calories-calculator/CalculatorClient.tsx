@@ -6,13 +6,14 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const STROKES = [
   {label:'Freestyle (moderate)',met:7.0},{label:'Freestyle (fast)',met:10.0},{label:'Backstroke',met:7.0},{label:'Breaststroke',met:10.3},{label:'Butterfly',met:13.8},{label:'Leisurely / recreational',met:6.0},{label:'Water polo',met:10.0},{label:'Treading water',met:3.5},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
   const [duration, setDuration] = useState(45)
   const [stroke, setStroke] = useState(0)
@@ -23,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const calories = Math.round(met * wKg * (duration/60))
 
   return (
-    <CalculatorLayout title="Swimming Calories Calculator" description="Calculate calories burned swimming by stroke type, duration, and body weight." icon="🏊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="swimming-calories-calculator">
+    <CalculatorLayout title="Swimming Calories Calculator" description="Calculate calories burned swimming by stroke type, duration, and body weight." icon="🏊" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="swimming-calories-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(185)
   const [targetWeight, setTargetWeight] = useState(75)
   const [deficit, setDeficit] = useState(500)
@@ -24,7 +25,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const aggressive = deficit > 1000
 
   return (
-    <CalculatorLayout title="Fat Loss Rate Calculator" description="Calculate how long it will take to reach your target weight based on your calorie deficit." icon="🔥" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fat-loss-rate-calculator">
+    <CalculatorLayout title="Fat Loss Rate Calculator" description="Calculate how long it will take to reach your target weight based on your calorie deficit." icon="🔥" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fat-loss-rate-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Goals</h2>

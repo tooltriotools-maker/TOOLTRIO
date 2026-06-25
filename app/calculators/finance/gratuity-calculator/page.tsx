@@ -56,7 +56,6 @@ export default function Page() {
       ))}
       <CalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="swp-vs-annuity-best-retirement-income-strategy"
  />

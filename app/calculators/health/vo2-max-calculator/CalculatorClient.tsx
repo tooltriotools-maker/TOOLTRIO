@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [method, setMethod] = useState<'cooper'|'rhr'|'mile'>('cooper')
   const [age, setAge] = useState(35)
   const [gender, setGender] = useState<'male'|'female'>('male')
@@ -45,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [method, age, gender, cooperDist, maxHR, restHR, mileTime, weight])
 
   return (
-    <CalculatorLayout title="VO2 Max Calculator" description="Estimate your VO2 max from Cooper 12-min test, resting heart rate, or 1-mile walk test. Assess your cardiovascular fitness." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vo2-max-calculator">
+    <CalculatorLayout title="VO2 Max Calculator" description="Estimate your VO2 max from Cooper 12-min test, resting heart rate, or 1-mile walk test. Assess your cardiovascular fitness." icon="🫁" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vo2-max-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Test Method</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField, HeightField } from '@/components/ui/InputField
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [gender, setGender] = useState<'male'|'female'>('male')
   const [height, setHeight] = useState(69)
@@ -49,7 +50,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const branchColor = (pass: boolean) => pass ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'
 
   return (
-    <CalculatorLayout title="Army Body Fat Calculator" description="Calculate body fat using the US Army tape test. Check standards for Army, Marines, Navy, and Air Force." icon="🎖️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="army-body-fat-calculator">
+    <CalculatorLayout title="Army Body Fat Calculator" description="Calculate body fat using the US Army tape test. Check standards for Army, Marines, Navy, and Air Force." icon="🎖️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="army-body-fat-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Measurements</h2>

@@ -10,9 +10,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, Landmark } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, fmtCompact } = useCurrency()
   const [lumpsum, setLumpsum] = useState(500000)
   const [mfRate, setMfRate] = useState(12)
@@ -71,7 +72,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const taxSlabs = [0, 5, 20, 30]
 
   return (
-    <CalculatorLayout title="Mutual Fund vs FD Calculator India 2026" description="Compare lump sum mutual fund vs Fixed Deposit after tax and inflation over 3–20 years." icon="🏦" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mutual-fund-vs-fd-calculator">
+    <CalculatorLayout title="Mutual Fund vs FD Calculator India 2026" description="Compare lump sum mutual fund vs Fixed Deposit after tax and inflation over 3–20 years." icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mutual-fund-vs-fd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

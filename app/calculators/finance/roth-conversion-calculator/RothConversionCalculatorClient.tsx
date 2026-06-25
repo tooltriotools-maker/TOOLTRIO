@@ -11,13 +11,14 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { rothConversionSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 function calcFutureTaxes(balance: number, growthRate: number, years: number, taxRate: number) {
   const futureValue = balance * Math.pow(1 + growthRate / 100, years)
   return { futureValue: Math.round(futureValue), taxOwed: Math.round(futureValue * taxRate / 100), afterTax: Math.round(futureValue * (1 - taxRate / 100)) }
 }
 
-export default function RothConversionCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function RothConversionCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { fmt, fmtCompact } = useCurrency()
 
   const [conversionAmount, setConversion] = useState(20000)
@@ -63,7 +64,7 @@ export default function RothConversionCalculatorClient({ faqs, structuredData, r
   }).filter((_, i) => i % Math.max(1, Math.floor(years / 10)) === 0)
 
   return (
-    <CalculatorLayout title="Roth Conversion Calculator USA 2026" description="Calculate the tax cost of converting Traditional IRA to Roth and the long-term wealth benefit." icon="🔄" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="roth-conversion-calculator"
+    <CalculatorLayout title="Roth Conversion Calculator USA 2026" description="Calculate the tax cost of converting Traditional IRA to Roth and the long-term wealth benefit." icon="🔄" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="roth-conversion-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

@@ -10,9 +10,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -45,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const step = currency.code === 'INR' ? 10000 : 1000
 
   return (
-    <CalculatorLayout title="Net Worth Calculator USA 2026" description={`Track your total net worth in ${currency.name}. Add assets and liabilities for a complete financial picture.`} icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="net-worth-calculator">
+    <CalculatorLayout title="Net Worth Calculator USA 2026" description={`Track your total net worth in ${currency.name}. Add assets and liabilities for a complete financial picture.`} icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="net-worth-calculator">
 
       {/* Summary */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">

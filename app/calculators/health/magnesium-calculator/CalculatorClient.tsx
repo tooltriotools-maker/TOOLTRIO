@@ -6,11 +6,12 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FOODS = [{n:'Pumpkin seeds (30g)',mg:156},{n:'Dark chocolate (30g)',mg:64},{n:'Almonds (30g)',mg:80},{n:'Spinach (100g cooked)',mg:87},{n:'Quinoa (100g cooked)',mg:64},{n:'Black beans (100g)',mg:60},{n:'Avocado (1 whole)',mg:58},{n:'Salmon (100g)',mg:30}]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
   const [gender, setGender] = useState<'male'|'female'>('male')
   const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
@@ -22,7 +23,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const perKg = (rdi/weight).toFixed(1)
 
   return (
-    <CalculatorLayout title="Magnesium Calculator" description="Calculate your daily magnesium requirements based on age, gender, weight, and activity level." icon="⚡" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="magnesium-calculator">
+    <CalculatorLayout title="Magnesium Calculator" description="Calculate your daily magnesium requirements based on age, gender, weight, and activity level." icon="⚡" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="magnesium-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

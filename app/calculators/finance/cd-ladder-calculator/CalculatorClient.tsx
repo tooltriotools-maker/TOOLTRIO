@@ -9,11 +9,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const RUNG_COLORS = ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6']
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const [totalInvestment, setTotalInvestment] = useState(50000)
   const [numRungs, setNumRungs] = useState(5)
@@ -32,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }))
 
   return (
-    <CalculatorLayout title="CD Ladder Calculator USA 2026" description="Build a certificate of deposit laddering strategy to maximize FDIC-insured yield with annual liquidity." icon="🏗️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-ladder-calculator">
+    <CalculatorLayout title="CD Ladder Calculator USA 2026" description="Build a certificate of deposit laddering strategy to maximize FDIC-insured yield with annual liquidity." icon="🏗️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-ladder-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">CD Ladder Setup</h2>

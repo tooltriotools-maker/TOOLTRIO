@@ -8,9 +8,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Calendar, Heart } from 'lucide-react'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [lastPeriod, setLastPeriodStr] = useState('2026-01-01')
   const [cycleLength, setCycleLength] = useState(28)
 
@@ -22,7 +23,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const fmt = (d: Date) => d?.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) || '-'
 
   return (
-    <CalculatorLayout title="Ovulation Calculator" description="Calculate your ovulation date and fertile window based on last period date and cycle length." icon="🌸" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ovulation-calculator">
+    <CalculatorLayout title="Ovulation Calculator" description="Calculate your ovulation date and fertile window based on last period date and cycle length." icon="🌸" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ovulation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Cycle Details</h2>

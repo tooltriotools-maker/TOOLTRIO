@@ -6,13 +6,14 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FOODS = [
   {name:'White bread (30g)',gi:73,carbs:15},{name:'Whole wheat bread (30g)',gi:69,carbs:13},{name:'White rice (150g cooked)',gi:64,carbs:34},{name:'Brown rice (150g cooked)',gi:55,carbs:32},{name:'Pasta (180g cooked)',gi:49,carbs:43},{name:'Oatmeal (250g cooked)',gi:55,carbs:27},{name:'Apple (medium)',gi:36,carbs:15},{name:'Banana (medium)',gi:51,carbs:23},{name:'Potato, baked (150g)',gi:85,carbs:30},{name:'Sweet potato (150g)',gi:61,carbs:28},{name:'Carrot (80g)',gi:35,carbs:5},{name:'Lentils (150g cooked)',gi:29,carbs:20},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [foodIdx, setFoodIdx] = useState(0)
   const [servings, setServings] = useState(1)
 
@@ -21,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const glLevel = gl >= 20 ? {l:'High GL',c:'text-red-600',bg:'bg-red-50 border-red-300'} : gl >= 11 ? {l:'Medium GL',c:'text-yellow-600',bg:'bg-yellow-50 border-yellow-300'} : {l:'Low GL',c:'text-green-600',bg:'bg-green-50 border-green-300'}
 
   return (
-    <CalculatorLayout title="Glycemic Load Calculator" description="Calculate glycemic load (GL) for foods to understand their real impact on blood sugar levels." icon="🩸" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="glycemic-load-calculator">
+    <CalculatorLayout title="Glycemic Load Calculator" description="Calculate glycemic load (GL) for foods to understand their real impact on blood sugar levels." icon="🩸" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="glycemic-load-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Food Selection</h2>

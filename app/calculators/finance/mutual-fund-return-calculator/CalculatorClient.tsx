@@ -11,9 +11,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, DollarSign, Percent, Activity } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [units, setUnits] = useState(500)
   const [buyNav, setBuyNav] = useState(100)
@@ -48,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       description="Calculate profit, CAGR, and absolute return on any mutual fund or ETF investment."
       icon="📋"
       category="Finance"
-      structuredData={structuredData}
+      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="mutual-fund-return-calculator"

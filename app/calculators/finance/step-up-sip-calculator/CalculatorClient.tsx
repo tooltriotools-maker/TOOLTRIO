@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, DollarSign, ArrowUpRight, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [initialSIP, setInitialSIP] = useState(5000)
   const [stepUp, setStepUp] = useState(10)
@@ -36,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }) || []
 
   return (
-    <CalculatorLayout title="Step-Up SIP Calculator India 2026" description="Calculate how increasing your SIP by 10–15% annually accelerates wealth vs a flat SIP." icon="🚀" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="step-up-sip-calculator">
+    <CalculatorLayout title="Step-Up SIP Calculator India 2026" description="Calculate how increasing your SIP by 10–15% annually accelerates wealth vs a flat SIP." icon="🚀" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="step-up-sip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Step-Up SIP Details</h2>

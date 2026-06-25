@@ -50,7 +50,7 @@ export default function BudgetPlannerPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <BudgetPlannerCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <BudgetPlannerCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="budget-50-30-20-rule-usa-real-examples-2026" />
     </>
 }

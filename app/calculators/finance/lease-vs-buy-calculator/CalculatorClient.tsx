@@ -11,9 +11,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Car, DollarSign, TrendingDown, Award } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
 
   // Buy inputs
@@ -40,7 +41,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const winnerSaving = r.saving
 
   return (
-    <CalculatorLayout title="Lease vs Buy Car Calculator USA 2026" description="Compare total 5-year cost of leasing vs financing a vehicle including residual value and fees." icon="🚘" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="lease-vs-buy-calculator">
+    <CalculatorLayout title="Lease vs Buy Car Calculator USA 2026" description="Compare total 5-year cost of leasing vs financing a vehicle including residual value and fees." icon="🚘" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="lease-vs-buy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* Inputs */}

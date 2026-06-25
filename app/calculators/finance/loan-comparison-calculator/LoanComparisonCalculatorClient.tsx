@@ -12,8 +12,9 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { loanComparisonSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
-export default function LoanComparisonCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+export default function LoanComparisonCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const m = currency.code === 'INR' ? 20 : 1
 
@@ -35,7 +36,7 @@ export default function LoanComparisonCalculatorClient({ faqs, structuredData, r
   const COLORS = ['#3b82f6', '#f59e0b', '#16a34a', '#8b5cf6']
 
   return (
-    <CalculatorLayout title="Loan Comparison Calculator USA 2026" description="Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="loan-comparison-calculator"
+    <CalculatorLayout title="Loan Comparison Calculator USA 2026" description="Compare up to 4 loan offers simultaneously on monthly payment, total interest, and APR." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="loan-comparison-calculator"
       blogSlug={blogSlug}>
       <div className="space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

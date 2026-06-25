@@ -7,9 +7,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Calendar, Heart, Baby } from 'lucide-react'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [lmpDate, setLmpDate] = useState('2026-10-01')
 
   const result = useMemo(() => {
@@ -29,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   minDate.setDate(minDate.getDate() - 280)
 
   return (
-    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your expected due date (EDD) based on your last menstrual period (LMP). See trimester milestones and week-by-week timeline." icon="🤰" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-calculator">
+    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your expected due date (EDD) based on your last menstrual period (LMP). See trimester milestones and week-by-week timeline." icon="🤰" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Enter LMP Date</h2>

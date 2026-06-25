@@ -10,9 +10,10 @@ import { InputField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function EMICalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function EMICalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -41,7 +42,7 @@ export default function EMICalculatorClient({ faqs, structuredData, relatedCalcu
   }
 
   return (
-    <CalculatorLayout title="Loan EMI Calculator USA 2026" description={`Calculate monthly loan EMI, total interest, and amortization schedule in ${currency.name} (${currency.symbol}).`} icon="🏦" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emi-calculator">
+    <CalculatorLayout title="Loan EMI Calculator USA 2026" description={`Calculate monthly loan EMI, total interest, and amortization schedule in ${currency.name} (${currency.symbol}).`} icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Loan Details</h2>

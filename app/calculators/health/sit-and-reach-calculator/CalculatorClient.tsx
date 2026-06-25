@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [reach, setReach] = useState(25)
   const [age, setAge] = useState(30)
@@ -42,7 +43,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Sit and Reach Flexibility Test" description="Assess your flexibility percentile and get stretching recommendations." icon="🧘" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sit-and-reach-calculator">
+    <CalculatorLayout title="Sit and Reach Flexibility Test" description="Assess your flexibility percentile and get stretching recommendations." icon="🧘" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sit-and-reach-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Test Result</h2>

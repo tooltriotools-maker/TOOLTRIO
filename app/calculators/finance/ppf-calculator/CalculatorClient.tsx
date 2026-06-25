@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Shield, TrendingUp, Calendar, DollarSign } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [yearlyDeposit, setYearlyDeposit] = useState(150000)
   const [years, setYears] = useState(15)
@@ -27,7 +28,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="PPF Calculator India 2026" description="Calculate PPF maturity value, year-by-year growth, and tax-free returns at 7.1% current rate." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ppf-calculator">
+    <CalculatorLayout title="PPF Calculator India 2026" description="Calculate PPF maturity value, year-by-year growth, and tax-free returns at 7.1% current rate." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ppf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">PPF Details</h2>

@@ -50,7 +50,7 @@ export default function InvoicePage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <InvoiceCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <InvoiceCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="small-business-finance-guide-usa-2026" />
     </>
 }

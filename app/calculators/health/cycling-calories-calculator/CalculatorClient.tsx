@@ -6,13 +6,14 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const INTENSITIES = [
   {label:'Leisure (10-12 mph)',met:5.8},{label:'Moderate (12-14 mph)',met:8.0},{label:'Vigorous (14-16 mph)',met:10.0},{label:'Racing (16-20 mph)',met:12.0},{label:'Mountain biking',met:8.5},{label:'Stationary (moderate)',met:7.0},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(155)
   const [duration, setDuration] = useState(60)
   const [intensity, setIntensity] = useState(1)
@@ -25,7 +26,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const fatGrams = (calories / 9 * 0.8).toFixed(1)
 
   return (
-    <CalculatorLayout title="Cycling Calories Calculator" description="Calculate calories burned cycling based on your weight, speed, and duration." icon="🚴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cycling-calories-calculator">
+    <CalculatorLayout title="Cycling Calories Calculator" description="Calculate calories burned cycling based on your weight, speed, and duration." icon="🚴" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cycling-calories-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [distance, setDistance] = useState(100)
   const [timeS, setTimeS] = useState(13.5)
   const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
@@ -23,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const pctOfWR = distance === 100 ? ((9.58/timeS)*100).toFixed(1) : null
 
   return (
-    <CalculatorLayout title="Sprint Calculator" description="Analyse sprint performance: speed, pace, calories burned, and comparison with world records." icon="🏃" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sprint-calculator">
+    <CalculatorLayout title="Sprint Calculator" description="Analyse sprint performance: speed, pace, calories burned, and comparison with world records." icon="🏃" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sprint-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Sprint Details</h2>

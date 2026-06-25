@@ -3,59 +3,40 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
+  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
 })
-
 export const metadata: Metadata = generateCalculatorMetadata({
- title: 'DCA vs Lump Sum Calculator USA 2026 | ToolTrio',
- description: "Free DCA vs lump sum calculator USA 2026. Compare monthly dollar-cost averaging vs investing all at once in the S&P 500. Based on Vanguard research and.",
- slug: 'dollar-cost-averaging-vs-lumpsum-usa-calculator',
- category: 'finance',
- region: 'usa',
- keywords: [
-    'dollar cost averaging vs lumpsum usa calculator 2026',
-    'dollar cost averaging vs lumpsum usa calculator',
-    'free dollar cost averaging vs lumpsum usa calculator',
-    'dollar cost averaging vs lumpsum usa calculator online',
-    'best dollar cost averaging vs lumpsum usa calculator 2026',
-    'dollar cost averaging vs lumpsum usa calculator no signup',
-    'accurate dollar cost averaging vs lumpsum usa calculator',
-    'how to calculate dollar cost averaging vs lumpsum usa',
-    'tooltrio.com',
-  ],
+  title: 'Dollar Cost Averaging vs Lump Sum Calculator USA 2026 | ToolTrio',
+  description: 'Compare DCA vs lump sum investing for stocks, index funds, or crypto. Calculate average price, final value, and which strategy wins at different market conditions.',
+  slug: 'dollar-cost-averaging-vs-lumpsum-usa-calculator',
+  category: 'finance',
+  region: 'usa',
+  keywords: ['dollar cost averaging calculator USA 2026', 'DCA vs lump sum calculator', 'which is better DCA or lump sum', 'dollar cost averaging stocks calculator', 'DCA index fund calculator USA'],
 })
-
 const faqs = [
- { question: 'Is the DCA vs Lump Sum Investing Calculator USA 2026 free to use?', answer: 'Yes, the DCA vs Lump Sum Investing Calculator USA 2026 is completely free - no account registration, subscription, or payment of any kind required. All calculations are performed locally in your browser, meaning your financial data is never transmitted or stored anywhere. We believe professional-grade financial calculators should be accessible to every American regardless of income.' },
- { question: 'How accurate are the calculations?', answer: 'This DCA vs Lump Sum Investing Calculator USA 2026 uses standard financial formulas recognized by certified financial planners (CFPs), CPAs, and investment advisors across the United States. Results assume consistent inputs and standard market conditions. Actual investment returns, taxes, and financial outcomes will vary based on market performance, tax law changes, and individual circumstances. Use results for planning purposes, not as guarantees.' },
- { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), consulting a Certified Financial Planner (CFP) or CPA is strongly recommended. This DCA vs Lump Sum Investing Calculator USA 2026 provides solid educational estimates and planning scenarios, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
- { question: 'Does this account for inflation?', answer: 'Where applicable, this DCA vs Lump Sum Investing Calculator USA 2026 uses nominal values (current dollars) by default. For long-term projections, always consider that inflation historically averages 2-3% annually in the United States. To get inflation-adjusted (real) returns, subtract your expected inflation rate from your nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
- { question: 'Are the calculations based on US tax law?', answer: 'This DCA vs Lump Sum Investing Calculator USA 2026 uses US financial conventions and, where applicable, current US tax brackets and contribution limits. Tax law changes annually - verify current IRS limits (401k, IRA, HSA, etc.) at IRS.gov. For non-US users, contribution limits and tax treatment will differ significantly. Always verify current figures with your tax professional.' },
- { question: 'Is my financial data stored or shared?', answer: 'No. All calculations run entirely in your browser. No financial data - income, savings, investment amounts, or personal details - is ever transmitted to any server, stored in any database, or shared with any third party. When you close the tab, everything disappears. Your financial privacy is completely protected.' },
- { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this DCA vs Lump Sum Investing Calculator USA 2026, assume consistent contribution rates, steady returns, and static tax rates - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
- { question: 'Can I use this calculator for both US and international currencies?', answer: 'This DCA vs Lump Sum Investing Calculator USA 2026 supports multiple currencies - USD ($), GBP (£), EUR (€), and INR (₹) where applicable. For global users, note that contribution limits, tax treatment, and regulatory frameworks vary significantly by country. The mathematical calculations are currency-agnostic, but country-specific planning should involve a local financial professional.' },
+  {
+    question: 'Does DCA or lump sum perform better?',
+    answer: "Research shows lump sum outperforms DCA about 2/3 of the time in rising markets — because time in market beats timing the market. Vanguard research found lump sum beat DCA by about 2.4% on average over 12-month periods in US equities. However, DCA reduces regret risk (investing at a peak) and helps investors with behavioral challenges stick to their plan. For most people without market timing ability, DCA's psychological benefits may outweigh the mathematical disadvantage.",
+  },
+  {
+    question: 'When does DCA beat lump sum?',
+    answer: 'DCA beats lump sum when markets decline or are volatile during the DCA period — your later purchases at lower prices bring down the average cost. In a market that drops 20% then recovers, DCA significantly outperforms. In the 2022 bear market, monthly DCA investors who started in January significantly outperformed those who invested a lump sum at the January high. DCA is essentially a hedge against short-term market decline.',
+  },
+  {
+    question: 'How long should a DCA period be?',
+    answer: "Common DCA periods: monthly over 6-12 months for a lump sum you're deploying gradually. Weekly for ongoing savings from income. The longer the DCA period, the more you're timing the market in reverse — spreading over 36 months means your average return depends heavily on market conditions over 3 years. Most research suggests 6-12 months is optimal for deploying a lump sum; ongoing income should be invested as soon as received.",
+  }
 ]
-
 const relatedCalculators = [
- { name: 'SIP Calculator', href: '/calculators/finance/sip-calculator', icon: '📈', desc: 'Monthly SIP returns' },
- { name: 'Lumpsum Calculator', href: '/calculators/finance/lumpsum-calculator', icon: '💼', desc: 'One-time investment returns' },
- { name: 'PPF Calculator', href: '/calculators/finance/ppf-calculator', icon: '🏛️', desc: 'PPF maturity calculator' },
- { name: 'FD Calculator', href: '/calculators/finance/fd-calculator', icon: '🏦', desc: 'Fixed deposit returns' },
- { name: 'NPS Calculator', href: '/calculators/finance/nps-calculator', icon: '🎯', desc: 'NPS pension corpus' },
- { name: 'ELSS vs PPF', href: '/calculators/finance/elss-vs-ppf-calculator', icon: '⚖️', desc: 'ELSS vs PPF comparison' },
+  { name: 'Crypto DCA Calculator', href: '/calculators/finance/crypto-dca-calculator', icon: '₿', desc: 'Crypto DCA Calculator' },
+  { name: 'Index Fund Fee Calculator', href: '/calculators/finance/index-fund-fee-calculator', icon: '📉', desc: 'Index Fund Fee Calculator' },
+  { name: 'DRIP Calculator', href: '/calculators/finance/drip-calculator', icon: '💧', desc: 'DRIP Calculator' },
+  { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'Compound Interest Calculator' }
 ]
-
+const structuredData = [generateFAQStructuredData(faqs)]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
- return <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
-       <CalculatorClient
- faqs={faqs}
- blogSlug="dca-vs-lump-sum-investing-guide-usa-2026"
- structuredData={[generateFAQStructuredData(faqs)]}
- relatedCalculators={relatedCalculators}
- />
-    </>
+  return <>
+    {structuredData.map((s,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(s)}} />)}
+    <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
+  </>
 }

@@ -12,7 +12,8 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { businessLoanSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const LOAN_TYPES = [
   { name: 'SBA 7(a) Loan', rate: 8.5, maxYears: 10, note: 'Most common SBA loan, up to $5M' },
   { name: 'SBA 504 Loan', rate: 6.5, maxYears: 25, note: 'Equipment & real estate, up to $5.5M' },
@@ -22,7 +23,7 @@ const LOAN_TYPES = [
   { name: 'Merchant Cash Advance', rate: 36.0, maxYears: 1, note: 'Revenue-based, factor rate 1.2-1.5' },
 ]
 
-export default function BusinessLoanCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function BusinessLoanCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const m = currency.code === 'INR' ? 200 : 1
 
@@ -55,7 +56,7 @@ export default function BusinessLoanCalculatorClient({ faqs, structuredData, rel
   const tickFmt = (v: number) => v >= 1000000 ? `${currency.symbol}${(v / 1000000).toFixed(1)}M` : `${currency.symbol}${(v / 1000).toFixed(0)}K`
 
   return (
-    <CalculatorLayout title="Business Loan Calculator USA 2026" description="Calculate business loan monthly payments, total interest, and amortization schedule for any loan size." icon="🏢" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="business-loan-calculator"
+    <CalculatorLayout title="Business Loan Calculator USA 2026" description="Calculate business loan monthly payments, total interest, and amortization schedule for any loan size." icon="🏢" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="business-loan-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

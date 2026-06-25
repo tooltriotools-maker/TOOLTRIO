@@ -8,7 +8,8 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const LOAN_TYPES = [
   { name: 'Direct Sub/Unsub (Undergrad)', rate: 6.53 },
@@ -18,7 +19,7 @@ const LOAN_TYPES = [
   { name: 'Private (Fair Credit)', rate: 10.5 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [loanBalance, setLoanBalance] = useState(35000)
   const [interestRate, setInterestRate] = useState(6.53)
   const [monthlyPayment, setMonthlyPayment] = useState(390)
@@ -35,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const standardPayment = Math.ceil((loanBalance * (interestRate / 100 / 12)) / (1 - Math.pow(1 + interestRate / 100 / 12, -120)))
 
   return (
-    <CalculatorLayout title="Student Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and payoff date for any student loan balance." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="student-loan-calculator">
+    <CalculatorLayout title="Student Loan Calculator USA 2026" description="Calculate monthly payment, total interest, and payoff date for any student loan balance." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="student-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Loan Details</h2>

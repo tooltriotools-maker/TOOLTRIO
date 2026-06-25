@@ -11,7 +11,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { GraduationCap, Target, TrendingUp, DollarSign, Calendar } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
 const GOAL_PRESETS = [
   { label: 'College (India)', amount: 2000000 },
@@ -21,7 +22,7 @@ const GOAL_PRESETS = [
   { label: 'Custom Goal', amount: 0 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [goalAmount, setGoalAmount] = useState(2000000)
   const [years, setYears] = useState(15)
@@ -44,7 +45,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Education Goal Calculator USA 2026" description="Calculate monthly savings needed to reach any college fund target with tuition inflation." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="education-goal-calculator">
+    <CalculatorLayout title="Education Goal Calculator USA 2026" description="Calculate monthly savings needed to reach any college fund target with tuition inflation." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="education-goal-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Goal Details</h2>

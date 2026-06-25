@@ -11,9 +11,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { DollarSign, TrendingUp, Percent, Info } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [amount, setAmount] = useState(500000)
   const [returnRate, setReturnRate] = useState(12)
@@ -30,7 +31,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="Mutual Fund Calculator USA 2026" description="See how expense ratios and fees erode long-term returns compared to low-cost index funds." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mutual-fund-calculator">
+    <CalculatorLayout title="Mutual Fund Calculator USA 2026" description="See how expense ratios and fees erode long-term returns compared to low-cost index funds." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mutual-fund-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Fund Details</h2>

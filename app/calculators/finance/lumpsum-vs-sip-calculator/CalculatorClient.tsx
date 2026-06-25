@@ -9,9 +9,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt } = useCurrency()
   const [totalAmount, setTotalAmount] = useState(120000)
   const [annualReturn, setAnnualReturn] = useState(12)
@@ -24,7 +25,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const loserFV = result.lumpSumBetter ? result.sipFV : result.lumpSumFV
 
   return (
-    <CalculatorLayout title="Lump Sum vs SIP Calculator India 2026" description="Compare investing all at once vs systematic investment plan monthly contributions." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="lumpsum-vs-sip-calculator">
+    <CalculatorLayout title="Lump Sum vs SIP Calculator India 2026" description="Compare investing all at once vs systematic investment plan monthly contributions." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="lumpsum-vs-sip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Investment Details</h2>

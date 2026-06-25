@@ -7,7 +7,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 import { paceSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const RACES = [
   { name: '1 Mile', distanceMi: 1 },
@@ -26,7 +27,7 @@ function formatTime(totalSeconds: number) {
   return `${m}:${s.toString().padStart(2, '0')}`
 }
 
-export default function PaceCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function PaceCalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [mode, setMode]       = useState<'pace' | 'time' | 'distance'>('pace')
   const [paceMin, setPaceMin] = useState(9)
   const [paceSec, setPaceSec] = useState(30)
@@ -62,7 +63,7 @@ export default function PaceCalculatorClient({ faqs, structuredData, relatedCalc
   const calcSpeedFromPace = () => paceSecTotal > 0 ? (3600 / paceSecTotal).toFixed(2) : '--'
 
   return (
-    <CalculatorLayout title="Pace Calculator" description="Calculate your running pace, finish time, or race distance for 5K, 10K, half marathon, and marathon." icon="🏃" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pace-calculator">
+    <CalculatorLayout title="Pace Calculator" description="Calculate your running pace, finish time, or race distance for 5K, 10K, half marathon, and marathon." icon="🏃" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pace-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Calculate</h2>

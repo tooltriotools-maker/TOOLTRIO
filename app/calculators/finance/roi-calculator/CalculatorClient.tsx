@@ -12,9 +12,10 @@ import { TrendingUp, DollarSign, Percent, Zap } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { roiRichSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [initial, setInitial] = useState(100000)
   const [finalValue, setFinalValue] = useState(175000)
@@ -39,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="ROI Calculator USA 2026" description="Calculate return on investment, net profit, and annualized ROI for any investment." icon="📈" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="roi-calculator">
+    <CalculatorLayout title="ROI Calculator USA 2026" description="Calculate return on investment, net profit, and annualized ROI for any investment." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="roi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Investment Details</h2>

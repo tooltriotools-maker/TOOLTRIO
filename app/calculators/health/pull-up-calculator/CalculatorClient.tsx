@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [reps, setReps] = useState(8)
   const [bodyWeight, setBodyWeight] = useState(80)
   const [addedWeight, setAddedWeight] = useState(0)
@@ -21,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const level = reps>=std.elite?'Elite 🏆':reps>=std.advanced?'Advanced':reps>=std.intermediate?'Intermediate':reps>=std.beginner?'Beginner':'Novice'
 
   return (
-    <CalculatorLayout title="Pull-Up Calculator" description="Calculate your pull-up one-rep max, assess your strength level, and set realistic goals." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pull-up-calculator">
+    <CalculatorLayout title="Pull-Up Calculator" description="Calculate your pull-up one-rep max, assess your strength level, and set realistic goals." icon="🏋️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pull-up-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>

@@ -6,11 +6,12 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const SOURCES = [{n:'Salmon (100g)',mg:2260},{n:'Mackerel (100g)',mg:4580},{n:'Sardines (100g)',mg:1480},{n:'Walnuts (30g)',mg:2570},{n:'Flaxseeds (1 tbsp)',mg:2350},{n:'Chia seeds (1 tbsp)',mg:2060},{n:'Fish oil supplement (1g)',mg:1000},{n:'Herring (100g)',mg:2200}]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
   const [gender, setGender] = useState<'male'|'female'>('male')
   const [heartRisk, setHeartRisk] = useState(false)
@@ -19,7 +20,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const rdi = heartRisk ? 2000 : base
 
   return (
-    <CalculatorLayout title="Omega-3 Calculator" description="Calculate your daily omega-3 fatty acid requirements and find the best food sources." icon="🐟" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="omega3-calculator">
+    <CalculatorLayout title="Omega-3 Calculator" description="Calculate your daily omega-3 fatty acid requirements and find the best food sources." icon="🐟" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="omega3-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

@@ -90,7 +90,6 @@ export default function Page() {
       ))}
       <CalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="investment-return-guide-cagr-roi-roi-calculator-usa"
  />

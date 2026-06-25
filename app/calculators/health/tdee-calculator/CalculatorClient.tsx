@@ -6,9 +6,10 @@ import { InputField, SelectField, HeightField } from '@/components/ui/InputField
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [weight, setWeight] = useState(155)
   const [height, setHeight] = useState(67)
@@ -39,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const goalColor = goal==='lose'?'text-blue-600 bg-blue-50 border-blue-200':goal==='gain'?'text-green-600 bg-green-50 border-green-200':'text-purple-600 bg-purple-50 border-purple-200'
 
   return (
-    <CalculatorLayout title="TDEE Calculator" description="Calculate your Total Daily Energy Expenditure - how many calories your body needs based on your lifestyle and goals." icon="⚡" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="tdee-calculator">
+    <CalculatorLayout title="TDEE Calculator" description="Calculate your Total Daily Energy Expenditure - how many calories your body needs based on your lifestyle and goals." icon="⚡" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="tdee-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

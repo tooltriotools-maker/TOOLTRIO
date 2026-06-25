@@ -11,9 +11,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { DollarSign, Percent, TrendingDown, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [income, setIncome] = useState(1200000)
   const [regime, setRegime] = useState<'old' | 'new'>('new')
@@ -32,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Income Tax Calculator USA 2026" description="Calculate your federal income tax, effective rate, and marginal bracket with 2026 IRS brackets." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="income-tax-calculator">
+    <CalculatorLayout title="Income Tax Calculator USA 2026" description="Calculate your federal income tax, effective rate, and marginal bracket with 2026 IRS brackets." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Tax Details - FY 2026-27</h2>

@@ -12,8 +12,9 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { savingsRateSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
-export default function SavingsRateCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+export default function SavingsRateCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const m = currency.code === 'INR' ? 10 : 1
 
@@ -31,7 +32,7 @@ export default function SavingsRateCalculatorClient({ faqs, structuredData, rela
   const barColors = tableData.map(d => d.color)
 
   return (
-    <CalculatorLayout title="Savings Rate Calculator USA 2026" description="Calculate your personal savings rate and how each 1% increase accelerates your FIRE date." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="savings-rate-calculator"
+    <CalculatorLayout title="Savings Rate Calculator USA 2026" description="Calculate your personal savings rate and how each 1% increase accelerates your FIRE date." icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="savings-rate-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

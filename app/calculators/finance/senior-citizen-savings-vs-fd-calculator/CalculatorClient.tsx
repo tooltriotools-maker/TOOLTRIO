@@ -10,8 +10,9 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Shield, Landmark } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, fmtCompact } = useCurrency()
   const [investment, setInvestment] = useState(1500000)
   const [scssRate, setScssRate] = useState(8.2)
@@ -34,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [investment, scssRate, fdRate, taxSlab])
 
   return (
-    <CalculatorLayout title="SCSS vs FD Calculator India 2026" description="Compare Senior Citizen Savings Scheme at 8.2% vs bank Fixed Deposit returns for Indian retirees." icon="👴" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="senior-citizen-savings-vs-fd-calculator">
+    <CalculatorLayout title="SCSS vs FD Calculator India 2026" description="Compare Senior Citizen Savings Scheme at 8.2% vs bank Fixed Deposit returns for Indian retirees." icon="👴" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="senior-citizen-savings-vs-fd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [weight, setWeight] = useState(100)
   const [reps, setReps] = useState(5)
@@ -33,7 +34,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const zoneColor: Record<string,string> = {'Max Strength':'text-red-700 bg-red-50','Strength':'text-orange-700 bg-orange-50','Hypertrophy':'text-blue-700 bg-blue-50','Endurance':'text-green-700 bg-green-50','Active Recovery':'text-gray-600 bg-gray-50'}
 
   return (
-    <CalculatorLayout title="One Rep Max Calculator" description="Calculate your 1RM from any rep count using 3 formulas, plus full training percentage breakdown." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="one-rep-max-calculator">
+    <CalculatorLayout title="One Rep Max Calculator" description="Calculate your 1RM from any rep count using 3 formulas, plus full training percentage breakdown." icon="🏋️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="one-rep-max-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Lift</h2>

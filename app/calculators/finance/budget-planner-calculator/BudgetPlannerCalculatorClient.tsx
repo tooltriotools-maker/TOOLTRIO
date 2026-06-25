@@ -14,7 +14,8 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { budgetByIncomeLevel } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const DEFAULT_EXPENSES = [
   { name: 'Rent/Mortgage', amount: 1500, category: 'needs' as const },
   { name: 'Groceries', amount: 400, category: 'needs' as const },
@@ -29,7 +30,7 @@ const DEFAULT_EXPENSES = [
   { name: 'Emergency Fund', amount: 200, category: 'savings' as const },
 ]
 
-export default function BudgetPlannerCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function BudgetPlannerCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt } = useCurrency()
 
   const multiplier = currency.code === 'INR' ? 10 : currency.code === 'EUR' ? 0.9 : 1
@@ -58,7 +59,7 @@ export default function BudgetPlannerCalculatorClient({ faqs, structuredData, re
   ]
 
   return (
-    <CalculatorLayout title="Budget Planner Calculator USA 2026" description="Build a detailed monthly budget and track income vs expenses with savings rate analysis." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="budget-planner-calculator"
+    <CalculatorLayout title="Budget Planner Calculator USA 2026" description="Build a detailed monthly budget and track income vs expenses with savings rate analysis." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="budget-planner-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-4">

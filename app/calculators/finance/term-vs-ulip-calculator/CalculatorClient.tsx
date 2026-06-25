@@ -10,9 +10,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Shield, TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, fmtCompact } = useCurrency()
   const [annualPremium, setAnnualPremium] = useState(100000)
   const [sumAssured, setSumAssured] = useState(10000000)
@@ -61,7 +62,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [annualPremium, sumAssured, termPremium, sipRate, ulipCharge, ulipRate, years])
 
   return (
-    <CalculatorLayout title="Term vs ULIP Calculator India 2026" description="Compare Term Insurance plus SIP vs ULIP plans on returns, costs, and insurance coverage." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-ulip-calculator">
+    <CalculatorLayout title="Term vs ULIP Calculator India 2026" description="Compare Term Insurance plus SIP vs ULIP plans on returns, costs, and insurance coverage." icon="🛡️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-ulip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

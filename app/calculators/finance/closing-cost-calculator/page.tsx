@@ -50,7 +50,7 @@ export default function ClosingCostPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <ClosingCostCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <ClosingCostCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="down-payment-how-much-house-usa-2026" />
     </>
 }

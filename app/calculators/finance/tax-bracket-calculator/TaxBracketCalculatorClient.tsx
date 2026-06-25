@@ -13,7 +13,8 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { taxBracketsByState2026 } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 // 2026 IRS Federal Tax Brackets (IRS Rev. Proc. 2026-28)
 const BRACKETS_2026 = {
   single: [
@@ -52,7 +53,7 @@ function calcFederalTax(taxableIncome: number, filing: 'single' | 'married') {
   return { tax: Math.round(tax), breakdown: breakdown.filter(b => b.taxable > 0) }
 }
 
-export default function TaxBracketCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function TaxBracketCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { fmt, fmtCompact } = useCurrency()
 
   const [grossIncome, setGrossIncome]   = useState(85000)
@@ -81,7 +82,7 @@ export default function TaxBracketCalculatorClient({ faqs, structuredData, relat
   const COLORS  = ['#16a34a', '#3b82f6', '#f59e0b', '#f97316', '#ef4444', '#8b5cf6', '#ec4899']
 
   return (
-    <CalculatorLayout title="Tax Bracket Calculator USA 2026" description="See which 2026 federal tax brackets apply to your income, marginal rate, and effective rate." icon="🧾" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="tax-bracket-calculator"
+    <CalculatorLayout title="Tax Bracket Calculator USA 2026" description="See which 2026 federal tax brackets apply to your income, marginal rate, and effective rate." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tax-bracket-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

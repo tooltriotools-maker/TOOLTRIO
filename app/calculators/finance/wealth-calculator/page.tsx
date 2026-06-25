@@ -50,7 +50,7 @@ export default function WealthCalculatorPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <WealthCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <WealthCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="wealth-building-guide-usa-2026-net-worth-by-age" />
     </>
 }

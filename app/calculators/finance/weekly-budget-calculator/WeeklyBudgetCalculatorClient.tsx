@@ -11,7 +11,8 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { weeklyBudgetSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const DEFAULT_CATEGORIES = [
   { name: 'Groceries & Food', amount: 150, color: '#16a34a' },
   { name: 'Transportation/Gas', amount: 60, color: '#3b82f6' },
@@ -23,7 +24,7 @@ const DEFAULT_CATEGORIES = [
   { name: 'Subscriptions', amount: 20, color: '#64748b' },
 ]
 
-export default function WeeklyBudgetCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function WeeklyBudgetCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const m = currency.code === 'INR' ? 10 : 1
 
@@ -51,7 +52,7 @@ export default function WeeklyBudgetCalculatorClient({ faqs, structuredData, rel
   ]
 
   return (
-    <CalculatorLayout title="Weekly Budget Calculator USA 2026" description="Plan your weekly spending and savings with the 50/30/20 rule tailored for weekly paychecks." icon="📆" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="weekly-budget-calculator"
+    <CalculatorLayout title="Weekly Budget Calculator USA 2026" description="Plan your weekly spending and savings with the 50/30/20 rule tailored for weekly paychecks." icon="📆" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="weekly-budget-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { DollarSign, TrendingDown, Calendar, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [investment, setInvestment] = useState(1000000)
   const [withdrawal, setWithdrawal] = useState(8000)
@@ -36,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     : []
 
   return (
-    <CalculatorLayout title="SWP Calculator India 2026" description="Calculate monthly income from mutual fund corpus using Systematic Withdrawal Plan." icon="💸" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="swp-calculator">
+    <CalculatorLayout title="SWP Calculator India 2026" description="Calculate monthly income from mutual fund corpus using Systematic Withdrawal Plan." icon="💸" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="swp-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">SWP Details</h2>

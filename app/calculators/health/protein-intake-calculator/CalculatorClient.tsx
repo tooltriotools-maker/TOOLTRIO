@@ -8,7 +8,8 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const PROTEIN_FOODS = [
   { food: 'Chicken Breast (100g)', protein: 31, calories: 165, emoji: '🍗' },
@@ -21,7 +22,7 @@ const PROTEIN_FOODS = [
   { food: 'Black Beans (100g)', protein: 8, calories: 132, emoji: '⚫' },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent}: Props) {
   const [weight, setWeight] = useState(165)
   const [activityLevel, setActivityLevel] = useState<'sedentary' | 'light' | 'moderate' | 'active' | 'athlete'>('moderate')
   const [goal, setGoal] = useState<'maintain' | 'build' | 'lose'>('build')
@@ -41,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Protein Intake Calculator" description="Calculate your daily protein needs based on weight, activity level, and fitness goal. Get food sources and per-meal targets." icon="💪" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="protein-intake-calculator">
+    <CalculatorLayout title="Protein Intake Calculator" description="Calculate your daily protein needs based on weight, activity level, and fitness goal. Get food sources and per-meal targets." icon="💪" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="protein-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

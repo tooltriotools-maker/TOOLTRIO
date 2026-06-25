@@ -8,7 +8,8 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const BOND_PRESETS = [
   { name: '🇬🇧 UK 10yr Gilt', country: 'UK', coupon: 4.25, maturity: 10, price: 97, faceValue: 100, symbol: '£' },
@@ -19,7 +20,7 @@ const BOND_PRESETS = [
   { name: '🇨🇭 Swiss 10yr Eidg.', country: 'Switzerland', coupon: 0.5, maturity: 10, price: 88, faceValue: 100, symbol: 'CHF' },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [presetIdx, setPresetIdx] = useState(0)
   const [faceValue, setFaceValue] = useState(10000)
   const [couponRate, setCouponRate] = useState(4.25)
@@ -52,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="Government Bond Calculator USA 2026" description="Calculate yield to maturity, current yield, bond price, and duration for any government bond." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="government-bond-calculator">
+    <CalculatorLayout title="Government Bond Calculator USA 2026" description="Calculate yield to maturity, current yield, bond price, and duration for any government bond." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="government-bond-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Bond Details</h2>

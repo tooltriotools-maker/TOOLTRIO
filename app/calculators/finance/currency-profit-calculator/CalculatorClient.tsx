@@ -8,7 +8,8 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const CURRENCY_PAIRS = [
   { pair: 'EUR/USD', base: 'EUR', quote: 'USD', rate: 1.085 },
@@ -21,7 +22,7 @@ const CURRENCY_PAIRS = [
   { pair: 'EUR/GBP', base: 'EUR', quote: 'GBP', rate: 0.856 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
   const [investAmount, setInvestAmount] = useState(10000)
@@ -52,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }
 
   return (
-    <CalculatorLayout title="Forex Profit Calculator USA 2026" description="Calculate profit or loss on currency exchange trades including pip value and position size." icon="💱" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="currency-profit-calculator">
+    <CalculatorLayout title="Forex Profit Calculator USA 2026" description="Calculate profit or loss on currency exchange trades including pip value and position size." icon="💱" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="currency-profit-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Trade Setup</h2>

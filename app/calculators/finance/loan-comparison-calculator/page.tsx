@@ -49,7 +49,7 @@ export default function LoanComparisonPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <LoanComparisonCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <LoanComparisonCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="car-loan-calculator-usa-2026-rates-by-state" />
     </>
 }

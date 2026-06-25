@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const QUESTIONS = [
     'Been upset because of something that happened unexpectedly',
@@ -60,7 +61,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const opts = ['Never','Almost Never','Sometimes','Fairly Often','Very Often']
 
   return (
-    <CalculatorLayout title="Stress Level Calculator (PSS-10)" description="Validated Perceived Stress Scale assessment with personalised coping strategies. Scientifically backed stress measurement." icon="🧠" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="stress-level-calculator">
+    <CalculatorLayout title="Stress Level Calculator (PSS-10)" description="Validated Perceived Stress Scale assessment with personalised coping strategies. Scientifically backed stress measurement." icon="🧠" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="stress-level-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card>

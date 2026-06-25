@@ -11,12 +11,11 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 
 interface Props {
   faqs: { question: string; answer: string }[]
-  structuredData: object[]
-  relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]
+relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]
   blogSlug?: string
 }
 
-export default function PersonalLoanCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function PersonalLoanCalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -54,7 +53,7 @@ export default function PersonalLoanCalculatorClient({ faqs, structuredData, rel
       description="Calculate your personal loan monthly payment, total interest, and full amortization schedule."
       icon="💳"
       category="Finance"
-      structuredData={structuredData}
+      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="personal-loan-calculator"

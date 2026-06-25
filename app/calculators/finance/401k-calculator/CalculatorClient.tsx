@@ -9,9 +9,10 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -39,7 +40,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="401k Calculator USA 2026" description="Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest." icon="🏦" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-calculator">
+    <CalculatorLayout title="401k Calculator USA 2026" description="Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest." icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your 401k Details</h2>

@@ -9,7 +9,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { invoiceSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 interface LineItem { description: string; qty: number; rate: number }
 
 const DEFAULT_ITEMS: LineItem[] = [
@@ -18,7 +19,7 @@ const DEFAULT_ITEMS: LineItem[] = [
   { description: 'Consulting Hours', qty: 4, rate: 150 },
 ]
 
-export default function InvoiceCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+export default function InvoiceCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt } = useCurrency()
   const m = currency.code === 'INR' ? 80 : 1
 
@@ -50,7 +51,7 @@ export default function InvoiceCalculatorClient({ faqs, structuredData, relatedC
   const removeItem = (idx: number) => setItems(items.filter((_, i) => i !== idx))
 
   return (
-    <CalculatorLayout title="Invoice Calculator USA 2026" description="Add line items, apply tax and discounts, and calculate invoice totals for freelancers and businesses." icon="🧾" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="invoice-calculator"
+    <CalculatorLayout title="Invoice Calculator USA 2026" description="Add line items, apply tax and discounts, and calculate invoice totals for freelancers and businesses." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="invoice-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-4" data-pdf-results>

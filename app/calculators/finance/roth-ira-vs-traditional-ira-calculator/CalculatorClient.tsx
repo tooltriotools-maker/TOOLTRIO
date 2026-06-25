@@ -9,11 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [annualContrib, setAnnualContrib] = useState(7000)
   const [currentAge, setCurrentAge] = useState(35)
   const [retirementAge, setRetirementAge] = useState(65)
@@ -48,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [annualContrib, currentAge, retirementAge, returnRate, currentTax, retirementTax])
 
   return (
-    <CalculatorLayout title="Roth IRA vs Traditional IRA Calculator USA 2026" description="Compare after-tax retirement wealth from Roth vs Traditional IRA based on your tax brackets." icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="roth-ira-vs-traditional-ira-calculator">
+    <CalculatorLayout title="Roth IRA vs Traditional IRA Calculator USA 2026" description="Compare after-tax retirement wealth from Roth vs Traditional IRA based on your tax brackets." icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="roth-ira-vs-traditional-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">IRA Details</h2>

@@ -56,7 +56,6 @@ export default function Page() {
       ))}
       <CalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="sip-calculator-guide-how-to-grow-wealth-with-systematic-investment"
  />

@@ -8,7 +8,8 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 type CollegeType = 'public_instate' | 'public_outstate' | 'private' | 'community'
 
@@ -19,7 +20,7 @@ const COLLEGE_TYPES: { value: CollegeType; label: string; current: number }[] = 
   { value: 'private', label: '🎯 Private University', current: 62000 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [childAge, setChildAge] = useState(5)
   const [collegeType, setCollegeType] = useState<CollegeType>('public_instate')
   const [collegeYears, setCollegeYears] = useState(4)
@@ -50,7 +51,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="College Cost Calculator USA 2026" description="Calculate future tuition costs with inflation and monthly savings needed via 529 plan." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="college-cost-calculator">
+    <CalculatorLayout title="College Cost Calculator USA 2026" description="Calculate future tuition costs with inflation and monthly savings needed via 529 plan." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="college-cost-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">College Plan</h2>

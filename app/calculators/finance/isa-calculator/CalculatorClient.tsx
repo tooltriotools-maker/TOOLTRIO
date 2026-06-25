@@ -8,7 +8,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 type ISAType = 'stocks' | 'cash' | 'lifetime'
 
@@ -18,7 +19,7 @@ const ISA_TYPES: { value: ISAType; label: string; icon: string; desc: string; de
   { value: 'lifetime', label: 'Lifetime ISA (LISA)', icon: '🏠', desc: '+25% govt bonus up to £4k/yr', defaultReturn: 7, limit: 4000 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [isaType, setIsaType] = useState<ISAType>('stocks')
   const [currentBalance, setCurrentBalance] = useState(5000)
   const [annualContrib, setAnnualContrib] = useState(12000)
@@ -47,7 +48,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="ISA Calculator UK 2026" description="Calculate tax-free growth in Stocks and Shares ISA with the 2026 GBP 20,000 annual allowance." icon="💷" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="isa-calculator">
+    <CalculatorLayout title="ISA Calculator UK 2026" description="Calculate tax-free growth in Stocks and Shares ISA with the 2026 GBP 20,000 annual allowance." icon="💷" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="isa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">ISA Settings</h2>

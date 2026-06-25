@@ -9,9 +9,10 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 import { stepsCalorieSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function StepsCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function StepsCalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [steps, setSteps]         = useState(10000)
   const [weight, setWeight]       = useState(150)    // lbs
   const [height, setHeight]       = useState(67)     // inches (5'7")
@@ -36,7 +37,7 @@ export default function StepsCalculatorClient({ faqs, structuredData, relatedCal
   }))
 
   return (
-    <CalculatorLayout title="Steps to Calories Calculator" description="Convert steps to calories burned, miles, kilometers, and active minutes. See what 10,000 steps means for your weight and pace." icon="👣" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="steps-calculator">
+    <CalculatorLayout title="Steps to Calories Calculator" description="Convert steps to calories burned, miles, kilometers, and active minutes. See what 10,000 steps means for your weight and pace." icon="👣" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="steps-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Your Details</h2>

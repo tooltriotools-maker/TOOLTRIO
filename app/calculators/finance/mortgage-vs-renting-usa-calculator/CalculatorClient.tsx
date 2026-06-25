@@ -9,11 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Home, TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [homePrice, setHomePrice] = useState(450000)
   const [downPct, setDownPct] = useState(20)
   const [mortgageRate, setMortgageRate] = useState(7)
@@ -75,7 +76,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [homePrice, downPct, mortgageRate, loanYears, monthlyRent, rentIncrease, homeAppreciation, investReturn, propertyTaxPct, years])
 
   return (
-    <CalculatorLayout title="Rent vs Buy Calculator USA 2026" description="Compare the 10-year true cost of renting vs buying including appreciation and opportunity cost." icon="🏡" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mortgage-vs-renting-usa-calculator">
+    <CalculatorLayout title="Rent vs Buy Calculator USA 2026" description="Compare the 10-year true cost of renting vs buying including appreciation and opportunity cost." icon="🏡" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mortgage-vs-renting-usa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Details</h2>

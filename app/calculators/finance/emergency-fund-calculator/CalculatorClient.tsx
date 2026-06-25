@@ -9,11 +9,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const COLORS = ['#16a34a', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4']
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt } = useCurrency()
   const [monthlyExpenses, setMonthlyExpenses] = useState(3500)
   const [targetMonths, setTargetMonths] = useState(6)
@@ -26,7 +27,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const progressColor = result.fundedPercent >= 100 ? 'bg-green-500' : result.fundedPercent >= 50 ? 'bg-yellow-500' : 'bg-red-500'
 
   return (
-    <CalculatorLayout title="Emergency Fund Calculator USA 2026" description="Calculate your ideal emergency fund size based on monthly expenses, job stability, and dependents." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emergency-fund-calculator">
+    <CalculatorLayout title="Emergency Fund Calculator USA 2026" description="Calculate your ideal emergency fund size based on monthly expenses, job stability, and dependents." icon="🛡️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emergency-fund-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Your Finances</h2>

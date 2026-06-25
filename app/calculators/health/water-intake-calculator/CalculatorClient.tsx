@@ -8,9 +8,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent}: Props) {
   const [weight, setWeight] = useState(155)
   const [activityMins, setActivityMins] = useState(30)
   const [climate, setClimate] = useState<'temperate' | 'hot' | 'cold'>('temperate')
@@ -41,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const adjusted = schedule.map(s => ({ ...s, amount: Math.round(s.amount * (liters * 1000) / totalScheduled) }))
 
   return (
-    <CalculatorLayout title="Water Intake Calculator" description="Find your daily water intake needs based on weight, activity level, and climate. Get a personalized hydration schedule." icon="💧" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="water-intake-calculator">
+    <CalculatorLayout title="Water Intake Calculator" description="Find your daily water intake needs based on weight, activity level, and climate. Get a personalized hydration schedule." icon="💧" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="water-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

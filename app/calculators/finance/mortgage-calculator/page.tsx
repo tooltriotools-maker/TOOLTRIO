@@ -90,7 +90,6 @@ export default function MortgageCalculatorPage() {
       ))}
       <MortgageCalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="best-mortgage-calculators-usa-2026"
  />

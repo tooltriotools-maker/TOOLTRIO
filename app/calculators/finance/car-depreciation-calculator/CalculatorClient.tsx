@@ -8,7 +8,8 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const VEHICLE_TYPES = [
   { label: '🚗 Economy (Honda, Toyota)', value: 'economy' as const },
@@ -17,7 +18,7 @@ const VEHICLE_TYPES = [
   { label: '🏎️ Luxury (BMW, Mercedes)', value: 'luxury' as const },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [purchasePrice, setPurchasePrice] = useState(35000)
   const [age, setAge] = useState(3)
   const [makeType, setMakeType] = useState<'luxury' | 'standard' | 'economy' | 'truck'>('standard')
@@ -36,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const COLORS = ['#22c55e', '#3b82f6', '#f59e0b', '#ef4444']
 
   return (
-    <CalculatorLayout title="Car Depreciation Calculator USA 2026" description="Calculate how much your vehicle loses in value per year and the true total cost of ownership." icon="🚗" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="car-depreciation-calculator">
+    <CalculatorLayout title="Car Depreciation Calculator USA 2026" description="Calculate how much your vehicle loses in value per year and the true total cost of ownership." icon="🚗" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="car-depreciation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Vehicle Details</h2>

@@ -399,7 +399,7 @@ const ITEMS: { name: string; href: string; cat: string }[] = [
   { name: 'Fantasy Name Generator', href: '/calculators/fun/fantasy-name-generator', cat: 'Fun' },
   { name: 'Fortune Cookie', href: '/calculators/fun/fortune-cookie', cat: 'Fun' },
   { name: 'How Rich Am I', href: '/calculators/fun/how-rich-am-i', cat: 'Fun' },
-  { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator', cat: 'Fun' },
+  { name: 'Insult Generator', href: '/calculators/fun/shakespeare-insult-generator', cat: 'Fun' },
   { name: 'Life Expectancy Fun', href: '/calculators/fun/life-expectancy-fun', cat: 'Fun' },
   { name: 'Love Compatibility', href: '/calculators/fun/love-compatibility', cat: 'Fun' },
   { name: 'Lucky Number', href: '/calculators/fun/lucky-number', cat: 'Fun' },

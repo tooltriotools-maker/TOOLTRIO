@@ -6,13 +6,14 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const DRINKS = [
   {name:'Regular beer (355ml, 5%)',units:1.8},{name:'Light beer (355ml, 4%)',units:1.4},{name:'Wine (150ml, 13%)',units:2.0},{name:'Spirits (45ml, 40%)',units:1.8},{name:'Cocktail (250ml, 12%)',units:3.0},{name:'Cider (355ml, 5%)',units:1.8},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(165)
   const [gender, setGender] = useState<'male'|'female'>('male')
@@ -33,7 +34,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const level = currentBAC >= 0.15 ? {l:'Severely impaired',c:'text-red-700'} : currentBAC >= 0.08 ? {l:'Significantly impaired',c:'text-red-600'} : currentBAC >= 0.05 ? {l:'Impaired - do not drive',c:'text-orange-600'} : currentBAC > 0 ? {l:'Mild impairment',c:'text-yellow-600'} : {l:'Sober',c:'text-green-600'}
 
   return (
-    <CalculatorLayout title="Alcohol Metabolism Calculator" description="Estimate blood alcohol content (BAC) and time to sober up using the Widmark formula." icon="🍷" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="alcohol-metabolism-calculator">
+    <CalculatorLayout title="Alcohol Metabolism Calculator" description="Estimate blood alcohol content (BAC) and time to sober up using the Widmark formula." icon="🍷" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="alcohol-metabolism-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Details</h2>

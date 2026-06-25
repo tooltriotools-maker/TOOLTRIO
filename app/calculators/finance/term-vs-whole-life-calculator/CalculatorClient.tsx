@@ -9,11 +9,12 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [wholeLifePremium, setWholeLifePremium] = useState(3000)
   const [termPremium, setTermPremium] = useState(400)
   const [coverAmount, setCoverAmount] = useState(500000)
@@ -38,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [wholeLifePremium, termPremium, coverAmount, investReturn, years])
 
   return (
-    <CalculatorLayout title="Term vs Whole Life Insurance Calculator USA 2026" description="Compare term life plus investing the difference vs whole life insurance on wealth building." icon="🛡️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-whole-life-calculator">
+    <CalculatorLayout title="Term vs Whole Life Insurance Calculator USA 2026" description="Compare term life plus investing the difference vs whole life insurance on wealth building." icon="🛡️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-whole-life-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Policy Details</h2>

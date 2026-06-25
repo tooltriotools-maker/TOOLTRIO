@@ -8,7 +8,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Moon, Sun, Clock } from 'lucide-react'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const TIMES = Array.from({ length: 48 }, (_, i) => {
   const h = Math.floor(i / 2)
@@ -18,7 +19,7 @@ const TIMES = Array.from({ length: 48 }, (_, i) => {
   return { value, label }
 })
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent}: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent}: Props) {
   const [mode, setMode] = useState<'wake' | 'bed'>('wake')
   const [time, setTime] = useState('06:30')
 
@@ -35,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const bedtimes = r.bedtimes || r.wakeupTimes || []
 
   return (
-    <CalculatorLayout title="Sleep Cycle Calculator" description="Find the best bedtimes or wake-up times based on 90-minute sleep cycles. Wake up refreshed, not groggy." icon="😴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-cycle-calculator">
+    <CalculatorLayout title="Sleep Cycle Calculator" description="Find the best bedtimes or wake-up times based on 90-minute sleep cycles. Wake up refreshed, not groggy." icon="😴" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-cycle-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Sleep Planner</h2>

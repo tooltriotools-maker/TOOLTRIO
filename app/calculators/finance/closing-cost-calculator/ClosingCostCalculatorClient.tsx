@@ -12,9 +12,10 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { closingCostSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function ClosingCostCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function ClosingCostCalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
   const [homePrice, setHomePrice]   = useState(currency.code === 'INR' ? 5000000 : 400000)
@@ -34,7 +35,7 @@ export default function ClosingCostCalculatorClient({ faqs, structuredData, rela
   }))
 
   return (
-    <CalculatorLayout title="Closing Cost Calculator USA 2026" description="Estimate all home buying closing costs including lender fees, title insurance, and prepaid items." icon="📋" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="closing-cost-calculator">
+    <CalculatorLayout title="Closing Cost Calculator USA 2026" description="Estimate all home buying closing costs including lender fees, title insurance, and prepaid items." icon="📋" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="closing-cost-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Property Details</h2>

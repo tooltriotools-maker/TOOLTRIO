@@ -50,7 +50,7 @@ export default function AnnualIncomePage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <AnnualIncomeCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <AnnualIncomeCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="annual-salary-by-hourly-rate-usa-2026" />
     </>
 }

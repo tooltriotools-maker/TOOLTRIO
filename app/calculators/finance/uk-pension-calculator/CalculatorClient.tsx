@@ -8,9 +8,10 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [currentAge, setCurrentAge] = useState(30)
   const [retirementAge, setRetirementAge] = useState(67)
   const [annualSalary, setAnnualSalary] = useState(45000)
@@ -36,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="UK Pension Calculator 2026" description="Calculate workplace pension pot, auto-enrolment contributions, and projected monthly retirement income." icon="🏦" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-pension-calculator">
+    <CalculatorLayout title="UK Pension Calculator 2026" description="Calculate workplace pension pot, auto-enrolment contributions, and projected monthly retirement income." icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-pension-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Pension Details</h2>

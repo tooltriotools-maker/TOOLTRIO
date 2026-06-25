@@ -51,6 +51,6 @@ export default function Page() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="auto-loan-calculator-guide-car-financing-usa" />
+      <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} blogSlug="auto-loan-calculator-guide-car-financing-usa" />
     </>
 }

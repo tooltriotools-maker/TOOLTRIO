@@ -6,11 +6,12 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FOODS = [{n:'Milk (250ml)',mg:300},{n:'Yogurt (200g)',mg:250},{n:'Cheddar cheese (30g)',mg:200},{n:'Almonds (30g)',mg:75},{n:'Broccoli (100g)',mg:47},{n:'Sardines (100g)',mg:382},{n:'Tofu (100g)',mg:350},{n:'Kale (100g)',mg:135}]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(35)
   const [gender, setGender] = useState<'male'|'female'>('male')
   const [pregnant, setPregnant] = useState(false)
@@ -22,7 +23,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const pct = Math.round(intake/adjusted*100)
 
   return (
-    <CalculatorLayout title="Calcium Calculator" description="Calculate your daily calcium needs and check if your intake meets recommended levels." icon="🦴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calcium-calculator">
+    <CalculatorLayout title="Calcium Calculator" description="Calculate your daily calcium needs and check if your intake meets recommended levels." icon="🦴" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calcium-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

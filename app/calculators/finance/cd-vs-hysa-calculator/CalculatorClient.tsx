@@ -9,12 +9,13 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => (n >= 10000000 ? '₹' + (n/10000000).toFixed(2) + 'Cr' : n >= 100000 ? '₹' + (n/100000).toFixed(1) + 'L' : n >= 1000 ? '₹' + (n/1000).toFixed(0) + 'K' : '₹' + Math.round(n))
 const fmtU = (n: number) => (n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M' : '$' + (n/1000).toFixed(0) + 'K')
 const fmtAuto = (n: number, isUSD: boolean) => isUSD ? fmtU(n) : fmt(n)
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const isUSD = true
   const [val1, setVal1] = useState(isUSD ? 500 : 10000)
   const [rate1, setRate1] = useState(isUSD ? 10 : 12)
@@ -36,7 +37,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [val1, rate1, rate2, years])
 
   return (
-    <CalculatorLayout title="CD vs High-Yield Savings Account Calculator USA 2026" description="Compare CD vs HYSA on interest rate, flexibility, and FDIC protection." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-vs-hysa-calculator">
+    <CalculatorLayout title="CD vs High-Yield Savings Account Calculator USA 2026" description="Compare CD vs HYSA on interest rate, flexibility, and FDIC protection." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-vs-hysa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [method, setMethod] = useState<'lmp'|'conception'>('lmp')
   const [lmpDate, setLmpDate] = useState(() => {
     const d = new Date(); d.setDate(d.getDate()-42); return d.toISOString().split('T')[0]
@@ -53,7 +54,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [method, lmpDate, conceptDate, cycleLen])
 
   return (
-    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your estimated due date from LMP or conception date. Full pregnancy timeline and milestone tracker." icon="🤱" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-due-date-calculator">
+    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your estimated due date from LMP or conception date. Full pregnancy timeline and milestone tracker." icon="🤱" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-due-date-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Pregnancy Details</h2>

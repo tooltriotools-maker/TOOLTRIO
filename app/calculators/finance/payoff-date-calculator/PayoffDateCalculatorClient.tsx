@@ -14,8 +14,9 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { loanPayoffByExtra } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
-export default function PayoffDateCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+export default function PayoffDateCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -32,7 +33,7 @@ export default function PayoffDateCalculatorClient({ faqs, structuredData, relat
   })
 
   return (
-    <CalculatorLayout title="Loan Payoff Date Calculator USA 2026" description="Find your exact debt-free date and see how extra payments accelerate your loan payoff." icon="📅" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="payoff-date-calculator"
+    <CalculatorLayout title="Loan Payoff Date Calculator USA 2026" description="Find your exact debt-free date and see how extra payments accelerate your loan payoff." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="payoff-date-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

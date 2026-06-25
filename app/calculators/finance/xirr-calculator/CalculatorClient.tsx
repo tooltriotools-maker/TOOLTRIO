@@ -10,10 +10,11 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Plus, Trash2, Percent, TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 interface CashflowEntry { date: string; amount: number; id: number }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt } = useCurrency()
   const [entries, setEntries] = useState<CashflowEntry[]>([
     { id: 1, date: '2021-01-01', amount: -100000 },
@@ -48,7 +49,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }))
 
   return (
-    <CalculatorLayout title="XIRR Calculator USA 2026" description="Calculate the true annualized return for investment portfolios with multiple irregular cash flows." icon="📐" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="xirr-calculator">
+    <CalculatorLayout title="XIRR Calculator USA 2026" description="Calculate the true annualized return for investment portfolios with multiple irregular cash flows." icon="📐" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="xirr-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-base font-bold text-gray-900 mb-4">Cashflow Entries</h2>

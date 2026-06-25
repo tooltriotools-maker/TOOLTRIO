@@ -50,7 +50,7 @@ export default function DownPaymentPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <DownPaymentCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <DownPaymentCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="down-payment-how-much-house-usa-2026" />
     </>
 }

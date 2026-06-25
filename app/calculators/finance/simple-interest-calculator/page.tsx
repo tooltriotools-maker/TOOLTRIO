@@ -56,7 +56,6 @@ export default function Page() {
       ))}
       <CalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="fd-vs-rd-vs-sip-best-investment-for-2026"
  />

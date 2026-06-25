@@ -9,12 +9,13 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const isUSD = true
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M' : '$' + (n/1000).toFixed(0) + 'K'
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [monthly, setMonthly] = useState(500)
   const [rateA, setRateA] = useState(6)
   const [rateB, setRateB] = useState(5)
@@ -37,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Social Security vs Private Pension Calculator USA 2026" description="Compare lifetime income from Social Security vs a private pension with break-even age analysis." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="social-security-vs-private-pension-calculator">
+    <CalculatorLayout title="Social Security vs Private Pension Calculator USA 2026" description="Compare lifetime income from Social Security vs a private pension with break-even age analysis." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="social-security-vs-private-pension-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

@@ -11,7 +11,8 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Plus, Trash2, Trophy, DollarSign, TrendingUp, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
 const FREQ_OPTIONS = [
   { value: '12', label: 'Monthly' },
@@ -29,7 +30,7 @@ const DEFAULT_FDS = [
   { name: 'ICICI FD', principal: 100000, rate: 7.25, years: 3, freq: 4 },
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [fds, setFds] = useState(DEFAULT_FDS)
 
@@ -54,7 +55,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="CD Comparison Calculator USA 2026" description="Compare up to 4 CDs simultaneously on APY, maturity value, and total interest earned." icon="🏆" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-comparison-calculator">
+    <CalculatorLayout title="CD Comparison Calculator USA 2026" description="Compare up to 4 CDs simultaneously on APY, maturity value, and total interest earned." icon="🏆" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-comparison-calculator">
       <div className="space-y-6">
         {/* FD Input Cards */}
         <div>

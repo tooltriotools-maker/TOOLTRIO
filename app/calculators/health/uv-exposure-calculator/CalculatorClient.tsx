@@ -6,7 +6,8 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const SKIN_TYPES = [
   {label:'Type I - Always burns, never tans (very fair)',mef:200},
@@ -17,7 +18,7 @@ const SKIN_TYPES = [
   {label:'Type VI - Never burns (dark brown/black)',mef:1000},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [uvIndex, setUvIndex] = useState(6)
   const [skinType, setSkinType] = useState(1)
   const [spf, setSpf] = useState(0)
@@ -38,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const uvLevel = uvIndex >= 11 ? {l:'Extreme',c:'text-purple-700'} : uvIndex >= 8 ? {l:'Very High',c:'text-red-600'} : uvIndex >= 6 ? {l:'High',c:'text-orange-600'} : uvIndex >= 3 ? {l:'Moderate',c:'text-yellow-600'} : {l:'Low',c:'text-green-600'}
 
   return (
-    <CalculatorLayout title="UV Exposure Calculator" description="Calculate safe sun exposure time, sunburn risk, and vitamin D production based on UV index and skin type." icon="☀️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uv-exposure-calculator">
+    <CalculatorLayout title="UV Exposure Calculator" description="Calculate safe sun exposure time, sunburn risk, and vitamin D production based on UV index and skin type." icon="☀️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uv-exposure-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Exposure Details</h2>

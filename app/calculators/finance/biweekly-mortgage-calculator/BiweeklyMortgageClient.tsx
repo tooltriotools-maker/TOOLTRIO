@@ -12,9 +12,10 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { biweeklyMortgageSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function BiweeklyMortgageClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function BiweeklyMortgageClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
   const [loanAmount, setLoanAmount] = useState(currency.code === 'INR' ? 5000000 : 350000)
@@ -29,7 +30,7 @@ export default function BiweeklyMortgageClient({ faqs, structuredData, relatedCa
   ]
 
   return (
-    <CalculatorLayout title="Biweekly Mortgage Calculator USA 2026" description="See how paying every two weeks cuts years off your mortgage and saves thousands in interest." icon="📅" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="biweekly-mortgage-calculator">
+    <CalculatorLayout title="Biweekly Mortgage Calculator USA 2026" description="See how paying every two weeks cuts years off your mortgage and saves thousands in interest." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="biweekly-mortgage-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Mortgage Details</h2>

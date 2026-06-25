@@ -14,9 +14,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { autoLoanRatesByCredit, autoLoanByState } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function AutoLoanCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function AutoLoanCalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -57,7 +58,7 @@ export default function AutoLoanCalculatorClient({ faqs, structuredData, related
   const tickFmt = (v: number) => v >= 1000000 ? `${currency.symbol}${(v / 1000000).toFixed(1)}M` : `${currency.symbol}${(v / 1000).toFixed(0)}K`
 
   return (
-    <CalculatorLayout title="Auto Loan Calculator USA 2026" description="Calculate your monthly car payment, total interest cost, and amortization schedule for any vehicle loan." icon="🚗" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="auto-loan-calculator">
+    <CalculatorLayout title="Auto Loan Calculator USA 2026" description="Calculate your monthly car payment, total interest cost, and amortization schedule for any vehicle loan." icon="🚗" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="auto-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Vehicle & Loan</h2>

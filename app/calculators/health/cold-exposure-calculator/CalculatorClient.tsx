@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [temp, setTemp] = useState(10)
   const [duration, setDuration] = useState(5)
   const [experience, setExperience] = useState<'beginner'|'intermediate'|'advanced'>('beginner')
@@ -28,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Cold Exposure Calculator" description="Calculate the benefits and safe parameters for cold water immersion and ice baths." icon="🧊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cold-exposure-calculator">
+    <CalculatorLayout title="Cold Exposure Calculator" description="Calculate the benefits and safe parameters for cold water immersion and ice baths." icon="🧊" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cold-exposure-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Cold Exposure Settings</h2>

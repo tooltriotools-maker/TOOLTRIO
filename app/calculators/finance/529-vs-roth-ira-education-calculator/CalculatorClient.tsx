@@ -9,11 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, GraduationCap } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n / 1000000).toFixed(2)}M` : `$${(n / 1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [monthly, setMonthly] = useState(500)
   const [childAge, setChildAge] = useState(3)
   const [collegeAge, setCollegeAge] = useState(18)
@@ -58,7 +59,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, childAge, collegeAge, returnRate, stateTaxRate, fedTaxRate])
 
   return (
-    <CalculatorLayout title="529 vs Roth IRA Education Calculator USA 2026" description="Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact." icon="🎓" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="529-vs-roth-ira-education-calculator">
+    <CalculatorLayout title="529 vs Roth IRA Education Calculator USA 2026" description="Compare 529 college savings plan vs Roth IRA for education funding with state tax deductions and FAFSA impact." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="529-vs-roth-ira-education-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

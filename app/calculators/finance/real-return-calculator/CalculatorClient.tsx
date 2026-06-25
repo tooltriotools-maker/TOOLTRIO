@@ -9,9 +9,10 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt } = useCurrency()
   const [nominalReturn, setNominalReturn] = useState(10)
   const [inflationRate, setInflationRate] = useState(3)
@@ -21,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const result = useMemo(() => calculateRealReturn(nominalReturn, inflationRate, amount, years), [nominalReturn, inflationRate, amount, years])
 
   return (
-    <CalculatorLayout title="Real Return Calculator USA 2026" description="Calculate your inflation-adjusted real return vs nominal return for any investment." icon="📉" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="real-return-calculator">
+    <CalculatorLayout title="Real Return Calculator USA 2026" description="Calculate your inflation-adjusted real return vs nominal return for any investment." icon="📉" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="real-return-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Investment Details</h2>

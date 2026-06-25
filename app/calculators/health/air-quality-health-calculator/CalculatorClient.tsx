@@ -6,7 +6,8 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const AQI_LEVELS = [
   {max:50,label:'Good',color:'text-green-600',bg:'bg-green-50 border-green-300',desc:'Air quality is satisfactory. Enjoy outdoor activities.'},
@@ -17,7 +18,7 @@ const AQI_LEVELS = [
   {max:500,label:'Hazardous',color:'text-rose-900',bg:'bg-rose-100 border-rose-400',desc:'Health warning of emergency conditions. Avoid all outdoor activity.'},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [aqi, setAqi] = useState(55)
   const [sensitive, setSensitive] = useState(false)
   const [outdoorHours, setOutdoorHours] = useState(2)
@@ -28,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const recommendation = aqi <= 50 ? 'Great day for outdoor exercise!' : aqi <= 100 ? 'Unusually sensitive people should consider reducing prolonged outdoor exertion.' : aqi <= 150 ? 'Reduce prolonged outdoor exertion. Take more breaks.' : aqi <= 200 ? 'Avoid prolonged outdoor exertion. Move activities indoors.' : 'Avoid all outdoor activity. Keep windows closed.'
 
   return (
-    <CalculatorLayout title="Air Quality Health Calculator" description="Understand how air quality index (AQI) affects your health and get personalised recommendations." icon="🌬️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="air-quality-health-calculator">
+    <CalculatorLayout title="Air Quality Health Calculator" description="Understand how air quality index (AQI) affects your health and get personalised recommendations." icon="🌬️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="air-quality-health-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Settings</h2>

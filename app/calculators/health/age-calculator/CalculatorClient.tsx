@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [birthDate, setBirthDate] = useState('1990-06-15')
   const [targetDate, setTargetDate] = useState(() => new Date().toISOString().split('T')[0])
@@ -62,7 +63,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [birthDate, targetDate])
 
   return (
-    <CalculatorLayout title="Age Calculator" description="Calculate exact age in years, months, days and hours. Find days until next birthday and age on any date." icon="🎂" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="age-calculator">
+    <CalculatorLayout title="Age Calculator" description="Calculate exact age in years, months, days and hours. Find days until next birthday and age on any date." icon="🎂" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="age-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
           <h2 className="text-base font-bold text-gray-900 mb-5">Date of Birth</h2>

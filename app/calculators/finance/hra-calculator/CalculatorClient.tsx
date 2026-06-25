@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Home, DollarSign, Shield, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [basicSalary, setBasicSalary] = useState(40000)
   const [hra, setHra] = useState(20000)
@@ -29,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="HRA Housing Allowance Calculator 2026" description="Calculate tax exemption on house rent allowance and tax savings on rent paid." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hra-calculator">
+    <CalculatorLayout title="HRA Housing Allowance Calculator 2026" description="Calculate tax exemption on house rent allowance and tax savings on rent paid." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hra-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">HRA Details</h2>

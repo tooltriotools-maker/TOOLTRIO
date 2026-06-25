@@ -52,5 +52,5 @@ export default function Page() { return <>
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug="european-mortgage-guide-uk-germany-france-netherlands-2026" />
+      <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} blogSlug="european-mortgage-guide-uk-germany-france-netherlands-2026" />
     </> }

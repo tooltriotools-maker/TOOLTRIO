@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [brushingFreq, setBrushingFreq] = useState(2)
   const [flossing, setFlossing] = useState(true)
   const [mouthwash, setMouthwash] = useState(false)
@@ -29,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const grade = score >= 80 ? {l:'Excellent 🏆',c:'text-green-600'} : score >= 60 ? {l:'Good 😊',c:'text-blue-600'} : score >= 40 ? {l:'Fair ⚠️',c:'text-yellow-600'} : {l:'Needs Improvement',c:'text-red-600'}
 
   return (
-    <CalculatorLayout title="Dental Health Calculator" description="Score your dental hygiene routine and get personalised tips for better oral health." icon="🦷" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="dental-health-calculator">
+    <CalculatorLayout title="Dental Health Calculator" description="Score your dental hygiene routine and get personalised tips for better oral health." icon="🦷" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="dental-health-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Oral Habits</h2>

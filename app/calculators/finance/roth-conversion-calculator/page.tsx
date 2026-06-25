@@ -50,7 +50,7 @@ export default function RothConversionPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <RothConversionCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <RothConversionCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="roth-ira-vs-401k-which-is-better-2026" />
     </>
 }

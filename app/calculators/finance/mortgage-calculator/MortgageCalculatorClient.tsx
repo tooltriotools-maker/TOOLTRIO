@@ -16,12 +16,11 @@ import { mortgageByStateData, mortgageByCreditScore } from '@/lib/seo/finance-ta
 
 interface Props {
   faqs: { question: string; answer: string }[]
-  structuredData: object[]
-  relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]
+relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]
   blogSlug?: string
 }
 
-export default function MortgageCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function MortgageCalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
 
@@ -73,7 +72,7 @@ export default function MortgageCalculatorClient({ faqs, structuredData, related
       description="Calculate your complete monthly PITI payment with principal, interest, taxes, insurance, and PMI."
       icon="🏡"
       category="Finance"
-      structuredData={structuredData}
+      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="mortgage-calculator"

@@ -10,7 +10,8 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 import { walkingCalorieSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 // MET values from ACSM Compendium of Physical Activities
 const ACTIVITIES = [
@@ -25,7 +26,7 @@ const ACTIVITIES = [
   { name: 'Running 8 mph', met: 13.5 },
 ]
 
-export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalorieBurnedWalkingCalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [weight, setWeight] = useState(154)   // kg
   const [duration, setDuration]   = useState(30)   // minutes
   const [activityIdx, setActivity] = useState(2)   // brisk walk default
@@ -54,7 +55,7 @@ export default function CalorieBurnedWalkingCalculatorClient({ faqs, structuredD
   }))
 
   return (
-    <CalculatorLayout title="Calories Burned Walking Calculator" description="Calculate calories burned walking based on your weight, pace, and duration using the MET formula (ACSM standard)." icon="🚶" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calorie-burned-walking-calculator">
+    <CalculatorLayout title="Calories Burned Walking Calculator" description="Calculate calories burned walking based on your weight, pace, and duration using the MET formula (ACSM standard)." icon="🚶" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calorie-burned-walking-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Your Walk Details</h2>

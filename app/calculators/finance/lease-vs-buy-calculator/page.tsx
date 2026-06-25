@@ -56,7 +56,6 @@ export default function Page() {
       ))}
       <CalculatorClient
  faqs={faqs}
- structuredData={structuredData}
  relatedCalculators={relatedCalculators}
  blogSlug="auto-loan-calculator-guide-car-financing-usa"
  />

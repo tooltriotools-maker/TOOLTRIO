@@ -11,11 +11,12 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Receipt, Percent, DollarSign, ArrowUpDown } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const GST_RATES = [{ value: '5', label: '5% - Essential goods' }, { value: '12', label: '12% - Standard goods' }, { value: '18', label: '18% - Most services' }, { value: '28', label: '28% - Luxury goods' }, { value: '3', label: '3% - Gold & jewellery' }, { value: '0.25', label: '0.25% - Rough diamonds' }]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [amount, setAmount] = useState(10000)
   const [gstRate, setGstRate] = useState('18')
@@ -34,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   })
 
   return (
-    <CalculatorLayout title="Sales Tax GST Calculator USA 2026" description="Calculate tax-inclusive and tax-exclusive amounts, and reverse-calculate pre-tax price for any rate." icon="🧾" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gst-calculator">
+    <CalculatorLayout title="Sales Tax GST Calculator USA 2026" description="Calculate tax-inclusive and tax-exclusive amounts, and reverse-calculate pre-tax price for any rate." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gst-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">GST Details</h2>

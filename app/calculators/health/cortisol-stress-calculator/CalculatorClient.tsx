@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [workStress, setWorkStress] = useState(6)
   const [sleepQuality, setSleepQuality] = useState(5)
   const [exercise, setExercise] = useState(3)
@@ -28,7 +29,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const risk = clamped >= 70 ? {l:'High Cortisol Risk',c:'text-red-600',bg:'bg-red-50 border-red-300'} : clamped >= 40 ? {l:'Moderate Cortisol Elevation',c:'text-orange-600',bg:'bg-orange-50 border-orange-300'} : {l:'Healthy Stress Response',c:'text-green-600',bg:'bg-green-50 border-green-300'}
 
   return (
-    <CalculatorLayout title="Cortisol Stress Calculator" description="Estimate your cortisol stress load based on lifestyle factors and get evidence-based reduction tips." icon="🧠" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cortisol-stress-calculator">
+    <CalculatorLayout title="Cortisol Stress Calculator" description="Estimate your cortisol stress load based on lifestyle factors and get evidence-based reduction tips." icon="🧠" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cortisol-stress-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Lifestyle Factors</h2>

@@ -11,9 +11,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Briefcase, Calendar, DollarSign, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [lastSalary, setLastSalary] = useState(50000)
   const [yearsOfService, setYearsOfService] = useState(10)
@@ -27,7 +28,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }))
 
   return (
-    <CalculatorLayout title="Gratuity Calculator USA 2026" description="Estimate end-of-service gratuity, severance benefits, and final settlement based on years of service." icon="🤝" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gratuity-calculator">
+    <CalculatorLayout title="Gratuity Calculator USA 2026" description="Estimate end-of-service gratuity, severance benefits, and final settlement based on years of service." icon="🤝" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gratuity-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Gratuity Details</h2>

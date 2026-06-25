@@ -9,12 +9,13 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const FMT_PREFIX = '€'
 const fmt = (n: number) => FMT_PREFIX + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? FMT_PREFIX + (n/1000000).toFixed(2) + 'M' : FMT_PREFIX + (n/1000).toFixed(0) + 'K'
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [monthly, setMonthly] = useState(500)
   const [rateA, setRateA] = useState(9)
   const [rateB, setRateB] = useState(7.5)
@@ -37,7 +38,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Europe Growth vs Value ETF Calculator 2026" description="Compare European growth ETFs vs value ETFs on historical returns and dividend yield." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="europe-growth-vs-value-etf-calculator">
+    <CalculatorLayout title="Europe Growth vs Value ETF Calculator 2026" description="Compare European growth ETFs vs value ETFs on historical returns and dividend yield." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="europe-growth-vs-value-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

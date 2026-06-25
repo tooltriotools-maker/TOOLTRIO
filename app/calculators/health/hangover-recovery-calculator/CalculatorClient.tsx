@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [drinks, setDrinks] = useState(6)
   const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(165)
@@ -31,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const level = clamped >= 70 ? {l:'Severe Hangover 🤕',c:'text-red-600'} : clamped >= 40 ? {l:'Moderate Hangover 😪',c:'text-orange-600'} : {l:'Mild Hangover 😊',c:'text-yellow-600'}
 
   return (
-    <CalculatorLayout title="Hangover Recovery Calculator" description="Estimate hangover severity and get science-backed recovery strategies." icon="🤕" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hangover-recovery-calculator">
+    <CalculatorLayout title="Hangover Recovery Calculator" description="Estimate hangover severity and get science-backed recovery strategies." icon="🤕" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hangover-recovery-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Last Night's Details</h2>

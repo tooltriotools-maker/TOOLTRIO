@@ -9,11 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, BarChart2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [lumpsum, setLumpsum] = useState(50000)
   const [monthly, setMonthly] = useState(500)
   const [grossReturn, setGrossReturn] = useState(10)
@@ -50,7 +51,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [lumpsum, monthly, grossReturn, indexExpense, etfExpense, indexTaxDrag, etfTaxDrag, years])
 
   return (
-    <CalculatorLayout title="Index Fund vs ETF Calculator USA 2026" description="Compare index mutual funds vs ETFs on expense ratio, tax drag, and long-term total cost." icon="📈" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="index-fund-vs-etf-calculator">
+    <CalculatorLayout title="Index Fund vs ETF Calculator USA 2026" description="Compare index mutual funds vs ETFs on expense ratio, tax drag, and long-term total cost." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="index-fund-vs-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Details</h2>

@@ -51,7 +51,7 @@ export default function TaxBracketPage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <TaxBracketCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <TaxBracketCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="tax-bracket-guide-usa-2026-marginal-vs-effective" />
     </>
 }

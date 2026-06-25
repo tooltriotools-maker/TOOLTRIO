@@ -12,8 +12,9 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { interestRateSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
-export default function InterestRateCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+export default function InterestRateCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const m = currency.code === 'INR' ? 20 : 1
 
@@ -33,7 +34,7 @@ export default function InterestRateCalculatorClient({ faqs, structuredData, rel
   const minPayment = principal / months
 
   return (
-    <CalculatorLayout title="Interest Rate Calculator USA 2026" description="Find the true APR on any loan from the monthly payment, balance, and term." icon="📈" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="interest-rate-calculator"
+    <CalculatorLayout title="Interest Rate Calculator USA 2026" description="Find the true APR on any loan from the monthly payment, balance, and term." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="interest-rate-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

@@ -14,8 +14,9 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { hourlyToAnnualTable } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
-export default function AnnualIncomeCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug}: Props) {
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+export default function AnnualIncomeCalculatorClient({ faqs, relatedCalculators, blogSlug}: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
 
   const [hourlyRate, setHourlyRate]         = useState(currency.code === 'INR' ? 500 : 25)
@@ -34,7 +35,7 @@ export default function AnnualIncomeCalculatorClient({ faqs, structuredData, rel
   ]
 
   return (
-    <CalculatorLayout title="Annual Income Calculator USA 2026" description="Convert hourly wage to annual salary and see monthly, biweekly, and weekly pay with take-home estimates." icon="💵" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="annual-income-calculator"
+    <CalculatorLayout title="Annual Income Calculator USA 2026" description="Convert hourly wage to annual salary and see monthly, biweekly, and weekly pay with take-home estimates." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="annual-income-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

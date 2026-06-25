@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [age, setAge] = useState(30)
   const [wakeTime, setWakeTime] = useState('07:00')
@@ -51,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [age,wakeTime,currentSleep,sleepDebt])
 
   return (
-    <CalculatorLayout title="Sleep Need Calculator" description="Find how much sleep you actually need by age, calculate your sleep debt, and get optimal bedtimes for your wake time." icon="😴" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-need-calculator">
+    <CalculatorLayout title="Sleep Need Calculator" description="Find how much sleep you actually need by age, calculate your sleep debt, and get optimal bedtimes for your wake time." icon="😴" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-need-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Sleep</h2>

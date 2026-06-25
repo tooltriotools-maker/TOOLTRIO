@@ -50,7 +50,7 @@ export default function PayoffDatePage() {
       {structuredData.map((s, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <PayoffDateCalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators}
+      <PayoffDateCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="debt-payoff-guide-usa-2026" />
     </>
 }

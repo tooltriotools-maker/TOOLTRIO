@@ -10,9 +10,10 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, fmtCompact } = useCurrency()
   const [monthly, setMonthly] = useState(10000)
   const [grossReturn, setGrossReturn] = useState(13)
@@ -47,7 +48,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [monthly, grossReturn, regularExpense, directExpense, years])
 
   return (
-    <CalculatorLayout title="Regular vs Direct Mutual Fund SIP Calculator India 2026" description="Compare regular plan vs direct plan SIP and see how the expense ratio difference costs lakhs." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-mutual-fund-direct-plan-calculator">
+    <CalculatorLayout title="Regular vs Direct Mutual Fund SIP Calculator India 2026" description="Compare regular plan vs direct plan SIP and see how the expense ratio difference costs lakhs." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-mutual-fund-direct-plan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">SIP Details</h2>

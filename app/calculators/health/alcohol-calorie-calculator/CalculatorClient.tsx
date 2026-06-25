@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [drinks, setDrinks] = useState<{type:string; count:number; size:string}[]>([
     {type:'beer_regular',count:2,size:'pint'},
@@ -49,7 +50,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const drinkTypeOpts = Object.entries(DRINK_DB).map(([k,v])=>({value:k,label:v.icon+' '+v.name}))
 
   return (
-    <CalculatorLayout title="Alcohol Calorie Calculator" description="Count calories in your drinks and see how long it takes to burn them off. Beer, wine, spirits, and cocktails." icon="🍷" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="alcohol-calorie-calculator">
+    <CalculatorLayout title="Alcohol Calorie Calculator" description="Count calories in your drinks and see how long it takes to burn them off. Beer, wine, spirits, and cocktails." icon="🍷" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="alcohol-calorie-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Your Drinks</h2>

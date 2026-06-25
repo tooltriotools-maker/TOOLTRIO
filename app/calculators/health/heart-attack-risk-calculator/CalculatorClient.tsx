@@ -6,9 +6,10 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [age, setAge] = useState(50)
   const [gender, setGender] = useState<'male'|'female'>('male')
   const [systolic, setSystolic] = useState(130)
@@ -29,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const risk = pct10yr >= 20 ? {l:'High Risk',c:'text-red-600',bg:'bg-red-50 border-red-300'} : pct10yr >= 10 ? {l:'Intermediate Risk',c:'text-orange-600',bg:'bg-orange-50 border-orange-300'} : {l:'Low Risk',c:'text-green-600',bg:'bg-green-50 border-green-300'}
 
   return (
-    <CalculatorLayout title="Heart Attack Risk Calculator" description="Estimate your 10-year cardiovascular risk using key clinical risk factors." icon="❤️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="heart-attack-risk-calculator">
+    <CalculatorLayout title="Heart Attack Risk Calculator" description="Estimate your 10-year cardiovascular risk using key clinical risk factors." icon="❤️" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="heart-attack-risk-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Risk Factors</h2>

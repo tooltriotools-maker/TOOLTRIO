@@ -10,7 +10,8 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const DEFAULT_CATEGORIES = [
   { name: 'Housing / Rent', planned: 1500, actual: 1500 },
@@ -27,7 +28,7 @@ const DEFAULT_CATEGORIES = [
 
 const COLORS = ['#22c55e','#3b82f6','#f59e0b','#ec4899','#8b5cf6','#06b6d4','#ef4444','#84cc16','#f97316','#6b7280']
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { currency, fmt, fmtCompact } = useCurrency()
   const d = currency.defaultValues
   const scale = currency.code === 'INR' ? 80 : 1
@@ -51,7 +52,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const rule5030 = { needs: result.categories.filter((_, i) => i < 5).reduce((s, c) => s + c.actual, 0), wants: result.categories.filter((_, i) => i >= 5 && i < 8).reduce((s, c) => s + c.actual, 0), savings: result.categories.filter((_, i) => i >= 8).reduce((s, c) => s + c.actual, 0) }
 
   return (
-    <CalculatorLayout title="Budget Calculator USA 2026" description={`Plan and track your monthly budget in ${currency.name}. 50/30/20 rule analysis, spending breakdown, and savings rate.`} icon="💰" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="budget-calculator">
+    <CalculatorLayout title="Budget Calculator USA 2026" description={`Plan and track your monthly budget in ${currency.name}. 50/30/20 rule analysis, spending breakdown, and savings rate.`} icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="budget-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Monthly Income</h2>

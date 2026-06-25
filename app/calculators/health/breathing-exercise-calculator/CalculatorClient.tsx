@@ -6,7 +6,8 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const TECHNIQUES = [
   {name:'Box Breathing (4-4-4-4)',in:4,hold1:4,out:4,hold2:4,desc:'Used by Navy SEALs for stress management and focus.'},
@@ -15,7 +16,7 @@ const TECHNIQUES = [
   {name:'Wim Hof (4-0-4-4)',in:4,hold1:0,out:4,hold2:4,desc:'Activates sympathetic nervous system, increases energy.'},
 ]
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [techniqueIdx, setTechniqueIdx] = useState(0)
   const [rounds, setRounds] = useState(5)
   const [active, setActive] = useState(false)
@@ -57,7 +58,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const phaseColors: Record<string,string> = {inhale:'text-blue-600',hold1:'text-yellow-600',exhale:'text-green-600',hold2:'text-purple-600'}
 
   return (
-    <CalculatorLayout title="Breathing Exercise Calculator" description="Practice guided breathing exercises for stress relief, focus, and sleep with customisable timing." icon="🫁" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="breathing-exercise-calculator">
+    <CalculatorLayout title="Breathing Exercise Calculator" description="Practice guided breathing exercises for stress relief, focus, and sleep with customisable timing." icon="🫁" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="breathing-exercise-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Exercise Settings</h2>

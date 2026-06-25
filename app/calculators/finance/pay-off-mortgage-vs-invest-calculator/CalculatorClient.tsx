@@ -9,11 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Home, TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(0)}K`
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [extraPayment, setExtraPayment] = useState(500)
   const [mortgageRate, setMortgageRate] = useState(6.5)
   const [investRate, setInvestRate] = useState(10)
@@ -63,7 +64,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [extraPayment, mortgageRate, investRate, remainingBalance, remainingYears, taxRate])
 
   return (
-    <CalculatorLayout title="Pay Off Mortgage vs Invest Calculator USA 2026" description="Compare making extra mortgage payments vs investing in the stock market with break-even analysis." icon="🏠" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pay-off-mortgage-vs-invest-calculator">
+    <CalculatorLayout title="Pay Off Mortgage vs Invest Calculator USA 2026" description="Compare making extra mortgage payments vs investing in the stock market with break-even analysis." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pay-off-mortgage-vs-invest-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Mortgage & Investment Details</h2>

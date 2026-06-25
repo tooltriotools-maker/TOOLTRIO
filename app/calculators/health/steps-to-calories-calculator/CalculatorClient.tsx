@@ -6,9 +6,10 @@ import { InputField, SelectField, HeightField } from '@/components/ui/InputField
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[];
+; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug, seoContent }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
 
   const [steps, setSteps] = useState(8000)
   const [weight, setWeight] = useState(155)
@@ -38,7 +39,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   }, [steps,weight,height,pace,unit])
 
   return (
-    <CalculatorLayout title="Steps to Calories Calculator" description="Convert daily steps to calories burned based on your weight, height, and walking pace." icon="👣" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="steps-to-calories-calculator">
+    <CalculatorLayout title="Steps to Calories Calculator" description="Convert daily steps to calories burned based on your weight, height, and walking pace." icon="👣" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="steps-to-calories-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

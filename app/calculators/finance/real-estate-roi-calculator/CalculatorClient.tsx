@@ -9,9 +9,10 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt } = useCurrency()
   const [purchasePrice, setPurchasePrice] = useState(300000)
   const [downPct, setDownPct] = useState(25)
@@ -41,7 +42,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Real Estate ROI Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, net operating income, and total ROI for any rental property." icon="🏘️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="real-estate-roi-calculator">
+    <CalculatorLayout title="Real Estate ROI Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, net operating income, and total ROI for any rental property." icon="🏘️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="real-estate-roi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Property Details</h2>

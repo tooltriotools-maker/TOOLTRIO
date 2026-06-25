@@ -8,12 +8,13 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { ArrowLeftRight, RefreshCw, TrendingUp, Clock } from 'lucide-react'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: any[]; blogSlug?: string }
 
 const ALL_CURRENCIES = Object.keys(CURRENCY_INFO)
 const POPULAR = ['USD','INR','EUR','GBP','JPY','AED','SGD','CAD','AUD','CHF']
 
-export default function CalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { convert, rates, live, loading, data, refresh } = useExchangeRates(300)
   const [amount, setAmount]   = useState(1000)
   const [from,   setFrom]     = useState('USD')
@@ -61,7 +62,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
       title="Currency Converter USA 2026"
       description="Convert between USD, EUR, GBP, JPY, and 30+ currencies at real-time mid-market exchange rates."
       icon="💱" category="Finance"
-      structuredData={structuredData}
+      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="currency-converter"

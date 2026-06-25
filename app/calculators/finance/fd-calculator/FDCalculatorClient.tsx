@@ -11,7 +11,8 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { DollarSign, TrendingUp, Percent, Calendar } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[];
+; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const FREQ_OPTIONS = [
   { value: '1', label: 'Annually' },
@@ -20,7 +21,7 @@ const FREQ_OPTIONS = [
   { value: '12', label: 'Monthly' },
 ]
 
-export default function FDCalculatorClient({ faqs, structuredData, relatedCalculators, blogSlug }: Props) {
+export default function FDCalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()
   const [principal, setPrincipal] = useState(100000)
   const [rate, setRate] = useState(7)
@@ -36,7 +37,7 @@ export default function FDCalculatorClient({ faqs, structuredData, relatedCalcul
   ]
 
   return (
-    <CalculatorLayout title="CD Fixed Deposit Calculator USA 2026" description="Calculate interest earned, maturity value, and effective annual yield for any certificate of deposit." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-calculator">
+    <CalculatorLayout title="CD Fixed Deposit Calculator USA 2026" description="Calculate interest earned, maturity value, and effective annual yield for any certificate of deposit." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">FD / CD Details</h2>
