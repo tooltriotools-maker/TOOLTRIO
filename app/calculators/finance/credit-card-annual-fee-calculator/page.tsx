@@ -7,7 +7,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Credit Card Annual Fee Calculator USA 2026 — Is It Worth It? | ToolTrio',
-  description: 'Calculate whether a premium credit card's annual fee is worth it based on rewards earned, spending level, and comparison to no-fee alternatives.',
+  description: "Calculate whether a premium credit card's annual fee is worth it based on rewards earned, spending level, and comparison to no-fee alternatives.",
   slug: 'credit-card-annual-fee-calculator',
   category: 'finance',
   region: 'usa',
