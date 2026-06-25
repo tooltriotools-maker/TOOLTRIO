@@ -1,5 +1,5 @@
 'use client'
-import { calculateHELOC } from '@/lib/calculations/finance'
+import { calculateHELOCCreditLine } from '@/lib/calculations/finance'
 import { useState, useMemo } from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
   const result = useMemo(() => {
     try {
-      return calculateHELOC(homeValue, mortgageBalance, creditLimit, drawAmount, apr, drawPeriodYears, repayPeriodYears)
+      return calculateHELOCCreditLine(homeValue, mortgageBalance, creditLimit, drawAmount, apr, drawPeriodYears, repayPeriodYears)
     } catch(e) { return null }
   }, [homeValue, mortgageBalance, creditLimit, drawAmount, apr, drawPeriodYears, repayPeriodYears])
 

@@ -1,5 +1,5 @@
 'use client'
-import { calculateSavingsGoal } from '@/lib/calculations/finance'
+import { calculateSavingsGoalPlanner } from '@/lib/calculations/finance'
 import { useState, useMemo } from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
@@ -18,7 +18,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [targetYears, setTargetYears] = useState(5)
 
   const result = useMemo(()=>{
-    try{return calculateSavingsGoal(goalAmount, currentSavings, monthlySavings, annualReturn, targetYears)}catch(e){return null}
+    try{return calculateSavingsGoalPlanner(goalAmount, currentSavings, monthlySavings, annualReturn, targetYears)}catch(e){return null}
   },[goalAmount, currentSavings, monthlySavings, annualReturn, targetYears])
 
   return (

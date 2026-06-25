@@ -1892,7 +1892,7 @@ export function calculateAnnualIncome(hourlyRate: number, hoursPerWeek: number, 
 
 // ─── 25 NEW USA FINANCE CALCULATORS ─────────────────────────────────────────
 
-export function calculateHELOC(homeValue: number, mortgageBalance: number, creditLimit: number, drawAmount: number, apr: number, drawPeriodYears: number, repayPeriodYears: number) {
+export function calculateHELOCCreditLine(homeValue: number, mortgageBalance: number, creditLimit: number, drawAmount: number, apr: number, drawPeriodYears: number, repayPeriodYears: number) {
   const equity = homeValue - mortgageBalance
   const maxCredit = homeValue * creditLimit / 100 - mortgageBalance
   const monthlyRate = apr / 100 / 12
@@ -3942,7 +3942,7 @@ export function calculatePersonalFinanceScore(monthlyIncome: number, monthlyExpe
   }
 }
 
-export function calculateSavingsGoal(goalAmount: number, currentSavings: number, monthlySavings: number, annualReturn: number, targetYears: number) {
+export function calculateSavingsGoalPlanner(goalAmount: number, currentSavings: number, monthlySavings: number, annualReturn: number, targetYears: number) {
   const monthlyRate = annualReturn / 100 / 12
   const months = targetYears * 12
   const futureValue = currentSavings * Math.pow(1 + monthlyRate, months) + monthlySavings * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate)
