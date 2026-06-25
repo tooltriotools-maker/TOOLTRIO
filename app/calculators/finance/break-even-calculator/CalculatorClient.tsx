@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }) : []
 
   return (
-    <CalculatorLayout title="Break-Even Calculator USA 2026" description="Calculate your break-even point in units and revenue — essential for business planning and pricing." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="break-even-calculator">
+    <CalculatorLayout title="Break-Even Calculator USA 2026" description="Calculate your break-even point in units and revenue — essential for business planning and pricing." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="break-even-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Business Costs</h2>

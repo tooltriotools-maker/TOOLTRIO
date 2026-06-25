@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[hourlyRate, billableHours, selfEmploymentTaxRate, businessExpenses, healthInsurance, retirementContrib])
 
   return (
-    <CalculatorLayout title="Freelance Income Tax Calculator USA 2026 — Self-Employed Net Income" description="Calculate freelance take-home pay after self-employment tax, federal income tax, SE deduction, QBI deduction, and quarterly estimated payments." icon="💻" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="freelance-income-tax-calculator">
+    <CalculatorLayout title="Freelance Income Tax Calculator USA 2026 — Self-Employed Net Income" description="Calculate freelance take-home pay after self-employment tax, federal income tax, SE deduction, QBI deduction, and quarterly estimated payments." icon="💻" category="Finance" relatedCalculators={relatedCalculators} slug="freelance-income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossIncome, deductions])
 
   return (
-    <CalculatorLayout title="State Tax Relocation Calculator USA 2026 — Save by Moving" description="Calculate annual state income tax savings from relocating between any two US states. See 10-year savings and break-even on moving costs." icon="🗺️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="state-tax-relocation-calculator">
+    <CalculatorLayout title="State Tax Relocation Calculator USA 2026 — Save by Moving" description="Calculate annual state income tax savings from relocating between any two US states. See 10-year savings and break-even on moving costs." icon="🗺️" category="Finance" relatedCalculators={relatedCalculators} slug="state-tax-relocation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

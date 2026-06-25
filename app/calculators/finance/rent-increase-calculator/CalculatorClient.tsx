@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentRent, annualIncrease, marketRent, moveOutCosts, newPlaceRent])
 
   return (
-    <CalculatorLayout title="Rent Increase Calculator USA 2026 — Stay or Move?" description="Calculate whether to accept a rent increase or move. Compare total cost of staying vs moving, break-even months, and market rent comparison." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="rent-increase-calculator">
+    <CalculatorLayout title="Rent Increase Calculator USA 2026 — Stay or Move?" description="Calculate whether to accept a rent increase or move. Compare total cost of staying vs moving, break-even months, and market rent comparison." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} slug="rent-increase-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

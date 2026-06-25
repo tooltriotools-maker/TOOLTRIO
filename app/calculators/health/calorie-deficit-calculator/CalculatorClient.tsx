@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [weight,targetWeight,height,age,gender,activity,weeks,unit])
 
   return (
-    <CalculatorLayout title="Calorie Deficit Calculator" description="Calculate your daily calorie target for fat loss. Find out exactly how many calories to eat to reach your goal weight." icon="📉" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calorie-deficit-calculator">
+    <CalculatorLayout title="Calorie Deficit Calculator" description="Calculate your daily calorie target for fat loss. Find out exactly how many calories to eat to reach your goal weight." icon="📉" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="calorie-deficit-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

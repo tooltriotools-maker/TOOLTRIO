@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[gains, lossesToHarvest, taxRate, reinvestReturn, years])
 
   return (
-    <CalculatorLayout title="Tax-Loss Harvesting Calculator USA 2026" description="Calculate immediate tax savings from harvesting investment losses, reinvestment growth, and net long-term benefit vs deferred tax bill." icon="🌿" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tax-loss-harvesting-calculator">
+    <CalculatorLayout title="Tax-Loss Harvesting Calculator USA 2026" description="Calculate immediate tax savings from harvesting investment losses, reinvestment growth, and net long-term benefit vs deferred tax bill." icon="🌿" category="Finance" relatedCalculators={relatedCalculators} slug="tax-loss-harvesting-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [age,gender,calories,currentFiber])
 
   return (
-    <CalculatorLayout title="Daily Fiber Intake Calculator" description="Calculate your daily fiber needs, track current intake vs goal, and discover the best fiber-rich foods to add." icon="🌾" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fiber-intake-calculator">
+    <CalculatorLayout title="Daily Fiber Intake Calculator" description="Calculate your daily fiber needs, track current intake vs goal, and discover the best fiber-rich foods to add." icon="🌾" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fiber-intake-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

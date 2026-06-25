@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[loanAmount, interestRate, loanTermYears, pointsCount, rateReduction])
 
   return (
-    <CalculatorLayout title="Mortgage Points Calculator USA 2026 — Buy Down Rate" description="Calculate whether buying down your mortgage rate with discount points saves money. Find exact break-even month and lifetime savings." icon="📐" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="mortgage-points-calculator">
+    <CalculatorLayout title="Mortgage Points Calculator USA 2026 — Buy Down Rate" description="Calculate whether buying down your mortgage rate with discount points saves money. Find exact break-even month and lifetime savings." icon="📐" category="Finance" relatedCalculators={relatedCalculators} slug="mortgage-points-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

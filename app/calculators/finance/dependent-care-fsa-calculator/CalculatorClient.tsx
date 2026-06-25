@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate DC-FSA tax savings vs Child and Dependent Care Credit and find the optimal strategy for your childcare costs."
       icon="👶"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="dependent-care-fsa-calculator"
     >

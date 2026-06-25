@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }
 
   return (
-    <CalculatorLayout title="Marathon Training Calculator" description="Calculate your marathon training paces, long run distances, and weekly mileage targets." icon="🏃" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="marathon-training-calculator">
+    <CalculatorLayout title="Marathon Training Calculator" description="Calculate your marathon training paces, long run distances, and weekly mileage targets." icon="🏃" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="marathon-training-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Goal</h2>

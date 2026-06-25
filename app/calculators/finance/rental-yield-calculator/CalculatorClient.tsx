@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const yieldColor = result.netYield >= 6 ? 'text-green-600' : result.netYield >= 4 ? 'text-amber-600' : 'text-red-500'
 
   return (
-    <CalculatorLayout title="Rental Yield Calculator USA UK 2026" description="Calculate gross yield, net yield after expenses, and cash-on-cash return for any property." icon="🏘️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rental-yield-calculator">
+    <CalculatorLayout title="Rental Yield Calculator USA UK 2026" description="Calculate gross yield, net yield after expenses, and cash-on-cash return for any property." icon="🏘️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rental-yield-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Property Details</h2>

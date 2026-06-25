@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate FSA tax savings, effective discount on medical expenses, and optimal contribution to avoid forfeiture."
       icon="🏥"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="fsa-calculator"
     >

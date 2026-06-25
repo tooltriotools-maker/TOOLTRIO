@@ -31,7 +31,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate HELOC payments, draw period interest, repayment costs and compare against cash-out refinance."
       icon="🏡"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="heloc-credit-line-calculator"
     >

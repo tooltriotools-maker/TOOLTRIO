@@ -26,7 +26,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate the 3.8% Net Investment Income Tax on dividends, capital gains, and rental income above the $200K/$250K threshold."
       icon="💹"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="net-investment-income-tax-calculator"
     >

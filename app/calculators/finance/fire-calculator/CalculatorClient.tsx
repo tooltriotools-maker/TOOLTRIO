@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   )
 
   return (
-    <CalculatorLayout title="FIRE Calculator USA 2026" description={`Calculate your Financial Independence number and timeline in ${currency.name}.`} icon="🔥" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fire-calculator">
+    <CalculatorLayout title="FIRE Calculator USA 2026" description={`Calculate your Financial Independence number and timeline in ${currency.name}.`} icon="🔥" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fire-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your FIRE Plan</h2>

@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[selfEmploymentIncome, age, taxRate])
 
   return (
-    <CalculatorLayout title="Solo 401k Calculator USA 2026 — Self-Employed Maximum Contribution" description="Calculate maximum Solo 401k contributions as both employee and employer, super catch-up for ages 60-63, tax savings, and 30-year growth." icon="💼" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="solo-401k-calculator">
+    <CalculatorLayout title="Solo 401k Calculator USA 2026 — Self-Employed Maximum Contribution" description="Calculate maximum Solo 401k contributions as both employee and employer, super catch-up for ages 60-63, tax savings, and 30-year growth." icon="💼" category="Finance" relatedCalculators={relatedCalculators} slug="solo-401k-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="Crypto Profit Calculator USA 2026" description="Calculate profit or loss on any cryptocurrency trade including fees and capital gains tax." icon="₿" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="crypto-profit-calculator">
+    <CalculatorLayout title="Crypto Profit Calculator USA 2026" description="Calculate profit or loss on any cryptocurrency trade including fees and capital gains tax." icon="₿" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="crypto-profit-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Trade Details</h2>

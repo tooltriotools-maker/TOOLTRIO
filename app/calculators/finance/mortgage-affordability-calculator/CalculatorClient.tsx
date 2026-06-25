@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossIncome, monthlyDebts, downPayment, rate, propertyTaxRate])
 
   return (
-    <CalculatorLayout title="Mortgage Affordability Calculator USA 2026 — How Much House?" description="Calculate maximum home price and loan amount based on income, debts, down payment, and 2026 lending standards (28/43 DTI rule)." icon="🏡" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="mortgage-affordability-calculator">
+    <CalculatorLayout title="Mortgage Affordability Calculator USA 2026 — How Much House?" description="Calculate maximum home price and loan amount based on income, debts, down payment, and 2026 lending standards (28/43 DTI rule)." icon="🏡" category="Finance" relatedCalculators={relatedCalculators} slug="mortgage-affordability-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[personalPropertyValue, liabilityLimit, deductible])
 
   return (
-    <CalculatorLayout title="Renters Insurance Calculator USA 2026 — Coverage & Cost" description="Estimate renters insurance premium by state, calculate coverage needed for personal property, and see how deductible choices affect your annual cost." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="renters-insurance-calculator">
+    <CalculatorLayout title="Renters Insurance Calculator USA 2026 — Coverage & Cost" description="Estimate renters insurance premium by state, calculate coverage needed for personal property, and see how deductible choices affect your annual cost." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} slug="renters-insurance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

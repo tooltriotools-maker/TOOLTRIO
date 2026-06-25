@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[worker1Benefit, worker2Benefit, worker1ClaimAge, worker2ClaimAge])
 
   return (
-    <CalculatorLayout title="Social Security Spousal Benefits Calculator USA 2026" description="Calculate spousal Social Security benefits, optimal claiming ages for couples, survivor benefits, and combined lifetime income." icon="👫" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="social-security-spousal-calculator">
+    <CalculatorLayout title="Social Security Spousal Benefits Calculator USA 2026" description="Calculate spousal Social Security benefits, optimal claiming ages for couples, survivor benefits, and combined lifetime income." icon="👫" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-spousal-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

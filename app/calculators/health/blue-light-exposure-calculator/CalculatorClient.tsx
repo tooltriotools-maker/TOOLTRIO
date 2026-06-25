@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const risk = pct >= 80 ? {l:'High Exposure ⚠️', c:'text-red-600'} : pct >= 50 ? {l:'Moderate Exposure', c:'text-orange-600'} : {l:'Low Exposure v', c:'text-green-600'}
 
   return (
-    <CalculatorLayout title="Blue Light Exposure Calculator" description="Estimate your daily blue light exposure from screens and its impact on sleep and eye health." icon="💙" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="blue-light-exposure-calculator">
+    <CalculatorLayout title="Blue Light Exposure Calculator" description="Estimate your daily blue light exposure from screens and its impact on sleep and eye health." icon="💙" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="blue-light-exposure-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Daily Screen Time</h2>

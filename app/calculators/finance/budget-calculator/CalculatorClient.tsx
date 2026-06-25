@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const rule5030 = { needs: result.categories.filter((_, i) => i < 5).reduce((s, c) => s + c.actual, 0), wants: result.categories.filter((_, i) => i >= 5 && i < 8).reduce((s, c) => s + c.actual, 0), savings: result.categories.filter((_, i) => i >= 8).reduce((s, c) => s + c.actual, 0) }
 
   return (
-    <CalculatorLayout title="Budget Calculator USA 2026" description={`Plan and track your monthly budget in ${currency.name}. 50/30/20 rule analysis, spending breakdown, and savings rate.`} icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="budget-calculator">
+    <CalculatorLayout title="Budget Calculator USA 2026" description={`Plan and track your monthly budget in ${currency.name}. 50/30/20 rule analysis, spending breakdown, and savings rate.`} icon="💰" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="budget-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Monthly Income</h2>

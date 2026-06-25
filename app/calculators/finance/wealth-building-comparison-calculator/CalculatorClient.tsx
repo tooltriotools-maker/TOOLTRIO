@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[initialAmount, annualContrib, years, taxRate])
 
   return (
-    <CalculatorLayout title="Wealth Building Comparison Calculator USA 2026 — 5 Strategies" description="Compare five wealth-building strategies side by side: index fund investing, real estate, business ownership, bonds, and savings accounts over 10-30 years." icon="💎" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="wealth-building-comparison-calculator">
+    <CalculatorLayout title="Wealth Building Comparison Calculator USA 2026 — 5 Strategies" description="Compare five wealth-building strategies side by side: index fund investing, real estate, business ownership, bonds, and savings accounts over 10-30 years." icon="💎" category="Finance" relatedCalculators={relatedCalculators} slug="wealth-building-comparison-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

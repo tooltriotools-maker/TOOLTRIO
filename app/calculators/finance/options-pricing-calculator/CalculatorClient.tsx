@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate])
 
   return (
-    <CalculatorLayout title="Options Pricing Calculator USA 2026 — Black-Scholes" description="Calculate call and put option fair value using Black-Scholes formula, plus delta, theta, break-even price, and implied move." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="options-pricing-calculator">
+    <CalculatorLayout title="Options Pricing Calculator USA 2026 — Black-Scholes" description="Calculate call and put option fair value using Black-Scholes formula, plus delta, theta, break-even price, and implied move." icon="📈" category="Finance" relatedCalculators={relatedCalculators} slug="options-pricing-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

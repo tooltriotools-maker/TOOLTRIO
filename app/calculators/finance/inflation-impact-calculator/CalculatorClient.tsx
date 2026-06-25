@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentAmount, inflationRate, years, investmentReturn])
 
   return (
-    <CalculatorLayout title="Inflation Impact Calculator USA 2026 — Purchasing Power" description="Calculate how inflation erodes purchasing power over time and how much you need to invest to maintain real wealth." icon="📉" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="inflation-impact-calculator">
+    <CalculatorLayout title="Inflation Impact Calculator USA 2026 — Purchasing Power" description="Calculate how inflation erodes purchasing power over time and how much you need to invest to maintain real wealth." icon="📉" category="Finance" relatedCalculators={relatedCalculators} slug="inflation-impact-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

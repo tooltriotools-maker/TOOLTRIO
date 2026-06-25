@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentSalary, offerSalary, bonusPercent, equityValue, benefits401k, pto, costOfLivingDiff])
 
   return (
-    <CalculatorLayout title="Salary Negotiation Calculator USA 2026 — Total Compensation" description="Calculate the full value of a job offer including base, bonus, equity, 401k match, benefits, and PTO. Compare total comp and find your counter-offer." icon="🤝" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="salary-negotiation-calculator">
+    <CalculatorLayout title="Salary Negotiation Calculator USA 2026 — Total Compensation" description="Calculate the full value of a job offer including base, bonus, equity, 401k match, benefits, and PTO. Compare total comp and find your counter-offer." icon="🤝" category="Finance" relatedCalculators={relatedCalculators} slug="salary-negotiation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

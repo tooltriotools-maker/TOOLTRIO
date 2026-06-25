@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualIncome, yearsToReplace, existingDebts, finalExpenses, existingCoverage, spouseIncome, childrenCount])
 
   return (
-    <CalculatorLayout title="Life Insurance Needs Calculator USA 2026" description="Calculate exactly how much life insurance you need based on income replacement, debts, childcare costs, and existing coverage." icon="🛡️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="life-insurance-needs-calculator">
+    <CalculatorLayout title="Life Insurance Needs Calculator USA 2026" description="Calculate exactly how much life insurance you need based on income replacement, debts, childcare costs, and existing coverage." icon="🛡️" category="Finance" relatedCalculators={relatedCalculators} slug="life-insurance-needs-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

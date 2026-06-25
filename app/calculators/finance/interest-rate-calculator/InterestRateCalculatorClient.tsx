@@ -33,7 +33,7 @@ export default function InterestRateCalculatorClient({ faqs, relatedCalculators,
   const minPayment = principal / months
 
   return (
-    <CalculatorLayout title="Interest Rate Calculator USA 2026" description="Find the true APR on any loan from the monthly payment, balance, and term." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="interest-rate-calculator"
+    <CalculatorLayout title="Interest Rate Calculator USA 2026" description="Find the true APR on any loan from the monthly payment, balance, and term." icon="📈" category="Finance" relatedCalculators={relatedCalculators} slug="interest-rate-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate your Section 199A Qualified Business Income deduction for sole proprietors, S-corps, partnerships, and freelancers."
       icon="📋"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="qbi-deduction-calculator"
     >

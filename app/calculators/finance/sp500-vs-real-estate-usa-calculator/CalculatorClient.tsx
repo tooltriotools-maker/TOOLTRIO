@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [val1, rate1, rate2, years])
 
   return (
-    <CalculatorLayout title="S&P 500 vs Real Estate Calculator USA 2026" description="Compare S&P 500 index fund returns vs US real estate including rental income and leverage." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sp500-vs-real-estate-usa-calculator">
+    <CalculatorLayout title="S&P 500 vs Real Estate Calculator USA 2026" description="Compare S&P 500 index fund returns vs US real estate including rental income and leverage." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sp500-vs-real-estate-usa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

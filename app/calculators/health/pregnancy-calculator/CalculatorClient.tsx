@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   minDate.setDate(minDate.getDate() - 280)
 
   return (
-    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your expected due date (EDD) based on your last menstrual period (LMP). See trimester milestones and week-by-week timeline." icon="🤰" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-calculator">
+    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your expected due date (EDD) based on your last menstrual period (LMP). See trimester milestones and week-by-week timeline." icon="🤰" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pregnancy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Enter LMP Date</h2>

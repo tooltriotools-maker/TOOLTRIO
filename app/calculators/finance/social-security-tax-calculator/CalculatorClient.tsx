@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[ssBenefit, otherIncome])
 
   return (
-    <CalculatorLayout title="Social Security Benefits Tax Calculator USA 2026" description="Calculate how much of your Social Security is taxable based on combined income. Find the income thresholds and strategies to reduce SS taxation." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="social-security-tax-calculator">
+    <CalculatorLayout title="Social Security Benefits Tax Calculator USA 2026" description="Calculate how much of your Social Security is taxable based on combined income. Find the income thresholds and strategies to reduce SS taxation." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -61,7 +61,6 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       title="Currency Converter USA 2026"
       description="Convert between USD, EUR, GBP, JPY, and 30+ currencies at real-time mid-market exchange rates."
       icon="💱" category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="currency-converter"

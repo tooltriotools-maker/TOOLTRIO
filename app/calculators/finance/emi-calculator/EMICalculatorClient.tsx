@@ -41,7 +41,7 @@ export default function EMICalculatorClient({ faqs, relatedCalculators, blogSlug
   }
 
   return (
-    <CalculatorLayout title="Loan EMI Calculator USA 2026" description={`Calculate monthly loan EMI, total interest, and amortization schedule in ${currency.name} (${currency.symbol}).`} icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emi-calculator">
+    <CalculatorLayout title="Loan EMI Calculator USA 2026" description={`Calculate monthly loan EMI, total interest, and amortization schedule in ${currency.name} (${currency.symbol}).`} icon="🏦" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="emi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Loan Details</h2>

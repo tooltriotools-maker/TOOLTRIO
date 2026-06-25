@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentBalance, currentRate, currentTerm, newRate, newTerm])
 
   return (
-    <CalculatorLayout title="Student Loan Refinance Calculator USA 2026" description="Calculate monthly savings, total interest saved, and break-even from refinancing student loans. Includes warning about losing federal loan benefits." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="student-loan-refinance-calculator">
+    <CalculatorLayout title="Student Loan Refinance Calculator USA 2026" description="Calculate monthly savings, total interest saved, and break-even from refinancing student loans. Includes warning about losing federal loan benefits." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="student-loan-refinance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

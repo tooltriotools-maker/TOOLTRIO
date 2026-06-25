@@ -72,7 +72,7 @@ export default function WealthCalculatorClient({ faqs, relatedCalculators, blogS
   const millennialBenchmarks: Record<number, number> = { 25: 9000, 30: 48000, 35: 122000, 40: 236000, 45: 436000, 50: 742000, 55: 1100000 }
 
   return (
-    <CalculatorLayout title="Wealth Calculator USA 2026" description="Calculate your total net worth from all assets and liabilities with US wealth percentile comparison." icon="💎" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="wealth-calculator"
+    <CalculatorLayout title="Wealth Calculator USA 2026" description="Calculate your total net worth from all assets and liabilities with US wealth percentile comparison." icon="💎" category="Finance" relatedCalculators={relatedCalculators} slug="wealth-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-4">

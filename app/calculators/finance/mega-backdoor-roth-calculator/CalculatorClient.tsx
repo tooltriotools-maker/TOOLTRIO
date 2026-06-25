@@ -29,7 +29,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate how much extra after-tax you can contribute to your 401k and convert to Roth under the $70,000 2026 limit."
       icon="💪"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="mega-backdoor-roth-calculator"
     >

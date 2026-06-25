@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[homeValue, exemptions])
 
   return (
-    <CalculatorLayout title="Property Tax Calculator USA 2026 — All 50 States" description="Estimate annual property tax, monthly escrow, effective rate, and appeal savings potential for any US state. Based on 2026 state average mill rates." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="property-tax-calculator">
+    <CalculatorLayout title="Property Tax Calculator USA 2026 — All 50 States" description="Estimate annual property tax, monthly escrow, effective rate, and appeal savings potential for any US state. Based on 2026 state average mill rates." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="property-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -52,7 +52,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [currentWeight,targetWeight,height,gender,weeklyChange,unit])
 
   return (
-    <CalculatorLayout title="Target Weight Calculator" description="Find your ideal weight range and get a realistic timeline to reach your target weight safely." icon="🎯" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="target-weight-calculator">
+    <CalculatorLayout title="Target Weight Calculator" description="Find your ideal weight range and get a realistic timeline to reach your target weight safely." icon="🎯" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="target-weight-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

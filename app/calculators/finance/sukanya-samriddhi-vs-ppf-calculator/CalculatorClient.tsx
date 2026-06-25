@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [val1, rate1, rate2, years])
 
   return (
-    <CalculatorLayout title="Sukanya Samriddhi vs PPF Calculator India 2026" description="Compare SSY at 8.2% vs PPF at 7.1% for girl child education and marriage fund savings." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sukanya-samriddhi-vs-ppf-calculator">
+    <CalculatorLayout title="Sukanya Samriddhi vs PPF Calculator India 2026" description="Compare SSY at 8.2% vs PPF at 7.1% for girl child education and marriage fund savings." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sukanya-samriddhi-vs-ppf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

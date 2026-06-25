@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [method, lmpDate, conceptDate, cycleLen])
 
   return (
-    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your estimated due date from LMP or conception date. Full pregnancy timeline and milestone tracker." icon="🤱" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="due-date-calculator">
+    <CalculatorLayout title="Pregnancy Due Date Calculator" description="Calculate your estimated due date from LMP or conception date. Full pregnancy timeline and milestone tracker." icon="🤱" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="due-date-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Pregnancy Details</h2>

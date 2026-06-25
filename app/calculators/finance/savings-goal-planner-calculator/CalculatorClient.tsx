@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[goalAmount, currentSavings, monthlySavings, annualReturn, targetYears])
 
   return (
-    <CalculatorLayout title="Savings Goal Planner Calculator USA 2026 — Reach Any Financial Goal" description="Calculate how long to reach any savings goal, required monthly savings, and interest earned. Works for emergency fund, down payment, vacation, or any target." icon="🎯" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="savings-goal-planner-calculator">
+    <CalculatorLayout title="Savings Goal Planner Calculator USA 2026 — Reach Any Financial Goal" description="Calculate how long to reach any savings goal, required monthly savings, and interest earned. Works for emergency fund, down payment, vacation, or any target." icon="🎯" category="Finance" relatedCalculators={relatedCalculators} slug="savings-goal-planner-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

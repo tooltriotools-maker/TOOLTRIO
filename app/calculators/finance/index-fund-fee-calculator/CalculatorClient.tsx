@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[initialAmount, annualContrib, grossReturn, expenseRatio1, expenseRatio2, years])
 
   return (
-    <CalculatorLayout title="Index Fund Expense Ratio Fee Calculator USA 2026" description="Calculate the long-term wealth impact of index fund expense ratios. See how a 0.03% vs 1% fee difference compounds to $100,000+ over 30 years." icon="📉" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="index-fund-fee-calculator">
+    <CalculatorLayout title="Index Fund Expense Ratio Fee Calculator USA 2026" description="Calculate the long-term wealth impact of index fund expense ratios. See how a 0.03% vs 1% fee difference compounds to $100,000+ over 30 years." icon="📉" category="Finance" relatedCalculators={relatedCalculators} slug="index-fund-fee-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

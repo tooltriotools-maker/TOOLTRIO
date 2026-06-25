@@ -50,7 +50,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [lumpsum, monthly, grossReturn, indexExpense, etfExpense, indexTaxDrag, etfTaxDrag, years])
 
   return (
-    <CalculatorLayout title="Index Fund vs ETF Calculator USA 2026" description="Compare index mutual funds vs ETFs on expense ratio, tax drag, and long-term total cost." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="index-fund-vs-etf-calculator">
+    <CalculatorLayout title="Index Fund vs ETF Calculator USA 2026" description="Compare index mutual funds vs ETFs on expense ratio, tax drag, and long-term total cost." icon="📈" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="index-fund-vs-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Details</h2>

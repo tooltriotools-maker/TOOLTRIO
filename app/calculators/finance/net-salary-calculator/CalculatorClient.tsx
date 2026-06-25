@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossSalary, retirement401k, hsaContrib, fsa])
 
   return (
-    <CalculatorLayout title="Net Salary Calculator USA 2026 — Take-Home Pay by State" description="Calculate exact take-home pay after federal income tax, FICA, and state taxes for all 50 states. Includes 401k, HSA, and FSA deductions." icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="net-salary-calculator">
+    <CalculatorLayout title="Net Salary Calculator USA 2026 — Take-Home Pay by State" description="Calculate exact take-home pay after federal income tax, FICA, and state taxes for all 50 states. Includes 401k, HSA, and FSA deductions." icon="💰" category="Finance" relatedCalculators={relatedCalculators} slug="net-salary-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

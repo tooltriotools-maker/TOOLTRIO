@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="MSCI World vs S&P 500 Calculator Europe 2026" description="Compare IWDA vs VUAA ETF returns, currency risk, and diversification for European investors." icon="🌍" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="europe-msci-world-vs-sp500-calculator">
+    <CalculatorLayout title="MSCI World vs S&P 500 Calculator Europe 2026" description="Compare IWDA vs VUAA ETF returns, currency risk, and diversification for European investors." icon="🌍" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="europe-msci-world-vs-sp500-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

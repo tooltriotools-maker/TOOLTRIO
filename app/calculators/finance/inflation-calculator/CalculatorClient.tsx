@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const purchasingPowerLoss = ((amount - result.purchasingPower) / amount * 100).toFixed(1)
 
   return (
-    <CalculatorLayout title="Inflation Calculator USA 2026" description={`See how inflation erodes purchasing power in ${currency.name}. Plan your savings to beat inflation.`} icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="inflation-calculator">
+    <CalculatorLayout title="Inflation Calculator USA 2026" description={`See how inflation erodes purchasing power in ${currency.name}. Plan your savings to beat inflation.`} icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="inflation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Inputs</h2>

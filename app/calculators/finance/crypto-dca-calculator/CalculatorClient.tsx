@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[totalAmount, dcaMonths, startPrice, endPrice, volatility])
 
   return (
-    <CalculatorLayout title="Crypto DCA vs Lump Sum Calculator USA 2026" description="Compare Dollar-Cost Averaging vs lump sum investing in Bitcoin or any crypto. Calculate average cost basis, total return, and which strategy wins." icon="₿" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="crypto-dca-calculator">
+    <CalculatorLayout title="Crypto DCA vs Lump Sum Calculator USA 2026" description="Compare Dollar-Cost Averaging vs lump sum investing in Bitcoin or any crypto. Calculate average cost basis, total return, and which strategy wins." icon="₿" category="Finance" relatedCalculators={relatedCalculators} slug="crypto-dca-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const buyBetter = result.buyBetter
 
   return (
-    <CalculatorLayout title="Rent vs Buy Calculator USA 2026" description="Compare the complete 10-year financial outcome of renting vs buying a home in your area." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rent-vs-buy-calculator">
+    <CalculatorLayout title="Rent vs Buy Calculator USA 2026" description="Compare the complete 10-year financial outcome of renting vs buying a home in your area." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rent-vs-buy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Home & Mortgage</h2>

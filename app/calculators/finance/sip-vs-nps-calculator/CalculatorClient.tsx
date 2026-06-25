@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, currentAge, retirementAge, sipRate, npsRate, annuityPct, annuityRate])
 
   return (
-    <CalculatorLayout title="SIP vs NPS Calculator India 2026" description="Compare SIP equity mutual fund vs NPS for retirement including 80CCD tax benefits." icon="🎯" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-nps-calculator">
+    <CalculatorLayout title="SIP vs NPS Calculator India 2026" description="Compare SIP equity mutual fund vs NPS for retirement including 80CCD tax benefits." icon="🎯" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-nps-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

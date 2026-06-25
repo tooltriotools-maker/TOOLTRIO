@@ -31,7 +31,7 @@ export default function SavingsRateCalculatorClient({ faqs, relatedCalculators, 
   const barColors = tableData.map(d => d.color)
 
   return (
-    <CalculatorLayout title="Savings Rate Calculator USA 2026" description="Calculate your personal savings rate and how each 1% increase accelerates your FIRE date." icon="💰" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="savings-rate-calculator"
+    <CalculatorLayout title="Savings Rate Calculator USA 2026" description="Calculate your personal savings rate and how each 1% increase accelerates your FIRE date." icon="💰" category="Finance" relatedCalculators={relatedCalculators} slug="savings-rate-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

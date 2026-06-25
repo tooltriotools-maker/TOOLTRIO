@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[salary, tspContrib, yearsService, age])
 
   return (
-    <CalculatorLayout title="TSP vs 401k Calculator USA 2026 — Federal Employee Retirement" description="Compare Thrift Savings Plan (TSP) vs private sector 401k. Calculate FERS pension value, TSP matching, and total federal employee retirement package." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tsp-vs-401k-calculator">
+    <CalculatorLayout title="TSP vs 401k Calculator USA 2026 — Federal Employee Retirement" description="Compare Thrift Savings Plan (TSP) vs private sector 401k. Calculate FERS pension value, TSP matching, and total federal employee retirement package." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="tsp-vs-401k-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

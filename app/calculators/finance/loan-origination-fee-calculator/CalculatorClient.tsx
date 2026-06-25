@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[loanAmount, originationFeePercent, interestRate, loanTermYears, alternativeRate])
 
   return (
-    <CalculatorLayout title="Loan Origination Fee Calculator USA 2026 — Is the Fee Worth It?" description="Calculate the true cost of loan origination fees, effective APR, and break-even vs a no-fee higher-rate loan." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="loan-origination-fee-calculator">
+    <CalculatorLayout title="Loan Origination Fee Calculator USA 2026 — Is the Fee Worth It?" description="Calculate the true cost of loan origination fees, effective APR, and break-even vs a no-fee higher-rate loan." icon="💵" category="Finance" relatedCalculators={relatedCalculators} slug="loan-origination-fee-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

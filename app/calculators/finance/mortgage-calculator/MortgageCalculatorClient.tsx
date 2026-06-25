@@ -72,7 +72,6 @@ export default function MortgageCalculatorClient({ faqs, relatedCalculators, blo
       description="Calculate your complete monthly PITI payment with principal, interest, taxes, insurance, and PMI."
       icon="🏡"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="mortgage-calculator"

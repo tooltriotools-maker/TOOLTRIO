@@ -37,7 +37,7 @@ export default function DownPaymentCalculatorClient({ faqs, relatedCalculators, 
   const tickFmt = (v: number) => `${currency.symbol}${(v / 1000).toFixed(0)}K`
 
   return (
-    <CalculatorLayout title="Down Payment Calculator USA 2026" description="Compare 5%, 10%, and 20% down payments on monthly payment, PMI, and total 30-year cost." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="down-payment-calculator">
+    <CalculatorLayout title="Down Payment Calculator USA 2026" description="Compare 5%, 10%, and 20% down payments on monthly payment, PMI, and total 30-year cost." icon="💵" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="down-payment-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Home Details</h2>

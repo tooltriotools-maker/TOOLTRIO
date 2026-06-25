@@ -28,7 +28,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate payments and forgiveness amounts under SAVE, IBR, and PSLF plans. Compare total cost vs standard repayment."
       icon="🎓"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="student-loan-forgiveness-calculator"
     >

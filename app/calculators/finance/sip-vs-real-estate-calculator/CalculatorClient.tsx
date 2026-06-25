@@ -71,7 +71,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const winner = result.sipBetter ? 'SIP' : 'Real Estate'
 
   return (
-    <CalculatorLayout title="SIP vs Real Estate Calculator India 2026" description="Compare monthly SIP mutual fund returns vs property investment including rental yield." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-real-estate-calculator">
+    <CalculatorLayout title="SIP vs Real Estate Calculator India 2026" description="Compare monthly SIP mutual fund returns vs property investment including rental yield." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-real-estate-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

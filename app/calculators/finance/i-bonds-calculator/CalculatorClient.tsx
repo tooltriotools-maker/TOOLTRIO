@@ -28,7 +28,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate I-Bond value, composite rate, interest earned, and effective yield vs CDs and HYSAs. Updated for 2026 rates."
       icon="🏛️"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="i-bonds-calculator"
     >

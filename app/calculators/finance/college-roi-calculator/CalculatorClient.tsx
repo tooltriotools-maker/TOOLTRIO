@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[degreeCost, yearsToComplete, salaryWithDegree, salaryWithout, loanRate, workYears])
 
   return (
-    <CalculatorLayout title="College ROI Calculator USA 2026 — Is a Degree Worth It?" description="Calculate the financial return on college education: net present value, payback period, lifetime salary premium, and loan vs no-degree comparison." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="college-roi-calculator">
+    <CalculatorLayout title="College ROI Calculator USA 2026 — Is a Degree Worth It?" description="Calculate the financial return on college education: net present value, payback period, lifetime salary premium, and loan vs no-degree comparison." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="college-roi-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

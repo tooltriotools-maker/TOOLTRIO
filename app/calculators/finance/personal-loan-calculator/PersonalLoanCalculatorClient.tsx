@@ -53,7 +53,6 @@ export default function PersonalLoanCalculatorClient({ faqs, relatedCalculators,
       description="Calculate your personal loan monthly payment, total interest, and full amortization schedule."
       icon="💳"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="personal-loan-calculator"

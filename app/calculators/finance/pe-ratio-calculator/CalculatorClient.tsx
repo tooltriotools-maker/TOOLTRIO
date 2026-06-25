@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const valuationBg = result.valuation === 'Undervalued' ? 'bg-green-50 border-green-200' : result.valuation === 'Fair Value' ? 'bg-blue-50 border-blue-200' : result.valuation === 'Overvalued' ? 'bg-orange-50 border-orange-200' : 'bg-red-50 border-red-200'
 
   return (
-    <CalculatorLayout title="P/E Ratio Calculator USA 2026" description="Calculate Price-to-Earnings ratio, PEG ratio, and estimated fair value for any stock." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pe-ratio-calculator">
+    <CalculatorLayout title="P/E Ratio Calculator USA 2026" description="Calculate Price-to-Earnings ratio, PEG ratio, and estimated fair value for any stock." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pe-ratio-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Inputs */}
         <Card className="lg:col-span-1">

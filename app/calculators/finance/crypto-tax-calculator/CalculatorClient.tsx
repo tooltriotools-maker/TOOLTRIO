@@ -28,7 +28,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate federal capital gains tax on cryptocurrency sales, short vs long-term rates, NIIT, and tax-saving strategies."
       icon="₿"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="crypto-tax-calculator"
     >

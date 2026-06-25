@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const grade = score >= 80 ? {l:'Excellent Liver Health',c:'text-green-600'} : score >= 60 ? {l:'Good',c:'text-blue-600'} : score >= 40 ? {l:'Fair - Some Risk Factors',c:'text-yellow-600'} : {l:'High Risk - Action Needed',c:'text-red-600'}
 
   return (
-    <CalculatorLayout title="Liver Health Calculator" description="Assess your liver health risk based on lifestyle factors including alcohol, diet, and BMI." icon="🫀" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="liver-health-calculator">
+    <CalculatorLayout title="Liver Health Calculator" description="Assess your liver health risk based on lifestyle factors including alcohol, diet, and BMI." icon="🫀" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="liver-health-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Lifestyle Factors</h2>

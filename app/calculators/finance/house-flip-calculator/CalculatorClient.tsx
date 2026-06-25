@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[purchasePrice, rehabCost, arvSalePrice, holdingMonths, loanRate, downPercent])
 
   return (
-    <CalculatorLayout title="House Flip Calculator USA 2026 — Fix & Flip ROI" description="Calculate gross profit, ROI, annualized return, and 70% rule compliance on any house flip project including financing, holding, and selling costs." icon="🏗️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="house-flip-calculator">
+    <CalculatorLayout title="House Flip Calculator USA 2026 — Fix & Flip ROI" description="Calculate gross profit, ROI, annualized return, and 70% rule compliance on any house flip project including financing, holding, and selling costs." icon="🏗️" category="Finance" relatedCalculators={relatedCalculators} slug="house-flip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

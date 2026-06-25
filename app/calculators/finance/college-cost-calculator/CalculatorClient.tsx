@@ -50,7 +50,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   })
 
   return (
-    <CalculatorLayout title="College Cost Calculator USA 2026" description="Calculate future tuition costs with inflation and monthly savings needed via 529 plan." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="college-cost-calculator">
+    <CalculatorLayout title="College Cost Calculator USA 2026" description="Calculate future tuition costs with inflation and monthly savings needed via 529 plan." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="college-cost-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">College Plan</h2>

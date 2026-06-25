@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [waist, height, hip, unit, gender])
 
   return (
-    <CalculatorLayout title="Waist-to-Height Ratio Calculator" description="Calculate WHtR and waist-to-hip ratio for cardiovascular risk assessment. Better than BMI for central obesity." icon="📏" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="waist-to-height-ratio-calculator">
+    <CalculatorLayout title="Waist-to-Height Ratio Calculator" description="Calculate WHtR and waist-to-hip ratio for cardiovascular risk assessment. Better than BMI for central obesity." icon="📏" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="waist-to-height-ratio-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Measurements</h2>

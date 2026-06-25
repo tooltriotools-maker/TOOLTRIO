@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[initialShares, pricePerShare, annualDividend, dividendGrowth, priceGrowth, years])
 
   return (
-    <CalculatorLayout title="DRIP Calculator USA 2026 — Dividend Reinvestment Plan" description="Calculate how reinvesting dividends compounds wealth vs taking cash — share accumulation, portfolio growth, and total return over time." icon="💧" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="drip-calculator">
+    <CalculatorLayout title="DRIP Calculator USA 2026 — Dividend Reinvestment Plan" description="Calculate how reinvesting dividends compounds wealth vs taking cash — share accumulation, portfolio growth, and total return over time." icon="💧" category="Finance" relatedCalculators={relatedCalculators} slug="drip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

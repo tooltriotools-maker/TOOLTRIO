@@ -55,7 +55,7 @@ export default function BusinessLoanCalculatorClient({ faqs, relatedCalculators,
   const tickFmt = (v: number) => v >= 1000000 ? `${currency.symbol}${(v / 1000000).toFixed(1)}M` : `${currency.symbol}${(v / 1000).toFixed(0)}K`
 
   return (
-    <CalculatorLayout title="Business Loan Calculator USA 2026" description="Calculate business loan monthly payments, total interest, and amortization schedule for any loan size." icon="🏢" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="business-loan-calculator"
+    <CalculatorLayout title="Business Loan Calculator USA 2026" description="Calculate business loan monthly payments, total interest, and amortization schedule for any loan size." icon="🏢" category="Finance" relatedCalculators={relatedCalculators} slug="business-loan-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

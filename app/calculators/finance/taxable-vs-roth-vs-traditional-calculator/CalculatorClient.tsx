@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[contribution, yearsToRetirement, currentTaxRate, retirementTaxRate, expectedReturn])
 
   return (
-    <CalculatorLayout title="Taxable vs Roth vs Traditional IRA Calculator USA 2026" description="Compare after-tax wealth across taxable brokerage, Roth IRA, and Traditional IRA over any time horizon. Find the best account for your tax situation." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="taxable-vs-roth-vs-traditional-calculator">
+    <CalculatorLayout title="Taxable vs Roth vs Traditional IRA Calculator USA 2026" description="Compare after-tax wealth across taxable brokerage, Roth IRA, and Traditional IRA over any time horizon. Find the best account for your tax situation." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="taxable-vs-roth-vs-traditional-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

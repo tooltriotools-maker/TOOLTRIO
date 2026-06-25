@@ -29,7 +29,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate taxes owed on backdoor Roth conversions, pro-rata rule impact, and 30-year tax-free growth. For high-income earners above Roth IRA limits."
       icon="🚪"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="backdoor-roth-ira-calculator"
     >

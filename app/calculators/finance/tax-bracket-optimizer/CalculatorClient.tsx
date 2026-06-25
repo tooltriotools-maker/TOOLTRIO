@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[ordinaryIncome, capitalGains, qualifiedDividends, deductions, credits])
 
   return (
-    <CalculatorLayout title="Tax Bracket Optimizer USA 2026 — Minimize Your Tax Bill" description="See your full tax bracket breakdown, identify room in your current bracket, and get personalized strategies to reduce your 2026 federal income tax." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tax-bracket-optimizer">
+    <CalculatorLayout title="Tax Bracket Optimizer USA 2026 — Minimize Your Tax Bill" description="See your full tax bracket breakdown, identify room in your current bracket, and get personalized strategies to reduce your 2026 federal income tax." icon="🧾" category="Finance" relatedCalculators={relatedCalculators} slug="tax-bracket-optimizer">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

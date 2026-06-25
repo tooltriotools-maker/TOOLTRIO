@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="UK Lifetime ISA vs SIPP Calculator 2026" description="Compare 25% LISA government bonus vs SIPP pension tax relief for UK retirement savings." icon="🇬🇧" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-lifetime-isa-vs-sipp-calculator">
+    <CalculatorLayout title="UK Lifetime ISA vs SIPP Calculator 2026" description="Compare 25% LISA government bonus vs SIPP pension tax relief for UK retirement savings." icon="🇬🇧" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-lifetime-isa-vs-sipp-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>

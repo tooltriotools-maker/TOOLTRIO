@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualExpenses, currentPortfolio, annualSavings, expectedReturn, safeWithdrawal, currentAge, targetRetirementAge])
 
   return (
-    <CalculatorLayout title="FIRE Number Calculator USA 2026 — Financial Independence" description="Calculate your exact Financial Independence Retire Early (FIRE) number, monthly savings needed, and years to financial freedom." icon="🔥" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="fire-number-calculator">
+    <CalculatorLayout title="FIRE Number Calculator USA 2026 — Financial Independence" description="Calculate your exact Financial Independence Retire Early (FIRE) number, monthly savings needed, and years to financial freedom." icon="🔥" category="Finance" relatedCalculators={relatedCalculators} slug="fire-number-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

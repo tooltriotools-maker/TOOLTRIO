@@ -19,7 +19,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const rdi = heartRisk ? 2000 : base
 
   return (
-    <CalculatorLayout title="Omega-3 Calculator" description="Calculate your daily omega-3 fatty acid requirements and find the best food sources." icon="🐟" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="omega3-calculator">
+    <CalculatorLayout title="Omega-3 Calculator" description="Calculate your daily omega-3 fatty acid requirements and find the best food sources." icon="🐟" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="omega3-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Profile</h2>

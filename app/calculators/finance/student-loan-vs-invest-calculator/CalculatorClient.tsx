@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[loanBalance, loanRate, monthlyExtra, investReturn, years])
 
   return (
-    <CalculatorLayout title="Pay Off Student Loans vs Invest Calculator USA 2026" description="Calculate whether extra money should pay down student loans or go into investments — comparing interest saved vs investment growth." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="student-loan-vs-invest-calculator">
+    <CalculatorLayout title="Pay Off Student Loans vs Invest Calculator USA 2026" description="Calculate whether extra money should pay down student loans or go into investments — comparing interest saved vs investment growth." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} slug="student-loan-vs-invest-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[inheritedBalance, beneficiaryAge, currentTaxRate])
 
   return (
-    <CalculatorLayout title="Inherited IRA Calculator USA 2026 — 10-Year Rule & RMDs" description="Calculate annual required withdrawals from an inherited IRA, total tax burden under the 10-year rule, and optimal distribution strategy." icon="📋" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="inherited-ira-calculator">
+    <CalculatorLayout title="Inherited IRA Calculator USA 2026 — 10-Year Rule & RMDs" description="Calculate annual required withdrawals from an inherited IRA, total tax burden under the 10-year rule, and optimal distribution strategy." icon="📋" category="Finance" relatedCalculators={relatedCalculators} slug="inherited-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

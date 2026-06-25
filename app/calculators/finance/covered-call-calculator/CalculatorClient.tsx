@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[sharesOwned, currentPrice, strikePrice, premium, daysToExpiry])
 
   return (
-    <CalculatorLayout title="Covered Call Calculator USA 2026 — Options Income Strategy" description="Calculate covered call premium income, annualized yield, maximum profit, break-even price, and contracts available on your stock position." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="covered-call-calculator">
+    <CalculatorLayout title="Covered Call Calculator USA 2026 — Options Income Strategy" description="Calculate covered call premium income, annualized yield, maximum profit, break-even price, and contracts available on your stock position." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="covered-call-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

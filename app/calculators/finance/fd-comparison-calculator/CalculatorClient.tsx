@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="CD Comparison Calculator USA 2026" description="Compare up to 4 CDs simultaneously on APY, maturity value, and total interest earned." icon="🏆" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-comparison-calculator">
+    <CalculatorLayout title="CD Comparison Calculator USA 2026" description="Compare up to 4 CDs simultaneously on APY, maturity value, and total interest earned." icon="🏆" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fd-comparison-calculator">
       <div className="space-y-6">
         {/* FD Input Cards */}
         <div>

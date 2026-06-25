@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }
 
   return (
-    <CalculatorLayout title="Recurring Deposit Calculator India 2026" description="Calculate RD maturity value, total interest earned, and month-by-month growth." icon="🏧" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rd-calculator">
+    <CalculatorLayout title="Recurring Deposit Calculator India 2026" description="Calculate RD maturity value, total interest earned, and month-by-month growth." icon="🏧" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="rd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">RD Details</h2>

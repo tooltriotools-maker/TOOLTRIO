@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ].filter(d => d.value > 0)
 
   return (
-    <CalculatorLayout title="Euro Auto Loan Calculator 2026" description="Calculate monthly payments for PCP, HP, and personal loan car finance across Europe." icon="🚗" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="euro-auto-loan-calculator">
+    <CalculatorLayout title="Euro Auto Loan Calculator 2026" description="Calculate monthly payments for PCP, HP, and personal loan car finance across Europe." icon="🚗" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="euro-auto-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Finance Details</h2>

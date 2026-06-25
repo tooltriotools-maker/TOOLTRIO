@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="Mortgage Refinance Calculator USA 2026" description="Calculate monthly savings, break-even month, and total interest saved from refinancing." icon="🔄" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mortgage-refinance-calculator">
+    <CalculatorLayout title="Mortgage Refinance Calculator USA 2026" description="Calculate monthly savings, break-even month, and total interest saved from refinancing." icon="🔄" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mortgage-refinance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Mortgage Details</h2>

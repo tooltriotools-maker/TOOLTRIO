@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossPay, payFrequency, current401k, currentHSA, currentFSA, taxRate])
 
   return (
-    <CalculatorLayout title="Paycheck Contribution Optimizer USA 2026 — Maximize Take-Home & Tax Savings" description="Find the optimal 401k, HSA, and FSA contributions per paycheck to maximize tax savings while maintaining target take-home pay." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="paycheck-contribution-optimizer">
+    <CalculatorLayout title="Paycheck Contribution Optimizer USA 2026 — Maximize Take-Home & Tax Savings" description="Find the optimal 401k, HSA, and FSA contributions per paycheck to maximize tax savings while maintaining target take-home pay." icon="💵" category="Finance" relatedCalculators={relatedCalculators} slug="paycheck-contribution-optimizer">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

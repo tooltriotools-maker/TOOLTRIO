@@ -50,7 +50,7 @@ export default function InvoiceCalculatorClient({ faqs, relatedCalculators, blog
   const removeItem = (idx: number) => setItems(items.filter((_, i) => i !== idx))
 
   return (
-    <CalculatorLayout title="Invoice Calculator USA 2026" description="Add line items, apply tax and discounts, and calculate invoice totals for freelancers and businesses." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="invoice-calculator"
+    <CalculatorLayout title="Invoice Calculator USA 2026" description="Add line items, apply tax and discounts, and calculate invoice totals for freelancers and businesses." icon="🧾" category="Finance" relatedCalculators={relatedCalculators} slug="invoice-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-4" data-pdf-results>

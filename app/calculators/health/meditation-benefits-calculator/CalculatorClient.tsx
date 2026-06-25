@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const focusBoost = Math.min(35, Math.round(consistencyScore * 0.35))
 
   return (
-    <CalculatorLayout title="Meditation Benefits Calculator" description="Estimate the wellbeing benefits of your meditation practice based on frequency and consistency." icon="🧘" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="meditation-benefits-calculator">
+    <CalculatorLayout title="Meditation Benefits Calculator" description="Estimate the wellbeing benefits of your meditation practice based on frequency and consistency." icon="🧘" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="meditation-benefits-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Your Practice</h2>

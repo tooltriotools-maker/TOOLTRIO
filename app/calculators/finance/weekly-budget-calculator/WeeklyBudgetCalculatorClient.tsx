@@ -51,7 +51,7 @@ export default function WeeklyBudgetCalculatorClient({ faqs, relatedCalculators,
   ]
 
   return (
-    <CalculatorLayout title="Weekly Budget Calculator USA 2026" description="Plan your weekly spending and savings with the 50/30/20 rule tailored for weekly paychecks." icon="📆" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="weekly-budget-calculator"
+    <CalculatorLayout title="Weekly Budget Calculator USA 2026" description="Plan your weekly spending and savings with the 50/30/20 rule tailored for weekly paychecks." icon="📆" category="Finance" relatedCalculators={relatedCalculators} slug="weekly-budget-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

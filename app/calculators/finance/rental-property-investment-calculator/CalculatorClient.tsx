@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[purchasePrice, downPercent, mortgageRate, monthlyRent, vacancyRate, expenses, holdYears])
 
   return (
-    <CalculatorLayout title="Rental Property Investment Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, NOI, monthly cash flow, and total return on US rental property investments." icon="🏘️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="rental-property-investment-calculator">
+    <CalculatorLayout title="Rental Property Investment Calculator USA 2026" description="Calculate cap rate, cash-on-cash return, NOI, monthly cash flow, and total return on US rental property investments." icon="🏘️" category="Finance" relatedCalculators={relatedCalculators} slug="rental-property-investment-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

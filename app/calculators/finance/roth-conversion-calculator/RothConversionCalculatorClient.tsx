@@ -63,7 +63,7 @@ export default function RothConversionCalculatorClient({ faqs, relatedCalculator
   }).filter((_, i) => i % Math.max(1, Math.floor(years / 10)) === 0)
 
   return (
-    <CalculatorLayout title="Roth Conversion Calculator USA 2026" description="Calculate the tax cost of converting Traditional IRA to Roth and the long-term wealth benefit." icon="🔄" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="roth-conversion-calculator"
+    <CalculatorLayout title="Roth Conversion Calculator USA 2026" description="Calculate the tax cost of converting Traditional IRA to Roth and the long-term wealth benefit." icon="🔄" category="Finance" relatedCalculators={relatedCalculators} slug="roth-conversion-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

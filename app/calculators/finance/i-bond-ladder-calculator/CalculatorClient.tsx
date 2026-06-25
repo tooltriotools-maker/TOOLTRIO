@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[monthlyPurchase, startMonth, years])
 
   return (
-    <CalculatorLayout title="I-Bond Ladder Calculator USA 2026 — Monthly Purchase Strategy" description="Calculate total I-Bond value from monthly purchases, effective yield, and optimal ladder strategy to maximize the $10,000 annual limit." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="i-bond-ladder-calculator">
+    <CalculatorLayout title="I-Bond Ladder Calculator USA 2026 — Monthly Purchase Strategy" description="Calculate total I-Bond value from monthly purchases, effective yield, and optimal ladder strategy to maximize the $10,000 annual limit." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="i-bond-ladder-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

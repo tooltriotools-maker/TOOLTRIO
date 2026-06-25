@@ -31,7 +31,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate 529 plan growth, coverage of future college costs, required monthly contributions, and state tax deduction estimates."
       icon="🎓"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="college-savings-529-calculator"
     >

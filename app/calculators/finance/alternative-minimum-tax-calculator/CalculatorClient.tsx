@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate your AMT exposure from ISO stock options, preference items, and high income. Find strategies to minimize AMT liability."
       icon="⚠️"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="alternative-minimum-tax-calculator"
     >

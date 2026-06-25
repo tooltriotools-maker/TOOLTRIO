@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="401k Calculator USA 2026" description="Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest." icon="🏦" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-calculator">
+    <CalculatorLayout title="401k Calculator USA 2026" description="Calculate how much your 401k will be worth at retirement with employer match, salary growth, and compound interest." icon="🏦" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your 401k Details</h2>

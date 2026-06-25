@@ -48,7 +48,6 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       description="Calculate profit, CAGR, and absolute return on any mutual fund or ETF investment."
       icon="📋"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       blogSlug={blogSlug}
       slug="mutual-fund-return-calculator"

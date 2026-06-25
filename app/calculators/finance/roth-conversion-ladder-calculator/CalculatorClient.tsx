@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[iraBalance, currentAge, retirementAge, currentTaxRate, retirementTaxRate, annualConversion, returnRate])
 
   return (
-    <CalculatorLayout title="Roth Conversion Ladder Calculator USA 2026" description="Plan systematic Roth IRA conversions to minimize lifetime taxes, model the 5-year ladder for early retirement, and compare vs no conversion." icon="🪜" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="roth-conversion-ladder-calculator">
+    <CalculatorLayout title="Roth Conversion Ladder Calculator USA 2026" description="Plan systematic Roth IRA conversions to minimize lifetime taxes, model the 5-year ladder for early retirement, and compare vs no conversion." icon="🪜" category="Finance" relatedCalculators={relatedCalculators} slug="roth-conversion-ladder-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

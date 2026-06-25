@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const risk = clamped >= 60 ? {l:'High Mold Risk - Action Required',c:'text-red-600',bg:'bg-red-50 border-red-300'} : clamped >= 30 ? {l:'Moderate Risk',c:'text-orange-600',bg:'bg-orange-50 border-orange-300'} : {l:'Low Risk',c:'text-green-600',bg:'bg-green-50 border-green-300'}
 
   return (
-    <CalculatorLayout title="Mold Exposure Calculator" description="Assess your risk of harmful mold exposure at home and understand the health implications." icon="🍄" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mold-exposure-calculator">
+    <CalculatorLayout title="Mold Exposure Calculator" description="Assess your risk of harmful mold exposure at home and understand the health implications." icon="🍄" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="mold-exposure-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-5">Environment Factors</h2>

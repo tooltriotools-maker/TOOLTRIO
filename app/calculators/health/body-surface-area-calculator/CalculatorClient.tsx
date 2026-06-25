@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   ]
 
   return (
-    <CalculatorLayout title="Body Surface Area Calculator" description="Calculate BSA using Mosteller, DuBois, Haycock, and Boyd formulas for drug dosing and clinical applications." icon="📐" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="body-surface-area-calculator">
+    <CalculatorLayout title="Body Surface Area Calculator" description="Calculate BSA using Mosteller, DuBois, Haycock, and Boyd formulas for drug dosing and clinical applications." icon="📐" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="body-surface-area-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Patient Details</h2>

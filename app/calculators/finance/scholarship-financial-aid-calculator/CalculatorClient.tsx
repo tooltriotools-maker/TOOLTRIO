@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[efc, merit])
 
   return (
-    <CalculatorLayout title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" description="Estimate Pell Grant eligibility, need-based aid, net college cost, and loan requirements based on Expected Family Contribution." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="scholarship-financial-aid-calculator">
+    <CalculatorLayout title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" description="Estimate Pell Grant eligibility, need-based aid, net college cost, and loan requirements based on Expected Family Contribution." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="scholarship-financial-aid-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

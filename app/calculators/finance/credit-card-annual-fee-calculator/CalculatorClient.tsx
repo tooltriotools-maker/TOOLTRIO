@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualFee, rewardsRate, noFeeRewardsRate, monthlySpend, redemptionValue])
 
   return (
-    <CalculatorLayout title="Credit Card Annual Fee Calculator USA 2026 — Is It Worth It?" description="Calculate whether a premium credit card's annual fee is worth it based on rewards earned, spending level, and comparison to no-fee alternatives." icon="💳" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="credit-card-annual-fee-calculator">
+    <CalculatorLayout title="Credit Card Annual Fee Calculator USA 2026 — Is It Worth It?" description="Calculate whether a premium credit card's annual fee is worth it based on rewards earned, spending level, and comparison to no-fee alternatives." icon="💳" category="Finance" relatedCalculators={relatedCalculators} slug="credit-card-annual-fee-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

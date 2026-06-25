@@ -31,7 +31,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate adjusted cost basis, Section 121 exclusion ($250K/$500K), depreciation recapture, and total tax on home or rental sale."
       icon="🏘️"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="real-estate-cost-basis-calculator"
     >

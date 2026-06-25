@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[officeSquareFt, homeTotalSqFt, annualRent, utilities, internet])
 
   return (
-    <CalculatorLayout title="Home Office Deduction Calculator USA 2026 — Actual vs Simplified" description="Calculate your home office deduction using actual expense method vs $5/sq ft simplified method. Find which saves more for self-employed workers." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="home-office-deduction-calculator">
+    <CalculatorLayout title="Home Office Deduction Calculator USA 2026 — Actual vs Simplified" description="Calculate your home office deduction using actual expense method vs $5/sq ft simplified method. Find which saves more for self-employed workers." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} slug="home-office-deduction-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

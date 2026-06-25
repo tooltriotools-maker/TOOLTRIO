@@ -81,7 +81,7 @@ export default function TaxBracketCalculatorClient({ faqs, relatedCalculators, b
   const COLORS  = ['#16a34a', '#3b82f6', '#f59e0b', '#f97316', '#ef4444', '#8b5cf6', '#ec4899']
 
   return (
-    <CalculatorLayout title="Tax Bracket Calculator USA 2026" description="See which 2026 federal tax brackets apply to your income, marginal rate, and effective rate." icon="🧾" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tax-bracket-calculator"
+    <CalculatorLayout title="Tax Bracket Calculator USA 2026" description="See which 2026 federal tax brackets apply to your income, marginal rate, and effective rate." icon="🧾" category="Finance" relatedCalculators={relatedCalculators} slug="tax-bracket-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

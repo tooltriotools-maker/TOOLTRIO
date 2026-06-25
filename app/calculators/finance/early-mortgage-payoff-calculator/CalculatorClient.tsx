@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[balance, rate, remainingYears, extraMonthly, extraAnnual])
 
   return (
-    <CalculatorLayout title="Early Mortgage Payoff Calculator USA 2026 — Extra Payment Savings" description="Calculate how much interest you save and how many years you shave off by making extra monthly or annual mortgage payments." icon="🏡" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="early-mortgage-payoff-calculator">
+    <CalculatorLayout title="Early Mortgage Payoff Calculator USA 2026 — Extra Payment Savings" description="Calculate how much interest you save and how many years you shave off by making extra monthly or annual mortgage payments." icon="🏡" category="Finance" relatedCalculators={relatedCalculators} slug="early-mortgage-payoff-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

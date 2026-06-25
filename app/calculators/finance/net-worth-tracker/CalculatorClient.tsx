@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[cashAsset, invAsset, retAsset, reAsset, mortgageLiab, studentLoanLiab, creditCardLiab])
 
   return (
-    <CalculatorLayout title="Net Worth Calculator USA 2026 — Assets, Liabilities & Percentile" description="Calculate your complete net worth by entering all assets and liabilities. See your US net worth percentile, debt-to-asset ratio, and financial health snapshot." icon="💎" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="net-worth-tracker">
+    <CalculatorLayout title="Net Worth Calculator USA 2026 — Assets, Liabilities & Percentile" description="Calculate your complete net worth by entering all assets and liabilities. See your US net worth percentile, debt-to-asset ratio, and financial health snapshot." icon="💎" category="Finance" relatedCalculators={relatedCalculators} slug="net-worth-tracker">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

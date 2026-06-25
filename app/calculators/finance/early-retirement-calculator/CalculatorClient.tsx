@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentAge, targetRetirementAge, currentPortfolio, annualSavings, annualExpenses, expectedReturn])
 
   return (
-    <CalculatorLayout title="Early Retirement Calculator USA 2026 — Retire Before 60" description="Calculate your FIRE number, portfolio sustainability, safe withdrawal rate, and years to early retirement with real investment return modeling." icon="🌅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="early-retirement-calculator">
+    <CalculatorLayout title="Early Retirement Calculator USA 2026 — Retire Before 60" description="Calculate your FIRE number, portfolio sustainability, safe withdrawal rate, and years to early retirement with real investment return modeling." icon="🌅" category="Finance" relatedCalculators={relatedCalculators} slug="early-retirement-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

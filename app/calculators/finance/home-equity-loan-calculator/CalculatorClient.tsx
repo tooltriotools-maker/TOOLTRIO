@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[homeValue, mortgageBalance, loanAmount, apr, termYears])
 
   return (
-    <CalculatorLayout title="Home Equity Loan Calculator USA 2026" description="Calculate home equity loan payments, total interest, CLTV ratio, and compare against HELOC and cash-out refinance." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="home-equity-loan-calculator">
+    <CalculatorLayout title="Home Equity Loan Calculator USA 2026" description="Calculate home equity loan payments, total interest, CLTV ratio, and compare against HELOC and cash-out refinance." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} slug="home-equity-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

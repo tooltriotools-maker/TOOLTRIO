@@ -28,7 +28,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate federal estate tax liability, exemption amounts, and marital deduction. Plan for the potential TCJA sunset reducing exemptions."
       icon="⚖️"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="estate-tax-calculator"
     >

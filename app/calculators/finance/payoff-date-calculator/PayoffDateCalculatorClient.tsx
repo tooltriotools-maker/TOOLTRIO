@@ -32,7 +32,7 @@ export default function PayoffDateCalculatorClient({ faqs, relatedCalculators, b
   })
 
   return (
-    <CalculatorLayout title="Loan Payoff Date Calculator USA 2026" description="Find your exact debt-free date and see how extra payments accelerate your loan payoff." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="payoff-date-calculator"
+    <CalculatorLayout title="Loan Payoff Date Calculator USA 2026" description="Find your exact debt-free date and see how extra payments accelerate your loan payoff." icon="📅" category="Finance" relatedCalculators={relatedCalculators} slug="payoff-date-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

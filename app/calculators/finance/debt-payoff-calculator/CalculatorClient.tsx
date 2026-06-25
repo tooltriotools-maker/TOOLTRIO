@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const step = currency.code === 'INR' ? 1000 : 100
 
   return (
-    <CalculatorLayout title="Debt Payoff Calculator USA 2026" description={`Find the fastest way to pay off all your debts using avalanche or snowball method in ${currency.name}.`} icon="🔓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="debt-payoff-calculator">
+    <CalculatorLayout title="Debt Payoff Calculator USA 2026" description={`Find the fastest way to pay off all your debts using avalanche or snowball method in ${currency.name}.`} icon="🔓" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="debt-payoff-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Strategy</h2>

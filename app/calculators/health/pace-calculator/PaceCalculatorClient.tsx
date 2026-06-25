@@ -62,7 +62,7 @@ export default function PaceCalculatorClient({ faqs, relatedCalculators, blogSlu
   const calcSpeedFromPace = () => paceSecTotal > 0 ? (3600 / paceSecTotal).toFixed(2) : '--'
 
   return (
-    <CalculatorLayout title="Pace Calculator" description="Calculate your running pace, finish time, or race distance for 5K, 10K, half marathon, and marathon." icon="🏃" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pace-calculator">
+    <CalculatorLayout title="Pace Calculator" description="Calculate your running pace, finish time, or race distance for 5K, 10K, half marathon, and marathon." icon="🏃" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="pace-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Calculate</h2>

@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossMonthlyIncome, monthlyDebts, downPayment, tradeInValue, loanRate, loanTermMonths])
 
   return (
-    <CalculatorLayout title="Car Affordability Calculator USA 2026 — How Much Car Can I Afford?" description="Calculate maximum car price, monthly payment, and total cost of ownership based on income, debts, and 15% rule for vehicle affordability." icon="🚗" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="car-affordability-calculator">
+    <CalculatorLayout title="Car Affordability Calculator USA 2026 — How Much Car Can I Afford?" description="Calculate maximum car price, monthly payment, and total cost of ownership based on income, debts, and 15% rule for vehicle affordability." icon="🚗" category="Finance" relatedCalculators={relatedCalculators} slug="car-affordability-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate taxable gifts, annual exclusion used, remaining lifetime exemption, and Form 709 filing requirements."
       icon="🎁"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="gift-tax-calculator"
     >

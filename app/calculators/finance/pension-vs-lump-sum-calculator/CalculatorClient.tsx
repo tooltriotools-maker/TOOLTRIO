@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[monthlyPension, lumpSum, age, lifeExpectancy, discountRate, colaPercent])
 
   return (
-    <CalculatorLayout title="Pension vs Lump Sum Calculator USA 2026" description="Decide between taking a pension annuity or lump sum. Calculate pension present value, break-even age, and which option is worth more over your lifetime." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="pension-vs-lump-sum-calculator">
+    <CalculatorLayout title="Pension vs Lump Sum Calculator USA 2026" description="Decide between taking a pension annuity or lump sum. Calculate pension present value, break-even age, and which option is worth more over your lifetime." icon="📅" category="Finance" relatedCalculators={relatedCalculators} slug="pension-vs-lump-sum-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

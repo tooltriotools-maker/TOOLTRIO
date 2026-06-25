@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[age, dailyBenefit, benefitPeriod, eliminationPeriod])
 
   return (
-    <CalculatorLayout title="Long-Term Care Insurance Calculator USA 2026" description="Calculate LTC insurance premiums, coverage gap vs nursing home costs, total benefit value, and whether insurance or self-funding makes sense." icon="🏥" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="long-term-care-insurance-calculator">
+    <CalculatorLayout title="Long-Term Care Insurance Calculator USA 2026" description="Calculate LTC insurance premiums, coverage gap vs nursing home costs, total benefit value, and whether insurance or self-funding makes sense." icon="🏥" category="Finance" relatedCalculators={relatedCalculators} slug="long-term-care-insurance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

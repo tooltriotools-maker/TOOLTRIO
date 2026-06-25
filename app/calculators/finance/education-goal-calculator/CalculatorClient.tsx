@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }
 
   return (
-    <CalculatorLayout title="Education Goal Calculator USA 2026" description="Calculate monthly savings needed to reach any college fund target with tuition inflation." icon="🎓" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="education-goal-calculator">
+    <CalculatorLayout title="Education Goal Calculator USA 2026" description="Calculate monthly savings needed to reach any college fund target with tuition inflation." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="education-goal-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-4">Goal Details</h2>

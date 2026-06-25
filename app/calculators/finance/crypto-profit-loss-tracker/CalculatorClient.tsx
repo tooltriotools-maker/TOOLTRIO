@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[startPrice, endPrice, totalAmount])
 
   return (
-    <CalculatorLayout title="Crypto Profit Loss Tracker USA 2026 — Cost Basis & Tax" description="Track cryptocurrency buy/sell transactions, calculate average cost basis, realized gains, and estimated tax owed using FIFO method." icon="₿" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="crypto-profit-loss-tracker">
+    <CalculatorLayout title="Crypto Profit Loss Tracker USA 2026 — Cost Basis & Tax" description="Track cryptocurrency buy/sell transactions, calculate average cost basis, realized gains, and estimated tax owed using FIFO method." icon="₿" category="Finance" relatedCalculators={relatedCalculators} slug="crypto-profit-loss-tracker">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

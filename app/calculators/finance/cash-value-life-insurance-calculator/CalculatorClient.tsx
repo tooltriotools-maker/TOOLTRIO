@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualPremium, deathBenefit, age, yearsHeld])
 
   return (
-    <CalculatorLayout title="Cash Value Life Insurance Calculator USA 2026 — Buy Term or Whole Life?" description="Compare whole life, universal life, and variable life insurance cash value growth against buy-term-and-invest strategy. Calculate opportunity cost." icon="🛡️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="cash-value-life-insurance-calculator">
+    <CalculatorLayout title="Cash Value Life Insurance Calculator USA 2026 — Buy Term or Whole Life?" description="Compare whole life, universal life, and variable life insurance cash value growth against buy-term-and-invest strategy. Calculate opportunity cost." icon="🛡️" category="Finance" relatedCalculators={relatedCalculators} slug="cash-value-life-insurance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

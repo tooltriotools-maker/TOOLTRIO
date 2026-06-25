@@ -34,7 +34,7 @@ export default function ClosingCostCalculatorClient({ faqs, relatedCalculators, 
   }))
 
   return (
-    <CalculatorLayout title="Closing Cost Calculator USA 2026" description="Estimate all home buying closing costs including lender fees, title insurance, and prepaid items." icon="📋" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="closing-cost-calculator">
+    <CalculatorLayout title="Closing Cost Calculator USA 2026" description="Estimate all home buying closing costs including lender fees, title insurance, and prepaid items." icon="📋" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="closing-cost-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Property Details</h2>

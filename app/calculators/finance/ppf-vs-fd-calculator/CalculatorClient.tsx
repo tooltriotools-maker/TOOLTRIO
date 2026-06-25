@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [yearlyAmount, ppfRate, fdRate, years, taxSlab])
 
   return (
-    <CalculatorLayout title="PPF vs FD Calculator India 2026" description="Compare PPF tax-free 7.1% returns vs Fixed Deposit post-tax returns for your income bracket." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ppf-vs-fd-calculator">
+    <CalculatorLayout title="PPF vs FD Calculator India 2026" description="Compare PPF tax-free 7.1% returns vs Fixed Deposit post-tax returns for your income bracket." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ppf-vs-fd-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">

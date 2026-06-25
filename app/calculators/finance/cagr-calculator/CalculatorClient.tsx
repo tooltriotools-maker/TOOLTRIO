@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }))
 
   return (
-    <CalculatorLayout title="CAGR Calculator USA 2026" description="Calculate compound annual growth rate for stocks, real estate, and business revenue over any period." icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cagr-calculator">
+    <CalculatorLayout title="CAGR Calculator USA 2026" description="Calculate compound annual growth rate for stocks, real estate, and business revenue over any period." icon="📈" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cagr-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Investment Details</h2>

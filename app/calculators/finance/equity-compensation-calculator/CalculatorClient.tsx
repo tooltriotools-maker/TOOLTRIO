@@ -29,7 +29,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate tax on RSUs, ISO and NSO stock options including ordinary income, AMT exposure, and long-term capital gains strategies."
       icon="📊"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="equity-compensation-calculator"
     >

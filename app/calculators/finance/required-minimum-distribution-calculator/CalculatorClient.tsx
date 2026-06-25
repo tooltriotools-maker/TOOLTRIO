@@ -26,7 +26,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate your IRS Required Minimum Distribution from Traditional IRA, 401k, or inherited accounts using 2026 IRS Uniform Lifetime Tables."
       icon="📋"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="required-minimum-distribution-calculator"
     >

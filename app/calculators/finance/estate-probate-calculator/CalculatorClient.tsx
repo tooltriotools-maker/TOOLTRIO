@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[estateValue, hasWill, hasTrust])
 
   return (
-    <CalculatorLayout title="Estate Probate Cost Calculator USA 2026 — Avoid Probate" description="Calculate estimated probate costs by state, time delays, and savings from a revocable living trust. See exactly what your estate would cost to settle." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="estate-probate-calculator">
+    <CalculatorLayout title="Estate Probate Cost Calculator USA 2026 — Avoid Probate" description="Calculate estimated probate costs by state, time delays, and savings from a revocable living trust. See exactly what your estate would cost to settle." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} slug="estate-probate-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

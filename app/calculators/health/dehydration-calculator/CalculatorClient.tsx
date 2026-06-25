@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [weight,height,age,gender,unit])
 
   return (
-    <CalculatorLayout title="Dehydration Calculator" description="Calculate your personalised health score and get actionable recommendations based on your individual data." icon="💧" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="dehydration-calculator">
+    <CalculatorLayout title="Dehydration Calculator" description="Calculate your personalised health score and get actionable recommendations based on your individual data." icon="💧" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="dehydration-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your Details</h2>

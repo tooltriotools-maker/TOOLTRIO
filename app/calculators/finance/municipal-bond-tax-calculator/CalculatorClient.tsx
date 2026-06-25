@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[couponRate, federalTaxRate, stateTaxRate])
 
   return (
-    <CalculatorLayout title="Municipal Bond Tax-Equivalent Yield Calculator USA 2026" description="Calculate the tax-equivalent yield of municipal bonds vs taxable bonds. Find out if munis make sense at your federal and state tax rates." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="municipal-bond-tax-calculator">
+    <CalculatorLayout title="Municipal Bond Tax-Equivalent Yield Calculator USA 2026" description="Calculate the tax-equivalent yield of municipal bonds vs taxable bonds. Find out if munis make sense at your federal and state tax rates." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="municipal-bond-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

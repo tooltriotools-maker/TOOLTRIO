@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const drinkOptions = DRINK_TYPES.map((d,i)=>({value:String(i),label:d.name}))
 
   return (
-    <CalculatorLayout title="BAC Calculator" description="Estimate blood alcohol content by weight, gender, drinks, and time. For education only - never drink and drive." icon="🍺" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="bac-calculator">
+    <CalculatorLayout title="BAC Calculator" description="Estimate blood alcohol content by weight, gender, drinks, and time. For education only - never drink and drive." icon="🍺" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="bac-calculator">
       <div className="mb-4 p-3 bg-amber-50 border border-amber-300 rounded-xl text-xs text-amber-800 font-medium">⚠️ This calculator provides estimates for educational purposes only. Individual BAC varies significantly. Never drive after drinking any alcohol.</div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

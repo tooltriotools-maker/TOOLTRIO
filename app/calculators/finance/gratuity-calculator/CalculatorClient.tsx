@@ -27,7 +27,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }))
 
   return (
-    <CalculatorLayout title="Gratuity Calculator USA 2026" description="Estimate end-of-service gratuity, severance benefits, and final settlement based on years of service." icon="🤝" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gratuity-calculator">
+    <CalculatorLayout title="Gratuity Calculator USA 2026" description="Estimate end-of-service gratuity, severance benefits, and final settlement based on years of service." icon="🤝" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gratuity-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Gratuity Details</h2>

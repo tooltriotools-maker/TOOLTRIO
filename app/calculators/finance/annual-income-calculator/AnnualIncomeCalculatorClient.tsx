@@ -34,7 +34,7 @@ export default function AnnualIncomeCalculatorClient({ faqs, relatedCalculators,
   ]
 
   return (
-    <CalculatorLayout title="Annual Income Calculator USA 2026" description="Convert hourly wage to annual salary and see monthly, biweekly, and weekly pay with take-home estimates." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="annual-income-calculator"
+    <CalculatorLayout title="Annual Income Calculator USA 2026" description="Convert hourly wage to annual salary and see monthly, biweekly, and weekly pay with take-home estimates." icon="💵" category="Finance" relatedCalculators={relatedCalculators} slug="annual-income-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">

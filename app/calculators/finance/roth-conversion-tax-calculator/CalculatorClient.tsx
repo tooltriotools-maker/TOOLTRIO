@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[conversionAmount, currentAGI, taxRate])
 
   return (
-    <CalculatorLayout title="Roth IRA Conversion Tax Calculator USA 2026" description="Calculate exact federal and state taxes on a Roth IRA conversion, find the optimal conversion amount to fill your current bracket, and model 30-year tax-free growth." icon="🔄" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="roth-conversion-tax-calculator">
+    <CalculatorLayout title="Roth IRA Conversion Tax Calculator USA 2026" description="Calculate exact federal and state taxes on a Roth IRA conversion, find the optimal conversion amount to fill your current bracket, and model 30-year tax-free growth." icon="🔄" category="Finance" relatedCalculators={relatedCalculators} slug="roth-conversion-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

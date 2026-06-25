@@ -25,7 +25,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate your 2026 Medicare Part B and Part D premiums including IRMAA income-related surcharges based on your income."
       icon="🏥"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="medicare-premium-calculator"
     >

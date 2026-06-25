@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   }, [protocol, firstMeal, sleepTime, wakeTime])
 
   return (
-    <CalculatorLayout title="Fasting Window Calculator" description="Plan your optimal intermittent fasting schedule with eating and fasting windows aligned to your lifestyle." icon="⏰" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fasting-window-calculator">
+    <CalculatorLayout title="Fasting Window Calculator" description="Plan your optimal intermittent fasting schedule with eating and fasting windows aligned to your lifestyle." icon="⏰" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fasting-window-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Your IF Schedule</h2>

@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const fmt = (d: Date) => d?.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }) || '-'
 
   return (
-    <CalculatorLayout title="Ovulation Calculator" description="Calculate your ovulation date and fertile window based on last period date and cycle length." icon="🌸" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ovulation-calculator">
+    <CalculatorLayout title="Ovulation Calculator" description="Calculate your ovulation date and fertile window based on last period date and cycle length." icon="🌸" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="ovulation-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Cycle Details</h2>

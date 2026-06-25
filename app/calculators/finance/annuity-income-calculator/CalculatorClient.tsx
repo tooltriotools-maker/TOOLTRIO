@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[premium, age, deferralYears, annualReturn, periodYears])
 
   return (
-    <CalculatorLayout title="Annuity Income Calculator USA 2026 — Lifetime Income" description="Calculate monthly annuity income, break-even age, tax treatment, and compare immediate vs deferred vs variable annuities." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="annuity-income-calculator">
+    <CalculatorLayout title="Annuity Income Calculator USA 2026 — Lifetime Income" description="Calculate monthly annuity income, break-even age, tax treatment, and compare immediate vs deferred vs variable annuities." icon="📅" category="Finance" relatedCalculators={relatedCalculators} slug="annuity-income-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }))
 
   return (
-    <CalculatorLayout title="CD Ladder Calculator USA 2026" description="Build a certificate of deposit laddering strategy to maximize FDIC-insured yield with annual liquidity." icon="🏗️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-ladder-calculator">
+    <CalculatorLayout title="CD Ladder Calculator USA 2026" description="Build a certificate of deposit laddering strategy to maximize FDIC-insured yield with annual liquidity." icon="🏗️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="cd-ladder-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">CD Ladder Setup</h2>

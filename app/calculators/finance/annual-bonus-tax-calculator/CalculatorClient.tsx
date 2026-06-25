@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate take-home pay after federal, state, and FICA taxes on your work bonus. Covers all 50 states with specific withholding rates."
       icon="💵"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="annual-bonus-tax-calculator"
     >

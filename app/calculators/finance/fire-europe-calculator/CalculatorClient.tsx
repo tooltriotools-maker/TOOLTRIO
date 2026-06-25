@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const monthlyInRetirement = annualWithdrawal / 12
 
   return (
-    <CalculatorLayout title="FIRE Europe Calculator 2026" description="Calculate your financial independence number for UK and European investors with local tax realities." icon="🔥" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fire-europe-calculator">
+    <CalculatorLayout title="FIRE Europe Calculator 2026" description="Calculate your financial independence number for UK and European investors with local tax realities." icon="🔥" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="fire-europe-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">FIRE Settings</h2>

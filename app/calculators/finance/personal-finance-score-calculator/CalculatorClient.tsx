@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[monthlyIncome, monthlyExpenses, emergencyFund, totalDebt, retirementSaved, creditScore, age])
 
   return (
-    <CalculatorLayout title="Personal Finance Score Calculator USA 2026 — Rate Your Financial Health" description="Get a comprehensive 0-100 financial health score across savings rate, emergency fund, debt-to-income, retirement savings, and credit score." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="personal-finance-score-calculator">
+    <CalculatorLayout title="Personal Finance Score Calculator USA 2026 — Rate Your Financial Health" description="Get a comprehensive 0-100 financial health score across savings rate, emergency fund, debt-to-income, retirement savings, and credit score." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="personal-finance-score-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

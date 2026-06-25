@@ -58,7 +58,7 @@ export default function BudgetPlannerCalculatorClient({ faqs, relatedCalculators
   ]
 
   return (
-    <CalculatorLayout title="Budget Planner Calculator USA 2026" description="Build a detailed monthly budget and track income vs expenses with savings rate analysis." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="budget-planner-calculator"
+    <CalculatorLayout title="Budget Planner Calculator USA 2026" description="Build a detailed monthly budget and track income vs expenses with savings rate analysis." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="budget-planner-calculator"
       blogSlug={blogSlug}>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-4">

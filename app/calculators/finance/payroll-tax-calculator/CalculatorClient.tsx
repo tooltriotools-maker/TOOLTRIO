@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossWages, payPeriod, allowances])
 
   return (
-    <CalculatorLayout title="Payroll Tax Calculator USA 2026 — Federal, State & FICA" description="Calculate exact federal withholding, Social Security, Medicare, and state payroll taxes for any pay period." icon="💵" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="payroll-tax-calculator">
+    <CalculatorLayout title="Payroll Tax Calculator USA 2026 — Federal, State & FICA" description="Calculate exact federal withholding, Social Security, Medicare, and state payroll taxes for any pay period." icon="💵" category="Finance" relatedCalculators={relatedCalculators} slug="payroll-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

@@ -24,7 +24,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[homePrice, downPayment, mortgageRate, monthlyRent, appreciationRate, rentInflation, years])
 
   return (
-    <CalculatorLayout title="Mortgage vs Rent Calculator USA 2026 — True Cost Comparison" description="Calculate the true total cost of buying vs renting over any time horizon including appreciation, equity buildup, taxes, maintenance, and opportunity cost." icon="⚖️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="mortgage-vs-rent-calculator">
+    <CalculatorLayout title="Mortgage vs Rent Calculator USA 2026 — True Cost Comparison" description="Calculate the true total cost of buying vs renting over any time horizon including appreciation, equity buildup, taxes, maintenance, and opportunity cost." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} slug="mortgage-vs-rent-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

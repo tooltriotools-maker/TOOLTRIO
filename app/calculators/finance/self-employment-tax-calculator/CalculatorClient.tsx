@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate self-employment tax (Social Security + Medicare), deductible half, QBI deduction, and quarterly estimated tax payments."
       icon="💼"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="self-employment-tax-calculator"
     >

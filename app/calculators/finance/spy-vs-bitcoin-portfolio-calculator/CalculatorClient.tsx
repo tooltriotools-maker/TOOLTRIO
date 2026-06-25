@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[initialAmount, spyAllocation, btcAllocation, cashAllocation, years])
 
   return (
-    <CalculatorLayout title="S&P 500 vs Bitcoin Portfolio Calculator USA 2026" description="Model a blended SPY + Bitcoin + cash portfolio vs all-stock benchmark. See return, diversification benefit, and worst-case scenario at any allocation." icon="₿" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="spy-vs-bitcoin-portfolio-calculator">
+    <CalculatorLayout title="S&P 500 vs Bitcoin Portfolio Calculator USA 2026" description="Model a blended SPY + Bitcoin + cash portfolio vs all-stock benchmark. See return, diversification benefit, and worst-case scenario at any allocation." icon="₿" category="Finance" relatedCalculators={relatedCalculators} slug="spy-vs-bitcoin-portfolio-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

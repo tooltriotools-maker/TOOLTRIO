@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[monthlyBenefit, currentAge, healthRating])
 
   return (
-    <CalculatorLayout title="Social Security Timing Optimizer USA 2026 — Best Age to Claim" description="Find your optimal Social Security claiming age based on health, life expectancy, and lifetime benefit maximization at ages 62 through 70." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="social-security-timing-optimizer">
+    <CalculatorLayout title="Social Security Timing Optimizer USA 2026 — Best Age to Claim" description="Find your optimal Social Security claiming age based on health, life expectancy, and lifetime benefit maximization at ages 62 through 70." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-timing-optimizer">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

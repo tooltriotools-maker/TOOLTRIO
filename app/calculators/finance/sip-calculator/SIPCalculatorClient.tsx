@@ -39,7 +39,7 @@ export default function SIPCalculatorClient({ faqs, relatedCalculators, blogSlug
   }
 
   return (
-    <CalculatorLayout title="SIP Calculator India 2026" description={`Calculate your SIP (Systematic Investment Plan) returns in ${currency.name} (${currency.symbol}) with interactive charts.`} icon="📈" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-calculator">
+    <CalculatorLayout title="SIP Calculator India 2026" description={`Calculate your SIP (Systematic Investment Plan) returns in ${currency.name} (${currency.symbol}) with interactive charts.`} icon="📈" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Inputs */}
         <Card className="lg:col-span-1 h-fit">

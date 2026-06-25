@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[totalAmount, dcaMonths, startPrice, endPrice])
 
   return (
-    <CalculatorLayout title="Dollar Cost Averaging vs Lump Sum Calculator USA 2026" description="Compare DCA vs lump sum investing for stocks, index funds, or crypto. Calculate average price, final value, and which strategy wins at different market conditions." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="dollar-cost-averaging-vs-lumpsum-usa-calculator">
+    <CalculatorLayout title="Dollar Cost Averaging vs Lump Sum Calculator USA 2026" description="Compare DCA vs lump sum investing for stocks, index funds, or crypto. Calculate average price, final value, and which strategy wins at different market conditions." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="dollar-cost-averaging-vs-lumpsum-usa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

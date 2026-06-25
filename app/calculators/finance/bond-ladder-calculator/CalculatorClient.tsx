@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[totalAmount, rungs, startYield, yieldStep])
 
   return (
-    <CalculatorLayout title="Bond Ladder Calculator USA 2026 — CD and Treasury Ladder" description="Build a bond or CD ladder: calculate yield at each rung, annual liquidity events, total interest earned, and reinvestment value." icon="📊" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="bond-ladder-calculator">
+    <CalculatorLayout title="Bond Ladder Calculator USA 2026 — CD and Treasury Ladder" description="Build a bond or CD ladder: calculate yield at each rung, annual liquidity events, total interest earned, and reinvestment value." icon="📊" category="Finance" relatedCalculators={relatedCalculators} slug="bond-ladder-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

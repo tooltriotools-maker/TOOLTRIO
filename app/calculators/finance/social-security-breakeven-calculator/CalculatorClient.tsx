@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Find the exact age to claim Social Security for maximum lifetime benefit. Compare claiming at 62, 67, or 70."
       icon="🏛️"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="social-security-breakeven-calculator"
     >

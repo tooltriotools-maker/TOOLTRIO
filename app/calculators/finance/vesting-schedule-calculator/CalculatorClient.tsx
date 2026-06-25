@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[totalGrant, currentPrice, projectedGrowth, vestingYears, taxRate])
 
   return (
-    <CalculatorLayout title="RSU Vesting Schedule Calculator USA 2026 — Equity Value Over Time" description="Calculate the value of your RSU or stock option vesting schedule year by year, including taxes at each vest event and cumulative wealth building." icon="📅" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="vesting-schedule-calculator">
+    <CalculatorLayout title="RSU Vesting Schedule Calculator USA 2026 — Equity Value Over Time" description="Calculate the value of your RSU or stock option vesting schedule year by year, including taxes at each vest event and cumulative wealth building." icon="📅" category="Finance" relatedCalculators={relatedCalculators} slug="vesting-schedule-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

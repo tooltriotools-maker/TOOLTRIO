@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualSalary, spouseIncome, otherIncome, retirement401k, itemizedDeductions, taxCredits])
 
   return (
-    <CalculatorLayout title="Tax Withholding W-4 Calculator USA 2026 — Adjust Your W-4" description="Calculate the correct W-4 withholding allowances to owe zero at tax time. Avoid big refunds (free loans to IRS) and underpayment penalties." icon="📋" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="tax-withholding-w4-calculator">
+    <CalculatorLayout title="Tax Withholding W-4 Calculator USA 2026 — Adjust Your W-4" description="Calculate the correct W-4 withholding allowances to owe zero at tax time. Avoid big refunds (free loans to IRS) and underpayment penalties." icon="📋" category="Finance" relatedCalculators={relatedCalculators} slug="tax-withholding-w4-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

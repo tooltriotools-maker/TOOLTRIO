@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }))
 
   return (
-    <CalculatorLayout title="VAT Calculator Europe 2026" description="Add or remove VAT for UK, Germany, France, and all EU countries with forward and reverse calculation." icon="🏷️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vat-calculator-europe">
+    <CalculatorLayout title="VAT Calculator Europe 2026" description="Add or remove VAT for UK, Germany, France, and all EU countries with forward and reverse calculation." icon="🏷️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="vat-calculator-europe">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">VAT Settings</h2>

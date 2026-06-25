@@ -30,7 +30,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate HSA balance at retirement using the triple tax advantage. Compare investing vs spending HSA funds."
       icon="🏥"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="hsa-investment-calculator"
     >

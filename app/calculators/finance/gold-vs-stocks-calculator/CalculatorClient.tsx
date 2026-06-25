@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[goldAmount, spyAllocation, btcAllocation, years])
 
   return (
-    <CalculatorLayout title="Gold vs Stocks Portfolio Calculator USA 2026" description="Compare a blended gold and stock portfolio against all-stock and all-gold strategies. Calculate diversification benefit and crash protection value." icon="🥇" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="gold-vs-stocks-calculator">
+    <CalculatorLayout title="Gold vs Stocks Portfolio Calculator USA 2026" description="Compare a blended gold and stock portfolio against all-stock and all-gold strategies. Calculate diversification benefit and crash protection value." icon="🥇" category="Finance" relatedCalculators={relatedCalculators} slug="gold-vs-stocks-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

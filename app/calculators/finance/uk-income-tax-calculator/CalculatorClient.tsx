@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const taperedPA = result.effectivePa
 
   return (
-    <CalculatorLayout title="UK Income Tax Calculator 2026" description="Calculate take-home pay after PAYE income tax, National Insurance, and pension contributions." icon="🏛️" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-income-tax-calculator">
+    <CalculatorLayout title="UK Income Tax Calculator 2026" description="Calculate take-home pay after PAYE income tax, National Insurance, and pension contributions." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">2026/26 Tax Year</h2>

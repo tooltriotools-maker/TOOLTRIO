@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[annualIncome, annualExpenses, currentSavings, returnRate])
 
   return (
-    <CalculatorLayout title="Savings Rate to FIRE Calculator USA 2026" description="Calculate years to financial independence at any savings rate. See how increasing your savings rate from 10% to 50% changes your FIRE date dramatically." icon="💹" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="savings-rate-fire-calculator">
+    <CalculatorLayout title="Savings Rate to FIRE Calculator USA 2026" description="Calculate years to financial independence at any savings rate. See how increasing your savings rate from 10% to 50% changes your FIRE date dramatically." icon="💹" category="Finance" relatedCalculators={relatedCalculators} slug="savings-rate-fire-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

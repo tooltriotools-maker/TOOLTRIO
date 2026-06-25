@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[balance, rate, remainingYears, lumpSumPayment])
 
   return (
-    <CalculatorLayout title="Mortgage Recast Calculator USA 2026 — Lower Payment Without Refinancing" description="Calculate new mortgage payment after a lump-sum principal reduction (recast). Compare recast vs extra payments vs refinancing." icon="🏠" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="mortgage-recast-calculator">
+    <CalculatorLayout title="Mortgage Recast Calculator USA 2026 — Lower Payment Without Refinancing" description="Calculate new mortgage payment after a lump-sum principal reduction (recast). Compare recast vs extra payments vs refinancing." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} slug="mortgage-recast-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

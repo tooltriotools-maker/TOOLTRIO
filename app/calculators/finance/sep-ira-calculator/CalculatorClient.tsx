@@ -27,7 +27,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate maximum SEP-IRA contributions, tax savings, and 30-year growth for sole proprietors, freelancers, and S-corp owners."
       icon="💼"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="sep-ira-calculator"
     >

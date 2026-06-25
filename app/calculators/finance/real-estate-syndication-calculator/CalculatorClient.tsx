@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[investmentAmount, preferredReturn, promoterSplit, holdYears, projectedIRR, annualCashYield])
 
   return (
-    <CalculatorLayout title="Real Estate Syndication ROI Calculator USA 2026" description="Calculate your investor return from a real estate syndication including preferred return, promote split, equity multiple, and IRR on passive investments." icon="🏢" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="real-estate-syndication-calculator">
+    <CalculatorLayout title="Real Estate Syndication ROI Calculator USA 2026" description="Calculate your investor return from a real estate syndication including preferred return, promote split, equity multiple, and IRR on passive investments." icon="🏢" category="Finance" relatedCalculators={relatedCalculators} slug="real-estate-syndication-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

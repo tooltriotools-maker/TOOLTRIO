@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const bedtimes = r.bedtimes || r.wakeupTimes || []
 
   return (
-    <CalculatorLayout title="Sleep Cycle Calculator" description="Find the best bedtimes or wake-up times based on 90-minute sleep cycles. Wake up refreshed, not groggy." icon="😴" category="Health" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-cycle-calculator">
+    <CalculatorLayout title="Sleep Cycle Calculator" description="Find the best bedtimes or wake-up times based on 90-minute sleep cycles. Wake up refreshed, not groggy." icon="😴" category="Health" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sleep-cycle-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Sleep Planner</h2>

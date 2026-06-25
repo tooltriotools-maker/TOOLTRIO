@@ -28,7 +28,6 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       description="Calculate federal capital gains tax, NIIT, and effective rate on stocks, real estate, crypto, and other assets."
       icon="📈"
       category="Finance"
-      structuredData={}
       relatedCalculators={relatedCalculators}
       slug="capital-gains-tax-calculator"
     >

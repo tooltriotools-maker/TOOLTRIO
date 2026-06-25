@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[ccBalance, ccRate, autoBalance, autoRate, extraPayment])
 
   return (
-    <CalculatorLayout title="Cost of Debt Calculator USA 2026 — True Interest Burden" description="Calculate your true cost of debt — weighted average interest rate, annual interest burden, optimal payoff strategy, and interest saved by extra payments." icon="💳" category="Finance" structuredData={} relatedCalculators={relatedCalculators} slug="cost-of-debt-calculator">
+    <CalculatorLayout title="Cost of Debt Calculator USA 2026 — True Interest Burden" description="Calculate your true cost of debt — weighted average interest rate, annual interest burden, optimal payoff strategy, and interest saved by extra payments." icon="💳" category="Finance" relatedCalculators={relatedCalculators} slug="cost-of-debt-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

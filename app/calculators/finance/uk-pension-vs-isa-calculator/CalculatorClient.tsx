@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="UK Pension vs ISA Calculator 2026" description="Compare workplace pension with employer match vs Stocks ISA on after-tax retirement wealth." icon="💷" category="Finance" structuredData={} relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-pension-vs-isa-calculator">
+    <CalculatorLayout title="UK Pension vs ISA Calculator 2026" description="Compare workplace pension with employer match vs Stocks ISA on after-tax retirement wealth." icon="💷" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-pension-vs-isa-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
