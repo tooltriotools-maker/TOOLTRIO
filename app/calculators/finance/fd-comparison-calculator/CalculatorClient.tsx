@@ -11,8 +11,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Plus, Trash2, Trophy, DollarSign, TrendingUp, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: any[]; blogSlug?: string }
 
 const FREQ_OPTIONS = [
   { value: '12', label: 'Monthly' },

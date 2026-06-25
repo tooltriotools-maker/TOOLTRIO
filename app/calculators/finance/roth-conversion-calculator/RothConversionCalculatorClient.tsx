@@ -11,8 +11,7 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { rothConversionSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 function calcFutureTaxes(balance: number, growthRate: number, years: number, taxRate: number) {
   const futureValue = balance * Math.pow(1 + growthRate / 100, years)
   return { futureValue: Math.round(futureValue), taxOwed: Math.round(futureValue * taxRate / 100), afterTax: Math.round(futureValue * (1 - taxRate / 100)) }

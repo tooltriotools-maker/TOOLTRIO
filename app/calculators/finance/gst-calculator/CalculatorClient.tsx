@@ -11,8 +11,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Receipt, Percent, DollarSign, ArrowUpDown } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const GST_RATES = [{ value: '5', label: '5% - Essential goods' }, { value: '12', label: '12% - Standard goods' }, { value: '18', label: '18% - Most services' }, { value: '28', label: '28% - Luxury goods' }, { value: '3', label: '3% - Gold & jewellery' }, { value: '0.25', label: '0.25% - Rough diamonds' }]
 

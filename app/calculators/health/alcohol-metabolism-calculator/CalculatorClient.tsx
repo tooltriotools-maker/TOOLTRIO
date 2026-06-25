@@ -6,8 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[];
-; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const DRINKS = [
   {name:'Regular beer (355ml, 5%)',units:1.8},{name:'Light beer (355ml, 4%)',units:1.4},{name:'Wine (150ml, 13%)',units:2.0},{name:'Spirits (45ml, 40%)',units:1.8},{name:'Cocktail (250ml, 12%)',units:3.0},{name:'Cider (355ml, 5%)',units:1.8},

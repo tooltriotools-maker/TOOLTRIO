@@ -14,8 +14,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { budgetByIncomeLevel } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const DEFAULT_EXPENSES = [
   { name: 'Rent/Mortgage', amount: 1500, category: 'needs' as const },
   { name: 'Groceries', amount: 400, category: 'needs' as const },

@@ -12,8 +12,7 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { businessLoanSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const LOAN_TYPES = [
   { name: 'SBA 7(a) Loan', rate: 8.5, maxYears: 10, note: 'Most common SBA loan, up to $5M' },
   { name: 'SBA 504 Loan', rate: 6.5, maxYears: 25, note: 'Equipment & real estate, up to $5.5M' },

@@ -13,8 +13,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SearchableTable } from '@/components/ui/SearchableTable'
 import { taxBracketsByState2026 } from '@/lib/seo/finance-tables'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 // 2026 IRS Federal Tax Brackets (IRS Rev. Proc. 2026-28)
 const BRACKETS_2026 = {
   single: [

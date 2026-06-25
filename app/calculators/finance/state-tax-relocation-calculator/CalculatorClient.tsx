@@ -8,8 +8,7 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs:{question:string;answer:string}[];
-;relatedCalculators?:{name:string;href:string;icon:string;desc:string}[] }
+interface Props { faqs:{question:string;answer:string}[];relatedCalculators?:{name:string;href:string;icon:string;desc:string}[] }
 
 export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [grossIncome, setGrossIncome] = useState(200000)

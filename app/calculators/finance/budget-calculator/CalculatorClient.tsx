@@ -10,8 +10,7 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Plus, Trash2 } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const DEFAULT_CATEGORIES = [
   { name: 'Housing / Rent', planned: 1500, actual: 1500 },

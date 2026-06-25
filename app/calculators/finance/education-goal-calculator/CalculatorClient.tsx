@@ -11,8 +11,7 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { GraduationCap, Target, TrendingUp, DollarSign, Calendar } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: any[]; blogSlug?: string }
 
 const GOAL_PRESETS = [
   { label: 'College (India)', amount: 2000000 },

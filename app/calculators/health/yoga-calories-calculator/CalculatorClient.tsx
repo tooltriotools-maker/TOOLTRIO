@@ -6,8 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[];
-; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const STYLES = [
   {label:'Hatha (gentle)',met:2.5},{label:'Vinyasa / Flow',met:4.0},{label:'Power Yoga',met:5.0},{label:'Ashtanga',met:5.5},{label:'Bikram / Hot Yoga',met:6.0},{label:'Yin / Restorative',met:2.0},{label:'Kundalini',met:3.0},

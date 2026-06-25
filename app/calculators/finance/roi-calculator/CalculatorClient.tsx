@@ -12,8 +12,7 @@ import { TrendingUp, DollarSign, Percent, Zap } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { roiRichSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: any[]; blogSlug?: string }
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()

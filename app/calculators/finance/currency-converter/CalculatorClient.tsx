@@ -8,8 +8,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { ArrowLeftRight, RefreshCw, TrendingUp, Clock } from 'lucide-react'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: any[]; blogSlug?: string }
 
 const ALL_CURRENCIES = Object.keys(CURRENCY_INFO)
 const POPULAR = ['USD','INR','EUR','GBP','JPY','AED','SGD','CAD','AUD','CHF']

@@ -11,8 +11,7 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Target, TrendingUp, DollarSign, Percent } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: any[]; blogSlug?: string }
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, currency } = useCurrency()

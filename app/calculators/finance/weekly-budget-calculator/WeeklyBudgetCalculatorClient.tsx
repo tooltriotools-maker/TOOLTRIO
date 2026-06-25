@@ -11,8 +11,7 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent } from '@/components/ui/SEOContent'
 import { weeklyBudgetSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[];
-; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
+interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 const DEFAULT_CATEGORIES = [
   { name: 'Groceries & Food', amount: 150, color: '#16a34a' },
   { name: 'Transportation/Gas', amount: 60, color: '#3b82f6' },
