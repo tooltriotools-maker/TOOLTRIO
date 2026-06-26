@@ -5517,6 +5517,9 @@ This is where real estate gets interesting. You can buy $400,000 of real estate 
 ]
 
 // Update allBlogPosts to include new posts
+import viralFinanceBlogPosts from './viralFinanceBlogPosts'
+import viralFinanceBlogPosts3 from './viralFinanceBlogPosts3'
+import recoveredBlogPosts from './recoveredBlogPosts'
 
 // -- All blog posts combined (must be LAST -- after ALL arrays defined) -------
 export const allBlogPosts: BlogPost[] = [
@@ -5526,4 +5529,7 @@ export const allBlogPosts: BlogPost[] = [
   ...usaFinanceBlogPosts,
   ...missingBlogPosts,
   ...usaFinanceBlogPosts2,
+  ...viralFinanceBlogPosts,
+  ...viralFinanceBlogPosts3,
+  ...recoveredBlogPosts,
 ]
