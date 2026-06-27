@@ -18223,15 +18223,15 @@ export const recoveredBlogPosts: BlogPost[] = [
   ~~~
   
   **Common JSON Schema keywords to know:**
-  - `"required"`: Array of property names that must be present
-  - `"additionalProperties": false`: Reject any properties not in the schema
-  - `"enum"`: Restrict to specific values — `"enum": ["active", "inactive", "pending"]`
-  - `"$ref"`: Reference another schema definition to avoid repetition
-  - `"oneOf"` / `"anyOf"`: Polymorphic validation for union types
+  - \`"required"\`: Array of property names that must be present
+  - \`"additionalProperties": false\`: Reject any properties not in the schema
+  - \`"enum"\`: Restrict to specific values — \`"enum": ["active", "inactive", "pending"]\`
+  - \`"$ref"\`: Reference another schema definition to avoid repetition
+  - \`"oneOf"\` / \`"anyOf"\`: Polymorphic validation for union types
   
   ## Meta Tags: The SEO Foundation Most Developers Get Wrong
   
-  Meta tags live in the `<head>` section of your HTML and communicate page information to browsers, search engines, and social media platforms. Getting them right is the difference between your content being found and being invisible.
+  Meta tags live in the \`<head>\` section of your HTML and communicate page information to browsers, search engines, and social media platforms. Getting them right is the difference between your content being found and being invisible.
   
   ### The Essential Meta Tags
   
@@ -18278,7 +18278,7 @@ export const recoveredBlogPosts: BlogPost[] = [
   <link rel="canonical" href="https://yourdomain.com/preferred-url">
   ~~~
   
-  Always point canonical to the HTTPS, no-trailing-slash version. In Next.js: use `alternates.canonical` in metadata exports.
+  Always point canonical to the HTTPS, no-trailing-slash version. In Next.js: use \`alternates.canonical\` in metadata exports.
   
   ### Structured Data: Beyond Basic Meta Tags
   
@@ -18368,7 +18368,7 @@ export const recoveredBlogPosts: BlogPost[] = [
   
   **Current timestamp:** 1,742,414,400 (approximately — for March 19, 2026)
   
-  **Seconds vs Milliseconds:** JavaScript `Date.now()` returns milliseconds. Most Unix APIs use seconds. If your timestamp is 13 digits, it's milliseconds. 10 digits = seconds.
+  **Seconds vs Milliseconds:** JavaScript \`Date.now()\` returns milliseconds. Most Unix APIs use seconds. If your timestamp is 13 digits, it's milliseconds. 10 digits = seconds.
   
   ~~~javascript
   // JavaScript
@@ -18393,7 +18393,7 @@ export const recoveredBlogPosts: BlogPost[] = [
   
   Signed 32-bit integers can store timestamps up to 2,147,483,647 — which corresponds to **January 19, 2038, 03:14:07 UTC**. Systems still using 32-bit Unix timestamps will overflow at that moment, rolling back to December 13, 1901 — similar to the Y2K problem.
   
-  Modern systems use 64-bit integers for timestamps (can store dates billions of years in the future). If you're building anything new: use 64-bit timestamp storage. If you're maintaining legacy C/C++ systems: audit for `time_t` on 32-bit platforms.
+  Modern systems use 64-bit integers for timestamps (can store dates billions of years in the future). If you're building anything new: use 64-bit timestamp storage. If you're maintaining legacy C/C++ systems: audit for \`time_t\` on 32-bit platforms.
   
   Our [Unix Timestamp Converter](/calculators/dev/unix-timestamp) converts in both directions — timestamp to human-readable date and date to timestamp — with timezone support.
   

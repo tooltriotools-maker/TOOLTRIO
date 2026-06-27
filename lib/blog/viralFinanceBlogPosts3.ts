@@ -1607,9 +1607,7 @@ Calculate personal loan cost with our **[Personal Loan Calculator](/calculators/
 - **[Debt Payoff Calculator](/calculators/finance/debt-payoff-calculator)** — Full multi-debt payoff plan
 `
   },
-]
-
-export default viralFinanceBlogPosts3
+,
   {
     slug: 'profit-margin-business-pricing-2026',
     title: 'Profit Margin Calculator in 2026: Are You Actually Making Money on Every Sale?',
