@@ -9,7 +9,7 @@ export function FAQSection({ faqs }: { faqs: FAQ[] }) {
   return (
     <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.5)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
       <div className="px-6 py-4 border-b border-gray-100 bg-green-50">
-        <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Frequently Asked Questions</h2>
+        <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Frequently Asked Questions</h2>
       </div>
       <div className="divide-y divide-gray-50">
         {faqs.map((faq, i) => (

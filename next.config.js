@@ -126,6 +126,9 @@ const nextConfig = {
       // ── Pregnancy duplicate redirect ───────────────────────────────────────
       { source: '/calculators/health/pregnancy-due-date-calculator',  destination: '/calculators/health/pregnancy-calculator', permanent: true },
       { source: '/calculators/health/pregnancy-due-date-calculator/', destination: '/calculators/health/pregnancy-calculator', permanent: true },
+      // ── Insult generator duplicate fix (byte-identical pages, merged into canonical) ──
+      { source: '/calculators/fun/insult-generator',  destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/insult-generator/', destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
     ]
   },
 }

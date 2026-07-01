@@ -45,7 +45,7 @@ function renderMarkdown(content: string) {
   while (i < lines.length) {
     const line = lines[i]
     if (line.startsWith('# ')) {
-      result.push(<h1 key={i} className="text-3xl font-black text-gray-900 mt-8 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>{line.slice(2)}</h1>)
+      result.push(<h1 key={i} className="text-3xl font-black text-gray-900 mt-8 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{line.slice(2)}</h1>)
     } else if (line.startsWith('## ')) {
       result.push(<h2 key={i} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{line.slice(3)}</h2>)
     } else if (line.startsWith('### ')) {
@@ -150,7 +150,7 @@ export default async function BlogPost({ params }: Props) {
               <span className="flex items-center gap-1 text-gray-500 text-sm"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
               <span className="text-gray-400 text-sm">{post.publishedAt}</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4" style={{fontFamily:"'Playfair Display', serif"}}>
+            <h1 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>
               {post.title}
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">{post.excerpt}</p>

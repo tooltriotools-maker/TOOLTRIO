@@ -41,7 +41,7 @@ export function ResultCard({ label, value, subValue, highlight, icon, color }: R
       <div className="flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
           <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">{label}</p>
-          <p className={cn('text-lg font-bold font-display truncate', highlight ? 'gradient-text' : 'text-gray-900')}>{value}</p>
+          <p className={cn('text-lg font-bold font-sans truncate', highlight ? 'text-green-700' : 'text-gray-900')}>{value}</p>
           {subValue && <p className="text-xs text-gray-400 mt-0.5 truncate">{subValue}</p>}
         </div>
         {icon && (

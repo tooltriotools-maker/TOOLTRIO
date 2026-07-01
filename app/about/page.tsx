@@ -62,7 +62,7 @@ const aboutSchema = {
 }
 
 const stats = [
-  { value: '400+', label: 'Free Calculators', icon: Zap },
+  { value: '560+', label: 'Free Tools & Calculators', icon: Zap },
   { value: '157+', label: 'Expert Guides', icon: BookOpen },
   { value: '4', label: 'Currencies', icon: Globe },
   { value: '0', label: 'Ads or Paywalls', icon: Shield },

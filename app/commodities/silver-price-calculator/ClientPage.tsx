@@ -66,7 +66,7 @@ export default function Page() {
       </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🥈 Silver Price Calculator - Live by Purity</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🥈 Silver Price Calculator - Live by Purity</h1>
           <p className="text-gray-500 mt-1">Live silver price for 999 Fine, 925 Sterling, 900 Coin, 800 European - per gram, troy oz & kg</p>
         </div>
         <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Silver Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Silver Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Silver is the most misunderstood precious metal. Most people know it as jewellery material, but silver's real price story is driven by a unique combination of investment demand, central bank policy sensitivity, and surging industrial consumption — particularly from solar panels and electric vehicles. The silver price you see quoted is in USD per troy ounce for .999 fine silver (99.9% pure), but silver is sold and traded at multiple purity levels, each requiring a different price calculation.</p>
             <p>The four main purity levels: .999 fine (investment coins, bars) is the spot price benchmark. .925 sterling (jewellery, cutlery) = spot × 0.925. .900 coin silver (pre-1965 US dimes, quarters) = spot × 0.900. .800 European silver (older Continental pieces) = spot × 0.800. Our calculator shows live prices across all four purities simultaneously, in four currencies, per gram, ounce, and kilogram.</p>

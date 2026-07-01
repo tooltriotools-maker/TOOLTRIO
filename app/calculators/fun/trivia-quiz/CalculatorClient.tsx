@@ -80,7 +80,7 @@ export default function CalculatorClient({ faqs }: Props) {
     ) : (
         <div className="rounded-3xl border p-8 text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
           <p className="text-6xl mb-4">{score>=8?'🏆':score>=6?'⭐':score>=4?'👍':'💪'}</p>
-          <p className="text-3xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>{score}/10 Correct!</p>
+          <p className="text-3xl font-black text-gray-900 mb-2" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{score}/10 Correct!</p>
           <p className="text-gray-500 mb-6">{score>=8?'Brilliant! You are a trivia master!':score>=6?'Great job! Well done!':score>=4?'Not bad! Keep practising!':'Keep learning - you will improve!'}</p>
           <button onClick={reset} className="px-8 py-3 bg-green-600 text-white font-black rounded-xl hover:bg-green-700 transition-all text-lg">Play Again 🎮</button>
         </div>

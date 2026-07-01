@@ -118,7 +118,7 @@ export default function GoldLoanCalculatorPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🏦 Gold Loan Calculator</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🏦 Gold Loan Calculator</h1>
           <p className="text-gray-500 mt-1">Calculate loan amount against your gold at live spot price - LTV, EMI, interest & repayment schedule</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -359,7 +359,7 @@ export default function GoldLoanCalculatorPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Gold Loan Calculator — Complete India Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Gold Loan Calculator — Complete India Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>India has over 25,000 tonnes of household gold — the largest private gold holding in the world — and a thriving gold loan industry that has grown to ₹8+ lakh crore in outstanding loans. Gold loans allow any gold owner to access liquidity immediately without selling their gold, without a credit check, and often within 30 minutes of walking into a branch. For a country where gold is a primary savings vehicle and formal credit access is limited, gold loans are a critical financial tool.</p>
             <p>The mechanics are straightforward: you pledge gold jewellery or coins to a lender; they assess purity and weight; you receive up to 75% of the assessed value as a loan (the RBI LTV cap for regulated lenders). You pay interest monthly or at the end of tenure; at loan closure, you get your gold back. This calculator gives you the full picture: eligible loan amount based on your gold's current market value, EMI breakdown for different tenures, and total interest cost — so you can compare offers before walking into any branch.</p>

@@ -69,11 +69,11 @@ export default function CalculatorClient({ faqs }: Props) {
             <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm grid grid-cols-2 gap-4">
               <div className="text-center">
                 <p className="text-xs text-gray-500 mb-1">Current Age</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{info.age} yrs</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{info.age} yrs</p>
               </div>
               <div className="text-center">
                 <p className="text-xs text-gray-500 mb-1">Zodiac Sign</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{info.zodiac}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{info.zodiac}</p>
               </div>
               <div className="col-span-2 text-center">
                 <p className="text-xs text-gray-500 mb-1">Next Birthday</p>

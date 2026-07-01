@@ -124,7 +124,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
               VERIFIED: {seoContent.verifiedDate}
             </div>
           )}
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Playfair Display',serif" }}>
+          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             {title}
           </h1>
           {seoContent?.tagline ? (
@@ -356,7 +356,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
         {/* ── MAIN SEO BODY ─────────────────────────────────────── */}
         {seoContent?.body && (
           <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 mb-6 shadow-sm">
-            <h2 className="text-2xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Playfair Display',serif" }}>
+            <h2 className="text-2xl font-black text-gray-900 mb-1" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
               {seoContent.heading}
             </h2>
             {seoContent.tagline && (
@@ -408,7 +408,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
         {/* ── FAQ ───────────────────────────────────────────────── */}
         {seoContent?.faqs && seoContent.faqs.length > 0 && (
           <div className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 mb-6 shadow-sm">
-            <h2 className="text-2xl font-black text-gray-900 mb-2" style={{ fontFamily: "'Playfair Display',serif" }}>
+            <h2 className="text-2xl font-black text-gray-900 mb-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
               Frequently Asked Questions
             </h2>
             <p className="text-sm text-gray-500 mb-5">Real questions from users — answered with detail and precision.</p>

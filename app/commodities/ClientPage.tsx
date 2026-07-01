@@ -74,7 +74,7 @@ function FAQSection() {
   const [open, setOpen] = useState<number | null>(null)
   return (
     <section className="mb-10" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>
+      <h2 id="faq-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>
         ❓ Precious Metals FAQ — Everything You Need to Know
       </h2>
       <p className="text-sm text-gray-500 mb-6">Detailed answers to the most common questions about gold, silver, platinum & palladium investing, pricing, and calculations.</p>
@@ -130,7 +130,7 @@ const RELATED_CALCS = [
 function RelatedCalculators() {
   return (
     <section className="mb-10" aria-labelledby="related-calcs-heading">
-      <h2 id="related-calcs-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>🔗 Related Calculators</h2>
+      <h2 id="related-calcs-heading" className="text-2xl font-black text-gray-900 mb-2" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🔗 Related Calculators</h2>
       <p className="text-sm text-gray-500 mb-5">Every tool you need for precious metals investing, pricing, and portfolio tracking — all with live spot prices.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {RELATED_CALCS.map((c: any) => (
@@ -181,7 +181,7 @@ function PreciousMetalsSEO() {
       </div>
 
       {/* Introduction */}
-      <h2 id="seo-guide-heading" className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>
+      <h2 id="seo-guide-heading" className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>
         Precious Metals Price Calculators — Complete India & Global Guide 2026
       </h2>
       <div className="space-y-4 text-gray-600 leading-relaxed text-base mb-8">
@@ -334,7 +334,7 @@ export default function CommoditiesPage() {
               </span>
             )}
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-1" style={{fontFamily:"'Playfair Display', serif"}}>🏅 Commodity Prices & Calculators</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-1" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🏅 Commodity Prices & Calculators</h1>
           <p className="text-gray-500 max-w-2xl">Live gold, silver, platinum, palladium, crude oil (WTI & Brent), and natural gas prices with calculators. Gold shown in 24K, 22K, 20K, 18K, 14K and 10K.</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">

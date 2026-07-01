@@ -95,7 +95,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-bold text-gray-700">Cholesterol Ratio (Total/HDL)</p>
-                <p className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{result.ratio}</p>
+                <p className="text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{result.ratio}</p>
                 <p className="text-xs text-gray-500">Target: below 4.0 (below 3.5 is optimal)</p>
               </div>
               <div className={`px-4 py-3 rounded-xl border-2 ${result.riskColor} text-right`}>

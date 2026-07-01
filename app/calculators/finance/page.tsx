@@ -14,7 +14,7 @@ function X({size=16,className=""}: {size?:number;className?:string}) { const w=s
 
 export const metadata: Metadata = {
   title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
-  description: '167 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth.',
+  description: '272 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth.',
   keywords: [
     'free finance calculators 2026',
     'SIP calculator India',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://tooltrio.com/calculators/finance' },
   openGraph: {
     title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
-    description: '167 free finance calculators: mortgage, SIP, 401k, EMI, Roth IRA, UK tax, ISA, FIRE, compound interest and more. No signup required.',
+    description: '272 free finance calculators: mortgage, SIP, 401k, EMI, Roth IRA, UK tax, ISA, FIRE, compound interest and more. No signup required.',
     url: 'https://tooltrio.com/calculators/finance',
     siteName: 'ToolTrio',
     type: 'website',
@@ -339,7 +339,7 @@ const tagColors: Record<string, string> = {
 
 const structured = {
   '@context': 'https://schema.org', '@type': 'ItemList',
-  name: 'Finance Calculators - 151 Free Tools',
+  name: 'Finance Calculators — 272 Free Tools',
   url: 'https://tooltrio.com/calculators/finance',
   numberOfItems: calculators.length,
   itemListElement: calculators.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, description: c.desc, url: `https://tooltrio.com${c.href}` })),
@@ -363,15 +363,15 @@ export default function FinancePage() {
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance Calculators</h1>
-                <p className="text-green-600 font-semibold text-sm mt-0.5">151 Free Tools . No Signup . Instant Results</p>
+                <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Finance Calculators</h1>
+                <p className="text-green-600 font-semibold text-sm mt-0.5">272 Free Tools . No Signup . Instant Results</p>
               </div>
             </div>
             <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-              151 free finance calculators for <strong>SIP</strong>, <strong>EMI</strong>, <strong>GST</strong>, <strong>Income Tax</strong>, <strong>PPF</strong>, <strong>NPS</strong>, <strong>Gratuity</strong>, <strong>HRA</strong>, <strong>Currency</strong>, <strong>ROI</strong> and more. All free, no login.
+              272 free finance calculators for <strong>SIP</strong>, <strong>EMI</strong>, <strong>GST</strong>, <strong>Income Tax</strong>, <strong>PPF</strong>, <strong>NPS</strong>, <strong>Gratuity</strong>, <strong>HRA</strong>, <strong>Currency</strong>, <strong>ROI</strong> and more. All free, no login.
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
-              {[{ label: '151 Calculators', icon: '🧮' }, { label: 'Live Charts', icon: '📊' }, { label: 'Multi-Currency', icon: '💱' }, { label: '100% Free', icon: '✅' }].map(s => (
+              {[{ label: '272 Finance Tools', icon: '🧮' }, { label: 'Live Charts', icon: '📊' }, { label: 'Multi-Currency', icon: '💱' }, { label: '100% Free', icon: '✅' }].map(s => (
                 <div key={s.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-green-200 shadow-sm text-sm font-semibold text-gray-700">
                   <span>{s.icon}</span> {s.label}
                 </div>
@@ -379,28 +379,13 @@ export default function FinancePage() {
             </div>
           </div>
 
-          <div className="mb-8">
-            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">⭐ Most Popular</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {calculators.filter(c => c.popular).map(calc => (
-                <Link key={calc.href} href={calc.href} className="flex items-center gap-3 p-4 rounded-2xl bg-white border-2 border-green-200 hover:border-green-500 hover:shadow-lg transition-all group shadow-sm">
-                  <span className="text-2xl">{calc.icon}</span>
-                  <span>
-                    <p className="font-bold text-sm text-gray-900 group-hover:text-green-700">{calc.name}</p>
-                    <p className="text-xs text-green-600 font-semibold flex items-center gap-0.5 mt-0.5">Open <ArrowRight className="w-3 h-3" /></p>
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
           <div>
-            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">All 151 Finance Calculators</h2>
+            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">All 272 Finance Calculators</h2>
             <CalcFilterBar calculators={calculators} tagColors={tagColors} />
           </div>
 
           <div className="mt-12 p-8 rounded-3xl bg-white border border-gray-100 shadow-sm">
-            <h2 className="text-xl font-black text-gray-900 mb-4">About Our 30 Finance Calculators</h2>
+            <h2 className="text-xl font-black text-gray-900 mb-4">About Our Finance Calculators</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-gray-600 leading-relaxed">
               <div><h3 className="font-bold text-gray-800 mb-2">Tax Calculators</h3><p>Our <strong>income tax calculator</strong> compares New vs Old regime for FY 2026-27. The <strong>GST calculator</strong> handles all rates (5%, 12%, 18%, 28%) with CGST/SGST/IGST breakdown. The <strong>HRA calculator</strong> finds your maximum tax exemption.</p></div>
               <div><h3 className="font-bold text-gray-800 mb-2">Salary & Employee Benefits</h3><p>The <strong>salary/CTC calculator</strong> breaks down your in-hand pay from CTC with PF, TDS, and professional tax. The <strong>gratuity calculator</strong> calculates your payout after 5+ years. The <strong>NPS calculator</strong> estimates retirement corpus and monthly pension.</p></div>

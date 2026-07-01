@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs }: Props) {
             ].map(s=>(
               <div key={s.l} className="p-3 rounded-2xl border text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(6px)',borderColor:'rgba(226,232,240,0.7)'}}>
                 <p className="text-xs text-gray-400 font-medium">{s.l}</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.v.toLocaleString()}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{s.v.toLocaleString()}</p>
                 <p className="text-[10px] text-gray-400">{s.s}</p>
               </div>
     ))}

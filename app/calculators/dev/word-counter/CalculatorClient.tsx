@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           {[{l:'Words',v:stats.words},{l:'Characters',v:stats.chars},{l:'No Spaces',v:stats.charsNoSpaces},{l:'Sentences',v:stats.sentences},{l:'Paragraphs',v:stats.paragraphs},{l:'Unique Words',v:stats.uniqueWords},{l:'Read Time',v:`${stats.readMins} min`},{l:'Speak Time',v:`${stats.speakMins} min`}].map(s=>(
             <div key={s.l} className="p-3 rounded-2xl border text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(6px)',borderColor:'rgba(226,232,240,0.7)'}}>
-              <p className="text-xs text-gray-400">{s.l}</p><p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.v}</p>
+              <p className="text-xs text-gray-400">{s.l}</p><p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{s.v}</p>
             </div>
     ))}
         </div>

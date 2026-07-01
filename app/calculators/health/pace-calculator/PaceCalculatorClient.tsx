@@ -87,7 +87,7 @@ export default function PaceCalculatorClient({ faqs, relatedCalculators, blogSlu
               </div>
               <div className="mt-4 p-3 bg-gray-50 rounded-xl text-xs text-center">
                 <p className="text-gray-500">Your pace</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{paceMin}:{paceSec.toString().padStart(2, '0')} /mi</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{paceMin}:{paceSec.toString().padStart(2, '0')} /mi</p>
                 <p className="text-gray-500">{calcSpeedFromPace()} mph</p>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function PaceCalculatorClient({ faqs, relatedCalculators, blogSlu
               </div>
               <div className="mt-2 p-3 bg-gray-50 rounded-xl text-xs text-center">
                 <p className="text-gray-500">Your pace</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{calcPaceFromTime()} /{unit}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{calcPaceFromTime()} /{unit}</p>
               </div>
             </div>
           )}

@@ -108,7 +108,7 @@ export default function BlogPage() {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Finance & Health Guides</h1>
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Finance & Health Guides</h1>
               <p className="text-green-600 font-semibold text-sm mt-0.5">{blogPosts.length} Expert Guides - Free - No Signup</p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function BlogPage() {
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-green-100 text-green-700">{CAT_CONFIG[featured.categorySlug]?.label ?? featured.category}</span>
                 <span className="flex items-center gap-1 text-xs text-gray-400"><Clock className="w-3 h-3" />{featured.readTime}</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-green-700 transition-all mb-3 leading-tight" style={{fontFamily:"'Playfair Display', serif"}}>{featured.title}</h2>
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-green-700 transition-all mb-3 leading-tight" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{featured.title}</h2>
               <p className="text-gray-600 mb-4 max-w-2xl leading-relaxed">{featured.excerpt}</p>
               <span className="inline-flex items-center gap-2 text-green-600 font-bold text-sm group-hover:gap-3 transition-all">
                 Read full guide <ArrowRight className="w-4 h-4" />

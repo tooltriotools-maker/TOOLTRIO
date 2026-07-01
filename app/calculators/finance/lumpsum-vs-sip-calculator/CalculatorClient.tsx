@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-500">Difference</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.difference)}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{fmt(result.difference)}</p>
                 <p className="text-xs text-gray-500">({((result.difference / loserFV) * 100).toFixed(1)}% more than loser)</p>
               </div>
             </div>
@@ -77,12 +77,12 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-2 gap-3">
             <div className={`rounded-2xl border p-4 ${result.lumpSumBetter ? 'bg-green-50 border-green-300' : 'bg-white border-gray-200'}`}>
               <p className="text-xs font-bold text-green-600 mb-1">💰 LUMP SUM</p>
-              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.lumpSumFV)}</p>
+              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{fmt(result.lumpSumFV)}</p>
               <p className="text-sm text-gray-500">Gain: {fmt(result.lumpSumGain)}</p>
             </div>
             <div className={`rounded-2xl border p-4 ${!result.lumpSumBetter ? 'bg-blue-50 border-blue-300' : 'bg-white border-gray-200'}`}>
               <p className="text-xs font-bold text-blue-600 mb-1">📅 SIP / DCA</p>
-              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmt(result.sipFV)}</p>
+              <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{fmt(result.sipFV)}</p>
               <p className="text-sm text-gray-500">Gain: {fmt(result.sipGain)}</p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       </div>
             <div className="mt-8">
         <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
-          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>Lumpsum vs Sip: Complete Guide</h2>
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Lumpsum vs Sip: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is Lumpsum?</h3>

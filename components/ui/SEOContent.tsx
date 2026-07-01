@@ -99,7 +99,7 @@ export function SEOContent({
 
       {/* Introduction */}
       <section aria-labelledby="seo-intro">
-        <h2 id="seo-intro" className="text-2xl font-black text-gray-900 mb-5" style={{fontFamily:"'Playfair Display', serif"}}>
+        <h2 id="seo-intro" className="text-2xl font-black text-gray-900 mb-5" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>
           {title} -- Complete USA Guide 2026
         </h2>
         <RichParagraphs text={intro} />

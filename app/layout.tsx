@@ -5,12 +5,6 @@ import './globals.css'
 import { CurrencyProvider } from '@/context/CurrencyContext'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { ClientProviders } from '@/components/ui/ClientProviders'
-import dynamic from 'next/dynamic'
-const TrioBot = dynamic(() => import('@/components/ui/TrioBotWrapper'), {
-  ssr: false,
-  loading: () => null
-})
 
 export const viewport: Viewport = {
   themeColor: '#16a34a',
@@ -196,7 +190,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -225,10 +219,8 @@ export default function RootLayout({
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
-            <TrioBot />
           </div>
         </CurrencyProvider>
-        <ClientProviders />
       </body>
     </html>
   )

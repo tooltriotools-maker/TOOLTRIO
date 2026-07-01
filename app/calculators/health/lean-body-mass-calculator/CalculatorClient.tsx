@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
               {[{n:'Boer',v:result.boer},{n:'James',v:result.james},{n:'Hume',v:result.hume}].map(f=>(
                 <div key={f.n} className="p-3 rounded-2xl border" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <p className="text-xs font-bold text-gray-500">{f.n} Formula</p>
-                  <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{f.v}</p>
+                  <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{f.v}</p>
                   <p className="text-xs text-gray-400">kg LBM</p>
                 </div>
               ))}

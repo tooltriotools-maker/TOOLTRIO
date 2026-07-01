@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-500">Fair Value Estimate</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>${result.fairValueDCF}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>${result.fairValueDCF}</p>
                 <p className={`text-sm font-bold ${result.upside >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {result.upside >= 0 ? '+' : ''}{result.upside.toFixed(1)}% vs current price
                 </p>

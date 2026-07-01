@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -68,7 +68,7 @@ table { max-width: 100%; }
 
 /* ── TYPOGRAPHY ───────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-weight: 700;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -382,12 +382,9 @@ table {
 /* ── SPINNER ──────────────────────────────────────────────────────── */
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── SHARE / TRIOBOT ANIMATIONS ───────────────────────────────────── */
+/* ── SHARE ANIMATIONS ─────────────────────────────────────────────── */
 @keyframes shareBackdropIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes shareModalIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes trioPanelIn { from { opacity: 0; transform: scale(0.88) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-@keyframes trioDot { 0%,80%,100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
-@keyframes trioPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
 /* ── TAILWIND UTILITIES ───────────────────────────────────────────── */
 @layer utilities {
@@ -455,16 +452,6 @@ table {
     border-radius: 24px 24px 0 0 !important;
     max-height: 88vh !important;
     overflow-y: auto !important;
-  }
-}
-
-/* ── TRIOBOT PANEL ────────────────────────────────────────────────── */
-@media (max-width: 479px) {
-  /* Smaller gap from edge */
-  div[style*="bottom: 20px"][style*="right: 20px"],
-  div[style*="bottom:20px"][style*="right:20px"] {
-    bottom: 10px !important;
-    right: 10px !important;
   }
 }
 

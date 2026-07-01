@@ -9,6 +9,18 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify:       true,
 
+  // Optimize package imports — reduces module resolution work on large deps
+  // This is the main lever for cutting the 4+ second dev compile on first visit
+  experimental: {
+    optimizePackageImports: [
+      'recharts',
+      'lucide-react',
+      'd3-shape', 'd3-path', 'd3-scale', 'd3-array',
+      'd3-interpolate', 'd3-color', 'd3-format',
+      'd3-time', 'd3-time-format',
+    ],
+  },
+
   // Fix: Recharts blank charts in Next.js 14 App Router (SSR/ESM issue)
   transpilePackages: [
     'recharts', 'react-smooth',
@@ -104,6 +116,9 @@ const nextConfig = {
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
       { source: '/calculators/health/pregnancy-due-date-calculator',  destination: '/calculators/health/pregnancy-calculator', permanent: true },
       { source: '/calculators/health/pregnancy-due-date-calculator/', destination: '/calculators/health/pregnancy-calculator', permanent: true },
+      // ── Insult generator duplicate fix (byte-identical pages, merged into canonical) ──
+      { source: '/calculators/fun/insult-generator',  destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/insult-generator/', destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
     ]
   },
 }

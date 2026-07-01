@@ -158,7 +158,7 @@ export default function CommodityPortfolioTrackerPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🗂️ Commodity Portfolio Tracker</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🗂️ Commodity Portfolio Tracker</h1>
           <p className="text-gray-500 mt-1">Track your gold, silver, platinum & energy holdings at live prices - P&L, allocation & performance</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
@@ -427,7 +427,7 @@ export default function CommodityPortfolioTrackerPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Commodity Portfolio Tracker — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Commodity Portfolio Tracker — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals investors hold positions across multiple metals, bought at different times and prices, in different weight units, from different dealers — and have no single view of what their total collection is worth today. This portfolio tracker solves that: enter each holding with its purchase price, get a live total portfolio value, position-level unrealized P&L, and overall return — all updating in real time from the same live price feeds that power our individual calculators.</p>
             <p>The tracker handles all four major precious metals (gold, silver, platinum, palladium) in any weight unit (grams, troy ounces, tolas, kilograms). You can add multiple positions for the same metal — the tracker computes weighted average cost automatically. The total portfolio view shows your metals allocation breakdown, best and worst performing positions, and total unrealized gain/loss in absolute amount and percentage.</p>

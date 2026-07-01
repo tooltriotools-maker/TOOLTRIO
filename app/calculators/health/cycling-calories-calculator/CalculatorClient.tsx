@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
           <Card gradient>
             <div className="text-center py-2">
               <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Calories Burned</p>
-              <div className="text-7xl font-black text-rose-500 mb-2" style={{fontFamily:"'Playfair Display', serif"}}>{calories}</div>
+              <div className="text-7xl font-black text-rose-500 mb-2" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{calories}</div>
               <p className="text-gray-500">kcal in {duration} minutes</p>
             </div>
           </Card>

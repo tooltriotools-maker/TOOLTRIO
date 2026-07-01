@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { Breadcrumb } from './Breadcrumb'
 import Link from 'next/link'
 import { ArrowRight, BookOpen } from 'lucide-react'
-import { FullReportButton, ResultsOnlyButton } from './ExportPDFButton'
+import { DownloadPDFButton } from './ExportPDFButton'
 import { ShareButton } from './ShareButton'
 
 const BASE_URL = 'https://tooltrio.com'
@@ -75,14 +75,13 @@ export function CalculatorLayout({ title, description, icon, category, children,
           </div>
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h1 className="calc-page-h1 text-2xl sm:text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{title}</h1>
+              <h1 className="calc-page-h1 text-2xl sm:text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{title}</h1>
               <p className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mt-1">{description}</p>
             </div>
             {/* Export + Share buttons — wraps on mobile */}
             <div className="calc-header-buttons flex items-center gap-2 flex-wrap">
               <ShareButton title={title} description={description} category={category} />
-              <FullReportButton title={title} category={category} />
-              <ResultsOnlyButton title={title} category={category} />
+              <DownloadPDFButton title={title} category={category} />
             </div>
           </div>
         </div>
@@ -119,7 +118,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
           <div className="mt-8">
             <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
               <div className={`px-6 py-4 border-b border-gray-100 ${category === 'Finance' ? 'bg-green-50' : category === 'Health' ? 'bg-red-50' : category === 'Dev' ? 'bg-blue-50' : 'bg-purple-50'}`}>
-                <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>🔗 Related Calculators</h2>
+                <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>🔗 Related Calculators</h2>
                 <p className="text-sm text-gray-500 mt-0.5">You might also find these useful</p>
               </div>
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">

@@ -50,7 +50,7 @@ export default function HomeCategorySection({
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h2 className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>
+          <h2 className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>
             <span className={c.icon}>{icon}</span> {title}
           </h2>
           <p className="text-gray-500 text-sm mt-1">{subtitle}</p>

@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {ops.map(o=>(
           <div key={o.op} className="rounded-2xl border p-3 text-center" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(6px)',borderColor:'rgba(226,232,240,0.7)'}}>
             <p className="text-xs font-bold text-gray-500 uppercase">{o.op}</p>
-            <p className="text-2xl font-black text-gray-900 mt-1" style={{fontFamily:"'Playfair Display', serif"}}>{o.r>>>0}</p>
+            <p className="text-2xl font-black text-gray-900 mt-1" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{o.r>>>0}</p>
             <p className="text-xs font-mono text-gray-400">0x{(o.r>>>0).toString(16).toUpperCase().padStart(4,'0')}</p>
           </div>
         ))}

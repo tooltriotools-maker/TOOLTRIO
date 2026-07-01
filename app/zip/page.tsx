@@ -131,7 +131,7 @@ export default function ZipHubPage() {
             style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d' }}>
             📮 {total} Free ZIP Code Tools · No Signup · Updated 2026
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display',serif" }}>
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             USA ZIP Code Tools
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
@@ -159,7 +159,7 @@ export default function ZipHubPage() {
         {/* Tool categories */}
         {ZIP_TOOLS.map(cat => (
           <section key={cat.category} className="mb-10">
-            <h2 className="text-xl font-black mb-4" style={{ color: colorHeading[cat.color], fontFamily: "'Playfair Display',serif" }}>
+            <h2 className="text-xl font-black mb-4" style={{ color: colorHeading[cat.color], fontFamily: "'Inter', system-ui, sans-serif" }}>
               {cat.category}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -197,7 +197,7 @@ export default function ZipHubPage() {
         {/* FAQ */}
         <div className="mt-10 rounded-3xl border p-6"
           style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', borderColor: 'rgba(226,232,240,0.6)' }}>
-          <h2 className="text-xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display',serif" }}>
+          <h2 className="text-xl font-black text-gray-900 mb-4" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
@@ -222,7 +222,7 @@ export default function ZipHubPage() {
 
         {/* TOOLTRIO Brand SEO Section */}
         <section className="mt-12 rounded-3xl border p-8" style={{ background: 'rgba(240,253,244,0.6)', borderColor: 'rgba(134,239,172,0.3)' }}>
-          <h2 className="text-2xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display',serif" }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             TOOLTRIO — The Free ZIP Code Tool Suite
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">

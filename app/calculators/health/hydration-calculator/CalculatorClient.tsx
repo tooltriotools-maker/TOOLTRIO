@@ -69,7 +69,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
             {[{l:'8oz Glasses',v:result.glasses8oz,u:'glasses'},{l:'500ml Bottles',v:result.bottles500,u:'bottles'},{l:'750ml Bottles',v:result.bottles750,u:'bottles'}].map(s=>(
               <div key={s.l} className="p-3 bg-white rounded-xl border border-gray-200">
                 <p className="text-xs text-gray-500 font-medium">{s.l}</p>
-                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{s.v}</p>
+                <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{s.v}</p>
                 <p className="text-xs text-gray-400">{s.u}</p>
               </div>
             ))}

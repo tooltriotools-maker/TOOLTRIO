@@ -3,7 +3,7 @@ import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo } from 'react'
 import { Copy, Check } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
-import { ResultsOnlyButton } from '@/components/ui/ExportPDFButton'
+import { DownloadPDFButton } from '@/components/ui/ExportPDFButton'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <span>- {result.formatted.split('\n').length} lines formatted</span>
               <span>- {result.size} bytes minified ({(result.size/1024).toFixed(1)} KB)</span>
             </div>
-            <ResultsOnlyButton title="JSON Formatter & Validator" category="Dev" compact />
+            <DownloadPDFButton title="JSON Formatter & Validator" category="Dev" />
           </div>
         )}
       </div>

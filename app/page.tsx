@@ -7,10 +7,10 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'ToolTrio — Free Finance & Health Calculators',
+    absolute: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
   },
   description:
-    'ToolTrio offers free finance and health calculators — mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required. Instant results.',
+    'ToolTrio offers 560+ free tools and calculators across finance, health, developer tools, ZIP codes, commodities and fun — mortgage, 401k, BMI, JSON formatter, ZIP lookup, gold price and more. No signup. Instant results.',
   keywords: [
     'finance calculator',
     'free financial calculator',
@@ -20,23 +20,26 @@ export const metadata: Metadata = {
     'retirement calculator',
     'Roth IRA calculator',
     'BMI calculator',
+    'developer tools online',
+    'zip code lookup',
+    'gold price calculator',
     'tooltrio',
     'tool trio',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'ToolTrio — Free Finance & Health Calculators',
+    title: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
     description:
-      'Mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ free finance and health calculators. No signup. Instant results.',
+      'Mortgage, 401k, BMI, JSON tools, ZIP lookup, gold price and 560+ free calculators across 6 categories. No signup. Instant results.',
     url: 'https://tooltrio.com',
     siteName: 'ToolTrio',
-    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — Free Finance & Health Calculators' }],
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — 560+ Free Calculators & Tools' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ToolTrio — Free Finance & Health Calculators',
-    description: 'Mortgage, 401k, BMI, calorie and 200+ free calculators. No signup required.',
+    title: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
+    description: 'Mortgage, 401k, BMI, ZIP lookup, gold price and 560+ free calculators. No signup required.',
     images: ['/og-image.png'],
   },
 }
@@ -52,15 +55,15 @@ const homepageFAQSchema = {
       name: 'What is ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio is a free finance and health calculator website. It offers mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ finance and health tools with no signup required.',
+        text: 'ToolTrio is a free tools and calculators website with 560+ tools across six categories: finance, health, developer tools, ZIP codes, commodities and fun. It offers mortgage calculators, 401k planners, BMI calculators, JSON formatters, ZIP code lookups, gold price calculators and more — all with no signup required.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Are ToolTrio calculators free?',
+      name: 'Are ToolTrio tools and calculators free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every finance and health calculator on ToolTrio is completely free to use with no registration, no subscription and no hidden fees.',
+        text: 'Yes. Every tool and calculator on ToolTrio — finance, health, developer, ZIP code, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
       },
     },
     {
@@ -68,7 +71,7 @@ const homepageFAQSchema = {
       name: 'What finance calculators does ToolTrio offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio offers mortgage calculator, 401k calculator, compound interest calculator, Roth IRA calculator, auto loan calculator, budget planner, FIRE calculator, debt payoff calculator and 100+ more free finance calculators.',
+        text: 'ToolTrio offers 270+ finance calculators including mortgage calculator, 401k calculator, compound interest calculator, Roth IRA calculator, auto loan calculator, budget planner, FIRE calculator and debt payoff calculator.',
       },
     },
     {
@@ -76,7 +79,15 @@ const homepageFAQSchema = {
       name: 'What health calculators does ToolTrio offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio offers BMI calculator, calorie calculator, TDEE calculator, BMR calculator, macro calculator, body fat calculator, ideal weight calculator, water intake calculator and 100+ more free health calculators.',
+        text: 'ToolTrio offers 120+ health calculators including BMI calculator, calorie calculator, TDEE calculator, BMR calculator, macro calculator, body fat calculator, ideal weight calculator and water intake calculator.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does ToolTrio have developer tools, ZIP code tools and commodity calculators?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. ToolTrio includes 90+ developer tools (JSON formatter, regex tester, Base64 encoder, UUID generator, hash generator), 35+ US ZIP code tools (ZIP lookup, ZIP distance, ZIP to city), and 10+ commodity calculators (gold price, silver price, crude oil) — in addition to finance, health and fun calculators.',
       },
     },
   ],
@@ -118,6 +129,58 @@ const healthCalcs = [
   { name: 'Intermittent Fasting', desc: '16:8 eating windows', href: '/calculators/health/intermittent-fasting-calculator', icon: '⏰', badge: null },
 ]
 
+const devTools = [
+  { name: 'JSON Formatter', desc: 'Format & validate JSON', href: '/calculators/dev/json-formatter', icon: '🧩', badge: 'Popular' },
+  { name: 'Regex Tester', desc: 'Test regex patterns live', href: '/calculators/dev/regex-tester', icon: '🔍', badge: 'Popular' },
+  { name: 'Base64 Encoder', desc: 'Encode & decode Base64', href: '/calculators/dev/base64-encoder', icon: '🔐', badge: null },
+  { name: 'UUID Generator', desc: 'Generate v4 UUID & ULID', href: '/calculators/dev/uuid-generator', icon: '🆔', badge: null },
+  { name: 'Hash Generator', desc: 'MD5, SHA-256, SHA-512', href: '/calculators/dev/hash-generator', icon: '#️⃣', badge: null },
+  { name: 'JWT Decoder', desc: 'Decode & verify JWT tokens', href: '/calculators/dev/jwt-decoder', icon: '🎫', badge: null },
+  { name: 'CSS Gradient Gen', desc: 'Linear, radial, conic', href: '/calculators/dev/css-gradient-generator', icon: '🌈', badge: 'NEW' },
+  { name: 'Cron Expression', desc: 'Build & explain cron jobs', href: '/calculators/dev/cron-expression', icon: '⏱️', badge: null },
+  { name: 'Diff Checker', desc: 'Compare two texts', href: '/calculators/dev/diff-checker', icon: '📊', badge: null },
+  { name: 'Color Converter', desc: 'HEX, RGB, HSL, CMYK', href: '/calculators/dev/color-converter', icon: '🎨', badge: null },
+]
+
+const zipTools = [
+  { name: 'ZIP Code Lookup', desc: 'Find city, state & county', href: '/zip/zip-code-lookup', icon: '📮', badge: 'Popular' },
+  { name: 'ZIP Code Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
+  { name: 'ZIP to City', desc: 'Reverse ZIP lookup', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
+  { name: 'City to ZIP', desc: 'Find ZIP codes by city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
+  { name: 'ZIPs in Radius', desc: 'All ZIPs within miles', href: '/zip/zips-within-radius', icon: '🎯', badge: 'NEW' },
+  { name: 'ZIP Code Map', desc: 'Visualize ZIP boundaries', href: '/zip/zip-code-map', icon: '🗾', badge: null },
+  { name: 'ZIP Code Validator', desc: 'Check valid US ZIP', href: '/zip/zip-code-validator', icon: '✅', badge: null },
+  { name: 'ZIP+4 Lookup', desc: 'Find ZIP+4 extension', href: '/zip/zip-plus-4-lookup', icon: '➕', badge: null },
+  { name: 'ZIP to Timezone', desc: 'Find timezone by ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: null },
+  { name: 'USPS Address Format', desc: 'Format addresses correctly', href: '/zip/usps-address-format', icon: '✉️', badge: null },
+]
+
+const commodityTools = [
+  { name: 'Gold Price Calculator', desc: 'Live gold price, all karats', href: '/commodities/gold-price-calculator', icon: '🥇', badge: 'Popular' },
+  { name: 'Silver Price Calculator', desc: 'Live silver price per gram', href: '/commodities/silver-price-calculator', icon: '🥈', badge: 'Popular' },
+  { name: 'Platinum Calculator', desc: 'Live platinum price', href: '/commodities/platinum-price-calculator', icon: '💍', badge: null },
+  { name: 'Crude Oil Calculator', desc: 'WTI crude oil pricing', href: '/commodities/crude-oil-calculator', icon: '🛢️', badge: null },
+  { name: 'Brent Crude Calculator', desc: 'Brent crude oil pricing', href: '/commodities/brent-crude-calculator', icon: '⛽', badge: null },
+  { name: 'Natural Gas Calculator', desc: 'Live natural gas pricing', href: '/commodities/natural-gas-calculator', icon: '🔥', badge: null },
+  { name: 'Gold Loan Calculator', desc: 'Loan-to-value & EMI', href: '/commodities/gold-loan-calculator', icon: '🏦', badge: null },
+  { name: 'Metals P&L Calculator', desc: 'Profit/loss on metals', href: '/commodities/precious-metals-profit-calculator', icon: '📈', badge: null },
+  { name: 'Portfolio Tracker', desc: 'Track commodity holdings', href: '/commodities/commodity-portfolio-tracker', icon: '💼', badge: 'NEW' },
+  { name: 'Palladium Calculator', desc: 'Live palladium price', href: '/commodities/palladium-price-calculator', icon: '⚙️', badge: null },
+]
+
+const funTools = [
+  { name: 'Pizza Calculator', desc: 'How many pizzas to order', href: '/calculators/fun/pizza-calculator', icon: '🍕', badge: 'Popular' },
+  { name: 'Trivia Quiz', desc: 'Random trivia questions', href: '/calculators/fun/trivia-quiz', icon: '🧠', badge: 'Popular' },
+  { name: 'Love Compatibility', desc: 'Fun name-based score', href: '/calculators/fun/love-compatibility', icon: '💘', badge: null },
+  { name: 'Zodiac Calculator', desc: 'Find your star sign', href: '/calculators/fun/zodiac-calculator', icon: '♈', badge: null },
+  { name: 'Birthday Countdown', desc: 'Days until your birthday', href: '/calculators/fun/birthday-countdown', icon: '🎂', badge: null },
+  { name: 'Fortune Cookie', desc: 'Random fortune generator', href: '/calculators/fun/fortune-cookie', icon: '🥠', badge: null },
+  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/calculators/fun/personality-quiz', icon: '🎭', badge: null },
+  { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/calculators/fun/coffee-calculator', icon: '☕', badge: null },
+  { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/calculators/fun/how-rich-am-i', icon: '💸', badge: null },
+  { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/calculators/fun/would-you-rather', icon: '🤔', badge: null },
+]
+
 export default function HomePage() {
   return (
     <>
@@ -136,25 +199,31 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
-            <span>💰 Finance Calculators</span>
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
+            <span>💰 Finance</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>❤️ Health Calculators</span>
+            <span>❤️ Health</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>⚡ Dev Tools</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>📮 ZIP Tools</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
+            <span>🥇 Commodities</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>🔒 Free · No Signup</span>
           </div>
 
-          <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
             ToolTrio —{' '}
-            <span style={{ color: '#16a34a' }}>Finance & Health Calculators</span>
+            <span style={{ color: '#16a34a' }}>560+ Free Tools & Calculators</span>
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Free mortgage, 401k, compound interest, BMI and calorie calculators. Make smarter financial and health decisions — instant results, no signup.
+            Free mortgage, 401k, BMI, calorie, JSON, ZIP code and gold price calculators across 6 categories. Make smarter financial, health and everyday decisions — instant results, no signup.
           </p>
 
           <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
-            Trusted finance and health calculators built for everyday decisions. Plan your retirement, calculate your BMI, track your calories and manage your budget — all in one place.
+            Trusted finance, health, developer, ZIP code and commodity tools built for everyday decisions. Plan your retirement, calculate your BMI, format JSON, look up a ZIP code or check today's gold price — all in one place.
             <br />
             <span>Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.</span>
           </p>
@@ -167,11 +236,11 @@ export default function HomePage() {
             {[
               { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
               { label: '401k Calculator', href: '/calculators/finance/401k-calculator' },
-              { label: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
               { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
               { label: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-              { label: 'TDEE Calculator', href: '/calculators/health/tdee-calculator' },
-              { label: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
+              { label: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
+              { label: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+              { label: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
             ].map(t => (
               <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
                 {t.label}
@@ -181,10 +250,12 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
-              { val: '200+', label: 'Finance Calculators' },
-              { val: '100+', label: 'Health Calculators' },
-              { val: '100%', label: 'Free Forever' },
-              { val: '0', label: 'Signup Required' },
+              { val: '270+', label: 'Finance Calculators' },
+              { val: '120+', label: 'Health Calculators' },
+              { val: '90+', label: 'Developer Tools' },
+              { val: '35+', label: 'ZIP Code Tools' },
+              { val: '10+', label: 'Commodity Calculators' },
+              { val: '30+', label: 'Fun Tools' },
             ].map(s => (
               <div key={s.label} className="text-center">
                 <div className="text-2xl font-black" style={{ color: '#16a34a' }}>{s.val}</div>
@@ -199,20 +270,20 @@ export default function HomePage() {
       <section className="border-b py-4 px-4" style={{ background: '#F0F7F0', borderColor: '#d1fae5' }}>
         <div className="max-w-6xl mx-auto">
           <p className="text-xs text-gray-500 text-center mb-3 font-semibold uppercase tracking-wider">
-            Most Popular Finance & Health Calculators
+            Most Popular Tools & Calculators
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
               { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
               { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
               { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator' },
-              { name: 'Auto Loan Calculator', href: '/calculators/finance/auto-loan-calculator' },
               { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
               { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
               { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
-              { name: 'Budget Planner', href: '/calculators/finance/budget-planner-calculator' },
-              { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator' },
-              { name: 'Retirement Calculator', href: '/calculators/finance/retirement-calculator' },
+              { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
+              { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+              { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
+              { name: 'Pizza Calculator', href: '/calculators/fun/pizza-calculator' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
@@ -224,10 +295,33 @@ export default function HomePage() {
 
       <div className="max-w-6xl mx-auto px-4 py-10">
 
+        {/* Category overview grid */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-black text-gray-900 mb-5" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+            Browse All Categories
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { name: 'Finance', count: '270+ tools', href: '/calculators/finance', icon: '💰', color: '#16a34a' },
+              { name: 'Health', count: '120+ tools', href: '/calculators/health', icon: '❤️', color: '#e11d48' },
+              { name: 'Dev Tools', count: '90+ tools', href: '/calculators/dev', icon: '⚡', color: '#2563eb' },
+              { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
+              { name: 'Commodities', count: '10+ tools', href: '/commodities', icon: '🥇', color: '#d97706' },
+              { name: 'Fun', count: '30+ tools', href: '/calculators/fun', icon: '😄', color: '#db2777' },
+            ].map(c => (
+              <Link key={c.href} href={c.href} className="group p-4 border rounded-2xl text-center hover:-translate-y-1 hover:shadow-lg transition-all" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
+                <div className="text-2xl mb-1">{c.icon}</div>
+                <div className="text-sm font-bold text-gray-900">{c.name}</div>
+                <div className="text-[11px] text-gray-500 mt-0.5">{c.count}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Finance Section */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
               <TrendingUp size={24} className="text-green-600" />
               Finance Calculators
             </h2>
@@ -258,7 +352,7 @@ export default function HomePage() {
         {/* Health Section */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
               <Heart size={24} className="text-rose-500" />
               Health Calculators
             </h2>
@@ -286,9 +380,129 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Dev Tools Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>⚡</span> Developer Tools
+            </h2>
+            <Link href="/calculators/dev" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all developer tools →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {devTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-blue-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-blue-700 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ZIP Tools Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>📮</span> ZIP Code Tools
+            </h2>
+            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all ZIP code tools →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {zipTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-purple-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Commodities Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>🥇</span> Commodity Calculators
+            </h2>
+            <Link href="/commodities" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all commodity calculators →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {commodityTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-amber-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-amber-700 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Fun Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>😄</span> Fun Tools
+            </h2>
+            <Link href="/calculators/fun" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all fun tools →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {funTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-pink-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-pink-100 text-pink-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-pink-600 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* SEO Content Block */}
         <section className="mt-8 rounded-3xl p-8 border" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', borderColor: 'rgba(255,255,255,0.5)', boxShadow: '0 8px 30px rgba(15,23,42,0.05)' }}>
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             Free Finance & Health Calculators — Built for Real Decisions
           </h2>
 
@@ -421,7 +635,7 @@ export default function HomePage() {
 
         {/* FAQ */}
         <section className="mt-12">
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             Frequently Asked Questions
           </h2>
 
@@ -429,7 +643,7 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free finance and health calculator website. It offers mortgage calculators, retirement planners, BMI calculators, calorie trackers and 200+ other finance and health tools — no signup required.',
+                a: 'ToolTrio is a free tools and calculators website with 560+ tools across finance, health, developer tools, ZIP codes, commodities and fun. It offers mortgage calculators, retirement planners, BMI calculators, JSON formatters, ZIP code lookups and gold price calculators — no signup required.',
               },
               {
                 q: 'What is the best free mortgage calculator?',
@@ -453,7 +667,11 @@ export default function HomePage() {
               },
               {
                 q: 'Are ToolTrio calculators really free?',
-                a: 'Yes. Every finance and health calculator on ToolTrio is completely free to use with no registration, no subscription and no hidden fees.',
+                a: 'Yes. Every tool and calculator on ToolTrio — finance, health, developer, ZIP code, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
+              },
+              {
+                q: 'Does ToolTrio have anything besides finance and health calculators?',
+                a: 'Yes. ToolTrio also includes 90+ developer tools (JSON formatter, regex tester, UUID generator), 35+ US ZIP code tools (ZIP lookup, ZIP distance, ZIP to city) and 10+ commodity calculators (gold, silver, crude oil price) — plus a Fun category with 30+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

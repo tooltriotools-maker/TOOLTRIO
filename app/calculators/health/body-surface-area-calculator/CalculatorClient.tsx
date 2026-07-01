@@ -59,7 +59,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
               {formulas.map(f=>(
                 <div key={f.name} className="p-3 rounded-2xl border text-center" style={{background:'rgba(248,250,248,0.7)',borderColor:'rgba(226,232,240,0.5)'}}>
                   <p className="text-xs font-bold text-gray-500">{f.name}</p>
-                  <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{f.val} m2</p>
+                  <p className="text-2xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{f.val} m2</p>
                   <p className="text-xs text-gray-400">{f.note}</p>
                 </div>
               ))}

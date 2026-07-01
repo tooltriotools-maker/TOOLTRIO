@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
 import { ShareButton } from '@/components/ui/ShareButton'
-import type { ExportCategory } from '@/lib/exportPDF'
+import type { ExportCategory } from '@/components/ui/ExportPDFButton'
 
 
 
@@ -82,7 +82,7 @@ export function DevToolLayout({
           </div>
           <h1
             className="calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
           >
             {icon} {title}
           </h1>

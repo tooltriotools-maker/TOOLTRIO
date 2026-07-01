@@ -61,7 +61,7 @@ export default function Page() {
       </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>⚗️ Palladium Price Calculator</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>⚗️ Palladium Price Calculator</h1>
           <p className="text-gray-500 mt-1">Live palladium price per gram and troy oz. Critical for gasoline engine catalytic converters.</p>
         </div>
         <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl border border-gray-200">
@@ -140,7 +140,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Palladium Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Palladium Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Palladium is the most industrially specialized of the four major precious metals — approximately 85% of its global demand comes from a single application: catalytic converters in gasoline (petrol) powered vehicles. This concentration made palladium the best-performing commodity on earth in 2018–2021, when supply deficits from concentrated Russian and South African production sent prices from $1,000/oz to over $3,000/oz. The same concentration is now working in reverse as the electric vehicle transition accelerates and automakers actively substitute platinum for palladium in converter formulations.</p>
             <p>For the palladium price calculation itself: like all precious metals, palladium is quoted in USD per troy ounce (31.1035g). Convert to per gram by dividing spot by 31.1035. There is no purity variation for investment purposes — most traded palladium is .9995 fine. The calculator shows per-gram, per-tola (11.6638g), and per-troy-oz prices with a quick reference weight table for common amounts.</p>

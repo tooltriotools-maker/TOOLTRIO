@@ -119,7 +119,7 @@ export default function MethodologyPage() {
 
         <div className="max-w-4xl mx-auto px-4 py-12">
           <section className="mb-14">
-            <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Our 4-Stage Accuracy Process</h2>
+            <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Our 4-Stage Accuracy Process</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { n: '1', title: 'Formula Verification', desc: 'Every formula is independently verified against 2+ official sources before deployment. We cross-check against IRS, CDC, and SEC official calculators.' },
@@ -184,8 +184,8 @@ export default function MethodologyPage() {
           </section>
 
           <section className="text-center py-8 border-t border-gray-100">
-            <h2 className="text-2xl font-black text-gray-900 mb-3" style={{fontFamily:"'Playfair Display', serif"}}>Ready to Calculate?</h2>
-            <p className="text-gray-600 mb-6">400+ calculators built on this methodology. Free, instant, no signup.</p>
+            <h2 className="text-2xl font-black text-gray-900 mb-3" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Ready to Calculate?</h2>
+            <p className="text-gray-600 mb-6">560+ tools and calculators built on this methodology. Free, instant, no signup.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/calculators/finance/home-loan-calculator" className="px-5 py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-all">Mortgage Calculator</Link>
               <Link href="/calculators/finance/401k-calculator" className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 transition-all">401k Calculator</Link>

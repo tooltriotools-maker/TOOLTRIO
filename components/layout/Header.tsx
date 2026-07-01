@@ -10,7 +10,7 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 const NAV = [
   {
     key: 'finance', label: '💰 Finance', color: 'green',
-    href: '/calculators/finance', viewAll: 'All 167 Finance Tools ->',
+    href: '/calculators/finance', viewAll: 'All 272 Finance Tools →',
     items: [
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
       { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
@@ -26,7 +26,7 @@ const NAV = [
   },
   {
     key: 'health', label: '❤️ Health', color: 'red',
-    href: '/calculators/health', viewAll: 'All 124 Health Tools ->',
+    href: '/calculators/health', viewAll: 'All 124 Health Tools →',
     items: [
       { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
       { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
@@ -42,7 +42,7 @@ const NAV = [
   },
   {
     key: 'dev', label: '⚡ Dev Tools', color: 'blue',
-    href: '/calculators/dev', viewAll: 'All 90 Dev Tools ->',
+    href: '/calculators/dev', viewAll: 'All 90 Dev Tools →',
     items: [
       { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
       { name: 'Regex Tester', href: '/calculators/dev/regex-tester' },
@@ -58,7 +58,7 @@ const NAV = [
   },
   {
     key: 'fun', label: '😄 Fun', color: 'purple',
-    href: '/calculators/fun', viewAll: 'All 30 Fun Tools ->',
+    href: '/calculators/fun', viewAll: 'All 30 Fun Tools →',
     items: [
       { name: 'Zodiac Calculator', href: '/calculators/fun/zodiac-calculator' },
       { name: 'Love Compatibility', href: '/calculators/fun/love-compatibility' },
@@ -74,7 +74,7 @@ const NAV = [
   },
   {
     key: 'zip', label: '📮 ZIP Tools', color: 'teal',
-    href: '/zip', viewAll: 'All 30+ ZIP Tools →',
+    href: '/zip', viewAll: 'All 35 ZIP Tools →',
     items: [
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
       { name: 'ZIP to City', href: '/zip/zip-to-city' },
@@ -92,7 +92,7 @@ const NAV = [
   },
   {
     key: 'commodities', label: '🥇 Commodities', color: 'yellow',
-    href: '/commodities', viewAll: 'All Commodities ->',
+    href: '/commodities', viewAll: 'All 10 Commodity Tools →',
     items: [
       { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
       { name: 'Silver Price Calculator', href: '/commodities/silver-price-calculator' },

@@ -1,176 +1,302 @@
 'use client'
-import { useState } from 'react'
-import { exportFullPagePDF, exportResultsOnlyPDF, type ExportCategory } from '@/lib/exportPDF'
+import { useState, useCallback } from 'react'
 
-type BtnState = 'idle' | 'loading' | 'done'
-interface BtnProps { title: string; category?: ExportCategory; compact?: boolean }
+export type ExportCategory = 'Finance' | 'Health' | 'Dev' | 'Fun' | string
 
-// ── Accent colours per category ───────────────────────────────────────────────
-const ACCENTS: Record<string, { full: string; results: string; shadow: string }> = {
-  Finance: { full: 'linear-gradient(135deg,#16a34a,#059669)', results: 'linear-gradient(135deg,#15803d,#166534)', shadow: 'rgba(22,163,74,.30)' },
-  Health:  { full: 'linear-gradient(135deg,#ef4444,#dc2626)', results: 'linear-gradient(135deg,#dc2626,#b91c1c)', shadow: 'rgba(239,68,68,.30)'  },
-  Dev:     { full: 'linear-gradient(135deg,#3b82f6,#2563eb)', results: 'linear-gradient(135deg,#2563eb,#1d4ed8)', shadow: 'rgba(59,130,246,.30)'  },
-  Fun:     { full: 'linear-gradient(135deg,#8b5cf6,#7c3aed)', results: 'linear-gradient(135deg,#7c3aed,#6d28d9)', shadow: 'rgba(139,92,246,.30)'  },
+interface Props {
+  title: string
+  category?: ExportCategory
+  compact?: boolean
 }
 
-const DONE_BG     = '#10b981'
-const DONE_SHADOW = 'rgba(16,185,129,.35)'
+const ACCENT: Record<string, string> = {
+  Finance: '#16a34a',
+  Health:  '#ef4444',
+  Dev:     '#3b82f6',
+  Fun:     '#8b5cf6',
+}
 
-// ── Shared button style ───────────────────────────────────────────────────────
-function pdfButtonStyle(bg: string, shadow: string): React.CSSProperties {
-  return {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '5px',
-    padding: '9px 13px',
-    fontSize: '12px',
-    fontWeight: 700,
-    color: '#fff',
-    border: 'none',
-    borderRadius: '11px',
-    cursor: 'pointer',
-    background: bg,
-    boxShadow: `0 4px 14px ${shadow}`,
-    transition: 'filter .15s, transform .1s',
-    userSelect: 'none',
-    whiteSpace: 'nowrap',
-    minHeight: '40px',
-    flex: '1 1 auto',
-  }
+// ── Load a script from CDN once ───────────────────────────────────────────────
+function loadScript(src: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (document.querySelector(`script[src="${src}"]`)) { resolve(); return }
+    const s = document.createElement('script')
+    s.src = src
+    s.onload = () => resolve()
+    s.onerror = () => reject(new Error(`Failed to load ${src}`))
+    document.head.appendChild(s)
+  })
 }
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
-const FullIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="12" y1="18" x2="12" y2="12"/>
-    <line x1="9" y1="15" x2="15" y2="15"/>
+const DownloadIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
   </svg>
 )
-const ResultIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="8" y1="13" x2="16" y2="13"/>
-    <line x1="8" y1="17" x2="13" y2="17"/>
-  </svg>
-)
+
 const Spinner = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
-    style={{ animation: 'spin .8s linear infinite' }}>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2.5" strokeLinecap="round"
+    style={{ animation: 'pdf-spin .8s linear infinite' }}>
     <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
   </svg>
 )
-const Check = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+
+const CheckIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12"/>
   </svg>
 )
 
-// ── Full Report Button ────────────────────────────────────────────────────────
-export function FullReportButton({ title, category = 'Finance' }: BtnProps) {
-  const [state, setState] = useState<BtnState>('idle')
-  const cat = ACCENTS[category as string] ?? ACCENTS.Finance
+// ── Main component ────────────────────────────────────────────────────────────
+export function DownloadPDFButton({ title, category = 'Finance' }: Props) {
+  const [state, setState] = useState<'idle' | 'loading' | 'done'>('idle')
+  const accent = ACCENT[category] ?? ACCENT.Finance
 
-  const bg     = state === 'done' ? DONE_BG     : cat.full
-  const shadow = state === 'done' ? DONE_SHADOW : cat.shadow
+  const bg = state === 'done'
+    ? '#10b981'
+    : `linear-gradient(135deg, ${accent}, ${accent}cc)`
 
-  const handle = () => {
+  const handleDownload = useCallback(async () => {
     if (state !== 'idle') return
     setState('loading')
-    setTimeout(() => {
-      exportFullPagePDF({ title, category })
+
+    try {
+      // Load html2canvas + jsPDF from CDN (no npm install needed)
+      await Promise.all([
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'),
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'),
+      ])
+
+      // Access globals injected by CDN scripts
+      const html2canvas = (window as any).html2canvas
+      const jsPDF = (window as any).jspdf?.jsPDF || (window as any).jsPDF
+
+      if (!html2canvas || !jsPDF) throw new Error('Libraries did not load')
+
+      // ── Find the calculator content area ─────────────────────────────────
+      // [data-pdf-results] is the OUTPUT column; its parentElement is the
+      // grid that also contains the INPUT card — so parentElement captures both.
+      const resultsEl = document.querySelector<HTMLElement>('[data-pdf-results]')
+      const target: HTMLElement | null =
+        (resultsEl?.parentElement as HTMLElement | null) ||   // grid with inputs + outputs
+        document.querySelector<HTMLElement>('[data-results="true"]') ||
+        document.querySelector<HTMLElement>('main > div')
+
+      if (!target) throw new Error('No content found')
+
+      // Expand all collapsed details/FAQ sections
+      target.querySelectorAll<HTMLDetailsElement>('details').forEach(d => { d.open = true })
+
+      // Bake current input values into the DOM so html2canvas captures them.
+      // html2canvas reads the .value property but doesn't always reflect it
+      // visually — setting the attribute makes it show correctly in the capture.
+      target.querySelectorAll<HTMLInputElement>('input[type="number"], input[type="text"]').forEach(inp => {
+        inp.setAttribute('value', inp.value)
+      })
+      // Range sliders: html2canvas can't render native range tracks.
+      // Replace each slider with a styled text badge showing its current value.
+      const sliderProxies: { parent: Node; badge: HTMLElement; slider: HTMLInputElement }[] = []
+      target.querySelectorAll<HTMLInputElement>('input[type="range"]').forEach(slider => {
+        const badge = document.createElement('div')
+        badge.style.cssText = 'display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;font-weight:700;color:#15803d;font-family:Inter,system-ui,sans-serif;'
+        badge.textContent = slider.value
+        slider.style.display = 'none'
+        slider.parentNode?.insertBefore(badge, slider)
+        sliderProxies.push({ parent: slider.parentNode!, badge, slider })
+      })
+
+      // Brief pause for DOM to settle
+      await new Promise(r => setTimeout(r, 120))
+
+      // ── Capture canvas at 2× for sharp resolution ─────────────────────
+      const canvas = await html2canvas(target, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: false,
+        backgroundColor: '#ffffff',
+        logging: false,
+        ignoreElements: (el: Element) => {
+          const tag = el.tagName?.toLowerCase()
+          if (['nav', 'footer', 'header'].includes(tag)) return true
+          const cls = (el as HTMLElement).className
+          if (typeof cls === 'string') {
+            if (cls.includes('calc-header-buttons')) return true
+            if (cls.includes('share-modal')) return true
+            if (cls.includes('breadcrumb')) return true
+          }
+          // Hide the download button itself from the PDF
+          if ((el as HTMLElement).title === 'Download PDF report of this calculator') return true
+          return false
+        },
+      })
+
+      // ── Build A4 PDF ──────────────────────────────────────────────────
+      const margin    = 12   // mm
+      const pageW     = 210  // A4 width mm
+      const pageH     = 297  // A4 height mm
+      const usableW   = pageW - margin * 2
+      const headerH   = 14   // top coloured bar
+      const footerH   = 12
+      const contentY  = headerH + 6
+      const availH    = pageH - contentY - footerH
+
+      // Convert canvas pixels → mm (2× scale at 96 dpi → 1 logical px = 0.2646 mm)
+      const mmPerLogPx = 0.2646
+      const scale      = 2
+      const imgMmW     = (canvas.width  / scale) * mmPerLogPx
+      const imgMmH     = (canvas.height / scale) * mmPerLogPx
+      const ratio      = usableW / imgMmW
+      const fImgW      = usableW
+      const fImgH      = imgMmH * ratio
+
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' })
+      const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
+      const addHeaderFooter = (pageNum: number, total: number) => {
+        // Header bar
+        pdf.setFillColor(accent)
+        pdf.rect(0, 0, pageW, headerH, 'F')
+        pdf.setTextColor(255, 255, 255)
+        pdf.setFont('helvetica', 'bold')
+        pdf.setFontSize(9)
+        const shortTitle = title.length > 70 ? title.slice(0, 67) + '…' : title
+        pdf.text(shortTitle, margin, 9)
+        pdf.setFont('helvetica', 'normal')
+        pdf.setFontSize(7.5)
+        pdf.text('tooltrio.com', pageW - margin, 9, { align: 'right' })
+
+        // Footer line + text
+        pdf.setDrawColor(229, 231, 235)
+        pdf.setLineWidth(0.3)
+        pdf.line(margin, pageH - footerH + 2, pageW - margin, pageH - footerH + 2)
+        pdf.setTextColor(156, 163, 175)
+        pdf.setFontSize(7)
+        pdf.text(`Generated by ToolTrio.com  •  ${date}`, margin, pageH - 4)
+        pdf.text(`Page ${pageNum} of ${total}`, pageW - margin, pageH - 4, { align: 'right' })
+      }
+
+      if (fImgH <= availH) {
+        // ── Single page ─────────────────────────────────────────────────
+        addHeaderFooter(1, 1)
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', margin, contentY, fImgW, fImgH)
+      } else {
+        // ── Multi-page: slice canvas into page-height chunks ─────────────
+        const pxPerPage = Math.round((availH / ratio) / mmPerLogPx) * scale
+        const totalPages = Math.ceil(canvas.height / pxPerPage)
+
+        for (let p = 0; p < totalPages; p++) {
+          if (p > 0) pdf.addPage()
+
+          const yStart  = p * pxPerPage
+          const sliceH  = Math.min(pxPerPage, canvas.height - yStart)
+          const sliceMmH = (sliceH / scale) * mmPerLogPx * ratio
+
+          // Create an off-screen canvas slice
+          const slice = document.createElement('canvas')
+          slice.width  = canvas.width
+          slice.height = sliceH
+          const ctx = slice.getContext('2d')!
+          ctx.fillStyle = '#ffffff'
+          ctx.fillRect(0, 0, canvas.width, sliceH)
+          ctx.drawImage(canvas, 0, yStart, canvas.width, sliceH, 0, 0, canvas.width, sliceH)
+
+          addHeaderFooter(p + 1, totalPages)
+          pdf.addImage(slice.toDataURL('image/png'), 'PNG', margin, contentY, fImgW, sliceMmH)
+        }
+      }
+
+      // ── Restore sliders after capture ────────────────────────────────
+      sliderProxies.forEach(({ badge, slider }) => {
+        badge.remove()
+        slider.style.display = ''
+      })
+
+      // ── Trigger download ──────────────────────────────────────────────
+      const safeName = title.replace(/[^a-z0-9]+/gi, '-').toLowerCase().slice(0, 60)
+      pdf.save(`${safeName}.pdf`)
+
       setState('done')
-      setTimeout(() => setState('idle'), 2500)
-    }, 100)
-  }
+      setTimeout(() => setState('idle'), 3000)
+
+    } catch (err) {
+      console.error('[PDF]', err)
+      // Restore any slider proxies that were created before the error
+      try {
+        document.querySelectorAll<HTMLInputElement>('input[type="range"]').forEach(s => { s.style.display = '' })
+        document.querySelectorAll('[data-slider-proxy]').forEach(b => b.remove())
+      } catch {}
+      // Graceful fallback: print CSS hides everything except main content
+      try {
+        const style = document.createElement('style')
+        style.id = 'trio-print-fallback'
+        style.textContent = `
+          @media print {
+            body > * { display: none !important; }
+            body > div > div.flex.flex-col { display: block !important; }
+            nav, footer, header, [class*="calc-header-buttons"], [class*="breadcrumb"] { display: none !important; }
+            main { display: block !important; }
+          }
+        `
+        document.head.appendChild(style)
+        window.print()
+        setTimeout(() => document.getElementById('trio-print-fallback')?.remove(), 2000)
+        setState('done')
+        setTimeout(() => setState('idle'), 3000)
+      } catch {
+        setState('idle')
+      }
+    }
+  }, [state, title, category, accent])
 
   return (
     <>
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+      <style>{`@keyframes pdf-spin{to{transform:rotate(360deg)}}`}</style>
       <button
-        onClick={handle}
+        onClick={handleDownload}
         disabled={state === 'loading'}
-        style={pdfButtonStyle(bg, shadow)}
-        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'brightness(1.08)' }}
-        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.filter = '' }}
-        onMouseDown={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
-        onMouseUp={e => { (e.currentTarget as HTMLButtonElement).style.transform = '' }}
-        title="Download full report PDF"
+        title="Download PDF report of this calculator"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '6px',
+          padding: '9px 14px',
+          fontSize: '12px',
+          fontWeight: 700,
+          color: '#fff',
+          border: 'none',
+          borderRadius: '11px',
+          cursor: state === 'loading' ? 'not-allowed' : 'pointer',
+          background: bg,
+          boxShadow: `0 4px 14px ${accent}44`,
+          transition: 'filter .15s, transform .1s',
+          userSelect: 'none',
+          whiteSpace: 'nowrap',
+          minHeight: '40px',
+          flex: '1 1 auto',
+          opacity: state === 'loading' ? 0.75 : 1,
+        }}
+        onMouseEnter={e => { if (state === 'idle') e.currentTarget.style.filter = 'brightness(1.1)' }}
+        onMouseLeave={e => { e.currentTarget.style.filter = '' }}
+        onMouseDown={e => { e.currentTarget.style.transform = 'scale(0.97)' }}
+        onMouseUp={e => { e.currentTarget.style.transform = '' }}
       >
-        {state === 'loading' ? <Spinner /> : state === 'done' ? <Check /> : <FullIcon />}
-        {state === 'loading' ? 'Preparing…' : state === 'done' ? 'Downloaded!' : 'Save Full Report'}
+        {state === 'loading' ? <Spinner /> : state === 'done' ? <CheckIcon /> : <DownloadIcon />}
+        {state === 'loading' ? 'Generating…' : state === 'done' ? 'Downloaded!' : 'Download PDF'}
       </button>
     </>
   )
 }
 
-// ── Results Only Button ───────────────────────────────────────────────────────
-export function ResultsOnlyButton({ title, category = 'Finance' }: BtnProps) {
-  const [state, setState] = useState<BtnState>('idle')
-  const cat = ACCENTS[category as string] ?? ACCENTS.Finance
-
-  const bg     = state === 'done' ? DONE_BG     : cat.results
-  const shadow = state === 'done' ? DONE_SHADOW : cat.shadow
-
-  const handle = () => {
-    if (state !== 'idle') return
-    setState('loading')
-    setTimeout(() => {
-      exportResultsOnlyPDF({ title, category })
-      setState('done')
-      setTimeout(() => setState('idle'), 2500)
-    }, 100)
-  }
-
-  return (
-    <button
-      onClick={handle}
-      disabled={state === 'loading'}
-      style={pdfButtonStyle(bg, shadow)}
-      onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'brightness(1.08)' }}
-      onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.filter = '' }}
-      onMouseDown={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(0.97)' }}
-      onMouseUp={e => { (e.currentTarget as HTMLButtonElement).style.transform = '' }}
-      title="Save results-only PDF — 1 page, just your numbers"
-    >
-      {state === 'loading' ? <Spinner /> : state === 'done' ? <Check /> : <ResultIcon />}
-      {state === 'loading' ? 'Preparing…' : state === 'done' ? 'Saved!' : 'Save Results Only'}
-    </button>
-  )
-}
-
-// ── Combined pair + legacy aliases ────────────────────────────────────────────
-interface PairProps { title: string; category?: ExportCategory; compact?: boolean }
-
-export function ExportButtonPair({ title, category = 'Finance' }: PairProps) {
-  return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-      <FullReportButton  title={title} category={category} />
-      <ResultsOnlyButton title={title} category={category} />
-    </div>
-  )
-}
-
-export function ExportPDFButton({ title, category = 'Finance' }: PairProps) {
-  return <ExportButtonPair title={title} category={category} />
-}
-
-export function ExportPDFBar({ title, category = 'Finance' }: { title: string; category?: ExportCategory }) {
-  const bg = category === 'Health' ? 'from-rose-50 to-red-50 border-rose-100'
-    : category === 'Dev'  ? 'from-blue-50 to-indigo-50 border-blue-100'
-    : category === 'Fun'  ? 'from-purple-50 to-violet-50 border-purple-100'
-    : 'from-green-50 to-emerald-50 border-green-100'
-  const tc = category === 'Health' ? 'text-rose-700' : category === 'Dev' ? 'text-blue-700' : category === 'Fun' ? 'text-purple-700' : 'text-green-700'
-  return (
-    <div className={`flex items-center justify-between gap-4 rounded-2xl border bg-gradient-to-r ${bg} px-5 py-3.5 mb-4`}>
-      <div>
-        <p className={`text-xs font-bold uppercase tracking-wider ${tc}`}>📄 Export as PDF</p>
-        <p className="text-sm text-gray-500">Full report or results only (1 page)</p>
-      </div>
-      <ExportButtonPair title={title} category={category} />
-    </div>
-  )
-}
+// ── Legacy aliases (keep existing imports working) ────────────────────────────
+export const FullReportButton   = DownloadPDFButton
+export const ResultsOnlyButton  = () => null
+export const ExportButtonPair   = DownloadPDFButton
+export const ExportPDFButton    = DownloadPDFButton
+export const ExportPDFBar       = DownloadPDFButton

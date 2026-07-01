@@ -111,7 +111,7 @@ export default function PreciousMetalsProfitPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>💰 Precious Metals Profit Calculator</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>💰 Precious Metals Profit Calculator</h1>
           <p className="text-gray-500 mt-1">Calculate profit & loss on gold, silver, platinum & palladium - including dealer fees, annualized ROI & break-even price</p>
         </div>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -347,7 +347,7 @@ export default function PreciousMetalsProfitPage() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Precious Metals Profit Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Precious Metals Profit Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals calculators show you the current price. This one shows you what actually matters for an investor: did you make money, how much, and at what annualized rate? The difference between spot price and your actual realized return includes dealer buy premiums (2–4% above spot when you buy), sell discounts (1–2% below spot when you sell), and the time value of your holding period. A 10% gold price gain over 3 years sounds good until you calculate it was a 3.2% annualized return — barely ahead of a fixed deposit.</p>
             <p>This calculator handles all four precious metals — gold, silver, platinum, and palladium — with separate buy fee and sell fee fields so you enter realistic dealer economics rather than theoretical spot-to-spot returns. The break-even price shows exactly what price the metal must reach before your trade becomes profitable (accounting for all fees). The P&L scenario chart shows profit at ±5%, ±10%, ±15%, ±20%, and ±25% from your buy price — essential for setting realistic profit targets and stop-loss levels.</p>

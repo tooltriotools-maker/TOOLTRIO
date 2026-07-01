@@ -132,7 +132,7 @@ export default function FunPage() {
           <Smile className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>Fun & Entertainment</h1>
+          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment</h1>
           <p className="text-pink-600 font-semibold mt-0.5">30 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>
@@ -207,7 +207,7 @@ export default function FunPage() {
 
       {/* SEO FAQ section */}
       <section className="mt-10 mb-8" aria-label="Frequently asked questions">
-        <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Playfair Display', serif"}}>Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Frequently Asked Questions</h2>
         <div className="space-y-5">
           {SEO_FAQS.map(({ q, a }) => (
             <div key={q} className="bg-white border-2 border-gray-100 rounded-2xl p-5">

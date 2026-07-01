@@ -1,4 +1,4 @@
-// ─── Shared tool data — used by GlobalSearch and TrioBot ───────────────────
+// ─── Shared tool data — used by GlobalSearch ───────────────────
 // Single source of truth — do not duplicate this data elsewhere
 
 export type ToolItem = {

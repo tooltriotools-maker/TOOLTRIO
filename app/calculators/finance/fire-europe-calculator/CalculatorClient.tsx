@@ -149,7 +149,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <div className="flex items-center justify-between mb-3">
               <div>
                 <p className="text-xs text-gray-500 uppercase tracking-wide">Your FIRE Number</p>
-                <p className="text-4xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>{fmtK(result.fireNumber)}</p>
+                <p className="text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{fmtK(result.fireNumber)}</p>
                 {includeStatePension && (
                   <p className="text-xs text-blue-600 mt-1">Reduced to {fmtK(adjustedFIRENumber)} with state pension at {country.statePensionAge}</p>
                 )}

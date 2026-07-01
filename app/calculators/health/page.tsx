@@ -327,31 +327,7 @@ export default function HealthPage() {
           </div>
         </div>
 
-        {/* Featured / Most Popular */}
-        <section aria-labelledby="popular-heading" className="mb-12">
-          <h2 id="popular-heading" className="text-2xl font-black text-gray-900 mb-1 flex items-center gap-2" style={{fontFamily:"'Playfair Display', serif"}}>
-            ⭐ Most Popular Health Calculators
-          </h2>
-          <p className="text-gray-500 text-sm mb-5">The calculators Americans search for most — all free, no signup.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {FEATURED.map(tool => (
-              <Link key={tool.href} href={tool.href}
-                className="group bg-white rounded-2xl border border-gray-100 p-5 hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col">
-                <span className="flex items-start gap-3 mb-3 block">
-                  <span className="text-3xl">{tool.icon}</span>
-                  <span className="flex-1 min-w-0 block">
-                    <h3 className="font-black text-gray-900 text-sm leading-tight group-hover:text-rose-600 transition-all">{tool.name}</h3>
-                    <p className="text-xs text-gray-500 mt-1 leading-snug">{tool.desc}</p>
-                  </span>
-                </span>
-                <div className="mt-auto flex items-center justify-between">
-                  <span className="text-xs font-bold text-gray-400">{tool.tag}</span>
-                  <span className="text-xs font-black text-rose-500 opacity-0 group-hover:opacity-100 transition-opacity">Use free →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+
 
         {/* Category Sections */}
         {CATEGORIES.map(cat => (

@@ -61,7 +61,7 @@ export default function Page() {
       </div>
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Playfair Display', serif"}}>💎 Platinum Price Calculator</h1>
+          <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>💎 Platinum Price Calculator</h1>
           <p className="text-gray-500 mt-1">Live platinum spot price per gram, troy oz, pennyweight and kilogram.</p>
         </div>
         <button onClick={refresh} disabled={loading} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl border border-gray-200">
@@ -140,7 +140,7 @@ export default function Page() {
         </div>
 
         <section>
-          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Playfair Display', serif"}}>Platinum Price Calculator — Complete Guide 2026</h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Platinum Price Calculator — Complete Guide 2026</h2>
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Platinum is the rarest and densest of the precious metals commonly used in jewellery and investment, yet it currently trades below gold — a historically unusual situation driven by the structural decline of diesel vehicles (platinum's primary industrial application) and the general underperformance of platinum group metals relative to gold since 2015. Understanding platinum pricing requires understanding both the commodity market dynamics and the emerging demand catalysts that could reverse this trend.</p>
             <p>Unlike gold and silver which have deep, liquid spot markets with constant price discovery, platinum trades in a smaller, less liquid market. The LPPM (London Platinum and Palladium Market) sets the benchmark price twice daily. Our calculator uses the live spot feed and converts it to per-gram, per-tola, and per-troy-oz prices for the most common calculation needs — whether you are appraising jewellery, evaluating refinery output, or tracking an investment position.</p>
