@@ -1,0 +1,42 @@
+import type { Metadata } from 'next'
+import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import dynamic from 'next/dynamic'
+const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
+  ssr: false,
+  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
+})
+export const metadata: Metadata = generateCalculatorMetadata({
+  title: 'College Debt Burden Calculator USA 2026 — Is Your Loan Manageable? | ToolTrio',
+  description: 'Calculate whether your student loan burden is manageable relative to expected salary, monthly payment-to-income ratio, and whether IDR forgiveness makes sense.',
+  slug: 'college-debt-burden-calculator',
+  category: 'finance',
+  region: 'usa',
+  keywords: ['college debt burden calculator USA 2026', 'student loan to income ratio', 'is my student loan too high', 'student debt manageable calculator', 'student loan payment to salary ratio USA'],
+})
+const faqs = [
+  {
+    question: 'What is the safe student loan-to-salary ratio?',
+    answer: 'The commonly cited rule: borrow no more than your expected first-year salary. On $58,000 expected salary, borrow no more than $58,000. Payment at that balance: $637/month = 13.2% of monthly income — slightly above the 10% guideline. Above 15% of income is considered unmanageable without IDR. Above 20% typically means IDR is the only viable repayment path.',
+  },
+  {
+    question: 'What is the SAVE plan and how does it help?',
+    answer: "SAVE (Saving on a Valuable Education) calculates payments at 5% of discretionary income (income above 225% of poverty line) for undergraduate loans. On $58,000 salary, SAVE payment: approx $175/month vs $637 standard — a $462/month reduction. SAVE also provides forgiveness after 20-25 years, and if your payment doesn't cover interest, the government absorbs the difference (no negative amortization). Enroll at studentaid.gov.",
+  },
+  {
+    question: 'At what debt-to-income ratio should I consider IDR?',
+    answer: "Consider IDR (income-driven repayment) when: (1) Debt-to-income ratio exceeds 1.0 (loans exceed annual salary), (2) Monthly payment under standard repayment exceeds 10-15% of gross income, (3) You work in public service (PSLF after 10 years), (4) You anticipate significant income growth and can pay more later. IDR is not just for struggling borrowers — it's a strategic tool, especially combined with PSLF.",
+  }
+]
+const relatedCalculators = [
+  { name: 'Student Loan Forgiveness', href: '/calculators/finance/student-loan-forgiveness-calculator', icon: '📚', desc: 'Student Loan Forgiveness' },
+  { name: 'Student Loan Refinance', href: '/calculators/finance/student-loan-refinance-calculator', icon: '🎓', desc: 'Student Loan Refinance' },
+  { name: 'College ROI Calculator', href: '/calculators/finance/college-roi-calculator', icon: '🎓', desc: 'College ROI Calculator' },
+  { name: 'Scholarship & Aid', href: '/calculators/finance/scholarship-financial-aid-calculator', icon: '🏫', desc: 'Scholarship & Aid' }
+]
+const structuredData = [generateFAQStructuredData(faqs)]
+export default function Page() {
+  return <>
+    {structuredData.map((s,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(s)}} />)}
+    <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />
+  </>
+}
