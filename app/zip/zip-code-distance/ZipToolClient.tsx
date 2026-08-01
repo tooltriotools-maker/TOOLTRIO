@@ -39,14 +39,41 @@ const STATE_CLIMATE: Record<string, string> = {
   NV:'Arid', MT:'Cold Continental', OR:'Maritime', MN:'Cold Continental',
 }
 
-const POPULAR = [
-  {zip:'10001',label:'NYC'}, {zip:'90210',label:'Beverly Hills'},
-  {zip:'60601',label:'Chicago'}, {zip:'77001',label:'Houston'},
-  {zip:'85001',label:'Phoenix'}, {zip:'19101',label:'Philadelphia'},
-  {zip:'78201',label:'San Antonio'}, {zip:'92101',label:'San Diego'},
-  {zip:'75201',label:'Dallas'}, {zip:'98101',label:'Seattle'},
-  {zip:'02108',label:'Boston'}, {zip:'30303',label:'Atlanta'},
+const POPULAR_ROUTES = [
+  {
+    label: '🗽 New York → Los Angeles',
+    from: '10001',
+    to: '90001',
+  },
+  {
+    label: '🤠 Dallas → Houston',
+    from: '75201',
+    to: '77001',
+  },
+  {
+    label: '🌴 Los Angeles → Las Vegas',
+    from: '90001',
+    to: '89101',
+  },
+  {
+    label: '🌉 San Francisco → Seattle',
+    from: '94102',
+    to: '98101',
+  },
+  {
+    label: '🌆 Chicago → Miami',
+    from: '60601',
+    to: '33101',
+  },
+  {
+    label: '🏜 Phoenix → Denver',
+    from: '85001',
+    to: '80202',
+  },
 ]
+
+
+
 
 interface ZipInfo {
   zip: string; city: string; stateCode: string; state: string
@@ -62,10 +89,10 @@ export default function ZipDistanceClient() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  function handleQuickFill(zip: string) {
-    if (filling === 'from') setZip1(zip)
-    else setZip2(zip)
-  }
+function handleQuickFill(route: { from: string; to: string }) {
+  setZip1(route.from)
+  setZip2(route.to)
+}
 
   async function calculate() {
     if (!/^\d{5}$/.test(zip1) || !/^\d{5}$/.test(zip2)) {
@@ -140,19 +167,29 @@ export default function ZipDistanceClient() {
             {filling==='from' ? 'Click city to set FROM ZIP' : 'Click city to set TO ZIP'}
           </span>
         </div>
-        <div className="flex flex-wrap gap-2">
-          {POPULAR.map(p => (
-            <button key={p.zip} onClick={() => handleQuickFill(p.zip)}
-              className="text-xs px-3 py-1.5 rounded-full border font-mono transition-all"
-              style={{
-                borderColor: filling==='from' ? 'rgba(134,239,172,0.6)' : 'rgba(147,197,253,0.6)',
-                color: filling==='from' ? '#15803d' : '#1d4ed8',
-                background:'#fff',
-              }}>
-              {p.zip} <span className="font-sans text-gray-400">({p.label})</span>
-            </button>
-          ))}
-        </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+
+  {POPULAR_ROUTES.map(route => (
+
+    <button
+      key={route.label}
+      onClick={() => handleQuickFill(route)}
+      className="rounded-xl border bg-white hover:bg-green-50 hover:border-green-400 transition-all p-3 text-left group"
+    >
+
+      <div className="font-semibold text-gray-800 text-sm group-hover:text-green-700">
+        {route.label}
+      </div>
+
+      <div className="text-xs text-gray-500 mt-1">
+        {route.from} → {route.to}
+      </div>
+
+    </button>
+
+  ))}
+
+</div>
       </div>
 
       {/* ── ZIP inputs ───────────────────────────────────────────────── */}
@@ -184,6 +221,35 @@ export default function ZipDistanceClient() {
         style={{background:'linear-gradient(135deg,#22c55e,#16a34a)',boxShadow:'0 4px 16px rgba(34,197,94,0.3)'}}>
         {loading ? 'Calculating...' : '🔍 Calculate Distance + Full Report'}
       </button>
+      
+      {/* Trust Indicators */}
+<div
+  className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-5"
+>
+  {[
+    { icon: "✅", text: "41,000+ ZIP Codes" },
+    { icon: "📮", text: "USPS Compatible" },
+    { icon: "🆓", text: "Free Forever" },
+    { icon: "⚡", text: "Instant Results" },
+    { icon: "📅", text: "Updated 2026" },
+  ].map((item) => (
+    <div
+      key={item.text}
+      className="rounded-xl border text-center py-3 px-2"
+      style={{
+        background: "rgba(248,250,252,0.9)",
+        borderColor: "rgba(226,232,240,0.8)",
+      }}
+    >
+      <div className="text-xl">{item.icon}</div>
+      <div
+        className="text-xs font-semibold text-gray-700 mt-1"
+      >
+        {item.text}
+      </div>
+    </div>
+  ))}
+</div>
 
       {error && <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4 text-sm">{error}</div>}
 
@@ -191,72 +257,152 @@ export default function ZipDistanceClient() {
         <div className="space-y-4">
 
           {/* ── HERO: Driving Distance — THE main number ─────────────── */}
-          <div className="rounded-2xl border p-5 text-center"
-            style={{background:'rgba(240,253,244,0.9)',borderColor:'rgba(134,239,172,0.8)',boxShadow:'0 4px 20px rgba(34,197,94,0.15)'}}>
-            <div className="text-xs font-bold text-green-600 uppercase tracking-widest mb-1">🚗 Driving Distance</div>
-            <div className="text-6xl font-black text-green-600 leading-none">
-              {driveMiles.toLocaleString()}
-            </div>
-            <div className="text-base text-green-700 font-semibold mt-1">
-              miles &nbsp;·&nbsp; {driveKm.toLocaleString()} km
-            </div>
-            <div className="text-xs text-gray-400 mt-2">
-              Straight-line: {result.miles.toFixed(1)} mi &nbsp;·&nbsp; {result.km.toFixed(1)} km
-            </div>
-          </div>
+       {/* ── Premium Result Summary ───────────────────────────── */}
 
-          {/* ── City labels ──────────────────────────────────────────── */}
-          <div className="grid grid-cols-2 gap-3">
-            {[result.r1, result.r2].map((r, i) => (
-              <div key={i} className="rounded-xl border p-3" style={{background:'rgba(248,250,248,0.9)'}}>
-                <div className="text-xs text-gray-400">{i===0 ? '📍 From' : '🏁 To'}</div>
-                <div className="font-bold text-gray-800">{r.city}, {r.stateCode}</div>
-                <div className="text-sm text-gray-500">ZIP {r.zip}</div>
-              </div>
-            ))}
-          </div>
+<div
+  className="rounded-3xl border p-6 mb-5"
+  style={{
+    background: "linear-gradient(135deg,#f0fdf4,#eff6ff)",
+    borderColor: "#d1fae5",
+    boxShadow: "0 10px 30px rgba(0,0,0,.08)",
+  }}
+>
+  <div className="text-center">
+
+  <div className="text-center">
+
+<div className="text-xs uppercase tracking-[3px] text-gray-500 font-bold">
+Distance Report
+</div>
+
+<h2 className="text-3xl font-black mt-3 text-gray-900 leading-tight">
+
+{result.r1.city}
+
+<span className="text-green-600">
+{" "}({result.r1.zip})
+</span>
+
+{" "}→{" "}
+
+{result.r2.city}
+
+<span className="text-blue-600">
+{" "}({result.r2.zip})
+</span>
+
+</h2>
+
+<p className="text-gray-500 mt-3">
+
+Driving Distance between
+
+<b> {result.r1.city}</b>
+
+and
+
+<b> {result.r2.city}</b>
+
+</p>
+
+</div>
+
+    <div className="text-5xl font-black text-green-600 mt-3">
+      {driveMiles.toLocaleString()} mi
+    </div>
+
+    <div className="text-gray-500 text-sm mt-1">
+      {driveKm.toLocaleString()} km Driving Distance
+    </div>
+
+  </div>
+
+  <div className="grid md:grid-cols-2 gap-4 mt-6">
+
+    <div className="rounded-2xl border bg-white p-4">
+
+      <div className="text-xs uppercase text-gray-400">
+        FROM
+      </div>
+
+      <div className="font-bold text-xl mt-1">
+        📍 {result.r1.city}, {result.r1.stateCode}
+      </div>
+
+      <div className="text-sm text-gray-500">
+        ZIP {result.r1.zip}
+      </div>
+
+    </div>
+
+    <div className="rounded-2xl border bg-white p-4">
+
+      <div className="text-xs uppercase text-gray-400">
+        TO
+      </div>
+
+      <div className="font-bold text-xl mt-1">
+        🏁 {result.r2.city}, {result.r2.stateCode}
+      </div>
+
+      <div className="text-sm text-gray-500">
+        ZIP {result.r2.zip}
+      </div>
+
+    </div>
+
+  </div>
+
+  <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mt-6">
+
+    <div className="rounded-xl border bg-white p-3 text-center">
+      <div className="text-xs text-gray-500">🚗 Driving</div>
+      <div className="font-bold mt-1">
+        {driveMiles.toLocaleString()} mi
+      </div>
+    </div>
+
+    <div className="rounded-xl border bg-white p-3 text-center">
+      <div className="text-xs text-gray-500">✈ Air</div>
+      <div className="font-bold mt-1">
+        {flightMiles.toLocaleString()} mi
+      </div>
+    </div>
+
+    <div className="rounded-xl border bg-white p-3 text-center">
+      <div className="text-xs text-gray-500">⏱ Time</div>
+      <div className="font-bold mt-1">
+        {driveHours}h {driveMin}m
+      </div>
+    </div>
+
+    <div className="rounded-xl border bg-white p-3 text-center">
+      <div className="text-xs text-gray-500">⛽ Fuel</div>
+      <div className="font-bold mt-1">
+        ${fuelCostLow}-${fuelCostHigh}
+      </div>
+    </div>
+
+    <div className="rounded-xl border bg-white p-3 text-center">
+      <div className="text-xs text-gray-500">🕐 Timezone</div>
+      <div className="font-bold mt-1">
+        {tzMsg}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
 
           {/* ── Full Journey Report ──────────────────────────────────── */}
           <div className="rounded-2xl border p-4"
             style={{background:'rgba(255,255,255,0.9)',borderColor:'rgba(226,232,240,0.8)'}}>
             <h3 className="font-bold text-gray-700 text-sm mb-3">📊 Full Journey Report</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
 
-              {/* Drive time */}
-              <div className="rounded-xl p-3 text-center"
-                style={{background:'rgba(254,243,199,0.7)',border:'1px solid rgba(251,191,36,0.4)'}}>
-                <div className="text-xl mb-1">🚗</div>
-                <div className="text-xs text-amber-700 font-semibold">Drive Time</div>
-                <div className="font-black text-amber-800 text-lg">{driveHours}h {driveMin}m</div>
-                <div className="text-xs text-amber-600">{driveMiles.toLocaleString()} mi by road</div>
-              </div>
-
-              {/* Flight */}
-              <div className="rounded-xl p-3 text-center"
-                style={{background:'rgba(239,246,255,0.7)',border:'1px solid rgba(147,197,253,0.4)'}}>
-                <div className="text-xl mb-1">✈️</div>
-                <div className="text-xs text-blue-700 font-semibold">Flight Distance</div>
-                <div className="font-black text-blue-800 text-lg">{flightMiles.toLocaleString()} mi</div>
-                <div className="text-xs text-blue-600">~{flightHours}h airtime</div>
-              </div>
-
-              {/* Fuel cost */}
-              <div className="rounded-xl p-3 text-center"
-                style={{background:'rgba(240,253,244,0.7)',border:'1px solid rgba(134,239,172,0.4)'}}>
-                <div className="text-xl mb-1">⛽</div>
-                <div className="text-xs text-green-700 font-semibold">Fuel Cost Est.</div>
-                <div className="font-black text-green-800 text-lg">${fuelCostLow}-${fuelCostHigh}</div>
-                <div className="text-xs text-green-600">avg 25 mpg</div>
-              </div>
-
-              {/* Timezone */}
-              <div className="rounded-xl p-3 text-center"
-                style={{background:'rgba(245,243,255,0.7)',border:'1px solid rgba(196,181,253,0.4)'}}>
-                <div className="text-xl mb-1">🕐</div>
-                <div className="text-xs text-purple-700 font-semibold">Time Zones</div>
-                <div className="font-black text-purple-800 text-lg">{tzMsg}</div>
-                <div className="text-xs text-purple-600">{tzDetail}</div>
-              </div>
+          
 
               {/* Shipping */}
               <div className="rounded-xl p-3 text-center"
@@ -277,9 +423,135 @@ export default function ZipDistanceClient() {
                   {STATE_CLIMATE[result.r2.stateCode] || 'Temperate'}
                 </div>
               </div>
+              {/* Road Type */}
+
+<div
+  className="rounded-xl p-3 text-center"
+  style={{
+    background:'rgba(239,246,255,.7)',
+    border:'1px solid rgba(147,197,253,.4)'
+  }}
+>
+  <div className="text-xl mb-1">🛣️</div>
+
+  <div className="text-xs text-blue-700 font-semibold">
+    Route Type
+  </div>
+
+  <div className="font-black text-blue-800 mt-1">
+    Interstate Highway
+  </div>
+
+  <div className="text-xs text-blue-600">
+    Fastest recommended route
+  </div>
+
+</div>
+
+{/* Travel Tips */}
+
+<div
+  className="rounded-xl p-3 text-center"
+  style={{
+    background:'rgba(240,253,244,.7)',
+    border:'1px solid rgba(134,239,172,.4)'
+  }}
+>
+  <div className="text-xl mb-1">💡</div>
+
+  <div className="text-xs text-green-700 font-semibold">
+    Travel Tip
+  </div>
+
+  <div className="font-black text-green-800 mt-1">
+    Best for Road Trips
+  </div>
+
+  <div className="text-xs text-green-600">
+    Plan fuel & rest stops
+  </div>
+
+</div>
 
             </div>
           </div>
+
+          <div
+className="rounded-2xl border bg-white p-6"
+style={{borderColor:"#e5e7eb"}}
+>
+
+<h2 className="text-2xl font-bold mb-5">
+
+📊 Route Statistics
+
+</h2>
+
+<div className="grid md:grid-cols-2 gap-4">
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Origin City</span>
+<b>{result.r1.city}, {result.r1.stateCode}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Destination</span>
+<b>{result.r2.city}, {result.r2.stateCode}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Origin ZIP</span>
+<b>{result.r1.zip}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Destination ZIP</span>
+<b>{result.r2.zip}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Driving Distance</span>
+<b>{driveMiles.toLocaleString()} mi</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Air Distance</span>
+<b>{Math.round(result.miles).toLocaleString()} mi</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Estimated Drive Time</span>
+<b>{driveHours}h {driveMin}m</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Estimated Fuel Cost</span>
+<b>${fuelCostLow}-${fuelCostHigh}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Timezone</span>
+<b>{tzMsg}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Ground Shipping</span>
+<b>{shippingGround}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Climate</span>
+<b>{STATE_CLIMATE[result.r1.stateCode]} → {STATE_CLIMATE[result.r2.stateCode]}</b>
+</div>
+
+<div className="flex justify-between border-b pb-2">
+<span className="text-gray-600">Route Type</span>
+<b>Interstate Highway</b>
+</div>
+
+</div>
+
+</div>
 
           {/* ── Route preview + Map CTA ──────────────────────────────── */}
           <div className="rounded-2xl border overflow-hidden"
@@ -293,28 +565,75 @@ export default function ZipDistanceClient() {
                 Open in Google Maps ↗
               </a>
             </div>
-            <div style={{height:180,background:'linear-gradient(135deg,#e0f2fe,#dbeafe)'}}>
-              <div className="h-full flex flex-col items-center justify-center gap-3 p-4">
-                <div className="flex items-center gap-4 w-full max-w-xs">
-                  <div className="flex-1 rounded-xl p-3 text-center text-white font-bold text-sm"
-                    style={{background:'linear-gradient(135deg,#22c55e,#16a34a)'}}>
-                    📍 {result.r1.city}<br />
-                    <span className="text-xs font-normal opacity-90">{result.r1.stateCode} {result.r1.zip}</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="text-gray-500 text-lg">→</div>
-                    <div className="text-xs font-black text-gray-700">{driveMiles.toLocaleString()} mi</div>
-                  </div>
-                  <div className="flex-1 rounded-xl p-3 text-center text-white font-bold text-sm"
-                    style={{background:'linear-gradient(135deg,#3b82f6,#2563eb)'}}>
-                    🏁 {result.r2.city}<br />
-                    <span className="text-xs font-normal opacity-90">{result.r2.stateCode} {result.r2.zip}</span>
-                  </div>
-                </div>
-                <div className="text-xs text-gray-500 text-center">
-                  {driveMiles.toLocaleString()} mi road · {driveHours}h {driveMin}m drive · {tzMsg}
-                </div>
-              </div>
+          <div
+  className="p-6"
+  style={{
+    background: "linear-gradient(135deg,#f8fafc,#eff6ff)"
+  }}
+>
+           <div className="grid md:grid-cols-3 gap-5 items-center">
+
+  <div className="text-center">
+
+    <div className="text-3xl mb-2">
+      📍
+    </div>
+
+    <div className="font-bold text-lg">
+      {result.r1.city}
+    </div>
+
+    <div className="text-gray-500">
+      {result.r1.stateCode}
+    </div>
+
+    <div className="text-sm text-gray-400">
+      ZIP {result.r1.zip}
+    </div>
+
+  </div>
+
+  <div className="text-center">
+
+    <div className="text-4xl">
+      🚗
+    </div>
+
+    <div className="font-black text-3xl mt-2 text-green-600">
+      {driveMiles.toLocaleString()} mi
+    </div>
+
+    <div className="text-gray-500 mt-1">
+      {driveHours}h {driveMin}m Drive
+    </div>
+
+    <div className="text-sm text-blue-600 mt-2">
+      Interstate Route
+    </div>
+
+  </div>
+
+  <div className="text-center">
+
+    <div className="text-3xl mb-2">
+      🏁
+    </div>
+
+    <div className="font-bold text-lg">
+      {result.r2.city}
+    </div>
+
+    <div className="text-gray-500">
+      {result.r2.stateCode}
+    </div>
+
+    <div className="text-sm text-gray-400">
+      ZIP {result.r2.zip}
+    </div>
+
+  </div>
+
+</div>
             </div>
           </div>
 
@@ -335,6 +654,325 @@ export default function ZipDistanceClient() {
           </div>
 
           {/* ── Disclaimer ───────────────────────────────────────────── */}
+
+          {/* Dynamic FAQ */}
+
+          <div
+className="rounded-2xl border bg-white p-6 mt-6"
+style={{borderColor:"#e5e7eb"}}
+>
+
+<h2 className="text-2xl font-bold mb-5">
+
+🔗 Continue Exploring
+
+</h2>
+
+<div className="grid md:grid-cols-2 gap-6">
+
+<div>
+
+<h3 className="font-bold mb-3">
+
+📍 {result.r1.city} ({result.r1.zip})
+
+</h3>
+
+<div className="space-y-2">
+
+<a href={`/zip/zip-boundary-info?zip=${result.r1.zip}`} className="block hover:text-green-600">
+🗺 ZIP Boundary
+</a>
+
+<a href={`/zip/zip-code-population?zip=${result.r1.zip}`} className="block hover:text-green-600">
+👥 Population
+</a>
+
+<a href={`/zip/zip-to-timezone?zip=${result.r1.zip}`} className="block hover:text-green-600">
+🕐 Timezone
+</a>
+
+<a href={`/zip/zip-to-coordinates?zip=${result.r1.zip}`} className="block hover:text-green-600">
+📍 Coordinates
+</a>
+
+<a href={`/zip/county-zip-codes?zip=${result.r1.zip}`} className="block hover:text-green-600">
+🏛 County
+</a>
+
+</div>
+
+</div>
+
+<div>
+
+<h3 className="font-bold mb-3">
+
+📍 {result.r2.city} ({result.r2.zip})
+
+</h3>
+
+<div className="space-y-2">
+
+<a href={`/zip/zip-boundary-info?zip=${result.r2.zip}`} className="block hover:text-green-600">
+🗺 ZIP Boundary
+</a>
+
+<a href={`/zip/zip-code-population?zip=${result.r2.zip}`} className="block hover:text-green-600">
+👥 Population
+</a>
+
+<a href={`/zip/zip-to-timezone?zip=${result.r2.zip}`} className="block hover:text-green-600">
+🕐 Timezone
+</a>
+
+<a href={`/zip/zip-to-coordinates?zip=${result.r2.zip}`} className="block hover:text-green-600">
+📍 Coordinates
+</a>
+
+<a href={`/zip/county-zip-codes?zip=${result.r2.zip}`} className="block hover:text-green-600">
+🏛 County
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+className="rounded-2xl border bg-gradient-to-r from-green-50 to-blue-50 p-6 mt-6"
+>
+
+<h2 className="text-xl font-bold mb-5">
+
+🚀 More ZIP Tools
+
+</h2>
+
+<div className="grid md:grid-cols-3 gap-3">
+
+<a href="/zip/zips-within-radius">🎯 ZIPs Within Radius</a>
+
+<a href="/zip/zip-code-map">🗺 ZIP Code Map</a>
+
+<a href="/zip/drive-time-by-zip">🚗 Drive Time by ZIP</a>
+
+<a href="/zip/zip-to-zip-route">🛣 ZIP Route Planner</a>
+
+<a href="/zip/nearest-zip-code">📍 Nearest ZIP</a>
+
+<a href="/zip/multi-zip-distance">📐 Multi ZIP Distance</a>
+
+<a href="/zip/zip-code-lookup">🔍 ZIP Lookup</a>
+
+<a href="/zip/address-to-zip">🏠 Address to ZIP</a>
+
+<a href="/zip/zip-to-city">🏙 ZIP to City</a>
+
+</div>
+
+</div>
+
+
+
+
+
+<div
+  className="rounded-2xl border p-5 mt-6"
+  style={{
+    borderColor:"#e5e7eb",
+    background:"#fff"
+  }}
+>
+
+<h3 className="text-xl font-bold mb-4">
+Frequently Asked About This Route
+</h3>
+
+<div className="space-y-3">
+
+<details className="rounded-xl border p-3">
+
+<summary className="font-semibold cursor-pointer">
+
+How far is {result.r1.city} ({result.r1.zip}) from {result.r2.city} ({result.r2.zip})?
+
+</summary>
+
+<p className="mt-3 text-gray-600">
+
+Driving distance is approximately <b>{driveMiles.toLocaleString()} miles</b> while straight-line distance is <b>{Math.round(result.miles).toLocaleString()} miles</b>.
+
+</p>
+
+</details>
+
+<details className="rounded-xl border p-3">
+
+<summary className="font-semibold cursor-pointer">
+
+How long does it take to drive?
+
+</summary>
+
+<p className="mt-3 text-gray-600">
+
+The estimated drive time is
+
+<b> {driveHours}h {driveMin}m </b>
+
+under normal highway conditions.
+
+</p>
+
+</details>
+
+<details className="rounded-xl border p-3">
+
+<summary className="font-semibold cursor-pointer">
+
+What is the estimated fuel cost?
+
+</summary>
+
+<p className="mt-3 text-gray-600">
+
+Fuel cost is approximately
+
+<b>
+
+${fuelCostLow} - ${fuelCostHigh}
+
+</b>
+
+based on 25 MPG.
+
+</p>
+
+</details>
+
+<details className="rounded-xl border p-3">
+
+<summary className="font-semibold cursor-pointer">
+
+Do these ZIP Codes share the same timezone?
+
+</summary>
+
+<p className="mt-3 text-gray-600">
+
+{tzMsg}.
+
+{tzDetail}
+
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+<div
+className="rounded-2xl border p-6 bg-white"
+style={{borderColor:"#e5e7eb"}}
+>
+
+<h2 className="text-2xl font-bold mb-4">
+
+Driving from {result.r1.city}, {result.r1.stateCode}
+to {result.r2.city}, {result.r2.stateCode}
+
+</h2>
+
+<p className="text-gray-700 leading-8">
+
+The driving distance from
+
+<b> {result.r1.city} ({result.r1.zip})</b>
+
+to
+
+<b> {result.r2.city} ({result.r2.zip})</b>
+
+is approximately
+
+<b> {driveMiles.toLocaleString()} miles</b>
+
+({driveKm.toLocaleString()} km).
+
+The estimated driving time is
+
+<b> {driveHours} hours {driveMin} minutes</b>
+
+under normal highway traffic.
+
+The straight-line air distance between these ZIP codes is
+
+<b> {Math.round(result.miles).toLocaleString()} miles</b>.
+
+</p>
+
+</div>
+
+<div
+className="rounded-2xl border p-6 bg-white"
+style={{borderColor:"#e5e7eb"}}
+>
+
+<h2 className="text-2xl font-bold mb-4">
+
+{result.r1.city} vs {result.r2.city}
+
+</h2>
+
+<p className="leading-8 text-gray-700">
+
+Traveling from
+
+<b>{result.r1.city}, {result.r1.stateCode}</b>
+
+to
+
+<b>{result.r2.city}, {result.r2.stateCode}</b>
+
+covers approximately
+
+<b>{driveMiles.toLocaleString()} driving miles</b>
+
+with an estimated travel time of
+
+<b>{driveHours} hours {driveMin} minutes</b>.
+
+This journey crosses different geographic regions of the United States and may include interstate highways, mountain passes, urban areas, or rural roads depending on the selected ZIP Codes.
+
+</p>
+
+<p className="leading-8 text-gray-700 mt-4">
+
+The straight-line distance between these ZIP Codes is
+
+<b> {Math.round(result.miles).toLocaleString()} miles</b>,
+
+while the actual driving distance is
+
+<b>{driveMiles.toLocaleString()} miles</b>.
+
+Fuel cost is estimated between
+
+<b>${fuelCostLow}-${fuelCostHigh}</b>
+
+for an average vehicle achieving
+
+<b>25 MPG</b>.
+
+</p>
+
+</div>
+
           <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-700">
             Road distance calibrated vs Google Maps (SA-NYC: 1,830 mi vs Google 1,829 mi). Drive time uses distance-adjusted avg speed. Fuel at avg US prices, 25 mpg.
           </div>

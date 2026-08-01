@@ -102,10 +102,120 @@ function PopulationBarChart({ chart }: { chart: PopulationChart }) {
   )
 }
 
+
+function getToolDescription(name: string) {
+
+  const descriptions: Record<string, string> = {
+
+    // CITY
+
+    "ZIP to City":
+      "Find the city for any US ZIP Code.",
+
+    "City to ZIP Code":
+      "Find ZIP Codes by city name.",
+
+    "ZIP to State":
+      "Identify the US state from a ZIP Code.",
+
+    "State ZIP Codes":
+      "Browse all ZIP Codes in any US state.",
+
+    "ZIP to County":
+      "Find the county for any ZIP Code.",
+
+    "County ZIP Codes":
+      "View ZIP Codes organized by county.",
+
+    "ZIP by City Name":
+      "Search ZIP Codes using a city name.",
+
+    "Multiple Cities ZIP":
+      "Compare ZIP Codes across multiple cities.",
+
+    "ZIP Code Population":
+      "View population and census statistics.",
+
+    "Largest ZIP Codes":
+      "Explore the largest ZIP Code areas.",
+
+    "ZIP Elevation":
+      "Find elevation for any ZIP Code.",
+
+    // DISTANCE
+
+    "ZIP Code Distance":
+      "Calculate driving and air distance.",
+
+    "ZIPs Within Radius":
+      "Find ZIP Codes inside any radius.",
+
+    "Nearest ZIP Code":
+      "Locate the closest ZIP Code.",
+
+    "ZIP Code Map":
+      "Interactive ZIP Code maps.",
+
+    "Drive Time by ZIP":
+      "Estimate driving time between ZIPs.",
+
+    "ZIP to ZIP Route":
+      "Generate routes between ZIP Codes.",
+
+    "Multi-ZIP Distance":
+      "Measure distance across multiple ZIP Codes.",
+
+    "ZIP Boundary Info":
+      "Explore official ZIP boundaries.",
+
+    // USPS
+
+    "USPS Address Format":
+      "Format addresses to USPS standards.",
+
+    "ZIP+4 Lookup":
+      "Find the complete 9-digit ZIP Code.",
+
+    "ZIP Code Validator":
+      "Validate any US ZIP Code instantly.",
+
+    "Address to ZIP":
+      "Convert any address into a ZIP Code.",
+
+    "ZIP Code Generator":
+      "Generate valid ZIP Code examples.",
+
+    "ZIP Format Guide":
+      "Understand ZIP formatting rules.",
+
+    // TIME
+
+    "ZIP Time Converter":
+      "Convert time between ZIP Codes.",
+
+    "ZIP to Timezone":
+      "Find the timezone for any ZIP Code.",
+
+    "ZIP to Timezone Map":
+      "View ZIP timezone coverage.",
+
+    "Same Timezone ZIPs":
+      "Find ZIP Codes in the same timezone.",
+
+    "Area Code by ZIP":
+      "Find phone area codes from ZIP Codes.",
+
+    "ZIP by Area Code":
+      "Find ZIP Codes using area codes."
+
+  }
+
+  return descriptions[name] || "Explore this ZIP tool."
+}
 export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent }: Props) {
   return (
     <main className="min-h-screen bg-gray-50/50 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
@@ -118,12 +228,30 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
 
         {/* ── HERO HEADER ───────────────────────────────────────── */}
         <div className="text-center mb-8">
-          {seoContent?.verifiedDate && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
-              VERIFIED: {seoContent.verifiedDate}
-            </div>
-          )}
+         {seoContent?.verifiedDate && (
+  <>
+    <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1 mb-3">
+      <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
+      VERIFIED: {seoContent.verifiedDate}
+    </div>
+
+    <div className="flex justify-center gap-2 flex-wrap mb-4">
+
+      <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+        📮 USPS Compatible
+      </span>
+
+      <span className="px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold">
+        ⚡ Instant Results
+      </span>
+
+      <span className="px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+        🌎 41,000+ ZIP Codes
+      </span>
+
+    </div>
+  </>
+)}
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             {title}
           </h1>
@@ -390,16 +518,55 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
         {relatedTools && relatedTools.length > 0 && (
           <div className="rounded-2xl border border-gray-200 bg-white p-5 mb-6 shadow-sm">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-gray-800 text-sm uppercase tracking-wider">🔗 Related ZIP Tools</h3>
-              <Link href="/zip" className="text-xs text-blue-600 hover:text-blue-700 font-semibold">View all tools →</Link>
+             <div>
+  <h2 className="text-xl font-black text-gray-900">
+    Continue Your ZIP Journey
+  </h2>
+
+  <p className="text-sm text-gray-500 mt-1">
+    Explore more ZIP code tools to find addresses, boundaries, demographics, and location insights.
+  </p>
+</div>
+              <Link
+ href="/zip"
+ className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+>
+
+View all 35+ ZIP Tools
+
+<span>→</span>
+
+</Link>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+           <div className="grid md:grid-cols-2 gap-3">
               {relatedTools.map(t => (
-                <Link key={t.href} href={t.href}
-                  className="flex items-center gap-2 p-3 rounded-xl border border-gray-100 bg-gray-50/50 hover:border-blue-300 hover:bg-blue-50 transition-all group">
-                  <span className="text-base">{t.icon}</span>
-                  <span className="font-medium text-gray-700 group-hover:text-blue-700 text-xs leading-tight">{t.name}</span>
-                </Link>
+        <Link
+  key={t.href}
+  href={t.href}
+  className="group rounded-2xl border border-gray-200 bg-white hover:border-green-400 hover:bg-green-50 transition-all p-4"
+>
+
+  <div className="flex items-start gap-3">
+
+    <div className="text-2xl">
+      {t.icon}
+    </div>
+
+    <div>
+
+      <div className="font-bold text-gray-900 group-hover:text-green-700">
+        {t.name}
+      </div>
+
+      <div className="text-xs text-gray-500 mt-1">
+        {getToolDescription(t.name)}
+      </div>
+
+    </div>
+
+  </div>
+
+</Link>
               ))}
             </div>
           </div>

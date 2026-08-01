@@ -9,34 +9,73 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
-  description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
-  keywords: [
-    'zip code distance calculator',
-    'distance between zip codes',
-    'miles between zip codes',
-    'how far between two zip codes',
-    'zip code to zip code distance',
-    'calculate distance by zip code free',
-    'zip code mileage calculator',
-    'two zip code distance miles',
-    'tooltrio',
-    'zip code tooltrio',
-  ],
+  title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
+  description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
+ 
+ keywords: [
+  'zip code distance calculator',
+  'zip distance',
+  'zip distance calculator',
+  'zip to zip distance',
+  'zip to zip distance calculator',
+  'distance between zip codes',
+  'distance between two zip codes',
+  'zip code to zip code distance',
+  'miles between zip codes',
+  'how far between two zip codes',
+  'how many miles between zip codes',
+  'calculate distance between two zip codes',
+  'zip code mileage calculator',
+
+  // USA intent
+  'zip code distance usa',
+  'usa zip distance',
+  'us zip distance',
+  'us zip code distance',
+  'usa zip code distance',
+  'distance between us zip codes',
+  'zip distance calculator usa',
+
+  // Driving / Air
+  'driving distance between zip codes',
+  'road distance between zip codes',
+  'air distance between zip codes',
+  'straight line distance between zip codes',
+  'as the crow flies zip code distance',
+  'zip code travel distance',
+
+  // Questions
+  'how to calculate distance between zip codes',
+  'how to find miles between two zip codes',
+  'how to calculate driving distance between zip codes',
+
+  // Business / Logistics
+  'shipping distance between zip codes',
+  'freight distance calculator by zip code',
+  'trucking mileage calculator zip to zip',
+
+  // Technical
+  'haversine formula zip code distance',
+  'calculate zip code distance in excel',
+  'zip code distance matrix tool',
+  'batch zip code distance lookup',
+  'bulk zip code distance calculator',
+],
+
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-distance' },
   openGraph: {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-distance',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
-    description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
+    title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
+    description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Distance Calculator — Miles Between Two ZIP Codes USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Distance Calculator — Miles Between ZIP Codes | ToolTrio',
-    description: 'Calculate the straight-line distance between any two US ZIP codes free — in miles or kilometers. Instant results, no signup required.',
+    title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
+    description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -69,8 +108,8 @@ const tips = [
 
 const seoContent = {
   verifiedDate: 'JAN 2026',
-  tagline: `Calculate the straight-line distance between any two US ZIP codes in **miles or kilometers** — instantly.`,
-  proTip: `Need driving distance? Multiply the straight-line result by 1.3 for a rough estimate, or use our Drive Time by ZIP tool for actual road distance.`,
+  tagline: `Calculate the **air distance and estimated driving distance** between any two US ZIP codes. Supports **41,000+ USPS ZIP Codes** with instant results in **miles and kilometers**.`,
+  proTip: `✓ Free • ✓ No Signup • ✓ USPS ZIP Database • ✓ Updated for 2026 • Need exact road mileage? Use our Drive Time by ZIP tool.`,
   howToSteps: [
     { num: 1, title: `Enter Origin ZIP:`, desc: `Type the 5-digit ZIP code of your starting location (e.g., 90210).` },
     { num: 2, title: `Enter Destination ZIP:`, desc: `Type the 5-digit ZIP code for where you want to go (e.g., 10001).` },
