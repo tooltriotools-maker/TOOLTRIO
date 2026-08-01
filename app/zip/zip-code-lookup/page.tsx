@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
+  title: 'ZIP Code Lookup USA— City, County, Timezone & More Free USA | ToolTrio',
   description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
   keywords: [
     'zip code lookup',
@@ -22,6 +22,16 @@ export const metadata: Metadata = {
     'zip code county lookup free',
     'tooltrio',
     'tooltrio zip code',
+
+    'zip lookup usps',
+    'zip lookup usa',
+    'zip lookup tool',
+    'zip code lookup usps',
+    
+
+
+
+
   ],
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-lookup' },
   openGraph: {

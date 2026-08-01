@@ -22,6 +22,25 @@ export const metadata: Metadata = {
     'zip code plus 4 for address free',
     'tooltrio',
     'zip code tooltrio',
+
+    'zip code lookup usps',
+    'zip code plus 4 lookup',
+    'what is my 9-digit zip code',
+    'what is the zip code for this address',
+    'ups zip code lookup by address',
+    'zip code plus 4 lookup',
+    'zip code plus 4 lookup usa',
+    'zip code plus 4 lookup by address',
+    'zip 9 lookup',
+    'lookup zip code',
+    'lookup zip plus 4',
+    'USPS address lookup tool',
+
+
+
+
+
+
   ],
   alternates: { canonical: 'https://tooltrio.com/zip/zip-plus-4-lookup' },
   openGraph: {
@@ -144,7 +163,10 @@ Mail processing software that appends ZIP+4 codes must meet USPS Coding Accuracy
     { q: 'How do I qualify for USPS bulk mail discounts using ZIP+4 codes?', a: `To qualify for presort automation rates: (1) Your mailing must meet minimum volume thresholds (500 pieces for First-Class, 200 for Marketing Mail). (2) Each piece must have a valid ZIP+4 appended to the delivery address. (3) Pieces must be sorted by ZIP+4 and placed in trays/sacks in the required order. (4) A USPS-approved postage statement must be submitted. The discount for First-Class with carrier route presort is approximately 9-11 cents per piece. For Marketing Mail, up to 18 cents per piece. On 100,000 pieces, that is $9,000-18,000 in savings.` },
     { q: 'My address lookup returns a ZIP+4 of 9999 — is that a real code?', a: `The suffix 9999 is used by USPS for addresses that are valid but do not have a more specific delivery point code assigned — often new construction, rural addresses with simplified route codes, or certain government facilities. It is not an error. The USPS will deliver to the address; the 9999 suffix simply means the full 11-digit delivery point barcode cannot be assigned. For mailing list purposes, addresses with 9999 suffixes may receive slightly less favorable automation discounts than precisely coded addresses.` },
     { q: 'How does ZIP+4 enable carrier route presort and why does it save so much postage?', a: `USPS automation discounts are layered by sort depth. Basic 5-digit presort requires mailers to sort by ZIP — USPS still does significant downstream sorting. ZIP+4 presort enables USPS to go directly to the final carrier route, bypassing multiple intermediate sort steps. Carrier route presort is the deepest sort level — mail is ordered in the exact sequence the letter carrier walks their route. Because USPS avoids multiple sort operations, they pass the savings to the mailer. The postal arithmetic: human sort costs ~$0.07 per piece per sort pass; avoiding 2-3 sort passes saves $0.14-$0.21 per piece.` },
-    { q: 'Can I look up ZIP+4 for a P.O. Box address?', a: `Yes. P.O. Box addresses have ZIP+4 codes derived from the box number. The 4-digit suffix for a P.O. Box is calculated from the box number: boxes 1-99 get a suffix derived from the box number range. USPS publishes the exact algorithm. Example: P.O. Box 1234 at the main post office serving ZIP 60601 would have a specific ZIP+4 that encodes that box sort position. Enter 'PO BOX 1234, CHICAGO, IL' in our tool to retrieve the full ZIP+4.` },
+  {
+  q: 'Can I look up a ZIP+4 for a P.O. Box address?',
+  a: `Yes. P.O. Box addresses can have ZIP+4 codes. Use the complete P.O. Box mailing address in the official USPS ZIP Code Lookup to determine the applicable ZIP+4. ToolTrio can help you check the base 5-digit ZIP and understand the ZIP+4 format before continuing to the USPS address lookup.`
+},
     { q: 'I have 500,000 addresses in a database without ZIP+4. How do I append them in bulk?', a: `Bulk ZIP+4 appending requires CASS-certified software or a commercial address standardization service. Options: (1) USPS Web Tools Address Validation API (free, requires USPS account, rate limited). (2) SmartyStreets LiveAddress API — pay-per-request, high accuracy. (3) Melissa Data Address Object — batch processing, monthly subscription. (4) Geocodio — bulk CSV upload, per-record pricing. These services normalize addresses, append ZIP+4, and return DPV confirmation. For 500,000 records, expect $50-200 depending on provider.` },
     { q: 'Is a ZIP+4 code permanent or does it change?', a: `ZIP+4 codes can change when USPS reorganizes delivery routes, when carrier assignments change, or when new addresses are added to an area. USPS updates ZIP+4 assignments weekly through the AMS database. High-growth areas see more frequent changes. For critical mailing applications (legal notices, financial statements), re-verify ZIP+4 codes against current USPS data no more than 90 days before mailing. For general marketing mail, annual refresh is usually sufficient.` },
     { q: 'What is a Delivery Point Barcode (DPB) and how does it relate to ZIP+4?', a: `The Delivery Point Barcode (DPB) is an 11-digit code that uniquely identifies every deliverable address in the US. It is calculated from the ZIP+4 plus two additional digits: the 'delivery point' suffix derived from the last two digits of the street number (for street addresses) or from the P.O. Box number. The DPB is encoded into USPS POSTNET or Intelligent Mail Barcodes printed on envelopes. Pieces with DPB barcodes qualify for the deepest automation discounts and are processed entirely by machine without manual handling.` },
