@@ -9,34 +9,91 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
-  description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+  title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+  description:
+  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
+
   keywords: [
-    'zip code to timezone',
-    'find timezone by zip code',
-    'what timezone is zip code',
-    'zip code timezone lookup',
-    'zip to time zone usa',
-    'timezone from zip code free',
-    'what time zone is this zip code',
-    'zip code utc offset lookup',
-    'tooltrio',
-    'zip code tooltrio',
-  ],
+  'zip code timezone',
+  'zip code time zone',
+  'zip to timezone',
+  'zip code to timezone',
+  'timezone by zip code',
+  'time zone by zip code',
+  'find timezone by zip code',
+  'find time zone by zip code',
+  'zip code timezone lookup',
+  'what timezone is this zip code',
+  'what time zone is this zip code',
+  'us zip code timezone',
+  'usa zip code timezone',
+  'united states zip code timezone',
+  'current time by zip code',
+  'utc offset by zip code',
+  'dst by zip code',
+
+    // US / USA Timezone
+  'us time zones',
+  'us timezone',
+  'us time zone',
+  'usa time zones',
+  'usa timezone',
+  'usa time zone',
+  'united states time zones',
+  'united states timezone',
+  'united states time zone',
+  'time zones in usa',
+  'time zones in the united states',
+  'american time zones',
+  'us timezone lookup',
+  'usa timezone lookup',
+
+  // US ZIP + Timezone
+  'us zip code timezone',
+  'us zip code time zone',
+  'usa zip code timezone',
+  'usa zip code time zone',
+  'united states zip code timezone',
+  'timezone lookup by zip code usa',
+  'time zone lookup by zip code usa',
+
+  // Search Questions
+  'what timezone is this zip code',
+  'what time zone is this zip code',
+  'what timezone am i in',
+  'what time zone am i in',
+  'what timezone is this location',
+  'find my timezone',
+  'find my time zone',
+
+  // Time / Technical
+  'current time by zip code',
+  'local time by zip code',
+  'utc offset by zip code',
+  'dst by zip code',
+  'daylight saving time by zip code',
+  'iana timezone by zip code',
+
+],
+
+
+
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-timezone' },
   openGraph: {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-timezone',
     siteName: 'ToolTrio',
-    title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
-    description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+    title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+    description:
+  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free | ToolTrio',
-    description: 'Find the timezone for any US ZIP code free. Get IANA timezone ID, UTC offset, and DST info instantly. Covers all US ZIP codes including territories.',
+   title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+    description:
+  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -72,23 +129,16 @@ const seoContent = {
   featureCards: [
     { icon: '🕐', title: `IANA Timezone ID`, desc: `Returns America/New_York format — works with all date libraries including Luxon and Day.js.`, bullets: [] },
     { icon: '☀️', title: `DST Aware`, desc: `Knows which states observe DST and which do not (AZ, HI, territories are permanent standard time).`, bullets: [] },
-    { icon: '🌎', title: `Full Territory Coverage`, desc: `Covers all US states, DC, Puerto Rico, Guam, USVI, American Samoa, and military codes.`, bullets: [] },
+    {
+  icon: '🌎',
+  title: 'US ZIP Coverage',
+  desc: 'Look up timezone information for supported 5-digit US ZIP codes, including timezone-sensitive locations and boundary areas.',
+  bullets: [],
+},
   ],
 
   heading: 'ZIP to Timezone — Determining the Correct Timezone for Any US ZIP Code',
-  populationChart: {
-    title: 'US Timezone Coverage by Number of ZIP Codes',
-    subtitle: 'Eastern and Central zones cover the most populous regions and ZIP codes',
-    unit: 'thousand ZIPs',
-    bars: [
-      { label: 'Eastern (ET)', value: 16 },
-      { label: 'Central (CT)', value: 13 },
-      { label: 'Mountain (MT)', value: 5 },
-      { label: 'Pacific (PT)', value: 7 },
-      { label: 'Alaska (AKT)', value: 0.5 },
-      { label: 'Hawaii (HST)', value: 0.3 },
-    ],
-  },
+
   statsTable: [
     { label: 'US mainland timezones', value: '4 standard (ET, CT, MT, PT)' },
     { label: 'Total US timezones incl. territories', value: '9 (AK, HI, GU, AS, etc.)' },
@@ -131,17 +181,13 @@ Call center teams use ZIP timezone data to determine when to call prospects — 
 
 Military APO (Army Post Office) and FPO (Fleet Post Office) ZIP codes are assigned to three military postal regions: APO AE for Europe/Middle East/Africa, APO AP for the Pacific, and APO AA for the Americas. These do not correspond to a specific timezone in the traditional sense because they route mail to overseas locations that may be in any timezone. Our tool returns the military designation for these ZIPs rather than a civilian timezone.`,
   faqs: [
-    { q: 'A customer in ZIP 85001 (Phoenix, AZ) says my app shows the wrong time. It is an hour off — why?', a: `Arizona (except the Navajo Nation) does not observe Daylight Saving Time. Arizona permanently uses Mountain Standard Time (MST, UTC-7) year-round. During summer when the rest of Mountain Time switches to MDT (UTC-6), Arizona stays at UTC-7. If your app uses 'Mountain Time' generically without checking DST observance, it will be 1 hour off for Arizona ZIPs from March to November. Use the IANA timezone ID 'America/Phoenix' for Arizona ZIPs — it correctly encodes no-DST behavior.` },
     { q: 'I need to schedule automated calls at 9 AM local time for customers in 4,000 different ZIP codes. What is the best approach?', a: `Batch lookup all 4,000 ZIPs through the ZIP to Timezone tool to get IANA timezone IDs. Group customers by timezone: America/New_York, America/Chicago, America/Denver, America/Los_Angeles, America/Phoenix, Pacific/Honolulu, America/Anchorage. Schedule 6 send batches — one per timezone — each triggered at 9 AM in that timezone (converted to UTC for your scheduler). In Python: from zoneinfo import ZoneInfo; from datetime import datetime; send_time = datetime(year, month, day, 9, 0, tzinfo=ZoneInfo('America/New_York'))` },
-    { q: 'ZIP 47901 (Lafayette, Indiana) — is it Eastern or Central time?', a: `ZIP 47901 (Lafayette, Indiana) is Eastern Time (America/Indiana/Indianapolis). Most of Indiana is Eastern Time. The exceptions are ZIP codes in the southwestern Indiana counties (Vanderburgh, Posey, Gibson, Pike, Dubois, Spencer, Perry, Warrick, Crawford) which use Central Time, and two northwestern counties (Jasper and Newton, near Chicago) which also use Central Time. Always look up the specific Indiana ZIP rather than assuming the whole state is one timezone.` },
     { q: 'What is the IANA timezone database and why should I use it instead of \'EST\' abbreviations?', a: `The IANA timezone database (also called tz database or Olson database) is the definitive global collection of timezone rules including all historical DST transitions for every timezone on Earth. IANA timezone IDs like 'America/New_York' uniquely identify a timezone and its complete rule set. Abbreviations like 'EST' are ambiguous — 'CST' could mean US Central Standard Time, China Standard Time, Cuba Standard Time, or Central Summer Time (Australia). Every major programming language and database supports IANA IDs: Python zoneinfo, JavaScript Intl.DateTimeFormat, PostgreSQL AT TIME ZONE.` },
     { q: 'My app shows UTC time with an offset. A customer in ZIP 94105 (San Francisco) is complaining times are wrong. What is the current UTC offset?', a: `During Pacific Daylight Time (PDT, mid-March to early November): UTC-7. During Pacific Standard Time (PST, early November to mid-March): UTC-8. If your app hardcodes -8 hours offset year-round, times will be 1 hour off during the 8 months when California is on PDT. Solution: never hardcode UTC offsets. Use IANA timezone 'America/Los_Angeles' and a DST-aware library (Python: zoneinfo, JS: Luxon or Day.js with timezone plugin). The library automatically applies the correct offset based on the calendar date.` },
     { q: 'A ZIP code in Tennessee returns Eastern time but my customer says they are Central — who is right?', a: `Both could be right — Tennessee is split. Eastern Tennessee (Knoxville, Chattanooga, Kingsport — ZIP codes roughly east of I-75/US-27 corridor) uses Eastern Time. Western Tennessee (Memphis, Jackson, Dyersburg — roughly west of the Tennessee River) uses Central Time. If the customer specific ZIP returns Eastern but they insist on Central, verify the exact ZIP code. The split boundary runs through the middle of the state and some boundary-area residents may be in an unexpected timezone.` },
-    { q: 'Does Puerto Rico observe daylight saving time?', a: `No. Puerto Rico (and the US Virgin Islands) permanently use Atlantic Standard Time (AST, UTC-4) year-round with no DST adjustment. This means Puerto Rico is 1 hour ahead of Eastern Standard Time in winter, and the same as Eastern Daylight Time in summer — which confuses people who think PR changes relative to the East Coast. It does not change; the East Coast changes. PR ZIP code timezone lookups always return AST UTC-4.` },
     { q: 'How do I find the best time to hold a nationwide webinar that works for all US timezones?', a: `For all 50 states: Eastern and Central (majority of population) need 9AM–5PM overlap. Pacific needs 9AM–5PM PT = 12PM–8PM ET. Hawaii (UTC-10) needs 9AM HST = 3PM ET. There is no single time that puts everyone in comfortable working hours. Best compromise: 12PM–2PM ET (9AM–11AM PT, 8AM–10AM MT, 7AM–9AM HST). Hawaii attendees are early but still reachable. Record all webinars — post-recording access is essential for Hawaii, Alaska, and international participants.` },
     { q: 'Can two adjacent ZIP codes be in different timezones?', a: `Yes — along timezone boundaries in split states. ZIP codes on opposite sides of the Indiana timezone boundary, the Florida Panhandle boundary (Apalachicola River), or the Tennessee/Kentucky split can be in different timezones while being geographically adjacent. This is particularly important for businesses near these boundaries: a customer 2 miles away could be in a different timezone than your store. Our tool assigns each ZIP to its county-level timezone determination.` },
     { q: 'How does daylight saving time affect automated billing and subscription renewal dates?', a: `If a subscription renews 'at midnight local time' and you store that as a UTC timestamp, the midnight changes between standard and DST transitions. A subscription set to renew at midnight ET on March 10 would renew at 5:00 UTC in winter (midnight EST) but at 4:00 UTC in summer (midnight EDT). To handle this correctly: store renewal time as a local time string plus IANA timezone ID ('2026-03-10 00:00 America/New_York'), then compute the UTC timestamp dynamically when needed. Never store a UTC timestamp that was computed with a hardcoded offset.` },
-    { q: 'What is the UTC offset for Alaska ZIP codes?', a: `Most Alaska ZIP codes use Alaska Time (AKST/AKDT): UTC-9 in winter, UTC-8 in summer during DST. The IANA ID is 'America/Anchorage'. The Aleutian Islands (ZIP codes in the 99500s, west of 169.5°W longitude) use Hawaii-Aleutian Time: UTC-10 in winter, UTC-9 in summer. Hawaii uses UTC-10 year-round with no DST (Pacific/Honolulu).` },
     { q: `Is the ZIP to Timezone tool on TOOLTRIO free?`, a: `Yes — completely free, no account. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP to Timezone as part of 35+ free ZIP code tools.` },
   ],
 }
@@ -150,9 +196,16 @@ Military APO (Army Post Office) and FPO (Fleet Post Office) ZIP codes are assign
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to Timezone" description="Find the timezone for any US ZIP code — returns IANA timezone ID, UTC offset, and DST status." icon="🕐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+  title="US ZIP Code to Timezone"
+  description="Find the time zone, current local time, UTC offset and DST status for any US ZIP code."
+  icon="🕐"
+  relatedTools={relatedTools}
+  tips={tips}
+  seoContent={seoContent}
+>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to Timezone — Find Timezone by ZIP Code USA 2026\",\"description\":\"Find the timezone for any US ZIP code instantly. Get IANA timezone ID, UTC offset, and daylight saving time status. Free ZIP to timezone lookup tool. \",\"url\":\"https://tooltrio.com/zip/zip-to-timezone\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code\",\"description\":\"Find the timezone for any US ZIP code instantly. Get IANA timezone ID, UTC offset, and daylight saving time status. Free ZIP to timezone lookup tool. \",\"url\":\"https://tooltrio.com/zip/zip-to-timezone\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }
