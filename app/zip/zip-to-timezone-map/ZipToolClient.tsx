@@ -1,6 +1,25 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import dynamic from 'next/dynamic'
+
+
+const USTimezoneMap = dynamic(
+  () => import('@/components/ui/USTimezoneMap'),
+  {
+    ssr: false,
+
+    loading: () => (
+      <div className="h-[430px] rounded-2xl border border-gray-200 bg-gray-50 animate-pulse flex items-center justify-center">
+
+        <div className="text-sm text-gray-400">
+          Loading US timezone map...
+        </div>
+
+      </div>
+    ),
+  }
+)
 
 const TZ_CONFIG: Record<string, { label: string; offset: string; dstOffset: string; icon: string; color: string; states: string }> = {
   'America/New_York':    { label: 'Eastern Time (ET)',    offset: 'UTC-5', dstOffset: 'UTC-4', icon: '🗽', color: '#3b82f6', states: 'CT, DE, FL, GA, IN, KY, ME, MD, MA, MI, NH, NJ, NY, NC, OH, PA, RI, SC, TN, VA, VT, WV, DC' },
@@ -11,6 +30,19 @@ const TZ_CONFIG: Record<string, { label: string; offset: string; dstOffset: stri
   'America/Anchorage':   { label: 'Alaska Time (AKT)',    offset: 'UTC-9', dstOffset: 'UTC-8', icon: '🐻', color: '#06b6d4', states: 'AK' },
   'Pacific/Honolulu':    { label: 'Hawaii Time (HST)',    offset: 'UTC-10', dstOffset: 'UTC-10', icon: '🌺', color: '#ec4899', states: 'HI' },
 }
+
+const TIMEZONE_MAP_ORDER = [
+  'Pacific/Honolulu',
+  'America/Anchorage',
+  'America/Los_Angeles',
+  'America/Denver',
+  'America/Phoenix',
+  'America/Chicago',
+  'America/New_York',
+]
+
+
+
 
 function getCurrentTimeInTz(tz: string): string {
   return new Intl.DateTimeFormat('en-US', {
@@ -47,10 +79,14 @@ export default function ZipToolClient() {
   const [tick, setTick] = useState(0)
 
   // Tick every second for live clocks
-  useState(() => {
-    const id = setInterval(() => setTick(t => t + 1), 1000)
-    return () => clearInterval(id)
-  })
+ // Tick every second for live clocks
+useEffect(() => {
+  const id = setInterval(() => {
+    setTick(t => t + 1)
+  }, 1000)
+
+  return () => clearInterval(id)
+}, [])
 
   async function lookup(z?: string) {
     const val = (z || zip).trim(); if (z) setZip(z)
@@ -81,42 +117,187 @@ export default function ZipToolClient() {
 
       {result && tzCfg && (
         <div>
-          {/* Primary result */}
-          <div className="rounded-2xl border p-5 mb-4" style={{ background: `${tzCfg.color}12`, borderColor: `${tzCfg.color}40` }}>
-            <div className="text-center mb-4">
-              <div className="text-4xl mb-1">{tzCfg.icon}</div>
-              <div className="text-2xl font-black" style={{ color: tzCfg.color }}>{tzCfg.label}</div>
-              <div className="text-gray-500 text-sm mt-1">{result.city}, {result.state} · ZIP {result.zip}</div>
-            </div>
-            <div className="rounded-xl p-4 mb-3 text-center" style={{ background: `${tzCfg.color}18` }}>
-              <div className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Current Local Time</div>
-              <div className="font-black text-xl" style={{ color: tzCfg.color }} suppressHydrationWarning>
-                {getCurrentTimeInTz(result.timezone)}
-              </div>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {[
-                { label: '⏱️ Standard Offset', value: tzCfg.offset },
-                { label: '☀️ DST Offset', value: tzCfg.dstOffset },
-                { label: '🔁 DST Active', value: result.timezone === 'America/Phoenix' || result.timezone === 'Pacific/Honolulu' ? 'No (No DST)' : 'Yes (Mar–Nov)' },
-                { label: '👥 Population', value: result.population > 0 ? result.population.toLocaleString() : 'N/A' },
-                { label: '📋 TZ ID', value: result.timezone },
-                { label: '📞 Area Code', value: `(${result.areaCode})` },
-              ].map(r => (
-                <div key={r.label} className="rounded-xl border p-3 bg-white/70">
-                  <div className="text-xs text-gray-400">{r.label}</div>
-                  <div className="font-bold text-gray-900 text-sm">{r.value}</div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-3 p-2 rounded-lg bg-white/50 text-xs text-gray-500">
-              📍 States in {tzCfg.label}: {tzCfg.states}
-            </div>
-          </div>
+      {/* ── Timezone Map Result Summary ───────────────────── */}
+<div
+  className="rounded-3xl border p-5 mb-4"
+  style={{
+    background: `linear-gradient(135deg, ${tzCfg.color}12, #ffffff)`,
+    borderColor: `${tzCfg.color}35`,
+    boxShadow: '0 8px 25px rgba(15,23,42,.06)',
+  }}
+>
+
+  {/* Found status */}
+  <div className="text-center">
+
+    <div
+      className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[2px] px-3 py-1 rounded-full"
+      style={{
+        color: tzCfg.color,
+        background: `${tzCfg.color}12`,
+      }}
+    >
+      ✓ US ZIP TIMEZONE FOUND
+    </div>
+
+    <div className="text-4xl mt-4">
+      {tzCfg.icon}
+    </div>
+
+    <h2
+      className="text-2xl sm:text-3xl font-black mt-2"
+      style={{ color: tzCfg.color }}
+    >
+      {tzCfg.label}
+    </h2>
+
+    <div className="text-sm text-gray-500 mt-2">
+      <strong className="text-gray-800">
+        {result.city}, {result.stateCode}
+      </strong>
+      {' '}• ZIP {result.zip} • USA
+    </div>
+
+  </div>
+
+
+  {/* Main timezone facts */}
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mt-5">
+
+    {/* Current time */}
+    <div className="col-span-2 lg:col-span-1 rounded-xl border border-gray-200 bg-white p-3 text-center">
+
+      <div className="text-[10px] uppercase font-bold tracking-wide text-gray-400">
+        🕐 Local Time
+      </div>
+
+      <div
+        className="font-black text-lg mt-1"
+        style={{ color: tzCfg.color }}
+        suppressHydrationWarning
+      >
+        {new Intl.DateTimeFormat('en-US', {
+          timeZone: result.timezone,
+          hour: 'numeric',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+        }).format(new Date())}
+      </div>
+
+    </div>
+
+
+    {/* Timezone abbreviation */}
+    <div className="rounded-xl border border-gray-200 bg-white p-3 text-center">
+
+      <div className="text-[10px] uppercase font-bold tracking-wide text-gray-400">
+        Zone
+      </div>
+
+      <div className="font-black text-gray-900 mt-1">
+        {new Intl.DateTimeFormat('en-US', {
+          timeZone: result.timezone,
+          timeZoneName: 'short',
+        })
+          .formatToParts(new Date())
+          .find(p => p.type === 'timeZoneName')?.value || '—'}
+      </div>
+
+    </div>
+
+
+    {/* Current UTC */}
+    <div className="rounded-xl border border-gray-200 bg-white p-3 text-center">
+
+      <div className="text-[10px] uppercase font-bold tracking-wide text-gray-400">
+        Standard
+      </div>
+
+      <div className="font-black text-gray-900 mt-1">
+        {tzCfg.offset}
+      </div>
+
+    </div>
+
+
+    {/* DST */}
+    <div className="rounded-xl border border-gray-200 bg-white p-3 text-center">
+
+      <div className="text-[10px] uppercase font-bold tracking-wide text-gray-400">
+        ☀️ DST
+      </div>
+
+      <div className="font-black text-gray-900 text-sm mt-1">
+        {result.timezone === 'America/Phoenix' ||
+        result.timezone === 'Pacific/Honolulu'
+          ? 'No DST'
+          : isDST(result.timezone)
+            ? 'Active'
+            : 'Inactive'}
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {/* Map explanation */}
+  <div
+    className="rounded-xl p-3 mt-3 flex items-start gap-3"
+    style={{
+      background: `${tzCfg.color}0D`,
+    }}
+  >
+
+    <div className="text-xl">
+      📍
+    </div>
+
+    <div>
+
+      <div className="text-xs font-bold text-gray-800">
+        Where is ZIP {result.zip} on the US timezone map?
+      </div>
+
+      <div className="text-xs text-gray-500 mt-1 leading-5">
+        {result.city}, {result.stateCode} is assigned to{' '}
+        <strong style={{ color: tzCfg.color }}>
+          {tzCfg.label}
+        </strong>
+        {' '}with the IANA timezone identifier{' '}
+        <strong className="text-gray-700">
+          {result.timezone}
+        </strong>.
+        The matching timezone region is highlighted below.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{/* ── Real Interactive US Timezone Map ─────────────────── */}
+
+<USTimezoneMap
+  lat={result.lat}
+  lng={result.lng}
+  zip={result.zip}
+  city={result.city}
+  stateCode={result.stateCode}
+  timezone={result.timezone}
+/>
+
+
+
+
+
 
           {/* All US timezones comparison */}
           <div className="rounded-xl border p-4 mb-4 bg-white">
-            <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">🕐 All US Timezones Right Now</p>
+            <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">🕐 Current Time Across Major US Time Zones</p>
             <div className="space-y-2">
               {Object.entries(TZ_CONFIG).map(([tz, cfg]) => (
                 <div key={tz} className={`flex items-center gap-3 p-2.5 rounded-xl ${tz === result.timezone ? 'ring-2 ring-green-500' : ''}`}
