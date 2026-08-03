@@ -29,6 +29,48 @@ const TZ_CONFIG: Record<string, { label: string; offset: string; dstOffset: stri
   'America/Phoenix':     { label: 'Arizona (No DST)',     offset: 'UTC-7', dstOffset: 'UTC-7', icon: '🌵', color: '#ef4444', states: 'AZ (most areas)' },
   'America/Anchorage':   { label: 'Alaska Time (AKT)',    offset: 'UTC-9', dstOffset: 'UTC-8', icon: '🐻', color: '#06b6d4', states: 'AK' },
   'Pacific/Honolulu':    { label: 'Hawaii Time (HST)',    offset: 'UTC-10', dstOffset: 'UTC-10', icon: '🌺', color: '#ec4899', states: 'HI' },
+  // Adak, AK is a genuine outlier — it's the one part of the US on
+  // Hawaii-Aleutian Time, which (unlike Honolulu) DOES observe DST.
+  'America/Adak':        { label: 'Hawaii-Aleutian Time (HDT)', offset: 'UTC-10', dstOffset: 'UTC-9', icon: '🏝️', color: '#0ea5e9', states: 'AK (Aleutian Islands)' },
+}
+
+// ZIPs in "state-split" counties resolve to their own specific IANA tzid
+// (e.g. Detroit, Louisville, Boise, Indianapolis, parts of North Dakota)
+// rather than one of the 7 keys above. Every one of these observes the
+// exact same present-day civil time rules as one of the major zones — the
+// separate IANA id exists only for pre-1970 historical reasons — so map
+// each to the matching TZ_CONFIG entry for display purposes. The specific
+// tzid itself (e.g. "America/Indiana/Vincennes") is still shown to the
+// user elsewhere and used for the actual boundary highlight on the map.
+const TZID_DISPLAY_ALIASES: Record<string, string> = {
+  'America/Detroit': 'America/New_York',
+  'America/Kentucky/Louisville': 'America/New_York',
+  'America/Kentucky/Monticello': 'America/New_York',
+  'America/Indiana/Indianapolis': 'America/New_York',
+  'America/Indiana/Vincennes': 'America/New_York',
+  'America/Indiana/Winamac': 'America/New_York',
+  'America/Indiana/Marengo': 'America/New_York',
+  'America/Indiana/Petersburg': 'America/New_York',
+  'America/Indiana/Vevay': 'America/New_York',
+  'America/Indiana/Tell_City': 'America/Chicago',
+  'America/Indiana/Knox': 'America/Chicago',
+  'America/Menominee': 'America/Chicago',
+  'America/North_Dakota/Center': 'America/Denver',
+  'America/North_Dakota/New_Salem': 'America/Denver',
+  'America/North_Dakota/Beulah': 'America/Denver',
+  'America/Boise': 'America/Denver',
+  'America/Juneau': 'America/Anchorage',
+  'America/Sitka': 'America/Anchorage',
+  'America/Metlakatla': 'America/Anchorage',
+  'America/Yakutat': 'America/Anchorage',
+  'America/Nome': 'America/Anchorage',
+  // Deprecated/legacy link some ZIP records may still use.
+  'America/Shiprock': 'America/Denver',
+}
+
+function getTzConfig(tzid: string | undefined) {
+  if (!tzid) return null
+  return TZ_CONFIG[tzid] ?? TZ_CONFIG[TZID_DISPLAY_ALIASES[tzid]] ?? null
 }
 
 const TIMEZONE_MAP_ORDER = [
@@ -98,7 +140,7 @@ useEffect(() => {
     setResult(data)
   }
 
-  const tzCfg = result ? TZ_CONFIG[result.timezone] : null
+  const tzCfg = getTzConfig(result?.timezone)
 
   return (
     <div>
