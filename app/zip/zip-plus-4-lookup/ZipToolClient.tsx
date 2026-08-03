@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 function shareResult(result: any) {
   const text = `📬 ZIP+4 Info: ${result.zip}\n📍 ${result.city}, ${result.state}\n👥 Population: ${result.population > 0 ? result.population.toLocaleString() : 'N/A'}\n🕐 ${result.tzLabel}\nGet your ZIP+4: tooltrio.com/zip/zip-plus-4-lookup`
@@ -56,7 +57,7 @@ export default function ZipToolClient() {
     const val = (z || zip).trim(); if (z) setZip(z)
     if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); setResult(null); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/lookup?zip=${val}`)
+    const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); setResult(null); return }
     setResult(data)

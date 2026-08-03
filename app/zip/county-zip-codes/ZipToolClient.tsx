@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 export default function ZipToolClient() {
   const [query, setQuery] = useState('')
@@ -15,7 +16,7 @@ export default function ZipToolClient() {
     let url = '/api/zip/'
     if (/^\d{5}$/.test(q)) url += 'lookup?zip=' + q
     else url += 'search?q=' + encodeURIComponent(q) + '&limit=30'
-    const res = await fetch(url)
+    const res = await zipFetch(url)
     const data = await res.json()
     setLoading(false); setSearched(true)
     if (res.ok) {

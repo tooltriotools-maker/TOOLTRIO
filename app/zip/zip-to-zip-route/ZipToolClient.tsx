@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const MODES = [
   { key: 'driving', label: '🚗 Driving', code: 0 },
@@ -33,7 +34,7 @@ export default function ZipToolClient() {
   async function plan() {
     if (!/^\d{5}$/.test(zip1) || !/^\d{5}$/.test(zip2)) { setError('Enter valid 5-digit ZIP codes for both fields'); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
+    const res = await zipFetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); return }
     setResult(data)

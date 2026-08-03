@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, PieChart, Pie, Legend } from 'recharts'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const TOP_ZIPS = [
   '11368','10025','77433','60629','90011','11385','77084','60623','11208','90044',
@@ -30,7 +31,7 @@ export default function ZipToolClient() {
   const [view, setView] = useState<'list'|'bar'|'pie'>('list')
 
   useEffect(() => {
-    Promise.all(TOP_ZIPS.map(z => fetch(`/api/zip/lookup?zip=${z}`).then(r => r.json())))
+    Promise.all(TOP_ZIPS.map(z => zipFetch(`/api/zip/lookup?zip=${z}`).then(r => r.json())))
       .then(data => {
         const sorted = data.filter(d => !d.error && d.population > 0).sort((a: any, b: any) => b.population - a.population)
         setResults(sorted); setLoading(false)

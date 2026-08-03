@@ -7,39 +7,45 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
+    absolute: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio (35+ ZIP Tools)',
   },
   description:
-    'ToolTrio offers 560+ free tools and calculators across finance, health, developer tools, ZIP codes, commodities and fun — mortgage, 401k, BMI, JSON formatter, ZIP lookup, gold price and more. No signup. Instant results.',
+    'Free US ZIP code tools: instant ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder. 35+ ZIP code tools covering every US ZIP, plus 560+ free finance, health, dev and commodity calculators. No signup, instant results.',
   keywords: [
-    'finance calculator',
-    'free financial calculator',
+    'zip code lookup',
+    'zip code finder',
+    'zip+4 lookup',
+    'zip plus 4 lookup',
+    'zip code distance calculator',
+    'zip to timezone',
+    'zip code to city',
+    'city to zip code',
+    'us zip code database',
+    'free zip code tool',
+    'zip code validator',
     'mortgage calculator',
     '401k calculator',
     'compound interest calculator',
-    'retirement calculator',
-    'Roth IRA calculator',
     'BMI calculator',
     'developer tools online',
-    'zip code lookup',
     'gold price calculator',
     'tooltrio',
     'tool trio',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
+    title: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio',
     description:
-      'Mortgage, 401k, BMI, JSON tools, ZIP lookup, gold price and 560+ free calculators across 6 categories. No signup. Instant results.',
+      'Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone tools covering every US ZIP code — plus 560+ free finance, health and commodity calculators. No signup. Instant results.',
     url: 'https://tooltrio.com',
     siteName: 'ToolTrio',
-    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — 560+ Free Calculators & Tools' }],
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ToolTrio — 560+ Free Finance, Health, Dev, ZIP & Commodity Calculators',
-    description: 'Mortgage, 401k, BMI, ZIP lookup, gold price and 560+ free calculators. No signup required.',
+    title: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio',
+    description: 'Instant ZIP code lookup, ZIP+4, ZIP distance and ZIP to timezone tools — plus 560+ free calculators. No signup required.',
     images: ['/og-image.png'],
   },
 }
@@ -55,7 +61,31 @@ const homepageFAQSchema = {
       name: 'What is ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio is a free tools and calculators website with 560+ tools across six categories: finance, health, developer tools, ZIP codes, commodities and fun. It offers mortgage calculators, 401k planners, BMI calculators, JSON formatters, ZIP code lookups, gold price calculators and more — all with no signup required.',
+        text: 'ToolTrio is a free ZIP code tools and calculators website. It offers 35+ US ZIP code tools — ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — plus 560+ tools across finance, health, developer tools, commodities and fun. No signup required.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I look up a ZIP code on ToolTrio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see the city, state, county, timezone and area code. ToolTrio covers every ZIP code cluster across all 50 states plus DC.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is a ZIP+4 code and how do I find mine?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A ZIP+4 code adds four digits to your 5-digit ZIP to identify a specific USPS delivery segment. Use the ZIP+4 Lookup tool to check your base ZIP first, then get the exact +4 suffix for your street address via the official USPS lookup.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does the ZIP code distance calculator work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Enter any two US ZIP codes into the ZIP Code Distance calculator to get the straight-line distance in miles and kilometers between them, calculated from each ZIP\'s coordinates.',
       },
     },
     {
@@ -63,7 +93,7 @@ const homepageFAQSchema = {
       name: 'Are ToolTrio tools and calculators free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every tool and calculator on ToolTrio — finance, health, developer, ZIP code, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
+        text: 'Yes. Every tool and calculator on ToolTrio — ZIP code, finance, health, developer, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
       },
     },
     {
@@ -145,14 +175,22 @@ const devTools = [
 const zipTools = [
   { name: 'ZIP Code Lookup', desc: 'Find city, state & county', href: '/zip/zip-code-lookup', icon: '📮', badge: 'Popular' },
   { name: 'ZIP Code Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
+  { name: 'ZIP+4 Lookup', desc: 'Find ZIP+4 extension', href: '/zip/zip-plus-4-lookup', icon: '➕', badge: 'Popular' },
+  { name: 'ZIP to Timezone', desc: 'Find timezone by ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: 'Popular' },
   { name: 'ZIP to City', desc: 'Reverse ZIP lookup', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
   { name: 'City to ZIP', desc: 'Find ZIP codes by city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
   { name: 'ZIPs in Radius', desc: 'All ZIPs within miles', href: '/zip/zips-within-radius', icon: '🎯', badge: 'NEW' },
   { name: 'ZIP Code Map', desc: 'Visualize ZIP boundaries', href: '/zip/zip-code-map', icon: '🗾', badge: null },
   { name: 'ZIP Code Validator', desc: 'Check valid US ZIP', href: '/zip/zip-code-validator', icon: '✅', badge: null },
-  { name: 'ZIP+4 Lookup', desc: 'Find ZIP+4 extension', href: '/zip/zip-plus-4-lookup', icon: '➕', badge: null },
-  { name: 'ZIP to Timezone', desc: 'Find timezone by ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: null },
   { name: 'USPS Address Format', desc: 'Format addresses correctly', href: '/zip/usps-address-format', icon: '✉️', badge: null },
+]
+
+// The 4 hero ZIP tools — highest-impression products, featured prominently on homepage
+const heroZipTools = [
+  { name: 'ZIP Code Lookup', desc: 'City, state, county & timezone for any US ZIP', href: '/zip/zip-code-lookup', icon: '📮' },
+  { name: 'ZIP Code Distance', desc: 'Miles & km between any two ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
+  { name: 'ZIP+4 Lookup', desc: 'Find your ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
+  { name: 'ZIP to Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
 ]
 
 const commodityTools = [
@@ -200,13 +238,13 @@ export default function HomePage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
+            <span>📮 ZIP Code Tools</span>
+            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>💰 Finance</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>❤️ Health</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>⚡ Dev Tools</span>
-            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>📮 ZIP Tools</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>🥇 Commodities</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
@@ -214,16 +252,16 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-            ToolTrio —{' '}
-            <span style={{ color: '#16a34a' }}>560+ Free Tools & Calculators</span>
+            Free ZIP Code Lookup, ZIP+4 &{' '}
+            <span style={{ color: '#16a34a' }}>ZIP Distance Tools</span>
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Free mortgage, 401k, BMI, calorie, JSON, ZIP code and gold price calculators across 6 categories. Make smarter financial, health and everyday decisions — instant results, no signup.
+            Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone tools covering every US ZIP code cluster — plus 560+ free finance, health, dev and commodity calculators. No signup, instant results.
           </p>
 
           <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
-            Trusted finance, health, developer, ZIP code and commodity tools built for everyday decisions. Plan your retirement, calculate your BMI, format JSON, look up a ZIP code or check today's gold price — all in one place.
+            Look up any US ZIP code for city, state, county and timezone, find your ZIP+4 delivery extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — all free, all instant.
             <br />
             <span>Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.</span>
           </p>
@@ -234,12 +272,12 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-2 mt-6">
             {[
-              { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
-              { label: '401k Calculator', href: '/calculators/finance/401k-calculator' },
-              { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
-              { label: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-              { label: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
               { label: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+              { label: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
+              { label: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
+              { label: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
+              { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
+              { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
               { label: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
             ].map(t => (
               <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
@@ -250,10 +288,10 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
+              { val: '35+', label: 'ZIP Code Tools' },
               { val: '270+', label: 'Finance Calculators' },
               { val: '120+', label: 'Health Calculators' },
               { val: '90+', label: 'Developer Tools' },
-              { val: '35+', label: 'ZIP Code Tools' },
               { val: '10+', label: 'Commodity Calculators' },
               { val: '30+', label: 'Fun Tools' },
             ].map(s => (
@@ -274,16 +312,16 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
+              { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+              { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
+              { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
+              { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
               { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
               { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
-              { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator' },
               { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
               { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-              { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
               { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
-              { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
               { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
-              { name: 'Pizza Calculator', href: '/calculators/fun/pizza-calculator' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
@@ -294,6 +332,37 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 py-10">
+
+        {/* Hero ZIP Tools — highest-impression products, featured first */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>📮</span> Free ZIP Code Tools
+            </h2>
+            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all 35+ ZIP code tools →
+            </Link>
+          </div>
+          <p className="text-sm text-gray-500 mb-5 max-w-2xl">
+            Look up any US ZIP code, find your ZIP+4 extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — instant results for every ZIP code cluster in the US.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {heroZipTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-5 border-2 rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all" style={{ background: 'rgba(255,255,255,0.9)', borderColor: 'rgba(124,58,237,0.15)', boxShadow: '0 4px 20px rgba(124,58,237,0.08)' }}>
+                <span className="flex items-center justify-between mb-3">
+                  <span className="text-3xl">{c.icon}</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                    Popular
+                  </span>
+                </span>
+                <span className="text-sm font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight mb-1">
+                  {c.name}
+                </span>
+                <span className="text-xs text-gray-500 leading-snug">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* Category overview grid */}
         <section className="mb-12">
@@ -313,6 +382,36 @@ export default function HomePage() {
                 <div className="text-2xl mb-1">{c.icon}</div>
                 <div className="text-sm font-bold text-gray-900">{c.name}</div>
                 <div className="text-[11px] text-gray-500 mt-0.5">{c.count}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ZIP Tools Section */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span>📮</span> All ZIP Code Tools
+            </h2>
+            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all ZIP code tools →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {zipTools.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-purple-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
+                <span className="flex items-center gap-2 mb-1">
+                  <span className="text-xl">{c.icon}</span>
+                  {c.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                      {c.badge}
+                    </span>
+                  )}
+                </span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
+                  {c.name}
+                </span>
+                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
               </Link>
             ))}
           </div>
@@ -410,36 +509,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ZIP Tools Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <span>📮</span> ZIP Code Tools
-            </h2>
-            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all ZIP code tools →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {zipTools.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-purple-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
         {/* Commodities Section */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-5">
@@ -502,6 +571,68 @@ export default function HomePage() {
 
         {/* SEO Content Block */}
         <section className="mt-8 rounded-3xl p-8 border" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', borderColor: 'rgba(255,255,255,0.5)', boxShadow: '0 8px 30px rgba(15,23,42,0.05)' }}>
+          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+            Free ZIP Code Tools & Calculators — Built for Real Lookups
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600 leading-relaxed mb-10">
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <span>📮</span> ZIP Code Lookup — Every US ZIP Cluster
+                </h3>
+                <p>
+                  Our free{' '}
+                  <Link href="/zip/zip-code-lookup" className="text-green-600 hover:underline font-medium">
+                    ZIP code lookup
+                  </Link>{' '}
+                  tool covers every ZIP code cluster across all 50 states plus DC. Enter any 5-digit ZIP to instantly see the city, state, county, population, timezone and area code.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <span>➕</span> ZIP+4 Lookup
+                </h3>
+                <p>
+                  Need the exact 4-digit extension for mail delivery? Our{' '}
+                  <Link href="/zip/zip-plus-4-lookup" className="text-green-600 hover:underline font-medium">
+                    ZIP+4 lookup
+                  </Link>{' '}
+                  tool resolves your base ZIP instantly, then routes you to the official USPS lookup to confirm the exact +4 suffix for your street address.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <span>📏</span> ZIP Code Distance Calculator
+                </h3>
+                <p>
+                  Compare any two US ZIP codes with our{' '}
+                  <Link href="/zip/zip-code-distance" className="text-green-600 hover:underline font-medium">
+                    ZIP code distance calculator
+                  </Link>
+                  , which returns the straight-line distance in miles and kilometers — useful for shipping, delivery radius and travel planning.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <span>🕐</span> ZIP to Timezone Finder
+                </h3>
+                <p>
+                  Scheduling a call or delivery across states? Our{' '}
+                  <Link href="/zip/zip-to-timezone" className="text-green-600 hover:underline font-medium">
+                    ZIP to timezone
+                  </Link>{' '}
+                  tool instantly returns the correct US timezone for any ZIP code, including Eastern, Central, Mountain, Pacific, Alaska and Hawaii.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             Free Finance & Health Calculators — Built for Real Decisions
           </h2>
@@ -643,7 +774,23 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free tools and calculators website with 560+ tools across finance, health, developer tools, ZIP codes, commodities and fun. It offers mortgage calculators, retirement planners, BMI calculators, JSON formatters, ZIP code lookups and gold price calculators — no signup required.',
+                a: 'ToolTrio is a free ZIP code tools and calculators website with 35+ US ZIP code tools — ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone — plus 560+ tools across finance, health, developer tools, commodities and fun. No signup required.',
+              },
+              {
+                q: 'How do I find the city and state for a ZIP code?',
+                a: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see its city, state, county, population, timezone and area code — covering every ZIP code cluster in all 50 states plus DC.',
+              },
+              {
+                q: 'What is a ZIP+4 code?',
+                a: 'A ZIP+4 code adds four digits after your standard 5-digit ZIP to identify a specific USPS delivery segment such as a city block or building. Use the ZIP+4 Lookup tool to check your base ZIP, then confirm the exact +4 suffix via the official USPS address lookup.',
+              },
+              {
+                q: 'How do I calculate the distance between two ZIP codes?',
+                a: 'Enter two ZIP codes into the ZIP Code Distance calculator to get the straight-line distance in miles and kilometers, calculated from each ZIP code\'s coordinates.',
+              },
+              {
+                q: 'How do I find the timezone for a ZIP code?',
+                a: 'Enter a ZIP code into the ZIP to Timezone tool to instantly see its US timezone — Eastern, Central, Mountain, Pacific, Alaska or Hawaii — useful for scheduling calls and deliveries across states.',
               },
               {
                 q: 'What is the best free mortgage calculator?',

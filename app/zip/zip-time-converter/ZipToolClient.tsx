@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 export default function ZipToolClient() {
   const [zip1, setZip1] = useState('')
@@ -16,7 +17,7 @@ export default function ZipToolClient() {
   async function compare() {
     if (!/^\d{5}$/.test(zip1) || !/^\d{5}$/.test(zip2)) { setError('Enter two valid 5-digit ZIP codes'); return }
     setLoading(true); setError('')
-    const [a, b] = await Promise.all([fetch(`/api/zip/lookup?zip=${zip1}`), fetch(`/api/zip/lookup?zip=${zip2}`)])
+    const [a, b] = await Promise.all([zipFetch(`/api/zip/lookup?zip=${zip1}`), zipFetch(`/api/zip/lookup?zip=${zip2}`)])
     const [da, db] = await Promise.all([a.json(), b.json()])
     setLoading(false)
     if (!a.ok || !b.ok) { setError((da.error || db.error)); return }

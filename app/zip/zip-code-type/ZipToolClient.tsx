@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const TYPE_INFO: Record<string, { icon: string; desc: string; color: string }> = {
   Standard: { icon: '📬', desc: 'Regular delivery ZIP with residential/business mail.',       color: 'text-green-700 bg-green-50 border-green-200' },
@@ -19,7 +20,7 @@ export default function ZipToolClient() {
     const val = (z || zip).trim(); if (z) setZip(z)
     if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); setResult(null); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/lookup?zip=${val}`)
+    const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); setResult(null); return }
     setResult(data)

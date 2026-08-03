@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 // Generate 300 speed options 1-300 mph
 const SPEED_OPTIONS = Array.from({ length: 300 }, (_, i) => i + 1)
@@ -54,7 +55,7 @@ export default function ZipToolClient() {
   async function calculate() {
     if (!/^\d{5}$/.test(zip1) || !/^\d{5}$/.test(zip2)) { setError('Enter valid 5-digit ZIP codes'); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
+    const res = await zipFetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); return }
     const driveMiles = data.miles * 1.2

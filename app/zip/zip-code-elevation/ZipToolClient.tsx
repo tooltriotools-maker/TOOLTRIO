@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts'
+import { zipFetch } from '@/lib/data/zip-client'
 
 function elevationLabel(ft: number) {
   if (ft < 0)    return { label: 'Below Sea Level', color: 'text-blue-600',  icon: '🌊', bg: 'bg-blue-50', border: 'border-blue-200' }
@@ -47,7 +48,7 @@ export default function ZipToolClient() {
     if (z) setZip(z)
     if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); setResult(null); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/lookup?zip=${val}`)
+    const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); setResult(null); return }
     // elevation must exist in data — default to lat-based estimate if 0

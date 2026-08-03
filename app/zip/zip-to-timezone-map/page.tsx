@@ -22,26 +22,6 @@ export const metadata: Metadata = {
     'eastern central mountain pacific zip map',
     'tooltrio',
     'zip code tooltrio',
-
-    'zip code time zone map',
-    'zip code map with time zones',
-    'us zip code time zone map',
-    'zip code time zone lookup',
-    'interactive zip code time zone map',
-    'usa time zone map with zip codes',
-    'visual zip code time zone finder',
-    'est zip code map',
-    'cst zip code map',
-    'pst zip code map',
-    'what time zone is my zip code',
-    'time zone map usa','time zone map',
-    '',
-
-    
-
-
-
-
   ],
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-timezone-map' },
   openGraph: {

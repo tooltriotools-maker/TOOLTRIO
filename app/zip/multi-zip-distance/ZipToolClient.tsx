@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { zipFetch } from '@/lib/data/zip-client'
 
 export default function ZipToolClient() {
   const [zips, setZips] = useState(['', ''])
@@ -18,7 +19,7 @@ export default function ZipToolClient() {
     const pairs: any[] = []
     for (let i = 0; i < valid.length; i++) {
       for (let j = i+1; j < valid.length; j++) {
-        const res = await fetch(`/api/zip/distance?from=${valid[i]}&to=${valid[j]}`)
+        const res = await zipFetch(`/api/zip/distance?from=${valid[i]}&to=${valid[j]}`)
         const data = await res.json()
         if (res.ok) pairs.push(data)
       }

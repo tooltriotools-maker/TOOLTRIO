@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { zipFetch } from '@/lib/data/zip-client'
 
 export default function ZipToolClient() {
   const [input, setInput] = useState('')
@@ -12,7 +13,7 @@ export default function ZipToolClient() {
     setLoading(true)
     const rows = await Promise.all(zips.map(async z => {
       if (!/^\d{5}$/.test(z)) return { zip: z, valid: false, reason: 'Not 5 digits' }
-      const res = await fetch(`/api/zip/lookup?zip=${z}`)
+      const res = await zipFetch(`/api/zip/lookup?zip=${z}`)
       const data = await res.json()
       if (!res.ok) return { zip: z, valid: false, reason: 'Not found in USPS database' }
       return { zip: z, valid: true, city: data.city, state: data.stateCode, county: data.county, population: data.population, type: data.type, areaCode: data.areaCode }

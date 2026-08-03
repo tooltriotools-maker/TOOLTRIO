@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { zipFetch } from '@/lib/data/zip-client'
 
 // ── Road Distance Formula ─────────────────────────────────────────────────
 // Distance-aware factor calibrated against 14 verified Google Maps routes:
@@ -99,7 +100,7 @@ function handleQuickFill(route: { from: string; to: string }) {
       setError('Enter valid 5-digit ZIP codes'); return
     }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
+    const res = await zipFetch(`/api/zip/distance?from=${zip1}&to=${zip2}`)
     const data = await res.json()
     setLoading(false)
     if (!res.ok) { setError(data.error); setResult(null); return }

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const TIMEZONES = [
   { tz: 'America/New_York', label: 'Eastern (ET)', offset: 'UTC-5/-4', states: 'NY, FL, GA, MA, NC, OH, PA, VA...', icon: '🗽' },
@@ -39,7 +40,7 @@ export default function ZipToolClient() {
     const val = (z || zip).trim(); if (z) setZip(z)
     if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); return }
     setLoading(true); setError(''); setResults([])
-    const res = await fetch(`/api/zip/lookup?zip=${val}`)
+    const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); return }
     setCenterInfo(data)
@@ -66,7 +67,7 @@ export default function ZipToolClient() {
       // Use state-level API to gather ZIPs, then client-filter by timezone
       // For best results, use the nearby API on representative points with large radius
       const fetches = await Promise.all(
-        sampleZips.map(z => fetch(`/api/zip/nearby?zip=${z}&radius=500&limit=500`).then(r => r.json()))
+        sampleZips.map(z => zipFetch(`/api/zip/nearby?zip=${z}&radius=500&limit=500`).then(r => r.json()))
       )
       const allResults: any[] = []
       const seen = new Set<string>()

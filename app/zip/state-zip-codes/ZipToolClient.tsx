@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const STATES = [
   ['Alabama','AL'],['Alaska','AK'],['Arizona','AZ'],['Arkansas','AR'],['California','CA'],
@@ -44,7 +45,7 @@ export default function ZipToolClient() {
     setState(code)
     setLoading(true); setError(''); setSearch('')
     // API expects ?code= not ?state=
-    const res = await fetch(`/api/zip/state?code=${code}`)
+    const res = await zipFetch(`/api/zip/state?code=${code}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error || 'Error loading state data'); setResults([]); return }
     setResults(data.results || [])

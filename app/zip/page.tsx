@@ -2,9 +2,18 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
-  description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
+  title: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — 35+ USA ZIP Utilities | ToolTrio',
+  description: 'Free US ZIP code tools: ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator, ZIP to timezone finder, radius search, area codes, demographics and 30+ more. Covers every ZIP code cluster in all 50 states. No signup.',
   keywords: [
+    'zip code lookup',
+    'zip code finder',
+    'zip+4 lookup',
+    'zip plus 4 lookup',
+    'zip code distance calculator',
+    'zip to timezone',
+    'zip code to city',
+    'city to zip code',
+    'us zip code database',
     'free zip code tools',
     'us zip code tools online',
     'zip code utilities free',
@@ -21,15 +30,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip',
     siteName: 'ToolTrio',
-    title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
-    description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
-    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio' }],
+    title: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — ToolTrio',
+    description: 'ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — plus 30+ more free US ZIP code tools. Covers every ZIP cluster. No signup.',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free USA ZIP Code Tools — 35+ ZIP Code Utilities 2026 | ToolTrio',
-    description: 'Complete suite of free US ZIP code tools: lookup, distance, radius search, area codes, demographics, timezone converter, and 30+ more. No signup.',
+    title: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — ToolTrio',
+    description: 'ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone tools — plus 30+ more. No signup required.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -37,6 +46,60 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
   },
+}
+
+// The 4 hero ZIP tools — highest-impression products, featured prominently at the top of the hub
+const HERO_TOOLS = [
+  { name: 'ZIP Code Lookup', desc: 'City, state, county & timezone for any US ZIP', href: '/zip/zip-code-lookup', icon: '🔍' },
+  { name: 'ZIP Code Distance', desc: 'Miles & km between any two ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
+  { name: 'ZIP+4 Lookup', desc: 'Find your ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
+  { name: 'ZIP to Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
+]
+
+const zipHubFAQs = [
+  { q: 'What is a ZIP code?', a: 'ZIP code stands for Zone Improvement Plan. It\'s a 5-digit postal code used by the United States Postal Service (USPS) since 1963 to efficiently route mail to specific geographic areas.' },
+  { q: 'How many ZIP codes are there in the US?', a: 'There are approximately 42,000 active ZIP codes in the United States. This includes Standard, PO Box, Unique, and Military ZIP codes across all 50 states, DC, and US territories.' },
+  { q: 'What is the difference between ZIP and ZIP+4?', a: 'A standard ZIP code is 5 digits. ZIP+4 adds a hyphen and 4 extra digits to identify a specific city block or delivery point. The format is XXXXX-XXXX (e.g., 10001-0001).' },
+  { q: 'Can one city have multiple ZIP codes?', a: 'Yes. Large cities like New York, Los Angeles, and Chicago have dozens of ZIP codes, each serving a specific neighborhood or district within the city.' },
+  { q: 'Are ZIP codes the same as area codes?', a: 'No. ZIP codes are postal codes used for mail delivery, while area codes are 3-digit telephone prefixes. A single ZIP code area may have one or more area codes.' },
+]
+
+// Structured data: CollectionPage + ItemList (surfaces the tool catalog to search
+// engines) and FAQPage (matches the visible FAQ below) plus breadcrumb trail.
+const zipHubSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools',
+      description: 'Free US ZIP code tools: ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator, ZIP to timezone finder and 30+ more.',
+      url: 'https://tooltrio.com/zip',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tooltrio.com' },
+        { '@type': 'ListItem', position: 2, name: 'ZIP Code Tools', item: 'https://tooltrio.com/zip' },
+      ],
+    },
+    {
+      '@type': 'ItemList',
+      itemListElement: HERO_TOOLS.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: t.name,
+        url: `https://tooltrio.com${t.href}`,
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: zipHubFAQs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
 }
 
 const ZIP_TOOLS = [
@@ -122,7 +185,12 @@ export default function ZipHubPage() {
   const total = ZIP_TOOLS.reduce((s, c) => s + c.tools.length, 0)
 
   return (
-    <main className="min-h-screen py-10 px-4">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(zipHubSchema) }}
+      />
+      <main className="min-h-screen py-10 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* Hero */}
@@ -132,10 +200,10 @@ export default function ZipHubPage() {
             📮 {total} Free ZIP Code Tools · No Signup · Updated 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-            USA ZIP Code Tools
+            Free ZIP Code Lookup, ZIP+4 & Distance Tools
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
-            The most complete suite of free ZIP code utilities — lookup, distance, maps, timezones, USPS formatting and more.
+            Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — the most complete free suite of US ZIP code utilities, covering every ZIP cluster in all 50 states.
           </p>
 
           {/* Popular quick-links */}
@@ -143,10 +211,11 @@ export default function ZipHubPage() {
             {[
               { href: '/zip/zip-code-lookup', label: '🔍 ZIP Lookup' },
               { href: '/zip/zip-code-distance', label: '📏 Distance Calculator' },
+              { href: '/zip/zip-plus-4-lookup', label: '➕ ZIP+4 Lookup' },
+              { href: '/zip/zip-to-timezone', label: '🕐 ZIP to Timezone' },
               { href: '/zip/city-to-zip', label: '🏙️ City to ZIP' },
               { href: '/zip/zips-within-radius', label: '🎯 ZIPs in Radius' },
               { href: '/zip/usps-address-format', label: '📬 USPS Format' },
-              { href: '/zip/zip-time-converter', label: '⏱️ Time Converter' },
             ].map(t => (
               <Link key={t.href} href={t.href}
                 className="tag-pill text-sm">
@@ -155,6 +224,26 @@ export default function ZipHubPage() {
             ))}
           </div>
         </div>
+
+        {/* Hero ZIP Tools showcase — highest-impression products */}
+        <section className="mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {HERO_TOOLS.map(t => (
+              <Link key={t.href} href={t.href} className="group p-5 border-2 rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all" style={{ background: 'rgba(255,255,255,0.9)', borderColor: 'rgba(21,128,61,0.15)', boxShadow: '0 4px 20px rgba(21,128,61,0.08)' }}>
+                <span className="flex items-center justify-between mb-3">
+                  <span className="text-3xl">{t.icon}</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                    Popular
+                  </span>
+                </span>
+                <span className="text-sm font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight mb-1">
+                  {t.name}
+                </span>
+                <span className="text-xs text-gray-500 leading-snug">{t.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         {/* Tool categories */}
         {ZIP_TOOLS.map(cat => (
@@ -201,13 +290,7 @@ export default function ZipHubPage() {
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
-            {[
-              { q: 'What is a ZIP code?', a: 'ZIP code stands for Zone Improvement Plan. It\'s a 5-digit postal code used by the United States Postal Service (USPS) since 1963 to efficiently route mail to specific geographic areas.' },
-              { q: 'How many ZIP codes are there in the US?', a: 'There are approximately 42,000 active ZIP codes in the United States. This includes Standard, PO Box, Unique, and Military ZIP codes across all 50 states, DC, and US territories.' },
-              { q: 'What is the difference between ZIP and ZIP+4?', a: 'A standard ZIP code is 5 digits. ZIP+4 adds a hyphen and 4 extra digits to identify a specific city block or delivery point. The format is XXXXX-XXXX (e.g., 10001-0001).' },
-              { q: 'Can one city have multiple ZIP codes?', a: 'Yes. Large cities like New York, Los Angeles, and Chicago have dozens of ZIP codes, each serving a specific neighborhood or district within the city.' },
-              { q: 'Are ZIP codes the same as area codes?', a: 'No. ZIP codes are postal codes used for mail delivery, while area codes are 3-digit telephone prefixes. A single ZIP code area may have one or more area codes.' },
-            ].map(faq => (
+            {zipHubFAQs.map(faq => (
               <details key={faq.q} className="group rounded-xl border border-gray-100 overflow-hidden">
                 <summary className="px-4 py-3 cursor-pointer font-semibold text-gray-800 text-sm hover:bg-gray-50">
                   {faq.q}
@@ -251,5 +334,6 @@ export default function ZipHubPage() {
         </section>
 
     </main>
+    </>
   )
 }

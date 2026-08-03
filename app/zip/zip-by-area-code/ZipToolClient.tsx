@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+import { zipFetch } from '@/lib/data/zip-client'
 
 // Popular US area codes for quick select
 const POPULAR_AREA_CODES = [
@@ -45,7 +46,7 @@ export default function ZipToolClient() {
     if (code) setAreaCode(code)
     if (!/^\d{3}$/.test(val)) { setError('Enter a valid 3-digit area code'); return }
     setLoading(true); setError('')
-    const res = await fetch(`/api/zip/search?areaCode=${val}`)
+    const res = await zipFetch(`/api/zip/search?areaCode=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error || 'No results found'); setResults([]); return }
     setResults(data.results || [])

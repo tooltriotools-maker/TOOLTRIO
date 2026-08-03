@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { zipFetch } from '@/lib/data/zip-client'
 
 const US_STATES = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC','PR']
 
@@ -15,7 +16,7 @@ export default function ZipToolClient() {
     setLoading(true); setError('')
     const params = new URLSearchParams({ city: city.trim() })
     if (stateCode) params.set('state', stateCode)
-    const res = await fetch(`/api/zip/search?${params}`)
+    const res = await zipFetch(`/api/zip/search?${params}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok || !data.results?.length) { setError(`No ZIP codes found for "${city}"${stateCode ? `, ${stateCode}` : ''}`); setResults([]); return }
     setResults(data.results)
