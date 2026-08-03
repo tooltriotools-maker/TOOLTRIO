@@ -66,6 +66,22 @@ img, svg, video, canvas, iframe, embed, object {
   height: auto;
   display: block;
 }
+
+/* Leaflet sizes its tiles, markers, and SVG vector-overlay renderer itself
+   (tiles via inline style, but the SVG overlay pane via width/height
+   *attributes*). The global reset above overrides those attributes and
+   clamps/squishes Leaflet's oversized, absolutely-positioned overlay pane
+   down to the container — this is what was silently hiding the timezone
+   boundary polygons even though the layer was rendering correctly. Opt
+   Leaflet's internals back out of the reset. */
+.leaflet-container img,
+.leaflet-container svg,
+.leaflet-pane img,
+.leaflet-pane svg {
+  max-width: none;
+  height: auto;
+  display: inline;
+}
 pre, code { max-width: 100%; overflow-x: auto; }
 table { max-width: 100%; }
 

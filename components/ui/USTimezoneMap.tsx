@@ -26,13 +26,36 @@ function getTimezoneId(
   return feature?.properties?.tzid ?? ''
 }
 
+// Some ZIP records use legacy/deprecated IANA tzids (backward-compat
+// "Link" entries) that no longer have their own boundary polygon in the
+// tz database — e.g. the Navajo Nation carve-out `America/Shiprock` is a
+// link to `America/Denver`. Map those to the tzid that actually has a
+// polygon so the correct region still highlights.
+const TZID_ALIASES: Record<string, string> = {
+  'America/Shiprock': 'America/Denver',
+}
+
+function resolveTimezoneId(tzid: string): string {
+  return TZID_ALIASES[tzid] ?? tzid
+}
+
+// Friendly display name for a tzid, including state-split zones like
+// "America/Indiana/Vevay" or territories like "Pacific/Pago_Pago".
+function formatTimezoneName(tzid: string): string {
+  if (!tzid) return ''
+  const parts = tzid.split('/')
+  const city = parts[parts.length - 1].replaceAll('_', ' ')
+  const region = parts.slice(0, -1).join(' / ')
+  return region ? `${region} / ${city}` : city
+}
+
 function getTimezoneStyle(
   feature: Feature<Geometry, any> | undefined,
   selectedTimezone: string
 ): L.PathOptions {
 
   const tz = getTimezoneId(feature)
-  const selected = tz === selectedTimezone
+  const selected = tz === resolveTimezoneId(selectedTimezone)
 
   return {
     // Boundary
@@ -151,9 +174,13 @@ const markerIcon = L.icon({
 function MapController({
   lat,
   lng,
+  timezoneData,
+  timezone,
 }: {
   lat: number
   lng: number
+  timezoneData: FeatureCollection | null
+  timezone: string
 }) {
 
   const map = useMap()
@@ -161,21 +188,47 @@ function MapController({
   useEffect(() => {
 
     if (
-      Number.isFinite(lat) &&
-      Number.isFinite(lng)
+      !Number.isFinite(lat) ||
+      !Number.isFinite(lng)
     ) {
-
-      map.flyTo(
-        [lat, lng],
-        7,
-        {
-          duration: 1.2,
-        }
-      )
-
+      return
     }
 
-  }, [lat, lng, map])
+    // If we have the boundary polygon for this ZIP's timezone, fit the
+    // whole region into view (this is what actually makes "highlight
+    // entire timezone region" visible/legible — a fixed zoom=7 flyTo
+    // crops huge zones like Alaska or Nevada's slice of Pacific time).
+    const resolvedTz = resolveTimezoneId(timezone)
+
+    const match = timezoneData?.features?.find(
+      (f) => getTimezoneId(f as Feature<Geometry, any>) === resolvedTz
+    )
+
+    if (match) {
+      try {
+        const bounds = L.geoJSON(match as any).getBounds()
+        if (bounds.isValid()) {
+          map.flyToBounds(bounds, {
+            padding: [40, 40],
+            duration: 1.2,
+            maxZoom: 9,
+          })
+          return
+        }
+      } catch {
+        // fall through to point flyTo below
+      }
+    }
+
+    map.flyTo(
+      [lat, lng],
+      7,
+      {
+        duration: 1.2,
+      }
+    )
+
+  }, [lat, lng, map, timezoneData, timezone])
 
 
   
@@ -221,8 +274,6 @@ const [timezoneError, setTimezoneError] =
   '/data/us-timezones.json'
 )
 
-console.log('🔥 GEOJSON FETCH STATUS:', response.status)
-
 if (!response.ok) {
   throw new Error(
     `Failed to load timezone data: ${response.status}`
@@ -231,29 +282,6 @@ if (!response.ok) {
 
 const data: FeatureCollection =
   await response.json()
-
-console.log(
-  '🔥 TOTAL FEATURES:',
-  data.features?.length
-)
-
-console.log(
-  '🔥 FIRST TZ:',
-  data.features?.[0]?.properties?.tzid
-)
-
-console.log(
-  '🔥 SELECTED TZ:',
-  timezone
-)
-
-console.log(
-  '🔥 MATCHING FEATURES:',
-  data.features?.filter(
-    (f: any) =>
-      f.properties?.tzid === timezone
-  ).length
-)
 
 if (!cancelled) {
   setTimezoneData(data)
@@ -297,9 +325,7 @@ function onEachTimezone(
   if (!tz) return
 
 
-const displayName = tz
-  .replace('/', ' / ')
-  .replaceAll('_', ' ')
+const displayName = formatTimezoneName(tz)
 
 
   layer.bindTooltip(
@@ -316,7 +342,7 @@ const displayName = tz
   mouseover: (event: any) => {
 
   const selected =
-    tz === timezone
+    tz === resolveTimezoneId(timezone)
 
   event.target.setStyle({
 
@@ -546,6 +572,8 @@ const displayName = tz
           <MapController
             lat={lat}
             lng={lng}
+            timezoneData={timezoneData}
+            timezone={timezone}
           />
 
         </MapContainer>
