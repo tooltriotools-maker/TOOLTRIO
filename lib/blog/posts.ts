@@ -29,6 +29,7 @@ export const blogCategories = [
   { name: 'Health & Fitness',    slug: 'health',           desc: 'BMI, calories, BMR, body composition, sleep',                icon: '💪', count: 10 },
   { name: 'Property Guides',     slug: 'property',         desc: 'UK stamp duty, mortgages, buy-to-let, rental yield',         icon: '🏠', count: 10 },
   { name: 'Commodity & Gold',    slug: 'commodity',        desc: 'Gold price, silver, crude oil, commodity investing',         icon: '🥇', count: 6 },
+  { name: 'ZIP Code Guides',     slug: 'zip-codes',        desc: 'ZIP code lookup, ZIP+4, distance, timezones & format rules', icon: '📮', count: 20 },
 ]
 
 export const blogPosts: BlogPost[] = [
@@ -5520,6 +5521,7 @@ This is where real estate gets interesting. You can buy $400,000 of real estate 
 import viralFinanceBlogPosts from './viralFinanceBlogPosts'
 import viralFinanceBlogPosts3 from './viralFinanceBlogPosts3'
 import recoveredBlogPosts from './recoveredBlogPosts'
+import zipBlogPosts from './zipBlogPosts'
 
 // -- All blog posts combined (must be LAST -- after ALL arrays defined) -------
 export const allBlogPosts: BlogPost[] = [
@@ -5532,4 +5534,5 @@ export const allBlogPosts: BlogPost[] = [
   ...viralFinanceBlogPosts,
   ...viralFinanceBlogPosts3,
   ...recoveredBlogPosts,
+  ...zipBlogPosts,
 ]

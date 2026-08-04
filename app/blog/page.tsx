@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 }
 
 const CAT_CONFIG: Record<string, { label: string; icon: string; color: string; border: string; bg: string; desc: string }> = {
+  'zip-codes':       { label: 'ZIP Codes',        icon: '📮', color: 'text-teal-700',   border: 'border-teal-200',   bg: 'bg-teal-50',    desc: 'ZIP code lookup, ZIP+4, distance, timezones & format rules' },
   investment:        { label: 'Investment',       icon: '📈', color: 'text-green-700',  border: 'border-green-200',  bg: 'bg-green-50',   desc: 'SIP, mutual funds, stocks, gold, crypto - grow your wealth' },
   retirement:        { label: 'Retirement',       icon: '🌅', color: 'text-purple-700', border: 'border-purple-200', bg: 'bg-purple-50',  desc: '401k, NPS, PPF, SIPP, FIRE - plan your retirement' },
   loans:             { label: 'Loans',            icon: '🏦', color: 'text-blue-700',   border: 'border-blue-200',   bg: 'bg-blue-50',    desc: 'Mortgage, EMI, student loans, debt payoff strategies' },
