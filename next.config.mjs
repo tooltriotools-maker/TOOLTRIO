@@ -86,14 +86,14 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // ── CRITICAL: www → non-www (prevents duplicate content penalty) ────────
+      // ── Canonical host: www → non-www (consolidates duplicate URL signals) ─────
       {
         source:      '/:path*',
         has:         [{ type: 'host', value: 'www.tooltrio.com' }],
         destination: 'https://tooltrio.com/:path*',
         permanent:   true,
       },
-      // ── CRITICAL: http → https ───────────────────────────────────────────────
+      // ── Canonical protocol: http → https ─────────────────────────────────────
       {
         source:      '/:path*',
         has:         [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
