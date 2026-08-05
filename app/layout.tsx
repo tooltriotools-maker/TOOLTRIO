@@ -111,9 +111,9 @@ const organizationSchema = {
     'ToolTrio is a free finance and health calculator website offering mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ more tools.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
+  // Keep one hostname everywhere. www.tooltrio.com permanently redirects to tooltrio.com.
   sameAs: [
     'https://tooltrio.com',
-    'https://www.tooltrio.com',
   ],
   contactPoint: {
     '@type': 'ContactPoint',
@@ -136,14 +136,6 @@ const websiteSchema = {
   description:
     'Free finance and health calculators including mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required.',
   inLanguage: 'en-US',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
 }
 
 export default function RootLayout({
