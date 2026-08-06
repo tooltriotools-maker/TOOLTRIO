@@ -1,4 +1,5 @@
 'use client'
+import { Card } from '@/components/ui/Card'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo } from 'react'
 import { SEOContent } from '@/components/ui/SEOContent'

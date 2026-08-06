@@ -1,4 +1,5 @@
 'use client'
+import { Card } from '@/components/ui/Card'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState } from 'react'
 import { Copy, Check, Plus, Trash2 } from 'lucide-react'

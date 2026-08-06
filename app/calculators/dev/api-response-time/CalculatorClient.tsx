@@ -1,4 +1,5 @@
 'use client'
+import { Card } from '@/components/ui/Card'
 import { useState } from 'react'
 import { Zap } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
