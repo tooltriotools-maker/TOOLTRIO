@@ -93,9 +93,31 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Career Lifetime Earnings Calculator USA 2026" category="finance" intro="Project total lifetime earnings from current salary to retirement including raises and promotions — before and after tax." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent
+          title="Career Lifetime Earnings Calculator USA 2026"
+          category="finance"
+          intro="This calculator projects gross and after-tax career earnings from your current age to retirement using a starting salary, annual raise rate, promotion frequency, promotion raise percentage and a flat tax-rate assumption. It is a deterministic career scenario—not a forecast of actual wages, employment continuity or future tax law."
+          howItWorks="The model adds each year's salary to cumulative gross earnings, applies the entered flat tax rate for after-tax earnings, increases salary by the annual raise, and applies the promotion raise at the selected interval. Because raises compound on the latest salary, changing either raise assumption can have a large effect over a long career."
+          tipsSection="Use conservative scenarios as well as optimistic ones. The model does not adjust earnings for inflation, unemployment, bonuses, equity compensation, benefits, career breaks or progressive tax brackets. A 3% nominal raise during 3% inflation represents little real purchasing-power growth even though lifetime nominal earnings rise."
+          conclusion="Use the projection to compare career paths and compensation-growth assumptions, not as a promise of lifetime income or after-tax wealth."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "Mid-career salary path",
+            scenario: "A 35-year-old earning $90,000 who models 3% annual raises and an 8% promotion increase every five years will see each promotion compound on top of prior raises.",
+            result: "The calculator sums every modeled annual salary through the retirement age and applies the same flat tax percentage each year.",
+            takeaway: "Comparing a second scenario with a different promotion cadence is more informative than treating one projection as a forecast."
+          }}
+          commonMistakes="Use conservative scenarios as well as optimistic ones. The model does not adjust earnings for inflation, unemployment, bonuses, equity compensation, benefits, career breaks or progressive tax brackets. A 3% nominal raise during 3% inflation represents little real purchasing-power growth even though lifetime nominal earnings rise."
+          inlineLinks={[{ text: "BLS provides occupational employment and projection data that can help contextualize career assumptions.", href: "https://www.bls.gov/emp/", label: "BLS Employment Projections" }]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

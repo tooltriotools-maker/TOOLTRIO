@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
 })
 export const metadata: Metadata = generateCalculatorMetadata({ title: 'Genetic Height Potential Calculator — Mid-Parental Height 2026 | ToolTrio', description: "Free genetic height potential calculator 2026. Predict adult height from parents' heights using the Tanner mid-parental height formula. Includes growth range, remaining growth, and modifier factors.", slug: 'genetic-height-calculator', category: 'health', region: 'usa', keywords: ['genetic height calculator', 'mid-parental height calculator', 'predicted adult height calculator', 'how tall will I be calculator', 'height potential calculator parents'] })

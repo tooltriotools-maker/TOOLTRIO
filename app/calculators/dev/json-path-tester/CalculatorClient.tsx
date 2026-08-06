@@ -99,7 +99,27 @@ Inside filters, use @ not $. $[?(@.active==true)] — @ is the current element b
 Validate JSON first. Paste your JSON into [JSON Formatter](/calculators/dev/json-formatter) before testing — invalid JSON silently returns no results in most JSONPath engines.`}
         conclusion={`JSONPath transforms nested JSON traversal from multi-line application code into a single reusable expression. Test expressions against real data here before committing them to code. Pair with [JSON Formatter](/calculators/dev/json-formatter) for validation and [JSON Schema Generator](/calculators/dev/json-schema-gen) for documentation.`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the json path tester result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding the json path tester output</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The result should be read together with the values entered in the calculator. It reflects the calculator&apos;s implemented calculation and the assumptions represented by those inputs.</p>
+            <p>To compare alternatives clearly, change one value at a time and keep the other inputs unchanged. This helps identify which assumption is responsible for the difference in output.</p>
+          </div>
+        </Card>
+      </div>
+</div>
     </DevToolLayout>
     )
 

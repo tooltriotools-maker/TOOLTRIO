@@ -91,19 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Pay Off Student Loans vs Invest Calculator USA 2026" category="finance"
-          intro="The pay-off-loans vs invest decision depends on two numbers: your loan interest rate and your expected investment return. If investing returns more than the loan costs, invest. But risk, tax deductibility, and psychological value of debt freedom matter too. This calculator runs the math both ways so you can make an informed decision."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This calculator compares two uses for the same monthly surplus: add it to a student-loan payment or invest it while continuing the scheduled loan payment. It is a mathematical comparison of modeled interest cost and investment growth, not a recommendation to give up federal loan protections or take investment risk.'}
+          howItWorks={'The loan side first computes the standard amortizing payment from balance, interest rate and term. It then adds the extra monthly amount and simulates the faster payoff month by month. The investment side compounds that same monthly extra amount at the expected return for the full selected term while the loan remains on its scheduled payment. The model labels the higher assumed rate as the better option, but it does not risk-adjust investment returns or value federal repayment and forgiveness features.'}
+          tipsSection={'Do not compare a guaranteed loan rate with an optimistic investment return as though both were equally certain. Also consider emergency savings, employer retirement matches, taxes and any federal student-loan benefits before acting.'}
+          conclusion={'Use the result as a rate-and-cash-flow scenario. Investment returns can be negative, while paying principal produces a certain reduction in interest-bearing debt.'}
+          benefits={[{title:'Accelerated payoff',text:'Estimate payoff months and modeled interest savings when the extra amount goes to the loan.'},{title:'Investment alternative',text:'Project the future value of investing the same monthly surplus.'},{title:'Rate sensitivity',text:'See how the comparison changes when either the loan rate or expected investment return changes.'}]}
+          useCases={[{title:'High-rate private loan',text:'Test whether a certain debt payoff compares favorably with a conservative investment-return assumption.'},{title:'Low-rate loan',text:'Explore the tradeoff when the loan rate is well below the return assumption, while separately considering risk.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

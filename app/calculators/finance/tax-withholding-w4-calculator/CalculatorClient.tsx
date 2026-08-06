@@ -100,12 +100,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Tax Withholding W-4 Calculator USA 2026 — Adjust Your W-4" category="finance"
-          intro="The W-4 form determines how much federal tax your employer withholds from each paycheck. Getting it right means neither a large refund (over-withheld) nor a surprise tax bill (under-withheld). The 2020+ redesigned W-4 eliminated allowances — this calculator translates your tax situation into the correct W-4 entries."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+          intro="Estimate annual federal income tax and compare it with a simplified withholding assumption using salary, spouse income, other income, retirement contributions, deductions and credits. It is designed to illustrate W-4 planning concepts, not reproduce IRS payroll withholding tables."
+          howItWorks="The model combines household income, subtracts the entered 401(k) contribution, uses the larger of its standard deduction or itemized deductions, and applies progressive federal tax brackets. Credits reduce the resulting tax estimate. The comparison withholding amount is a simplified 22% of salary, so the refund/amount-owed output is not a payroll-system prediction."
+          tipsSection="Use the IRS Tax Withholding Estimator for an actual W-4 decision, especially when you have multiple jobs, bonuses, self-employment income, dependents or itemized deductions. A W-4 changes withholding; it does not change the underlying tax law."
+          conclusion="The calculator now uses 2026 standard deductions and bracket thresholds, but its current-withholding comparison remains intentionally simplified. Verify any W-4 change with the IRS estimator or a tax professional."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

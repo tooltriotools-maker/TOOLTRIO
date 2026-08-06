@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'FSA Calculator USA 2026 — Flexible Spending Account | ToolTrio',
@@ -18,18 +12,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
-  {
-    question: 'What is the FSA contribution limit for 2026?',
-    answer: "The 2026 Health FSA contribution limit is $3,300. The grace period allows an extra 2.5 months to use FSA funds, and the rollover option lets you carry over up to $610 to the next plan year (not both — your employer chooses one). Contributing more than you'll spend risks forfeiture of unused funds.",
-  },
-  {
-    question: 'What can I buy with my FSA?',
-    answer: 'FSA-eligible expenses include: prescription medications, insulin, medical equipment (crutches, blood pressure monitors), dental care, vision care, bandages, contact lenses and solution, first aid supplies, OTC medications (since CARES Act 2020), menstrual products, and thousands of other items at FSA stores. Cosmetic expenses, gym memberships, and vitamins (without a prescription) are not eligible.',
-  },
-  {
-    question: 'FSA vs HSA — which is better?',
-    answer: "HSA (requires HDHP): no use-it-or-lose-it rule, funds roll over forever, can invest for growth, triple tax advantage. FSA (any health plan): use-it-or-lose-it (with grace period/rollover), accessible on day 1 of plan year. If eligible for HSA, it's almost always superior. FSA makes sense when you're not on an HDHP or when your employer doesn't offer an HSA.",
-  }
+  { question: 'What is the Health FSA salary-reduction limit for 2026?', answer: 'The IRS says the 2026 limit is $3,400. An employer plan that permits carryover can allow up to $680 to carry into the following plan year.' },
+  { question: 'How does this calculator estimate FSA tax savings?', answer: 'It multiplies the capped contribution by your entered marginal tax rate plus a 7.65% FICA assumption. Your actual payroll-tax savings can differ.' },
+  { question: 'Why can contributing too much to an FSA be costly?', answer: 'Health FSAs are subject to plan rules on unused funds. The calculator compares the election with expected medical spending and a modeled $680 carryover to highlight possible forfeiture.' },
+  { question: 'Can every employer offer the $680 carryover?', answer: 'No. Carryover depends on the employer plan. Some plans instead use a grace period, and you should check your plan document for the rule that actually applies.' },
+  { question: 'Does this calculator determine whether an expense is FSA eligible?', answer: 'No. It models contribution and tax effects only. Eligibility depends on applicable tax rules and your plan administrator.' }
 ]
 
 const relatedCalculators = [

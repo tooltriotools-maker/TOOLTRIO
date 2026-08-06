@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate])
 
   return (
-    <CalculatorLayout title="Options Pricing Calculator USA 2026 — Black-Scholes" description="Calculate call and put option fair value using Black-Scholes formula, plus delta, theta, break-even price, and implied move." icon="📈" category="Finance" relatedCalculators={relatedCalculators} slug="options-pricing-calculator">
+    <CalculatorLayout title="Options Pricing Calculator USA 2026 — Black-Scholes" description="Estimate a European-style call option value with the Black-Scholes model, plus delta, time value, break-even and implied move." icon="📈" category="Finance" relatedCalculators={relatedCalculators} slug="options-pricing-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📈 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Options pricing requires understanding Black-Scholes, the Greeks, and implied volatility. This calculator provides theoretical fair value for any call or put option plus the key Greeks (delta, theta) and expected move range. Essential for traders evaluating whether options are fairly priced before buying or selling.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a risk-free rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even.</p>
               </Card>
             </>
           ):(
@@ -91,12 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Options Pricing Calculator USA 2026 — Black-Scholes" category="finance"
-          intro="Options pricing requires understanding Black-Scholes, the Greeks, and implied volatility. This calculator provides theoretical fair value for any call or put option plus the key Greeks (delta, theta) and expected move range. Essential for traders evaluating whether options are fairly priced before buying or selling."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a risk-free rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even."
+          howItWorks="The function converts days to years, volatility and interest to decimals, calculates d1 and d2, and uses the Black-Scholes call equation C = S·N(d1) − K·e^(−rT)·N(d2). Break-even is strike + theoretical premium. The current UI always prices a call; despite older copy, it does not let the user select a put."
+          tipsSection="Implied volatility usually has a large effect on theoretical value. Compare the model price with the market quote, but remember Black-Scholes assumes constant volatility/rates and continuous trading and this implementation does not include dividends."
+          conclusion="A theoretical option value is not a prediction of the market price or future profit. American exercise features, dividends, volatility skew, liquidity and transaction costs can make traded prices differ from this simplified model."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update from the calculator inputs and stated assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

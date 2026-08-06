@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'College ROI Calculator USA 2026 — Is a Degree Worth It? | ToolTrio',
   description: 'Calculate the financial return on college education: net present value, payback period, lifetime salary premium, and loan vs no-degree comparison.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['college ROI calculator', 'is college worth it calculator USA 2026', 'degree value calculator', 'college salary premium calculator', 'college NPV calculator USA'],
 })
 const faqs = [
-  {
-    question: 'How do you calculate the ROI of a college degree?',
-    answer: 'ROI = (Lifetime salary premium - Total investment) / Total investment × 100. Total investment includes tuition/fees/room AND the opportunity cost of 4 years of lost wages. A $120,000 degree at $42,000 opportunity cost = $288,000 total investment. If salary premium is $33,000/year for 40 years = $1,320,000 lifetime premium, ROI is about 358%.',
-  },
-  {
-    question: 'Is college worth it financially in 2026?',
-    answer: "On average, yes — BLS data shows bachelor's degree holders earn $28,000/year more than high school graduates over their careers. But averages hide enormous variation: a CS degree from a state school ($80,000 cost) vs a liberal arts degree from a private school ($280,000 cost) have dramatically different NPVs. Major and school choice matter more than the degree itself in most ROI calculations.",
-  },
-  {
-    question: 'What majors have the highest financial ROI?',
-    answer: "Highest ROI majors: Computer Science, Electrical Engineering, Chemical Engineering, Nursing, Accounting, Finance. Lowest ROI: Fine Arts, Music, Social Work, Philosophy, Education (in many states). Georgetown Center on Education and the Workforce data shows median earnings 10 years post-graduation vary from $38,000 (Early Childhood Education) to $95,000+ (Computer Engineering). Research your specific major's earning outcomes before committing.",
-  }
+ {question:'What counts as the investment in the degree?',answer:'The model adds the entered degree cost to foregone earnings during the years in school, using the salary-without-degree input as the annual opportunity cost.'},
+ {question:'How is lifetime salary premium calculated?',answer:'It takes salary with the degree minus salary without the degree and multiplies that starting difference by the entered work years. It does not model raises, career changes or unemployment.'},
+ {question:'How is NPV calculated?',answer:'The annual salary premium is discounted at a fixed 5% rate in the code and the entered degree cost is subtracted. The opportunity cost used elsewhere in the calculator is not separately subtracted in that NPV formula.'},
+ {question:'What loan repayment term is assumed?',answer:'The loan-payment output amortizes the full degree cost over 120 months, or 10 years, at the entered interest rate. Grants, scholarships, income-driven repayment and partial cash funding are not modeled.'},
+ {question:'Does a positive ROI prove a degree is worth attending?',answer:'No. The result depends heavily on the salary assumptions and ignores many nonfinancial outcomes and risks. Use program-specific net price, completion probability and realistic earnings data when comparing schools.'}
 ]
 const relatedCalculators = [
   { name: 'Student Loan Forgiveness', href: '/calculators/finance/student-loan-forgiveness-calculator', icon: '📚', desc: 'Student Loan Forgiveness' },

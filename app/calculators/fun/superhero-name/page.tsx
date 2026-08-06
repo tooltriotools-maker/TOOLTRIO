@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateFunToolMetadata } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Superhero Name Generator | ToolTrio',
-  description: 'Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — instant results.',
+  description: 'Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — Superhero Name output.',
   slug: 'superhero-name',
   keywords: [
     'superhero name generator',

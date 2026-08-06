@@ -117,7 +117,17 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           { name: 'Paycheck Calculator', href: '/calculators/finance/paycheck-calculator', icon: '💵', desc: 'Take-home pay' },
           { name: 'Tax Bracket Calculator', href: '/calculators/finance/tax-bracket-calculator', icon: '🧾', desc: 'Tax brackets 2026' },
         ]} />
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the w2 vs 1099 calculator result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
       </div>
+</div>
     </CalculatorLayout>
   )
 }

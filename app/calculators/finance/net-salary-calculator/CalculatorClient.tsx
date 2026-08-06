@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[grossSalary, retirement401k, hsaContrib, fsa])
 
   return (
-    <CalculatorLayout title="Net Salary Calculator USA 2026 — Take-Home Pay by State" description="Calculate exact take-home pay after federal income tax, FICA, and state taxes for all 50 states. Includes 401k, HSA, and FSA deductions." icon="💰" category="Finance" relatedCalculators={relatedCalculators} slug="net-salary-calculator">
+    <CalculatorLayout title="Net Salary Calculator USA 2026 — Take-Home Pay by State" description="Estimate California take-home pay after simplified 2026 federal tax, FICA, modeled state tax, and entered 401(k), HSA, and FSA deductions." icon="💰" category="Finance" relatedCalculators={relatedCalculators} slug="net-salary-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💰 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Your gross salary and your take-home pay can differ by 30-40% after federal income tax, FICA, and state taxes. Pre-tax deductions (401k, HSA, FSA) reduce the tax bill significantly — contributing $15,200 pre-tax can save $4,000-$6,000 in taxes annually. This calculator gives exact numbers by state.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This page estimates annual and monthly take-home pay after a simplified federal income-tax calculation, FICA, modeled state tax, and the 401(k), HSA, and FSA amounts you enter. The current interface specifically calculates California and single filing status, so it should not be read as an all-state payroll quote.</p>
               </Card>
             </>
           ):(
@@ -82,18 +82,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Net Salary Calculator USA 2026 — Take-Home Pay by State" category="finance"
-          intro="Your gross salary and your take-home pay can differ by 30-40% after federal income tax, FICA, and state taxes. Pre-tax deductions (401k, HSA, FSA) reduce the tax bill significantly — contributing $15,200 pre-tax can save $4,000-$6,000 in taxes annually. This calculator gives exact numbers by state."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This page estimates annual and monthly take-home pay after a simplified federal income-tax calculation, FICA, modeled state tax, and the 401(k), HSA, and FSA amounts you enter. The current interface specifically calculates California and single filing status, so it should not be read as an all-state payroll quote."
+          howItWorks="The calculator subtracts the entered pre-tax deductions and a 2026 single standard deduction, applies simplified 2026 federal brackets, estimates Social Security/Medicare payroll tax, and applies the model's California state rate to gross salary. It does not reproduce Form W-4 withholding, California's progressive brackets, local payroll items, benefit premiums, Additional Medicare filing-status rules, or employer payroll configuration."
+          tipsSection="Use gross annual salary and annual employee contributions. Treat the result as a planning estimate; an actual paycheck can differ because payroll withholding is based on pay frequency, Form W-4 elections, benefit treatment, bonuses, and state/local rules."
+          conclusion="This calculator is best for rough California take-home comparisons, not filing a tax return or predicting an exact paycheck."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},
+            {title:"Scenario Comparison",text:"Compare the result after changing the input that matters to this calculation."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

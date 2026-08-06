@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🚗 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Gig workers face a double tax burden — self-employment tax (15.3%) on top of federal income tax. But strategic deductions dramatically reduce the bill. 18,000 business miles at $0.67/mile = $12,060 in deductions alone. This calculator shows your exact net take-home from any gig income after all deductions and taxes.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Gig workers face a double tax burden — self-employment tax (15.3%) on top of federal income tax. But strategic deductions dramatically reduce the bill. 18,000 business miles at $0.76/mile (Jul–Dec 2026; $0.725 Jan–Jun) = $12,060 in deductions alone. This calculator shows your exact net take-home from any gig income after all deductions and taxes.</p>
               </Card>
             </>
           ):(
@@ -90,12 +90,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Gig Economy Tax Calculator USA 2026 — Uber Lyft DoorDash" category="finance" intro="Gig workers face a double tax burden — self-employment tax (15.3%) on top of federal income tax. But strategic deductions dramatically reduce the bill. 18,000 business miles at $0.67/mile = $12,060 in deductions alone. This calculator shows your exact net take-home from any gig income after all deductions and taxes."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent
+          title="Gig Economy Tax Calculator" category="finance"
+          intro="This calculator estimates net self-employment income after entered expenses, business mileage, a modeled home-office amount and business-use phone costs, then applies simplified SE and federal income taxes."
+          howItWorks="Net SE income starts with platform income minus deductions. SE tax is modeled as 15.3% of 92.35% of net SE income. Half the SE tax is deducted before a simplified 20% QBI amount and the 2026 single standard deduction are used for a flat 22% federal-tax estimate."
+          tipsSection="Worked example: Example: business mileage directly reduces modeled net income. For mileage incurred July–December 2026, the IRS business rate is 76¢ per mile; January–June 2026 uses 72.5¢. The calculator currently applies 76¢ to every mile entered."
+          conclusion="Important assumptions and limitations: This is not a Schedule C or quarterly-payment engine. The home-office calculation assumes $18,000 of annual housing cost, phone business use is fixed at 45% by the UI call, and federal income tax is a flat approximation. Keep date-specific mileage records because 2026 has two business mileage rates."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

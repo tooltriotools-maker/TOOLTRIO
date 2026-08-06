@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'PMI Calculator USA 2026 — Mortgage Insurance | ToolTrio',
-  description: 'Calculate monthly PMI cost, how long until PMI is removed at 80% loan-to-value, and the total cost of putting less than 20% down.',
+  title: 'PMI Calculator — Mortgage Insurance & Removal Estimate | ToolTrio',
+  description: 'Estimate conventional PMI, loan-to-value, months to 80% LTV and the modeled cost of putting less than 20% down.',
   slug: 'pmi-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['PMI calculator 2026','private mortgage insurance calculator','when does PMI drop off','PMI removal 80% LTV calculator'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'When can I remove PMI from my mortgage?', answer: 'Under the federal Homeowners Protection Act, your lender must automatically cancel PMI once your loan balance reaches 78% of the home\'s original value, on schedule. You can also request cancellation earlier once you reach 80% loan-to-value, based on either the original purchase price or a new appraisal if your home has appreciated.' },
-  { question: 'How much does PMI typically cost?', answer: 'PMI rates commonly range from roughly 0.3% to 1.5% of the loan amount annually, depending mainly on your credit score and down payment size — a lower credit score or smaller down payment (closer to the minimum) results in a higher PMI rate.' },
-  { question: 'Is it better to put 20% down or pay PMI?', answer: 'It depends on opportunity cost — if you have less than 20% but investing the difference elsewhere would earn more than the PMI cost (and you\'re comfortable with the risk), paying PMI temporarily to buy sooner can make sense. If avoiding PMI entirely is affordable without depleting your emergency fund, a 20% down payment eliminates the extra cost outright.' },
+  { question: 'When can I request cancellation of conventional PMI?', answer: 'For many covered mortgages, CFPB says a borrower may request cancellation when the principal balance is scheduled to reach 80% of the home’s original value, subject to applicable requirements.' },
+  { question: 'When is PMI automatically terminated?', answer: 'For many covered mortgages, automatic termination generally occurs when the scheduled principal balance reaches 78% of original value and the borrower is current, with additional midpoint protections.' },
+  { question: 'How does this calculator estimate the PMI rate?', answer: 'It uses illustrative annual rates of 0.30%, 0.50%, 0.80%, or 1.20% based only on credit-score bands. Actual PMI quotes use more loan characteristics.' },
+  { question: 'Does the months-to-removal result use home appreciation?', answer: 'No. It amortizes the entered loan against 80% of the original home value. Appreciation-based cancellation can follow different investor or servicer rules.' },
+  { question: 'Is FHA mortgage insurance the same as conventional PMI?', answer: 'No. FHA mortgage insurance has separate rules. The page shows an FHA modeling branch, but conventional PMI cancellation rules should not be applied to FHA loans.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏡', desc: 'Mortgage' },

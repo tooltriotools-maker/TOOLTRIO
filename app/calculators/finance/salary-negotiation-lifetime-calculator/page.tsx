@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Salary Negotiation Lifetime Impact Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the true lifetime financial impact of a salary negotiation — how a single negotiated increase compounds over a 30-year career.',
+  title: 'Salary Negotiation Lifetime Impact Calculator | ToolTrio',
+  description: 'See how a negotiated starting-salary increase can compound through future raises and change modeled 10-year and career earnings.',
   slug: 'salary-negotiation-lifetime-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['salary negotiation calculator','lifetime impact of salary negotiation','how much does negotiating salary matter','compounding raises over career'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'Why does a single salary negotiation matter so much long-term?', answer: 'Because future annual raises are typically calculated as a percentage of your current salary, a higher starting number doesn\'t just add a one-time gain — it compounds every single year afterward through every subsequent raise, promotion, and job change for the rest of your career.' },
-  { question: 'Does negotiating salary also affect retirement savings?', answer: 'Yes — many retirement contributions (like a 401k match or profit sharing) are calculated as a percentage of salary, so a higher base salary can also mean larger employer retirement contributions accumulating and compounding over your entire career, amplifying the negotiation\'s lifetime impact even further.' },
-  { question: 'How much should I typically try to negotiate?', answer: 'There\'s no universal number — it depends on the role, industry, and how the initial offer compares to market rate for your experience level. Research typical compensation ranges for the role and location, and remember that even a modest percentage increase compounds meaningfully over a multi-decade career.' },
+  { question: 'Why can a $10,000 raise create more than $10,000 of annual impact later?', answer: 'The calculator assumes both salary paths receive the same percentage raises, so the initial salary gap itself grows at the entered raise rate.' },
+  { question: 'What is included in lifetime extra earnings?', answer: 'It sums the compounded salary difference for each year through the selected retirement horizon. It does not include bonuses, equity, taxes, inflation, unemployment, or job changes.' },
+  { question: 'How is the retirement benefit calculated?', answer: 'It is simply the salary difference multiplied by the retirement-savings multiple you enter. It is not a pension formula or an investment-growth projection.' },
+  { question: 'Does the calculator include Social Security in total lifetime value?', answer: 'The function computes a rough Social Security field internally, but the displayed total lifetime value does not add that field; it adds modeled extra earnings and the retirement-benefit amount.' },
+  { question: 'Should I use the same annual raise rate for both paths?', answer: 'That is the calculator’s controlled-comparison assumption. If the jobs have different promotion or raise trajectories, the model will not capture that difference.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Career Lifetime Earnings', href: '/calculators/finance/career-earnings-calculator', icon: '💼', desc: 'Career Lifetime Earnings' },

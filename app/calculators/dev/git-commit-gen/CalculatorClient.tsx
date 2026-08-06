@@ -90,7 +90,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <div className="p-3 bg-gray-950 rounded-xl mb-4"><code className="text-green-300 font-mono text-sm">feat(auth): add OAuth2 Google login<br/><br/>Allows users to sign in with their Google account.<br/>Implements PKCE flow for enhanced security.<br/><br/>Closes #234</code></div>
         <p className="text-sm text-gray-600">Common tools that read conventional commits: semantic-release (auto version bumping), standard-version, conventional-changelog (auto CHANGELOG). GitHub and GitLab display the type prefix prominently in their UI, making your git log much easier to scan.</p>
       </div>
-      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the git commit gen result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="Git Commit Message Generator — Conventional Commits"
         category="dev"

@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Federal Estate Tax Calculator USA 2026"
-      description="Calculate federal estate tax liability, exemption amounts, and marital deduction. Plan for the potential TCJA sunset reducing exemptions."
+      description="Calculate federal estate tax liability, exemption amounts, and marital deduction. Plan for the the 2026 basic exclusion and entered deductions."
       icon="⚖️"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">⚖️ Federal Estate Tax Calculator USA 2026 — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The federal estate tax applies to estates above $13,610,000 (2026), but this exemption may revert to ~$7 million if the TCJA sunset occurs. With a top rate of 40%, estate planning is critical for high-net-worth families. Strategic gifting, trusts, and marital deductions can dramatically reduce or eliminate estate tax exposure.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This federal estate-tax calculator starts with gross estate value, subtracts entered debts, charitable deductions and spouse transfers, then compares the remainder with the 2026 federal basic exclusion. The 2026 basic exclusion is $15 million per individual.</p>
               </Card>
             </>
           ) : (
@@ -96,12 +96,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Federal Estate Tax Calculator USA 2026"
           category="finance"
-          intro="The federal estate tax applies to estates above $13,610,000 (2026), but this exemption may revert to ~$7 million if the TCJA sunset occurs. With a top rate of 40%, estate planning is critical for high-net-worth families. Strategic gifting, trusts, and marital deductions can dramatically reduce or eliminate estate tax exposure."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This federal estate-tax calculator starts with gross estate value, subtracts entered debts, charitable deductions and spouse transfers, then compares the remainder with the 2026 federal basic exclusion. The 2026 basic exclusion is $15 million per individual."
+          howItWorks="Adjusted estate = gross estate − debts − charitable deductions − spouse transfer. Taxable estate = max(0, adjusted estate − modeled exclusion). The function then applies its estate-tax rate schedule. The UI currently runs the single-estate scenario; portability and marital-deduction rules require additional facts and elections."
+          tipsSection="Use date-of-death values and do not treat every liability or transfer as automatically deductible. Adjusted taxable gifts, valuation rules, portability elections and state estate/inheritance taxes are outside this simplified input set."
+          conclusion="Federal estate tax is highly fact-specific. This calculator provides a rough federal estimate and does not prepare Form 706, value assets or determine state death taxes."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

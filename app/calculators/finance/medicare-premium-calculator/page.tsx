@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Medicare Premium Calculator USA 2026 — IRMAA Surcharge | ToolTrio',
@@ -29,7 +23,9 @@ const faqs = [
   {
     question: 'When does Medicare IRMAA kick in for 2026?',
     answer: 'Part B standard premium: $185.00/month (income under $106,000 single / $212,000 married). First IRMAA tier starts at $106,000+ single: Part B jumps to $259.00/month — a $74/month increase or $888/year. The highest IRMAA tier ($500,000+ single) pays $628.90/month for Part B plus $85.80/month Part D surcharge.',
-  }
+  },
+  { question: 'Does the total include my Part D plan premium?', answer: 'No. It adds the 2026 Part B premium and Part D IRMAA surcharge only; your Part D plan premium varies by plan.' },
+  { question: 'What income thresholds does the current UI use?', answer: 'The UI models a single filer: 2026 IRMAA tiers begin above $109,000, $137,000, $171,000, $205,000 and at $500,000 of MAGI.' },
 ]
 
 const relatedCalculators = [

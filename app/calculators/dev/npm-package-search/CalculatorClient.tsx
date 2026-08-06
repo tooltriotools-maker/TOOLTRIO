@@ -115,7 +115,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       <SEOContent title="npm Package Search" category="dev"
-        intro="The npm Package Search provides a fast, browser-based reference for the most popular JavaScript and Node.js packages - with versions, licenses, weekly download stats, and one-click install commands for npm, yarn, pnpm, and bun. No API calls, no rate limits, instant results for 25+ essential packages used in almost every modern JavaScript project.\n\nWith over 2.5 million packages on the npm registry, knowing which packages are battle-tested, well-maintained, and widely trusted is valuable. This tool focuses on the packages you'll encounter most frequently - from React and Next.js to utilities like lodash, zod, date-fns, and development tools like ESLint and Prettier.
+        intro="The npm Package Search provides a fast, browser-based reference for the most popular JavaScript and Node.js packages - with saved version, license, approximate weekly-download data, and install-command examples for npm, yarn, pnpm, and bun. No API calls are made: results come from the bundled package snapshot, so verify current versions and statistics on the npm registry.\n\nWith over 2.5 million packages on the npm registry, knowing which packages are battle-tested, well-maintained, and widely trusted is valuable. This tool focuses on the packages you'll encounter most frequently - from React and Next.js to utilities like lodash, zod, date-fns, and development tools like ESLint and Prettier.
 
 **Long-tail searches answered here:** npm package search free online usa, find npm library by functionality free tool, npm package lookup free no signup, search npm registry free no download, discover javascript packages free online, npm module finder free tool usa, find npm equivalent to python package free usa, npm package weekly downloads trend checker free, npm package size bundle impact checker free online, find actively maintained npm packages free tool usa, npm package vulnerabilities security check free, alternative npm packages comparison tool free usa, npm package license compatibility checker free, find typescript types for npm package free usa, npm package quality score checker free online"
         howItWorks="This tool maintains a curated static database of popular npm packages with current version numbers, licenses, approximate weekly download counts, and descriptive tags. Search filters across package names, descriptions, and tags in real time. All four major package manager install commands (npm, yarn, pnpm, bun) are generated from the package name and copied with one click.\n\nFor packages not in the built-in database, the tool links directly to npmjs.com for the complete registry search."
@@ -135,20 +135,29 @@ export default function CalculatorClient({ faqs }: Props) {
           { title: 'Teaching & Workshops', text: 'Demo package installation with clean, copyable commands for different package managers during workshops and code-along tutorials.' },
           { title: 'README & Documentation', text: 'Copy properly formatted install commands for inclusion in README installation instructions and documentation.' },
         ]}
-        tipsSection={`Check weekly download counts before adding a new package. Under 100k weekly downloads often indicates limited community support and maintenance risk. Packages with millions of weekly downloads have battle-tested APIs and active maintenance.\n\nAlways check the license compatibility for your project type. MIT and Apache-2.0 are permissive and safe for commercial use. GPL packages require your project to also be open-source if distributed. ISC is equivalent to MIT. BSD variants are generally permissive.\n\nFor production dependencies, pin exact versions (--save-exact) or use lockfiles religiously. For dev dependencies, minor version ranges (~) are typically safe.
+        tipsSection={`Use download counts only as a rough adoption signal. A heavily downloaded package can still be unsuitable, vulnerable, deprecated, or poorly maintained, while a niche package can be excellent for a narrow use case.
 
-For project dependency management, use pnpm workspaces or Yarn Workspaces (monorepos) when managing multiple related packages. The workspace protocol (workspace:*) pins internal dependencies to workspace versions, enabling atomic versioning across packages. This architecture is used by large codebases like Next.js, Prisma, and most major open-source TypeScript projects.
+Check the current package page and repository before installation. Review the actual license text rather than relying on a short license label; obligations differ by license and by how software is distributed or used.
 
-package.json "exports" field (Node.js 12+ and all modern bundlers) enables subpath exports, conditional exports, and package self-referencing. Modern packages specify exports: { './utils': './dist/utils.js' } instead of exposing internal file paths. When a package doesn't work with your bundler, checking if exports is misconfigured is often the solution.
-
-For version management in lockfiles, understand the difference: package-lock.json uses exact versions for security (repeatable installs), yarn.lock uses a different format but same principle, pnpm-lock.yaml includes content hashes for integrity verification. Never edit lockfiles manually - they're generated artifacts. When lockfile conflicts arise in git merges, delete the conflicted lockfile and run the package manager install command fresh.`}
-        scienceSection={`npm (Node Package Manager) was created by Isaac Z. Schlueter in 2009 as a companion to Node.js and has grown into the largest software registry in the world. As of 2024, npmjs.com hosts over 2.5 million packages, receives approximately 100 billion monthly downloads, and is a critical piece of infrastructure for virtually every JavaScript project.
-
-The JavaScript package management ecosystem has diversified significantly: Yarn (Facebook, 2016) introduced lockfiles and parallel installs; pnpm (2017) pioneered content-addressable storage for massive disk space savings; Bun (2022) integrated a package manager with a JavaScript runtime for maximum performance. Each manager uses the same package.json format and npmjs.com registry but with different performance and disk usage characteristics.
-
-The concept of "dependency hell" - where conflicting transitive dependencies prevent package installation - drove development of lockfile-based reproducible installs (npm's package-lock.json, Yarn's yarn.lock, pnpm's pnpm-lock.yaml). The log4shell vulnerability (2021), which affected millions of systems through a transitive dependency in Apache Log4j, highlighted the critical importance of supply chain security in package ecosystems.`}
-        conclusion="The npm Package Search makes it faster to find and install common JavaScript packages across all major package managers. Keep it open alongside your terminal for instant install commands during project setup."
+Commit your lockfile and use reproducible install commands in CI. Treat lockfiles as generated dependency-resolution records and resolve merge conflicts according to your package manager and project workflow rather than applying a universal delete-and-regenerate rule.`}
+        conclusion="This npm Package Search is a quick discovery tool for the bundled package snapshot. Verify the current package version, release history, documentation and security status on the npm registry before installing."
       />
+
+
+      <div className="mt-8 space-y-6">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">What This Package Search Actually Searches</h2>
+          <p className="text-sm text-gray-600">This page searches ToolTrio's bundled snapshot of popular npm packages. It does not make a live request to the npm registry. Version numbers and weekly-download figures shown in the local dataset can therefore become stale and should be verified on npm before you install a dependency.</p>
+        </div>
+        <div className="rounded-2xl border border-gray-100 bg-white p-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">How to Evaluate a Result</h2>
+          <p className="text-sm text-gray-600">Use the local result to shortlist packages by name, purpose, license and approximate adoption. Before choosing one, check its current npm release, repository activity, security advisories, runtime compatibility, TypeScript support and bundle impact. Download count is an adoption signal—not a quality or security guarantee.</p>
+        </div>
+        <div className="rounded-2xl border border-gray-100 bg-white p-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Example Workflow</h2>
+          <p className="text-sm text-gray-600">Searching for “validation” can surface a package such as Zod from the bundled list. Treat that as discovery: confirm the current version and documentation on npm, check whether its API fits your runtime, then install and run your project's security and test tooling before shipping.</p>
+        </div>
+      </div>
 
       <div className="mt-8 space-y-3">
         {faqs.map(f => <details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}>

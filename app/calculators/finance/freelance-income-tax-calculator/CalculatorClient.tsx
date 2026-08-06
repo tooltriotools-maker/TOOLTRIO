@@ -90,7 +90,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💻 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Freelancers keep less of each dollar than W-2 employees because they pay both employee and employer portions of FICA (15.3%), making gross revenue a misleading measure. A $85/hour freelancer billing 1,400 hours = $119,000 gross, but after SE tax, federal tax, and necessary deductions, take-home may be $65,000-$75,000. Understanding effective hourly rate and salary equivalent is essential for freelance pricing.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator turns an hourly freelance rate and annual billable hours into gross revenue, then subtracts business expenses and health insurance before estimating self-employment tax, a simplified QBI deduction, federal tax, retirement contribution, and net take-home income.</p>
               </Card>
             </>
           ):(
@@ -100,10 +100,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Freelance Income Tax Calculator USA 2026 — Self-Employed Net Income" category="finance"
-          intro="Freelancers keep less of each dollar than W-2 employees because they pay both employee and employer portions of FICA (15.3%), making gross revenue a misleading measure. A $85/hour freelancer billing 1,400 hours = $119,000 gross, but after SE tax, federal tax, and necessary deductions, take-home may be $65,000-$75,000. Understanding effective hourly rate and salary equivalent is essential for freelance pricing."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+          intro="This calculator turns an hourly freelance rate and annual billable hours into gross revenue, then subtracts business expenses and health insurance before estimating self-employment tax, a simplified QBI deduction, federal tax, retirement contribution, and net take-home income."
+          howItWorks="Gross revenue = hourly rate × billable hours. The model estimates net self-employment income after entered expenses and health insurance, applies 92.35% × 15.3% for self-employment tax, deducts half that tax, estimates QBI as 20% of the remaining amount, subtracts the entered retirement contribution and a 2026 single standard deduction, then applies the tax-rate input as a flat federal rate. Actual QBI eligibility, income-tax brackets, SE-tax wage-base interactions, credits, and deductible expenses are more complex."
+          tipsSection="Billable hours should exclude unpaid sales, admin, training, and vacation time if you want a realistic effective hourly rate. Do not assume the calculated quarterly amount is your required IRS estimated payment without considering other household income and withholding."
+          conclusion="The page is a freelancer cash-flow model, not a Schedule C, Schedule SE, QBI worksheet, or estimated-tax return."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />

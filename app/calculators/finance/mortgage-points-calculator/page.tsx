@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Mortgage Points Calculator USA 2026 — Buy Down Rate | ToolTrio',
   description: 'Calculate whether buying down your mortgage rate with discount points saves money. Find exact break-even month and lifetime savings.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['mortgage points calculator 2026', 'discount points calculator USA', 'buy down mortgage rate calculator', 'should I pay points mortgage', 'points break-even calculator'],
 })
 const faqs = [
-  {
-    question: 'Should I buy mortgage discount points?',
-    answer: 'Points make sense if you plan to keep the loan long enough to recoup the upfront cost through lower payments. With a 24-36 month break-even and plans to stay 7+ years, buying points is usually worthwhile. But if you might refinance or move within 5 years, paying points is often a loss. The break-even calculation is straightforward: upfront cost ÷ monthly savings = months to break even.',
-  },
-  {
-    question: 'How much does 1 mortgage point cost?',
-    answer: 'One discount point costs 1% of the loan amount ($4,000 on a $400,000 loan) and typically reduces the rate by 0.25%. However, this varies by lender and market conditions — sometimes a point buys only 0.125% rate reduction. Always compare points to APR across lenders rather than assuming a fixed conversion rate.',
-  },
-  {
-    question: 'Are mortgage points tax deductible?',
-    answer: 'Yes — discount points paid on a home purchase mortgage are generally fully deductible in the year paid (if you itemize deductions). Points paid on a refinance must be amortized (deducted over the life of the loan). The deduction is only valuable if you itemize — in 2026, about 15% of filers do. Run the numbers both ways.',
-  }
+ {question:'How much does one mortgage point cost in this calculator?',answer:'One point is modeled as 1% of the loan amount. Two points on a $400,000 loan therefore cost $8,000 upfront.'},
+ {question:'How is the break-even month calculated?',answer:'The calculator amortizes the original loan and the reduced-rate loan, subtracts the two monthly principal-and-interest payments, then divides the points cost by that monthly savings.'},
+ {question:'Does one point always reduce the rate by the same amount?',answer:'No. The rate-reduction input is separate because lender pricing changes with market conditions, loan characteristics and the day the rate is locked.'},
+ {question:'What happens if I sell or refinance before break even?',answer:'If you stop using the loan before cumulative payment savings recover the upfront points, the modeled points purchase has not paid for itself. Tax effects and closing-cost differences are not included.'},
+ {question:'Are mortgage points always tax deductible?',answer:'No. Federal tax treatment depends on the transaction and applicable IRS requirements. This calculator does not include a tax deduction in its break-even calculation.'}
 ]
 const relatedCalculators = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Mortgage Calculator' },

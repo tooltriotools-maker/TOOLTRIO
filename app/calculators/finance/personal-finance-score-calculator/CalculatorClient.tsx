@@ -108,12 +108,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Personal Finance Score Calculator USA 2026 — Rate Your Financial Health" category="finance" intro="A comprehensive personal finance score measures your financial health across the five most predictive dimensions: savings rate, emergency fund adequacy, debt-to-income ratio, retirement progress, and credit score. Understanding where you rank and what to prioritize makes the path to financial health concrete and actionable."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Runs locally in your browser."},{title:"Free Forever",text:"No signup required."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+        <SEOContent title="Personal Finance Score Calculator USA 2026 — Rate Your Financial Health" category="finance" intro="Create a five-part planning score from savings rate, emergency-fund coverage, debt relative to annual income, retirement savings relative to the calculator benchmark, and credit score. The score is a ToolTrio heuristic—not a credit score or professional financial-health standard."
+          howItWorks="Each category contributes up to 20 points. Savings reaches the model maximum around a 20% savings rate; emergency reserves reach the maximum at six months of expenses; debt points fall as debt-to-income rises; retirement points compare savings with annual income × age/10; and credit points scale from 580 to 850."
+          tipsSection="Use the component scores to identify which assumption drives the result instead of treating the letter grade as an objective verdict. The model does not account for assets such as home equity, pension benefits, debt interest rates, insurance needs or household-specific goals."
+          conclusion="A higher score means your inputs align more closely with this calculator’s chosen benchmarks. It does not measure investment suitability, borrowing eligibility or overall net worth."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

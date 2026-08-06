@@ -91,18 +91,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Mortgage Affordability Calculator USA 2026 — How Much House?" category="finance"
-          intro="In 2026 with mortgage rates near 7%, affordability is the defining challenge of home buying. The 28/43 DTI rule determines how much lenders will approve — but approval ceiling and financial comfort zone are different things. This calculator shows both your maximum and a conservative comfortable range."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator estimates a maximum home price from income, recurring debt, down payment, mortgage rate, property-tax rate and a fixed $150 monthly homeowners-insurance assumption. It uses the more restrictive of a 28% housing screen and 43% total-debt screen."
+          howItWorks="Front-end capacity = 28% of gross monthly income. Back-end capacity = 43% of gross monthly income minus other debts and modeled insurance. Each capacity is converted to a 30-year loan with the standard amortization formula; the smaller loan plus down payment becomes the estimated maximum price."
+          tipsSection="The 28% and 43% figures are ToolTrio planning thresholds, not universal underwriting rules. Actual approval varies by loan program, credit, taxes, insurance, HOA dues, mortgage insurance and lender underwriting."
+          conclusion="Use the maximum as a screening estimate rather than a target purchase price. This calculator does not issue loan approvals."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Methodology-specific results",text:"Outputs follow the formulas and assumptions described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Decision support",text:"Use your own inputs to evaluate the specific calculation shown here."},
+            {title:"Assumption testing",text:"Change the inputs that materially drive this calculator and compare the result."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

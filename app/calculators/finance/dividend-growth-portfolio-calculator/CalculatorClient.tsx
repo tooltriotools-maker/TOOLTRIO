@@ -85,9 +85,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Dividend Growth Portfolio Calculator USA 2026" category="finance" intro="Model a dividend growth investing strategy — showing how yield on cost compounds as dividends grow faster than price." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Dividend Growth Portfolio Calculator" category="finance"
+          intro="Project a dividend-paying portfolio under separate assumptions for starting yield, annual dividend growth and share-price growth. The tool shows how annual cash dividends, yield on original cost and portfolio value can evolve over the selected horizon without assuming dividend reinvestment."
+          howItWorks="Starting annual dividend = initial investment × starting yield. Each year, dividends grow by the dividend-growth input and portfolio value grows independently by the share-growth input. Yield on cost = that year's dividend ÷ original investment. Total dividends are summed across the projection. The current code computes a net-dividend series using tax rate × 15%, but headline total dividends remain gross."
+          tipsSection="Dividend growth and share-price growth are independent assumptions and neither is guaranteed. The model does not reinvest dividends, model dividend cuts, changing yields, valuation multiples, inflation, trading costs or sequence effects. Its tax treatment is a simplified internal assumption and should not be read as your qualified-dividend tax rate."
+          conclusion="This calculator is useful for seeing the difference between dividend growth, yield on cost and market-value growth. It is not a forecast of any stock or fund and does not imply that a high future yield on cost makes the investment low risk."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"Long-term dividend-growth scenario — Start with $100,000 at a 3.5% dividend yield, assume dividends grow 7% annually and portfolio value grows 5% annually for 25 years.",result:"The first modeled dividend is $3,500. Later annual dividends compound at 7%, while portfolio value follows a separate 5% path; yield on cost always uses the original $100,000 denominator.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

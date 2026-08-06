@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Municipal Bond Ladder Calculator USA 2026 | ToolTrio',
   description: "Build a staggered municipal bond ladder for tax-free income with regular liquidity events at each rung's maturity.",

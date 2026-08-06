@@ -105,19 +105,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Taxable vs Roth vs Traditional IRA Calculator USA 2026" category="finance"
-          intro="The account type choice — taxable, Roth, or Traditional — has a larger impact on retirement wealth than most investment decisions. A $7,000 annual contribution over 30 years at 7% return produces dramatically different after-tax outcomes depending on current vs retirement tax rate. This calculator shows exactly which account wins for your specific tax situation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This calculator compares the after-tax future value of one contribution placed in a taxable account, Roth IRA or Traditional IRA. It is designed to isolate the effect of current tax rate, retirement tax rate, time horizon and assumed return.'}
+          howItWorks={'The model first converts the contribution to after-tax dollars for the taxable and Roth cases. Roth grows at the full entered return and is shown tax-free. Traditional grows the full pre-tax contribution and then applies the entered retirement tax rate. The taxable case applies a built-in 15% annual return drag and a 15% tax to modeled gains at the end.'}
+          tipsSection={'A $7,500 pre-tax contribution is not the same cash-flow burden as a $7,500 Roth contribution. This implementation intentionally compares Roth using the after-tax amount of the entered contribution. It also does not enforce IRA eligibility or contribution limits, so verify those separately.'}
+          conclusion={'The “best option” output is only the winner under these assumptions. Real taxable-account taxation depends on dividends, turnover and realized gains, while IRA deductibility and Roth eligibility depend on tax rules and income.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

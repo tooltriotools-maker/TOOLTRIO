@@ -98,9 +98,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Gold vs Stocks Portfolio Calculator USA 2026" category="finance"
-          intro="Gold's role in a portfolio is diversification and crisis protection rather than growth. A 10% gold allocation in an 80/10/10 stocks-gold-cash portfolio reduces crash severity while giving up only modest long-term returns vs all-stocks. This calculator shows the exact trade-off between portfolio protection and return optimization at any gold allocation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
+          intro="Model a hypothetical portfolio split between gold and stocks over a chosen horizon. This calculator is useful for understanding how allocation and assumed returns affect projected value, not for forecasting either asset class."
+          howItWorks="The code assumes 6% annual growth for gold and 10% for stocks, compounds each allocation separately, and adds the ending values. It also shows an artificial 'hedge value' based on a 15% adjustment; that figure is a ToolTrio scenario assumption, not a measured or guaranteed crash-protection benefit."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}

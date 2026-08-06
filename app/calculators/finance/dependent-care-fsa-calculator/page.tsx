@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
@@ -18,18 +18,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
-  {
-    question: 'What is the DC-FSA limit for 2026?',
-    answer: "The 2026 Dependent Care FSA limit is $5,000 per household ($2,500 if married filing separately). This covers childcare for children under 13, before/after-school programs, summer day camps, and adult/elder care for dependents who cannot care for themselves. Overnight camps and private school tuition don't qualify.",
-  },
-  {
-    question: 'DC-FSA vs Child and Dependent Care Credit — which is better?',
-    answer: 'DC-FSA saves more for higher earners (24%+ bracket) because the savings rate equals your marginal rate plus FICA. The Child Care Credit is non-refundable and maxes at 20-35% of $3,000 (one child) or $6,000 (two+). Rule of thumb: DC-FSA wins above 20% marginal rate; credit wins at lower incomes. You can use both — contribute $5,000 to DC-FSA and claim the credit on remaining expenses up to the limit.',
-  },
-  {
-    question: 'Can I use DC-FSA for preschool?',
-    answer: 'Yes — full-day preschool qualifies as dependent care for a child under 13. Half-day preschool qualifies only for the hours the child is in care (not nap time or other non-care periods). The facility must provide care while you work or look for work. Kindergarten and above is considered education, not dependent care.',
-  }
+  { question: "What is the 2026 Dependent Care FSA limit?", answer: "For 2026, the dependent care assistance exclusion is $7,500, or $3,750 for married filing separately. Your employer plan can impose additional administrative rules." },
+  { question: "Does the FSA use the same expenses as the care credit?", answer: "You cannot use the same expense twice. Employer dependent-care benefits reduce the expenses available for the Child and Dependent Care Credit." },
+  { question: "Why is this calculator’s care-credit estimate simplified?", answer: "The current function models 20% of up to $3,000 of care expense. Actual credit rules allow up to $3,000 for one qualifying person or $6,000 for two or more, and the percentage varies with income." },
+  { question: "Which care expenses can qualify?", answer: "Qualifying care generally must enable you and, when applicable, your spouse to work or look for work. Day care and some before/after-school care can qualify; overnight camp and private-school tuition generally do not." },
+  { question: "Does the calculator check earned-income or provider rules?", answer: "No. It does not verify earned-income limits, provider eligibility, dependent age/status, filing-status exceptions or Form 2441 requirements." },
 ]
 
 const relatedCalculators = [

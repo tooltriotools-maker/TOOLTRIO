@@ -5,6 +5,12 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Defined Benefit Pension Calculator?", "answer": "Check Monthly Benefit, Annual Benefit, Replacement Rate, Lifetime Value and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Defined Benefit Pension Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Defined Benefit Pension Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [yearsOfService, setYearsOfService] = useState(25)
   const [finalSalary, setFinalSalary] = useState(80000)
@@ -70,7 +76,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">How the Pension Formula Works</h2><p className="text-sm text-gray-600">The core annual pension estimate is Years of Service × Benefit Multiplier × Final Average Salary. Monthly benefit is the annual amount divided by 12. The replacement rate is the modeled annual pension divided by the entered final salary.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Early Retirement and Lifetime Value</h2><p className="text-sm text-gray-600">This ToolTrio model reduces the pension by 5% for each year between the entered early-retirement age and normal-retirement age. It then projects full benefits only to age 85 and labels 75% of that undiscounted total as a “lump sum equivalent.” Those are calculator assumptions, not rules from your pension plan.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">With 25 years of service, an $80,000 final average salary and a 1.5% multiplier, the formula produces $30,000 per year, or $2,500 per month, before any plan-specific adjustment. Retiring 10 years before the entered normal age would trigger this model's 50% reduction.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Important Limitations</h2><p className="text-sm text-gray-600">Real defined-benefit plans define compensation, service credits, early-retirement factors, survivor options, COLAs and lump-sum conversions in the plan document. The calculator does not value a pension using current actuarial interest/mortality assumptions and should not be used to elect a payout option.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions" target="_blank" rel="noreferrer">IRS: Retirement-plan limits</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

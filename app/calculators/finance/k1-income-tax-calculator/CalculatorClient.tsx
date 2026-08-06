@@ -94,10 +94,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="K-1 Income Tax Calculator USA 2026 — Partnership & S-Corp" category="finance" intro="K-1 income from partnerships and S-corps is taxed differently than W-2 or 1099 income. Guaranteed payments are subject to SE tax (15.3%); ordinary partnership income qualifies for the 20% QBI deduction; passive losses have specific deductibility rules. This calculator handles all three income types with accurate 2026 tax calculations and quarterly estimate."
-          howItWorks="Enter your values for instant 2026 US-standard results."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for a conversation with a qualified financial advisor."
+        <SEOContent title="K-1 Income Tax Calculator USA 2026 — Partnership & S-Corp" category="finance" intro="Break a simplified partnership K-1 scenario into ordinary income, guaranteed payments, capital gains, passive losses and estimated taxes."
+          howItWorks="The current model applies passive losses against modeled ordinary/self-rental income, estimates self-employment tax on guaranteed payments, applies a simplified 20% QBI deduction and taxes capital gains at a flat 15%."
+          tipsSection="Worked example: Enter ordinary income, guaranteed payments and passive losses separately: their tax treatment is not interchangeable, which is why this calculator keeps the components distinct."
+          conclusion="Important assumptions and limitations: This is not a Form 1065/Schedule K-1 tax engine. Basis, at-risk rules, SSTB/wage limits, NIIT, state tax and actual capital-gain brackets can materially change the result. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[{title:"Real-Time",text:"Instant 2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
           useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}
         />

@@ -64,19 +64,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" category="finance"
-          intro="College affordability starts with FAFSA and the Expected Family Contribution. A public university averaging $22,000/year can cost families anywhere from $0 (with full aid) to $22,000 (no aid) depending on EFC. This calculator estimates your Pell Grant, need-based aid package, and true out-of-pocket cost so you can plan realistically."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro="Model a simplified college-aid package from school type, residency, your entered family-contribution figure and merit aid. It estimates a planning cost, Pell amount, need-based aid, net cost and a simplified loan split."
+          howItWorks="The calculator starts with fixed planning costs of $22,000 public, $55,000 private or $4,000 community college, with a 35% uplift when out-of-state is selected. Its Pell formula is max(0, $7,395 − 30% of the entered contribution), capped at $7,395; need-based aid is modeled as 60% of positive cost minus contribution. These are ToolTrio scenario formulas, not the FAFSA methodology."
+          tipsSection="The 2026–27 maximum Pell Grant is $7,395, but actual Pell eligibility and federal aid are determined from FAFSA data and federal formulas, not this page’s simplified EFC-style input. School cost of attendance and institutional grants also vary widely."
+          conclusion="Use this page for rough scenario planning only; rely on FAFSA and each college’s official aid offer for eligibility and award amounts."
+          benefits={[{title:"Aid components",text:"Separates modeled Pell, need-based and merit aid."},{title:"Net-cost view",text:"Shows the remaining modeled cost after aid."},{title:"Private",text:"Inputs are calculated locally in your browser."}]}
+          useCases={[{title:"College comparison",text:"Test the page’s public, private and community-college planning costs."},{title:"Aid scenario",text:"See how entered merit aid and family contribution change modeled net cost."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

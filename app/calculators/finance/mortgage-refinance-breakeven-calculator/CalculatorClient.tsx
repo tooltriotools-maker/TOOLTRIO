@@ -99,12 +99,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Mortgage Refinance Break-Even Calculator USA 2026" category="finance" intro="Mortgage refinancing only saves money if you stay in the home long enough to recoup closing costs through monthly savings. At $8,500 closing costs and $200/month savings from a 0.75% rate reduction, break-even is 42 months. This calculator shows your exact monthly savings, break-even timeline, and total lifetime benefit — including cash-out refinance scenarios."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="Mortgage Refinance Break-Even Calculator USA 2026" category="finance" intro="Compare the payment and interest profile of keeping your current mortgage with refinancing into a new 30-year loan. The calculator focuses on the trade-off between a lower rate, closing costs, resetting the loan term, and any cash-out amount."
+          howItWorks="The current payment is calculated from the remaining balance, current rate and remaining term. The refinance scenario adds any cash-out to the balance and amortizes that amount over 360 months at the new rate. Break-even months = Closing Costs ÷ Monthly Payment Savings when savings are positive."
+          tipsSection="A lower monthly payment is not automatically a lower lifetime cost because refinancing can restart the amortization clock. Compare break-even time with how long you expect to keep the loan, and include lender fees and third-party closing costs."
+          conclusion="This is a principal-and-interest comparison. Property taxes, homeowners insurance, mortgage insurance, points, escrow changes and tax effects can change the real refinance decision."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

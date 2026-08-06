@@ -125,18 +125,18 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="HELOC Calculator USA 2026 — Home Equity Line of Credit"
           category="finance"
-          intro="A Home Equity Line of Credit (HELOC) lets you borrow against your home equity up to an approved limit, typically at a variable rate tied to the Prime Rate. With average US home equity at record highs in 2026, HELOCs are among the most cost-effective borrowing tools available — IF you understand the draw period, repayment structure, and total interest cost."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This HELOC model separates the draw period from repayment. It estimates equity-based credit, an interest-only draw-period payment and a fully amortizing repayment payment."
+          howItWorks="Available equity = home value − mortgage balance. Maximum modeled credit = home value × entered credit-limit percentage − mortgage balance. Draw payment = draw amount × APR ÷ 12. Repayment amortizes that draw over the entered repayment term."
+          tipsSection="The calculator assumes one fixed APR and one fixed draw balance. Real HELOCs commonly have variable rates, additional draws, fees and lender-specific combined-LTV limits; payments can rise when repayment begins."
+          conclusion="Use the result to understand payment structure and rate sensitivity. It is not a credit offer, and the home secures the debt."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Methodology-specific results", text: "Outputs follow the formulas and assumptions described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}
           useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
+            { title: "Decision support", text: "Use your own inputs to evaluate the specific calculation shown here." },
+            { title: "Assumption testing", text: "Change the inputs that materially drive this calculator and compare the result." },
           ]}
         />
         <InternalLinks

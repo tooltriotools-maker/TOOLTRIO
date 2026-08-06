@@ -8,6 +8,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Gfr Egfr Calculator?", "answer": "Check Age, eGFR, CKD Stage, Protein Target and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Gfr Egfr Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Gfr Egfr Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [creatinine, setCreatinine] = useState(1.1)
   const [age, setAge] = useState(55)
@@ -85,7 +91,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this gfr egfr calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The calculator uses Age, eGFR, CKD Stage, Protein Target. Its output is based on the formula implemented by this tool and the values you provide.</p>
+            <p>When comparing scenarios, change one assumption at a time and compare eGFR Kidney Function Calculator, Age, eGFR, CKD Stage, Protein Target. This makes it easier to identify which input is responsible for the change instead of treating the result as a prediction.</p>
+            <p>Check the units and time period before relying on the output. Real-world outcomes can differ when relevant taxes, fees, eligibility requirements, measurement error, market changes, or other factors are outside the calculator&apos;s inputs.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this explanation documents the calculator&apos;s use and limitations without changing its underlying calculation.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

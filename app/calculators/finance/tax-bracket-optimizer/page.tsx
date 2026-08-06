@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Tax Bracket Optimizer USA 2026 — Minimize Your Tax Bill | ToolTrio',
   description: 'See your full tax bracket breakdown, identify room in your current bracket, and get personalized strategies to reduce your 2026 federal income tax.',

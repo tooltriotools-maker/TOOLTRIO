@@ -96,7 +96,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏡 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Extra mortgage payments compound powerfully because they reduce the principal balance on which all future interest is calculated. Adding $300/month to a $320,000 mortgage at 6.75% saves over $87,000 in interest and cuts 7 years off the loan — a guaranteed 6.75% return on each extra dollar. This calculator shows your exact savings based on any extra payment amount.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Extra principal payments reduce the balance used to calculate future mortgage interest. This calculator compares your remaining amortization schedule with a schedule that includes the extra monthly and annual principal amounts you enter, so you can see the modeled interest difference and payoff timing.</p>
               </Card>
             </>
           ):(
@@ -106,12 +106,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Early Mortgage Payoff Calculator USA 2026 — Extra Payment Savings" category="finance"
-          intro="Extra mortgage payments compound powerfully because they reduce the principal balance on which all future interest is calculated. Adding $300/month to a $320,000 mortgage at 6.75% saves over $87,000 in interest and cuts 7 years off the loan — a guaranteed 6.75% return on each extra dollar. This calculator shows your exact savings based on any extra payment amount."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+          intro="This calculator compares your remaining mortgage schedule with a schedule that adds an extra monthly amount plus an annual extra payment. It reports the modeled payoff date and interest difference."
+          howItWorks="The base payment uses current balance, rate and remaining term. Each month interest is charged on outstanding principal. The accelerated schedule adds the monthly extra and applies the annual extra every twelfth month until the balance reaches zero."
+          tipsSection="Extra principal avoids future mortgage interest, but describing it as a guaranteed investment return is misleading because taxes, liquidity and alternative uses of cash differ. Confirm extra payments are applied to principal."
+          conclusion="The model assumes a fixed-rate loan and unchanged scheduled payment; it does not value tax deductions, investment alternatives, refinancing or escrow."
+          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

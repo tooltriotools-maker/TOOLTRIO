@@ -74,10 +74,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Renters Insurance Calculator USA 2026 — Coverage & Cost" category="finance"
           intro="Renters insurance averages $15-25/month — protecting $25,000 in personal property, $100,000 in liability, and temporary housing costs. It's one of the most cost-effective insurance products available, providing enormous protection per dollar of premium. This calculator estimates your specific premium by state and shows the coverage-to-cost ratio."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          howItWorks="This calculator estimates premium from personal-property value, liability limit and deductible, using an internal Texas/78701 rating scenario. It is best used to see how those three inputs interact inside this model, not as an insurance quote."
+          tipsSection="Start by inventorying belongings at realistic replacement values, then compare liability limits and deductibles you could afford after a covered loss. A larger deductible generally shifts more loss cost to you."
+          conclusion="The current function is hard-coded to Texas ZIP 78701 and uses internal rating assumptions. It does not price a user-selected state, insurer underwriting, credit-based insurance score, catastrophe exposure, endorsements or actual-cash-value versus replacement-cost terms."
+          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

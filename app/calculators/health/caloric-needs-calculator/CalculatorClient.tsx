@@ -9,6 +9,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Caloric Needs Calculator?", "answer": "Check Age, Loss Rate (lbs/week), Daily Calories, TDEE, BMR and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Caloric Needs Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Caloric Needs Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [unit, setUnit] = useState<'imperial' | 'metric'>('imperial')
   const [weight, setWeight] = useState(165)
@@ -115,7 +121,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           )}
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">Calorie-estimate methodology</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Daily calorie needs are estimates built from resting energy expenditure plus an activity multiplier. Equations based on age, sex, height, and weight describe population averages; actual energy needs can differ with body composition, training volume, pregnancy, illness, medications, and metabolic adaptation.</p>
+            <p>A calorie target is not a diagnosis or a prescription. Large or rapid weight changes, eating-disorder history, pregnancy, childhood growth, or medical nutrition therapy require individualized professional guidance.</p>
+            <p>For planning, compare the estimate with several weeks of stable body-weight and intake data and adjust gradually rather than treating a single calculated number as exact.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Methodology context: commonly used resting-energy equations and clinical nutrition practice; calculator assumptions are shown on this page.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

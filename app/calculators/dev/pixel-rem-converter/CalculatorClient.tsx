@@ -144,7 +144,17 @@ Test at 200% browser zoom. Verify your layout works when rem values are effectiv
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>
         ))}
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding the pixel rem converter output</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The result should be read together with the values entered in the calculator. It reflects the calculator&apos;s implemented calculation and the assumptions represented by those inputs.</p>
+            <p>To compare alternatives clearly, change one value at a time and keep the other inputs unchanged. This helps identify which assumption is responsible for the difference in output.</p>
+          </div>
+        </Card>
       </div>
+</div>
     </DevToolLayout>
     )
 }

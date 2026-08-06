@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📋 QBI Deduction Calculator USA 2026 — Section 199A — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The QBI deduction (Section 199A) is the most valuable tax benefit for self-employed Americans — a 20% deduction on qualified business income that reduces effective tax rates significantly. A freelancer earning $180,000 can deduct $36,000, saving $13,320 at the 37% rate. But income thresholds, business type, and W-2 wages complicate eligibility above $197,300 (single).</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above its threshold.</p>
               </Card>
             </>
           ) : (
@@ -87,12 +87,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="QBI Deduction Calculator USA 2026 — Section 199A"
           category="finance"
-          intro="The QBI deduction (Section 199A) is the most valuable tax benefit for self-employed Americans — a 20% deduction on qualified business income that reduces effective tax rates significantly. A freelancer earning $180,000 can deduct $36,000, saving $13,320 at the 37% rate. But income thresholds, business type, and W-2 wages complicate eligibility above $197,300 (single)."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above its threshold."
+          howItWorks="Basic deduction = 20% × QBI. Above the modeled threshold, the tool compares a 50% wage limit with a second wage/property approximation and phases the limitation in. Important: the current UI hard-codes single filing status and non-SSTB treatment, and its W-2/property field combines concepts that the tax rules treat separately."
+          tipsSection="Enter QBI rather than gross business revenue. The current Tax Rate field is informational only: the underlying function currently estimates tax savings at a hard-coded 37%, so changing that field does not change results. Treat the output as a screening estimate, especially near Section 199A thresholds."
+          conclusion="Section 199A depends on taxable income, business type, W-2 wages, qualified property and other return-level limits. This simplified calculator is not a substitute for the Form 8995/8995-A computation."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

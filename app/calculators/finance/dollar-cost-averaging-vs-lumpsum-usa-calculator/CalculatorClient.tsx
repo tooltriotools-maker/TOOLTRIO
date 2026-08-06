@@ -88,7 +88,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📊 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Dollar cost averaging spreads a lump sum over multiple purchases, reducing the risk of buying at a peak. Research shows lump sum investing outperforms DCA roughly two-thirds of the time in rising markets — but DCA wins when markets decline during the investment period. This calculator compares both strategies with realistic price movement simulation for stocks, index funds, or crypto.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Dollar-cost averaging invests equal portions at regular intervals, while lump-sum investing puts the available amount to work immediately. This calculator compares the two using your starting and ending prices plus a deterministic simulated path for the monthly DCA purchases. It is useful for understanding timing mechanics, not for predicting which strategy will win in real markets.</p>
               </Card>
             </>
           ):(
@@ -97,11 +97,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Dollar Cost Averaging vs Lump Sum Calculator USA 2026" category="finance" intro="Dollar cost averaging spreads a lump sum over multiple purchases, reducing the risk of buying at a peak. Research shows lump sum investing outperforms DCA roughly two-thirds of the time in rising markets — but DCA wins when markets decline during the investment period. This calculator compares both strategies with realistic price movement simulation for stocks, index funds, or crypto."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
+        <SEOContent title="Dollar Cost Averaging vs Lump Sum Calculator USA 2026" category="finance" intro="Dollar-cost averaging invests equal portions at regular intervals, while lump-sum investing puts the available amount to work immediately. This calculator compares the two using your starting and ending prices plus a deterministic simulated path for the monthly DCA purchases. It is useful for understanding timing mechanics, not for predicting which strategy will win in real markets."
+          howItWorks="The lump-sum side buys all shares at the entered starting price and values them at the ending price. The DCA side divides the amount into equal monthly purchases and generates a deterministic simulated price path from start to end with a small index-fund volatility wave; it then values accumulated shares at the entered ending price. Because the intermediate prices are simulated rather than historical market data, the winner is a scenario result—not evidence that one strategy will outperform in the future."
           tipsSection="Try multiple scenarios by changing one input at a time."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Lump-sum scenario",text:"Invest the full amount at the starting price and hold those shares to the ending price."},{title:"DCA scenario",text:"Split the amount into equal monthly purchases along the calculator's simulated price path."},{title:"Average purchase price",text:"See how buying different share quantities at different simulated prices changes the DCA average cost and ending value."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

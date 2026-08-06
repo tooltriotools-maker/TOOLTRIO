@@ -91,19 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Emergency Fund & HYSA Calculator USA 2026" category="finance"
-          intro="Your emergency fund should live in a high-yield savings account earning 4.5-5.5% APY in 2026 — not a 0.01% traditional savings account. On a $27,000 emergency fund (6 months × $4,500), the difference is $1,350/year in interest. This calculator shows your target, gap, and real return after inflation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This emergency-fund calculator starts with your own monthly expenses and desired months of coverage, then measures the gap from your current cash balance. It separately estimates simple annual HYSA interest, a rate-minus-inflation figure, and a modeled funding timeline.'}
+          howItWorks={'Target fund = monthly expenses × months of coverage. Gap = target − current balance, floored at zero. Annual interest is current balance × entered HYSA rate; the displayed real rate is simply HYSA rate − inflation rate. For an underfunded account, the code assumes future saving equal to 15% of monthly expenses plus current monthly interest. It also compares the target fund with a fixed 7% stock-return assumption to display an opportunity-cost figure.'}
+          tipsSection={'Enter the APY or rate you can actually obtain and update it when the bank changes rates. The calculator’s 15%-of-expenses monthly saving assumption is not an input, so the displayed months-to-fund may not match your real contribution plan.'}
+          conclusion={'Emergency-fund size is personal. The model does not account for taxes on savings interest, changing rates, irregular expenses or different job/insurance risks, and its stock-market comparison is only a hypothetical assumption.'}
+          benefits={[{title:'Cash target',text:'Convert your chosen months of expenses into a specific reserve amount.'},{title:'Funding gap',text:'Measure how much additional cash is needed from the current balance.'},{title:'HYSA carrying return',text:'Estimate simple interest and compare the entered nominal rate with inflation.'}]}
+          useCases={[{title:'Income uncertainty',text:'Test a larger number of coverage months when you want a bigger liquidity buffer.'},{title:'Rate change',text:'See how a lower or higher HYSA rate changes interest and the model’s opportunity-cost figure.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

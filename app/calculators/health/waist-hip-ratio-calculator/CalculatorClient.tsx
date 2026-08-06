@@ -8,6 +8,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Waist Hip Ratio Calculator?", "answer": "Check Age, WHR, Risk Category, Ideal Waist, Waist to Lose and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Waist Hip Ratio Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Waist Hip Ratio Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [waistCm, setWaistCm] = useState(85)
   const [hipCm, setHipCm] = useState(98)
@@ -89,7 +95,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this waist hip ratio calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses Age, WHR, Risk Category, Ideal Waist, Waist to Lose to produce the displayed result. The output reflects the formula implemented by this tool and the values entered.</p>
+            <p>When comparing scenarios, change one input at a time. This makes it easier to understand which assumption is responsible for the change instead of treating the calculated value as a guaranteed outcome.</p>
+            <p>Review the units, measurement method, time horizon, and factors outside the calculator&apos;s inputs before relying on the result. For health-related outputs, an online calculation is educational and does not replace appropriate clinical assessment.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section documents use and limitations without changing the calculator&apos;s underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

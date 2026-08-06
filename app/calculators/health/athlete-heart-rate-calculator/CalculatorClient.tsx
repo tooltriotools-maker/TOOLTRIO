@@ -86,7 +86,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">Heart-rate-zone methodology</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses heart-rate reserve (Karvonen-style zones): HRR = estimated maximum heart rate − resting heart rate, then target heart rate = resting heart rate + HRR × chosen intensity.</p>
+            <p>Estimated maximum heart rate is only a population estimate and can differ materially from an individual’s measured maximum. Medication, heat, dehydration, illness, altitude, and measurement error can also shift heart-rate response.</p>
+            <p>Use the zones as training estimates, not medical clearance. People with cardiovascular disease, concerning symptoms, or medications that alter heart rate should use clinician-provided exercise targets.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Exercise-intensity context: CDC physical-activity guidance; individual maximum heart rate is best established with appropriate testing when clinically needed.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

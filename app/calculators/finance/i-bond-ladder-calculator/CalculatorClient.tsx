@@ -89,9 +89,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="I-Bond Ladder Calculator USA 2026 — Monthly Purchase Strategy" category="finance"
-          intro="I-Bonds offer guaranteed inflation protection through their composite rate formula — fixed rate plus twice the semiannual CPI rate. The $10,000 annual limit makes systematic monthly purchasing ($833/month) the optimal strategy for most investors. This calculator models your exact I-Bond ladder value at any redemption point."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
+          intro="Model recurring electronic Series I savings-bond purchases subject to the $10,000 annual electronic purchase limit. The calculator illustrates how staggered purchases age over time, but its embedded interest-rate assumptions are not the current Treasury rate and should not be used as a live valuation."
+          howItWorks="The existing function caps modeled purchases at $10,000 per year, applies its embedded fixed/inflation-rate assumptions, compounds semiannually, and removes three months of modeled interest for holdings under five years. TreasuryDirect states I bonds cannot be redeemed during the first year and lose the last three months of interest if redeemed before five years."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}

@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Real Estate Cost Basis & Capital Gains Calculator USA 2026 | ToolTrio',
-  description: 'Calculate adjusted cost basis, Section 121 exclusion ($250K/$500K), depreciation recapture, and total tax on home or rental sale.',
+  title: 'Real Estate Cost Basis & Capital Gains Calculator | ToolTrio',
+  description: 'Estimate adjusted real estate basis and gain after selling costs. Model the ToolTrio home-sale exclusion and depreciation-tax assumptions, with limitations explained.',
   slug: 'real-estate-cost-basis-calculator',
   category: 'finance',
   region: 'usa',
@@ -19,17 +13,29 @@ export const metadata: Metadata = generateCalculatorMetadata({
 
 const faqs = [
   {
-    question: 'What is the Section 121 home sale exclusion?',
-    answer: 'Homeowners can exclude up to $250,000 (single) or $500,000 (married filing jointly) of capital gains from the sale of their primary residence. Requirements: owned the home for at least 2 of the past 5 years AND lived in it as your primary residence for at least 2 of the past 5 years. The exclusion can be used once every 2 years.',
+    question: 'How does adjusted basis affect gain on a real estate sale?',
+    answer: 'The calculator starts with purchase price, adds entered purchase closing costs and capital improvements, then subtracts depreciation. It compares that adjusted basis with sale proceeds after selling costs. IRS guidance likewise uses amount realized and adjusted basis to determine gain, but the tax basis treatment of individual closing costs can vary by item.',
   },
   {
-    question: 'What is depreciation recapture on real estate?',
-    answer: 'If you claimed depreciation on a rental property, the IRS recaptures that depreciation at a maximum 25% rate — separate from the regular capital gains rate. Example: $50,000 in depreciation claimed on a rental = $12,500 in depreciation recapture tax, regardless of your capital gains rate. You cannot avoid this by using Section 121 exclusion.',
+    question: 'Does this calculator determine whether I qualify for the Section 121 exclusion?',
+    answer: 'No. The current ToolTrio formula automatically applies up to $250,000 of exclusion to positive gain and does not ask about filing status, ownership, use, prior exclusions, or rental/nonqualified use. IRS rules generally require ownership and use tests, and up to $500,000 may be available on many joint returns when the requirements are met.',
   },
   {
-    question: 'What counts as capital improvements (cost basis additions)?',
-    answer: 'Capital improvements that increase basis include: additions (new room, garage), systems (HVAC, new roof, windows), landscaping, kitchen/bath remodels. Normal maintenance and repairs do NOT increase basis — painting, fixing appliances, routine upkeep are not improvements. Keep receipts for all improvements for at least 3 years after selling.',
-  }
+    question: 'How does depreciation change real estate basis?',
+    answer: 'The entered depreciation amount reduces adjusted basis in this model, which can increase realized gain. For property converted to rental or business use, actual depreciation rules can be more complicated than one cumulative input.',
+  },
+  {
+    question: 'Is depreciation recapture always taxed at exactly 25%?',
+    answer: 'No. This calculator uses 25% as a simplified tax-rate assumption for the depreciation-related portion. Federal tax treatment depends on the property and the taxpayer, and the applicable unrecaptured Section 1250 gain rate is a maximum rate rather than a universal flat tax.',
+  },
+  {
+    question: 'Which improvements should I enter?',
+    answer: 'Enter capital improvements that are properly added to basis, not ordinary maintenance merely because money was spent on the property. Keep records supporting purchase costs, improvements, depreciation and selling expenses because those details can materially change the tax calculation.',
+  },
+  {
+    question: 'Can I use this result as my tax return calculation?',
+    answer: 'No. This is a planning estimate. The current model uses a $250,000 exclusion, a 15% capital-gain rate and a 25% depreciation-related rate and does not model filing status, income-based capital-gain brackets, NIIT, state tax, partial exclusions, nonqualified use, 1031 exchanges or every basis adjustment.',
+  },
 ]
 
 const relatedCalculators = [

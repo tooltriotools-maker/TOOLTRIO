@@ -99,7 +99,27 @@ Add descriptions for documentation quality. The generated schema lacks descripti
 Validate the schema itself. The output is JSON — paste it into [JSON Formatter](/calculators/dev/json-formatter) after manual edits to verify it is still valid JSON.`}
         conclusion={`Manual JSON Schema authoring is slow and error-prone. This generator gives a correct starting point from sample data — all fields, types, and nesting covered. Edit to add descriptions and mark optional fields. For the complete validation workflow: generate here, query with [JSONPath Tester](/calculators/dev/json-path-tester), and create test data with [Fake Data Generator](/calculators/dev/fake-data-generator).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding the json schema gen output</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The result should be read together with the values entered in the calculator. It reflects the calculator&apos;s implemented calculation and the assumptions represented by those inputs.</p>
+            <p>To compare alternatives clearly, change one value at a time and keep the other inputs unchanged. This helps identify which assumption is responsible for the difference in output.</p>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Using the json schema gen result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Interpret the output together with the values entered in the calculator. The result is based on the calculator&apos;s implemented calculation and the values supplied.</p>
+            <p>For a useful comparison, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to distinguish.</p>
+          </div>
+        </Card>
+      </div>
+</div>
     </DevToolLayout>
     )
 

@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Net Salary Calculator USA 2026 — Take-Home Pay by State | ToolTrio',
-  description: 'Calculate exact take-home pay after federal income tax, FICA, and state taxes for all 50 states. Includes 401k, HSA, and FSA deductions.',
+  description: 'Estimate California take-home pay after simplified 2026 federal tax, FICA, modeled state tax, and entered 401(k), HSA, and FSA deductions.',
   slug: 'net-salary-calculator',
   category: 'finance',
   region: 'usa',
@@ -15,17 +11,25 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 const faqs = [
   {
-    question: 'How much of my salary do I actually take home?',
-    answer: 'At $95,000 with standard pre-tax deductions (401k, HSA, FSA) in California: federal tax ~$11,800, FICA ~$7,274, CA state tax ~$5,700 = total taxes ~$24,774. After $15,200 in pre-tax deductions (401k + HSA + FSA), take-home is approximately $55,000/year or $4,600/month. Effective tax rate: ~26%.',
+    question: 'How does this net salary estimate work?',
+    answer: 'It subtracts the entered pre-tax deductions, applies a simplified 2026 single federal income-tax calculation, estimates FICA, and applies the model’s California state-tax rate. It is a planning estimate rather than a payroll-withholding engine.',
   },
   {
-    question: 'Which states have no income tax?',
-    answer: 'As of 2026, these states have no state income tax: Alaska, Florida, Nevada, New Hampshire (interest/dividends only), South Dakota, Tennessee, Texas, Washington, Wyoming. This can save $3,000-$15,000+ annually on higher incomes. However, states without income tax often have higher property taxes, sales taxes, or other fees.',
+    question: 'Does this calculator support all 50 states?',
+    answer: 'No. The current interface calls the calculation with California and single filing status. The page title and explanation have been corrected so the result is not presented as an all-state quote.',
   },
   {
-    question: 'How do pre-tax deductions reduce my tax?',
-    answer: "Pre-tax deductions (401k, HSA, FSA) reduce your federal and state taxable income dollar-for-dollar, saving you taxes at your marginal rate. Contributing $9,400 to a 401k at 22% federal + 9.3% CA state = 31.3% effective savings = $2,942 in tax savings. You're also building retirement wealth with money that would otherwise go to taxes.",
-  }
+    question: 'Why can my actual paycheck differ?',
+    answer: 'Actual payroll depends on Form W-4 elections, pay frequency, benefit treatment, bonuses, local taxes, state withholding rules, and employer payroll settings that this simplified annual model does not reproduce.',
+  },
+  {
+    question: 'How do the entered pre-tax deductions affect the result?',
+    answer: 'The model subtracts the entered 401(k), HSA, and FSA amounts before its federal taxable-income calculation. Real payroll-tax treatment differs by benefit type, so the result should be treated as an estimate.',
+  },
+  {
+    question: 'Does this calculate my tax return?',
+    answer: 'No. It does not model credits, itemized deductions, other household income, capital income, detailed California brackets, or reconciliation of withholding on a filed return.',
+  },
 ]
 const relatedCalculators = [
   { name: 'Paycheck Calculator', href: '/calculators/finance/paycheck-calculator', icon: '💵', desc: 'Paycheck Calculator' },

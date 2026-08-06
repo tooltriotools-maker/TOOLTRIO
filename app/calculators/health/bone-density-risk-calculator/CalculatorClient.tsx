@@ -8,6 +8,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Bone Density Risk Calculator?", "answer": "Check Age, BMI, Smoking (years), Alcohol (drinks/week), Calcium Intake, Risk Score and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Bone Density Risk Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Bone Density Risk Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [age, setAge] = useState(55)
   const [gender, setGender] = useState<'male' | 'female'>('female')
@@ -73,7 +79,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">What this bone-risk score can and cannot tell you</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This page combines the entered risk factors into a screening-style score. It is not FRAX and does not calculate an official 10-year fracture probability unless the underlying calculator explicitly implements the validated FRAX model with its required clinical inputs.</p>
+            <p>Bone-fracture risk depends on more than age or a single score: prior fragility fracture, glucocorticoid exposure, smoking, alcohol, body size, family history, falls, and measured bone mineral density can materially change risk.</p>
+            <p>Use the result to organize risk factors for discussion with a clinician, not to decide on osteoporosis medication by itself.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Clinical reference: NIH/NIAMS bone mineral density guidance.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

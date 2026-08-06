@@ -99,12 +99,13 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Family Budget Planner Calculator USA 2026 — 50/30/20 Analysis" category="finance" intro="A complete family budget analysis goes beyond listing expenses — it benchmarks your spending ratios against guidelines (housing under 30%, savings above 20%), identifies warning signs (negative surplus, below-10% savings rate), and quantifies your emergency fund timeline. This calculator gives you a full financial health snapshot with personalized alerts for your specific budget."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="Family Budget Planner Calculator USA 2026 — 50/30/20 Analysis" category="finance"
+          intro={'This family budget tool converts monthly take-home income and six visible spending inputs into a cash surplus, savings rate, housing ratio and a simplified 50/30/20-style breakdown. The current calculation also includes fixed hidden assumptions of $600 insurance, $400 entertainment and $300 debt payments each month.'}
+          howItWorks={'Total expenses add housing, transportation, food, childcare, the three fixed categories, and entered savings. Surplus = take-home income − total expenses. Needs include housing, transportation, food, insurance and childcare; wants include the fixed $400 entertainment amount; savings/debt combines entered savings with the fixed $300 debt amount. The emergency-fund goal is six months of housing + food + transportation, and the timeline divides that target by surplus + savings. These are planning heuristics, not underwriting standards.'}
+          tipsSection={'Because insurance, entertainment and debt are currently fixed in the code, check those assumptions before relying on the ratios. A budget with materially different costs can be misrepresented until those categories become editable.'}
+          conclusion={'Use the alerts as prompts to inspect your cash flow, not as pass/fail financial rules. The 30% housing, 15% debt and 10% savings alert thresholds are ToolTrio heuristics.'}
+          benefits={[{title:'Monthly surplus',text:'See whether the modeled household budget ends the month above or below zero.'},{title:'Spending ratios',text:'Compare housing, debt and savings with the calculator’s planning thresholds.'},{title:'Emergency-fund timeline',text:'Estimate a six-month core-expense target using the model’s selected categories.'}]}
+          useCases={[{title:'Childcare change',text:'See how a new daycare expense affects surplus and the needs share of the budget.'},{title:'Housing decision',text:'Test the effect of a higher rent or mortgage on the modeled housing ratio and monthly surplus.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

@@ -67,7 +67,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Flexbox is CSS's one-dimensional layout system. This visual builder lets you experiment with all flex container properties and see the result instantly. Change flex-direction to switch between row and column layouts. Adjust justify-content to control main-axis spacing (horizontal in row mode). Adjust align-items to control cross-axis alignment (vertical in row mode). Copy the ready-to-use CSS and apply it to your container element.</p>
         <p className="text-sm text-gray-600"><strong>Most common patterns:</strong> Navigation bar = flex-direction: row, justify-content: space-between, align-items: center. Centred card = display: flex, justify-content: center, align-items: center on the parent. Vertical stack = flex-direction: column, gap: 16px.</p>
       </div>
-      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the flex generator result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="CSS Flexbox Generator — Visual Layout Builder"
         category="dev"

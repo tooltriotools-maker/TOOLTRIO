@@ -6,6 +6,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { InputField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const auditFaqs = [
+  {"question": "What should I check before using the Dehydration Status Calculator?", "answer": "Check Body Weight, Fluid Already Lost (estimated), Exercise Duration, Air Temperature, Deficit, Total Loss and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Dehydration Status Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Dehydration Status Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [bodyWeight, setBodyWeight] = useState(75)
   const [fluidLost, setFluidLost] = useState(0.5)
@@ -63,7 +69,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">Exercise dehydration methodology</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Exercise-related fluid loss is commonly estimated from change in body mass, adjusted for fluid consumed and urine produced during the session. A 1 kg acute body-mass decrease is often treated as approximately 1 liter of net fluid loss for field estimation.</p>
+            <p>Temperature, humidity, clothing, altitude, exercise intensity, sodium losses, and individual sweat rate can materially change hydration needs. Drinking excessive plain water can also be dangerous because it may contribute to exercise-associated hyponatremia.</p>
+            <p>This tool is for exercise-planning estimates. Persistent vomiting, confusion, fainting, inability to drink, very low urine output, or symptoms of heat illness require medical attention.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Health reference: MedlinePlus dehydration guidance; sports-hydration estimates should be individualized.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

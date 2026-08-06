@@ -99,12 +99,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="RV Annual Cost Calculator USA 2026 — Is It Worth It?" category="finance" intro="RV ownership has romantic appeal but real financial complexity. An $85,000 RV used 45 nights per year costs $332/night all-in — often more expensive than comparable hotel stays. The economics improve dramatically for full-timers or families using the RV 60-80+ nights annually. This calculator gives you the complete annual cost breakdown and exact break-even usage needed to justify the purchase."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="RV Annual Cost Calculator USA 2026 — Is It Worth It?" category="finance" intro="This calculator turns an RV purchase into annual-use cost by combining financing, insurance, maintenance, fuel, storage and campsite fees. It divides modeled annual cash cost by camping nights and compares it with a $200-per-night hotel benchmark."
+          howItWorks="Loan payment uses standard amortization. The model fixes insurance at $3,600/year, maintenance at 1.5% of price, storage at $2,400/year, campsites at $45/night, fuel at $3.80/gallon and travel at 250 miles per trip/night input. Break-even nights = annual cost ÷ $200."
+          tipsSection="The function calculates 15% first-year depreciation but does not include it in total annual cash cost. Taxes, registration, repairs, towing vehicle costs and resale value are also outside the total."
+          conclusion="Cost per night depends heavily on usage and these fixed assumptions; it is not a universal RV-versus-hotel comparison."
+          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          useCases={[{title:"Decision support",text:"Model your situation."},{title:"Assumption testing",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

@@ -98,19 +98,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Capital Gains Tax Calculator USA 2026"
           category="finance"
-          intro="Capital gains tax depends on two things: how long you held the asset and your total taxable income. Long-term gains (1+ year) are taxed at 0%, 15%, or 20%. Short-term gains are taxed as ordinary income (up to 37%). High earners also face the 3.8% Net Investment Income Tax. This calculator shows your exact federal tax on any sale."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
-          useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
-          ]}
+          intro="Estimate federal tax on a single asset sale from purchase price, sale price, holding period and income. The calculator distinguishes short-term from long-term gains and includes a simplified Net Investment Income Tax check."
+          howItWorks="Gain = Sale Price − Purchase Price. A holding period of at least one year is treated as long term. Long-term gains are assigned a 0%, 15% or 20% rate using the model’s income-plus-gain threshold test; short-term gains use ordinary-income brackets. A simplified 3.8% NIIT amount is added when the model threshold is exceeded."
+          tipsSection="Real Schedule D calculations net gains and losses and stack long-term capital gain on top of taxable ordinary income. Basis adjustments, selling costs, loss carryovers, collectibles, qualified small business stock and depreciation recapture can change the result."
+          conclusion="This is a simplified single-transaction estimate, not a tax-return calculation. The 2026 long-term capital-gain thresholds have been updated, but exact tax still depends on the rest of the return."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks
           title="Related Finance Calculators"

@@ -63,7 +63,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">₿ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Cryptocurrency tax tracking requires accurate cost basis records for every transaction. The IRS treats crypto as property — every sale, swap, or use triggers a taxable event. This calculator models buy/sell transactions using FIFO cost basis, calculates realized gains, and estimates taxes at both short-term (ordinary income) and long-term (15%) rates.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Cryptocurrency tax tracking requires accurate cost basis records for every transaction. The IRS treats crypto as property — every sale, swap, or use triggers a taxable event. This calculator models buy/sell transactions using an average-cost approximation, calculates realized gains, and estimates taxes at both short-term (ordinary income) and long-term (15%) rates.</p>
               </Card>
             </>
           ):(
@@ -72,12 +72,30 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Crypto Profit Loss Tracker USA 2026 — Cost Basis & Tax" category="finance" intro="Cryptocurrency tax tracking requires accurate cost basis records for every transaction. The IRS treats crypto as property — every sale, swap, or use triggers a taxable event. This calculator models buy/sell transactions using FIFO cost basis, calculates realized gains, and estimates taxes at both short-term (ordinary income) and long-term (15%) rates."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent
+          title="Crypto Profit Loss Tracker USA 2026 — Cost Basis & Tax"
+          category="finance"
+          intro="This tracker summarizes a list of crypto buys and sells into total units bought, total cost, average purchase cost, sale proceeds, realized gain and remaining units. Despite the older page wording, the current code uses an average-cost approximation for sales—it does not perform FIFO tax-lot matching. That distinction matters for U.S. tax reporting."
+          howItWorks="Buys increase total units and total cost. For each sale, the code calculates average purchase cost as accumulated cost ÷ accumulated units and estimates realized gain as units sold × (sale price − that average). It then displays illustrative tax amounts at flat 15% and 32% rates. Dates are stored but are not used to classify each disposed lot as short- or long-term."
+          tipsSection="Do not use the displayed tax estimate as a tax return calculation. Actual digital-asset basis depends on the units disposed, transaction costs and identification records. This tracker also does not validate that cumulative sales stay within units owned, and it does not model income from staking, mining, forks or payments for services."
+          conclusion="Use this page for portfolio-level scenario tracking, then reconcile each taxable disposition against exchange/wallet records and current IRS digital-asset reporting guidance."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "Two purchases and a partial sale",
+            scenario: "If accumulated purchases total 1 BTC at a $40,000 average cost and 0.25 BTC is sold at $60,000, this model assigns $10,000 of average cost to the sale.",
+            result: "Estimated realized gain is $5,000 before transaction costs; remaining modeled holdings are 0.75 BTC.",
+            takeaway: "Actual tax-lot identification can produce a different basis and holding period than this average-cost approximation."
+          }}
+          commonMistakes="Do not use the displayed tax estimate as a tax return calculation. Actual digital-asset basis depends on the units disposed, transaction costs and identification records. This tracker also does not validate that cumulative sales stay within units owned, and it does not model income from staking, mining, forks or payments for services."
+          inlineLinks={[{ text: "IRS treats digital assets as property and explains basis and gain/loss concepts.", href: "https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-digital-asset-transactions", label: "IRS digital-asset FAQs" }]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

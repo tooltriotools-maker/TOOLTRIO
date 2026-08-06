@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[currentBalance, currentRate, currentTerm, newRate, newTerm])
 
   return (
-    <CalculatorLayout title="Student Loan Refinance Calculator USA 2026" description="Calculate monthly savings, total interest saved, and break-even from refinancing student loans. Includes warning about losing federal loan benefits." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="student-loan-refinance-calculator">
+    <CalculatorLayout title="Student Loan Refinance Calculator USA 2026" description="Compare current and proposed student-loan payments and total interest under fixed-rate amortization, with a warning about federal benefits lost in private refinancing." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="student-loan-refinance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -97,7 +97,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🎓 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Refinancing student loans at a lower rate can save thousands in interest. On a $55,000 loan at 7.05%, refinancing to 5.25% saves $55/month and $6,600 total over 10 years. The critical warning: refinancing federal loans to private means permanently losing access to PSLF, income-driven repayment, and federal forbearance.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator compares the amortized payment and total interest on an existing student loan with a proposed refinance rate and term. The current interface models a private-loan refinance; it does not assume that a federal loan should be moved to a private lender.</p>
               </Card>
             </>
           ):(
@@ -107,18 +107,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Student Loan Refinance Calculator USA 2026" category="finance"
-          intro="Refinancing student loans at a lower rate can save thousands in interest. On a $55,000 loan at 7.05%, refinancing to 5.25% saves $55/month and $6,600 total over 10 years. The critical warning: refinancing federal loans to private means permanently losing access to PSLF, income-driven repayment, and federal forbearance."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator compares the amortized payment and total interest on an existing student loan with a proposed refinance rate and term. The current interface models a private-loan refinance; it does not assume that a federal loan should be moved to a private lender."
+          howItWorks="Both loans use the standard fixed-payment amortization formula with monthly interest. Interest saved = total scheduled old payments − total scheduled new payments. A lower monthly payment can come from a longer term and still increase total interest, so compare both outputs. The current code assumes a three-month break-even placeholder rather than calculating lender fees from an input."
+          tipsSection="For federal loans, private refinancing removes the loan from the federal student-aid system and can eliminate federal repayment and forgiveness protections. Federal consolidation is different from private refinancing. For private loans, compare APR, term, fees, cosigner release, and fixed-versus-variable rate—not only the monthly payment."
+          conclusion="A refinance is financially favorable in this model only under its rate, term, and fee assumptions. Review the new promissory note and any federal benefits you would surrender before refinancing."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},
+            {title:"Scenario Comparison",text:"Compare the result after changing the input that matters to this calculation."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

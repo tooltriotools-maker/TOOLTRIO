@@ -92,10 +92,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Cap Rate Calculator USA 2026 — Real Estate Investment" category="finance"
           intro="Cap rate is the single most important metric for evaluating investment property — it tells you the property's return assuming an all-cash purchase. A 6% cap rate on a $425,000 property means $25,500/year in NOI. This calculator also shows gross rent multiplier, break-even occupancy, and the implied fair value if the market cap rate is 6%."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          howItWorks="Cap rate is net operating income (NOI) divided by property value. This tool first reduces gross rent for vacancy, subtracts operating expenses, then compares the resulting NOI with the property value. Mortgage payments are shown separately because debt service is not part of NOI."
+          tipsSection="Example: $36,000 annual rent with 5% vacancy leaves $34,200 effective rent. After $8,000 of operating expenses, NOI is $26,200; on a $425,000 property the cap rate is about 6.16%."
+          conclusion="Cap rate does not measure financing, appreciation, taxes, depreciation, capital expenditures omitted from your expense input, or future rent growth. Use actual trailing or carefully normalized operating figures."
+          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

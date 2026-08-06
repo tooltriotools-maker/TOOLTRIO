@@ -92,14 +92,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Annuity Income Calculator USA 2026 — Lifetime Income" category="finance"
           intro="Annuities convert a lump sum into a guaranteed income stream — the core appeal being that you cannot outlive the payments. With interest rates elevated in 2026, annuity payout rates are at multi-year highs, making them more attractive relative to bond alternatives. The key trade-off: certainty vs flexibility."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
+          howItWorks="The current calculator sends an immediate-annuity scenario to the calculation engine. It applies an age-based modeled payout rate to the premium, divides annual income by 12, and estimates a taxable portion and break-even period. The payout rates and flat 24% tax assumption are ToolTrio modeling assumptions, not insurer quotes. Actual annuity payments depend on contract type, guarantees, interest rates, sex where permitted, riders, fees, and insurer claims-paying ability."
           tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
+          benefits={[{title:"Modeled monthly income",text:"Translate the entered premium into an estimated monthly payout using the calculator's age-band payout assumption."},{title:"Break-even period",text:"Estimate how many years of modeled gross payments equal the original premium; this does not measure total economic return."},{title:"Tax illustration",text:"Show a simplified taxable-earnings portion. Actual annuity taxation depends on contract basis and distribution rules."}]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
             {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},

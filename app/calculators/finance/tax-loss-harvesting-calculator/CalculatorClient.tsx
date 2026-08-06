@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🌿 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Tax-loss harvesting converts investment losses into immediate tax savings, then reinvests those savings to compound over time. The IRS doesn't give you money back forever — when you eventually sell the replacement investment, you'll owe tax on the original basis. But the time value of deferring that tax for 10-20 years creates real, measurable wealth.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This tool models one narrow benefit of tax-loss harvesting: using harvested losses to offset entered gains, investing the estimated current tax savings, and comparing that future value with a simplified deferred tax bill.</p>
               </Card>
             </>
           ):(
@@ -91,12 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Tax-Loss Harvesting Calculator USA 2026" category="finance"
-          intro="Tax-loss harvesting converts investment losses into immediate tax savings, then reinvests those savings to compound over time. The IRS doesn't give you money back forever — when you eventually sell the replacement investment, you'll owe tax on the original basis. But the time value of deferring that tax for 10-20 years creates real, measurable wealth."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This tool models one narrow benefit of tax-loss harvesting: using harvested losses to offset entered gains, investing the estimated current tax savings, and comparing that future value with a simplified deferred tax bill."
+          howItWorks="Current tax savings = min(gains, harvested losses) × entered tax rate. The calculator compounds that amount at the entered reinvestment return for the selected years, then applies a fixed 15% tax assumption to the projected value when computing its simplified deferred-tax result."
+          tipsSection="Only the portion of losses up to entered gains creates the modeled immediate savings here. The tool does not implement capital-loss ordering, the $3,000 ordinary-income deduction, carryforwards, short- versus long-term rates, or wash-sale tracking."
+          conclusion="Tax-loss harvesting can defer tax rather than permanently eliminate it. Security replacement choices, wash-sale rules and future capital-gain rates can materially change the real outcome."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update from the calculator inputs and stated assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

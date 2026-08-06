@@ -16,7 +16,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [taxRate, setTaxRate] = useState(32)
 
   const result = useMemo(()=>{
-    try{return calculateSolo401k(selfEmploymentIncome, age, false)}catch(e){return null}
+    try{return calculateSolo401k(selfEmploymentIncome, age, false, taxRate)}catch(e){return null}
   },[selfEmploymentIncome, age, taxRate])
 
   return (
@@ -89,12 +89,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Solo 401k Calculator USA 2026 — Self-Employed Maximum Contribution" category="finance"
-          intro="The Solo 401k is the most powerful retirement account for self-employed Americans. Unlike SEP-IRA, you contribute as both employer (25% of net income) and employee ($23,500 flat), reaching $70,000 at much lower income levels. Ages 60-63 get a SECURE 2.0 super catch-up taking the limit to $81,250."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
+          intro="Estimate employee and employer Solo 401(k) contributions for a self-employed owner using the calculator's simplified net-earnings model. Age matters because catch-up limits can apply, while the displayed tax-savings projection is only a planning estimate."
+          howItWorks="The model first multiplies entered self-employment income by 92.35%, then applies an employee-deferral limit and an employer contribution assumption. For 2026, the employee elective-deferral limit is $24,500 and the overall defined-contribution limit is $72,000 before eligible catch-up contributions. Actual employer contribution calculations for an unincorporated owner require the IRS self-employed contribution methodology."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

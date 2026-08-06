@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'I-Bond Ladder Calculator USA 2026 — Monthly Purchase Strategy | ToolTrio',
   description: 'Calculate total I-Bond value from monthly purchases, effective yield, and optimal ladder strategy to maximize the $10,000 annual limit.',
@@ -16,7 +12,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is the I-Bond annual purchase limit?',
-    answer: '$10,000 per person per year in electronic I-Bonds through TreasuryDirect.gov, plus $5,000 in paper bonds via tax refund. A married couple can purchase $20,000/year. Trusts, LLCs, and businesses have separate $10,000 limits. Some families use multiple entities to exceed the individual limit, but each requires genuine separate tax filing.',
+    answer: '$10,000 per person or eligible entity per calendar year in electronic I bonds through TreasuryDirect. The former option to buy up to $5,000 of paper I bonds with a federal income-tax refund has ended, so this calculator uses the current $10,000 electronic annual limit.',
   },
   {
     question: 'How does a monthly I-Bond purchase strategy work?',
@@ -24,7 +20,7 @@ const faqs = [
   },
   {
     question: 'When is the best month to buy I-Bonds?',
-    answer: 'I-Bond rates reset May 1 and November 1. Buying just before a rate reset (late April or late October) locks in 6 months of the current rate before switching. If the new rate is expected to be higher, buy just after the reset. Track CPI-U data released in April and October to forecast the upcoming rate 2-4 weeks before the official announcement.',
+    answer: 'I-Bond rates reset May 1 and November 1. Buying just before a rate reset (late April or late October) locks in 6 months of the current rate before switching. A bond keeps its composite rate for six months from its issue date before moving to the next announced rate. Rate-reset timing can matter, but future inflation components are unknown, so this calculator should not be used to predict which purchase month will deliver the best return.',
   }
 ]
 const relatedCalculators = [

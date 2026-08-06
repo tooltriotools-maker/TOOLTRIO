@@ -98,18 +98,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="TSP vs 401k Calculator USA 2026 — Federal Employee Retirement" category="finance"
-          intro="Federal employees have the FERS three-legged retirement stool — pension, TSP, and Social Security — plus the FEHB health benefit. Understanding the full value of the FERS package, including the pension present value, is essential for federal workforce career and financial decisions."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This federal-retirement model combines an entered TSP contribution, a fixed 5% matching assumption and a simplified FERS pension estimate. It illustrates how federal retirement can combine defined-contribution savings with a pension; it is not a full private-sector 401(k) comparison."
+          howItWorks="Annual modeled match = salary × 5%. The current function grows one year of contribution plus match at 7% for 30 minus current service years; it does not add a fresh contribution every future year. FERS pension = salary × 1% × service years, or 1.1% at age 62+ with 20+ years. Pension present value is approximated as annual pension ÷ 4%."
+          tipsSection="The 7% return and 4% pension capitalization rate are assumptions. Actual FERS uses high-3 average pay and eligibility rules. The 2026 TSP elective-deferral limit is $24,500; catch-up is $8,000 generally at 50+, or $11,250 at ages 60–63."
+          conclusion="Use this to understand the model, not as an official OPM annuity estimate. It omits Social Security, FEHB value, taxes, salary growth and several FERS elections/reductions."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Methodology-specific results",text:"Outputs follow the formulas and assumptions described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Decision support",text:"Use your own inputs to evaluate the specific calculation shown here."},
+            {title:"Assumption testing",text:"Change the inputs that materially drive this calculator and compare the result."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

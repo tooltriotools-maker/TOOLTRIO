@@ -99,13 +99,21 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Real Estate Syndication ROI Calculator USA 2026" category="finance"
-          intro="Real estate syndications offer passive investors access to institutional-quality properties with preferred returns (typically 6-8%) and equity upside through appreciation. Understanding the waterfall structure — preferred return, equity split, and promote — is essential for evaluating whether a syndication deal delivers fair compensation relative to risk."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This calculator models a simplified real-estate syndication waterfall using investment amount, preferred return, sponsor promote, hold period, projected IRR input and annual cash yield. It separates recurring cash distributions from modeled exit proceeds.'}
+          howItWorks={'Annual cash flow = investment × cash yield. Preferred amount = investment × preferred return × hold years. Cash flow above the preferred amount is split after the entered sponsor promote. Exit value compounds the investment at the entered projected IRR, and appreciation above original capital is also reduced by the promote. The displayed “actual IRR” is then derived from total modeled proceeds.'}
+          tipsSection={'A $100,000 investment at 7% annual cash yield produces $7,000 of modeled annual cash flow before the waterfall. Actual syndication waterfalls can include catch-ups, hurdles, multiple promote tiers, refinance proceeds and fees that this simplified model does not reproduce.'}
+          conclusion={'Do not treat projected IRR, cash yield or depreciation as guaranteed. Private real-estate offerings can be illiquid and deal documents control the actual distribution waterfall and investor eligibility.'}
+          benefits={[
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
+          ]}
+          useCases={[
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
+          ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

@@ -77,7 +77,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">Paste any XML document into the left panel. Click Format to pretty-print with indentation (choose 2 or 4 spaces), or Minify to collapse it to a single line for production use. XML is used for SOAP APIs, RSS feeds, Maven POM files, Android layouts, SVG files, and countless configuration formats. Formatted XML is much easier to read and debug than a single-line blob.</p>
         <p className="text-sm text-gray-600">Common use cases: Format a SOAP response to find the data fields. Minify a large XML config for faster transmission. Compare XML structures by formatting both before using a diff tool. All processing is client-side - your XML data never leaves your browser.</p>
       </div>
-      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the xml formatter result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="XML Formatter & Validator"
         category="dev"

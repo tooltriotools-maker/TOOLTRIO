@@ -79,9 +79,31 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Home Equity Loan vs Personal Loan Calculator USA 2026" category="finance" intro="Compare home equity loan vs personal loan — monthly payment, total interest, tax deductibility, and the risk trade-off of secured vs unsecured borrowing." howItWorks="Enter values for instant results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calcs."},{title:"Private",text:"Local."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model it."},{title:"Compare",text:"See impact."}]}/>
+        <SEOContent
+          title="Home Equity Loan vs Personal Loan Calculator USA 2026"
+          category="finance"
+          intro="This calculator compares the same borrowing amount under two amortizing loans: a home-equity loan and an unsecured personal loan. It focuses on monthly payment, total interest, a simplified potential tax benefit for qualifying home-equity interest, and combined loan-to-value (CLTV). The trade-off is not just rate: home-equity debt puts the home behind the loan."
+          howItWorks="For each loan, the code uses the standard fixed-payment amortization formula with monthly rate r = APR ÷ 12 and n = term months. It then compares total interest. The home-equity after-tax figure reduces modeled interest by the entered tax rate, but only as a scenario; federal deductibility depends on how proceeds are used and whether other deduction requirements are met. CLTV = (existing mortgage + new borrowing) ÷ home value."
+          tipsSection="Enter rates from actual offers with the same term and compare fees separately because this model does not include origination, appraisal or closing costs. Do not count a tax deduction automatically: IRS rules generally require home-equity proceeds to be used to buy, build or substantially improve the home securing the debt for the interest to qualify as home-mortgage interest."
+          conclusion="A lower home-equity APR can reduce interest, but the calculator cannot price foreclosure risk, lender fees or your eligibility. Compare disclosures and repayment risk before choosing secured debt."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "$40,000 borrowing comparison",
+            scenario: "Compare $40,000 for 60 months at 8% home-equity APR versus 12% personal-loan APR, with the same repayment term.",
+            result: "The amortization calculation shows the payment and interest gap; CLTV separately shows how the new secured balance relates to home value.",
+            takeaway: "Use the interest difference as a cost comparison, not as proof that pledging your home is the better choice."
+          }}
+          commonMistakes="Enter rates from actual offers with the same term and compare fees separately because this model does not include origination, appraisal or closing costs. Do not count a tax deduction automatically: IRS rules generally require home-equity proceeds to be used to buy, build or substantially improve the home securing the debt for the interest to qualify as home-mortgage interest."
+          inlineLinks={[{ text: "Official rules for when home-mortgage and home-equity interest may be deductible.", href: "https://www.irs.gov/publications/p936", label: "IRS Publication 936" }]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

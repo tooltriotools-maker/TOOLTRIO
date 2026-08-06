@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )

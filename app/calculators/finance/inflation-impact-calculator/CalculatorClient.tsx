@@ -87,7 +87,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📉 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Inflation is the invisible tax that erodes the purchasing power of money over time. At 3.5% annual inflation, $100,000 today buys what $49,832 buys in 20 years. To maintain and grow real wealth, your investment returns must exceed both inflation and taxes — this calculator shows exactly how much of your returns are real vs illusion.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Estimate how inflation changes future purchasing power and compare it with an assumed investment return. Inflation and returns vary year to year. Taxes, investment fees, volatility and the composition of your own spending are excluded.</p>
               </Card>
             </>
           ):(
@@ -97,12 +97,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Inflation Impact Calculator USA 2026 — Purchasing Power" category="finance"
-          intro="Inflation is the invisible tax that erodes the purchasing power of money over time. At 3.5% annual inflation, $100,000 today buys what $49,832 buys in 20 years. To maintain and grow real wealth, your investment returns must exceed both inflation and taxes — this calculator shows exactly how much of your returns are real vs illusion."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Estimate how inflation changes future purchasing power and compare it with an assumed investment return."
+          howItWorks="Future cost compounds as Current Amount × (1 + inflation)^years. The investment scenario compounds separately at the entered return; the gap shows whether that hypothetical return keeps pace with the assumed inflation rate."
+          tipsSection="Worked example: At 3% inflation, $50,000 of today’s purchasing power requires substantially more nominal dollars after 20 years. Compare that with the investment-return scenario."
+          conclusion="Important assumptions and limitations: Inflation and returns vary year to year. Taxes, investment fees, volatility and the composition of your own spending are excluded. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

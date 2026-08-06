@@ -77,12 +77,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Net Investment Income Tax (NIIT) Calculator USA 2026"
           category="finance"
-          intro="The 3.8% Net Investment Income Tax is an add-on tax on investment income for higher earners — effectively raising the capital gains rate to 18.8% or 23.8% for those above the threshold. On $50,000 of capital gains above the $200,000 threshold, NIIT adds $1,900. Tax-loss harvesting and retirement account contributions are the primary tools for reducing NIIT exposure."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
+          intro="Estimate the 3.8% Net Investment Income Tax using wages, net investment income and filing status. NIIT is not simply 3.8% of all investment income: the tax applies to the lesser of net investment income or MAGI above the statutory threshold."
+          howItWorks="For single filers the model uses a $200,000 threshold; for married filing jointly it uses $250,000. It adds wages and investment income as a simplified MAGI proxy, calculates the excess over the threshold, takes the lesser of that excess and investment income, then multiplies the NIIT base by 3.8%."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Instant calculations based on the assumptions documented on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

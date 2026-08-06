@@ -93,7 +93,17 @@ export default function CalculatorClient({ faqs }: Props) {
             <p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p>
           </details>
         ))}
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Using the svg optimizer result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Interpret the output together with the values entered in the calculator. The result is based on the calculator&apos;s implemented calculation and the values supplied.</p>
+            <p>For a useful comparison, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to distinguish.</p>
+          </div>
+        </Card>
       </div>
+</div>
       <SEOContent
         title="SVG Optimizer — Minify and Clean SVG Code"
         category="dev"

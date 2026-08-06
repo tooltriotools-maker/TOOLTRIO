@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'K-1 Income Tax Calculator USA 2026 — Partnership & S-Corp | ToolTrio',
   description: 'Calculate federal tax on Schedule K-1 income from partnerships, S-corps, and LLCs including SE tax on guaranteed payments, QBI deduction, and passive loss rules.',

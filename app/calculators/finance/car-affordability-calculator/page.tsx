@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Car Affordability Calculator USA 2026 — How Much Car Can I Afford? | ToolTrio',
   description: 'Calculate maximum car price, monthly payment, and total cost of ownership based on income, debts, and 15% rule for vehicle affordability.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['car affordability calculator 2026', 'how much car can I afford USA', 'car payment calculator', 'auto loan affordability', '20 4 10 rule car calculator'],
 })
 const faqs = [
-  {
-    question: 'What is the 20/4/10 rule for car buying?',
-    answer: 'Put at least 20% down, finance for no more than 4 years, and keep total vehicle expenses (payment + insurance) under 10% of gross monthly income. This is more conservative than lender guidelines but produces better financial outcomes. On $6,500/month income, 10% = $650/month maximum for car + insurance combined.',
-  },
-  {
-    question: 'What are 2026 average car loan rates?',
-    answer: '2026 average auto loan rates: New car (excellent credit 720+): 5.5-7.0%. New car (good credit 660-719): 7.5-10%. Used car (excellent credit): 7.5-9.5%. Used car (good credit): 10-14%. Credit unions typically offer 0.5-1.5% lower rates than banks. Rates from manufacturer financing promotions can be 0-2.9% on qualifying vehicles.',
-  },
-  {
-    question: 'Should I buy new or used?',
-    answer: 'New cars depreciate 15-25% in year one. A 2-3 year old certified pre-owned vehicle with 25,000-40,000 miles has taken the largest depreciation hit while still having remaining warranty coverage. For most buyers, a CPO vehicle represents the best value. New cars make financial sense when: manufacturer incentives (0% APR, cash back) close the gap, or when you plan to keep the vehicle 10+ years.',
-  }
+ {question:'What affordability rule does this calculator use?',answer:'The model reserves 15% of gross monthly income for the vehicle payment plus a fixed $150 monthly insurance allowance. That 15% figure is a ToolTrio planning guardrail, not a lender approval rule.'},
+ {question:'Does monthly debt reduce the affordable car price?',answer:'The current calculation receives the monthly-debt input but does not subtract it from the 15% vehicle budget. Treat the output as a vehicle-budget scenario, not a full debt-to-income underwriting result.'},
+ {question:'How is the maximum loan calculated?',answer:'After subtracting the $150 insurance allowance from the 15% monthly budget, the calculator converts the remaining payment into a present-value loan amount using your APR and term.'},
+ {question:'What does total cost of ownership include?',answer:'It includes modeled loan payments, $150 per month of insurance and an additional 1.5% of vehicle price per year. Fuel, depreciation, repairs, registration and actual insurance quotes are not separately modeled.'},
+ {question:'Do down payment and trade-in increase the price ceiling?',answer:'Yes. The calculated maximum loan is increased by the entered down payment and trade-in value to produce the displayed maximum vehicle price.'}
 ]
 const relatedCalculators = [
   { name: 'Buy vs Lease Vehicle', href: '/calculators/finance/buy-vs-lease-vehicle-calculator', icon: '🚗', desc: 'Buy vs Lease Vehicle' },

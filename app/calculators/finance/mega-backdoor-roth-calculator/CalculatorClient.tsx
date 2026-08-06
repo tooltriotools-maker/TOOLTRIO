@@ -105,19 +105,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Mega Backdoor Roth Calculator USA 2026"
           category="finance"
-          intro="The mega backdoor Roth strategy allows high-income earners to contribute up to $70,000 total to their 401k in 2026 — far exceeding the standard $23,500 pre-tax limit — by making after-tax contributions that are immediately converted to Roth. This creates massive tax-free compounding potential unavailable through any other vehicle."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
-          useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
-          ]}
+          intro="Estimate how much after-tax 401(k) contribution room may remain for a mega backdoor Roth strategy after regular employee deferrals and employer contributions. This strategy is only possible when the employer plan permits the necessary after-tax contributions and Roth conversion or rollover mechanics."
+          howItWorks="The model starts with the 2026 defined-contribution annual-additions limit, subtracts regular elective deferrals and the employer contribution, and caps the requested after-tax contribution at the remaining room. It then illustrates 30 years of 7% growth and applies your tax rate to the modeled growth to show a hypothetical tax-value comparison."
+          tipsSection="Check your plan document before relying on the result. The annual-additions limit is not the same as the employee elective-deferral limit, and catch-up contributions can have separate treatment. Existing plan contributions from the same employer also count toward annual additions."
+          conclusion="Use this as contribution-room planning, not as confirmation that your plan supports a mega backdoor Roth. For 2026, the IRS employee elective-deferral limit is $24,500 and the general annual-additions limit is $72,000."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks
           title="Related Finance Calculators"

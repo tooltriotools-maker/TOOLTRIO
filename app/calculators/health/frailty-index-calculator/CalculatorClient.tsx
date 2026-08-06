@@ -8,6 +8,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Frailty Index Calculator?", "answer": "Check Age, Criteria Met, Category, Fall Risk and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Frailty Index Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Frailty Index Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [age, setAge] = useState(72)
   const [weightLoss, setWeightLoss] = useState(false)
@@ -87,7 +93,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this frailty index calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The calculator uses Age, Criteria Met, Category, Fall Risk. Its output is based on the formula implemented by this tool and the values you provide.</p>
+            <p>When comparing scenarios, change one assumption at a time and compare Frailty Index Calculator, Age, Criteria Met, Category, Fall Risk. This makes it easier to identify which input is responsible for the change instead of treating the result as a prediction.</p>
+            <p>Check the units and time period before relying on the output. Real-world outcomes can differ when relevant taxes, fees, eligibility requirements, measurement error, market changes, or other factors are outside the calculator&apos;s inputs.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this explanation documents the calculator&apos;s use and limitations without changing its underlying calculation.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

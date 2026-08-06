@@ -97,7 +97,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏠 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">A home equity loan gives you a lump sum secured by your home at a fixed rate — typically 7.5–9.5% in 2026, far below credit card rates. The key metrics are CLTV (must stay under 85%) and the fixed monthly payment. Unlike a HELOC, rates and payments are locked for the full term.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Compare a fixed-rate home equity loan against your available equity and combined loan-to-value ratio. Rates, closing costs, appraisal rules, lien position and lender CLTV limits are not modeled. Interest deductibility depends on how proceeds are used and current tax law.</p>
               </Card>
             </>
           ):(
@@ -107,12 +107,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Home Equity Loan Calculator USA 2026" category="finance"
-          intro="A home equity loan gives you a lump sum secured by your home at a fixed rate — typically 7.5–9.5% in 2026, far below credit card rates. The key metrics are CLTV (must stay under 85%) and the fixed monthly payment. Unlike a HELOC, rates and payments are locked for the full term."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Compare a fixed-rate home equity loan against your available equity and combined loan-to-value ratio."
+          howItWorks="The calculator subtracts your mortgage balance from home value to estimate equity, then computes CLTV after the requested loan. The loan payment uses standard fixed-rate amortization: P × r(1+r)^n / ((1+r)^n − 1)."
+          tipsSection="Worked example: A $75,000 loan at 8% for 10 years has 120 monthly payments. Compare the payment and total interest with the equity and CLTV shown before treating the result as affordable."
+          conclusion="Important assumptions and limitations: Rates, closing costs, appraisal rules, lien position and lender CLTV limits are not modeled. Interest deductibility depends on how proceeds are used and current tax law. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

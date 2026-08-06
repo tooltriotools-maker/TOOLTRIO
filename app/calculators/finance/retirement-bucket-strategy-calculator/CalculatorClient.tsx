@@ -81,9 +81,21 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Retirement Bucket Strategy Calculator USA 2026" category="finance" intro="Allocate your retirement portfolio into cash, bond, and stock buckets — eliminating sequence-of-returns risk by matching liquidity to time horizon." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Retirement Bucket Strategy Calculator" category="finance"
+          intro="Allocates a retirement portfolio into cash, bond and stock buckets based on the number of spending years assigned to cash and bonds."
+          howItWorks="Cash bucket = annual expenses × cash years. Bond bucket = annual expenses × bond years. Stocks receive the remaining portfolio. The calculator estimates cash/bond income from entered returns and shows how much annual spending would still need to be refilled from stocks."
+          tipsSection="Worked example — Example: with $72,000 annual spending, two cash years allocate $144,000 to cash; eight bond years allocate $576,000 to bonds; the remainder of a $1.2M portfolio is assigned to stocks."
+          conclusion="Important assumptions and limitations — Bucket strategies do not eliminate sequence-of-returns risk. The model assumes constant returns, ignores inflation, taxes and rebalancing mechanics, and compounds the stock bucket for 30 years without modeling withdrawals from that bucket."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

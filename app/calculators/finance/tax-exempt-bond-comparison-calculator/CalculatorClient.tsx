@@ -90,12 +90,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Tax-Exempt vs Taxable Bond Comparison Calculator USA 2026" category="finance" intro="For investors in the 32%+ federal tax bracket, municipal bonds often deliver higher after-tax income than comparable corporate bonds — without the credit risk premium that corporations must pay. A 4.2% muni in California at 41.3% combined tax rate has a tax-equivalent yield of 7.16%, decisively beating most investment-grade corporate bonds. This calculator does the exact math for any combination of bond yields and tax rates."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent
+          title="Tax-Exempt vs Taxable Bond Comparison" category="finance"
+          intro="This calculator converts a municipal-bond yield into a tax-equivalent yield and compares after-tax yields for municipal, corporate and Treasury bonds."
+          howItWorks="Municipal TEY = muni yield ÷ (1 − federal rate − state rate). Corporate after-tax yield = corporate yield × (1 − federal rate − state rate). Treasury after-tax yield applies federal tax only in this model because Treasury interest is generally exempt from state and local income taxes."
+          tipsSection="Worked example: Example: a 4% municipal yield at a combined 30% modeled income-tax rate has a tax-equivalent yield of about 5.71%. That can then be compared with the quoted taxable bond yields."
+          conclusion="Important assumptions and limitations: Tax treatment varies by bond, residence and AMT circumstances. The calculator does not compare duration, credit risk, call risk, price volatility or reinvestment risk, so the highest after-tax yield is not automatically the best investment."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

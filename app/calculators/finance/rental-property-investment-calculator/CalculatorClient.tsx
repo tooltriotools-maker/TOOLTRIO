@@ -109,18 +109,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Rental Property Investment Calculator USA 2026" category="finance"
-          intro="Rental property returns come from three sources: monthly cash flow (rent minus all expenses and mortgage), equity paydown (each mortgage payment builds equity), and appreciation (historically 3-5% annually). This calculator models all three to show your actual total return, cap rate, and cash-on-cash return — the metrics professional investors use."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This rental model separates property operating performance from financing: vacancy-adjusted rent and operating expenses produce NOI, while the mortgage determines cash flow and cash-on-cash return. It then adds a fixed 3.5% annual appreciation scenario to estimate sale equity."
+          howItWorks="Effective rent = monthly rent × (1 − vacancy%). Operating expenses are modeled as an annual percentage of purchase price. NOI excludes mortgage payments. Annual cash flow subtracts the 30-year amortizing mortgage. Cap rate = NOI ÷ purchase price; cash-on-cash = annual cash flow ÷ down payment. Sale price compounds at 3.5% annually and remaining loan balance is subtracted to estimate equity."
+          tipsSection="Build expenses from realistic property tax, insurance, maintenance, management, HOA and reserve estimates. Closing costs, rehab, selling costs, income taxes and depreciation recapture are not included, so the total-return output can overstate net proceeds."
+          conclusion="Use cap rate to evaluate the property independent of financing and cash-on-cash return to evaluate the modeled equity investment. Stress-test vacancy, expenses and rent before relying on the result."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},
+            {title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

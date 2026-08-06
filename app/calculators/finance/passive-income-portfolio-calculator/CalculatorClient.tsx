@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💰 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Passive income freedom — living entirely from investments — requires a specific portfolio size based on your target income and asset yields. At 3.5% dividend yield, $5,000/month requires $1.7M in dividend stocks. Adding rental equity and bonds at higher yields can reduce the required portfolio to $1.2-1.4M. This calculator shows exactly how much of each asset type you need for any income target.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator works backward from a target monthly cash-flow amount to an estimated portfolio size. It blends the dividend, rental, bond, and 'other' allocations you enter and divides annual target income by that blended yield.</p>
               </Card>
             </>
           ):(
@@ -90,10 +90,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Passive Income Portfolio Calculator USA 2026" category="finance" intro="Passive income freedom — living entirely from investments — requires a specific portfolio size based on your target income and asset yields. At 3.5% dividend yield, $5,000/month requires $1.7M in dividend stocks. Adding rental equity and bonds at higher yields can reduce the required portfolio to $1.2-1.4M. This calculator shows exactly how much of each asset type you need for any income target."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+        <SEOContent title="Passive Income Portfolio Calculator USA 2026" category="finance" intro="This calculator works backward from a target monthly cash-flow amount to an estimated portfolio size. It blends the dividend, rental, bond, and 'other' allocations you enter and divides annual target income by that blended yield."
+          howItWorks="Blended yield is the allocation-weighted average of the entered dividend, rental, and bond yields, with the model assigning 4% to the residual 'other' allocation. Required portfolio = annual target income ÷ blended yield. The page then allocates that required capital across the modeled asset buckets and applies a flat 15% tax assumption to all target income. Actual dividend, rental, REIT, and bond taxation differs, and yields can fall or distributions can be cut."
+          tipsSection="Stress-test lower yields as well as higher ones. A higher stated yield reduces the calculated capital requirement, but high yield can come with higher credit, concentration, property, distribution-cut, or principal-loss risk."
+          conclusion="The result estimates capital required under a yield assumption; it does not establish a safe withdrawal rate or guarantee that the portfolio can maintain the target income."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

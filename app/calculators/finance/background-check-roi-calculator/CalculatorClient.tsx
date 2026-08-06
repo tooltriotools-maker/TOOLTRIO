@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Badhirecost</label>
+            <label className="text-xs font-medium text-gray-600">Cost per Bad Hire</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={badHireCost} onChange={e=>setBadHireCost(Number(e.target.value))} step={5000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -29,7 +29,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Screeningcost</label>
+            <label className="text-xs font-medium text-gray-600">Screening Cost per Hire</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={screeningCost} onChange={e=>setScreeningCost(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -37,7 +37,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Hiresperyear</label>
+            <label className="text-xs font-medium text-gray-600">Hires per Year</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={hiresPerYear} onChange={e=>setHiresPerYear(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -45,7 +45,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Badhireratewithout</label>
+            <label className="text-xs font-medium text-gray-600">Bad-Hire Rate Without Screening</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={badHireRateWithout} onChange={e=>setBadHireRateWithout(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -53,7 +53,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Badhireratewith</label>
+            <label className="text-xs font-medium text-gray-600">Bad-Hire Rate With Screening</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={badHireRateWith} onChange={e=>setBadHireRateWith(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -71,14 +71,19 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="ROI" value={result?`${Number(result.roi).toFixed(1)}%`:"-"} />
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🔍 Background Check ROI Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">Understanding these results</h2><p className="text-sm text-gray-600">Estimate the financial break-even of an employee-screening program using your own assumptions for bad-hire cost, screening price, annual hires and bad-hire rates with and without screening. This is an employer budgeting model, not evidence that a background check will prevent a specific hiring outcome.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Background Check ROI Calculator USA 2026" category="finance" intro="Background Check ROI Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <SEOContent title="Background Check ROI Calculator" category="finance"
+          intro="Estimate the financial break-even of an employee-screening program using your own assumptions for bad-hire cost, screening price, annual hires and bad-hire rates with and without screening. This is an employer budgeting model, not evidence that a background check will prevent a specific hiring outcome."
+          howItWorks="Expected bad hires = annual hires × assumed bad-hire rate. Cost without screening = expected bad hires without screening × cost per bad hire. Cost with screening = expected bad hires after screening × bad-hire cost + screening cost × hires. Net savings is the difference; ROI divides net savings by total screening spend."
+          tipsSection="The two bad-hire rates are user assumptions and drive the result heavily. The model does not measure screening accuracy, adverse impact, legal compliance, candidate experience, turnaround time or the cost of false positives. Employment background checks can be subject to federal, state and local requirements, so financial ROI is only one part of a screening policy."
+          conclusion="Use the calculator to find the assumptions required for screening to pay for itself. If the business case depends on an unrealistically large drop in bad hires, the displayed ROI should not be treated as a reliable forecast."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"25 hires per year — Assume 25 hires, $75 screening cost per hire, $45,000 cost per bad hire, and bad-hire rates of 18% without screening versus 6% with screening.",result:"The model compares expected annual bad-hire costs in the two scenarios, adds $1,875 of screening spend to the screened scenario, and computes ROI from the modeled net savings.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

@@ -86,9 +86,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Real Estate Crowdfunding Calculator USA 2026" category="finance" intro="Calculate real estate crowdfunding returns including dividends, appreciation, platform fees, and after-tax IRR." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calcs."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Real Estate Crowdfunding Return Calculator" category="finance"
+          intro="Model a private real-estate crowdfunding scenario using an initial investment, target return, holding period, platform fee, dividend yield and preferred-return hurdle. The outputs separate cash distributions, modeled exit value, IRR and a simplified after-tax profit estimate."
+          howItWorks="Annual dividends equal investment × dividend yield and are assumed constant. Exit value compounds only the target-return portion not attributed to dividends: investment × (1 + target return − dividend yield)^years. The displayed IRR annualizes total dividends plus exit value. The platform fee affects the chart projection but is not consistently deducted from every headline return, so compare outputs as a simplified scenario rather than a deal waterfall."
+          tipsSection="Preferred return here is shown as investment × preferred-return rate × years; the tool does not implement sponsor promotes, catch-ups or tiered waterfalls. Taxes are simplified to 22% on modeled dividends and 20% on modeled appreciation. Actual partnership allocations, depreciation, K-1 items, debt, fees and sale taxes can materially differ. Private real-estate interests can also be illiquid."
+          conclusion="Use this page to stress-test assumptions, not to reproduce an offering memorandum. A real deal should be evaluated from its legal documents, fee schedule, distribution waterfall, financing and property-level risks."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"Five-year private-property scenario — Invest $25,000 with a 12% target return, 6% dividend yield, 1.5% platform fee, five-year hold and 8% preferred-return input.",result:"The model calculates $1,500 of annual dividends, compounds the non-dividend portion into an exit value, then estimates total return and IRR from those modeled cash flows.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

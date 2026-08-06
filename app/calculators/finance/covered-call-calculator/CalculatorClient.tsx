@@ -90,20 +90,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Covered Call Calculator USA 2026 — Options Income Strategy" category="finance"
-          intro="Covered calls turn stock you already own into an income-generating machine. Selling a 30-day call on 500 shares at $2.50/share generates $1,250 in immediate income — 1.47% on a $85,000 position in one month, or ~17% annualized. This calculator shows your exact income, annualized yield, and maximum profit on any covered call position."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+        <SEOContent
+          title="Covered Call Calculator" category="finance"
+          intro="This tool measures premium income, annualized premium yield, maximum profit and break-even price for covered calls written against shares you already own."
+          howItWorks="Contracts writable = floor(shares ÷ 100). Premium income = option premium × 100 × contracts. Break-even = stock price − premium. Maximum profit assumes assignment at the strike: (strike − current price + premium) × 100 × contracts."
+          tipsSection="Worked example: Example: 300 shares at $50 with a $55 strike and $2 premium supports 3 contracts and $600 of premium. If assigned, the modeled maximum profit is ($55 − $50 + $2) × 300 = $2,100."
+          conclusion="Important assumptions and limitations: The model ignores commissions, taxes, dividends, early assignment, option liquidity and changes in implied volatility. Annualizing a short option premium does not mean the same yield can be repeated all year."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

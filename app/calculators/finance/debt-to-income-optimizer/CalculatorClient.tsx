@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📋 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Your debt-to-income ratio determines your mortgage eligibility and interest rate. At 43%+ DTI, most lenders decline or charge premium rates. This calculator shows your exact DTI, maximum mortgage payment you qualify for, and the payoff order that most improves your DTI — helping you plan the path to home purchase or better mortgage terms.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Debt-to-income ratio is one part of mortgage underwriting. This calculator totals the listed monthly debts against gross income, then shows planning room under its built-in DTI thresholds and a debt-payoff order. It does not determine lender approval or an interest rate, because underwriting also considers the proposed housing payment, credit profile, assets, loan program and other factors.</p>
               </Card>
             </>
           ):(
@@ -90,11 +90,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Debt-to-Income Optimizer USA 2026 — Maximize Mortgage Eligibility" category="finance" intro="Your debt-to-income ratio determines your mortgage eligibility and interest rate. At 43%+ DTI, most lenders decline or charge premium rates. This calculator shows your exact DTI, maximum mortgage payment you qualify for, and the payoff order that most improves your DTI — helping you plan the path to home purchase or better mortgage terms."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
+        <SEOContent title="Debt-to-Income Optimizer USA 2026 — Maximize Mortgage Eligibility" category="finance" intro="Debt-to-income ratio is one part of mortgage underwriting. This calculator totals the listed monthly debts against gross income, then shows planning room under its built-in DTI thresholds and a debt-payoff order. It does not determine lender approval or an interest rate, because underwriting also considers the proposed housing payment, credit profile, assets, loan program and other factors."
+          howItWorks="The calculator adds the entered car, student-loan, and credit-card payments, then divides that total by gross monthly income to show a back-end DTI before housing. It also shows planning capacities using 28% and 43% thresholds and sorts debts by interest rate for an avalanche-style payoff order. Those thresholds are planning heuristics, not universal mortgage approval rules; lenders apply program-specific underwriting, credit, reserves, housing expense, and pricing requirements."
           tipsSection="Try multiple scenarios by changing one input at a time."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Current DTI",text:"Monthly listed debt payments ÷ gross monthly income × 100."},{title:"Planning capacity",text:"See the amount left under the calculator's 28% and 43% planning thresholds after existing debt payments."},{title:"Payoff priority",text:"Debts are ordered from highest to lowest entered/modelled interest rate to show which payment removal changes DTI first."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -1,11 +1,9 @@
 'use client'
 import { useState, useMemo } from 'react'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { InternalLinks } from '@/components/ui/InternalLinks'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
-import { SEOContent } from '@/components/ui/SEOContent'
 import { calculateBridgeLoan } from '@/lib/calculations/finance'
 interface Props { faqs:{question:string;answer:string}[];structuredData:object[];relatedCalculators?:{name:string;href:string;icon:string;desc:string}[] }
 export default function CalculatorClient({faqs,structuredData,relatedCalculators}:Props) {
@@ -72,14 +70,17 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Total Bridge Cost" value={result?`${Number(result.totalBridgeCost).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🌉 Bridge Loan Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🌉 Bridge Loan Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see Bridge Loan Calculator output using 2026 Calculator methodology and assumptions. All calculations run locally in your browser.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Bridge Loan Calculator USA 2026" category="finance" intro="Bridge Loan Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <div className="space-y-6 text-sm text-gray-700 leading-7">
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">How this bridge-loan estimate works</h2><p>The calculator first estimates current home equity as home value minus the outstanding mortgage. It then models a bridge amount as the smaller of 80% of that equity or 20% of the new-home price. Interest is modeled as simple monthly interest for the expected sale period, and the current implementation adds a 1.5% illustrative origination fee.</p><p className="mt-3"><strong>Formulas:</strong> Equity = Current home value − Mortgage balance. Monthly interest = Bridge amount × annual rate ÷ 12. Total modeled bridge cost = monthly interest × months outstanding + origination fee.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Understanding the inputs</h2><p><strong>Current home value</strong> affects available equity; use a realistic market estimate rather than an optimistic asking price. <strong>Mortgage balance</strong> is the amount still owed, not the original loan. <strong>New home price</strong> sets the modeled 20% funding need. <strong>Bridge rate</strong> and <strong>months until sale</strong> directly drive interest cost, so a delayed sale can materially increase the estimate.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Worked example</h2><p>With a $480,000 current home, a $220,000 mortgage, and a $550,000 purchase, modeled equity is $260,000. Eighty percent of that equity is $208,000, while 20% of the new-home price is $110,000, so this calculator uses a $110,000 bridge amount. At 9.5% for four months, simple interest is about $3,483; the modeled 1.5% fee adds $1,650, for an estimated bridge cost of about $5,133.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Important limitations and alternatives</h2><p>Actual bridge products vary by lender: maximum combined loan-to-value, fees, appraisal requirements, repayment structure, interest compounding, and whether payments are deferred can all differ. The model also excludes closing costs and the risk that the existing home takes longer to sell. A HELOC is a different product that also borrows against home equity and may be worth comparing where available.</p><p className="mt-3"><strong>Consumer reference:</strong> <a className="text-green-700 underline" href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-home-equity-line-of-credit-heloc-en-107/" target="_blank" rel="noreferrer">CFPB guide to HELOCs and home equity</a>.</p></Card>
+        </div>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

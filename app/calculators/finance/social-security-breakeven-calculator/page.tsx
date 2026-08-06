@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
@@ -18,18 +18,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
-  {
-    question: 'What is the Social Security breakeven age?',
-    answer: 'The breakeven age is when cumulative lifetime benefits from claiming later equal the total you would have collected by claiming earlier. Claiming at 62 vs 67 (FRA): breakeven is approximately age 78–79. Claiming at 70 vs 67: breakeven is approximately age 82–83. If you expect to live past 83, waiting until 70 maximizes lifetime benefits.',
-  },
-  {
-    question: 'How much is Social Security reduced at 62?',
-    answer: 'Claiming at 62 permanently reduces your benefit by up to 30% vs FRA (age 67 for those born 1960+). The reduction is 5/9 of 1% per month for the first 36 months early, plus 5/12 of 1% for additional months. On a $2,200/month FRA benefit, claiming at 62 gives approximately $1,540/month — a $660/month permanent reduction.',
-  },
-  {
-    question: 'Does Social Security increase after FRA?',
-    answer: 'Yes — every month you delay past FRA earns an 8% annual Delayed Retirement Credit, up to age 70. On a $2,200 FRA benefit, waiting until 70 provides $2,728/month — a 24% permanent increase that also applies to survivor benefits your spouse receives.',
-  }
+  { question: "Does this calculator get my benefit from SSA?", answer: "No. Enter the benefit from your Social Security statement. The calculator only adjusts the number you provide for claiming age." },
+  { question: "How does claiming before 67 affect the model?", answer: "It applies the SSA-style monthly early-retirement reduction: 5/9 of 1% for each of the first 36 months early and 5/12 of 1% for additional months." },
+  { question: "How does delaying after 67 affect the model?", answer: "It models delayed retirement credits at 8% per year through age 70. Claiming later than 70 does not earn additional delayed retirement credits under Social Security rules." },
+  { question: "Is the displayed break-even age exact?", answer: "No. The current function uses a heuristic break-even formula rather than solving the cumulative crossover between two selected claiming ages." },
+  { question: "What important factors are excluded?", answer: "COLAs, taxes, earnings-test effects, survivor and spouse benefits, Medicare interactions and individual longevity are not fully modeled." },
 ]
 
 const relatedCalculators = [

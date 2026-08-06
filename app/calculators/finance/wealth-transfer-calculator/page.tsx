@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Wealth Transfer Calculator USA 2026 — Estate & Gift Strategy | ToolTrio',
   description: 'Calculate future estate value, estate tax liability, and savings from trust strategies vs direct gifting.',
@@ -24,7 +20,7 @@ const faqs = [
   },
   {
     question: 'What happens to the estate tax exemption in 2026?',
-    answer: 'The TCJA doubled the estate tax exemption from ~$5.5M to $13.61M per person (2026). This provision sunsets after December 31, 2025 unless Congress acts — potentially reverting to approximately $7M adjusted for inflation. Creating structures NOW to lock in the high exemption is a primary planning strategy for high-net-worth families.',
+    answer: 'The TCJA doubled the estate tax exemption from ~$5.5M to $15M per person (2026). This provision sunsets after December 31, 2025 unless Congress acts — potentially reverting to approximately $7M adjusted for inflation. Creating structures NOW to lock in the high exemption is a primary planning strategy for high-net-worth families.',
   }
 ]
 const relatedCalculators = [

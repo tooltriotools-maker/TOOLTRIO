@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🎓 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The student loan debt burden is best measured as payment-to-income ratio. When monthly payments exceed 10% of gross income, the burden becomes unmanageable — and Income-Driven Repayment (IDR) provides the safety valve. A $68,000 balance at $58,000 salary produces a 13% payment-to-income ratio on standard repayment, but only 3.6% on the SAVE plan. This calculator shows both paths.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Measure student-loan payments against expected salary instead of looking only at the loan balance. The IDR and forgiveness fields are simplified scenarios and do not implement current Department of Education plan eligibility, discretionary-income definitions or forgiveness rules.</p>
               </Card>
             </>
           ):(
@@ -81,10 +81,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="College Debt Burden Calculator USA 2026 — Is Your Loan Manageable?" category="finance" intro="The student loan debt burden is best measured as payment-to-income ratio. When monthly payments exceed 10% of gross income, the burden becomes unmanageable — and Income-Driven Repayment (IDR) provides the safety valve. A $68,000 balance at $58,000 salary produces a 13% payment-to-income ratio on standard repayment, but only 3.6% on the SAVE plan. This calculator shows both paths."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+        <SEOContent title="College Debt Burden Calculator USA 2026 — Is Your Loan Manageable?" category="finance" intro="Measure student-loan payments against expected salary instead of looking only at the loan balance."
+          howItWorks="The page amortizes the entered balance over the selected term and calculates annual payment ÷ expected salary. It also compares debt with one year of salary. The 10% affordability line is a ToolTrio planning heuristic, not a federal eligibility rule."
+          tipsSection="Worked example: For $40,000 at 6.5% over 10 years, the calculator estimates the fixed payment and then measures twelve payments against the salary you enter."
+          conclusion="Important assumptions and limitations: The IDR and forgiveness fields are simplified scenarios and do not implement current Department of Education plan eligibility, discretionary-income definitions or forgiveness rules. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

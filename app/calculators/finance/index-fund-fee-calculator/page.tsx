@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Index Fund Expense Ratio Fee Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the long-term wealth impact of index fund expense ratios. See how a 0.03% vs 1% fee difference compounds to $100,000+ over 30 years.',
+  title: 'Index Fund Expense Ratio Fee Calculator | ToolTrio',
+  description: 'Compare two fund expense ratios under the same assumed gross return and contributions to see how recurring fund costs can change projected long-term balances.',
   slug: 'index-fund-fee-calculator',
   category: 'finance',
   region: 'usa',
@@ -15,17 +11,29 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 const faqs = [
   {
-    question: 'How much do mutual fund fees really cost?',
-    answer: 'A 1% expense ratio on a $50,000 portfolio growing at 8%/year for 30 years costs $180,000+ in foregone wealth vs a 0.03% index fund. The math: $50,000 at 7% (8% minus 1% fee) grows to $380,000; at 7.97% (8% minus 0.03%) it grows to $527,000. That $147,000 difference is your entire retirement contribution for multiple years — lost to fees. This is why Warren Buffett has instructed the Berkshire trustees to put his estate in low-cost S&P 500 index funds.',
+    question: 'What is an expense ratio?',
+    answer: 'An expense ratio is an annual fund operating expense expressed as a percentage of fund assets. Fund operating expenses are deducted from fund assets, so they reduce the return retained by investors.',
   },
   {
-    question: 'What are the lowest expense ratio funds in 2026?',
-    answer: 'Fidelity ZERO funds: 0.00% (FZROX total market, FZILX international). Vanguard VTI (total market): 0.03%. Schwab SCHB (total market): 0.03%. iShares ITOT (total market): 0.03%. Fidelity FSKAX: 0.015%. These are among the lowest in the world. Compare to average actively managed fund at 0.65-1.5% — the gap is enormous and compounds for decades.',
+    question: 'How does this calculator model the fee difference?',
+    answer: 'For each fund it subtracts the entered expense ratio from the same assumed gross annual return, grows the prior balance by that net rate, then adds the annual contribution. The process repeats once per year for the selected period.',
   },
   {
-    question: 'Do higher-fee funds outperform to justify costs?',
-    answer: 'The evidence says no, on average. SPIVA data (S&P Dow Jones) consistently shows 85-90% of actively managed large-cap funds underperform the S&P 500 over 15-20 year periods, net of fees. Higher fees actually predict lower future returns due to the mathematical drag. Nobel laureate William Sharpe proved in 1991 that the average actively managed dollar must underperform the index by exactly the cost of active management.',
-  }
+    question: 'Does a lower expense ratio guarantee a higher investment return?',
+    answer: 'No. Lower costs leave more of a fund’s return for investors when other factors are equal, but two real funds can hold different investments, track different indexes, experience different tracking error and produce different gross returns. This calculator intentionally holds gross return equal to isolate fee drag.',
+  },
+  {
+    question: 'Where can I find a fund’s expense ratio?',
+    answer: 'Check the fund prospectus and shareholder reports. The SEC requires mutual funds and ETFs to disclose fees and expenses, including annual operating expenses, in standardized disclosures.',
+  },
+  {
+    question: 'Does the calculator include every cost of owning a fund?',
+    answer: 'No. It models only the two entered expense ratios. It does not include brokerage commissions, bid-ask spreads, loads, advisory fees, taxes, tracking differences or other transaction and account costs.',
+  },
+  {
+    question: 'Why can a small annual fee difference become large over decades?',
+    answer: 'Fees reduce the balance that remains invested. That means the investor can lose both the fee itself and the future growth that money might otherwise have earned. The effect compounds as the projection period gets longer.',
+  },
 ]
 const relatedCalculators = [
   { name: 'DRIP Calculator', href: '/calculators/finance/drip-calculator', icon: '💧', desc: 'DRIP Calculator' },

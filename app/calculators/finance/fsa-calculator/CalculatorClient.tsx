@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏥 FSA Calculator USA 2026 — Flexible Spending Account — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">A Health FSA lets you pay for medical expenses with pre-tax dollars, saving 24–37% depending on your tax bracket. The $3,300 limit (2026) translates to $792–$1,221 in tax savings depending on your rate. The critical planning element: only contribute what you'll realistically spend — unused FSA funds are forfeited at year-end (beyond the grace period or rollover).</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses a $680 carryover assumption when estimating potential forfeiture.</p>
               </Card>
             </>
           ) : (
@@ -88,12 +88,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="FSA Calculator USA 2026 — Flexible Spending Account"
           category="finance"
-          intro="A Health FSA lets you pay for medical expenses with pre-tax dollars, saving 24–37% depending on your tax bracket. The $3,300 limit (2026) translates to $792–$1,221 in tax savings depending on your rate. The critical planning element: only contribute what you'll realistically spend — unused FSA funds are forfeited at year-end (beyond the grace period or rollover)."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses a $680 carryover assumption when estimating potential forfeiture."
+          howItWorks="The tool caps your election at $3,400, then estimates tax savings as contribution × (your marginal rate + 7.65% FICA). Net cost equals the capped election minus estimated tax savings. Forfeiture risk is the amount remaining after expected medical spending and the modeled $680 carryover."
+          tipsSection="Base the election on expenses you can reasonably predict, such as recurring prescriptions, copays, dental work and vision costs. Employer plans may offer either a carryover or grace period under plan rules; verify your own plan instead of assuming every unused dollar can roll forward."
+          conclusion="The result estimates tax savings and spending risk; it does not determine whether a particular purchase is FSA-eligible or override your employer plan document."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

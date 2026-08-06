@@ -18,7 +18,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
   const result = useMemo(() => {
     try {
-      return calculateStudentLoanForgiveness(balance, 'save', income, familySize, yearsInProgram)
+      return calculateStudentLoanForgiveness(balance, 'ibr', income, familySize, yearsInProgram)
     } catch(e) { return null }
   }, [balance, income, familySize, yearsInProgram])
 
@@ -97,19 +97,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Student Loan Forgiveness Calculator USA 2026 — IDR & PSLF"
           category="finance"
-          intro="Student loan forgiveness under income-driven repayment plans can eliminate tens of thousands in debt, but comes with complexity: income thresholds, forgiveness timelines (10 years for PSLF, 20–25 years for IDR), and potential tax bills on forgiven amounts. This calculator models your payment, total cost, and estimated forgiveness benefit under different repayment plans."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
-          useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
-          ]}
+          intro="Estimate how this simplified model changes monthly payments, total paid, and a remaining balance that may be forgiven. The current calculator is a planning model, not an eligibility engine: federal repayment programs and forgiveness rules depend on loan type, qualifying employment, payment history, and current Department of Education rules."
+          howItWorks="The calculator starts with income and family size, subtracts 150% of its embedded poverty-line amount to estimate discretionary income, then applies the selected repayment-plan percentage. It projects payments for the modeled term and estimates a remaining balance. Important: the code currently selects a SAVE-style 5% payment formula, but SAVE was ended by court order in March 2026, so this output should be treated only as a legacy scenario—not a currently available plan."
+          tipsSection="Use your actual federal loan balance and income, then compare the estimate with the repayment options shown in your StudentAid.gov account. PSLF eligibility cannot be determined from balance and income alone; qualifying employer, loan type and qualifying payments matter."
+          conclusion="This calculator is useful for scenario planning, but do not use its legacy SAVE output to choose a current repayment plan. Confirm available repayment and forgiveness options with Federal Student Aid or your federal loan servicer."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks
           title="Related Finance Calculators"

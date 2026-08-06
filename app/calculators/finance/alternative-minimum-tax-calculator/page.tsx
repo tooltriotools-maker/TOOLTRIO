@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Alternative Minimum Tax (AMT) Calculator USA 2026 | ToolTrio',
@@ -20,7 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'Who is subject to AMT in 2026?',
-    answer: 'AMT primarily affects: (1) High earners with large deductions. (2) People who exercise ISO (incentive stock options) — the spread triggers AMT preference income. (3) Those with significant depreciation deductions. The 2026 AMT exemption is $88,100 (single) / $137,000 (married), phasing out above $616,300 / $1,232,600.',
+    answer: 'AMT primarily affects: (1) High earners with large deductions. (2) People who exercise ISO (incentive stock options) — the spread triggers AMT preference income. (3) Those with significant depreciation deductions. The 2026 AMT exemption is $90,100 for single filers and $140,200 for married filing jointly, with phaseout beginning at $500,000 and $1,000,000 respectively. This ToolTrio UI currently models single filing status.',
   },
   {
     question: 'How do ISO options trigger AMT?',

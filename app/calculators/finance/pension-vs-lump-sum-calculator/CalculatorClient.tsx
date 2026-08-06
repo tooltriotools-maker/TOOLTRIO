@@ -115,19 +115,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Pension vs Lump Sum Calculator USA 2026" category="finance"
-          intro="The pension vs lump sum decision is one of the most consequential financial choices in retirement planning. A $550,000 lump sum vs $3,200/month pension for life — which is worth more? The answer depends on life expectancy, investment return assumptions, COLA provisions, and survivor benefits. This calculator models the exact break-even and present value comparison."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This calculator compares a lifetime monthly pension with a lump-sum offer by discounting future pension payments back to present value and separately projecting how a lump sum could change if it earned the entered discount rate while funding the same pension withdrawals.'}
+          howItWorks={'For each year through the entered life expectancy, annual pension = monthly pension × 12 × COLA growth. Each annual payment is discounted by the entered discount rate to calculate pension present value. The model also compounds the lump sum at that rate and subtracts the annual pension. Break-even age is when cumulative nominal pension payments first exceed the original lump sum.'}
+          tipsSection={'The discount rate is a valuation assumption, not a guaranteed investment return. Survivor benefits, plan funding, PBGC coverage, taxes, annuity form, health and longevity uncertainty can change the decision materially.'}
+          conclusion={'Present value above or below the lump sum does not by itself determine which option is appropriate. Review the pension plan’s actual election forms and consider professional retirement/tax advice before an irrevocable choice.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

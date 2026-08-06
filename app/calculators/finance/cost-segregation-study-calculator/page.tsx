@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Cost Segregation Study Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the first-year tax savings from a cost segregation study — accelerating depreciation on 5/7/15-year components of commercial or residential rental property.',
+  title: 'Cost Segregation Study Calculator | ToolTrio',
+  description: 'Screen a hypothetical cost segregation allocation and compare modeled accelerated depreciation with standard building depreciation.',
   slug: 'cost-segregation-study-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['cost segregation calculator','accelerated depreciation rental property','bonus depreciation cost segregation','cost seg study tax savings'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'What is a cost segregation study?', answer: 'A cost segregation study is an engineering-based analysis that reclassifies portions of a building (like carpeting, certain electrical, landscaping, and specialty equipment) from the standard 27.5 or 39-year depreciation schedule into 5, 7, or 15-year categories, letting owners depreciate those components — and claim bonus depreciation on them — much faster.' },
-  { question: 'How much does a cost segregation study typically save?', answer: 'Savings depend heavily on property type and cost, but studies commonly reclassify 20-40% of a building\'s cost basis into shorter depreciation lives, which can generate substantial first-year deductions when combined with bonus depreciation, significantly reducing taxable income in year one.' },
-  { question: 'Is cost segregation worth it for a smaller rental property?', answer: 'Studies typically cost several thousand dollars, so they tend to make the most financial sense for properties above roughly $500,000-$1,000,000 in value, or for investors in high tax brackets who can use the accelerated deductions immediately. Always weigh the study cost against the projected tax benefit and consult a CPA.' },
+  { question: 'What percentages does this cost-segregation model reclassify?', answer: 'The code assumes 15% of building basis as 5-year property, 10% as 7-year property, and 8% as 15-year property. These are modeling assumptions, not IRS safe-harbor allocations.' },
+  { question: 'How is first-year tax savings estimated?', answer: 'It compares the modeled accelerated first-year amount with normal straight-line building depreciation and multiplies the difference by the entered marginal tax rate.' },
+  { question: 'Does the calculator perform an actual cost segregation study?', answer: 'No. A study identifies and documents specific building components and their tax classifications. This tool only screens a hypothetical allocation.' },
+  { question: 'Does the model exactly apply 2026 bonus-depreciation law?', answer: 'No. The current function effectively treats all modeled 5-, 7-, and 15-year buckets as immediately deductible. Actual treatment depends on current law, placed-in-service date and asset eligibility.' },
+  { question: 'Why does the calculator estimate a study cost?', answer: 'The code uses a simple property-size rule: $8,000 below $1 million, $15,000 below $5 million, and $25,000 above that. It is not a vendor quote.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Rental Property Depreciation', href: '/calculators/finance/rental-property-depreciation-calculator', icon: '🏘️', desc: 'Rental Property Depreciation' },

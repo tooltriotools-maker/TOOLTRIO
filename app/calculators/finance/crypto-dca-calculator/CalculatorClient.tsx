@@ -106,19 +106,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Crypto DCA vs Lump Sum Calculator USA 2026" category="finance"
-          intro="Dollar-cost averaging into cryptocurrency reduces the psychological burden of timing the market while smoothing your average entry price over volatile periods. For a $10,000 investment in Bitcoin spread over 12 monthly purchases, your average cost basis reflects the average price over that period — potentially significantly below a single lump sum purchase at any given market peak."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This crypto calculator compares investing the full amount at the starting price with spreading the same amount across equal monthly purchases along a simulated price path from the entered start price to end price.'}
+          howItWorks={'Monthly DCA purchase = total amount ÷ DCA months. Each simulated monthly price follows a linear start-to-end path plus a sine-wave volatility adjustment based on the entered volatility percentage. DCA shares accumulate at each simulated price; lump sum shares = total amount ÷ starting price. Both are valued at the entered ending price.'}
+          tipsSection={'This is a deterministic scenario generator, not historical Bitcoin or crypto market data. For example, changing volatility changes the intermediate purchase prices and therefore the DCA share count even when start and end prices stay the same.'}
+          conclusion={'Neither DCA nor lump sum is guaranteed to outperform. Crypto prices can move far outside the modeled path, and trading fees, spreads, taxes, custody risk and staking income are not included.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

@@ -63,7 +63,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💍 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The average US wedding costs $35,000 in 2026, but varies dramatically by region — Northeast weddings average $45,000-$75,000+ while Midwest weddings average $25,000-$38,000. Venue and catering alone typically consume 45-50% of the total budget. This calculator breaks down your specific budget across all major categories with regional price adjustments so you know exactly where your money goes.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This wedding budget planner estimates category spending from guest count, a regional multiplier and a venue-cost assumption. It is useful for seeing which categories push a target budget over the limit, not for estimating a national average wedding price.</p>
               </Card>
             </>
           ):(
@@ -72,11 +72,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Wedding Budget Calculator USA 2026 — True Cost by Region" category="finance" intro="The average US wedding costs $35,000 in 2026, but varies dramatically by region — Northeast weddings average $45,000-$75,000+ while Midwest weddings average $25,000-$38,000. Venue and catering alone typically consume 45-50% of the total budget. This calculator breaks down your specific budget across all major categories with regional price adjustments so you know exactly where your money goes."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+        <SEOContent title="Wedding Budget Calculator USA 2026 — True Cost by Region" category="finance" intro="This wedding budget planner estimates category spending from guest count, a regional multiplier and a venue-cost assumption. It is useful for seeing which categories push a target budget over the limit, not for estimating a national average wedding price."
+          howItWorks="The model starts with a venue base cost, multiplies venue/catering/photography/flowers/music by a regional factor, calculates catering as $85 per guest before that factor, adds fixed attire and ring assumptions, and reserves 10% of the entered budget for miscellaneous costs."
+          tipsSection="The current UI maps its numeric region control to Northeast, West, South or Midwest and always passes ballroom as the venue type. Vendor quotes, taxes, gratuities, rentals and local seasonality can differ substantially from these embedded planning assumptions."
+          conclusion="Use the category totals to create a first-pass spending plan, then replace assumptions with actual local vendor quotes. The model is a budgeting framework, not a market-price survey."
+          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

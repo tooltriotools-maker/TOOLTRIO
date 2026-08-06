@@ -63,7 +63,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🔄 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">A Roth IRA conversion triggers ordinary income tax now in exchange for tax-free growth forever. The optimal conversion fills your current tax bracket without spilling into the next higher rate. On $40,000 converted at 22% federal + 9.3% CA state, the tax bill is approximately $12,400 — paid today for $300,000+ in tax-free growth over 30 years.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator estimates the incremental federal and state tax from converting part of a traditional IRA to a Roth IRA. The current page is specifically wired to single filing status and California, so it should be read as a scenario model rather than a universal Roth-conversion tax return.</p>
               </Card>
             </>
           ):(
@@ -73,11 +73,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Roth IRA Conversion Tax Calculator USA 2026" category="finance"
-          intro="A Roth IRA conversion triggers ordinary income tax now in exchange for tax-free growth forever. The optimal conversion fills your current tax bracket without spilling into the next higher rate. On $40,000 converted at 22% federal + 9.3% CA state, the tax bill is approximately $12,400 — paid today for $300,000+ in tax-free growth over 30 years."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          intro="This calculator estimates the incremental federal and state tax from converting part of a traditional IRA to a Roth IRA. The current page is specifically wired to single filing status and California, so it should be read as a scenario model rather than a universal Roth-conversion tax return."
+          howItWorks="The tool computes simplified federal tax before and after adding the conversion to AGI and treats the difference as federal conversion tax. It then applies a simplified California state rate. Its long-term comparison assumes 7% annual growth for 30 years and a 24% future tax rate on modeled growth."
+          tipsSection="A real conversion can include both taxable and nontaxable basis, and Form 8606 pro-rata rules may matter. Also consider Medicare IRMAA, ACA credits and other income-sensitive items that this model does not calculate."
+          conclusion="Roth conversions can be taxable even when cash never leaves the retirement system. Use the estimate for scenario planning and verify the taxable amount and timing with current IRS rules."
+          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

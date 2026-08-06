@@ -55,7 +55,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">How the wash-sale calculation works</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The calculator compares the loss sale date with the replacement-purchase date. Under IRC §1091, a wash sale can occur when substantially identical stock or securities are acquired during the 61-day window that starts 30 days before the loss sale and ends 30 days after it.</p>
+            <p>When a wash sale applies, the loss is generally deferred rather than immediately deductible. For a taxable replacement purchase, the disallowed loss is generally added to the replacement shares’ basis and the holding period carries over. IRA/Roth IRA replacement purchases can have different consequences, so this tool should not be used as a tax-return substitute.</p>
+            <p>Example: if shares with a $5,000 basis are sold for $4,000 and substantially identical replacement shares are bought inside the wash-sale window, the $1,000 loss may be disallowed. If the replacement shares cost $4,100 in a taxable account, their adjusted basis would generally become $5,100.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Primary source: IRS Publication 550, Wash Sales.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

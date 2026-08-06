@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Crypto Tax Calculator USA 2026 — Bitcoin, Ethereum & Altcoins | ToolTrio',
@@ -29,7 +23,9 @@ const faqs = [
   {
     question: 'Do I need to report crypto on my taxes?',
     answer: "Yes — the IRS requires reporting of all crypto transactions on Form 1040 Schedule D and Form 8949. You must also answer 'Yes' to the crypto question on Form 1040. Failure to report is tax evasion. Exchanges report to the IRS on Form 1099-DA starting in 2025. Keep records of every transaction, including blockchain transactions without a 1099.",
-  }
+  },
+  { question: 'Does this replace Form 8949 or Schedule D?', answer: 'No. It estimates one sale with simplified rate bands and does not perform tax-lot reporting, loss netting, full income stacking or state tax.' },
+  { question: 'Can a crypto-to-crypto swap create tax?', answer: 'Yes, a digital-asset exchange can create gain or loss under IRS property rules. This UI only models a dollar sale amount.' },
 ]
 
 const relatedCalculators = [

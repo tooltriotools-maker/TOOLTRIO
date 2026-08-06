@@ -108,19 +108,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Salary Negotiation Calculator USA 2026 — Total Compensation" category="finance"
-          intro="Salary negotiation requires comparing total compensation — base, bonus, equity, 401k match, health benefits, and PTO — not just headline salary. A $95,000 offer with 50% equity vesting and 6% 401k match can be worth $30,000 more annually than a $100,000 offer with minimal benefits. This calculator gives you the full picture and a data-backed counter-offer."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This calculator compares an existing job with an offer using base salary, bonus percentage, annualized equity, 401(k) benefit, a fixed health-benefit value, PTO and a cost-of-living adjustment. It is a compensation-modeling tool, not a market-salary database.'}
+          howItWorks={'Current compensation = current salary plus the entered bonus percentage, entered current benefit value, a fixed $18,000 health-benefit value, and PTO valued at salary ÷ 260 per day. Offer compensation adds bonus, one-fourth of entered equity value, 401(k) benefit as a percentage of offer salary, the same fixed health value and PTO. The offer is then reduced by the entered cost-of-living difference.'}
+          tipsSection={'The client currently passes $18,000 as health-benefit value and treats equity value as vesting evenly over four years. The counter-offer output is a ToolTrio heuristic based on current salary and modeled percentage improvement; it is not employer or labor-market data.'}
+          conclusion={'Compare vesting conditions, bonus targets, healthcare premiums, retirement-match rules, commute/location costs and job risk separately. Equity can lose value and should not be treated as guaranteed cash compensation.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

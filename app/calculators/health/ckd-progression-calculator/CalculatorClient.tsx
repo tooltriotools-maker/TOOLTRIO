@@ -6,6 +6,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { InputField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const auditFaqs = [
+  {"question": "What should I check before using the Ckd Progression Calculator?", "answer": "Check Current eGFR, Annual eGFR Change (negative = declining), Urine Protein, Systolic BP, Risk Category, Risk Score and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Ckd Progression Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Ckd Progression Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [eGFR, setEGFR] = useState(42)
   const [eGFRChange, setEGFRChange] = useState(-3)
@@ -53,7 +59,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">CKD progression: important limitations</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Kidney-disease progression cannot be predicted reliably from a single eGFR value. Modern CKD risk assessment considers eGFR trend, urine albumin-to-creatinine ratio (ACR), age, diabetes, blood pressure, medications, acute kidney injury, and other clinical factors.</p>
+            <p>Any 'years to dialysis' result on this page is therefore a scenario estimate, not a clinical forecast. eGFR decline is often non-linear and can stabilize, accelerate, or temporarily worsen.</p>
+            <p>Use serial laboratory results and clinician assessment for CKD staging and prognosis. Medication changes—especially ACE inhibitors, ARBs, SGLT2 inhibitors, diuretics, or NSAIDs—should not be made from this calculator.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Clinical reference: KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of CKD.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

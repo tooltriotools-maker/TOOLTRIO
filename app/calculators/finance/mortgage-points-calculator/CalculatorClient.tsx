@@ -91,18 +91,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Mortgage Points Calculator USA 2026 — Buy Down Rate" category="finance"
-          intro="Mortgage discount points let you pay upfront to permanently lower your interest rate. At 2026 rates near 7%, buying down to 6.75% with 2 points costs 2% of the loan but saves $150-200/month. The break-even is typically 2-4 years — worth it if you stay long enough, a bad deal if you refinance or move before then."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Mortgage discount points trade an upfront payment for a lower interest rate. This calculator focuses on the key economic question: how many months of principal-and-interest savings are needed to recover the points cost?"
+          howItWorks="Points cost = loan amount × points count ÷ 100. The original and reduced-rate payments use the standard fixed-rate mortgage amortization formula. Monthly savings is their difference, and break-even months = points cost ÷ monthly savings. Lifetime savings assumes the loan is kept for its full entered term."
+          tipsSection="Enter the actual rate reduction quoted for the exact number of points—there is no universal rate reduction per point. Compare alternatives with the same lock date and loan terms, and consider how likely you are to sell or refinance before break even."
+          conclusion="Points are economically favorable in this model only when you keep the reduced-rate loan long enough for cumulative payment savings to exceed the upfront cost. Taxes and other closing-cost differences are outside the calculation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},
+            {title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

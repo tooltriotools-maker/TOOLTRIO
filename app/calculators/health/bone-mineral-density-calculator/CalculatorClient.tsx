@@ -8,6 +8,12 @@ import { FAQSection } from '@/components/ui/FAQSection'
 
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
+const auditFaqs = [
+  {"question": "What should I check before using the Bone Mineral Density Calculator?", "answer": "Check Age, T-Score, Diagnosis, 10-yr Fracture Risk, Treatment Needed and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Bone Mineral Density Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Bone Mineral Density Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [tScore, setTScore] = useState(-1.2)
   const [zScore, setZScore] = useState(-0.5)
@@ -91,12 +97,25 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
           <div className={`rounded-xl p-4 text-sm border ${result.treatmentThreshold ? 'bg-orange-50 border-orange-200 text-orange-800' : 'bg-green-50 border-green-200 text-green-800'}`}>
             <p className="font-bold mb-1">{result.treatmentThreshold ? '⚕️ Pharmacological treatment threshold reached' : '✅ Lifestyle measures are first-line treatment'}</p>
-            <p className="text-xs">{result.treatmentThreshold ? 'Discuss bisphosphonate therapy with your physician — reduces fracture risk 30-50%.' : 'Continue weight-bearing exercise, calcium, and vitamin D. Recheck DEXA in 2 years.'}</p>
+            <p className="text-xs">{result.treatmentThreshold ? 'Discuss the result with a clinician. Medication decisions depend on fracture history, BMD, age, clinical risk factors, contraindications, and current guidelines.' : 'Lifestyle measures may be appropriate, but calcium/vitamin D needs and the timing of repeat DEXA testing should be individualized.'}</p>
             {result.fallPrevention && <p className="text-xs mt-2 font-semibold text-red-700">⚠️ Fall prevention program recommended — hip fractures at this T-score are life-changing events.</p>}
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">How to interpret T-scores and Z-scores</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>For postmenopausal women and men age 50 or older, NIAMS describes a T-score of −1 or higher as normal, between −1 and −2.5 as low bone mass (osteopenia), and −2.5 or lower as compatible with osteoporosis. In younger adults, Z-scores are generally more relevant to age-matched interpretation.</p>
+            <p>The calculator’s displayed '10-year fracture risk' is a ToolTrio estimate unless it is produced from a validated fracture-risk model. It must not be presented as an official FRAX probability.</p>
+            <p>Treatment decisions depend on fracture history, age, measured BMD, clinical risk factors, medication risks, and professional guidelines—not the T-score alone.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Primary reference: NIH National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS), Bone Mineral Density Tests.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

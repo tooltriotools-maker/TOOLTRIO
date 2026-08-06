@@ -5,6 +5,12 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Fha Vs Conventional Calculator?", "answer": "Check the values shown in the calculator and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Fha Vs Conventional Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Fha Vs Conventional Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [purchasePrice, setPurchasePrice] = useState(350000)
   const [downPaymentPct, setDownPaymentPct] = useState(5)
@@ -73,7 +79,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {downPaymentPct < 20 && <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800"><p className="font-bold">💡 Tip: 20% Down Avoids PMI</p><p className="mt-1">A 20% down payment ({fmt(purchasePrice * 0.20)}) eliminates conventional PMI entirely. FHA MIP lasts the life of the loan if you put less than 10% down.</p></div>}
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">How the FHA vs Conventional Model Works</h2><p className="text-sm text-gray-600">The calculator starts with purchase price and down-payment percentage to get the base loan amount. It then applies its built-in illustrative FHA and conventional interest-rate adjustments by credit-score band, adds modeled FHA mortgage insurance or conventional PMI, and amortizes principal and interest over the selected term.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Insurance and Rate Assumptions</h2><p className="text-sm text-gray-600">The 6.5% FHA base rate, 6.3% conventional base rate, 0.85% annual FHA MIP and 0.8% conventional PMI used by this calculator are ToolTrio assumptions—not live lender quotes. Actual FHA MIP depends on loan characteristics, and conventional PMI depends on lender/insurer underwriting.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">For a $350,000 home with 5% down, the base loan is $332,500 before any financed FHA upfront MIP. The calculator then applies its modeled rates and insurance charges to compare monthly and full-term totals. Taxes, homeowners insurance, HOA fees and closing costs are outside this comparison.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">2026 Limits and Limitations</h2><p className="text-sm text-gray-600">FHA loan limits vary by county. For 2026 the one-unit FHA floor is $541,287 and the high-cost ceiling is $1,249,125. This calculator does not check the property's county limit or determine FHA/conventional eligibility, debt-to-income qualification, appraisal rules or actual pricing.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.hud.gov/hud-partners/single-family-lender" target="_blank" rel="noreferrer">HUD/FHA: 2026 mortgage limits</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

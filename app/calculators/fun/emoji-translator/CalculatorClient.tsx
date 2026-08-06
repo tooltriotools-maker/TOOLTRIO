@@ -204,7 +204,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <section><h2 className="text-xl font-black text-gray-900 mb-4">FAQ</h2>
           <div className="space-y-3">{faqs.map(f => <details key={f.question} className="rounded-2xl border p-4"><summary className="font-semibold cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3">{f.answer}</p></details>)}</div>
         </section>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Using the emoji translator result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Interpret the output together with the values entered in the calculator. The result is based on the calculator&apos;s implemented calculation and the values supplied.</p>
+            <p>For a useful comparison, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to distinguish.</p>
+          </div>
+        </Card>
       </div>
+</div>
     </DevToolLayout>
   )
 }

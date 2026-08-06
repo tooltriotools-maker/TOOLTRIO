@@ -5,6 +5,12 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Cobra Vs Marketplace Calculator?", "answer": "Check COBRA Monthly, Marketplace Net, Annual Subsidy, Annual Savings and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Cobra Vs Marketplace Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Cobra Vs Marketplace Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [cobraPremium, setCobraPremium] = useState(700)
   const [marketplacePremium, setMarketplacePremium] = useState(550)
@@ -73,7 +79,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">How This COBRA vs Marketplace Comparison Works</h2><p className="text-sm text-gray-600">The calculator compares the annual COBRA premium you enter with the Marketplace premium you enter. If subsidy modeling is enabled, it uses household income and household size to estimate a premium-tax-credit effect, then compares modeled annual premium costs.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">2026 Premium Tax Credit Context</h2><p className="text-sm text-gray-600">For 2026, federal Premium Tax Credit eligibility generally returns to the statutory household-income range of at least 100% and no more than 400% of the federal poverty line, subject to the other eligibility rules. This calculator's piecewise premium percentages are simplified and should not be treated as a Form 8962 calculation.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">With a $700 monthly COBRA premium and a $550 Marketplace benchmark entered, the gross annual premiums are $8,400 and $6,600 before any modeled credit. The meaningful comparison should also include deductibles, out-of-pocket maximums, provider networks, prescriptions and the exact Marketplace plan—not premiums alone.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Important Limitations</h2><p className="text-sm text-gray-600">The subsidy toggle does not establish eligibility. Employer coverage offers, immigration/tax status, benchmark-plan pricing, location and household composition matter. COBRA duration can also differ by qualifying event. Verify actual Marketplace eligibility and plan prices before making a coverage decision.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit" target="_blank" rel="noreferrer">IRS: Premium Tax Credit Q&amp;A</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

@@ -80,19 +80,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Bond Ladder Calculator USA 2026 — CD and Treasury Ladder" category="finance"
-          intro="A bond ladder spreads fixed-income investments across multiple maturity dates, ensuring liquidity at regular intervals while capturing yield across the curve. With 2026 Treasury yields at 4-5%, a $100,000 ladder generates $4,000-$5,000/year in interest — far better than traditional savings accounts. This calculator shows your annual liquidity events, total interest, and reinvestment value."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro="Build an equal-dollar bond or CD ladder with staggered maturities. The calculator shows how much is placed in each rung, assigns a modeled yield to each maturity, estimates simple interest to maturity, and illustrates annual liquidity as rungs mature."
+          howItWorks="Amount per rung = Total Amount ÷ Number of Rungs. The yield for rung i is Start Yield + Yield Step × i. The model estimates Interest = Rung Amount × Yield × Years to Maturity. If reinvestment is enabled in the underlying calculation, it compounds the total amount at the ladder’s average modeled yield for the number of rungs."
+          tipsSection="Use yields that match securities you can actually buy at each maturity. Treasury, CD and corporate-bond ladders have different credit, call, liquidity, insurance and tax characteristics. Reinvestment rates at future maturities are unknown."
+          conclusion="A ladder can spread maturity dates and reinvestment timing, but it does not eliminate interest-rate or credit risk. The calculator’s upward yield step is an input assumption, not a forecast of the yield curve."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

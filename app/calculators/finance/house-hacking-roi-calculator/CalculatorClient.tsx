@@ -100,10 +100,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="House Hacking ROI Calculator USA 2026" category="finance" intro="House hacking lets you live nearly free by having tenants pay most or all of your mortgage. On a $425,000 duplex with one $1,400/month rental unit, your effective housing cost drops from $2,350 to $950/month — saving $17,400/year. Combined with equity buildup and appreciation, 5-year ROI on a 5% down payment can exceed 50%."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
+          howItWorks="The calculator finances the purchase over 360 months, subtracts rent from non-owner-occupied units, and adds a modeled 1.5% of home value per year for tax, insurance, and maintenance. Five-year return then combines housing-cost savings, an approximate 5% loan-balance equity buildup, and 3.5% annual appreciation. These are scenario assumptions—not a property forecast—and the model does not include vacancy, utilities, closing costs, repairs beyond the allowance, income taxes, selling costs, or mortgage-insurance details."
           tipsSection="Try multiple scenarios by changing one input at a time."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Effective housing cost",text:"Mortgage principal-and-interest minus modeled tenant rent plus the calculator's property-cost allowance."},{title:"Five-year scenario",text:"Combine modeled savings, approximate principal buildup, and assumed appreciation."},{title:"Financing flag",text:"The FHA eligibility indicator is a simplified screen based only on down payment and unit count; actual FHA eligibility has additional requirements."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

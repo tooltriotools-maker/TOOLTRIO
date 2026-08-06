@@ -67,9 +67,21 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Barista FIRE Calculator USA 2026 — Semi-Retirement" category="finance" intro="Calculate how part-time work reduces your FIRE number and accelerates your retirement timeline — the Barista FIRE strategy." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Barista FIRE Calculator" category="finance"
+          intro="Estimates how continuing part-time income can reduce the portfolio target needed to cover annual spending under a 4% withdrawal-rate assumption."
+          howItWorks="Net expenses = annual expenses − part-time income. Barista FIRE number = net expenses ÷ 4%; full FIRE number = total expenses ÷ 4%. The timeline calculation then uses the entered investment return and current portfolio."
+          tipsSection="Worked example — Example: $65,000 of annual spending with $24,000 of part-time income leaves $41,000 for the portfolio to cover, producing a modeled Barista FIRE target of $1,025,000 versus $1,625,000 for full FIRE."
+          conclusion="Important assumptions and limitations — The 4% rule is a planning convention, not a guarantee. Part-time income may change, investment returns are volatile, and the timeline formula does not model taxes, savings contributions, sequence risk or year-by-year inflation despite an internal 3% parameter."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

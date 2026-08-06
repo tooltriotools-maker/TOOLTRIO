@@ -7,7 +7,7 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
-  const [annualContrib, setAnnualContrib] = useState(4300)
+  const [annualContrib, setAnnualContrib] = useState(4400)
   const [years, setYears] = useState(20)
   const [investmentReturn, setInvestmentReturn] = useState(7)
   const [taxRate, setTaxRate] = useState(24)
@@ -20,7 +20,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">HSA Details</h2>
           {[
-            { label: `Annual Contribution (2026 limit: ${familyCoverage ? '$8,550' : '$4,300'})`, value: annualContrib, set: setAnnualContrib, step: 100, prefix: '$' },
+            { label: `Annual Contribution (2026 limit: ${familyCoverage ? '$8750' : '$4400'})`, value: annualContrib, set: setAnnualContrib, step: 100, prefix: '$' },
             { label: 'Years of Contributions', value: years, set: setYears, step: 1, suffix: 'yrs' },
             { label: 'Expected Investment Return', value: investmentReturn, set: setInvestmentReturn, step: 0.5, suffix: '%' },
             { label: 'Your Tax Bracket', value: taxRate, set: setTaxRate, step: 1, suffix: '%' },
@@ -71,7 +71,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to use and interpret this hsa triple tax growth calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses Final Balance, Tax-Free Growth, Annual Tax Saved, Triple Tax Value to produce the results displayed above. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
+            <p>The result is an estimate produced from the calculator&apos;s implemented formula and the values you enter. Review the units, time period, and assumptions before using the output for a decision; a calculated result does not add information that is not represented by the inputs.</p>
+            <p>Use the worked output as a planning or comparison aid. Real-world results can differ when taxes, fees, eligibility rules, measurement error, market conditions, or other factors not represented by this calculator apply.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section describes the calculator implementation on this page and does not change its underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

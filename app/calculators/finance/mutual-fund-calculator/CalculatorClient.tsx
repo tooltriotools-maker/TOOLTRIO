@@ -130,7 +130,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           Use this Mutual Fund USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
-          Adjust inputs to see instant results — compare scenarios to find the strategy that best fits your financial goals and timeline.
+          Adjust inputs to see Mutual Fund Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
         </p>
       </Card>
       <SEOContent

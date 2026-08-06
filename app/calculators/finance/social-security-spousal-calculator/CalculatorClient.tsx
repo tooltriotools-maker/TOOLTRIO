@@ -81,19 +81,19 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Social Security Spousal Benefits Calculator USA 2026" category="finance"
-          intro="For married couples, Social Security claiming strategy can be worth $100,000+ in additional lifetime benefits compared to suboptimal choices. The spousal benefit (up to 50% of the higher earner's PIA), survivor benefit rules, and the 8%/year delayed retirement credit all interact to create a complex optimization problem. This calculator shows the optimal approach for your specific situation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent title="Social Security Spousal Benefits Calculator" category="finance"
+          intro="Compares two FRA benefit amounts and claim ages, then estimates adjusted worker benefits, a simplified spousal top-up, combined monthly income and a survivor amount."
+          howItWorks="The code assumes FRA 67. Worker benefits are reduced for claiming before FRA and increased after FRA. It then compares Worker 2’s adjusted own benefit with 50% of Worker 1’s adjusted benefit. This is a simplification: SSA bases the maximum spouse benefit on the worker’s PIA, and spouse-specific early-claim reductions differ from worker reductions."
+          tipsSection="Worked example — Example: if Worker 1 has a $2,500 FRA benefit and Worker 2 has $900, the calculator tests whether its modeled spouse amount exceeds Worker 2’s adjusted own benefit and displays the difference as a spousal boost."
+          conclusion="Important assumptions and limitations — This is a planning model, not an SSA benefit determination. It hard-codes FRA 67, fixed ages 60 and 58 internally, a 30-year lifetime horizon, and simplifies deemed filing, family maximums, survivor rules and spouse-specific reductions."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

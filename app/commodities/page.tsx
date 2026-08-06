@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 
-const Client = dynamic(() => import('./ClientPage'), { ssr: false })
+const Client = dynamic(() => import('./ClientPage'), { })
 
 export const metadata: Metadata = {
   title: 'Commodity Price Calculators – Gold, Silver & Oil | ToolTrio',

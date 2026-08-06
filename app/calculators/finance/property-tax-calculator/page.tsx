@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Property Tax Calculator USA 2026 — All 50 States | ToolTrio',
-  description: 'Estimate annual property tax, monthly escrow, effective rate, and appeal savings potential for any US state. Based on 2026 state average mill rates.',
+  title: 'Property Tax Estimator — Texas Scenario | ToolTrio',
+  description: 'Estimate annual property tax and monthly escrow for the calculator’s Texas scenario using home value, modeled assessed value, and an entered exemption.',
   slug: 'property-tax-calculator',
   category: 'finance',
   region: 'usa',
@@ -25,7 +21,9 @@ const faqs = [
   {
     question: 'When and how can I appeal my property tax?',
     answer: "If your assessed value exceeds your home's fair market value, appeal within your county's appeal window (typically 30-90 days after assessment notice). Steps: (1) Get comparable sales data from Zillow/Redfin for similar nearby homes, (2) Submit formal appeal with your county assessor or review board, (3) Present evidence of lower market value. Success rate is typically 30-60% of appeals; average savings $1,500-$4,000.",
-  }
+  },
+  { question: 'Does this calculate an official Travis County tax bill?', answer: 'No. The current calculator hard-codes a Texas scenario and uses an 85% assessment ratio plus a stored effective-rate assumption. Official bills depend on local appraised value, exemptions and taxing-unit rates.' },
+  { question: 'What does the appeal savings result mean?', answer: 'It is a scenario equal to 15% of the estimated tax. It does not predict an appeal outcome or prove that an assessment is excessive.' },
 ]
 const relatedCalculators = [
   { name: 'Closing Cost Calculator', href: '/calculators/finance/closing-cost-calculator', icon: '💵', desc: 'Closing Cost Calculator' },

@@ -109,12 +109,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Mortgage vs Rent Calculator USA 2026 — True Cost Comparison" category="finance"
-          intro="The rent vs buy decision is one of the most consequential financial choices Americans make. In 2026 with mortgage rates near 7%, the monthly cost of ownership typically exceeds equivalent rent — making the appreciation, equity buildup, and rent inflation assumptions critical to the long-term comparison. This calculator models the full picture over your specific time horizon."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+          intro="This buy-versus-rent model compares cumulative rent with a simplified net cost of owning. Ownership includes a 30-year mortgage plus modeled property tax, insurance and maintenance, then subtracts estimated ending home equity."
+          howItWorks="The function assumes property tax of 1.1% of home value yearly, insurance of 0.5%, maintenance of 1%, and a rough mortgage-interest tax benefit. Rent grows at the entered inflation rate and home value compounds at the entered appreciation rate."
+          tipsSection="Closing/selling costs, PMI, HOA dues, tax-law limits, major repairs, opportunity cost of the down payment and renter investment returns are not fully modeled."
+          conclusion="Use the result as a scenario comparison, not a prediction that buying or renting will be cheaper in your market."
+          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

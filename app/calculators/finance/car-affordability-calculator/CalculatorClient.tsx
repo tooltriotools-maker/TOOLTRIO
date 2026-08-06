@@ -100,11 +100,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Car Affordability Calculator USA 2026 — How Much Car Can I Afford?" category="finance"
-          intro="Car affordability goes beyond the monthly payment — total cost of ownership includes insurance, fuel, maintenance, and depreciation. The 15% gross income rule for vehicle expenses (payment + insurance combined) is a reliable guardrail. At $6,500/month income, that's $975/month maximum. This calculator shows your exact affordable price range."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          intro="This page converts a vehicle-budget guardrail into a maximum financed amount. The model reserves 15% of gross monthly income for the car payment plus a fixed $150 monthly insurance allowance, then uses your APR and term to solve for the loan principal."
+          howItWorks="Maximum payment = 15% of gross monthly income − $150 insurance. That payment is converted to a loan present value using the entered monthly interest rate and number of payments. Down payment and trade-in are then added to produce the maximum modeled car price."
+          tipsSection="Treat 15% as a ToolTrio budgeting assumption, not a lender rule. The monthly-debt input is currently not used by the underlying function, and actual insurance, fuel, maintenance, taxes and depreciation can materially reduce what is comfortable."
+          conclusion="Use the output as a conservative scenario to test price, APR and term combinations. A lender may approve more than this model, but approval and affordability are different questions."
+          benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Equity Indexed Annuity Calculator USA 2026 — EIA Returns | ToolTrio',
   description: 'Calculate how an equity-indexed annuity performs with participation rate, cap rate, and floor protection vs a CD, stock market, or straightforward fixed annuity.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['equity indexed annuity calculator USA 2026', 'EIA calculator', 'fixed indexed annuity calculator', 'participation rate cap rate annuity', 'indexed annuity vs CD vs stocks calculator'],
 })
 const faqs = [
-  {
-    question: 'How does an equity-indexed annuity work?',
-    answer: "An EIA credits interest based on a stock index (usually S&P 500) performance, subject to: participation rate (you get X% of index gains), cap rate (maximum annual credit), and floor (minimum annual credit, usually 0%). Example: index up 15%, participation 80%, cap 9% → credited rate = min(9%, 15%×80%) = min(9%, 12%) = 9%. Index down 10%, floor 0% → credited 0%. You don't lose principal in down years but give up much of the upside.",
-  },
-  {
-    question: 'EIA vs CD — which is better?',
-    answer: "EIA advantages: higher potential return in bull markets, principal protection. EIA disadvantages: complex surrender charges (7-10 years), less transparent returns, insurance company credit risk, lower participation in big up years due to cap. In the 2010s strong bull market, a capped EIA at 9%/year significantly underperformed the S&P 500's 13-14% CAGR. In flat or volatile markets, the floor protection adds value. Generally best for conservative investors who can't stomach any principal loss.",
-  },
-  {
-    question: 'What are EIA surrender charges?',
-    answer: "Most EIAs have 7-10 year surrender periods with charges for early withdrawal — typically starting at 10% and declining by 1% per year. Year 1: 10% penalty, Year 7: 3% penalty, Year 10: 0%. Withdrawing your full $150,000 in Year 3 might cost $10,500. Most contracts allow 10% annual free withdrawals. EIAs are appropriate only if you genuinely won't need the money during the surrender period.",
-  }
+ {question:'How is the credited rate calculated?',answer:'The model multiplies the assumed index return by the participation rate, then applies the contract cap and floor: credited rate = min(cap, max(floor, index return × participation rate)). The same assumed index return is repeated each modeled year.'},
+ {question:'Does a 0% floor mean the contract cannot lose value?',answer:'Not necessarily. This calculator applies the floor only to index crediting. Real contracts can include surrender charges, rider charges, withdrawal limits, insurer credit risk and contract-specific adjustments that are not modeled here.'},
+ {question:'Does the calculator include dividends from the index?',answer:'No. It uses the index-return input only. Many indexed annuity crediting methods reference a price index rather than giving the owner the dividends paid by index constituents.'},
+ {question:'What are the CD and stock comparison values?',answer:'They are fixed ToolTrio scenarios compounded at 5% and 10% annually. They are not current quoted CD rates or forecasts of stock-market returns.'},
+ {question:'Why can the annuity trail the index in a strong year?',answer:'Participation rates and caps can reduce the credited return. For example, a 12% index return with 80% participation produces 9.6% before a 9% cap, so the model credits 9%.'}
 ]
 const relatedCalculators = [
   { name: 'Annuity Income Calculator', href: '/calculators/finance/annuity-income-calculator', icon: '📅', desc: 'Annuity Income Calculator' },

@@ -23,7 +23,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[initialAmount, annualContrib, grossReturn, expenseRatio1, expenseRatio2, years])
 
   return (
-    <CalculatorLayout title="Index Fund Expense Ratio Fee Calculator USA 2026" description="Calculate the long-term wealth impact of index fund expense ratios. See how a 0.03% vs 1% fee difference compounds to $100,000+ over 30 years." icon="📉" category="Finance" relatedCalculators={relatedCalculators} slug="index-fund-fee-calculator">
+    <CalculatorLayout title="Index Fund Expense Ratio Fee Calculator" description="Compare two fund expense ratios while holding gross return and annual contributions constant, so you can isolate the long-term effect of recurring fund costs." icon="📉" category="Finance" relatedCalculators={relatedCalculators} slug="index-fund-fee-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -82,7 +82,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <ResultCard label="Low-Fee Balance" value={result ? `${Number(result.lowFeeBalance).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="High-Fee Balance" value={result ? `${Number(result.highFeeBalance).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="30-Year Fee Drag" value={result ? `${Number(result.feeDifference).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Projected Fee Drag" value={result ? `${Number(result.feeDifference).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Fee Drag %" value={result ? `${Number(result.feeDragPercent).toFixed(1)}%` : "—"} />
                 <ResultCard label="Annual Fee (low)" value={result ? `${Number(result.annualFeeCost1).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Rating" value={result ? String(result.recommendation) : "—"} />
@@ -105,8 +105,8 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 </Card>
               )}
               <Card>
-                <h2 className="text-lg font-black text-gray-900 mb-3">📉 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Investment fees are the only factor that reliably predicts future returns — and lower fees consistently outperform. The difference between a 0.03% Vanguard index fund and a 1% actively managed fund compounds to $100,000-$300,000+ over a 30-year career on a typical portfolio. This calculator makes the fee impact concrete and undeniable.</p>
+                <h2 className="text-lg font-black text-gray-900 mb-3">📉 What This Expense-Ratio Comparison Shows</h2>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator isolates one variable: recurring fund expense ratios. Both projections receive the same starting balance, annual contribution and assumed gross return. The only difference is the fee percentage deducted from that assumed return, so the gap shows modeled fee drag rather than a forecast that one real fund will outperform another.</p>
               </Card>
             </>
           ):(
@@ -115,19 +115,19 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Index Fund Expense Ratio Fee Calculator USA 2026" category="finance"
-          intro="Investment fees are the only factor that reliably predicts future returns — and lower fees consistently outperform. The difference between a 0.03% Vanguard index fund and a 1% actively managed fund compounds to $100,000-$300,000+ over a 30-year career on a typical portfolio. This calculator makes the fee impact concrete and undeniable."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent title="Index Fund Expense Ratio Fee Calculator" category="finance"
+          intro="Compare two mutual fund or ETF expense ratios under identical return and contribution assumptions. This is useful when two investments provide similar exposure and you want to understand how a recurring operating-cost difference can compound over a long holding period."
+          howItWorks="For the low-fee projection, Net Return = Gross Return − Low Expense Ratio. For the comparison projection, Net Return = Gross Return − High Expense Ratio. Each year the calculator grows the previous balance by its net return and then adds the annual contribution. The difference between the ending balances is labeled projected fee drag. The model assumes the expense ratio reduces return evenly once per year; real fund expenses accrue through fund operations and real returns vary."
+          tipsSection="Worked example using the defaults: $50,000 initially, $6,000 contributed at the end of each modeled year, 8% gross return, 0.03% versus 1.00% expense ratios, and 30 years. The model ends near $1,174,927 for the 0.03% scenario and $947,377 for the 1.00% scenario — a projected gap of about $227,550, or 19.4% of the low-fee ending balance. That example isolates fees; it does not claim the two real-world funds would earn the same gross return."
+          conclusion="The SEC notes that fund fees and expenses reduce investment returns and that even small cost differences can create substantial differences over time. But expense ratio is not the only investment consideration. This calculator excludes loads, commissions, bid-ask spreads, advisory fees, taxes, tracking error and differences in holdings or risk. Read the fund prospectus and shareholder reports before comparing actual products."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Isolate Expense-Ratio Drag",text:"Hold gross return constant so the comparison focuses on the cost difference rather than different market forecasts."},
+            {title:"See Compounding",text:"Follow the balance gap year by year as lower retained returns compound over the selected horizon."},
+            {title:"Test Contributions",text:"See how recurring contributions increase the dollars exposed to each fund's ongoing expense ratio."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Similar-Fund Comparison",text:"Compare cost drag when two funds pursue similar exposure but charge different annual operating expenses."},
+            {title:"Retirement Plan Review",text:"Estimate how a higher-cost fund option could affect a long holding period before reviewing the plan's full fee disclosures."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

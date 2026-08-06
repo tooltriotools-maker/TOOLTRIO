@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Federal Contractor Tax Calculator USA 2026 | ToolTrio',
-  description: 'Calculate net take-home pay for federal contractors as W-2, 1099, or Corp-to-Corp — including self-employment tax, QBI deduction, and quarterly estimates.',
+  description: 'Estimate take-home pay for a Virginia 1099 federal contractor after business expenses, self-employment tax, retirement contributions and simplified income tax.',
   slug: 'federal-contractor-tax-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['federal contractor tax calculator','1099 vs W-2 vs corp-to-corp','government contractor take-home pay','self-employment tax federal contractor'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'What\'s the difference between 1099, W-2, and Corp-to-Corp contracting?', answer: 'As a W-2 contractor, your agency withholds taxes and pays the employer half of FICA. As a 1099 independent contractor, you receive gross pay but owe the full 15.3% self-employment tax yourself. Corp-to-Corp means you contract through your own S-corp or LLC, which can reduce self-employment tax on distributions but adds payroll and corporate compliance overhead.' },
-  { question: 'Can federal contractors take the QBI deduction?', answer: 'Many 1099 and Corp-to-Corp contractors can claim the Section 199A Qualified Business Income deduction (up to 20% of qualified business income), though it phases out for certain \'specified service\' businesses above income thresholds — check current-year IRS limits or consult a CPA.' },
-  { question: 'How often do 1099 contractors need to pay estimated taxes?', answer: 'The IRS generally requires quarterly estimated tax payments (April, June, September, and January) if you expect to owe $1,000 or more for the year, to avoid an underpayment penalty — since no employer is withholding tax on your behalf.' },
+  { question: 'What contractor setup does this page currently calculate?', answer: 'The current UI is configured for a 1099 independent contractor in Virginia. The underlying function can accept other contract types and states, but this page does not currently expose those selectors.' },
+  { question: 'How is 2026 self-employment tax estimated?', answer: 'The model multiplies net self-employment income by 92.35%, applies the 12.4% Social Security component up to the 2026 $184,500 wage base, and applies the 2.9% Medicare component without that wage cap. It does not currently model Additional Medicare Tax.' },
+  { question: 'Does the federal tax result use the full 2026 tax brackets?', answer: 'No. After modeled deductions, the calculator applies a simplified flat 22% federal income-tax rate. Actual federal income tax uses progressive brackets and depends on filing status, other income, deductions and credits.' },
+  { question: 'How does the retirement contribution affect the estimate?', answer: 'The entered retirement contribution reduces the calculator’s modeled federal taxable income. Actual deductibility and contribution limits depend on the retirement plan, compensation and tax situation.' },
+  { question: 'Is the quarterly estimate the amount I must pay each IRS due date?', answer: 'Not necessarily. The page divides its annual modeled tax by four for budgeting. IRS estimated-tax requirements depend on expected tax, withholding, credits and safe-harbor rules; many taxpayers use Form 1040-ES or Publication 505 to calculate required installments.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Self-Employment Tax', href: '/calculators/finance/self-employment-tax-calculator', icon: '🧾', desc: 'Self-Employment Tax' },

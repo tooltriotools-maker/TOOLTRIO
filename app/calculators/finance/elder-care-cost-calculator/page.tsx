@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Elder Care Cost Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the monthly and annual cost of in-home elder care or assisted living facility care based on hours needed and local rates.',
+  title: 'Elder Care Cost Calculator | Home Care vs Facility | ToolTrio',
+  description: 'Compare modeled in-home elder care and facility costs using care hours, hourly rates and a facility quote, with annual and five-year budgeting totals.',
   slug: 'elder-care-cost-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['elder care cost calculator','cost of in-home caregiver','assisted living cost calculator 2026','long-term care cost estimate'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'How much does in-home elder care typically cost?', answer: 'Hourly rates for non-medical in-home care commonly range from roughly $25-$40/hour depending on region, with costs adding up quickly for round-the-clock or extensive weekly care — a modest 20 hours/week at $30/hour already totals over $31,000 per year.' },
-  { question: 'Does Medicare pay for long-term elder care?', answer: 'Generally no — Medicare covers short-term skilled nursing or rehab care after a hospital stay, but not ongoing custodial care (help with bathing, dressing, meals) that most long-term elder care involves. Medicaid can cover long-term care but typically requires the recipient to spend down most assets first.' },
-  { question: 'Should I choose in-home care or a facility?', answer: 'It depends on the level of care needed and cost comparison in your area — in-home care preserves independence and is often cheaper for lower care-hour needs, while assisted living or memory care facilities can become more cost-effective (and appropriate) once around-the-clock supervision or medical care is required.' },
+  { question: 'What does the home-care estimate include?', answer: 'It multiplies monthly paid-care hours by the entered hourly rate and, on this page, applies the calculation function’s California multiplier. It does not separately add supplies, transportation, home modifications, overtime, or unpaid family care.' },
+  { question: 'Why can the facility result appear even when I enter $0?', answer: 'The calculation uses a built-in assisted-living monthly estimate when the facility field is zero, then applies the same California factor. Enter a real facility quote when comparing actual options.' },
+  { question: 'Does Medicare generally pay for ongoing custodial long-term care?', answer: 'This calculator should not be used to assume Medicare coverage for ongoing custodial care. Coverage depends on the service and circumstances; verify benefits directly with Medicare and the care provider.' },
+  { question: 'Can Medicaid help with long-term services and supports?', answer: 'Medicaid is a major payer of long-term services and supports, including institutional and home/community services, but eligibility and covered programs vary by state.' },
+  { question: 'What does the five-year estimate assume?', answer: 'The code multiplies the annual amount by five and then by 1.04. It is a simple planning uplift, not five separate years of compounded care-cost inflation.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Estate Liquidity', href: '/calculators/finance/estate-liquidity-calculator', icon: '⚖️', desc: 'Estate Liquidity' },

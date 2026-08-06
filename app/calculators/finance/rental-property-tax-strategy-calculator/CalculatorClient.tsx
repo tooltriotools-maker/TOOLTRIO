@@ -80,9 +80,21 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Rental Property Tax Strategy Calculator USA 2026" category="finance" intro="Calculate rental property tax impact including depreciation deductions, passive activity loss rules, and net tax savings." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Rental Property Tax Strategy Calculator" category="finance"
+          intro="Separates modeled rental cash flow from taxable rental income by including operating costs and depreciation, then estimates the value of a usable rental loss at the entered tax rate."
+          howItWorks="Cash flow subtracts the full entered mortgage payment plus property tax, insurance and maintenance. Taxable-income modeling instead treats 70% of the mortgage field as deductible interest, then adds depreciation. A loss is capped at $25,000 when estimating usable loss."
+          tipsSection="Worked example — Example: $28,800 rent can produce positive or negative cash flow independently of taxable income because depreciation reduces taxable income without being a current cash payment."
+          conclusion="Important assumptions and limitations — The 70% mortgage-interest assumption is a rough shortcut, not an amortization calculation. The $25,000 special allowance depends on active participation and MAGI phaseouts, and passive-loss, basis and at-risk rules can defer deductions."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

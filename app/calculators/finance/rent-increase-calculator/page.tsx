@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Rent Increase Calculator USA 2026 — Stay or Move? | ToolTrio',
   description: 'Calculate whether to accept a rent increase or move. Compare total cost of staying vs moving, break-even months, and market rent comparison.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['rent increase calculator', 'should I move or stay rent increase', 'rent increase vs moving costs calculator', 'rent vs market rate comparison', 'lease renewal calculator USA 2026'],
 })
 const faqs = [
-  {
-    question: 'How do I decide whether to accept a rent increase?',
-    answer: 'Calculate total cost to stay (new rent × 12) vs total cost to move (new place rent × 12 + moving costs). If staying costs less over 12 months, stay. If moving saves money within a reasonable timeframe (12-24 months), move. Also factor in: how below market is the new rent, lease flexibility, and non-financial factors like commute and quality of life.',
-  },
-  {
-    question: 'What is a typical rent increase in 2026?',
-    answer: 'Rent increases vary significantly by market. Sun Belt cities (Phoenix, Austin, Nashville) experienced 20-30% increases in 2021-2022 but have since moderated to 3-6%. Coastal cities (NYC, LA, SF) average 4-8% annually. Check local market conditions and your lease terms — most states have no rent control, so landlords can increase to market rate between leases.',
-  },
-  {
-    question: 'Can my landlord increase rent by any amount?',
-    answer: 'It depends on your state. States with rent control or rent stabilization (California (most cities), New York, Oregon) limit increases to specific percentages tied to CPI or a fixed amount. Most other states have no limit on rent increases — landlords can set any rate at lease renewal. Mid-lease increases require proper notice (30-60 days depending on state).',
-  }
+ {question:'How is the new rent calculated?',answer:'The calculator multiplies current monthly rent by one plus the entered annual increase percentage. It then compares that new rent with the entered market rent and alternative apartment rent.'},
+ {question:'How does it decide whether staying or moving is cheaper?',answer:'It compares 12 months of the increased rent with 12 months of the new-place rent plus the entered one-time moving costs.'},
+ {question:'What does months to break even mean?',answer:'It divides moving costs by the absolute monthly rent difference between staying and the alternative. If the two rents are equal, there is no meaningful finite break-even period.'},
+ {question:'Does the lease-month input affect the result?',answer:'The current calculation receives lease months but compares annual costs using 12 months. Therefore changing lease months does not currently change the displayed stay-versus-move result.'},
+ {question:'Does the calculator determine whether a rent increase is legal?',answer:'No. Rent-control, notice, lease and tenant-protection rules vary by jurisdiction. This page compares costs only and does not provide legal advice.'}
 ]
 const relatedCalculators = [
   { name: 'Rent vs Buy Calculator', href: '/calculators/finance/rent-vs-buy-calculator', icon: '⚖️', desc: 'Rent vs Buy Calculator' },

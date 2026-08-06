@@ -86,20 +86,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Inherited IRA Calculator USA 2026 — 10-Year Rule & RMDs" category="finance"
-          intro="Inheriting a Traditional IRA triggers immediate tax complexity. Non-spouse beneficiaries under the SECURE Act must withdraw everything within 10 years — meaning every dollar is ordinary income in your tax return. Strategic distribution timing can save tens of thousands in taxes vs an unplanned approach."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+        <SEOContent
+          title="Inherited IRA Calculator" category="finance"
+          intro="This page models a simplified 10-year withdrawal path for a non-spouse beneficiary and estimates tax using the marginal rate entered by the user."
+          howItWorks="The current UI passes a non-spouse beneficiary and assumes the decedent was age 75. The model simply divides the starting balance by 10 and applies one flat tax rate. That is a planning schedule, not an IRS RMD calculation."
+          tipsSection="Worked example: Example: a $350,000 inherited IRA divided evenly over ten years produces $35,000 of modeled annual withdrawals before investment growth. At a 24% assumed marginal rate, the simple tax estimate is $8,400 per withdrawal."
+          conclusion="Important assumptions and limitations: Actual inherited-IRA rules depend on death date, whether the owner died before or after the required beginning date, and beneficiary status. Some beneficiaries subject to the 10-year rule may also have annual RMD requirements. The calculator does not implement the IRS life-expectancy tables."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

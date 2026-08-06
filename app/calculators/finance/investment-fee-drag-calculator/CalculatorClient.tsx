@@ -76,12 +76,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Investment Fee Drag Calculator USA 2026 — How Fees Destroy Wealth" category="finance" intro="Investment fees appear small but compound into wealth destruction over decades. A 1.5% expense ratio vs 0.03% index fund on a $100,000 portfolio with $10,000 annual contributions costs $297,000 over 30 years — nearly 3 years of contributions lost to fees alone. This calculator makes the true long-term cost of any fee level impossible to ignore."
-          howItWorks="Enter your values for instant 2026 US-standard results."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for a conversation with a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"Instant 2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}
+        <SEOContent title="Investment Fee Drag Calculator USA 2026 — How Fees Destroy Wealth" category="finance" intro="Compare how different annual investment fees change the same portfolio over time. The model subtracts each fee rate from the gross return before compounding the starting balance and annual contributions, making the opportunity cost of fees visible."
+          howItWorks="For each fee scenario, Net Return = Gross Return − Annual Fee. Each year the calculator grows the existing balance by that net return and then adds the annual contribution. Fee drag is the difference between the lowest-fee scenario and each higher-fee scenario at the end of the selected horizon."
+          tipsSection="Compare expense ratios, advisory fees and plan-level fees separately. A fee quoted as a small percentage can still have a large long-run effect because the dollars paid in fees no longer remain invested and compounding."
+          conclusion="The SEC notes that fees and expenses reduce the amount of money left in a portfolio to earn returns. This model isolates that effect; it does not predict which investment will outperform or whether a higher-fee service provides other value."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'TDEE Calculator 2026 | ToolTrio',
-  description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Instant results for weight loss, maintenance.',
+  description: 'Free TDEE Calculator 2026 — Calculate your Total Daily Energy Expenditure with activity level adjustments. Tdee Calculator output for weight loss, maintenance.',
   slug: 'tdee-calculator',
   category: 'health',
   region: 'usa',

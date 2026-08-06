@@ -88,7 +88,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💎 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Five wealth-building strategies produce dramatically different outcomes over 20-30 years. Index fund investing has the strongest evidence base for most individuals — consistent returns, low effort, tax efficiency, and liquidity. Real estate adds leverage and tax benefits. This calculator models all five side by side with realistic 2026 assumptions.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This comparison is a scenario engine for five different wealth-building paths: index funds, real estate, business ownership, bonds, and a high-yield savings account. It is useful for seeing how assumed return and tax drag compound over the same starting balance, contribution amount, and time horizon.</p>
               </Card>
             </>
           ):(
@@ -98,10 +98,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Wealth Building Comparison Calculator USA 2026 — 5 Strategies" category="finance"
-          intro="Five wealth-building strategies produce dramatically different outcomes over 20-30 years. Index fund investing has the strongest evidence base for most individuals — consistent returns, low effort, tax efficiency, and liquidity. Real estate adds leverage and tax benefits. This calculator models all five side by side with realistic 2026 assumptions."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This comparison is a scenario engine for five different wealth-building paths: index funds, real estate, business ownership, bonds, and a high-yield savings account. It is useful for seeing how assumed return and tax drag compound over the same starting balance, contribution amount, and time horizon."
+          howItWorks="Each strategy starts with the same initial amount and receives the same annual contribution. The code then applies fixed illustrative annual returns: 10% index fund, 9% real estate, 14% business, 4.5% bonds, and 4.85% HYSA. It also applies simplified tax-drag assumptions to some strategies. These rates are scenarios—not historical guarantees, forecasts, or risk-adjusted estimates—and the model omits leverage costs, vacancies, business failure risk, fees, and volatility."
+          tipsSection="Read the ranking as the consequence of the assumptions, not as a recommendation. Because the business scenario has the highest assumed return, it will often finish first even though the calculator does not model its much wider range of possible outcomes."
+          conclusion="Use this page to understand compounding sensitivity across assumed strategies. Real investment choices also require comparing risk, liquidity, diversification, taxes, costs, and the possibility of loss."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

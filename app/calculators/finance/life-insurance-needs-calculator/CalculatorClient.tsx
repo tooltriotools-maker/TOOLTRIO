@@ -109,18 +109,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Life Insurance Needs Calculator USA 2026" category="finance"
-          intro="The right amount of life insurance covers income replacement (present value of your income stream), all outstanding debts, final expenses, and childcare costs — minus existing assets and coverage. Most Americans are significantly underinsured, carrying $100,000-$500,000 when their actual need is $1M-$2M+."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This needs analysis combines a discounted income-replacement gap with debts, final expenses and a modeled childcare obligation, then subtracts existing life-insurance coverage. It is designed to show which obligations drive the coverage estimate."
+          howItWorks="The income gap (insured income minus spouse income) is converted to present value over the replacement years using the entered investment return. Childcare is modeled at $15,000 per child per year using the same present-value factor. Debts and final expenses are added, then existing coverage is subtracted."
+          tipsSection="Match the replacement period to how long dependents actually need support and use a cautious return assumption. The premium outputs are rough internal estimates—not insurer quotes—and the model does not separately value Social Security survivor benefits, education goals or liquid assets."
+          conclusion="Use the result to organize family obligations before requesting actual insurance illustrations. Coverage needs and policy type depend on circumstances that this simplified model cannot determine."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},
+            {title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

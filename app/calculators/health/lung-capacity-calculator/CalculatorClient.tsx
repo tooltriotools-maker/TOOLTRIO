@@ -75,7 +75,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to interpret this lung capacity calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This tool uses Age, Height, Measured FVC (L), Measured FEV1 (L), Smoking Pack-Years, FVC %, FEV1 % to calculate the displayed result. The output reflects the formula implemented on this page and the values you enter.</p>
+            <p>For scenario comparisons, change one input at a time. This helps separate the effect of that assumption from other inputs and avoids treating a model result as a guaranteed real-world outcome.</p>
+            <p>Review the units, measurement method, time period, and any eligibility or real-world factors that are not represented by the inputs before using the result for a decision.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section documents how to use the calculator and does not alter its underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

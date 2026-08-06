@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Crypto Profit Loss Tracker USA 2026 — Cost Basis & Tax | ToolTrio',
   description: 'Track cryptocurrency buy/sell transactions, calculate average cost basis, realized gains, and estimated tax owed using FIFO method.',
@@ -25,7 +21,9 @@ const faqs = [
   {
     question: 'What records do I need for crypto taxes?',
     answer: 'Keep records of: date of acquisition, amount acquired, cost basis (price paid in USD including fees), date of disposal, proceeds (price received in USD), and how you received it (purchase, mining, staking, gift, airdrop). Major exchanges provide annual tax reports, but self-custody wallets require manual tracking. Software like CoinTracker, Koinly, or TaxBit can import exchange histories and calculate gains automatically.',
-  }
+  },
+  { question: 'Does this tracker use FIFO?', answer: 'No. The current calculation uses an average-cost approximation based on accumulated purchase cost and units. Tax-lot identification and holding periods require transaction-level records.' },
+  { question: 'Are transaction fees included in basis?', answer: 'Not in this tracker. IRS digital-asset rules can require qualifying transaction costs to be reflected in basis or amount realized, so reconcile fees separately.' },
 ]
 const relatedCalculators = [
   { name: 'Crypto Tax Calculator', href: '/calculators/finance/crypto-tax-calculator', icon: '₿', desc: 'Crypto Tax Calculator' },

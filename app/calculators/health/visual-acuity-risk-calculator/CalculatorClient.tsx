@@ -6,6 +6,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { InputField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const auditFaqs = [
+  {"question": "What should I check before using the Visual Acuity Risk Calculator?", "answer": "Check Age, Daily screen time, Daily outdoor time, Last comprehensive eye exam, Risk Score, Exam Frequency and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Visual Acuity Risk Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Visual Acuity Risk Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [screenHours, setScreenHours] = useState(8)
   const [outdoorHours, setOutdoorHours] = useState(1)
@@ -77,7 +83,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this visual acuity risk calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses Age, Daily screen time, Daily outdoor time, Last comprehensive eye exam, Risk Score, Exam Frequency, Digital Strain. The displayed result is generated from the tool&apos;s implemented formula and the values entered.</p>
+            <p>Change one input at a time when comparing scenarios. That makes the result easier to interpret and helps distinguish a modeled relationship from a real-world prediction.</p>
+            <p>Check the units, measurement method, time horizon, and any relevant factors that are outside the calculator&apos;s inputs before relying on the output.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section explains use and limitations without changing the calculator&apos;s underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

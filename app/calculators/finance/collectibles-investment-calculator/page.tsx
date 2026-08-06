@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Collectibles Investment Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the true net return on collectibles investing after insurance, storage costs, and the 28% IRS collectibles capital gains tax rate.',
+  title: 'Collectibles Investment Return Calculator | ToolTrio',
+  description: 'Model collectible appreciation, insurance, storage, selling fees, net ROI and a separate collectibles capital-gains tax estimate.',
   slug: 'collectibles-investment-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['collectibles investment calculator','collectibles capital gains tax','art wine coin investment returns','28% collectibles tax rate'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'How are collectibles taxed differently from stocks?', answer: 'Long-term gains on collectibles (art, wine, coins, precious metals, trading cards, etc. held over one year) are taxed at a maximum federal rate of 28% under IRC Section 408(m) and 1(h), instead of the standard 0/15/20% long-term capital gains rates that apply to stocks and most other investments.' },
-  { question: 'What ongoing costs eat into collectibles returns?', answer: 'Beyond the purchase price, collectors typically pay for insurance (often 1-2% of value annually), secure storage or safe deposit boxes, authentication/appraisal fees, and auction house commissions when selling (which can run 10-25% combined buyer\'s and seller\'s premium).' },
-  { question: 'Are collectibles a good long-term investment?', answer: 'Returns are highly asset-specific and illiquid compared to stocks or bonds — some categories (like blue-chip art or rare coins) have historically appreciated, but collectibles generate no income, carry real carrying costs, and require specialized expertise to buy and sell well. Most advisors suggest treating them as a small satellite allocation, not a core holding.' },
+  { question: 'What appreciation rates does the calculator assume?', answer: 'The code uses fixed annual assumptions by category: art 7.5%, wine 9%, watches 6%, cards 12%, and cars 8.5%. They are scenarios, not historical-return claims or forecasts.' },
+  { question: 'How are selling costs modeled?', answer: 'The calculator subtracts 15% of modeled future value as a selling fee. Actual auction, dealer, platform, shipping and authentication costs can be very different.' },
+  { question: 'How are insurance and storage handled?', answer: 'The entered annual insurance and storage costs are multiplied by the holding period and included in total carrying costs.' },
+  { question: 'Why does the tax result use 28%?', answer: 'The model applies 28% to appreciation as a simplified maximum-rate illustration. IRS guidance says net long-term collectibles gain can be subject to a maximum 28% rate, while the taxpayer’s actual rate can be lower.' },
+  { question: 'Does ROI include the estimated capital-gains tax?', answer: 'No. The ROI and annualized return are based on modeled net sale proceeds after the selling fee and carrying costs; the separate capital-gains-tax output is not subtracted from those return fields.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Portfolio Rebalancing', href: '/calculators/finance/portfolio-rebalancing-calculator', icon: '🪙', desc: 'Portfolio Rebalancing' },

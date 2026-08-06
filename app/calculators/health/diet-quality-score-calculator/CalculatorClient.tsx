@@ -6,6 +6,12 @@ import { Card, ResultCard } from '@/components/ui/Card'
 import { InputField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const auditFaqs = [
+  {"question": "What should I check before using the Diet Quality Score Calculator?", "answer": "Check Diet Score, Category, Top Improvement and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Diet Quality Score Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculator output for informational use and is not a diagnosis or a substitute for evaluation by a qualified healthcare professional."},
+  {"question": "How can I compare different Diet Quality Score Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. Comparing results this way makes it easier to see which input is responsible for the difference."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [vegetables, setVegetables] = useState(2)
   const [fruits, setFruits] = useState(1.5)
@@ -61,7 +67,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">Diet-quality score methodology</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This is a ToolTrio diet-quality screening score inspired by broad healthy-eating principles; it is not the official USDA Healthy Eating Index (HEI) unless all 13 HEI components and density-based scoring standards are implemented.</p>
+            <p>The USDA HEI ranges from 0 to 100 and measures how closely a set of foods aligns with Dietary Guidelines patterns. HEI scoring evaluates diet quality rather than simply total food quantity and uses component-specific standards.</p>
+            <p>Use this result to identify areas to improve—such as fruit, vegetables, whole grains, protein quality, sodium, added sugars, and saturated fat—not as a medical diagnosis or a substitute for individualized nutrition care.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Primary reference: USDA Food and Nutrition Service, Healthy Eating Index (HEI-2020).</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={auditFaqs} /></div>
     </CalculatorLayout>
   )
 }

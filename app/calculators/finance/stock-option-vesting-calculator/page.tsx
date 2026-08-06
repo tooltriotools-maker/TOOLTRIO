@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Stock Option Vesting Calculator USA 2026 — ISO vs NSO | ToolTrio',
   description: 'Calculate the value of vesting stock options year-by-year, tax impact of ISO vs NSO exercise, AMT risk, and optimal exercise strategy.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['stock option vesting calculator USA 2026', 'ISO NSO vesting calculator', 'stock options tax calculator', 'employee stock options value calculator', 'when to exercise stock options USA'],
 })
 const faqs = [
-  {
-    question: 'What is the difference between ISO and NSO stock options?',
-    answer: 'ISO (Incentive Stock Options): No tax at exercise; spread is AMT preference item; qualifies for long-term capital gains if held 1 year post-exercise AND 2 years post-grant. NSO (Non-Qualified Stock Options): Ordinary income tax at exercise on the full spread; no AMT preference; any subsequent gain is capital gain. ISOs are more tax-favorable but come with AMT risk on large grants.',
-  },
-  {
-    question: 'When should I exercise stock options?',
-    answer: 'Key factors: (1) Company trajectory — if stock likely to appreciate, exercise early to start capital gains clock. (2) Tax situation — exercise in lower-income years. (3) Diversification — concentrated stock risk. (4) AMT threshold for ISOs. Rule of thumb for ISOs: exercise early after vesting if the spread is small, to minimize ordinary income at eventual sale. For NSOs: exercise when the spread is manageable and you can afford the tax.',
-  },
-  {
-    question: 'What is the 83(b) election and when is it used?',
-    answer: "An 83(b) election applies to restricted stock (not options) and must be filed within 30 days of grant. It allows you to pay income tax now on the current value (often near zero) rather than at vesting (potentially much higher). This starts the long-term capital gains clock immediately. Once filed, it's irrevocable — if the company fails, you've paid tax on worthless stock with no refund.",
-  }
+ {question:'Does this page currently calculate ISOs and NSOs?',answer:'The current UI calls the calculation as an NSO scenario. The function supports ISO logic internally, but there is no ISO/NSO selector on this page, so the displayed tax estimate is the NSO branch.'},
+ {question:'How is vesting modeled?',answer:'Shares are divided equally across the selected vesting years. Each year’s assumed fair market value grows from today’s FMV by the entered annual growth rate.'},
+ {question:'How is NSO tax estimated?',answer:'For each vesting year the model computes positive spread as FMV minus strike price times shares vesting, then applies the entered tax rate to that spread. Actual NSO taxation generally depends on exercise, not merely vesting.'},
+ {question:'Does the model include capital gains after exercise?',answer:'No. It estimates option spread and a simplified NSO tax amount. It does not model a later sale price, holding period, payroll withholding, state tax or capital gains after exercise.'},
+ {question:'Why is projected stock growth especially uncertain?',answer:'Private-company and public-company share prices can change sharply and options can expire worthless. The growth rate is a scenario input, not a forecast or valuation opinion.'}
 ]
 const relatedCalculators = [
   { name: 'Equity Compensation Calculator', href: '/calculators/finance/equity-compensation-calculator', icon: '📊', desc: 'Equity Compensation Calculator' },

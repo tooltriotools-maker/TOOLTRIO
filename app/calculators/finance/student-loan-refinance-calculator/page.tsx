@@ -1,13 +1,9 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Student Loan Refinance Calculator USA 2026 | ToolTrio',
-  description: 'Calculate monthly savings, total interest saved, and break-even from refinancing student loans. Includes warning about losing federal loan benefits.',
+  description: 'Compare current and proposed student-loan payments and total interest under fixed-rate amortization, with a warning about federal benefits lost in private refinancing.',
   slug: 'student-loan-refinance-calculator',
   category: 'finance',
   region: 'usa',
@@ -15,17 +11,25 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 const faqs = [
   {
-    question: 'When should I refinance student loans?',
-    answer: "Refinance federal loans only if: you won't qualify for PSLF, IDR forgiveness, or income-driven repayment plans; you have stable income; your credit score qualifies you for a meaningfully lower rate (1.5%+ reduction); and you don't need federal protections (deferment, forbearance, IDR). Refinancing federal loans to private permanently eliminates all federal protections — this is irreversible. For private loans, refinance whenever you can get a lower rate.",
+    question: 'What does refinancing change in this calculator?',
+    answer: 'It replaces the current interest rate and remaining term with the proposed rate and term, then recalculates the fixed monthly payment and total scheduled interest.',
   },
   {
-    question: 'What credit score do I need to refinance?',
-    answer: 'Most private lenders require 660+ credit score for approval, 720+ for the best rates. Earnest, SoFi, Laurel Road, CommonBond, and ELFI are major refinancing lenders. Current 5-year fixed rates for excellent credit (760+) are approximately 4.5-5.5%; variable rates start lower. Always get quotes from 3+ lenders — a rate comparison typically takes 10 minutes and can reveal $5,000-$20,000 in savings.',
+    question: 'Can a lower monthly payment still cost more overall?',
+    answer: 'Yes. Extending the repayment term can lower the monthly payment while increasing total interest. Compare both monthly savings and total interest saved rather than using payment alone.',
   },
   {
-    question: 'Can I refinance federal loans and keep IDR or PSLF?',
-    answer: "No — refinancing federal student loans to a private lender converts them to private loans, permanently eliminating eligibility for all federal programs: Income-Driven Repayment (SAVE, IBR, PAYE), Public Service Loan Forgiveness (PSLF), federal deferment and forbearance, death/disability discharge, and Teacher Loan Forgiveness. If there is any possibility you'll pursue PSLF or IDR forgiveness, do not refinance federal loans.",
-  }
+    question: 'What happens if I refinance federal loans privately?',
+    answer: 'Federal Student Aid warns that moving federal loans to a private lender takes them out of the federal student-aid system and can result in loss of federal benefits, including income-driven repayment and certain forgiveness, deferment, forbearance, and discharge protections.',
+  },
+  {
+    question: 'Is federal consolidation the same as private refinancing?',
+    answer: 'No. A Direct Consolidation Loan remains within the federal student-loan system. Private refinancing replaces the federal debt with a private loan and has different terms and protections.',
+  },
+  {
+    question: 'Does this calculator include refinance fees?',
+    answer: 'No fee input is used. The code currently reports a three-month break-even placeholder, so review the lender’s APR and any origination or other fees separately.',
+  },
 ]
 const relatedCalculators = [
   { name: 'Student Loan Forgiveness', href: '/calculators/finance/student-loan-forgiveness-calculator', icon: '📚', desc: 'Student Loan Forgiveness' },

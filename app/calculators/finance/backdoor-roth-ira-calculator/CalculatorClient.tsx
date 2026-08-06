@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Backdoor Roth IRA Calculator USA 2026"
-      description="Calculate taxes owed on backdoor Roth conversions, pro-rata rule impact, and 30-year tax-free growth. For high-income earners above Roth IRA limits."
+      description="Estimate the taxable share of a backdoor Roth conversion under a simplified pro-rata calculation and see how existing IRA basis changes the result."
       icon="🚪"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🚪 Backdoor Roth IRA Calculator USA 2026 — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The backdoor Roth IRA allows high-income earners above the $150,000 (single) or $236,000 (married) Roth IRA income limits to still get money into a Roth account. The strategy: contribute to a non-deductible Traditional IRA, then convert immediately. The pro-rata rule determines how much of that conversion is taxable.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator focuses on the tax impact of converting a nondeductible Traditional IRA contribution when you also have other IRA money. It estimates the tax-free share under a simplified pro-rata calculation and the tax due on the taxable share.</p>
               </Card>
             </>
           ) : (
@@ -105,18 +105,18 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Backdoor Roth IRA Calculator USA 2026"
           category="finance"
-          intro="The backdoor Roth IRA allows high-income earners above the $150,000 (single) or $236,000 (married) Roth IRA income limits to still get money into a Roth account. The strategy: contribute to a non-deductible Traditional IRA, then convert immediately. The pro-rata rule determines how much of that conversion is taxable."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator focuses on the tax impact of converting a nondeductible Traditional IRA contribution when you also have other IRA money. It estimates the tax-free share under a simplified pro-rata calculation and the tax due on the taxable share."
+          howItWorks="Pro-rata ratio = nondeductible basis ÷ modeled total IRA balance. Taxable conversion = conversion amount × (1 − pro-rata ratio), and tax due = taxable conversion × entered tax rate. The model uses the 2026 direct Roth contribution phaseout ceiling only as a flag; income does not prohibit a Roth conversion. Actual Form 8606 aggregation generally considers Traditional, SEP, and SIMPLE IRA balances and year-end values, so this simplified input may not reproduce your tax return."
+          tipsSection="For 2026 the direct Roth IRA contribution phaseout is $153,000–$168,000 for single/head-of-household filers and $242,000–$252,000 for married filing jointly. The IRA contribution limit is $7,500, or $8,600 if age 50+. A backdoor contribution does not bypass the annual IRA contribution limit."
+          conclusion="Use this calculator to understand why existing pre-tax IRA balances can make a backdoor Roth conversion taxable. Confirm basis and year-end IRA balances before filing Form 8606."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Results follow the calculation methodology and assumptions explained on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}
           useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
+            { title: "Personal Planning", text: "Use the calculator inputs to test a concrete planning scenario." },
+            { title: "Scenario Comparison", text: "Compare the result after changing the input that matters to this calculation." },
           ]}
         />
         <InternalLinks

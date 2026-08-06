@@ -68,7 +68,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           )}
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this protein synthesis calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses Body Weight, Lean Body Mass (est.), Training frequency, Age, Daily protein intake, Meals per day, Post-workout protein. The displayed result is generated from the tool&apos;s implemented formula and the values entered.</p>
+            <p>Change one input at a time when comparing scenarios. That makes the result easier to interpret and helps distinguish a modeled relationship from a real-world prediction.</p>
+            <p>Check the units, measurement method, time horizon, and any relevant factors that are outside the calculator&apos;s inputs before relying on the output.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section explains use and limitations without changing the calculator&apos;s underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

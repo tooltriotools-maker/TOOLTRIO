@@ -99,11 +99,11 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           title="Required Minimum Distribution (RMD) Calculator USA 2026"
           category="finance"
           intro="Required Minimum Distributions force taxable withdrawals from pre-tax retirement accounts starting at age 73. The IRS Uniform Lifetime Table (Publication 590-B) sets the distribution factor based on your age — your balance divided by this factor equals your RMD. Missing your RMD triggers a 25% excise tax penalty."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          howItWorks="The calculator divides the prior year-end retirement-account balance you enter by the Uniform Lifetime Table factor for your age. For example, age 73 uses a 26.5 divisor in the code, so a $750,000 balance produces an RMD of about $28,302."
+          tipsSection="The projection is only a scenario: it assumes the account balance declines 5% per year before applying later age factors. That is not an IRS forecast and is not an investment-return assumption you should rely on."
+          conclusion="This implementation supports Uniform Lifetime factors from ages 73–100 and is not suitable for every inherited-account or spouse-more-than-10-years-younger situation. Verify the applicable IRS table and beginning age for your circumstances."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Calculator-specific scenario outputs based on the inputs and assumptions described above." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

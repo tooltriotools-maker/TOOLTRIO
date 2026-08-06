@@ -72,14 +72,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Recapture Tax on Sale" value={result?`${Number(result.recaptureTaxOnSale).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🏘️ Investment Property Depreciation Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🏘️ Investment Property Depreciation Calculator USA 2026</h2><p className="text-sm text-gray-600">The annual deduction is driven by the building basis and the 27.5- or 39-year recovery period. Land value is shown as an input but is not included in the depreciable basis.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Investment Property Depreciation Calculator USA 2026" category="finance" intro="Investment Property Depreciation Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <SEOContent title="Investment Property Depreciation Calculator USA 2026" category="finance" intro="Estimate straight-line MACRS depreciation for the building portion of a rental property and separate nondepreciable land from the depreciable basis." howItWorks="The calculator treats the entered building value as depreciable basis. Residential rental property uses 27.5 years and nonresidential real property uses 39 years. Annual depreciation = building basis ÷ recovery period; accumulated depreciation is annual depreciation multiplied by modeled years in service." tipsSection="Allocate purchase price between land and building using supportable basis information; land is not depreciated. The model does not apply the mid-month convention, partial first/last-year tables, basis adjustments, improvements, dispositions, passive-loss limits, or a full cost-segregation study." conclusion="The 25% recapture output is a simplified maximum-rate illustration, not a complete sale-tax calculation. Use tax records and Form 4562 schedules for filing decisions."
+          benefits={[{title:"Method",text:"Explains the calculation actually used on this page."},{title:"Inputs",text:"Shows which assumptions drive the result."},{title:"Limits",text:"Calls out important exclusions and simplifications."}]}
+          useCases={[{title:"Scenario planning",text:"Compare realistic input combinations."},{title:"Decision support",text:"Understand the trade-offs behind the outputs."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

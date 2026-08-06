@@ -97,7 +97,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">₿ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Adding Bitcoin to a traditional stock-and-cash portfolio creates potential for higher returns with asymmetric risk. At 10% Bitcoin allocation, the upside in a bull market is substantial while portfolio damage in a Bitcoin crash is limited. This calculator models exact portfolio outcomes across bull, base, and bear scenarios for any SPY/BTC/cash allocation.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This scenario tool compares a fixed SPY, Bitcoin and cash allocation using the return assumptions embedded in ToolTrio: 10% for SPY, 45% for Bitcoin and 4.8% for cash. Those are modeling assumptions, not forecasts. Use it to see how a highly volatile Bitcoin sleeve can dominate a long-horizon projection and how allocation changes the modeled downside.</p>
               </Card>
             </>
           ):(
@@ -107,11 +107,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="S&P 500 vs Bitcoin Portfolio Calculator USA 2026" category="finance"
-          intro="Adding Bitcoin to a traditional stock-and-cash portfolio creates potential for higher returns with asymmetric risk. At 10% Bitcoin allocation, the upside in a bull market is substantial while portfolio damage in a Bitcoin crash is limited. This calculator models exact portfolio outcomes across bull, base, and bear scenarios for any SPY/BTC/cash allocation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          intro="This scenario tool compares a fixed SPY, Bitcoin and cash allocation using the return assumptions embedded in ToolTrio: 10% for SPY, 45% for Bitcoin and 4.8% for cash. Those are modeling assumptions, not forecasts. Use it to see how a highly volatile Bitcoin sleeve can dominate a long-horizon projection and how allocation changes the modeled downside."
+          howItWorks="Each starting allocation is compounded independently for the selected years, then the three ending balances are added. The all-SPY benchmark compounds the entire starting amount at 10%. The bear case applies half the modeled SPY return and a 75% annual Bitcoin loss assumption, so it is a stress scenario rather than a statistical forecast."
+          tipsSection="Make sure SPY + Bitcoin + cash equals 100%. Compare several Bitcoin weights and focus on the range of outcomes rather than the headline CAGR. The model does not rebalance annually and does not include taxes, fees, spreads or changing returns."
+          conclusion="This calculator is a deterministic scenario comparison, not an investment forecast or recommendation. Bitcoin and equity returns can differ dramatically from the fixed assumptions used here."
+          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

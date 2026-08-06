@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💵 Annual Bonus Tax Calculator USA 2026 — State by State — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">A 15% bonus on a $95,000 salary means $14,250 gross — but after federal withholding (22%), state taxes (5–13% depending on state), and FICA, take-home can be significantly less. Understanding the difference between withholding rate and actual tax rate helps you plan accordingly and avoid surprises at filing.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Estimate take-home bonus using the page’s supplemental-wage withholding model for its current single-filer, California scenario. The UI currently hard-codes single filing status and California. Withholding can differ from final tax, and Medicare Additional Tax, payroll history and employer withholding method can affect actual pay.</p>
               </Card>
             </>
           ) : (
@@ -89,12 +89,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Annual Bonus Tax Calculator USA 2026 — State by State"
           category="finance"
-          intro="A 15% bonus on a $95,000 salary means $14,250 gross — but after federal withholding (22%), state taxes (5–13% depending on state), and FICA, take-home can be significantly less. Understanding the difference between withholding rate and actual tax rate helps you plan accordingly and avoid surprises at filing."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Estimate take-home bonus using the page’s supplemental-wage withholding model for its current single-filer, California scenario."
+          howItWorks="Bonus = salary × bonus percentage. Federal supplemental withholding is 22% up to $1 million of supplemental wages and 37% above that. The model also applies California’s embedded rate and FICA, with the 2026 Social Security wage base set to $184,500."
+          tipsSection="Worked example: On a $100,000 salary with a 10% bonus, the gross bonus is $10,000. The result shows modeled withholding—not the final income tax ultimately due on the bonus."
+          conclusion="Important assumptions and limitations: The UI currently hard-codes single filing status and California. Withholding can differ from final tax, and Medicare Additional Tax, payroll history and employer withholding method can affect actual pay. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Results update immediately from the inputs and methodology described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">👨‍👩‍👧 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Wealth transfer planning is about moving assets to the next generation in the most tax-efficient way possible. With the $13.61M estate tax exemption potentially reverting to ~$7M after 2025, 2026 is a critical year. This calculator shows the estate tax impact and trust strategy savings for your specific asset level.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Project estate growth and annual gifts, then see how the calculator’s simplified transfer-tax scenario changes the amount remaining in the estate. GRAT, SLAT and ILIT results depend on drafting, valuation, interest rates, retained rights and tax rules. The calculator does not determine whether a transfer is complete or excluded from the taxable estate.</p>
               </Card>
             </>
           ):(
@@ -82,12 +82,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Wealth Transfer Calculator USA 2026 — Estate & Gift Strategy" category="finance"
-          intro="Wealth transfer planning is about moving assets to the next generation in the most tax-efficient way possible. With the $13.61M estate tax exemption potentially reverting to ~$7M after 2025, 2026 is a critical year. This calculator shows the estate tax impact and trust strategy savings for your specific asset level."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Project estate growth and annual gifts, then see how the calculator’s simplified transfer-tax scenario changes the amount remaining in the estate."
+          howItWorks="Assets compound at the entered growth rate; annual gifts are subtracted as a simple cumulative amount. Estate tax is modeled at 40% above the 2026 $15 million basic exclusion. Non-direct trust choices use a built-in 35% heuristic and are not legal trust calculations."
+          tipsSection="Worked example: A $12 million estate growing for 10 years can cross the federal exclusion even when annual gifts reduce the modeled estate. Compare the projected estate with the $15 million 2026 exclusion."
+          conclusion="Important assumptions and limitations: GRAT, SLAT and ILIT results depend on drafting, valuation, interest rates, retained rights and tax rules. The calculator does not determine whether a transfer is complete or excluded from the taxable estate. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

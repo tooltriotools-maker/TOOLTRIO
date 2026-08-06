@@ -91,12 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Credit Card Annual Fee Calculator USA 2026 — Is It Worth It?" category="finance"
-          intro="Premium credit cards with $500-700 annual fees are only worth it if your spending generates enough rewards to clear the fee and outperform no-fee alternatives. At $4,000/month spending and 3% vs 1.5% rewards rate, a $695 annual fee card needs to return at least $720 in rewards to justify itself. This calculator finds your exact break-even monthly spend."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+          intro="This calculator tests whether the extra rewards value of a fee card exceeds its annual fee compared with a no-fee card. Inputs are monthly spend, both reward rates, the fee and a redemption-value multiplier."
+          howItWorks="Annual spend = monthly spend × 12. Fee-card rewards = annual spend × fee-card rate × redemption multiplier; net value subtracts the annual fee. No-fee rewards use the no-fee rate. Break-even spend is where incremental rewards equal the annual fee."
+          tipsSection="Only enter spending that actually earns the stated rates. Welcome bonuses, category caps, credits, travel benefits, transfer partners, interest and other fees are outside the model."
+          conclusion="A positive result only means modeled rewards exceed the fee relative to the entered alternative; it does not justify carrying a balance or spending more."
+          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

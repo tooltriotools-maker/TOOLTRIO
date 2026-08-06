@@ -91,10 +91,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Loan Origination Fee Calculator USA 2026 — Is the Fee Worth It?" category="finance" intro="Loan origination fees are upfront costs that reduce your loan proceeds or increase closing costs. The key question: does the lower interest rate from paying the fee save more than the fee costs over your expected loan term? A 1% origination fee on a $350,000 loan costs $3,500 — you need to break even in monthly payment savings before refinancing or selling."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
+          howItWorks="The calculator compares two fully amortizing loans for the same principal and term: one with the entered origination fee and lower rate, and one with no fee at the alternative rate. It calculates each monthly payment, adds the upfront fee to the first loan's lifetime cost, and divides the fee by monthly payment savings to estimate a break-even month. The displayed effective APR is only a simplified rate-plus-fee-per-year approximation, not the Regulation Z APR disclosed by a lender."
           tipsSection="Try multiple scenarios by changing one input at a time."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Runs locally in your browser."},{title:"Free Forever",text:"No signup required."}]}
+          benefits={[{title:"Upfront fee",text:"Loan amount × origination-fee percentage."},{title:"Payment comparison",text:"Compare amortized monthly payments at the two entered interest rates over the same term."},{title:"Break-even month",text:"Estimate how long monthly savings take to recover the fee; selling or refinancing earlier can change the decision."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

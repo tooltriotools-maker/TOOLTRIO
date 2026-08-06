@@ -88,12 +88,30 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Real Estate Appreciation Calculator USA 2026" category="finance" intro="Real estate appreciation varies dramatically by location — urban properties in gateway cities average 5-6% annually while rural areas average 2-3%. On a $350,000 suburban home purchased in 2018, the estimated 2026 value is approximately $490,000 — a $140,000 gain at 4.5% CAGR. This calculator uses location and property type to give the most accurate appreciation estimate."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent
+          title="Real Estate Appreciation Calculator USA 2026"
+          category="finance"
+          intro="This calculator projects property value using ToolTrio's built-in annual appreciation assumptions by location type and property type. For the current UI scenario, purchase price and purchase year are user inputs while the function applies a preset location/property growth rate. These rates are scenario assumptions, not verified forecasts for a particular city or property."
+          howItWorks="Current value = purchase price × (1 + assumed annual appreciation rate)^years. The model also compounds purchase price at a fixed 3.5% inflation assumption and labels the difference between projected market value and that inflation-adjusted amount as 'real appreciation.' Five- and ten-year projections continue the same appreciation rate unchanged."
+          tipsSection="Historical appreciation is highly local and uneven. Renovations, land, property condition, supply, interest rates and neighborhood changes are not modeled. The built-in rates—such as 4.5% for a suburban single-family scenario—should be treated as editable-model assumptions even though the current UI does not expose them."
+          conclusion="Use the output for scenario planning only. For a purchase, sale or refinance decision, compare against recent local comparable sales and a qualified appraisal rather than relying on a constant national-style growth assumption."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "Suburban single-family scenario",
+            scenario: "A $350,000 purchase compounded at the model's 4.5% suburban single-family rate for eight years becomes roughly $498,000 before transaction costs or improvements.",
+            result: "The calculator separately compounds $350,000 at 3.5% as an inflation benchmark and reports the difference as modeled real appreciation.",
+            takeaway: "A constant 4.5% path is mathematically smooth; actual home prices can fall or rise sharply from year to year."
+          }}
+          commonMistakes="Historical appreciation is highly local and uneven. Renovations, land, property condition, supply, interest rates and neighborhood changes are not modeled. The built-in rates—such as 4.5% for a suburban single-family scenario—should be treated as editable-model assumptions even though the current UI does not expose them."
+          inlineLinks={[{ text: "FHFA publishes repeat-sales house-price data; local historical data is more appropriate than a universal appreciation rate.", href: "https://www.fhfa.gov/data/hpi", label: "FHFA House Price Index" }]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

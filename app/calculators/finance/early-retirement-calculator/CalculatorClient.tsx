@@ -116,19 +116,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Early Retirement Calculator USA 2026 — Retire Before 60" category="finance"
-          intro="Early retirement requires a larger FIRE number (portfolio size) and lower safe withdrawal rate than traditional retirement — because the money must last 40-50 years instead of 25-30. This calculator models your specific early retirement target with accurate SWR adjustments and shows the exact savings needed to retire before 60."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro="Estimate whether a portfolio could reach a target early-retirement date by projecting current savings and annual contributions, then comparing the projected balance with an inflation-adjusted spending target."
+          howItWorks="During accumulation, the calculator grows the portfolio by the entered nominal return and adds annual savings. Future annual expenses are inflated to the retirement date. The FI target divides those future expenses by a withdrawal rate that the model sets at 3.5% before age 50, 3.8% from 50–54, and 4% from 55 onward."
+          tipsSection="Stress-test lower returns, higher inflation and higher expenses. Retiring early creates a longer horizon and may require planning for taxes, healthcare before Medicare, sequence-of-returns risk and access rules for retirement accounts."
+          conclusion="The withdrawal rates in this calculator are planning assumptions, not guarantees of portfolio survival. Market returns and inflation do not arrive smoothly, so use multiple scenarios rather than one projection."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

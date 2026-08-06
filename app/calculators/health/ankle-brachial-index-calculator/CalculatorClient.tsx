@@ -18,8 +18,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     { label: 'Critical PAD', range: '< 0.40', color: '#dc2626' },
     { label: 'Moderate PAD', range: '0.40–0.69', color: '#ef4444' },
     { label: 'Mild PAD', range: '0.70–0.89', color: '#f97316' },
-    { label: 'Normal', range: '0.90–1.30', color: '#22c55e' },
-    { label: 'Non-compressible', range: '> 1.30', color: '#8b5cf6' },
+    { label: 'Normal', range: '0.91–1.40', color: '#22c55e' },
+    { label: 'Non-compressible', range: '> 1.40', color: '#8b5cf6' },
   ]
 
   return (
@@ -70,14 +70,27 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </Card>
 
-          <div className={`rounded-xl p-4 text-sm border ${result.abi < 0.9 ? 'bg-red-50 border-red-200 text-red-800' : result.abi > 1.30 ? 'bg-purple-50 border-purple-200 text-purple-800' : 'bg-green-50 border-green-200 text-green-800'}`}>
+          <div className={`rounded-xl p-4 text-sm border ${result.abi < 0.9 ? 'bg-red-50 border-red-200 text-red-800' : result.abi > 1.40 ? 'bg-purple-50 border-purple-200 text-purple-800' : 'bg-green-50 border-green-200 text-green-800'}`}>
             <p className="font-bold mb-1">{result.risk}</p>
-            {result.abi < 0.9 && <p className="text-xs mt-1">An ABI below 0.90 is diagnostic of peripheral artery disease. Consult your physician — lifestyle modification and vascular evaluation are indicated.</p>}
-            {result.abi > 1.30 && <p className="text-xs mt-1">A very high ABI suggests arterial calcification (common in diabetes/CKD). Toe-brachial index (TBI) testing is recommended for accurate assessment.</p>}
+            {result.abi < 0.9 && <p className="text-xs mt-1">An ABI at or below 0.90 is abnormal and can support a PAD diagnosis when measured correctly in a clinical setting. Discuss an abnormal result with a clinician.</p>}
+            {result.abi > 1.40 && <p className="text-xs mt-1">A very high ABI suggests arterial calcification (common in diabetes/CKD). Toe-brachial index (TBI) testing is recommended for accurate assessment.</p>}
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">ABI methodology and clinical limits</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>ABI is calculated as ankle systolic pressure divided by brachial (arm) systolic pressure. This page uses the single ankle and arm values you enter; a clinical ABI examination normally measures pressures in both arms and at ankle arteries with Doppler equipment.</p>
+            <p>The American Heart Association identifies ABI ≤0.90 as abnormal and consistent with lower-extremity peripheral artery disease, while values &gt;1.40 can indicate non-compressible arteries. A high value is not a reassuring 'super-normal' result.</p>
+            <p>This calculator is educational and cannot diagnose PAD. Symptoms such as new leg pain at rest, a cold/pale foot, non-healing wounds, or sudden loss of circulation require medical assessment.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Clinical reference: American Heart Association scientific statement on ABI measurement and interpretation.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

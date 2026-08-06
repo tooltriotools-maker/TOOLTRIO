@@ -74,7 +74,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">A robots.txt file tells web crawlers which pages they can and cannot visit. Select the User-agent (* means all bots, or target specific ones like Googlebot). Add the paths you want to block from indexing in the Disallow section - typically /admin/, /api/, /checkout/, /login/, /private/. Add your sitemap URL so crawlers can discover all your pages efficiently. Set crawl delay to limit how fast bots crawl your site if you have server load concerns.</p>
         <p className="text-sm text-gray-600"><strong>Important:</strong> robots.txt is a directive, not a security measure - malicious bots ignore it. Do not disallow pages you want indexed. Disallow: / blocks ALL crawling and will remove your site from search engines. Always test with Google Search Console's robots.txt tester after deploying.</p>
       </div>
-      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the robots txt generator result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="Robots.txt Generator"
         category="dev"

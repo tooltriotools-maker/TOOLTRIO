@@ -8,7 +8,7 @@ import { zipFetch } from '@/lib/data/zip-client'
 const USTimezoneMap = dynamic(
   () => import('@/components/ui/USTimezoneMap'),
   {
-    ssr: false,
+    
 
     loading: () => (
       <div className="h-[430px] rounded-2xl border border-gray-200 bg-gray-50 animate-pulse flex items-center justify-center">

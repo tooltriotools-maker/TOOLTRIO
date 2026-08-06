@@ -63,7 +63,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">A .gitignore file tells Git which files and directories to exclude from version control. Click the technology buttons to select what your project uses - you can combine multiple templates (e.g. Node + React + VSCode + macOS for a typical frontend project). The generated rules are combined into a single file. Click Download to save the .gitignore file directly, then place it in the root of your repository.</p>
         <p className="text-sm text-gray-600"><strong>Typical combos:</strong> Full-stack JS: Node + Next.js + VSCode + macOS. Python project: Python + VSCode + macOS + Windows. Infrastructure: Terraform + VSCode. Always commit your .gitignore before adding it to an existing repo with <code className="bg-gray-100 px-1 rounded">git rm -r --cached .</code> to un-track already-tracked files.</p>
       </div>
-      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">How to review the gitignore generator result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Review the calculated output together with the inputs shown in the calculator. The result reflects the values entered and the calculation implemented by this tool.</p>
+            <p>When comparing alternatives, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to understand.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="Gitignore Generator"
         category="dev"

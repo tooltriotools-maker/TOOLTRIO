@@ -66,9 +66,31 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Shareholder Loan Calculator USA 2026 — S-Corp & C-Corp" category="finance" intro="Calculate the tax implications of shareholder loans from closely-held S-corps and C-corps vs dividend distributions — using IRS Applicable Federal Rates." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent
+          title="Shareholder Loan Calculator USA 2026 — S-Corp & C-Corp"
+          category="finance"
+          intro="This calculator models the annual interest and tax effects of a shareholder loan using an entered Applicable Federal Rate (AFR). It is intended to show why a bona fide corporation-shareholder loan needs a real interest rate and documentation. It does not determine whether a particular advance will be respected as debt for tax or legal purposes."
+          howItWorks="Annual interest = loan amount × entered AFR. The model treats that interest as shareholder interest income taxed at the entered shareholder rate and as a corporate interest deduction valued at the entered corporate rate. Net annual tax cost = shareholder tax on interest − modeled corporate deduction benefit. Total interest simply multiplies annual interest by years; it does not amortize principal."
+          tipsSection="Use the AFR for the loan's actual month and term, not a remembered rate. Real debt characterization depends on facts such as a promissory note, repayment schedule, ability and intent to repay, actual payments and corporate records. Deductibility can also be limited by tax rules not represented here."
+          conclusion="Use the model to understand the interest mechanics, then have the loan terms and tax treatment reviewed for the corporation and shareholder involved."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "Five-year shareholder note",
+            scenario: "A $100,000 note entered at 5% AFR produces $5,000 of modeled annual interest and $25,000 over five years before any principal repayment schedule.",
+            result: "At a 32% shareholder rate, the model shows $1,600 of tax on annual interest; at a 21% corporate rate it shows a $1,050 deduction value.",
+            takeaway: "Those tax effects assume the interest is recognized/deductible as modeled and the advance is respected as genuine debt."
+          }}
+          commonMistakes="Use the AFR for the loan's actual month and term, not a remembered rate. Real debt characterization depends on facts such as a promissory note, repayment schedule, ability and intent to repay, actual payments and corporate records. Deductibility can also be limited by tax rules not represented here."
+          inlineLinks={[{ text: "IRS publishes AFRs used for various federal tax purposes each month.", href: "https://www.irs.gov/applicable-federal-rates", label: "IRS Applicable Federal Rates" }]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

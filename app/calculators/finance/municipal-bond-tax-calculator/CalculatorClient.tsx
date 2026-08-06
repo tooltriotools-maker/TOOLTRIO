@@ -63,7 +63,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Municipal bonds pay tax-free interest — federally, and often at the state level for in-state bonds. For investors in the 32%+ bracket, a 4% muni yield can be equivalent to a 6.5-8% taxable yield depending on state taxes. This calculator shows the exact break-even comparison for your specific tax situation.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Translate a municipal-bond coupon into a taxable-equivalent yield using the federal and state rates entered on this page. Not every municipal bond is exempt from every tax. AMT exposure, capital gains, residency, bond credit quality, price changes and fund expenses are outside this calculation.</p>
               </Card>
             </>
           ):(
@@ -73,12 +73,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Municipal Bond Tax-Equivalent Yield Calculator USA 2026" category="finance"
-          intro="Municipal bonds pay tax-free interest — federally, and often at the state level for in-state bonds. For investors in the 32%+ bracket, a 4% muni yield can be equivalent to a 6.5-8% taxable yield depending on state taxes. This calculator shows the exact break-even comparison for your specific tax situation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Translate a municipal-bond coupon into a taxable-equivalent yield using the federal and state rates entered on this page."
+          howItWorks="For the state-exempt scenario used by the page, combined tax rate = federal + state − federal×state. Tax-equivalent yield = municipal yield ÷ (1 − combined tax rate)."
+          tipsSection="Worked example: A 4% tax-exempt municipal yield can require a materially higher taxable yield to produce the same after-tax income for an investor in higher tax brackets."
+          conclusion="Important assumptions and limitations: Not every municipal bond is exempt from every tax. AMT exposure, capital gains, residency, bond credit quality, price changes and fund expenses are outside this calculation. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

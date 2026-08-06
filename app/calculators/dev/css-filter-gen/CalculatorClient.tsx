@@ -99,7 +99,27 @@ Chain order matters. Filters apply left-to-right. brightness(2) grayscale(1) pro
 Performance: composited layer. Add will-change: filter for elements with animated filters to create a GPU compositing layer.`}
         conclusion={`CSS filters apply visual effects without Canvas or JavaScript. Frosted glass, image color grading, hover effects — all use CSS filters. For complete visual CSS: [CSS Gradient Generator](/calculators/dev/css-gradient-generator) and [CSS Animation Generator](/calculators/dev/css-animation-gen).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Using the css filter gen result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Interpret the output together with the values entered in the calculator. The result is based on the calculator&apos;s implemented calculation and the values supplied.</p>
+            <p>For a useful comparison, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to distinguish.</p>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Reviewing this css filter gen</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Read the result together with the calculator inputs. The displayed value reflects the calculation implemented by this tool and the values supplied.</p>
+            <p>When comparing alternatives, change one input at a time while leaving the others unchanged. This helps identify which assumption is driving the difference.</p>
+          </div>
+        </Card>
+      </div>
+</div>
     </DevToolLayout>
     )
 

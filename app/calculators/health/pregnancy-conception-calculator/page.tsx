@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
   )
@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Conception Date Calculator 2026 | ToolTrio',
-  description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Instant results with detailed timeline and guidance.',
+  description: 'Free Pregnancy Conception Calculator 2026 — Accurate pregnancy conception based on medical standards. Pregnancy Conception Calculator output with detailed timeline and guidance.',
   slug: 'pregnancy-conception-calculator',
   category: 'health',
   region: 'usa',

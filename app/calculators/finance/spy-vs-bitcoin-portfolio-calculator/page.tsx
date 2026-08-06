@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
+
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'S&P 500 vs Bitcoin Portfolio Calculator USA 2026 | ToolTrio',
   description: 'Model a blended SPY + Bitcoin + cash portfolio vs all-stock benchmark. See return, diversification benefit, and worst-case scenario at any allocation.',

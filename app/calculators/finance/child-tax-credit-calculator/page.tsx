@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Child Tax Credit Calculator USA 2026 — CTC & ACTC | ToolTrio',
   description: 'Calculate Child Tax Credit, Additional Child Tax Credit refundable portion, and Child & Dependent Care Credit for your family.',
@@ -16,7 +12,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is the Child Tax Credit for 2026?',
-    answer: '$2,000 per qualifying child under 17 in 2026, with up to $1,700 refundable as the Additional Child Tax Credit (ACTC). The credit phases out at $200,000 AGI (single) or $400,000 (married) — reducing by $50 for every $1,000 over the threshold. For families under these limits, the full $2,000 per child is available.',
+    answer: '$2,200 per qualifying child under 17 in 2026, with up to $1,700 refundable as the Additional Child Tax Credit (ACTC). The credit phases out at $200,000 AGI (single) or $400,000 (married) — reducing by $50 for every $1,000 over the threshold. For families under these limits, the full $2,200 per child is available.',
   },
   {
     question: 'What is the Additional Child Tax Credit (ACTC)?',

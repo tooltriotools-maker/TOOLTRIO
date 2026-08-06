@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Investment Property Depreciation Calculator USA 2026 | ToolTrio',
-  description: 'Calculate annual depreciation deductions on a rental property using the IRS-mandated 27.5-year straight-line schedule for residential real estate.',
+  title: 'Rental Property Depreciation Calculator | ToolTrio',
+  description: 'Estimate straight-line depreciation for residential rental or nonresidential property using building basis and the applicable recovery period.',
   slug: 'investment-property-depreciation-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['rental property depreciation calculator','27.5 year depreciation schedule','investment property tax deduction','depreciation recapture calculator'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'How is rental property depreciation calculated?', answer: 'The IRS requires residential rental property to be depreciated straight-line over 27.5 years, based only on the building value (land is never depreciable). Divide the building\'s cost basis by 27.5 to find your annual depreciation deduction, which offsets rental income even though the property may be appreciating in market value.' },
-  { question: 'What happens to depreciation when I sell the property?', answer: 'When you sell, the IRS \'recaptures\' the depreciation you claimed by taxing it at a maximum 25% rate (separate from your regular capital gains rate on the appreciation itself) — meaning depreciation reduces your tax bill each year you own the property but isn\'t entirely free once you sell.' },
-  { question: 'Can I accelerate depreciation on a rental property?', answer: 'A cost segregation study can reclassify parts of the property (appliances, carpeting, certain fixtures) into faster 5, 7, or 15-year depreciation categories instead of the standard 27.5 years, front-loading deductions — this is generally most worthwhile on higher-value properties given the study\'s cost.' },
+  { question: 'Why is land not depreciated?', answer: 'The model uses only the building value as depreciable basis. Land is not treated as depreciable property, so a supportable allocation between land and improvements matters.' },
+  { question: 'What recovery periods does the calculator use?', answer: 'It uses 27.5 years for residential rental property and 39 years for nonresidential real property under the modeled straight-line approach.' },
+  { question: 'Does this calculate the exact first-year depreciation deduction?', answer: 'No. It does not implement the MACRS mid-month convention or partial-year tables, so placed-in-service timing can make the tax-return deduction different.' },
+  { question: 'What is the recapture amount shown?', answer: 'It applies 25% to modeled accumulated depreciation as a simplified maximum-rate illustration. Actual unrecaptured Section 1250 gain depends on the sale and tax facts.' },
+  { question: 'Is the cost-segregation opportunity a guaranteed deduction?', answer: 'No. The page simply labels 25% of building basis as a potential reclassification scenario. A real study must identify qualifying assets and apply current depreciation law.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Cost Segregation Study', href: '/calculators/finance/cost-segregation-study-calculator', icon: '🏗️', desc: 'Cost Segregation Study' },

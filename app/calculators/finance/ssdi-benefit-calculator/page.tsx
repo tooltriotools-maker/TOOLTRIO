@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Social Security Disability (SSDI) Calculator USA 2026 | ToolTrio',
   description: 'Estimate your monthly SSDI benefit using the Social Security Primary Insurance Amount formula and work credit eligibility requirements.',
@@ -14,9 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['SSDI calculator 2026','social security disability benefit estimate','SSDI eligibility work credits','how much does SSDI pay'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'How is the SSDI monthly benefit calculated?', answer: 'SSDI uses the same Primary Insurance Amount (PIA) formula as retirement benefits, based on your Average Indexed Monthly Earnings (AIME) across your highest-earning years — unlike retirement benefits, though, there\'s no reduction for claiming \'early,\' since SSDI is meant to replace income lost due to disability regardless of your age.' },
-  { question: 'How many work credits do I need to qualify for SSDI?', answer: 'Generally, you need 40 work credits (about 10 years of work), with 20 of those credits earned in the 10 years immediately before your disability began — younger workers can qualify with fewer credits under a sliding scale, since they\'ve had less time to accumulate them.' },
-  { question: 'Does SSDI convert to retirement benefits at a certain age?', answer: 'Yes — once you reach full retirement age, your SSDI benefit automatically converts to a Social Security retirement benefit of the same amount, so there\'s no gap or reduction in your monthly payment at that transition.' },
+  { question: 'Which 2026 PIA bend points does this calculator use?', answer: 'For a worker first eligible in 2026, it uses $1,286 and $7,749, with the statutory 90%, 32%, and 15% PIA factors.' },
+  { question: 'Is average monthly earnings the same as SSA AIME?', answer: 'Not necessarily. SSA calculates Average Indexed Monthly Earnings from the worker’s covered earnings history. The input here is an AIME-like shortcut, so an official SSA estimate can differ.' },
+  { question: 'Does meeting the calculator’s work-credit test guarantee SSDI eligibility?', answer: 'No. The code uses a simplified age-based credit check. SSA also applies insured-status and recent-work rules and separately determines whether the medical disability standard is met.' },
+  { question: 'Why is there a five-month waiting period in the result?', answer: 'The model displays a five-month SSDI waiting period. Actual entitlement dates and exceptions should be confirmed with SSA for the individual claim.' },
+  { question: 'Will SSDI always equal the PIA shown here?', answer: 'No. The page is an estimate and does not model every SSA computation, family maximum, offset, rounding, or claim-specific rule.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Social Security Calculator', href: '/calculators/finance/social-security-calculator', icon: '🏛️', desc: 'Social Security' },

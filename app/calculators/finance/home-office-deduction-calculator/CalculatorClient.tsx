@@ -91,19 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Home Office Deduction Calculator USA 2026 — Actual vs Simplified" category="finance"
-          intro="The home office deduction is one of the most valuable and underused deductions for self-employed Americans. A 200 sq ft dedicated office in an 1,800 sq ft home qualifies 11.1% of all home expenses as business deductions. This calculator shows which method — actual or simplified — saves more for your specific situation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This calculator compares the IRS simplified home-office method with a limited actual-expense model for a self-employed person. The simplified method uses business square footage, while the modeled actual method allocates rent or mortgage and utilities by the office share of the home and treats 50% of entered internet cost as business use.'}
+          howItWorks={'Business-use percentage = office square feet ÷ total home square feet. Modeled actual deduction = (annual rent/mortgage + utilities) × business-use percentage + 50% of entered internet cost. Simplified deduction = $5 × allowable office square feet, capped at 300 square feet. The calculator displays the larger modeled amount. IRS eligibility rules still apply, including regular/exclusive business-use requirements in most cases, and the real regular method can include expense categories this model does not ask for.'}
+          tipsSection={'Enter only space that actually qualifies as business use. Do not interpret the larger modeled deduction as automatically allowable: gross-income limits, depreciation, direct expenses and the exact treatment of mortgage-related costs can change the tax result.'}
+          conclusion={'This is a comparison aid, not Form 8829. The code uses a fixed 32% rate only to illustrate possible tax impact; your actual marginal rate and allowable deduction may differ.'}
+          benefits={[{title:'Simplified-method amount',text:'$5 per qualifying square foot up to the 300-square-foot cap.'},{title:'Modeled actual amount',text:'Allocates the expense categories entered on this page by business-use percentage.'},{title:'Method comparison',text:'Shows which of the two modeled amounts is larger before tax-return limitations.'}]}
+          useCases={[{title:'Renter with a dedicated room',text:'Compare the square-foot method with a proportional share of annual rent and utilities.'},{title:'Small office under 300 sq ft',text:'See whether high housing costs make the modeled actual method larger than the simplified amount.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

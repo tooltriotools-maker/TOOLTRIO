@@ -91,18 +91,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Rent Increase Calculator USA 2026 — Stay or Move?" category="finance"
-          intro="When your landlord raises the rent, the move-or-stay decision comes down to simple math: is the total cost of moving (first month + last month + security deposit + moving truck + time lost) less than the total extra rent you'll pay over your next lease term? This calculator gives you the exact break-even point."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator compares the next 12 months of staying at an increased rent with moving to a specified alternative after one-time moving costs. It also shows how the increased rent compares with the market-rent estimate you enter."
+          howItWorks="New rent = current rent × (1 + increase%). Staying cost = new rent × 12. Moving cost = alternative rent × 12 + moving costs. Break-even months = moving costs ÷ absolute monthly rent difference. The current function receives lease months but still performs a 12-month cost comparison."
+          tipsSection="Include deposits or fees only when they are true economic costs rather than refundable transfers. Also consider commute, utilities, concessions and likely future increases. This calculator does not determine whether a rent increase complies with local law."
+          conclusion="The output identifies the cash-cost crossover under your assumptions. A small annual difference may not justify moving once nonfinancial costs and uncertainty are considered."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},
+            {title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

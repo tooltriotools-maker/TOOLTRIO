@@ -99,12 +99,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Vacation Rental ROI Calculator USA 2026 — Airbnb VRBO" category="finance" intro="Short-term rentals (Airbnb/VRBO) can generate 2-3x the income of long-term rentals in the right markets — but platform fees (15%), variable occupancy (50-70%), and STR regulations create significant complexity. This calculator models your exact cap rate, cash flow, and break-even occupancy point, helping you evaluate any STR investment against realistic revenue assumptions."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="Vacation Rental ROI Calculator USA 2026 — Airbnb VRBO" category="finance" intro="This calculator evaluates a short-term-rental scenario using property value, potential revenue, occupancy, platform fees, expenses and mortgage payment. It reports effective revenue, NOI, cash flow, cap rate, cash-on-cash return and break-even occupancy."
+          howItWorks="Effective revenue = potential revenue × occupancy × (1 − platform fee). NOI subtracts operating expenses; cash flow then subtracts 12 mortgage payments. Cash-on-cash assumes cash invested equals 25% of property value. The 10-year scenario assumes 4% annual appreciation."
+          tipsSection="The 25% down-payment basis and 4% appreciation are assumptions. STR licensing, lodging taxes, seasonality, cleaning, furnishing replacement, vacancy and management can materially change results."
+          conclusion="This is an investment-screening model, not a forecast or a determination that a property is legally eligible for short-term rental use."
+          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          useCases={[{title:"Decision support",text:"Model your situation."},{title:"Assumption testing",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

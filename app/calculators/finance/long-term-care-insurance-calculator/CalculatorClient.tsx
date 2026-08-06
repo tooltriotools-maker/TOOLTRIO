@@ -82,19 +82,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Long-Term Care Insurance Calculator USA 2026" category="finance"
-          intro="70% of Americans will need some form of long-term care after age 65 (HHS), and the average cost exceeds $100,000/year for nursing home care. Long-term care insurance protects against this catastrophic risk — but premiums have risen 50-100% over the past decade as insurers underestimated longevity. This calculator shows whether insurance makes financial sense for your situation."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This calculator is a simplified long-term-care insurance scenario model. It compares an entered daily benefit with a hard-coded $350 daily care-cost assumption, estimates an age-band premium, the cost of the elimination period, and a rough total policy benefit.'}
+          howItWorks={'Coverage gap = max($350 modeled daily care cost − selected daily benefit, 0). The code assigns an annual premium from fixed age bands rather than insurer underwriting. Elimination-period cost = $350 × selected waiting days. Total benefit value = daily benefit × 365 × benefit years, multiplied by 1.5 when inflation protection is selected. That 1.5 factor is a shortcut, not a contractual inflation-benefit schedule.'}
+          tipsSection={'Do not use the premium output as an insurance quote. Actual LTC pricing depends on age, health, sex, benefit design, inflation rider, elimination period, carrier and state. Compare actual policy illustrations and exclusions.'}
+          conclusion={'The page is best used to understand benefit-size and waiting-period tradeoffs. The $350 care-cost assumption, premium bands and inflation multiplier are ToolTrio assumptions and can differ materially from actual local costs and policy terms.'}
+          benefits={[{title:'Daily coverage gap',text:'Compare the selected daily benefit with the calculator’s $350 daily cost assumption.'},{title:'Waiting-period exposure',text:'Estimate the modeled care cost you would self-fund before benefits begin.'},{title:'Benefit pool',text:'See a rough benefit value from daily benefit × benefit period.'}]}
+          useCases={[{title:'Long elimination period',text:'See how a 90- or 180-day waiting period increases modeled self-funded care cost.'},{title:'Higher daily benefit',text:'Measure how increasing coverage reduces the modeled daily shortfall but does not generate a real insurer premium quote.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

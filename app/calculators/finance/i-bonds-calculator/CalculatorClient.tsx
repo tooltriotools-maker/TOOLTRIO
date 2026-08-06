@@ -13,8 +13,8 @@ interface Props { faqs: { question: string; answer: string }[]; relatedCalculato
 export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [purchaseAmount, setPurchaseAmount] = useState(10000)
   const [months, setMonths] = useState(24)
-  const [fixedRate, setFixedRate] = useState(1.3)
-  const [inflationRate, setInflationRate] = useState(3.11)
+  const [fixedRate, setFixedRate] = useState(0.90)
+  const [inflationRate, setInflationRate] = useState(1.67)
 
   const result = useMemo(() => {
     try {
@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="I-Bonds Calculator USA 2026 — Inflation-Protected Savings"
-      description="Calculate I-Bond value, composite rate, interest earned, and effective yield vs CDs and HYSAs. Updated for 2026 rates."
+      description="Estimate Series I savings bond value using the Treasury composite-rate formula, holding period, and early-redemption penalty. Defaults reflect May–October 2026 rates."
       icon="🏛️"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -60,7 +60,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Inflation Component (%)</label>
+            <label className="text-xs font-medium text-gray-600">Semiannual Inflation Rate (%)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               
               <input type="number" value={inflationRate} onChange={e => setInflationRate(Number(e.target.value))} step={0.01} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ I-Bonds Calculator USA 2026 — Inflation-Protected Savings — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Series I Savings Bonds offer guaranteed inflation protection through their composite rate — a fixed component plus a variable component that adjusts with CPI every six months. The $10,000 annual purchase limit makes them most useful as a savings diversifier, not a wealth-building vehicle. This calculator shows your exact I-Bond value and effective yield at any redemption point.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator estimates the value of a Series I savings bond using the fixed rate and semiannual inflation rate you enter. The defaults now reflect I bonds issued May–October 2026: 0.90% fixed rate and 1.67% semiannual inflation rate, which combine to the published 4.26% composite rate.</p>
               </Card>
             </>
           ) : (
@@ -96,18 +96,18 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="I-Bonds Calculator USA 2026 — Inflation-Protected Savings"
           category="finance"
-          intro="Series I Savings Bonds offer guaranteed inflation protection through their composite rate — a fixed component plus a variable component that adjusts with CPI every six months. The $10,000 annual purchase limit makes them most useful as a savings diversifier, not a wealth-building vehicle. This calculator shows your exact I-Bond value and effective yield at any redemption point."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator estimates the value of a Series I savings bond using the fixed rate and semiannual inflation rate you enter. The defaults now reflect I bonds issued May–October 2026: 0.90% fixed rate and 1.67% semiannual inflation rate, which combine to the published 4.26% composite rate."
+          howItWorks="The Treasury composite-rate formula is fixed rate + (2 × semiannual inflation rate) + (fixed rate × semiannual inflation rate). The model compounds that annualized composite rate semiannually and subtracts three months from the earning period when the holding period is under five years. Real I-bond rates reset every six months, so projecting one current composite rate unchanged for years is only a scenario."
+          tipsSection="I bonds cannot be redeemed during the first 12 months. If redeemed before five years, Treasury deducts the last three months of interest. The electronic annual purchase limit is $10,000 per Social Security number; the federal-refund paper I-bond purchase program has ended."
+          conclusion="Use the projection for a current-rate scenario and verify the bond's actual issue-date rate history on TreasuryDirect before making a redemption or purchase decision."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Results follow the calculation methodology and assumptions explained on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}
           useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
+            { title: "Personal Planning", text: "Use the calculator inputs to test a concrete planning scenario." },
+            { title: "Scenario Comparison", text: "Compare the result after changing the input that matters to this calculation." },
           ]}
         />
         <InternalLinks

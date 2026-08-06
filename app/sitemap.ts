@@ -150,6 +150,8 @@ const financeCalcsUSA = [
   'stock-option-vesting-calculator', 'stock-split-calculator', 'syndication-k1-tax-calculator', 'tax-deferral-benefit-calculator', 'tax-efficient-withdrawal-calculator',
   'tax-exempt-bond-comparison-calculator', 'tax-free-savings-optimizer', 'tax-loss-harvesting-portfolio-calculator', 'tips-vs-nominal-bonds-calculator', 'trust-fund-growth-calculator',
   'umbrella-insurance-calculator', 'vacation-rental-roi-calculator', 'variable-annuity-fee-calculator', 'wage-garnishment-calculator', 'wedding-budget-calculator',
+  // Auto-audited indexable finance routes previously missing from sitemap
+  'buy-vs-lease-vehicle-calculator', 'cap-rate-calculator', 'car-affordability-calculator', 'cd-vs-hysa-vs-money-market-calculator', 'conforming-loan-limit-calculator', 'credit-card-annual-fee-calculator', 'crypto-profit-loss-tracker', 'early-mortgage-payoff-calculator', 'forbearance-cost-calculator', 'freelance-income-tax-calculator', 'gold-vs-stocks-calculator', 'loan-origination-fee-calculator', 'mortgage-recast-calculator', 'mortgage-vs-rent-calculator', 'net-worth-tracker', 'paycheck-contribution-optimizer', 'personal-finance-score-calculator', 'real-estate-syndication-calculator', 'renters-insurance-calculator', 'roth-conversion-tax-calculator', 'savings-goal-planner-calculator', 'savings-rate-fire-calculator', 'social-security-timing-optimizer', 'spy-vs-bitcoin-portfolio-calculator', 'ss-vs-private-pension-calculator', 'student-loan-forbearance-calculator', 'tax-bracket-optimizer', 'vesting-schedule-calculator',
 ]
 
 // ── India Finance ─────────────────────────────────────────────────────────────
@@ -265,6 +267,7 @@ const funTools = [
   'screen-time-calculator', 'calories-in-beer', 'pizza-calculator', 'workout-excuse-generator', 'procrastination-score',
   'emoji-translator', 'text-to-morse', 'pig-latin-converter', 'uwu-text-generator', 'compliment-generator',
   'shakespeare-insult-generator', 'fortune-cookie', 'would-you-rather', 'trivia-quiz', 'random-fact-generator',
+  'insult-generator',
 ]
 
 // ── ZIP tools (ALL 35) ────────────────────────────────────────────────────────

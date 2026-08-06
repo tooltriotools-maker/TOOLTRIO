@@ -115,12 +115,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Equity Indexed Annuity Calculator USA 2026 — EIA Returns" category="finance" intro="Equity-indexed annuities promise the best of both worlds — stock market upside with principal protection. The reality: participation rates (70-90%) and cap rates (7-10%) significantly limit your gains in strong markets, while the floor (usually 0%) prevents losses. This calculator shows exactly how an EIA performs vs a simple CD or stock index fund at any assumed market return."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="Equity Indexed Annuity Calculator USA 2026 — EIA Returns" category="finance" intro="This model isolates the mechanics of an indexed-annuity crediting formula: an assumed index return is multiplied by a participation rate, then constrained by a cap and floor. It is useful for seeing how those contract levers can change credited growth, not for reproducing a specific insurer contract."
+          howItWorks="Each modeled year uses credited rate = min(cap rate, max(floor rate, index return × participation rate)). That credited rate compounds the premium for the selected years. The page also compounds two fixed comparison scenarios—5% for the CD column and 10% for the stock column—so those are illustrations, not live market quotes."
+          tipsSection="Focus on the cap, participation rate and floor together. A high index-return assumption may not reach the account because the cap can bind. Real indexed annuities can use different index periods, spreads, participation formulas, surrender schedules and riders, none of which are reproduced here."
+          conclusion="Use the result to understand crediting mechanics and sensitivity, then compare it with the actual insurer illustration and contract. Indexed annuities are insurance products; the modeled floor does not represent a government guarantee or eliminate contract and liquidity risks."
+          benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          useCases={[{title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},{title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

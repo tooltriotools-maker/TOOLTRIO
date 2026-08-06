@@ -16,7 +16,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [hasTrust, setHasTrust] = useState(0)
 
   const result = useMemo(()=>{
-    try{return calculateEstateProbate(estateValue, 'CA', 'Los Angeles County', estateValue > 0, hasTrust > 0)}catch(e){return null}
+    try{return calculateEstateProbate(estateValue, 'CA', hasWill > 0, hasTrust > 0)}catch(e){return null}
   },[estateValue, hasWill, hasTrust])
 
   return (
@@ -72,20 +72,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Estate Probate Cost Calculator USA 2026 — Avoid Probate" category="finance"
-          intro="Probate is the court-supervised process for distributing assets after death. In California, it can cost 4%+ of the gross estate and take 18+ months. A revocable living trust eliminates probate entirely — and at $3,500 setup cost vs $30,000+ in probate fees on a typical estate, it's one of the clearest financial planning decisions available."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+        <SEOContent
+          title="Estate Probate Cost Calculator" category="finance"
+          intro="This page estimates probate cost under the calculator’s California scenario and compares that modeled cost with a simple living-trust scenario."
+          howItWorks="The current UI passes California to a lookup that assigns a 4% probate-cost rate. Without a trust, the model adds either $5,000 when a will is selected or $15,000 without a will. With a trust, modeled probate cost is zero and a $3,500 setup cost is used."
+          tipsSection="Worked example: Example: an $850,000 estate with a will and no trust produces a model cost of 4% of the estate plus $5,000. This is a ToolTrio planning estimate, not California statutory probate-fee computation."
+          conclusion="Important assumptions and limitations: Probate fees, court procedures, small-estate thresholds, property passing outside probate and attorney/executor compensation depend on state law and estate facts. A living trust also avoids probate only for assets properly transferred to it."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

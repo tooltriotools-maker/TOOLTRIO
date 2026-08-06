@@ -101,14 +101,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Business Valuation Calculator USA 2026 — EBITDA & DCF" category="finance"
           intro="Business valuation uses three primary methods: EBITDA multiple (most common for small-to-mid businesses), revenue multiple (early-stage or high-growth), and DCF (discounted cash flow, for stable businesses). This calculator shows all three valuations and calculates your equity value after accounting for debt and cash."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
+          howItWorks="The current page uses EBITDA multiple valuation as its primary method: enterprise value = EBITDA × entered industry multiple. It also displays a revenue-multiple cross-check using 30% of that multiple and a simplified 10-year growth-rate annuity calculation labeled DCF. Equity value subtracts debt and adds cash, while seller proceeds assume 15% transaction leakage. These are screening estimates; a professional valuation would normalize earnings, select defensible comparables, model cash flows and discount rates, and address working capital and deal terms."
           tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
+          benefits={[{title:"EBITDA multiple",text:"Estimate enterprise value by multiplying entered EBITDA by the selected multiple."},{title:"Equity bridge",text:"Convert enterprise value to modeled equity value by subtracting debt and adding cash."},{title:"Cross-checks",text:"Compare the primary EBITDA result with the calculator's simplified revenue and cash-flow valuation outputs."}]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
             {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},

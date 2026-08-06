@@ -115,7 +115,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🪜 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">A Roth conversion ladder converts pre-tax IRA money to Roth over multiple years, paying tax at today's rates to avoid higher taxes later. It's especially powerful for early retirees in low-income years before Social Security and RMDs kick in — often in the 12% or 22% bracket vs potentially 28%+ later.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator models a planned series of Traditional IRA-to-Roth conversions before retirement. It compares tax paid on the conversions with a simplified no-conversion case, then projects Roth and remaining pre-tax balances at the return rate you enter.</p>
               </Card>
             </>
           ):(
@@ -125,18 +125,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Roth Conversion Ladder Calculator USA 2026" category="finance"
-          intro="A Roth conversion ladder converts pre-tax IRA money to Roth over multiple years, paying tax at today's rates to avoid higher taxes later. It's especially powerful for early retirees in low-income years before Social Security and RMDs kick in — often in the 12% or 22% bracket vs potentially 28%+ later."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator models a planned series of Traditional IRA-to-Roth conversions before retirement. It compares tax paid on the conversions with a simplified no-conversion case, then projects Roth and remaining pre-tax balances at the return rate you enter."
+          howItWorks="The model converts the annual amount until retirement or until the starting IRA balance has been allocated. Tax paid now equals converted dollars × current tax rate. Both converted and unconverted amounts are then grown at the entered return rate; remaining pre-tax money is charged the entered retirement tax rate for the comparison. The projection does not model changing tax brackets, RMDs, Medicare IRMAA, Social Security taxation, or the separate five-year distribution rules."
+          tipsSection="Use the annual conversion input as a scenario variable, not a recommended amount. A conversion can raise taxable income and affect other tax items, so compare the calculator with an actual tax projection before executing a conversion."
+          conclusion="The output is a simplified tax-rate comparison, not a prediction of lifetime tax savings. Roth conversions are taxable events and the best conversion schedule depends on your full return and retirement-income picture."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},
+            {title:"Scenario Comparison",text:"Compare the result after changing the input that matters to this calculation."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

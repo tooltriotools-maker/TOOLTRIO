@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Contributionamount</label>
+            <label className="text-xs font-medium text-gray-600">Cash Contribution</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={contributionAmount} onChange={e=>setContributionAmount(Number(e.target.value))} step={2500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -29,7 +29,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Appreciatedstockbasis</label>
+            <label className="text-xs font-medium text-gray-600">Stock Tax Basis</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={appreciatedStockBasis} onChange={e=>setAppreciatedStockBasis(Number(e.target.value))} step={1000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -37,7 +37,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Currentmarketvalue</label>
+            <label className="text-xs font-medium text-gray-600">Stock Market Value</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={currentMarketValue} onChange={e=>setCurrentMarketValue(Number(e.target.value))} step={2500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -45,7 +45,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Taxrate</label>
+            <label className="text-xs font-medium text-gray-600">Federal Marginal Tax Rate</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={taxRate} onChange={e=>setTaxRate(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -53,7 +53,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Annualgrantpercent</label>
+            <label className="text-xs font-medium text-gray-600">Annual Grant Rate</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={annualGrantPercent} onChange={e=>setAnnualGrantPercent(Number(e.target.value))} step={0.5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -72,14 +72,19 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Years of Giving" value={result?`${Number(result.yearsOfGiving)} yrs`:"-"} />
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🎁 Donor-Advised Fund Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">Understanding these results</h2><p className="text-sm text-gray-600">Compare a cash contribution with a simplified donation of appreciated securities to a donor-advised fund (DAF). The model estimates a charitable-deduction value, assumed income-tax savings, avoided capital-gain tax, annual grants and hypothetical fund growth.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Donor-Advised Fund Calculator USA 2026" category="finance" intro="Donor-Advised Fund Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <SEOContent title="Donor-Advised Fund Tax Benefit Model" category="finance"
+          intro="Compare a cash contribution with a simplified donation of appreciated securities to a donor-advised fund (DAF). The model estimates a charitable-deduction value, assumed income-tax savings, avoided capital-gain tax, annual grants and hypothetical fund growth."
+          howItWorks="When current market value is above zero, the calculator treats that market value as the donated amount and estimates embedded gain as market value − basis. It assumes 20% capital-gain tax avoided, income-tax savings equal deduction value × entered tax rate, 6% annual fund growth for 10 years, and annual grants equal the initial deduction value × grant percentage."
+          tipsSection="The model does not test whether you itemize, AGI deduction limits, holding period, appraisal rules, excess-contribution carryforwards, NIIT, state tax, DAF fees or the sponsoring charity's policies. A DAF contribution is generally irrevocable and the sponsoring organization retains legal control of contributed assets; grants are recommendations subject to its rules."
+          conclusion="The useful comparison is the mechanics of donating cash versus appreciated property under the model. Actual deductibility and capital-gain treatment depend on the asset, donor, recipient organization and tax rules, so verify the transaction before contributing."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"Appreciated-stock contribution — Model stock worth $50,000 with a $15,000 basis, a 35% marginal income-tax input and a 5% annual grant rate.",result:"The calculator uses $50,000 as the deduction value, models $35,000 of embedded gain at a 20% capital-gain rate, and separately estimates income-tax savings from the entered 35% rate.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

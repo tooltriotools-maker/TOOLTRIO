@@ -1,13 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
-
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'HELOC Calculator USA 2026 — Home Equity Line of Credit | ToolTrio',
   description: 'Calculate HELOC payments, draw period interest, repayment costs and compare against cash-out refinance.',
@@ -18,20 +11,12 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
-  {
-    question: 'What is the HELOC limit in 2026?',
-    answer: 'Most lenders allow up to 85% combined LTV (CLTV), meaning your mortgage plus HELOC cannot exceed 85% of your home value. With a $450,000 home and $250,000 mortgage, the max HELOC is $132,500. Rates in 2026 are tied to the Prime Rate; the average HELOC rate is approximately 8.5–9.5% APR.',
-  },
-  {
-    question: 'How does a HELOC draw period work?',
-    answer: 'During the draw period (typically 10 years), you can borrow up to your credit limit and pay interest-only on the amount drawn. After the draw period, you enter the repayment period (typically 10–20 years) where you pay principal + interest on the outstanding balance.',
-  },
-  {
-    question: 'HELOC vs cash-out refinance — which is better?',
-    answer: 'HELOC: flexible, lower closing costs (~$500–$1,500), variable rate. Cash-out refi: fixed rate, replaces entire mortgage, higher closing costs (2–5% of loan). Choose HELOC for short-term or flexible needs; cash-out refi for large stable amounts or when current mortgage rate is higher than new rates.',
-  }
+  { question: 'How does this calculator estimate available HELOC credit?', answer: 'It multiplies home value by your entered credit-limit percentage and subtracts the current mortgage balance. Lenders can use different combined-LTV limits and underwriting rules.' },
+  { question: 'Why is the draw-period payment interest-only?', answer: 'The model assumes the drawn balance only pays monthly interest during the draw period: draw amount × APR ÷ 12.' },
+  { question: 'What happens when the repayment period starts?', answer: 'The calculator amortizes the entered draw amount over the repayment years, so the modeled payment includes principal and interest and is usually higher than the interest-only payment.' },
+  { question: 'Does the model handle a variable HELOC rate?', answer: 'No. It holds your entered APR constant. CFPB notes HELOCs usually have variable rates, so real payments can change.' },
+  { question: 'What is the main risk of a HELOC?', answer: 'A HELOC is secured by your home. If payments become unaffordable and the debt is not repaid, the home can be at risk.' },
 ]
-
 const relatedCalculators = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏡', desc: 'Mortgage Calculator' },
   { name: 'Cash-Out Refinance vs HELOC', href: '/calculators/finance/cash-out-refinance-vs-heloc-calculator', icon: '🔄', desc: 'Cash-Out Refinance vs HELOC' },

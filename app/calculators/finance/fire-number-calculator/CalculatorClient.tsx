@@ -124,19 +124,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="FIRE Number Calculator USA 2026 — Financial Independence" category="finance"
-          intro="Your FIRE number is the portfolio size that generates enough investment returns to fund your lifestyle indefinitely. At a 4% safe withdrawal rate, you need 25x your annual expenses. This calculator shows exactly where you stand, how long until you reach financial independence, and what adjustments would accelerate your timeline."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This FIRE calculator estimates the portfolio required to support inflation-adjusted annual spending at your chosen withdrawal rate, then projects whether current investments plus annual savings can reach that target by the retirement age you enter.'}
+          howItWorks={'Years to FIRE = retirement age − current age. Future annual expenses = today’s expenses × (1 + 3%)^years because this implementation passes a fixed 3% inflation assumption. FIRE number = future expenses ÷ withdrawal rate. The portfolio projection compounds the entered expected return and adds annual savings each year.'}
+          tipsSection={'For example, $60,000 of current annual spending becomes about $80,635 after 10 years at the model’s 3% inflation assumption. At a 4% withdrawal rate, the corresponding target is about $2.02 million. Changing inflation, return, savings and withdrawal assumptions can materially change the result.'}
+          conclusion={'A FIRE number is a scenario target, not a guarantee that a portfolio will last indefinitely. Taxes, fees, sequence-of-returns risk, healthcare costs and changing spending are not fully modeled.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

@@ -74,9 +74,21 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="2026 Income Tax Estimator USA — All Income Sources" category="finance" intro="Estimate your complete 2026 federal income tax from all sources — wages, self-employment, investments — and see your refund or amount owed." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="2026 Federal Income Tax Estimator" category="finance"
+          intro="Combines wages, self-employment income and other income, subtracts a standard-or-entered deduction, calculates progressive federal income tax, adds simplified self-employment tax, subtracts credits and compares the result with withholding."
+          howItWorks="AGI starts with total entered income less half of modeled self-employment tax. Taxable income then subtracts the larger of the filing-status standard deduction or entered deductions. Progressive 2026 brackets are applied to taxable income before credits and withholding."
+          tipsSection="Worked example — Example: $85,000 wages plus $5,000 other income is first reduced by the applicable deduction; only the portions falling inside each bracket are taxed at that bracket’s rate."
+          conclusion="Important assumptions and limitations — This is a simplified federal estimate. It does not model every adjustment, credit, capital-gain rate, NIIT, Additional Medicare Tax, QBI rule or state tax. Self-employment tax also needs wage-base coordination when wages and SE earnings coexist."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

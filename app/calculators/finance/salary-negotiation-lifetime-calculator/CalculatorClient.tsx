@@ -67,9 +67,9 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Salary Negotiation Lifetime Impact Calculator USA 2026" category="finance" intro="Calculate the true lifetime financial impact of a salary negotiation — earnings compound over a 30-year career." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Salary Negotiation Lifetime Impact Calculator USA 2026" category="finance" intro="Measure how a higher starting salary can compound when future percentage raises are applied to both salary paths. It turns a one-time negotiation difference into a multi-year earnings comparison." howItWorks="Immediate raise = negotiated salary − current salary. For each future year, the calculator grows that difference by the annual raise rate and sums it through the selected career horizon. The 10-year result uses the same compounding method. The retirement benefit field is only the salary difference multiplied by your entered retirement-savings multiple." tipsSection="Use the same raise assumption only if you intentionally want a controlled comparison. Promotions, job changes, bonuses, equity, layoffs, taxes and inflation are outside this model. The displayed total lifetime value adds modeled extra salary and the simple retirement-benefit amount; it does not include investment growth on saved raises." conclusion="This tool quantifies one compensation scenario and should not be read as a forecast of future employment income."
+          benefits={[{title:"Method",text:"Explains the calculation actually used on this page."},{title:"Inputs",text:"Shows which assumptions drive the result."},{title:"Limits",text:"Calls out important exclusions and simplifications."}]}
+          useCases={[{title:"Scenario planning",text:"Compare realistic input combinations."},{title:"Decision support",text:"Understand the trade-offs behind the outputs."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

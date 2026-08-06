@@ -107,12 +107,13 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Savings Goal Planner Calculator USA 2026 — Reach Any Financial Goal" category="finance" intro="A savings goal planner turns an abstract target into a concrete monthly action plan. Whether saving for a down payment, emergency fund, vacation, or any other goal, this calculator shows how long you'll take at your current savings rate, how much you need monthly to hit your target on schedule, and how much of the final amount comes from interest earned."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Runs locally in your browser."},{title:"Free Forever",text:"No signup required."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+        <SEOContent title="Savings Goal Planner Calculator USA 2026 — Reach Any Financial Goal" category="finance"
+          intro={'This planner answers two separate questions: what your current savings plan could grow to by the target date, and what monthly contribution would be needed to close any projected shortfall. It is useful for goals with a known dollar target such as a vehicle, home down payment, wedding, cash reserve, or major purchase.'}
+          howItWorks={'The calculator converts the annual return to a monthly rate and compounds both your current balance and each monthly deposit over the selected number of months. Projected value = current savings × (1+r)^n + monthly savings × ((1+r)^n − 1) / r. If projected value is below the goal, it solves for the additional monthly amount needed. The return is an assumption, not a guaranteed savings-account or investment rate.'}
+          tipsSection={'Use a return that matches where the money will actually be held and the risk you can accept before the goal date. A short-term cash goal should not automatically use a stock-market return. Recheck the target itself when prices change.'}
+          conclusion={'Interpret the projected balance and required monthly amount as planning estimates. The model assumes a constant return and regular end-of-period contributions; taxes, fees, withdrawals and changing rates are not modeled.'}
+          benefits={[{title:'Funding gap',text:'See the dollar shortfall between the modeled future balance and your target.'},{title:'Required monthly saving',text:'Estimate the contribution needed to reach the target within the chosen timeline.'},{title:'Interest contribution',text:'Separate your deposits from the modeled growth earned over the saving period.'}]}
+          useCases={[{title:'Down-payment deadline',text:'Test whether an existing balance plus monthly deposits can reach a specific home-purchase cash target.'},{title:'Shorter timeline',text:'See how moving a goal forward increases the monthly contribution required.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Mortgage Forbearance Impact Calculator USA 2026 | ToolTrio',
-  description: 'Calculate the true cost of mortgage forbearance including interest accrual during the pause and the long-term impact on total loan cost.',
+  title: 'Mortgage Forbearance Impact Calculator | ToolTrio',
+  description: 'Estimate missed payments, simple accrued interest and modeled lump-sum, deferral or modification outcomes after mortgage forbearance.',
   slug: 'mortgage-forbearance-impact-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['mortgage forbearance calculator','forbearance cost calculator','how forbearance affects mortgage','mortgage payment pause impact'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'Does interest still accrue during mortgage forbearance?', answer: 'Yes — forbearance pauses your required monthly payment, but interest generally continues to accrue on the outstanding balance during that period unless your specific program states otherwise. That accrued interest gets added back through a repayment plan, loan modification, or deferral once forbearance ends.' },
-  { question: 'How does forbearance get repaid after it ends?', answer: 'Common repayment options include a lump-sum payment, a repayment plan that adds a portion of the missed payments on top of your regular payment for a set period, or a loan modification/deferral that moves the missed amount to the end of the loan term — the option available depends on your servicer and loan type.' },
-  { question: 'Does forbearance hurt my credit score?', answer: 'If your loan servicer correctly reports the forbearance per federal guidance (as agreed and current, not delinquent) while you\'re enrolled, it generally should not directly damage your credit score — but confirm with your servicer, since reporting errors do happen and can affect your credit unfairly.' },
+  { question: 'Does mortgage forbearance erase missed payments?', answer: 'No. CFPB explains that forbearance temporarily pauses or reduces payments; the unpaid amount is still owed and must be resolved afterward.' },
+  { question: 'Will I always have to repay everything in one lump sum?', answer: 'No. Depending on the loan and servicer, options can include a repayment plan, deferral or partial claim, loan modification, or reinstatement. For many government-backed loans a lump sum cannot be required as the only option.' },
+  { question: 'How does this calculator estimate interest during forbearance?', answer: 'It uses simple interest on the original balance: balance × annual rate ÷ 12 × forbearance months. Your servicer’s actual accounting may differ.' },
+  { question: 'What does the modification scenario do?', answer: 'The model adds its calculated accrued interest to the balance and computes a new 30-year payment at the entered rate. It does not preserve the actual remaining term or model a specific agency modification program.' },
+  { question: 'Are escrow shortages included?', answer: 'No. Property taxes and insurance can affect the payment after forbearance, and CFPB notes escrow shortages may cause payments to rise. This model does not calculate that shortage.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏡', desc: 'Mortgage' },

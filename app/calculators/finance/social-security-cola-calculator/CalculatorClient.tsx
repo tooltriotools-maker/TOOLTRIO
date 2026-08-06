@@ -88,7 +88,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📈 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Social Security's COLA protection is worth hundreds of thousands of dollars over a 25-year retirement. A $2,200/month benefit grows to nearly $4,000/month at 2.6% annual COLA — a cumulative $124,000 more than a fixed benefit. No private annuity at standard pricing matches this inflation protection, making SS delay even more valuable.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator projects a monthly Social Security benefit under a constant annual COLA assumption. The official COLA applied to benefits payable in January 2026 is 2.8%; future COLAs are not known in advance, so the rate field is deliberately adjustable.</p>
               </Card>
             </>
           ):(
@@ -97,11 +97,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Social Security COLA Impact Calculator USA 2026" category="finance" intro="Social Security's COLA protection is worth hundreds of thousands of dollars over a 25-year retirement. A $2,200/month benefit grows to nearly $4,000/month at 2.6% annual COLA — a cumulative $124,000 more than a fixed benefit. No private annuity at standard pricing matches this inflation protection, making SS delay even more valuable."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+        <SEOContent title="Social Security COLA Impact Calculator USA 2026" category="finance" intro="This calculator projects a monthly Social Security benefit under a constant annual COLA assumption. The official COLA applied to benefits payable in January 2026 is 2.8%; future COLAs are not known in advance, so the rate field is deliberately adjustable."
+          howItWorks="For projection year i, monthly benefit = starting benefit × (1 + assumed COLA)^i. The tool sums 12 months of each projected benefit to estimate cumulative payments and compares that with a no-COLA baseline. It assumes the same COLA every year and does not model Medicare premium deductions or benefit taxation."
+          tipsSection="Use 2.8% when you specifically want to reproduce the 2026 increase, then test lower and higher long-run assumptions. Do not interpret the cumulative difference as guaranteed purchasing-power protection because actual inflation and future COLAs vary."
+          conclusion="SSA determines each annual COLA from CPI-W data. This page models a constant user-selected rate for planning; it does not predict future SSA COLAs."
+          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

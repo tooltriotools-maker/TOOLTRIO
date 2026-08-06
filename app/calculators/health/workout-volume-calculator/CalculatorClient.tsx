@@ -100,7 +100,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this workout volume calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>This calculator uses Sets per exercise, Reps per set, Exercises per session, Sessions per week, Volume Load, Weekly Tonnage, Weekly Sets, Est. Cals Burned to produce the displayed result. The output reflects the formula implemented by this tool and the values entered.</p>
+            <p>When comparing scenarios, change one input at a time. This makes it easier to understand which assumption is responsible for the change instead of treating the calculated value as a guaranteed outcome.</p>
+            <p>Review the units, measurement method, time horizon, and factors outside the calculator&apos;s inputs before relying on the result. For health-related outputs, an online calculation is educational and does not replace appropriate clinical assessment.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section documents use and limitations without changing the calculator&apos;s underlying formula.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

@@ -64,12 +64,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="State Tax Relocation Calculator USA 2026 — Save by Moving" category="finance"
-          intro="State income taxes are one of the most significant and most avoidable tax burdens for high earners. Moving from California (top rate 13.3%) or New York (top rate 10.9%) to no-income-tax states like Texas or Florida can save $20,000-$200,000+ annually depending on income level. This calculator shows your exact savings for any state-to-state move."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
+          intro="This page currently compares a California-to-Texas move using the state-tax model implemented in ToolTrio. It estimates tax on gross income after the entered deduction and shows the modeled difference; it does not establish residency, domicile, or tax liability for a particular taxpayer."
+          howItWorks="ToolTrio applies its stored state bracket table to taxable income (gross income minus the entered deduction) for California and Texas. The difference is a planning estimate only: credits, local taxes, sourcing rules, residency dates, capital-gain rules, and state-specific deductions are outside this simplified model."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

@@ -83,10 +83,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Conforming vs Jumbo Loan Calculator USA 2026" category="finance"
           intro="The 2026 conforming loan limit is $806,500. Above this, you're in jumbo territory with higher rates and stricter requirements. For most buyers, staying under the conforming limit (via larger down payment or lower purchase price) saves 0.25-0.75% annually in interest. This calculator shows exactly which loan category you're in and compares all four major loan types."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          howItWorks="The tool subtracts the down payment from home price to find the loan amount, compares a conventional loan with the 2026 baseline conforming limit, and calculates a 30-year principal-and-interest payment from the entered rate."
+          tipsSection="The 2026 one-unit baseline conforming loan limit is $832,750. FHFA permits higher limits in qualifying high-cost areas, up to $1,249,125 for most high-cost jurisdictions, so a loan flagged as jumbo here may still conform locally."
+          conclusion="PMI, FHA MIP and VA funding-fee outputs are simplified estimates. Actual mortgage-insurance pricing, FHA/VA eligibility, county limits, taxes, homeowners insurance and lender fees require lender/program-specific data."
+          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -53,7 +53,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Social Security benefits become partially taxable once your combined income exceeds $25,000 (single) or $32,000 (married). At higher incomes, up to 85% of your SS check is subject to ordinary income tax. Strategic Roth conversions before claiming and qualified charitable distributions after 70½ are the primary tools for reducing this hidden tax on retirement income.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">For federal tax purposes, combined income helps determine whether part of Social Security benefits may be taxable. This ToolTrio version is a simplified single-filer threshold screen: it does not reproduce the full IRS worksheet, so the displayed taxable percentage and flat-rate tax estimate should not be used as a tax-return calculation.</p>
               </Card>
             </>
           ):(
@@ -62,21 +62,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Social Security Benefits Tax Calculator USA 2026" category="finance"
-          intro="Social Security benefits become partially taxable once your combined income exceeds $25,000 (single) or $32,000 (married). At higher incomes, up to 85% of your SS check is subject to ordinary income tax. Strategic Roth conversions before claiming and qualified charitable distributions after 70½ are the primary tools for reducing this hidden tax on retirement income."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
-        />
+        <SEOContent title="Social Security Benefits Tax Calculator" category="finance"
+          intro="Estimate whether Social Security benefits cross the federal combined-income thresholds for a single filer. The current calculator adds other income to half of annual Social Security benefits and classifies the result into 0%, 50% or 85% taxable-benefit bands."
+          howItWorks="Combined income in this simplified model = other income + 50% of Social Security benefits. For the hard-coded single filing status, the first threshold is $25,000 and the upper threshold is $34,000. The code then labels 0%, 50% or 85% of all benefits as taxable and estimates tax at a flat 22% rate."
+          tipsSection="The IRS rules say up to 50% or up to 85% of benefits may be taxable; the exact taxable amount is calculated by a worksheet and is not simply 50% or 85% of the entire benefit as soon as a threshold is crossed. Tax-exempt interest can also enter the IRS calculation. Because this calculator currently uses a simplified band method and single filing status only, use it as a threshold screen rather than a tax-return calculation."
+          conclusion="The strongest output here is the combined-income threshold check. For an actual return, use the IRS Social Security benefits worksheet or Publication 915, especially near a threshold or when you have tax-exempt interest, married filing status or other adjustments."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"Single retiree threshold check — Enter $28,000 of annual Social Security and $40,000 of other income.",result:"The simplified combined-income figure is $54,000 ($40,000 + half of $28,000), which is above the single-filer upper threshold. The page flags the 85% band but explicitly does not claim that exactly 85% is taxable under the IRS worksheet.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}
         />

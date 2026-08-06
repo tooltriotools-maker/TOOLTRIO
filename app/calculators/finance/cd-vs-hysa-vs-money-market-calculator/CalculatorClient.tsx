@@ -106,7 +106,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏦 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">CD, HYSA, and Money Market funds are the three primary options for short-term cash savings in 2026 with rates near 4.5-5.1%. The right choice depends on your liquidity needs, expected rate movements, and after-tax return. This calculator compares all three side-by-side with tax impact included.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Compare a CD, high-yield savings account and money market fund over the same holding period using your own rates and marginal tax rate. The tool is most useful for quantifying how small yield differences translate into dollars while keeping liquidity differences visible.</p>
               </Card>
             </>
           ):(
@@ -116,11 +116,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="CD vs HYSA vs Money Market Fund Calculator USA 2026" category="finance"
-          intro="CD, HYSA, and Money Market funds are the three primary options for short-term cash savings in 2026 with rates near 4.5-5.1%. The right choice depends on your liquidity needs, expected rate movements, and after-tax return. This calculator compares all three side-by-side with tax impact included."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          intro="Compare a CD, high-yield savings account and money market fund over the same holding period using your own rates and marginal tax rate. The tool is most useful for quantifying how small yield differences translate into dollars while keeping liquidity differences visible."
+          howItWorks="Each option compounds the entered annual rate monthly for the CD term. Interest is ending value minus principal, and the calculator applies the same entered tax rate to all three interest amounts. It also shows a hypothetical CD early-withdrawal penalty equal to three months of interest."
+          tipsSection="Use current APYs/yields from the actual products you are comparing. The model holds each rate constant for the whole term even though HYSA and money-market yields can change, and actual CD penalties vary by institution."
+          conclusion="The highest modeled after-tax balance is not automatically the best choice. FDIC/NCUA coverage, money-market-fund investment risk, access needs, rate variability and CD penalties also matter."
+          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

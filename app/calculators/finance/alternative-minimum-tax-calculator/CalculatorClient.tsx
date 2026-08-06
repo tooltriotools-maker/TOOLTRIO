@@ -89,14 +89,10 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           title="Alternative Minimum Tax (AMT) Calculator USA 2026"
           category="finance"
           intro="The Alternative Minimum Tax is a parallel tax system designed to ensure high-income earners pay a minimum rate. For most people, AMT is invisible — but for those exercising ISO stock options or in specific high-income situations, it can trigger unexpected tax bills of tens of thousands of dollars. Knowing your AMT threshold before exercising ISOs is essential."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
+          howItWorks="The AMT model adds entered ISO preference income and other preference items to regular-tax income, subtracts the applicable modeled exemption after phaseout, then applies the AMT rates before comparing tentative minimum tax with a simplified regular-tax estimate. For 2026 the calculator uses a $90,100 single exemption, $140,200 joint exemption, phaseout starting at $500,000 single/$1,000,000 joint, and the 28% rate threshold of $244,500 for taxpayers other than married filing separately. The page UI currently calculates single filing status and approximates regular tax as 24% of entered regular-tax income, so Form 6251 can differ materially."
           tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
+          benefits={[{title:"ISO preference exposure",text:"Add the bargain element entered for exercised incentive stock options to modeled AMTI."},{title:"2026 exemption phaseout",text:"Apply the 2026 AMT exemption and 25%-of-excess phaseout before computing tentative minimum tax."},{title:"AMT estimate",text:"Compare tentative minimum tax with the calculator's simplified regular-tax estimate; use Form 6251 for filing."}]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
             { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },

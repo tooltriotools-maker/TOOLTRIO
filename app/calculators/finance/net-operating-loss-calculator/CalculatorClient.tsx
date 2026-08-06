@@ -1,11 +1,9 @@
 'use client'
 import {useState,useMemo} from 'react'
-import {AreaChart,Area,XAxis,YAxis,CartesianGrid,Tooltip,ResponsiveContainer} from 'recharts'
 import {CalculatorLayout} from '@/components/ui/CalculatorLayout'
 import {InternalLinks} from '@/components/ui/InternalLinks'
 import {Card,ResultCard} from '@/components/ui/Card'
 import {FAQSection} from '@/components/ui/FAQSection'
-import {SEOContent} from '@/components/ui/SEOContent'
 import { calculateNetOperatingLoss } from '@/lib/calculations/finance'
 interface Props{faqs:{question:string;answer:string}[];structuredData:object[];relatedCalculators?:{name:string;href:string;icon:string;desc:string}[]}
 export default function CalculatorClient({faqs,structuredData,relatedCalculators}:Props){
@@ -52,9 +50,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Net Operating Loss (NOL) Calculator USA 2026" category="finance" intro="Calculate your Net Operating Loss, immediate tax offset, carry-forward amount, and present value of future income shielding." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <div className="space-y-6 text-sm text-gray-700 leading-7">
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">How the NOL estimate works</h2><p>This simplified model starts with a business loss and subtracts positive other income to estimate the portion of the loss that remains after the current year. That remainder is shown as a potential net operating loss carryforward. Under the general post-2020 rule, most nonfarming NOLs are carried forward rather than back.</p><p className="mt-3">The 80% rule applies when a post-2017 NOL is deducted in a future year: the deduction is generally limited to 80% of taxable income computed under the statutory rules. It does <em>not</em> mean only 80% of the NOL survives. Accordingly, the calculator now carries forward the full modeled NOL and labels the 80% figure as a future-year usage limitation.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Understanding the inputs</h2><p><strong>Business loss</strong> should represent the loss you want to test, not automatically the NOL reported on a return. <strong>Other income</strong> is used only as a simplified offset in this model. Actual NOL computation modifies taxable income for items such as nonbusiness deductions and capital losses. <strong>Prior-year tax</strong> is relevant only to the calculator’s farming-loss carryback illustration; most taxpayers cannot carry a new NOL back.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Worked example</h2><p>With an $85,000 modeled business loss and $45,000 of other income, this simplified approach leaves a $40,000 potential NOL carryforward. If a later year had $50,000 of taxable income before the NOL deduction, an 80% limitation would cap the post-2017 NOL deduction at $40,000 for that year, subject to the full tax rules.</p></Card>
+          <Card><h2 className="text-xl font-black text-gray-900 mb-3">Important tax limitations</h2><p>This tool cannot reproduce Form 172 or determine an allowable NOL from return-level data. Excess business loss rules, entity type, capital gains and losses, QBI-related adjustments, pre-2018 NOLs, farming losses, and insurance-company rules can change the result. Use the estimate for planning and verify a filing position with the applicable IRS forms or a tax professional.</p><p className="mt-3"><strong>Primary source:</strong> <a className="text-green-700 underline" href="https://www.irs.gov/instructions/i172" target="_blank" rel="noreferrer">IRS Instructions for Form 172</a>.</p></Card>
+        </div>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

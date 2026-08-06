@@ -81,7 +81,19 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this heart rate variability calculator</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The calculator uses Average RMSSD (ms), Age, Resting Heart Rate, Readiness, HRV vs Expected, Expected RMSSD, Recovery. Its output is based on the formula implemented by this tool and the values you provide.</p>
+            <p>When comparing scenarios, change one assumption at a time and compare Heart Rate Variability (HRV) Calculator, Average RMSSD (ms), Age, Resting Heart Rate, Readiness, HRV vs Expected, Expected RMSSD. This makes it easier to identify which input is responsible for the change instead of treating the result as a prediction.</p>
+            <p>Check the units and time period before relying on the output. Real-world outcomes can differ when relevant taxes, fees, eligibility requirements, measurement error, market changes, or other factors are outside the calculator&apos;s inputs.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this explanation documents the calculator&apos;s use and limitations without changing its underlying calculation.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

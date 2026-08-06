@@ -99,7 +99,27 @@ Verify in Markdown Preview. Always preview the generated table in [Markdown Prev
 Large tables are hard to maintain. Markdown tables over 5 columns become unreadable in source. Consider an HTML table inside a Markdown file for complex data.`}
         conclusion={`Markdown tables require consistent column counts and exact pipe alignment. This generator handles the formatting so you focus on the data. Preview output with [Markdown Preview](/calculators/dev/markdown-preview) and edit data with [CSV to JSON](/calculators/dev/csv-to-json).`}
       />
-            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+            <div className="mt-8 space-y-3">{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Using the markdown table gen result</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Interpret the output together with the values entered in the calculator. The result is based on the calculator&apos;s implemented calculation and the values supplied.</p>
+            <p>For a useful comparison, change one input at a time while keeping the other assumptions constant. This makes the effect of each input easier to distinguish.</p>
+          </div>
+        </Card>
+      </div>
+
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Reviewing this markdown table gen</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Read the result together with the calculator inputs. The displayed value reflects the calculation implemented by this tool and the values supplied.</p>
+            <p>When comparing alternatives, change one input at a time while leaving the others unchanged. This helps identify which assumption is driving the difference.</p>
+          </div>
+        </Card>
+      </div>
+</div>
     </DevToolLayout>
     )
 

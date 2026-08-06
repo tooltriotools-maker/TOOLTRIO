@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Early Mortgage Payoff Calculator USA 2026 — Extra Payment Savings | ToolTrio',
   description: 'Calculate how much interest you save and how many years you shave off by making extra monthly or annual mortgage payments.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['early mortgage payoff calculator', 'extra mortgage payment calculator USA 2026', 'mortgage payoff accelerator', 'biweekly mortgage savings calculator', 'how to pay off mortgage early'],
 })
 const faqs = [
-  {
-    question: 'How much interest do extra mortgage payments save?',
-    answer: 'The savings are front-loaded — extra early payments save the most because they reduce the principal on which all future interest is calculated. On a $320,000 balance at 6.75% with 27 years remaining, adding $300/month saves approximately $87,000 in interest and pays off 6-7 years earlier. Every extra dollar paid reduces the principal balance immediately, saving 6.75% in annualized interest on that dollar for the remaining loan life.',
-  },
-  {
-    question: 'Should I pay off my mortgage early or invest?',
-    answer: 'At 6.75% mortgage rate: paying off the mortgage is a guaranteed 6.75% risk-free return. The S&P 500 has averaged 10% historically, but with significant volatility. Risk-adjusted, paying off a 6.75%+ mortgage is competitive with stock market returns for many investors, especially those near retirement. Under 4%: almost certainly better to invest. 4-6%: depends on risk tolerance. Above 6%: strong case for paying down mortgage, especially for risk-averse investors.',
-  },
-  {
-    question: 'What is the bi-weekly mortgage payment trick?',
-    answer: 'Making half your monthly payment every two weeks results in 26 half-payments = 13 full payments per year instead of 12. The 13th payment goes entirely to principal, saving approximately 4-5 years on a 30-year mortgage and $20,000-$40,000 in interest on a typical loan. Many lenders offer formal bi-weekly programs; you can also replicate it by adding 1/12th of your payment to each monthly payment.',
-  }
+  { question: 'How are extra payments applied in this calculator?', answer: 'The monthly extra is added to every scheduled payment, while the annual extra is applied every twelfth month. Both reduce principal in the accelerated schedule.' },
+  { question: 'Why do extra principal payments reduce interest?', answer: 'Mortgage interest is calculated from the outstanding balance. Reducing principal earlier lowers the balance on which later interest is calculated.' },
+  { question: 'Is paying extra equivalent to earning the mortgage rate?', answer: 'Not exactly. It avoids future interest at the loan rate, but liquidity, taxes, mortgage deductions and alternative investments make the economic comparison different from a guaranteed investment return.' },
+  { question: 'Does the model include prepayment penalties?', answer: 'No. Check your loan documents and servicer rules for any restrictions and confirm extra payments are applied to principal.' },
+  { question: 'Does this work for adjustable-rate mortgages?', answer: 'The calculation assumes the entered rate remains fixed for the remaining term, so it does not model future ARM rate resets.' },
 ]
 const relatedCalculators = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Mortgage Calculator' },

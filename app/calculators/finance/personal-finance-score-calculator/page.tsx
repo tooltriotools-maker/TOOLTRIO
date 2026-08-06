@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Personal Finance Score Calculator USA 2026 — Rate Your Financial Health | ToolTrio',
   description: 'Get a comprehensive 0-100 financial health score across savings rate, emergency fund, debt-to-income, retirement savings, and credit score.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['personal finance score calculator USA 2026', 'financial health score calculator', 'money management score', 'financial wellness calculator', 'how financially healthy am I USA'],
 })
 const faqs = [
-  {
-    question: 'How is the personal finance score calculated?',
-    answer: 'The score (0-100) measures five equally-weighted areas worth 20 points each: Savings Rate (target 15-20%+), Emergency Fund (target 3-6 months), Debt-to-Income Ratio (target under 20% non-mortgage), Retirement Savings (benchmark: 10x income × age/40), and Credit Score (target 750+). Each category is scored independently, then summed for a comprehensive financial health picture.',
-  },
-  {
-    question: 'What is a good personal finance score?',
-    answer: '85-100 (A): Excellent financial health — keep optimizing. 70-84 (B): Good health with specific areas to improve. 55-69 (C): Average — several meaningful gaps to address. 40-54 (D): Below average — requires focused attention on multiple fronts. Below 40 (F): Significant financial challenges — consider professional financial counseling. Most Americans score in the C-B range, with retirement savings and emergency fund being the most common weak points.',
-  },
-  {
-    question: 'What is the most important financial metric?',
-    answer: "Savings rate is the single most predictive metric for long-term financial outcomes — it determines both how fast you build wealth and how much you'll need at retirement. A 20% savings rate produces financial independence in roughly 37 years from a zero start (at 7% returns). A 50% savings rate achieves it in 17 years. No other single metric has as much leverage over your financial destiny.",
-  }
+  { question: "Is this the same as a credit score?", answer: "No. It is a ToolTrio planning score made from five household-finance inputs. It is not produced by a credit bureau or lender." },
+  { question: "How are the 100 points divided?", answer: "Savings, emergency reserves, debt, retirement savings and credit score can each contribute up to 20 points." },
+  { question: "Why does age affect the retirement component?", answer: "The calculator uses annual income multiplied by age/10 as its internal retirement-savings benchmark. That is a heuristic, not an official retirement rule." },
+  { question: "Can a high score mean I am financially secure?", answer: "Not necessarily. The model omits insurance, asset allocation, housing costs, dependents, taxes and many other household risks." },
+  { question: "What should I use the score for?", answer: "Use the component breakdown to see which modeled area changes most when you adjust your inputs." }
 ]
 const relatedCalculators = [
   { name: 'FIRE Number Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🔥', desc: 'FIRE Number Calculator' },

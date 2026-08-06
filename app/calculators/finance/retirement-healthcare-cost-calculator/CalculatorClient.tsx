@@ -14,11 +14,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [retirementAge, setRetirementAge] = useState(62)
   const [lifeExpectancy, setLifeExpectancy] = useState(85)
   const [healthStatusNum, setHealthStatusNum] = useState(2)
-  const [cobraMonths, setCobraMonths] = useState(18)
 
   const result = useMemo(()=>{
     try{return calculateHealthcareRetirementCost(retirementAge,65,lifeExpectancy,healthStatusNum===1?'fair':healthStatusNum===3?'excellent':'good',false)}catch(e){return null}
-  },[retirementAge, lifeExpectancy, healthStatusNum, cobraMonths])
+  },[retirementAge, lifeExpectancy, healthStatusNum])
 
   return (
     <CalculatorLayout title="Retirement Healthcare Cost Calculator USA 2026" description="Estimate total healthcare costs in retirement including pre-Medicare bridge coverage, Medicare premiums, out-of-pocket costs, and long-term care probability." icon="🏥" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="retirement-healthcare-cost-calculator">
@@ -49,14 +48,6 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
               
             </div>
           </div>
-          <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">COBRA Months</label>
-            <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
-              
-              <input type="number" value={cobraMonths} onChange={e=>setCobraMonths(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
-              <span className="text-gray-400 text-sm">months</span>
-            </div>
-          </div>
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {result ? (
@@ -81,11 +72,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Retirement Healthcare Cost Calculator USA 2026" category="finance" intro="Healthcare is consistently the most underestimated retirement expense. Retiring at 62 means 3 years of pre-Medicare insurance ($72,000+), then Medicare premiums and out-of-pocket costs through life. Add a 70% probability of needing long-term care ($350/day average), and the total healthcare retirement budget realistically needs to be $300,000-$600,000 per person."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
+        <SEOContent title="Retirement Healthcare Cost Calculator USA 2026" category="finance" intro="Estimate the healthcare reserve implied by ToolTrio's retirement model, separating years before Medicare eligibility, post-65 healthcare spending and an expected long-term-care component. The page is a scenario planner rather than an insurance-premium or Medicare-benefit quote."
+          howItWorks="The current function uses $24,000 per pre-Medicare year and $7,000 per post-Medicare year, adjusted by a health-status multiplier. It then adds an expected long-term-care amount based on $350 per day for 2.5 years multiplied by a modeled probability. These are internal planning assumptions, not CMS premium schedules or individualized long-term-care forecasts."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

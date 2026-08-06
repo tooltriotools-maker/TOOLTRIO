@@ -116,19 +116,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="DRIP Calculator USA 2026 — Dividend Reinvestment Plan" category="finance"
-          intro="DRIP investing turns dividend payments into more shares, which generate more dividends, which buy more shares — a compounding cycle that dramatically amplifies long-term returns. The difference between taking dividends as cash vs reinvesting can be 50-100% more wealth over 20+ years from the same initial investment."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This DRIP model shows how cash dividends can buy additional shares, which then participate in future dividends and price changes. It is designed for an investor who wants to compare automatic reinvestment with simply holding the original share count.'}
+          howItWorks={'For each modeled year, dividend per share grows by the dividend-growth input. Annual dividends equal current shares × dividend per share. With DRIP enabled, those dividends buy additional shares at the modeled share price before the next year. The share price then grows by the price-appreciation assumption. The comparison without DRIP keeps the original share count. Taxes, trading frictions, dividend timing and fractional-share rules are not modeled.'}
+          tipsSection={'Use conservative dividend-growth and price-growth assumptions. A company can cut or suspend its dividend, and a higher dividend yield does not guarantee a higher total return.'}
+          conclusion={'The output is a deterministic compounding scenario, not a forecast. It is most useful for understanding the mechanics of reinvestment and the sensitivity to dividend and share-price growth assumptions.'}
+          benefits={[{title:'Share accumulation',text:'Track how reinvested distributions increase the modeled share count.'},{title:'DRIP benefit',text:'Compare the final modeled value with holding only the original shares.'},{title:'Dividend stream',text:'See annual modeled dividends as both the dividend per share and share count evolve.'}]}
+          useCases={[{title:'Dividend-growth stock',text:'Test how a rising dividend can accelerate share accumulation over a long holding period.'},{title:'No-reinvestment comparison',text:'Quantify the model difference between reinvesting distributions and leaving the original share count unchanged.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

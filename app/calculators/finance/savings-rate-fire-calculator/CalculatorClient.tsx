@@ -80,13 +80,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Savings Rate to FIRE Calculator USA 2026" category="finance"
-          intro="Your savings rate determines your financial independence timeline more than any other variable — including investment returns. Moving from 10% to 50% savings rate can cut your working years in half. This calculator shows exactly how many years each savings rate scenario takes, making the trade-off between spending today and freedom tomorrow concrete."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+        <SEOContent
+          title="Savings Rate to FIRE Calculator" category="finance"
+          intro="This tool turns income, spending, current investments and an assumed portfolio return into a savings rate, a 25×-expenses FIRE target, and an estimated time to reach it."
+          howItWorks="Savings rate = (income − expenses) ÷ income. The FIRE target is annual expenses ÷ 4%. The time estimate solves the monthly compound-growth equation using current savings plus monthly contributions. The scenario table recalculates both spending and the FIRE target at savings rates from 10% to 70%."
+          tipsSection="Worked example: Example: on $100,000 of income and $60,000 of annual spending, the savings rate is 40% and the 4% target is $1.5 million. A higher savings rate helps twice: more money is invested and the target falls because modeled spending is lower."
+          conclusion="Important assumptions and limitations: The 4% withdrawal rate and investment return are planning assumptions, not guarantees. Taxes, account type, inflation, fees and sequence-of-returns risk are not modeled."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

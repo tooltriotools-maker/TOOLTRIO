@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Insurance Needs by Life Stage Calculator USA 2026 | ToolTrio',
   description: 'Get a comprehensive insurance needs assessment based on your life stage — covering life, disability, umbrella, and long-term care priorities.',
@@ -17,6 +13,8 @@ const faqs: {question:string;answer:string}[] = [
   { question: 'How do insurance priorities change with age and family situation?', answer: 'Young singles typically prioritize disability insurance (protecting their income) over life insurance. Once you have a spouse, dependents, or a mortgage, life insurance to replace lost income and cover debts becomes critical. Later in life, priorities often shift toward umbrella liability coverage and long-term care planning as net worth grows.' },
   { question: 'How much life insurance coverage is generally recommended?', answer: 'A common guideline is 10-15 times your annual income, adjusted for outstanding debts (like a mortgage), years until children are financially independent, and existing savings — though the right amount depends heavily on your specific family\'s income replacement needs.' },
   { question: 'When should I consider umbrella insurance?', answer: 'Umbrella liability coverage becomes more important as your net worth grows beyond what your auto and homeowners liability limits would cover in a lawsuit — protecting assets you\'ve worked to build from being seized in a large liability judgment, typically for a relatively low annual premium.' },
+  { question: 'Are the coverage amounts insurer quotes?', answer: 'No. They are ToolTrio planning heuristics based on fixed life-stage multipliers and savings thresholds, not underwriting or premium quotes.' },
+  { question: 'Why does long-term-care consideration start after 50?', answer: 'That is a simple trigger built into this calculator, not an eligibility rule or recommendation about the best age to buy coverage.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Life Insurance Needs', href: '/calculators/finance/life-insurance-needs-calculator', icon: '🛡️', desc: 'Life Insurance Needs' },

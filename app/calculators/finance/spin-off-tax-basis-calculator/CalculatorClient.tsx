@@ -73,9 +73,21 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Spin-Off Tax Basis Calculator USA 2026" category="finance" intro="Calculate adjusted cost basis allocation between parent company and spin-off shares for tax purposes." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Spin-Off Tax Basis Calculator" category="finance"
+          intro="Allocates an existing stock cost basis between parent and spun-off shares using the allocation percentage you enter, then calculates per-share basis for each position."
+          howItWorks="Spin-off basis = original basis × entered allocation percentage. Parent basis is the remainder. Each allocated amount is divided by its respective share count to produce per-share basis. FMV fields are displayed for context but the entered allocation percentage controls the calculation."
+          tipsSection="Worked example — Example: an $18,000 original basis with a 35% spin-off allocation assigns $6,300 to the new shares and $11,700 to the parent before dividing by share counts."
+          conclusion="Important assumptions and limitations — Use the issuer’s tax-basis allocation materials and your broker records. Not every corporate separation is tax-free, and the calculator does not determine Section 355 qualification or derive the allocation percentage from FMV automatically."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

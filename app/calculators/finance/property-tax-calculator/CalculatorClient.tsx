@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[homeValue, exemptions])
 
   return (
-    <CalculatorLayout title="Property Tax Calculator USA 2026 — All 50 States" description="Estimate annual property tax, monthly escrow, effective rate, and appeal savings potential for any US state. Based on 2026 state average mill rates." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="property-tax-calculator">
+    <CalculatorLayout title="Property Tax Estimator — Texas Scenario" description="Estimate annual property tax and monthly escrow for this simplified Texas scenario using home value and an entered exemption." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="property-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -63,20 +63,30 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Property Tax Calculator USA 2026 — All 50 States" category="finance"
-          intro="Property tax is often the largest recurring homeownership cost after the mortgage — and one of the most misunderstood. Rates vary from 0.3% (Hawaii) to 2.5% (New Jersey) of assessed value annually. Homestead exemptions, assessment challenges, and timing of purchases can significantly reduce your property tax burden."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title="Property Tax Estimator — Texas Scenario"
+          category="finance"
+          intro="This page estimates a planning-level property-tax bill for the calculator's current Texas scenario. It starts with home value, applies the model's 85% assessment ratio, subtracts the entered homestead exemption, then applies its stored Texas effective-rate assumption. Property taxes are administered locally, so this is a scenario model—not a county tax bill or an all-50-state lookup."
+          howItWorks="The calculation is: Assessed value = home value × 85%. Taxable value = max(0, assessed value − exemption). Annual tax = taxable value × 1.81% for the current Texas model. Monthly escrow = annual tax ÷ 12. The displayed 'appeal savings' is simply 15% of estimated tax; it is a ToolTrio scenario assumption, not a prediction that an appeal will succeed."
+          tipsSection="Use the exemption amount from your actual appraisal/tax documents. Do not assume market value equals assessed value: appraisal methods, assessment caps, exemptions, taxing units and local rates differ by jurisdiction. The hard-coded 85% assessment ratio is the biggest limitation of this simplified model."
+          conclusion="Treat the result as a budgeting estimate. Verify assessed value, exemptions and adopted tax rates with the relevant county appraisal/tax authority before making a purchase, escrow or appeal decision."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
           ]}
+          caseStudy={{
+            title: "Texas homeowner budgeting example",
+            scenario: "A $450,000 home with a $50,000 entered exemption is modeled at an 85% assessed value: $382,500. Taxable value becomes $332,500.",
+            result: "At the calculator's 1.81% Texas rate, estimated annual tax is about $6,018, or about $502 per month.",
+            takeaway: "Actual Travis County-area bills combine multiple taxing units and may use different appraisal/exemption rules, so compare the estimate with the official property record."
+          }}
+          commonMistakes="Use the exemption amount from your actual appraisal/tax documents. Do not assume market value equals assessed value: appraisal methods, assessment caps, exemptions, taxing units and local rates differ by jurisdiction. The hard-coded 85% assessment ratio is the biggest limitation of this simplified model."
+          inlineLinks={[{ text: "Texas property tax is locally administered; use official appraisal and taxing-unit data.", href: "https://comptroller.texas.gov/taxes/property-tax/", label: "Texas Comptroller property-tax overview" }]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

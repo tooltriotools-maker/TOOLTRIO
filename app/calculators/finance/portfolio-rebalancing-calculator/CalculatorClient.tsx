@@ -90,7 +90,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">⚖️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Portfolio drift silently increases your risk exposure over time. A 70/30 stock/bond portfolio left unrebalanced for 5 years in a bull market may drift to 85/15 — taking on significantly more risk than you intended. This calculator shows your exact drift score, required trades, estimated tax cost, and the most tax-efficient rebalancing approach.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator converts current and target asset-allocation percentages into dollar trades for a portfolio value. It is designed to show where the portfolio is overweight or underweight and how large the modeled buy/sell trades would be.</p>
               </Card>
             </>
           ):(
@@ -99,10 +99,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Portfolio Rebalancing Calculator USA 2026" category="finance" intro="Portfolio drift silently increases your risk exposure over time. A 70/30 stock/bond portfolio left unrebalanced for 5 years in a bull market may drift to 85/15 — taking on significantly more risk than you intended. This calculator shows your exact drift score, required trades, estimated tax cost, and the most tax-efficient rebalancing approach."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+        <SEOContent title="Portfolio Rebalancing Calculator USA 2026" category="finance" intro="This calculator converts current and target asset-allocation percentages into dollar trades for a portfolio value. It is designed to show where the portfolio is overweight or underweight and how large the modeled buy/sell trades would be."
+          howItWorks="For each asset class, current dollars = current percentage × portfolio value and target dollars = target percentage × portfolio value. The difference becomes a buy or sell when it exceeds 1% of portfolio value. Drift score is the sum of absolute percentage-point differences. The tax estimate is only a rough assumption: it treats 20% of every taxable sale as gain and multiplies that gain by a hard-coded 22% tax rate from the current UI call."
+          tipsSection="Before selling in a taxable account, check cost basis and unrealized gains lot by lot. New contributions, dividends, or trades inside tax-advantaged accounts can sometimes move the allocation toward target without realizing taxable gains."
+          conclusion="The trade list is an allocation worksheet, not individualized investment or tax advice. It does not know your actual securities, tax lots, transaction costs, wash sales, or account types."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

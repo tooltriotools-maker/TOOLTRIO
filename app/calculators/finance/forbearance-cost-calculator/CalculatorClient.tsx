@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏠 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Mortgage forbearance pauses payments but never stops interest from accruing. On a $325,000 mortgage at 6.5%, 6 months of forbearance accrues $10,562 in interest that capitalizes onto your balance — permanently increasing all future interest and your monthly payment. This calculator quantifies the true long-term cost so you can make an informed decision.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Mortgage forbearance temporarily reduces or pauses required payments, but the way missed amounts are repaid depends on the loan and servicer. This calculator models one specific scenario in which interest accrues during the pause, is added to the balance, and the balance is re-amortized. Compare that scenario with the repayment or deferral options your servicer actually offers.</p>
               </Card>
             </>
           ):(
@@ -81,11 +81,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Mortgage Forbearance Cost Calculator USA 2026" category="finance" intro="Mortgage forbearance pauses payments but never stops interest from accruing. On a $325,000 mortgage at 6.5%, 6 months of forbearance accrues $10,562 in interest that capitalizes onto your balance — permanently increasing all future interest and your monthly payment. This calculator quantifies the true long-term cost so you can make an informed decision."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
+        <SEOContent title="Mortgage Forbearance Cost Calculator USA 2026" category="finance" intro="Mortgage forbearance temporarily reduces or pauses required payments, but the way missed amounts are repaid depends on the loan and servicer. This calculator models one specific scenario in which interest accrues during the pause, is added to the balance, and the balance is re-amortized. Compare that scenario with the repayment or deferral options your servicer actually offers."
+          howItWorks="This model estimates a hypothetical mortgage forbearance by accruing simple monthly interest on the starting balance for the selected pause, adding that amount to the balance, and re-amortizing the larger balance over the remaining months of a 30-year schedule. Real mortgage forbearance does not use one universal capitalization method: repayment, deferral, modification, or other options depend on the loan and servicer. Use the output as a scenario, then confirm the actual treatment with your servicer."
           tipsSection="Try multiple scenarios by changing one input at a time."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Runs locally in your browser."},{title:"Free Forever",text:"No signup required."}]}
+          benefits={[{title:"Accrued-interest scenario",text:"Estimate balance growth if interest is added during the modeled pause."},{title:"Re-amortized payment",text:"Compare the original modeled 30-year payment with a payment calculated on the larger balance over fewer remaining months."},{title:"Servicer-plan check",text:"Use the estimate to frame questions for your servicer; it is not a prediction of the repayment option you will receive."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -116,18 +116,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="College ROI Calculator USA 2026 — Is a Degree Worth It?" category="finance"
-          intro="The college ROI question is one of the most important financial decisions young Americans face. At $50,000+/year for private universities and 6.5% loan rates, the math matters. This calculator computes the net present value, payback period, and true ROI of your specific degree program — including the often-ignored opportunity cost of 4 years not working."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator compares the direct cost of a degree plus foregone earnings while studying with a simplified lifetime salary premium. It is most useful when you have program-specific net cost and realistic earnings estimates for both the degree and no-degree paths."
+          howItWorks="Opportunity cost = salary without degree × years in school. Total investment = degree cost + opportunity cost. Annual salary premium = salary with degree − salary without degree; lifetime premium multiplies that difference by work years. The NPV output discounts annual premiums at a fixed 5% rate and subtracts degree cost. The loan output assumes the full degree cost is financed for 10 years."
+          tipsSection="Use net price after grants rather than sticker price. Test lower starting salaries and incomplete-degree scenarios. The model holds the salary gap constant, so it does not capture different raise rates, unemployment, career switching or graduate school."
+          conclusion="A positive modeled NPV or ROI means the salary assumptions outweigh the modeled cost—not that enrollment is guaranteed to pay off. Program completion, debt burden and actual career outcomes remain central."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},
+            {title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
+
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Roth IRA Conversion Tax Calculator USA 2026 | ToolTrio',
   description: 'Calculate exact federal and state taxes on a Roth IRA conversion, find the optimal conversion amount to fill your current bracket, and model 30-year tax-free growth.',
@@ -14,18 +11,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['roth conversion tax calculator 2026', 'roth IRA conversion cost calculator', 'how much tax on roth conversion USA', 'roth conversion bracket filling', 'roth conversion optimal amount calculator'],
 })
 const faqs = [
-  {
-    question: 'How much tax do I pay on a Roth conversion?',
-    answer: 'Roth conversions are taxed as ordinary income in the year of conversion — added to your AGI. If your AGI is $75,000 and you convert $40,000, your total income becomes $115,000. The marginal rate on the conversion depends on which bracket the added income falls in. In this example, $23,200 of the conversion falls in the 22% bracket and the rest in the 24% bracket — a blended rate of approximately 22-23%.',
-  },
-  {
-    question: 'What is bracket-filling Roth conversion?',
-    answer: "Bracket-filling means converting only enough to 'fill up' your current bracket without spilling into the next. In 2026, the 22% bracket ends at $100,525 (single). If your AGI is $75,000, you have $25,525 of room in the 22% bracket. Converting $25,525 keeps you entirely in the 22% bracket; converting more pushes you to 24%. Optimal conversions target the lowest available brackets — often done during early retirement before Social Security and RMDs begin.",
-  },
-  {
-    question: 'When is the best time to do a Roth conversion?',
-    answer: 'Best times: (1) Years with unusually low income (between jobs, early retirement, year of large deductions). (2) Before age 73 when RMDs force taxable withdrawals. (3) Before Social Security begins at rates that raise provisional income. (4) After a market downturn — converting shares worth less means less tax for the same number of shares, and all the recovery happens tax-free in the Roth.',
-  }
+  { question: 'Why can a Roth conversion create current income tax?', answer: 'IRS guidance says untaxed amounts converted from a traditional IRA to a Roth IRA are generally included in income. Nondeductible basis can change the taxable portion.' },
+  { question: 'Does the 10% early-distribution tax apply just because I convert?', answer: 'A properly completed Roth conversion is generally not itself subject to the 10% additional tax, but amounts withheld or not rolled over can create different consequences.' },
+  { question: 'What filing status and state does this page model?', answer: 'The current ToolTrio UI passes single filing status and California to the calculation. Other filing statuses and states should not rely on this result as an exact tax estimate.' },
+  { question: 'Does the calculator handle nondeductible IRA basis?', answer: 'No. It does not perform the Form 8606 pro-rata calculation, so users with after-tax IRA basis need a more complete tax computation.' },
+  { question: 'What assumptions drive the long-term benefit result?', answer: 'The current function assumes 7% annual growth for 30 years and values future avoided tax at 24%. Those are planning assumptions, not guaranteed returns or future tax rates.' }
 ]
 const relatedCalculators = [
   { name: 'Roth Conversion Ladder', href: '/calculators/finance/roth-conversion-ladder-calculator', icon: '🪜', desc: 'Roth Conversion Ladder' },

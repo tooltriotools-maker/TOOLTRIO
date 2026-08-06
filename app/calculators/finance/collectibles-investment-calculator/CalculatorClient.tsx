@@ -63,14 +63,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Tax at 28%" value={result?`${Number(result.capitalGainsTax).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🎨 Collectibles Investment Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🎨 Collectibles Investment Calculator USA 2026</h2><p className="text-sm text-gray-600">The result separates modeled appreciation from recurring carrying costs and a 15% selling-fee assumption, so a high headline resale value does not automatically mean a high net return.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Collectibles Investment Calculator USA 2026" category="finance" intro="Collectibles Investment Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <SEOContent title="Collectibles Investment Calculator USA 2026" category="finance" intro="Estimate a collectible’s modeled resale economics after appreciation, recurring insurance/storage costs and a 15% selling-fee assumption." howItWorks="The code assigns a fixed annual appreciation assumption by category, compounds purchase price for the holding period, subtracts annual insurance and storage costs, and subtracts 15% of future value as a selling fee. ROI compares net profit with purchase price plus recurring costs. A separate tax estimate applies 28% to modeled appreciation." tipsSection="The category growth rates and 15% selling fee are ToolTrio assumptions, not market forecasts. Authentication, restoration, buyer premiums, dealer spreads, shipping, liquidity and provenance can materially change realized returns. IRS rules provide a maximum 28% rate for net long-term collectibles gain; your actual rate can be lower." conclusion="Treat projected appreciation as a scenario, not an expected return. Collectible prices can be volatile and sales can take time."
+          benefits={[{title:"Method",text:"Explains the calculation actually used on this page."},{title:"Inputs",text:"Shows which assumptions drive the result."},{title:"Limits",text:"Calls out important exclusions and simplifications."}]}
+          useCases={[{title:"Scenario planning",text:"Compare realistic input combinations."},{title:"Decision support",text:"Understand the trade-offs behind the outputs."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

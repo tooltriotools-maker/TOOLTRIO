@@ -73,10 +73,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="Retirement Healthcare Bridge Calculator USA 2026 — Before Medicare" category="finance" intro="The healthcare gap between early retirement and Medicare at 65 is one of the most expensive and underplanned retirement costs. Retiring at 62 means 36 months of coverage — COBRA at up to $1,800/month for a couple, or ACA marketplace at $500-$1,500/month. With strategic income management, ACA subsidies can dramatically reduce this cost. This calculator shows your exact bridge cost and HSA offset potential."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          howItWorks="This tool estimates the health-insurance gap between an early retirement age and Medicare eligibility. COBRA months are priced at 202% of the entered current premium; remaining bridge months use age-based ACA premium assumptions built into the calculator."
+          tipsSection="If retirement begins at 60 and Medicare begins at 65, the bridge is 60 months. Entering 18 COBRA months assigns the other 42 months to the calculator’s ACA scenario."
+          conclusion="Actual COBRA premiums, Marketplace premiums, premium tax credits and Medicare costs depend on plan, household income, location and eligibility. The calculator now uses the 2026 standard Part B premium of $202.90 in its long-range scenario, but future premiums will change."
+          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

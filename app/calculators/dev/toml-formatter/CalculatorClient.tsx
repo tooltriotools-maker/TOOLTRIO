@@ -95,7 +95,17 @@ export default function CalculatorClient({ faqs }: Props) {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed">TOML (Tom's Obvious Minimal Language) is a configuration file format used by Cargo (Rust), Hugo, Deno, and many other tools. Paste your TOML config into the left panel. Use Format mode to clean up spacing and consistency, or TOML → JSON to convert the config into JSON format (useful when integrating with JSON-based tooling). The converter handles strings, numbers, booleans, and arrays.</p>
         <p className="text-sm text-gray-600">Common TOML files: Rust's Cargo.toml (package manifest), Hugo's config.toml, pyproject.toml (Python packaging), Deno's deno.json, and various Rust/Go application configs. TOML's key advantage over YAML is its strict, unambiguous specification - no indentation-sensitive parsing.</p>
       </div>
-      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}</div>
+      <div className="mt-6 space-y-4" data-pdf-results>{faqs.map(f=><details key={f.question} className="rounded-2xl border p-4" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 16px rgba(15,23,42,0.04)'}}><summary className="font-semibold text-gray-900 cursor-pointer">{f.question}</summary><p className="text-gray-600 text-sm mt-3 leading-relaxed">{f.answer}</p></details>)}
+      <div className="mt-6">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding the toml formatter output</h2>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>The result should be read together with the values entered in the calculator. It reflects the calculator&apos;s implemented calculation and the assumptions represented by those inputs.</p>
+            <p>To compare alternatives clearly, change one value at a time and keep the other inputs unchanged. This helps identify which assumption is responsible for the difference in output.</p>
+          </div>
+        </Card>
+      </div>
+</div>
       <SEOContent
         title="TOML Formatter & Validator"
         category="dev"

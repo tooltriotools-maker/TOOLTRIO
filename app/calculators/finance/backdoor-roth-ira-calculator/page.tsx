@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Backdoor Roth IRA Calculator USA 2026 | ToolTrio',
-  description: 'Calculate taxes owed on backdoor Roth conversions, pro-rata rule impact, and 30-year tax-free growth. For high-income earners above Roth IRA limits.',
+  description: 'Estimate the taxable share of a backdoor Roth conversion under a simplified pro-rata calculation and see how existing IRA basis changes the result.',
   slug: 'backdoor-roth-ira-calculator',
   category: 'finance',
   region: 'usa',
@@ -19,17 +13,25 @@ export const metadata: Metadata = generateCalculatorMetadata({
 
 const faqs = [
   {
-    question: 'Who should do a backdoor Roth IRA?',
-    answer: 'High-income earners above the Roth IRA income limits ($150,000 single / $236,000 married in 2026) who want tax-free growth. The backdoor strategy: contribute $7,000 to a non-deductible Traditional IRA (no income limit), then immediately convert to Roth. If you have no other pre-tax IRA balances, the conversion is nearly tax-free.',
+    question: 'Who may consider a backdoor Roth contribution?',
+    answer: 'A backdoor Roth is commonly considered when income limits reduce or eliminate a direct Roth IRA contribution. For 2026, the direct Roth contribution phaseout is $153,000–$168,000 for single/head-of-household filers and $242,000–$252,000 for married filing jointly.',
   },
   {
     question: 'What is the pro-rata rule?',
-    answer: "The pro-rata rule requires you to treat all your Traditional IRA balances as one pool when converting. If you have $93,000 in pre-tax IRAs and $7,000 non-deductible, only 7% (7,000/100,000) of your conversion is tax-free. The fix: roll pre-tax IRA money into your employer's 401k before December 31, leaving only the non-deductible basis.",
+    answer: 'A Roth conversion is not automatically tax-free just because you made a nondeductible IRA contribution. The taxable and nontaxable portions generally depend on your IRA basis relative to aggregated IRA balances. Form 8606 is used to report nondeductible basis and conversions.',
   },
   {
-    question: 'Is the backdoor Roth still legal in 2026?',
-    answer: 'Yes — the backdoor Roth IRA remains legal. Congress has periodically considered eliminating it, but as of 2026 it remains a valid strategy. The $7,000 contribution limit ($8,000 if 50+) applies to the non-deductible Traditional IRA contribution.',
-  }
+    question: 'What is the 2026 IRA contribution limit?',
+    answer: 'The general IRA contribution limit for 2026 is $7,500, with an additional $1,100 catch-up for people age 50 or older, making $8,600. The limit is shared across Traditional and Roth IRA contributions.',
+  },
+  {
+    question: 'Does high income prevent a Roth conversion?',
+    answer: 'No. IRS guidance notes that regardless of adjusted gross income, you may be able to convert Traditional IRA amounts to a Roth IRA. Income limits apply to direct Roth contributions, not to the ability to convert.',
+  },
+  {
+    question: 'What does this calculator simplify?',
+    answer: 'It uses one total-IRA-balance input and one nondeductible-basis input. Actual pro-rata reporting can depend on aggregated Traditional, SEP, and SIMPLE IRA balances and year-end values, so confirm the result against Form 8606 rules.',
+  },
 ]
 
 const relatedCalculators = [

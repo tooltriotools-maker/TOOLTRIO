@@ -62,7 +62,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Max Credit ($2,000/child)" value={result ? `${Number(result.maxCredit).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
+                <ResultCard label="Max Credit ($2,200/child)" value={result ? `${Number(result.maxCredit).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="Phase-Out Reduction" value={result ? `${Number(result.phaseoutReduction).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Net Child Tax Credit" value={result ? `${Number(result.netCredit).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Refundable ACTC Portion" value={result ? `${Number(result.refundablePortion).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">👶 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The Child Tax Credit ($2,000 per child under 17 in 2026) is one of the largest tax benefits for American families. The refundable portion (Additional Child Tax Credit, up to $1,700) provides real cash even when taxes owed are zero. Combined with the Dependent Care Credit, a family with 2 children can receive $4,000-$6,000+ in annual tax benefits.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The Child Tax Credit ($2,200 per child under 17 in 2026) is one of the largest tax benefits for American families. The refundable portion (Additional Child Tax Credit, up to $1,700) provides real cash even when taxes owed are zero. Combined with the Dependent Care Credit, a family with 2 children can receive $4,000-$6,000+ in annual tax benefits.</p>
               </Card>
             </>
           ):(
@@ -82,19 +82,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Child Tax Credit Calculator USA 2026 — CTC & ACTC" category="finance"
-          intro="The Child Tax Credit ($2,000 per child under 17 in 2026) is one of the largest tax benefits for American families. The refundable portion (Additional Child Tax Credit, up to $1,700) provides real cash even when taxes owed are zero. Combined with the Dependent Care Credit, a family with 2 children can receive $4,000-$6,000+ in annual tax benefits."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This page estimates the Child Tax Credit and refundable Additional Child Tax Credit from the number of qualifying children, AGI and earned income. It also displays a simplified child-and-dependent-care amount, but that part of the model does not collect actual care expenses, qualifying-person details or the full statutory percentage calculation.'}
+          howItWorks={'The current code starts with $2,200 per child, applies a $50-per-$1,000 phaseout above $200,000 single or $400,000 married, and estimates refundable ACTC as 15% of earned income above $2,500 capped at $1,700 per child. It then adds a simplified care-credit estimate based on assumed expenses. Because the page does not collect tax liability, child ages beyond the count fields, SSN eligibility or actual dependent-care expenses, it cannot reproduce Schedule 8812 or Form 2441.'}
+          tipsSection={'Verify the tax-year rules before filing. Credit amounts, refundability and eligibility can change, and the current calculator intentionally simplifies several requirements. Do not treat the combined-credit output as a tax-return result.'}
+          conclusion={'Use this page to understand the calculator’s phaseout and earned-income mechanics. A tax return can produce a different result because eligibility, tax liability, dependent-care expenses and other credits interact.'}
+          benefits={[{title:'CTC phaseout model',text:'Estimate how AGI above the modeled threshold reduces the child credit.'},{title:'ACTC estimate',text:'Apply the calculator’s earned-income formula and per-child refundable cap.'},{title:'Care-credit illustration',text:'See the separate simplified amount the current code adds for dependent care.'}]}
+          useCases={[{title:'Income near phaseout',text:'See how crossing the modeled AGI threshold changes the estimated child credit.'},{title:'Lower earned income',text:'Understand how the ACTC estimate is constrained by 15% of earned income above the modeled threshold.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

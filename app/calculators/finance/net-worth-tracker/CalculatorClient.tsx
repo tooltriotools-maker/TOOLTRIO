@@ -108,12 +108,21 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Net Worth Calculator USA 2026 — Assets, Liabilities & Percentile" category="finance" intro="Net worth is the most comprehensive single measure of financial health — total assets minus total liabilities. The median US household has $192,700 in net worth (2022 data). This calculator gives you your complete snapshot including assets, liabilities, debt-to-asset ratio, estimated US percentile, and a financial health assessment — all instantly, completely private."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This calculator creates a balance-sheet snapshot by adding the asset categories in the model and subtracting mortgage, student-loan and credit-card balances. It also shows liquidity and debt-to-asset indicators.'}
+          howItWorks={'Net worth = total assets − total liabilities. Liquid assets are cash plus taxable investments. Debt-to-asset ratio = liabilities ÷ assets. The current client also includes fixed $15,000 of vehicle value and $5,000 of other assets, while car-loan and other-debt values are fixed at zero.'}
+          tipsSection={'If you enter $315,000 across the visible asset fields, remember the model adds $20,000 of hidden vehicle/other assets. The displayed US percentile is a coarse ToolTrio bucket estimate, not a statistical percentile calculation. The Federal Reserve reported 2022 real median family net worth of $192,900; that is historical survey data, not a 2026 median.'}
+          conclusion={'Net worth is useful for tracking your own trend, but it does not measure cash flow, retirement readiness or creditworthiness. Review hidden/default categories before relying on the total.'}
+          benefits={[
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
+          ]}
+          useCases={[
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
+          ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

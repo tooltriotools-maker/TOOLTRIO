@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
+import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Federal Estate Tax Calculator USA 2026 | ToolTrio',
-  description: 'Calculate federal estate tax liability, exemption amounts, and marital deduction. Plan for the potential TCJA sunset reducing exemptions.',
+  description: 'Estimate federal estate tax after entered debts, charitable deductions and spouse transfers using the 2026 $15 million basic exclusion.',
   slug: 'estate-tax-calculator',
   category: 'finance',
   region: 'usa',
@@ -18,18 +12,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
-  {
-    question: 'What is the 2026 federal estate tax exemption?',
-    answer: "$13,610,000 per person ($27,220,000 for married couples using portability). Assets above this threshold are taxed at rates from 18% to 40%. However, the TCJA doubled exemption is scheduled to sunset on December 31, 2025 — potentially reverting to approximately $7 million per person in 2026 (inflation-adjusted) if Congress doesn't act. This makes 2024-2025 critical for large estate planning transfers.",
-  },
-  {
-    question: 'What is estate tax portability?',
-    answer: "Portability allows a surviving spouse to use any unused portion of the deceased spouse's estate tax exemption. If the first spouse to die uses only $5 million of their $13.61 million exemption, the surviving spouse can add the unused $8.61 million to their own exemption — for a total of $22.22 million. This must be elected on the estate tax return (Form 706) within 5 years of death.",
-  },
-  {
-    question: 'How do I reduce federal estate taxes?',
-    answer: 'Key strategies: (1) Annual gifting — $18,000/year per recipient ($36,000 married) transfers wealth tax-free. (2) Irrevocable Life Insurance Trust (ILIT) — removes life insurance from estate. (3) Charitable Remainder Trust (CRT) — income stream + charitable deduction. (4) GRATs (Grantor Retained Annuity Trusts) — transfer appreciation. (5) 529 superfunding — $90,000 per child in one year. (6) Qualified Opportunity Zone investments.',
-  }
+  { question: 'What is the federal estate-tax basic exclusion for 2026?', answer: 'The IRS lists a $15,000,000 basic exclusion amount for estates of people who die in 2026.' },
+  { question: 'How does this calculator determine the taxable estate?', answer: 'It subtracts entered debts, charitable deductions and spouse transfers from the gross estate, then subtracts the modeled 2026 exclusion. Amounts below zero are treated as zero.' },
+  { question: 'Does a married couple automatically get a $30 million exemption?', answer: 'No. Portability of a deceased spouse’s unused exclusion generally requires a timely estate-tax return election, and the facts of each estate matter.' },
+  { question: 'Does the calculator include state estate or inheritance tax?', answer: 'No. It estimates federal estate tax only. State death-tax rules vary and can apply at much lower estate values.' },
+  { question: 'Does this replace Form 706?', answer: 'No. It does not account for all valuation rules, adjusted taxable gifts, credits, elections or filing requirements used on an actual federal estate-tax return.' }
 ]
 
 const relatedCalculators = [

@@ -5,6 +5,12 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Alimony Tax Calculator?", "answer": "Check Annual Alimony, Payer Net Cost, Recipient Net Received, Payer Deduction and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Alimony Tax Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Alimony Tax Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [alimonyAmount, setAlimonyAmount] = useState(30000)
   const [divorceYear, setDivorceYear] = useState(2020)
@@ -81,7 +87,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">How Federal Alimony Tax Treatment Is Modeled</h2><p className="text-sm text-gray-600">The calculator compares the annual payment with the payer's and recipient's entered marginal tax rates. For qualifying instruments executed before 2019, it models a payer deduction and recipient taxable income. For instruments executed after 2018, it models neither a payer deduction nor recipient income.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Why the Agreement Date Matters</h2><p className="text-sm text-gray-600">A pre-2019 agreement can be affected by a later modification if the modification expressly adopts the post-2018 federal treatment. This calculator only asks for the divorce/agreement year and cannot read the terms of a modification, distinguish child support or property settlements, or determine whether a payment legally qualifies as alimony.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">For $24,000 of annual qualifying alimony under an unmodified 2018 instrument, a payer entering a 32% marginal rate would see a modeled $7,680 federal tax effect, while a recipient entering 22% would see $5,280 of modeled tax. For a 2020 instrument, this calculator sets both federal effects to zero.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Limitations and Source</h2><p className="text-sm text-gray-600">The result is a federal income-tax illustration. It does not calculate state treatment, filing status, actual taxable income, withholding, estimated tax, recapture rules or the legal classification of payments.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.irs.gov/taxtopics/tc452" target="_blank" rel="noreferrer">IRS Topic 452: Alimony and separate maintenance</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

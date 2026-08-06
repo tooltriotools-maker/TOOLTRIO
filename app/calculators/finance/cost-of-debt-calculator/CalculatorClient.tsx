@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💳 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The true cost of debt is what most people don't calculate: $8,500 in credit card debt at 24% costs $2,040 per year in interest alone. This calculator shows your exact annual interest burden, weighted average rate across all debts, and how much extra payments accelerate payoff using the optimal avalanche strategy.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Compare the interest burden of the credit-card and auto-loan balances entered on this page and see how an extra monthly payment changes payoff modeling. Minimum payments are approximated as percentages of balance in the UI. Issuer minimum-payment rules, fees, promotional APRs and variable rates are not modeled.</p>
               </Card>
             </>
           ):(
@@ -91,12 +91,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Cost of Debt Calculator USA 2026 — True Interest Burden" category="finance"
-          intro="The true cost of debt is what most people don't calculate: $8,500 in credit card debt at 24% costs $2,040 per year in interest alone. This calculator shows your exact annual interest burden, weighted average rate across all debts, and how much extra payments accelerate payoff using the optimal avalanche strategy."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Compare the interest burden of the credit-card and auto-loan balances entered on this page and see how an extra monthly payment changes payoff modeling."
+          howItWorks="Each debt has a balance, APR and modeled minimum payment. Interest accrues from APR/12 while payments reduce principal; the extra-payment amount is applied by the underlying payoff model."
+          tipsSection="Worked example: A high-rate credit-card balance usually consumes more interest per dollar than a lower-rate auto loan. Enter both balances and compare the modeled payoff cost before allocating extra cash."
+          conclusion="Important assumptions and limitations: Minimum payments are approximated as percentages of balance in the UI. Issuer minimum-payment rules, fees, promotional APRs and variable rates are not modeled. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

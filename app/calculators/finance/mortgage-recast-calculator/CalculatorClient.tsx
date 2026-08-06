@@ -82,9 +82,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Mortgage Recast Calculator USA 2026 — Lower Payment Without Refinancing" category="finance"
-          intro="A mortgage recast lets you lower your monthly payment without refinancing — no credit check, no appraisal, no closing costs. You make a large lump-sum principal payment ($50,000 in this example) and the bank recalculates your payment over the remaining term at your existing rate. On a $380,000 balance at 6.75%, a $50,000 recast reduces your payment by $200-250/month permanently."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
+          intro="A mortgage recast applies a lump-sum principal reduction, then re-amortizes the smaller balance over the loan's remaining term at the existing interest rate. This page compares the payment before and after that principal reduction; lender eligibility and recast fees are not determined by the calculator."
+          howItWorks="The calculation first computes the scheduled payment on the current balance, then subtracts the lump sum and applies the standard amortizing-payment formula to the reduced principal using the same rate and remaining term. A recast changes the payment, not the contractual interest rate."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}

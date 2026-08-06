@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📊 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The income replacement ratio — retirement income divided by pre-retirement income — is the foundational retirement readiness metric. Most financial planners target 70-80% replacement. If your Social Security plus portfolio withdrawals only replace 60%, you have a gap that requires either more savings, delayed retirement, or reduced spending. This calculator shows your exact ratio and quantifies the gap.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator compares projected annual retirement income with your pre-retirement income. It combines Social Security, pension, portfolio withdrawals, and part-time income to show a gross replacement ratio and a simplified after-tax ratio.</p>
               </Card>
             </>
           ):(
@@ -90,10 +90,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Income Replacement Ratio Calculator USA 2026 — Retirement Readiness" category="finance" intro="The income replacement ratio — retirement income divided by pre-retirement income — is the foundational retirement readiness metric. Most financial planners target 70-80% replacement. If your Social Security plus portfolio withdrawals only replace 60%, you have a gap that requires either more savings, delayed retirement, or reduced spending. This calculator shows your exact ratio and quantifies the gap."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+        <SEOContent title="Income Replacement Ratio Calculator USA 2026 — Retirement Readiness" category="finance" intro="This calculator compares projected annual retirement income with your pre-retirement income. It combines Social Security, pension, portfolio withdrawals, and part-time income to show a gross replacement ratio and a simplified after-tax ratio."
+          howItWorks="Gross replacement ratio = total modeled retirement income ÷ pre-retirement income. The model also assumes a 15% blended tax on retirement income above a standard-deduction amount and assumes working take-home equals 75% of gross pay. Its displayed gap uses an 80% gross-income target and converts that gap to a portfolio estimate using 4%. These are planning assumptions, not universal retirement-income targets."
+          tipsSection="Compare the ratio with your expected retirement spending rather than relying on a generic percentage. Housing costs, taxes, healthcare, travel, debt, and savings contributions can make two households with the same salary need very different replacement ratios."
+          conclusion="A replacement ratio is a screening metric. A retirement plan should ultimately be built from expected expenses, taxes, income timing, longevity, and portfolio risk."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

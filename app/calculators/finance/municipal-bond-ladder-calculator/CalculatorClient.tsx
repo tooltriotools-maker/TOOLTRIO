@@ -74,9 +74,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Municipal Bond Ladder Calculator USA 2026" category="finance" intro="Build a staggered municipal bond ladder for tax-free income with regular liquidity events at each rung's maturity." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="Municipal Bond Ladder Calculator" category="finance"
+          intro="Build a hypothetical municipal-bond ladder by dividing one investment across staggered maturity years. The tool estimates annual tax-exempt interest and a taxable-equivalent yield so you can compare the modeled muni income with taxable fixed-income alternatives."
+          howItWorks="The investment is divided equally across the number of rungs. The first rung uses your average yield and each later rung adds 0.10 percentage point, which is a modeling assumption rather than a live yield curve. For each rung: annual interest = amount per rung × modeled yield. Tax-equivalent yield = muni yield ÷ (1 − combined federal and state marginal rate)."
+          tipsSection="Use your marginal tax rates, not effective rates, when testing tax-equivalent yield. State exemption is not automatic: municipal interest may receive state/local exemption when the bond and investor meet the applicable rules. The calculator does not price individual bonds, calls, premiums, discounts, credit quality, AMT exposure, transaction costs or reinvestment after maturity."
+          conclusion="A ladder can spread maturity dates and make future principal availability easier to visualize, but the displayed yield slope is only a scenario. Review each issuer, call provisions, tax treatment and market price before treating the estimate as an investment return."
+          benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
+          useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}
+          caseStudy={{title:"Worked example",scenario:"Five-rung $200,000 ladder — A $200,000 allocation is split into five $40,000 rungs beginning in 2027. With a 4.0% starting yield, the model steps later rungs upward by 0.10 percentage point.",result:"The calculator totals the interest from all five modeled rungs and converts it to taxable-equivalent income using the entered federal and state marginal rates.",takeaway:"Use the example to understand the calculation flow, then replace every assumption with values relevant to your situation."}} />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

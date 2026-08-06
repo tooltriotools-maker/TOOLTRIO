@@ -105,20 +105,19 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
       <div className="mt-8">
         <SEOContent
-          title="Equity Compensation Calculator USA 2026 — RSU, ISO, NSO"
+          title={undefined}
           category="finance"
-          intro="Equity compensation — RSUs, ISOs, NSOs, and restricted stock — represents some of the most complex tax situations in US tax law. The wrong decision at exercise or vesting can cost tens of thousands in unnecessary taxes. This calculator models the tax impact of RSUs (ordinary income at vesting), ISOs (AMT exposure), and NSOs (ordinary income at exercise) for any grant."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro={'This equity compensation page currently models an RSU grant: share count × fair market value, annual vesting, and ordinary-income tax at vest. The strike-price field is retained by the shared calculator but does not create an exercise cost for RSUs.'}
+          howItWorks={'The client calls calculateEquityCompensation with type “rsu”. Total value = shares × FMV. Ordinary income equals that value, modeled tax = ordinary income × entered tax rate, annual vest = shares ÷ vesting years, and net value = total value − modeled tax. It does not currently switch between ISO, NSO and RSU tax rules.'}
+          tipsSection={'Use the fair market value as a scenario input, not a forecast. A 4,000-share RSU grant at $25 has $100,000 modeled gross value; over four years the model vests 1,000 shares per year. At a 30% entered tax rate, modeled tax on the full grant is $30,000. Actual withholding, vest dates, stock-price changes and later capital gains are outside this estimate.'}
+          conclusion={'RSUs are generally compensation when they vest; later sale can create a separate capital gain or loss. This page is a planning estimate, not tax advice. The current UI should not be treated as an ISO/NSO exercise calculator.'}
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks

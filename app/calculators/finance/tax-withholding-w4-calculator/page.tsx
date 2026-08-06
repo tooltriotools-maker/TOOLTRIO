@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Tax Withholding W-4 Calculator USA 2026 — Adjust Your W-4 | ToolTrio',
   description: 'Calculate the correct W-4 withholding allowances to owe zero at tax time. Avoid big refunds (free loans to IRS) and underpayment penalties.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['W-4 calculator 2026', 'tax withholding calculator USA', 'how to fill out W-4 2026', 'W-4 allowances calculator', 'federal withholding adjustment calculator'],
 })
 const faqs = [
-  {
-    question: 'How does the 2020+ W-4 work?',
-    answer: 'The IRS redesigned the W-4 in 2020. Instead of withholding allowances, it uses: Step 1 (personal info), Step 2 (multiple jobs), Step 3 (claim dependents/credits), Step 4 (other income, deductions, additional withholding). The new form eliminates allowances — you either claim the standard deduction (no entry needed) or enter expected itemized deductions in Step 4b to reduce withholding.',
-  },
-  {
-    question: 'How do I stop getting large tax refunds?',
-    answer: 'A large refund means you over-withheld — essentially giving the IRS an interest-free loan. To reduce your refund: (1) Add a dollar amount in Step 4b of your W-4 for expected deductions above the standard deduction, (2) Submit a new W-4 with a lower additional withholding amount if using Line 4(c). Target: refund under $500 or balance due under $500 (to avoid underpayment penalty).',
-  },
-  {
-    question: 'What is the underpayment penalty threshold?',
-    answer: "You owe an underpayment penalty if you owe more than $1,000 at filing AND you haven't withheld at least 90% of current year tax OR 100% of prior year tax (110% if AGI > $150,000). The safe harbor: if your withholding equals last year's total tax, no penalty regardless of what you owe this year. This is especially important for variable income earners.",
-  }
+  { question: "Does this calculator reproduce IRS withholding tables?", answer: "No. It estimates annual income tax with progressive brackets but compares it with a simplified 22% salary-withholding assumption." },
+  { question: "What are the 2026 standard deductions used?", answer: "The model uses $16,100 for a single-style case and $32,200 when spouse income is entered as its married-joint proxy." },
+  { question: "Does changing my W-4 change my total tax?", answer: "A W-4 generally changes how much federal income tax is withheld during the year; it does not by itself change the tax imposed by law." },
+  { question: "Why might my paycheck withholding differ greatly?", answer: "Payroll frequency, multiple jobs, bonuses, pre-tax benefits, dependents and the actual W-4 steps affect withholding." },
+  { question: "Where can I get an official withholding estimate?", answer: "Use the IRS Tax Withholding Estimator and current Form W-4 instructions for an actual withholding decision." }
 ]
 const relatedCalculators = [
   { name: 'Payroll Tax Calculator', href: '/calculators/finance/payroll-tax-calculator', icon: '💵', desc: 'Payroll Tax Calculator' },

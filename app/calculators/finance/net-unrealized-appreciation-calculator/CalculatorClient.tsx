@@ -81,20 +81,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Net Unrealized Appreciation (NUA) Calculator USA 2026" category="finance"
-          intro="The Net Unrealized Appreciation strategy can save tens of thousands in taxes on highly appreciated company stock in a 401k. Instead of rolling all shares to an IRA (where all withdrawals face ordinary income rates up to 37%), NUA allows the appreciation to be taxed at long-term capital gains rates of 15-20%. The math is compelling when stock has grown 5-10x from the original cost basis."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+        <SEOContent
+          title="Net Unrealized Appreciation Calculator" category="finance"
+          intro="This tool compares a simplified NUA tax treatment for employer stock in a retirement plan with treating the entire current stock value as ordinary income at withdrawal."
+          howItWorks="NUA = current market value − plan cost basis. The model taxes basis at the entered ordinary-income rate and the NUA amount at the entered capital-gains rate, then compares that total with ordinary-income tax on the full current market value."
+          tipsSection="Worked example: Example: if employer stock has a $100,000 plan basis and a $400,000 market value, NUA is $300,000. The model separates tax on the $100,000 basis from tax on the $300,000 appreciation."
+          conclusion="Important assumptions and limitations: Actual NUA treatment has strict distribution and employer-security requirements. Later appreciation after distribution can have different holding-period treatment, and taxes depend on the transaction and taxpayer. The result is a comparison estimate, not a recommendation to use NUA."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

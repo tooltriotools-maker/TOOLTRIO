@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
+
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'CD vs HYSA vs Money Market Fund Calculator USA 2026 | ToolTrio',
   description: 'Compare Certificate of Deposit, High-Yield Savings Account, and Money Market Fund after-tax returns. Find the best home for your short-term savings.',

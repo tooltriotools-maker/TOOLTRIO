@@ -81,13 +81,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Student Loan Forbearance Cost Calculator USA 2026" category="finance"
-          intro="Student loan forbearance pauses payments but not interest — and that interest capitalizes, permanently increasing your loan balance. 12 months of forbearance on $45,000 at 6.5% adds $2,925 to your balance and increases all future interest. Income-driven repayment often provides $0 payments without these costs, and counts toward forgiveness. This calculator shows the true forbearance cost."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+        <SEOContent
+          title="Student Loan Forbearance Cost Calculator" category="finance"
+          intro="This calculator models how unpaid interest during a temporary payment pause can increase a student-loan balance and compares the modeled payment needed over the remaining term."
+          howItWorks="Interest accrued = balance × annual rate ÷ 12 × forbearance months. The model adds that interest to principal, then amortizes the larger balance over 360 minus the paused months. This is a simplified capitalization scenario."
+          tipsSection="Worked example: Example: $45,000 at 6.5% for 12 months generates about $2,925 of simple accrued interest before any payment. The model then compares payments on the original and increased balances."
+          conclusion="Important assumptions and limitations: Federal student-loan capitalization rules and repayment options depend on loan type and event. Interest can accrue during forbearance, but it is inaccurate to assume every forbearance automatically capitalizes all interest in the same way. The resume-payment input is currently collected but not used by the underlying function."
+          benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
+          useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

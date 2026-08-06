@@ -6,6 +6,12 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Capital Gains Harvesting Calculator?", "answer": "Check 0% LTCG Space, Net Taxable Gains, Estimated Tax, Loss Harvest Savings and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Capital Gains Harvesting Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Capital Gains Harvesting Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [portfolioValue, setPortfolioValue] = useState(500000)
   const [unrealizedGains, setUnrealizedGains] = useState(80000)
@@ -86,7 +92,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">What This Harvesting Model Calculates</h2><p className="text-sm text-gray-600">The calculator estimates how entered unrealized losses can offset entered gains and shows approximate room in the 0%, 15% and 20% long-term capital-gain bands. It also subtracts up to $3,000 of entered losses from ordinary income for its simplified threshold calculation.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">2026 Rate-Band Assumptions</h2><p className="text-sm text-gray-600">For 2026, the model uses a 0% long-term capital-gain ceiling of $49,450 for single filers and $98,900 for married filing jointly, with the 15% band ending at $545,500 and $613,700 respectively. Actual capital-gain tax depends on taxable income and the character of each gain or loss.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">Suppose a single filer enters $40,000 of ordinary income, $20,000 of unrealized long-term gains and $5,000 of unrealized losses. The calculator first applies its loss assumptions and then allocates modeled gains across the available long-term capital-gain bands. Real tax reporting requires transaction-level basis and holding-period data.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Important Limitations</h2><p className="text-sm text-gray-600">The displayed “loss harvest savings” uses a flat 20% shortcut and is not an actual tax calculation. The model does not apply wash-sale rules, short-term capital-gain rates, NIIT, state tax, capital-loss carryovers, qualified dividends, collectibles or unrecaptured Section 1250 gain.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.irs.gov/irb/2025-45_IRB" target="_blank" rel="noreferrer">IRS 2026 inflation adjustments</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

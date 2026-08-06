@@ -82,12 +82,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Cash Value Life Insurance Calculator USA 2026 — Buy Term or Whole Life?" category="finance"
-          intro="The buy-term-and-invest-the-difference debate is one of personal finance's most analyzed questions. For pure wealth building, the math almost always favors term insurance + investment. Permanent insurance wins in specific estate planning, business succession, and high-income tax planning scenarios. This calculator models both paths for your numbers."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
+          intro="Compare the calculator's modeled cash-value policy with a simplified 'buy term and invest the difference' scenario. The result is driven by premium, death benefit, age, holding period and policy type, but it is not an illustration from an insurer and should not be treated as a policy quote."
+          howItWorks="The current model estimates a rough term-equivalent cost, assumes 70% of premium is available to build cash value, and applies a fixed growth assumption of 3.5% for whole life, 4.5% for universal life or 7% for variable life. The alternative scenario compounds the modeled premium difference at 7%. Actual policy charges, guarantees, crediting rates and subaccount returns can differ materially."
+          tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

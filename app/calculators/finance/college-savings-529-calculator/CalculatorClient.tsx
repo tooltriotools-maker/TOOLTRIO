@@ -142,22 +142,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       </div>
 
       <div className="mt-8">
-        <SEOContent
-          title="529 College Savings Calculator USA 2026"
-          category="finance"
-          intro="College costs are rising approximately 5% annually — a child born today will face a 4-year public university bill of $200,000+ by age 18. A 529 plan's tax-free growth over 18 years makes it the most efficient college savings vehicle for most families. This calculator shows your projected balance, funding gap, and exact monthly contribution needed to cover 4 years of college."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
-          useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
-          ]}
+        <SEOContent title="529 College Savings Calculator USA 2026" category="finance"
+          intro={'This 529 planner projects an existing college account plus monthly contributions to the child’s college-start age, then compares that balance with four years of tuition-cost assumptions inflated through each college year. It is a funding-gap model, not a financial-aid or state-tax eligibility calculator.'}
+          howItWorks={'The account grows annually at the entered investment return and receives 12 monthly contributions as an annual total in the model. Four college years are projected separately using the entered education-cost inflation rate. Funding gap = projected four-year cost − projected 529 balance, floored at zero. The required-monthly figure uses a monthly future-value annuity formula to estimate the additional contribution needed. The displayed state-deduction estimate assumes a 5% benefit on up to $10,000 of annual contributions and is not state-specific law.'}
+          tipsSection={'Use a current all-in annual college-cost estimate rather than tuition alone if that matches your goal. Review the assumed return as college approaches because a 529 portfolio may become more conservative over time.'}
+          conclusion={'529 tax benefits and state deductions vary, and qualified-expense rules matter. Treat the state-deduction output as a model assumption and verify your own state’s current rules.'}
+          benefits={[{title:'Four-year cost projection',text:'Inflate the entered annual college cost through the child’s expected college years.'},{title:'529 funding coverage',text:'Compare the modeled account balance with the projected four-year cost.'},{title:'Contribution gap',text:'Estimate the monthly saving needed to close a modeled shortfall.'}]}
+          useCases={[{title:'Young child',text:'Measure how a long contribution horizon changes the effect of investment growth.'},{title:'College approaching',text:'Test how higher current contributions or a lower cost target affects a near-term funding gap.'}]}
         />
         <InternalLinks
           title="Related Finance Calculators"

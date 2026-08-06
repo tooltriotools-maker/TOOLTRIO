@@ -92,14 +92,26 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                   </ResponsiveContainer></div>
                 </Card>
               )}
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">💰 Trust Fund Growth Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see instant results using 2026 US-standard formulas. All calculations run locally in your browser.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">💰 Trust Fund Growth Calculator USA 2026</h2><p className="text-sm text-gray-600">Enter your values above to see Trust Fund Growth Calculator output using 2026 Calculator methodology and assumptions. All calculations run locally in your browser.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Trust Fund Growth Calculator USA 2026" category="finance" intro="Trust Fund Growth Calculator USA 2026" howItWorks="Enter your values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}/>
+        <SEOContent title="Trust Fund Growth Calculator" category="finance"
+          intro="Projects a trust balance from initial funding, annual contributions, beneficiary age, distribution age, assumed investment growth and an annual trustee fee."
+          howItWorks="Each year the model calculates the trustee fee as a percentage of the opening balance, applies the entered investment return, subtracts the fee, then adds the annual contribution. It repeats until the selected distribution age."
+          tipsSection="Worked example — Example: $250,000 initial funding plus $10,000 annually from age 5 to 25 is compounded at the entered growth rate while a 1% annual trustee fee reduces each year’s balance."
+          conclusion="Important assumptions and limitations — Returns are hypothetical and fees vary by trustee and investment structure. The model does not calculate trust income tax, distributions before the selected age, grantor/non-grantor treatment, investment expenses or legal restrictions in the trust document."
+          benefits={[
+            {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
+            {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},
+            {title:"Decision support",text:"Compare realistic scenarios rather than treating a single result as a prediction or professional recommendation."},
+          ]}
+          useCases={[
+            {title:"Worked scenario",text:"Start with the default example, then replace each input with values that match the situation you are evaluating."},
+            {title:"Assumption check",text:"Review the methodology and limitations before relying on the result for a financial, tax, benefit or investment decision."},
+          ]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

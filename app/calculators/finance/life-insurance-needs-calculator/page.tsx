@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Life Insurance Needs Calculator USA 2026 | ToolTrio',
   description: 'Calculate exactly how much life insurance you need based on income replacement, debts, childcare costs, and existing coverage.',
@@ -14,18 +10,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['life insurance needs calculator', 'how much life insurance do I need USA', 'life insurance calculator 2026', 'income replacement life insurance', 'term life vs whole life calculator'],
 })
 const faqs = [
-  {
-    question: 'How much life insurance do I need?',
-    answer: 'Common rule of thumb: 10-12x your annual income. A more precise calculation: income replacement (PV of income stream at safe rate) + debts + final expenses + child care costs - existing assets and coverage. For a $85,000 income earner with $180,000 debt and 2 children, total need is typically $1.2-1.8M.',
-  },
-  {
-    question: 'Term vs whole life insurance?',
-    answer: 'Term life: pure death benefit for a fixed period (10, 20, 30 years), low cost. $1M 20-year term for a healthy 35-year-old costs roughly $50-80/month. Whole life: permanent coverage with a cash value component, 10-15x more expensive. Most financial planners recommend term + invest the difference unless you have a specific estate planning or tax strategy requiring permanent insurance.',
-  },
-  {
-    question: 'What is the right life insurance term length?',
-    answer: "Choose a term that covers your longest financial obligation. With young children, that's typically until the youngest child is financially independent (18-22 years). With a mortgage, it's the mortgage term. Rule: buy coverage through your expected retirement date, when your portfolio should cover income replacement needs.",
-  }
+ {question:'How does the calculator estimate income replacement?',answer:'It discounts the annual income gap between the insured and spouse over the selected replacement period using the entered investment-return rate, then adds debts, final expenses and modeled childcare.'},
+ {question:'How is childcare estimated?',answer:'The model assumes $15,000 per child per year and applies the same present-value factor used for income replacement. Actual childcare needs vary substantially by age, location and family arrangement.'},
+ {question:'How does existing coverage affect the result?',answer:'Existing life-insurance coverage is subtracted from the modeled total need. Other liquid assets are not separately entered, so include them only if you intentionally want to treat them as available protection.'},
+ {question:'Are the displayed term and whole-life premiums quotes?',answer:'No. They are rough internal estimates based on fixed dollars per $1,000 of coverage. Real premiums depend on age, health, underwriting, term, riders, insurer and policy design.'},
+ {question:'Should the result determine how much insurance I buy?',answer:'It is a planning estimate, not insurance advice. Employer coverage, survivor benefits, education goals, taxes, estate needs and the duration of each obligation can materially change an appropriate coverage amount.'}
 ]
 const relatedCalculators = [
   { name: 'Term vs Whole Life', href: '/calculators/finance/term-vs-whole-life-calculator', icon: '🛡️', desc: 'Term vs Whole Life' },

@@ -1,16 +1,9 @@
 import type { Metadata } from 'next'
 import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => (
-    <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-  )
-})
-
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateDevToolMetadata({
   title: 'npm Package Search Online | ToolTrio',
-  description: 'Search npm packages with live weekly download stats, version info, license, and GitHub links. Find the right package for your project.',
+  description: 'Search ToolTrio’s bundled snapshot of popular npm packages by name and tags, then compare saved version, license and adoption information before verifying on npm.',
   slug: 'npm-package-search',
   keywords: ['npm package search online free','npm registry browser search','find npm packages online','npm package info lookup','node modules search tool free'],
 })
@@ -28,7 +21,7 @@ const faqs = [
 export default function Page() {
   const jsonLd = generateDevToolJsonLd({
     name: 'npm Package Search — Find Packages with Download Stats Free',
-    description: 'Search npm packages with live weekly download stats, version info, license, and GitHub links. Find the right package for your project.',
+    description: 'Search ToolTrio’s bundled snapshot of popular npm packages by name and tags, then compare saved version, license and adoption information before verifying on npm.',
     slug: 'npm-package-search',
     faqs,
   })

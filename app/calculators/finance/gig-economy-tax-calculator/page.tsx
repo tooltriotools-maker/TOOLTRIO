@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
+  
   loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
 })
 export const metadata: Metadata = generateCalculatorMetadata({
@@ -14,18 +14,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
   keywords: ['gig economy tax calculator USA 2026', 'Uber driver tax calculator', 'DoorDash tax calculator', 'rideshare driver taxes', 'gig worker quarterly tax estimate 2026'],
 })
 const faqs = [
-  {
-    question: 'How much tax do gig workers pay?',
-    answer: 'Gig workers pay self-employment tax (15.3% on 92.35% of net income) plus federal income tax. On $42,000 gross with $3,500 expenses and 18,000 business miles (×$0.67 = $12,060 deduction), net SE income is ~$25,000. SE tax: ~$3,529. After the SE deduction and QBI deduction, federal tax adds ~$2,500. Total tax: ~$6,000 on $42,000 gross — effective rate ~14%.',
-  },
-  {
-    question: 'What can gig workers deduct?',
-    answer: 'Key deductions: (1) Business mileage: $0.67/mile in 2026 — the most valuable deduction for drivers. (2) Phone: business-use percentage. (3) Vehicle expenses: actual costs (gas, insurance, repairs, depreciation) if higher than mileage method. (4) Supplies (insulated bags for delivery). (5) Platform fees and subscriptions. (6) Home office if used exclusively for managing gig work. Always use the mileage log method — track every business mile.',
-  },
-  {
-    question: 'When are gig worker quarterly taxes due?',
-    answer: '2026 quarterly due dates: April 15 (Jan–Mar income), June 16 (Apr–May), September 15 (Jun–Aug), January 15, 2027 (Sep–Dec). Estimate by: taking year-to-date net income × 0.153 (SE tax) + net × 0.22 (federal estimate) ÷ 4. Apps like QuickBooks Self-Employed, Keeper, or Everlance can auto-calculate quarterly estimates from connected gig platform income.',
-  }
+  { question: "What business mileage rate does this calculator use?", answer: "The calculator currently uses 76 cents per business mile, the IRS rate effective July 1, 2026. The January 1–June 30, 2026 rate was 72.5 cents, so a full-year return may require splitting mileage by date." },
+  { question: "How does it estimate self-employment tax?", answer: "It applies 15.3% to 92.35% of modeled net self-employment income. This is simplified and does not coordinate the Social Security wage base with W-2 wages." },
+  { question: "Does it calculate my exact federal income tax?", answer: "No. After modeled deductions it applies a flat 22% federal rate rather than the full progressive tax calculation, credits, filing status and other income." },
+  { question: "How is the home-office deduction modeled?", answer: "The function applies your entered home-office percentage to an assumed $18,000 annual housing cost. It does not implement the IRS simplified or actual-expense home-office methods." },
+  { question: "Should I use the result for quarterly payments?", answer: "Use it only as a planning estimate. Estimated-tax requirements depend on total household income, withholding, credits and safe-harbor rules." },
 ]
 const relatedCalculators = [
   { name: 'Self-Employment Tax', href: '/calculators/finance/self-employment-tax-calculator', icon: '💼', desc: 'Self-Employment Tax' },

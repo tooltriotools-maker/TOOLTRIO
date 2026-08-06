@@ -105,18 +105,18 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Retirement Withdrawal Calculator USA 2026 — Portfolio Sustainability" category="finance"
-          intro="The 4% rule is the cornerstone of retirement planning — but your actual sustainable withdrawal rate depends on your specific return assumptions, inflation expectations, and retirement horizon. This calculator tests your withdrawal plan against realistic scenarios and shows exactly when (if ever) your portfolio depletes."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator models a retirement portfolio year by year: the balance earns your assumed annual return, then an inflation-adjusted withdrawal is removed. It tests whether a planned starting withdrawal survives a long retirement under one constant-return scenario."
+          howItWorks="For year n, withdrawal = starting withdrawal × (1 + inflation)^n. Balance(n+1) = balance(n) × (1 + investment return) − withdrawal(n). The projection stops if the balance reaches zero."
+          tipsSection="Treat return and inflation as scenarios, not forecasts. The model does not simulate market volatility or sequence-of-returns risk, so a surviving constant-return path is not a guarantee."
+          conclusion="This deterministic illustration omits taxes, account types, fees, Social Security, RMDs, variable spending and year-to-year market returns."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Methodology-specific results",text:"Outputs follow the formulas and assumptions described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Decision support",text:"Use your own inputs to evaluate the specific calculation shown here."},
+            {title:"Assumption testing",text:"Change the inputs that materially drive this calculator and compare the result."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

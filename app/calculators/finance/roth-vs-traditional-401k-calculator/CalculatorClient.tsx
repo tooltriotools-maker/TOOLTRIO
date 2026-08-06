@@ -77,9 +77,31 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Roth vs Traditional 401k Calculator USA 2026" category="finance" intro="Compare Roth 401k vs Traditional 401k after-tax wealth — the right choice depends entirely on whether your tax rate is higher now or in retirement." howItWorks="Enter values for instant 2026 results." tipsSection="Try different scenarios." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent
+          title="Roth vs Traditional 401k Calculator USA 2026"
+          category="finance"
+          intro="This calculator compares a Traditional 401(k) contribution with a Roth contribution under one specific equal-out-of-pocket assumption. The entered contribution is treated as the pre-tax Traditional amount; the Roth amount is reduced by today's tax rate so both scenarios use the same modeled take-home cost. It then compounds each amount and taxes the Traditional balance at the entered retirement rate."
+          howItWorks="Traditional future value = contribution × (1 + return)^years, then after-tax value = future value × (1 − retirement tax rate). Roth starting contribution = entered contribution × (1 − current tax rate), and its modeled future value is not taxed again. This is not the same as comparing equal nominal 401(k) contributions, and employer match, annual recurring contributions, contribution limits and required distributions are not modeled."
+          tipsSection="The most important inputs are current versus retirement tax rate. Be careful with the contribution field: the function models one contribution growing for the selected years, not yearly payroll contributions. For 2026 the employee elective-deferral limit is $24,500 before applicable catch-up contributions, but the calculator does not enforce that limit."
+          conclusion="Use the result to study tax-rate sensitivity under the calculator's equal-cost assumption, not as a recommendation to choose Roth or Traditional contributions."
+          benefits={[
+            { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
+            { title: "Result interpretation", text: "Understand what the outputs mean and which important factors the model leaves out." },
+            { title: "Scenario testing", text: "Change the calculator inputs to see which assumptions materially move the result." },
+          ]}
+          useCases={[
+            { title: "Decision comparison", text: "Compare realistic alternatives while keeping the model's assumptions visible." },
+            { title: "Assumption check", text: "Use the worked example to verify how the calculator turns inputs into outputs." },
+          ]}
+          caseStudy={{
+            title: "One $10,000 pre-tax contribution",
+            scenario: "At a 24% current tax rate, the equal-cost Roth amount starts at $7,600 while Traditional starts at $10,000. Both are compounded at the same return.",
+            result: "Traditional is taxed at the entered retirement rate at the end; Roth is not taxed again in this simplified comparison.",
+            takeaway: "If you instead contribute the same nominal dollars to Roth and Traditional, the comparison is different from this calculator's setup."
+          }}
+          commonMistakes="The most important inputs are current versus retirement tax rate. Be careful with the contribution field: the function models one contribution growing for the selected years, not yearly payroll contributions. For 2026 the employee elective-deferral limit is $24,500 before applicable catch-up contributions, but the calculator does not enforce that limit."
+          inlineLinks={[{ text: "IRS lists the $24,500 employee elective-deferral limit for 2026.", href: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits", label: "IRS 401(k) contribution limits" }]}
+        />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

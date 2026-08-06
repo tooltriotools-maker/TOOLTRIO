@@ -11,7 +11,7 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 
 export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
-  const [annualContrib, setAnnualContrib] = useState(4300)
+  const [annualContrib, setAnnualContrib] = useState(4400)
   const [age, setAge] = useState(35)
   const [retirementAge, setRetirementAge] = useState(65)
   const [currentBalance, setCurrentBalance] = useState(8000)
@@ -134,18 +134,18 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="HSA Investment Calculator USA 2026 — Triple Tax Advantage"
           category="finance"
-          intro="The HSA is arguably the most powerful tax-advantaged account in the US tax code — contributions reduce taxable income, growth is tax-free, and qualified medical withdrawals are never taxed. Investing your HSA rather than spending it immediately creates a powerful medical expense reserve that grows tax-free for decades."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="This calculator projects an HSA balance from current balance, annual contribution, age, retirement age and assumed return. It also estimates a tax-equivalent value and a simple medical-spending coverage metric."
+          howItWorks="The function caps annual contributions at the applicable 2026 HSA limit plus a $1,000 age-55 catch-up when eligible, compounds annually and adds contributions until retirement. Tax-equivalent value = projected balance ÷ (1 − entered tax rate)."
+          tipsSection="For 2026 the federal HSA contribution limits are $4,400 self-only and $8,750 family. This UI models self-only coverage. Eligibility depends on qualifying coverage and other rules; returns and medical costs can differ."
+          conclusion="The projection assumes no HSA withdrawals before retirement and a constant return. It is not a forecast of investment performance or future healthcare costs."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Methodology-specific results", text: "Outputs follow the formulas and assumptions described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}
           useCases={[
-            { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
-            { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },
+            { title: "Decision support", text: "Use your own inputs to evaluate the specific calculation shown here." },
+            { title: "Assumption testing", text: "Change the inputs that materially drive this calculator and compare the result." },
           ]}
         />
         <InternalLinks

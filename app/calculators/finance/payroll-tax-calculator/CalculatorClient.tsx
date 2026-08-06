@@ -74,11 +74,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Payroll Tax Calculator USA 2026 — Federal, State & FICA" category="finance"
           intro="Payroll taxes include federal income tax withholding (based on your W-4 and 2026 tax brackets), Social Security (6.2% on first $176,100), Medicare (1.45%), and state income tax. This calculator computes every component for any pay period — weekly, biweekly, semimonthly, or monthly."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          howItWorks="This estimator annualizes the entered paycheck, estimates federal income tax using simplified annual brackets, then adds employee Social Security, Medicare and a flat state-rate approximation before converting federal tax back to the selected pay frequency."
+          tipsSection="The 2026 Social Security wage base in the calculation is now $184,500; the employee Social Security rate is 6.2% and Medicare is 1.45%. The federal bracket and standard-deduction constants have also been updated for 2026."
+          conclusion="This is not a substitute for IRS Publication 15-T payroll withholding. The allowances input is a custom simplification rather than the current Form W-4 methodology, and state withholding is represented by rough flat rates rather than each state’s payroll rules."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
+            {title:"Real-Time USA Results",text:"Calculator-specific payroll estimates using the documented 2026 constants and simplified assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
             {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
           ]}

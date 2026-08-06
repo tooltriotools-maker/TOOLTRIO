@@ -59,9 +59,9 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="PMI Calculator USA 2026 — Mortgage Insurance" category="finance" intro="Calculate monthly PMI cost, how long until PMI is removed at 80% LTV, and total cost of putting less than 20% down." howItWorks="Enter values for instant 2026 US-standard results." tipsSection="Try different scenarios." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
-          useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
+        <SEOContent title="PMI Calculator USA 2026 — Mortgage Insurance" category="finance" intro="Estimate mortgage insurance for a loan with less than 20% equity and see how amortization can move a conventional loan toward an 80% loan-to-value balance." howItWorks="LTV = loan amount ÷ home value. For conventional loans, this model assigns an illustrative annual PMI rate from 0.30% to 1.20% based on the entered credit score, divides it by 12, and amortizes a 30-year loan to estimate months until the balance reaches 80% of original value. FHA is modeled separately with a 0.55% annual MIP and 1.75% upfront amount." tipsSection="Actual PMI pricing depends on insurer and loan characteristics, so the credit-score bands are estimates rather than quotes. For many covered conventional mortgages, CFPB says borrowers may request PMI cancellation at scheduled 80% of original value and automatic termination generally occurs at scheduled 78% when current." conclusion="This calculator compares modeled mortgage-insurance costs; it does not determine a servicer’s cancellation decision or FHA MIP duration for a particular loan."
+          benefits={[{title:"Method",text:"Explains the calculation actually used on this page."},{title:"Inputs",text:"Shows which assumptions drive the result."},{title:"Limits",text:"Calls out important exclusions and simplifications."}]}
+          useCases={[{title:"Scenario planning",text:"Compare realistic input combinations."},{title:"Decision support",text:"Understand the trade-offs behind the outputs."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>
       </div>

@@ -99,19 +99,20 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="House Flip Calculator USA 2026 — Fix & Flip ROI" category="finance"
-          intro="House flipping profitability comes down to the purchase price, rehab estimate, and how fast you can execute. The 70% rule is a quick filter — anything you pay more than 70% of ARV minus repairs will likely not profit. This calculator models every cost layer including financing, holding, and selling to show your true net profit and annualized return."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+        <SEOContent
+          title={undefined}
+          category="finance"
+          intro={'This fix-and-flip calculator combines purchase price, rehab, financing, holding and selling costs to estimate gross profit, cash-on-cash ROI and annualized ROI. It also shows a 70%-rule screening price.'}
+          howItWorks={'Loan amount = purchase price − down payment. Holding costs include interest-only financing plus a built-in 1.5% annual property-cost allowance. Selling costs use a fixed 6% agent commission plus 2% other selling costs. Gross profit = ARV sale price − total modeled cost. The 70% rule output = 70% of ARV − rehab cost.'}
+          tipsSection={'The 6% commission is currently hard-coded in the client call, so it is not a market quote. A longer holding period raises modeled interest/property costs and reduces annualized ROI. Taxes, permits, utilities, lender points and rehab overruns can materially change a real project.'}
+          conclusion={'The 70% rule is only a screening heuristic. Base an acquisition decision on property-specific bids, financing terms, local transaction costs and a contingency budget.'}
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},
+            {title:"Scenario planning",text:"Change inputs to see how the modeled result responds; do not treat scenario outputs as guaranteed outcomes."},
           ]}
           useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
+            {title:"Check assumptions",text:"Use the methodology and limitations to understand what is included before relying on an output."},
+            {title:"Compare scenarios",text:"Test realistic alternatives using the same calculation model."},
           ]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

@@ -18,7 +18,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [taxRate, setTaxRate] = useState(32)
 
   const result = useMemo(()=>{
-    try{return calculateVestingScheduleValue(totalGrant, '4yr-monthly', currentPrice, projectedGrowth, vestingYears * 12, taxRate)}catch(e){return null}
+    try{return calculateVestingScheduleValue(totalGrant, vestingYears === 3 ? '3yr-monthly' : '4yr-monthly', currentPrice, projectedGrowth, taxRate)}catch(e){return null}
   },[totalGrant, currentPrice, projectedGrowth, vestingYears, taxRate])
 
   return (
@@ -105,12 +105,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="RSU Vesting Schedule Calculator USA 2026 — Equity Value Over Time" category="finance"
-          intro="RSU vesting creates predictable income events — each vest triggers ordinary income tax on the full fair market value. A 4,000-share grant at $125/share vesting over 4 years generates $125,000 in the first year alone, with 32% federal tax = $40,000 in taxes. This calculator maps every vest event, tax obligation, and cumulative net wealth from your grant."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
+          intro="Project how an equity grant may vest over time and how a changing share price can affect the value recognized at each vesting period. The calculator is useful for comparing the timing of vesting with a hypothetical stock-growth assumption—not for forecasting the company share price."
+          howItWorks="The grant is divided across a monthly vesting schedule. For each vesting year, the model grows the share price by your projected annual growth rate, multiplies that price by the shares vesting in that period, and applies your entered tax rate to estimate an after-tax value."
+          tipsSection="Enter the number of shares or units in the grant, not the current dollar value. Use a conservative range of future share-price assumptions because private-company values and public-company stock prices can move sharply. Tax treatment differs for RSUs, ISOs and NSOs."
+          conclusion="Vesting determines when equity becomes yours under the award terms; it does not guarantee liquidity or a future sale price. Review the actual grant agreement and tax treatment for your award type."
+          benefits={[{title:"Methodology",text:"Explains the calculation actually used on this page."},{title:"Scenario planning",text:"Change inputs to see which assumptions drive the result."},{title:"Private",text:"Calculations run locally in your browser."}]}
+          useCases={[{title:"Worked scenario",text:"Use realistic inputs and compare the output with the methodology."},{title:"Decision support",text:"Use the result as an estimate, then verify rules, rates or product terms that apply to you."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

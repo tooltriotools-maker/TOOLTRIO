@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Real Estate Appreciation Calculator USA 2026 | ToolTrio',
   description: 'Calculate how much your home or investment property has appreciated using location and property type specific historical appreciation rates.',
@@ -25,7 +21,9 @@ const faqs = [
   {
     question: "How do I find my home's appreciation rate?",
     answer: "Tools: Zillow Home Value Index by zip code, Redfin market data, Federal Housing Finance Agency (FHFA) House Price Index by metro area. For a more precise estimate, compare your neighborhood's median sale prices from when you bought vs today using Zillow, Redfin, or your county assessor's historical records.",
-  }
+  },
+  { question: 'Are the appreciation rates live market forecasts?', answer: 'No. They are built-in ToolTrio scenario assumptions by location and property type, not live FHFA or local-market forecasts.' },
+  { question: 'Does projected value include renovations or selling costs?', answer: 'No. Improvements, transaction costs, maintenance, taxes, financing and property condition are outside this compounding model.' },
 ]
 const relatedCalculators = [
   { name: 'Real Estate ROI', href: '/calculators/finance/real-estate-roi-calculator', icon: '📊', desc: 'Real Estate ROI' },

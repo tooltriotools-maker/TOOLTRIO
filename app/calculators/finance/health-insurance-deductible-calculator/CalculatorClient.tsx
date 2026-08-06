@@ -117,11 +117,11 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           title="Health Insurance Deductible & Out-of-Pocket Calculator USA 2026"
           category="finance"
           intro="Understanding your true out-of-pocket exposure requires calculating all three layers: deductible, coinsurance, and out-of-pocket maximum."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in deductible or coinsurance rate often produce dramatically different outcomes."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          howItWorks="This tool models one medical-cost scenario. It applies the deductible first, then the entered coinsurance percentage to remaining charges, while capping modeled cost sharing at the out-of-pocket maximum. Annual premiums are added separately."
+          tipsSection="Example: on $25,000 of modeled allowed charges, a $3,000 deductible, 20% coinsurance and $8,000 out-of-pocket maximum produce $3,000 deductible plus $4,400 coinsurance, or $7,400 in modeled cost sharing. A $450 monthly premium adds $5,400 annually."
+          conclusion="Real plans use negotiated allowed amounts, copays, networks, covered-service rules, separate prescription benefits and exclusions. Premiums generally do not count toward the plan out-of-pocket maximum. Treat the result as a scenario, not an insurer claim estimate."
           benefits={[
-            { title: 'Real-Time USA Results', text: 'Instant calculations using 2026 IRS limits and US-standard formulas.' },
+            { title: 'Real-Time USA Results', text: 'Calculator-specific scenario outputs based on the inputs and assumptions described above.' },
             { title: '100% Private',          text: 'Everything runs in your browser. No data stored or transmitted.' },
             { title: 'Free Forever',          text: 'No signup, no paywall, no hidden costs.' },
           ]}

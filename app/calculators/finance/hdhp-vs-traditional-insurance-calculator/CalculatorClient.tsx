@@ -13,10 +13,10 @@ interface Props { faqs:{question:string;answer:string}[];relatedCalculators?:{na
 export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [hdhdpPremium, setHdhdpPremium] = useState(280)
   const [traditionalPremium, setTraditionalPremium] = useState(520)
-  const [hdhpDeductible, setHdhpDeductible] = useState(1650)
+  const [hdhpDeductible, setHdhpDeductible] = useState(1700)
   const [tradDeductible, setTradDeductible] = useState(500)
   const [expectedMedical, setExpectedMedical] = useState(3000)
-  const [hsaContrib, setHsaContrib] = useState(4300)
+  const [hsaContrib, setHsaContrib] = useState(4400)
   const [taxRate, setTaxRate] = useState(24)
 
   const result = useMemo(()=>{
@@ -109,19 +109,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="HDHP vs Traditional Health Insurance Calculator USA 2026" category="finance"
-          intro="The HDHP vs traditional insurance decision is purely mathematical: which plan has lower total annual cost including premiums, expected out-of-pocket costs, and HSA tax savings? In 2026, a healthy individual saving $240/month in premiums and contributing $4,300 to an HSA at the 24% bracket saves $1,033 in taxes alone — often making HDHP the clear winner."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas. All calculations run locally in your browser."
-          tipsSection="Try multiple scenarios by changing one input at a time to understand which variable has the most impact on your outcome."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            {title:"Real-Time USA Results",text:"Instant 2026 calculations using current IRS limits and US-standard formulas."},
-            {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
-          ]}
-          useCases={[
-            {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},
-            {title:"Scenario Comparison",text:"Change one variable at a time to understand the impact of each factor."},
-          ]}
+          intro={'This calculator compares two health-plan cost scenarios using premiums, deductibles, expected medical spending and an HSA contribution. It is most useful when you already have the actual plan premiums and deductibles from an employer or Marketplace comparison.'}
+          howItWorks={'Annual premiums equal monthly premium × 12. For each plan, the code charges medical spending up to the deductible and then applies a flat 20% coinsurance rate to all spending above the deductible; it does not model an out-of-pocket maximum, copays or network pricing. HSA tax savings = HSA contribution × (entered tax rate + 7.65%). That payroll-tax addition assumes contributions receive that treatment, which may not apply to every contribution method or taxpayer. HDHP modeled cost = premium + modeled out-of-pocket cost − modeled HSA tax savings.'}
+          tipsSection={'Use the plan’s actual deductible and premium, but remember that coinsurance, copays, employer HSA contributions, prescription tiers and out-of-pocket maximums can dominate the real comparison. Confirm that the HDHP is HSA-eligible before counting HSA tax benefits.'}
+          conclusion={'For 2026, HSA eligibility has statutory HDHP deductible/out-of-pocket requirements and HSA contribution limits. The calculator does not enforce all of them, so validate the plan and contribution amount separately before making an election.'}
+          benefits={[{title:'Annual premium comparison',text:'Convert both monthly premiums into annual cost.'},{title:'Modeled medical cost',text:'Apply the calculator’s deductible-plus-20%-coinsurance assumption to expected spending.'},{title:'HSA tax effect',text:'Estimate the tax offset the current code subtracts from the HDHP scenario.'}]}
+          useCases={[{title:'Low expected utilization',text:'Compare premium savings with the deductible risk when expected medical spending is modest.'},{title:'Higher utilization',text:'Raise expected medical expenses to see when the traditional plan becomes cheaper under the model.'}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"
           links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}

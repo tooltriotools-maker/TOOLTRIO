@@ -63,7 +63,20 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </div>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-6 space-y-4">
+        <Card>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">Calculator-specific methodology</h2>
+          <h3 className="text-sm font-semibold text-gray-800 mb-2">Cardiac-output calculation</h3>
+          <div className="space-y-3 text-sm leading-6 text-gray-600">
+            <p>Cardiac output is calculated as heart rate × stroke volume. For example, 70 beats/min × 70 mL/beat = 4,900 mL/min, or 4.9 L/min.</p>
+            <p>Heart rate and stroke volume change with posture, exercise, hydration, medications, temperature, and disease. A calculated value from manually entered numbers is not equivalent to a measured cardiac output from echocardiography, thermodilution, or another clinical technique.</p>
+            <p>Do not use this calculator to diagnose heart failure, shock, or another cardiovascular condition. Concerning symptoms such as chest pain, fainting, severe shortness of breath, or signs of poor circulation need medical evaluation.</p>
+          </div>
+          <p className="mt-3 text-xs text-gray-500">Clinical reference: NCBI Bookshelf/StatPearls, Physiology—Cardiac Output.</p>
+        </Card>
+      </div>
+<div className="mt-6"><FAQSection faqs={faqs} /></div>
     </CalculatorLayout>
   )
 }

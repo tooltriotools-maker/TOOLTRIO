@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🎁 Gift Tax Calculator USA 2026 — Annual Exclusion & Lifetime Exemption — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The annual gift tax exclusion allows you to transfer $18,000 per recipient in 2026 completely free of gift tax and without filing Form 709. Amounts above $18,000 per person reduce your $13.61 million lifetime exemption. Strategic gifting is the simplest estate planning tool available to every American — and completely legal at any wealth level.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Estimate how 2026 annual exclusions reduce a gift and how taxable gifts use the federal lifetime basic exclusion. Form 709 rules have exceptions and special elections. Gift splitting, future interests, direct tuition/medical payments, marital deductions, valuation discounts and GST tax require separate analysis.</p>
               </Card>
             </>
           ) : (
@@ -87,12 +87,12 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Gift Tax Calculator USA 2026 — Annual Exclusion & Lifetime Exemption"
           category="finance"
-          intro="The annual gift tax exclusion allows you to transfer $18,000 per recipient in 2026 completely free of gift tax and without filing Form 709. Amounts above $18,000 per person reduce your $13.61 million lifetime exemption. Strategic gifting is the simplest estate planning tool available to every American — and completely legal at any wealth level."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
-          tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
+          intro="Estimate how 2026 annual exclusions reduce a gift and how taxable gifts use the federal lifetime basic exclusion."
+          howItWorks="For 2026 the model applies $19,000 per recipient and a $15 million lifetime basic exclusion. Taxable gift = total gifts − available annual exclusions. Tax is modeled at 40% only after remaining lifetime exclusion is exhausted."
+          tipsSection="Worked example: A donor giving $50,000 split equally between two recipients has $38,000 of annual exclusions in the single-donor scenario, leaving $12,000 to use against the lifetime exclusion."
+          conclusion="Important assumptions and limitations: Form 709 rules have exceptions and special elections. Gift splitting, future interests, direct tuition/medical payments, marital deductions, valuation discounts and GST tax require separate analysis. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
+            { title: "Real-Time USA Results", text: "Results update immediately from the inputs and methodology described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
             { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
           ]}

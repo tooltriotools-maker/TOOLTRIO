@@ -88,7 +88,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💹 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Your nominal salary increase and your real purchasing power gain are two completely different numbers. From 2018-2026 with 3.5% average inflation, a salary increase from $52,000 to $85,000 looks impressive — but your real purchasing power only increased by about 23% after inflation. This calculator reveals whether you've actually gotten ahead or just kept pace with rising prices.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Separate nominal salary growth from purchasing-power growth after inflation. A single average inflation input cannot reproduce the exact CPI path or your personal spending basket. Results are purchasing-power estimates, not a compensation benchmark.</p>
               </Card>
             </>
           ):(
@@ -97,10 +97,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Real Wage Growth Calculator USA 2026 — Salary vs Inflation" category="finance" intro="Your nominal salary increase and your real purchasing power gain are two completely different numbers. From 2018-2026 with 3.5% average inflation, a salary increase from $52,000 to $85,000 looks impressive — but your real purchasing power only increased by about 23% after inflation. This calculator reveals whether you've actually gotten ahead or just kept pace with rising prices."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
+        <SEOContent title="Real Wage Growth Calculator USA 2026 — Salary vs Inflation" category="finance" intro="Separate nominal salary growth from purchasing-power growth after inflation."
+          howItWorks="Nominal CAGR is derived from starting salary, current salary and years worked. The calculator then discounts current salary by (1 + average inflation)^years to express it in starting-year purchasing power."
+          tipsSection="Worked example: A salary rising from $60,000 to $80,000 can still produce modest real growth if inflation compounded strongly over the same period."
+          conclusion="Important assumptions and limitations: A single average inflation input cannot reproduce the exact CPI path or your personal spending basket. Results are purchasing-power estimates, not a compensation benchmark. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />

@@ -99,12 +99,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Stock Option Vesting Calculator USA 2026 — ISO vs NSO" category="finance" intro="Stock options — ISO or NSO — represent some of the most complex tax planning situations in US personal finance. Exercise timing, AMT exposure, and holding period requirements can mean the difference between paying 15% long-term capital gains versus 37% ordinary income on the same spread. This calculator maps your complete vesting schedule with year-by-year value and tax impact."
-          howItWorks="Enter your values and results update instantly using 2026 US-standard formulas."
-          tipsSection="Try multiple scenarios by changing one input at a time."
-          conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
-          useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
+        <SEOContent title="Stock Option Vesting Calculator USA 2026 — ISO vs NSO" category="finance" intro="This page models equal annual vesting and the changing option spread as an assumed share price grows. Although the underlying function can represent ISO or NSO treatment, the current page calls the NSO branch, so the displayed tax estimate should be read as an NSO scenario."
+          howItWorks="Shares are divided equally across the vesting years. Projected FMV compounds by the entered growth rate. Each year’s spread is max(FMV − strike price, 0) × shares vesting. For the current NSO scenario, the entered tax rate is applied to that spread. Exercise cost is grant shares × strike price."
+          tipsSection="Do not treat the projected growth rate as a valuation forecast. Actual vesting can include cliffs and monthly schedules, and NSO tax generally arises on exercise rather than vesting. The page does not model later capital gains, withholding or state taxes."
+          conclusion="Use the schedule to understand how strike price, vesting and hypothetical FMV affect option economics. For exercise and tax decisions, rely on your plan documents and professional tax guidance."
+          benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          useCases={[{title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},{title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs} />

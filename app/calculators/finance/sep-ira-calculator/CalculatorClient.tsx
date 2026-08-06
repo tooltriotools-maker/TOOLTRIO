@@ -109,14 +109,10 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           title="SEP-IRA Calculator USA 2026 — Self-Employed Retirement"
           category="finance"
           intro="The SEP-IRA is the simplest high-limit retirement account for self-employed Americans. No annual IRS filings (unlike Solo 401k), contributions up to $70,000 in 2026, and immediate 100% vesting. The catch: SEP-IRA contributions are based on compensation, so lower-income self-employed individuals often get higher limits from a Solo 401k."
-          howItWorks="Enter your values in the input panel. Results update in real-time using US-standard formulas. All calculations run locally in your browser — no data is sent to any server."
+          howItWorks="For the current sole-proprietor scenario, the calculator first multiplies self-employment income by 92.35%, then applies a 25% contribution factor and caps the result at the 2026 $72,000 limit. It also illustrates tax savings at a fixed 37% marginal rate and 30-year growth at 7%. The IRS calculation for a self-employed owner's deductible SEP contribution is more nuanced because the contribution rate is adjusted for self-employment; treat this page as a planning estimate, not a substitute for Publication 560 or tax software."
           tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations using 2026 IRS limits and US-standard formulas." },
-            { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
-          ]}
+          benefits={[{title:"2026 contribution cap",text:"The calculation will not exceed the $72,000 2026 SEP contribution ceiling."},{title:"Owner estimate",text:"See the calculator's simplified contribution estimate for the entered self-employment income."},{title:"Growth illustration",text:"Project one modeled contribution for 30 years at 7%; this is not a guaranteed investment return."}]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },
             { title: "Scenario Comparison", text: "Change one variable at a time to understand the impact of each factor." },

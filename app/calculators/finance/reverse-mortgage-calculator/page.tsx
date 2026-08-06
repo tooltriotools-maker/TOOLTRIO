@@ -1,22 +1,20 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Reverse Mortgage Calculator USA 2026 | ToolTrio',
-  description: 'Estimate how much cash a reverse mortgage (HECM) could provide based on your home value, age, and existing mortgage balance.',
+  description: 'Explore a simplified reverse-mortgage scenario using home value, age, mortgage balance and interest rate; compare modeled proceeds and 10-year equity.',
   slug: 'reverse-mortgage-calculator',
   category: 'finance',
   region: 'usa',
   keywords: ['reverse mortgage calculator 2026','HECM calculator','how much can I get from a reverse mortgage','reverse mortgage eligibility calculator'],
 })
 const faqs: {question:string;answer:string}[] = [
-  { question: 'How does a reverse mortgage work?', answer: 'A reverse mortgage (most commonly a federally-insured Home Equity Conversion Mortgage, or HECM) lets homeowners age 62+ convert home equity into cash — as a lump sum, line of credit, or monthly payments — without making monthly mortgage payments. The loan balance grows over time with interest and is repaid when the borrower sells, moves out, or passes away.' },
-  { question: 'How much money can I get from a reverse mortgage?', answer: 'The amount available depends primarily on your age (older borrowers can access more), current interest rates, and your home\'s appraised value up to the FHA lending limit — younger eligible borrowers and lower rates generally result in a smaller available amount relative to the same home value.' },
-  { question: 'Do I still own my home with a reverse mortgage?', answer: 'Yes — you retain the title and ownership of your home. However, you\'re still responsible for property taxes, homeowners insurance, and maintenance; failing to keep up with these obligations can trigger loan default, so a reverse mortgage doesn\'t eliminate all homeownership costs.' },
+  { question: 'Is this an official FHA HECM quote?', answer: 'No. The calculator uses simplified age-band principal-limit factors. HUD publishes official HECM principal-limit factors and lender calculations also depend on expected rates, property value limits and program rules.' },
+  { question: 'What 2026 HECM limit should I know about?', answer: 'HUD lists a 2026 nationwide HECM maximum claim amount of $1,249,125. A real HECM calculation uses program rules and the lesser applicable value rather than simply applying this page’s age-band factor to any home value.' },
+  { question: 'Why does borrower age change the modeled principal limit?', answer: 'The page assigns a larger modeled percentage of home value to older age bands. Official HECM principal-limit factors are more detailed and also depend on expected interest rates, so the age bands here are only an illustration.' },
+  { question: 'Why does the projected balance grow over time?', answer: 'Interest and financed loan costs can accrue to the reverse-mortgage balance rather than being paid as a traditional monthly principal-and-interest payment. This calculator compounds its modeled balance monthly at the entered rate.' },
+  { question: 'What costs are included in this ToolTrio model?', answer: 'The current function models an origination fee, a 2% mortgage-insurance amount and $2,500 of other closing costs. Actual lender charges and FHA mortgage-insurance treatment should be confirmed in a lender quote and HUD counseling.' },
 ]
 const relatedCalculators: {name:string;href:string;icon:string;desc:string}[] = [
   { name: 'Home Equity Loan', href: '/calculators/finance/home-equity-loan-calculator', icon: '🏠', desc: 'Home Equity Loan' },

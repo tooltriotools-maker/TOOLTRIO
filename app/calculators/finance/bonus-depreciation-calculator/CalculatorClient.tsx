@@ -6,10 +6,16 @@ import { CalculatorLayout } from '@/components/ui/CalculatorLayout'
 import { Card, ResultCard } from '@/components/ui/Card'
 import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
+const finalAuditFaqs = [
+  {"question": "What should I check before using the Bonus Depreciation Calculator?", "answer": "Check Year 1 Deduction, Tax Savings Year 1, Straight-Line Annual, Acceleration Benefit and make sure each value uses the unit or format requested by the calculator. The result is based on the values you enter."},
+  {"question": "How should I interpret the Bonus Depreciation Calculator result?", "answer": "Read the result together with the inputs and assumptions shown on the page. It is a calculation based on entered values, not a guarantee of taxes, returns, eligibility, pricing, or other financial outcomes."},
+  {"question": "How can I compare different Bonus Depreciation Calculator scenarios?", "answer": "Change one input at a time while keeping the other values unchanged. This makes it easier to identify which input is responsible for the difference between results."}
+];
+
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [assetCost, setAssetCost] = useState(50000)
   const [assetLife, setAssetLife] = useState(5)
-  const [bonusPct, setBonusPct] = useState(40)
+  const [bonusPct, setBonusPct] = useState(100)
   const [taxRate, setTaxRate] = useState(24)
   const result = useMemo(() => calculateBonusDepreciation(assetCost, assetLife, bonusPct, taxRate), [assetCost, assetLife, bonusPct, taxRate])
   const fmt = (v: number) => '$' + Math.round(v).toLocaleString()
@@ -88,7 +94,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
         </div>
       </div>
-      <div className="mt-6"><FAQSection faqs={faqs} /></div>
+      
+      <div className="mt-8 space-y-6">
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">How the First-Year Deduction Estimate Works</h2><p className="text-sm text-gray-600">The model applies Section 179 first, then bonus depreciation to remaining eligible basis, then a simplified first-year depreciation estimate to any basis left. For 2026 the calculator uses the $2.56 million Section 179 dollar limit and $4.09 million phaseout threshold, and defaults eligible bonus depreciation to 100%.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Understanding the Inputs</h2><p className="text-sm text-gray-600">Asset cost is not automatically the deductible amount. Eligibility, business-use percentage, placed-in-service date, taxable-income limits, total Section 179 property acquired during the year and special vehicle/property rules can restrict deductions. Asset life is used only for this calculator's simplified remaining-basis comparison.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Worked Example</h2><p className="text-sm text-gray-600">If a business places $100,000 of fully eligible property in service in 2026 and has enough taxable business income for a Section 179 election, the model can expense the full $100,000 under Section 179, leaving no basis for bonus or regular depreciation. That does not mean every $100,000 asset qualifies.</p></Card>
+        <Card><h2 className="text-lg font-bold text-gray-900 mb-2">Limitations and IRS Sources</h2><p className="text-sm text-gray-600">This is not Form 4562. The simplified MACRS line is not a substitute for the correct recovery period, convention and depreciation method. The model also cannot determine whether property is eligible for Section 179 or bonus depreciation.</p><p className="text-sm mt-2"><a className="text-blue-600 underline" href="https://www.irs.gov/publications/p946" target="_blank" rel="noreferrer">IRS Publication 946</a> · <a className="text-blue-600 underline" href="https://www.irs.gov/newsroom/treasury-irs-issue-guidance-on-the-additional-first-year-depreciation-deduction-amended-as-part-of-the-one-big-beautiful-bill" target="_blank" rel="noreferrer">IRS 100% bonus-depreciation guidance</a></p></Card>
+      </div>
+
+      <div className="mt-6"><FAQSection faqs={finalAuditFaqs} /></div>
     </CalculatorLayout>
   )
 }

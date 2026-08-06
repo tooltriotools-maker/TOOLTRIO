@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import dynamic from 'next/dynamic'
-const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
-  ssr: false,
-  loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
-})
+import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Social Security Timing Optimizer USA 2026 — Best Age to Claim | ToolTrio',
   description: 'Find your optimal Social Security claiming age based on health, life expectancy, and lifetime benefit maximization at ages 62 through 70.',
@@ -25,7 +21,9 @@ const faqs = [
   {
     question: 'Does delaying SS affect survivor benefits?',
     answer: "Yes — significantly. Your spouse's survivor benefit equals the higher of your two SS checks at death. If you delay to 70 and receive $3,100/month vs $1,680 at 62, your surviving spouse will receive $3,100 (or their own benefit if higher) for the rest of their life. For couples where one partner has a much higher benefit, maximizing that higher earner's delay is often the most important financial planning decision they make.",
-  }
+  },
+  { question: 'Why does the calculator compare ages 85 and 90?', answer: 'Those are fixed longevity endpoints used to compare undiscounted cumulative benefits. They are scenarios, not life-expectancy predictions.' },
+  { question: 'Does delaying Social Security guarantee an 8% investment return?', answer: 'No. Delayed retirement credits increase the Social Security benefit formula after full retirement age through age 70; they are not an invested account or market return.' },
 ]
 const relatedCalculators = [
   { name: 'Social Security Breakeven', href: '/calculators/finance/social-security-breakeven-calculator', icon: '🏛️', desc: 'Social Security Breakeven' },
