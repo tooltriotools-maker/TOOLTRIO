@@ -526,7 +526,9 @@ export function calculateImmuneStrengthScore(sleepHours: number, stressLevel: nu
   score -= Math.min(alcoholPerWeek * 1.5, 12)
   score -= smokingStatus ? 15 : 0
   score += bmi >= 18.5 && bmi <= 24.9 ? 8 : bmi > 30 ? -10 : 0
-  score -= Math.min(chronAge(age), 10)
+  // Gradual age adjustment: no penalty through 40, then 1 point per 5 years (max 10).
+  const agePenalty = Math.max(0, (age - 40) / 5)
+  score -= Math.min(agePenalty, 10)
   score -= chronicConditions * 5
   score += Math.min(supplementsScore, 8)
   const immuneScore = Math.min(100, Math.max(0, Math.round(score)))

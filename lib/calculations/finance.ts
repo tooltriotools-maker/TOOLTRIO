@@ -2250,6 +2250,24 @@ export function calculateAnnualBonus(baseSalary: number, bonusPercent: number, f
   return { bonus: Math.round(bonus), federalWithholding: Math.round(federalWithholding), stateWithholding: Math.round(stateWithholding), fica: Math.round(fica), totalWithholding: Math.round(totalWithholding), netBonus: Math.round(netBonus), effectiveRate: Math.round((totalWithholding / bonus) * 100), strategyTip: ytdIncome + bonus > 500000 ? 'Consider deferring to next year if possible — may be in lower bracket' : 'Max 401k before year-end to reduce taxable income' }
 }
 
+// Shared simplified 2026 federal income-tax helper used by several calculators.
+function calculateSimpleFederalTax(taxableIncome: number, filingStatus: 'single' | 'married'): number {
+  const income = Math.max(0, taxableIncome)
+  const brackets: Array<[number, number]> = filingStatus === 'married'
+    ? [[24800, 0.10], [100800, 0.12], [211400, 0.22], [403550, 0.24], [512450, 0.32], [768700, 0.35], [Infinity, 0.37]]
+    : [[12400, 0.10], [50400, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]]
+
+  let tax = 0
+  let previousLimit = 0
+  for (const [limit, rate] of brackets) {
+    if (income <= previousLimit) break
+    const amountInBracket = Math.min(income, limit) - previousLimit
+    tax += amountInBracket * rate
+    previousLimit = limit
+  }
+  return tax
+}
+
 // ─── BATCH 2: 25 MORE USA FINANCE CALCULATORS ────────────────────────────────
 
 export function calculatePayrollTax(grossWages: number, filingStatus: 'single'|'married', allowances: number, state: string, payPeriod: 'weekly'|'biweekly'|'semimonthly'|'monthly') {

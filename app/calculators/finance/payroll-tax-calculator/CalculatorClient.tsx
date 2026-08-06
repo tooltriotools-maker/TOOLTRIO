@@ -12,7 +12,7 @@ interface Props { faqs:{question:string;answer:string}[];relatedCalculators?:{na
 
 export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [grossWages, setGrossWages] = useState(3500)
-  const [payPeriod, setPayPeriod] = useState(biweekly)
+  const [payPeriod, setPayPeriod] = useState<'weekly' | 'biweekly' | 'semimonthly' | 'monthly'>('biweekly')
   const [allowances, setAllowances] = useState(0)
 
   const result = useMemo(()=>{
@@ -35,9 +35,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Pay Frequency</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
-              
-              <input type="number" value={payPeriod} onChange={e=>setPayPeriod(Number(e.target.value))} step={select} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
-              
+              <select value={payPeriod} onChange={e => setPayPeriod(e.target.value as 'weekly' | 'biweekly' | 'semimonthly' | 'monthly')} className="bg-transparent text-gray-900 font-semibold w-full outline-none">
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Biweekly</option>
+                <option value="semimonthly">Semimonthly</option>
+                <option value="monthly">Monthly</option>
+              </select>
             </div>
           </div>
           <div className="space-y-1">
