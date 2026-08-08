@@ -1,3 +1,4 @@
+import { CalculatorBatch48DeepDive } from '@/components/ui/CalculatorBatch48DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'EMF Exposure Score Calculator', description: 'Free EMF (electromagnetic field) exposure calculator 2026. Score your relative RF and EMF exposure f', url: 'https://tooltrio.com/calculators/health/emf-exposure-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'EMF Exposure Score Calculator', description: 'Free EMF (electromagnetic field) exposure calculator 2026. Score your relative RF and EMF exposure f', url: 'https://tooltrio.com/calculators/health/emf-exposure-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="emf-exposure-calculator" />
+</>)
 }

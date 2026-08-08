@@ -25,8 +25,8 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
   return (
     <CalculatorLayout
-      title="Equity Compensation Calculator USA 2026 — RSU, ISO, NSO"
-      description="Calculate tax on RSUs, ISO and NSO stock options including ordinary income, AMT exposure, and long-term capital gains strategies."
+      title="RSU Equity Compensation Calculator USA 2026"
+      description="Estimate RSU grant value, vesting shares, modeled ordinary income, and tax using fair market value and a flat tax-rate scenario."
       icon="📊"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               </div>
 
               <Card>
-                <h2 className="text-lg font-black text-gray-900 mb-3">📊 Equity Compensation Calculator USA 2026 — RSU, ISO, NSO — How to Use This Calculator</h2>
+                <h2 className="text-lg font-black text-gray-900 mb-3">📊 RSU Equity Compensation Calculator USA 2026 — How to Use This Calculator</h2>
                 <p className="text-sm text-gray-600 leading-relaxed">Equity compensation — RSUs, ISOs, NSOs, and restricted stock — represents some of the most complex tax situations in US tax law. The wrong decision at exercise or vesting can cost tens of thousands in unnecessary taxes. This calculator models the tax impact of RSUs (ordinary income at vesting), ISOs (AMT exposure), and NSOs (ordinary income at exercise) for any grant.</p>
               </Card>
             </>

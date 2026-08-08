@@ -1,3 +1,4 @@
+import { CalculatorBatch56DeepDive } from '@/components/ui/CalculatorBatch56DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -132,6 +133,7 @@ Complete your nutrition picture with [our Macro Calculator](/calculators/health/
         ],
       }}
     />
-    </>
+          <CalculatorBatch56DeepDive slug="tdee-calculator" />
+</>
   )
 }

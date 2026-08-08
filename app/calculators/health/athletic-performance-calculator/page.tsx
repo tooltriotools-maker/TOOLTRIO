@@ -1,3 +1,4 @@
+import { CalculatorBatch43DeepDive } from '@/components/ui/CalculatorBatch43DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -107,6 +108,7 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
-    </>
+          <CalculatorBatch43DeepDive slug="athletic-performance-calculator" />
+</>
   )
 }

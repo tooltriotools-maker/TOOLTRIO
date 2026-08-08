@@ -1,3 +1,4 @@
+import { CalculatorBatch52DeepDive } from '@/components/ui/CalculatorBatch52DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,5 +54,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug='net-worth-guide-how-to-calculate-and-grow-your-wealth'
  />
-    </>
+          <CalculatorBatch52DeepDive slug="net-worth-calculator" />
+</>
 }

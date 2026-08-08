@@ -1,3 +1,4 @@
+import { CalculatorBatch51DeepDive } from '@/components/ui/CalculatorBatch51DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -33,6 +34,7 @@ export default function Page() {
         ]}
         relatedCalculators={relatedCalculators}
       />
-    </>
+          <CalculatorBatch51DeepDive slug="caloric-needs-calculator" />
+</>
   )
 }

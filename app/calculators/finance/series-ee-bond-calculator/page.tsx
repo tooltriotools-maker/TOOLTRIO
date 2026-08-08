@@ -1,3 +1,4 @@
+import { CalculatorBatch44DeepDive } from '@/components/ui/CalculatorBatch44DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -9,4 +10,5 @@ const faqs = [
 ]
 const relatedCalculators = [{'name': 'I-Bonds Calculator', 'href': '/calculators/finance/i-bonds-calculator', 'icon': '🏛️', 'desc': 'I-Bond returns'}, {'name': 'I-Bonds vs TIPS', 'href': '/calculators/finance/i-bonds-vs-tips-calculator', 'icon': '⚖️', 'desc': 'Inflation bonds'}, {'name': 'Treasury Bill Calculator', 'href': '/calculators/finance/treasury-bill-calculator', 'icon': '🏦', 'desc': 'T-Bill returns'}]
 const structuredData = [generateFAQStructuredData(faqs)]
-export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></> }
+export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />      <CalculatorBatch44DeepDive slug="series-ee-bond-calculator" />
+</> }

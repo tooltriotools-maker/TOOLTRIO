@@ -1,3 +1,4 @@
+import { CalculatorBatch50DeepDive } from '@/components/ui/CalculatorBatch50DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -116,6 +117,7 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
-    </>
+          <CalculatorBatch50DeepDive slug="pregnancy-calculator" />
+</>
   )
 }

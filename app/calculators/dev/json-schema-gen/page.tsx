@@ -1,3 +1,4 @@
+import { CalculatorBatch46DeepDive } from '@/components/ui/CalculatorBatch46DeepDive'
 import type { Metadata } from 'next'
 import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -40,6 +41,7 @@ export default function Page() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd.faqPage) }} />
       )}
       <CalculatorClient faqs={faqs} />
-    </>
+          <CalculatorBatch46DeepDive slug="json-schema-gen" />
+</>
   )
 }

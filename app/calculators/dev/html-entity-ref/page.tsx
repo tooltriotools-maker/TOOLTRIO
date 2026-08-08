@@ -1,3 +1,4 @@
+import { CalculatorBatch51DeepDive } from '@/components/ui/CalculatorBatch51DeepDive'
 import type { Metadata } from 'next'
 import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -62,6 +63,7 @@ export default function Page() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd.faqPage) }} />
       )}
       <CalculatorClient faqs={faqs} />
-    </>
+          <CalculatorBatch51DeepDive slug="html-entity-ref" />
+</>
   )
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch56DeepDive } from '@/components/ui/CalculatorBatch56DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -51,5 +52,6 @@ export default function Page() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} blogSlug='home-loan-mortgage-guide-how-to-get-best-rate' />
-    </>
+          <CalculatorBatch56DeepDive slug="rent-vs-buy-calculator" />
+</>
 }

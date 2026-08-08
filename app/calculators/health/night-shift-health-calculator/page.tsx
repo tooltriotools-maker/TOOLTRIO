@@ -1,3 +1,4 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Night Shift Health Impact Calculator', description: 'Free night shift health calculator 2026. Assess the health impact of shift work from years worked, f', url: 'https://tooltrio.com/calculators/health/night-shift-health-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Night Shift Health Impact Calculator', description: 'Free night shift health calculator 2026. Assess the health impact of shift work from years worked, f', url: 'https://tooltrio.com/calculators/health/night-shift-health-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="night-shift-health-calculator" />
+</>)
 }

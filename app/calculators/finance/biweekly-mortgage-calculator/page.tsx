@@ -1,6 +1,8 @@
+import { CalculatorBatch2DeepDive } from '@/components/ui/CalculatorBatch2DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const BiweeklyMortgageClient = dynamic(() => import('./BiweeklyMortgageClient'), {
   
   loading: () => (
@@ -52,5 +54,7 @@ export default function BiweeklyMortgagePage() {
       ))}
       <BiweeklyMortgageClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="how-to-pay-off-mortgage-early-usa-2026" />
+      <CalculatorDeepDive slug="biweekly-mortgage-calculator" />
+          <CalculatorBatch2DeepDive slug="biweekly-mortgage-calculator" />
     </>
 }

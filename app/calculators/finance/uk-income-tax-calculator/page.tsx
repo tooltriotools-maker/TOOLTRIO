@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,4 +54,5 @@ export default function Page() { return <>
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} blogSlug="uk-income-tax-guide-paye-national-insurance-take-home-pay-2026" />
-    </> }
+          <CalculatorBatch57DeepDive slug="uk-income-tax-calculator" />
+</> }

@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -54,5 +55,6 @@ export default function Page() {
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  />
-    </>
+          <CalculatorBatch57DeepDive slug="sp500-vs-bonds-calculator" />
+</>
 }

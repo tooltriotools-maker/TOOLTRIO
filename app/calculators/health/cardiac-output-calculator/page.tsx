@@ -1,3 +1,4 @@
+import { CalculatorBatch8DeepDive } from '@/components/ui/CalculatorBatch8DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -25,6 +26,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Cardiac Output Estimate Calculator', description: 'Free cardiac output calculator 2026. Estimate cardiac output, cardiac index, mean arterial pressure,', url: 'https://tooltrio.com/calculators/health/cardiac-output-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch8DeepDive slug="cardiac-output-calculator" />
+</>
   )
 }

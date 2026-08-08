@@ -1,3 +1,4 @@
+import { CalculatorBatch48DeepDive } from '@/components/ui/CalculatorBatch48DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -59,5 +60,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug="auto-loan-calculator-guide-car-financing-usa"
  />
-    </>)
+          <CalculatorBatch48DeepDive slug="lease-vs-buy-calculator" />
+</>)
 }

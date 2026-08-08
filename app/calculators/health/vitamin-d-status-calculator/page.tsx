@@ -1,3 +1,4 @@
+import { CalculatorBatch46DeepDive } from '@/components/ui/CalculatorBatch46DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -38,6 +39,7 @@ export default function Page() {
         ]}
         relatedCalculators={relatedCalculators}
       />
-    </>
+          <CalculatorBatch46DeepDive slug="vitamin-d-status-calculator" />
+</>
   )
 }

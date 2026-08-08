@@ -1,3 +1,4 @@
+import { CalculatorBatch51DeepDive } from '@/components/ui/CalculatorBatch51DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -52,5 +53,6 @@ export default function BudgetPlannerPage() {
       ))}
       <BudgetPlannerCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="budget-50-30-20-rule-usa-real-examples-2026" />
-    </>
+          <CalculatorBatch51DeepDive slug="budget-planner-calculator" />
+</>
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -52,6 +53,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} blogSlug="elss-vs-nps-tax-saving-comparison-india-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch53DeepDive slug="elss-vs-nps-calculator" />
+</>
   )
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch14DeepDive } from '@/components/ui/CalculatorBatch14DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -34,5 +35,6 @@ export default function Page() {
       <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
     ))}
     <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch14DeepDive slug="estate-tax-calculator" />
+</>
 }

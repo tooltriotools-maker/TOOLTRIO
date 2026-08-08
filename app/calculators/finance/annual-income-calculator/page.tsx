@@ -1,6 +1,8 @@
+import { CalculatorBatch2DeepDive } from '@/components/ui/CalculatorBatch2DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const AnnualIncomeCalculatorClient = dynamic(() => import('./AnnualIncomeCalculatorClient'), {
   
   loading: () => (
@@ -52,5 +54,7 @@ export default function AnnualIncomePage() {
       ))}
       <AnnualIncomeCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="annual-salary-by-hourly-rate-usa-2026" />
+      <CalculatorDeepDive slug="annual-income-calculator" />
+          <CalculatorBatch2DeepDive slug="annual-income-calculator" />
     </>
 }

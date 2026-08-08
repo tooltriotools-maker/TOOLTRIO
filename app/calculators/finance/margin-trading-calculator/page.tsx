@@ -1,6 +1,8 @@
+import { CalculatorBatch44DeepDive } from '@/components/ui/CalculatorBatch44DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), { loading: () => <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" /> })
 export const metadata: Metadata = generateCalculatorMetadata({ title: 'Margin Trading Calculator USA 2026 | ToolTrio', description: 'Calculate margin trading returns, interest costs, break-even rates, and leverage risk. Understand how borrowing amplifies both gains and losses in your brokerage account.', slug: 'margin-trading-calculator', category: 'finance', keywords: ['margin trading calculator USA', 'margin account return calculator', 'leverage trading calculator', 'brokerage margin interest calculator'] })
 const faqs = [
@@ -9,4 +11,5 @@ const faqs = [
 ]
 const relatedCalculators = [{'name': 'Stock Profit Calculator', 'href': '/calculators/finance/stock-profit-calculator', 'icon': '💹', 'desc': 'Stock returns'}, {'name': 'ROI Calculator', 'href': '/calculators/finance/roi-calculator', 'icon': '📈', 'desc': 'Investment ROI'}, {'name': 'Compound Interest', 'href': '/calculators/finance/compound-interest-calculator', 'icon': '📈', 'desc': 'Compound growth'}]
 const structuredData = [generateFAQStructuredData(faqs)]
-export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></> }
+export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /><CalculatorDeepDive slug="margin-trading-calculator" />      <CalculatorBatch44DeepDive slug="margin-trading-calculator" />
+</> }

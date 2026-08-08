@@ -1,3 +1,4 @@
+import { CalculatorBatch55DeepDive } from '@/components/ui/CalculatorBatch55DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -143,6 +144,7 @@ Build a complete body composition assessment by combining your body fat result w
         ],
       }}
     />
-    </>
+          <CalculatorBatch55DeepDive slug="body-fat-calculator" />
+</>
   )
 }

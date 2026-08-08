@@ -1,3 +1,4 @@
+import { CalculatorBatch50DeepDive } from '@/components/ui/CalculatorBatch50DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -52,5 +53,6 @@ export default function WealthCalculatorPage() {
       ))}
       <WealthCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="wealth-building-guide-usa-2026-net-worth-by-age" />
-    </>
+          <CalculatorBatch50DeepDive slug="wealth-calculator" />
+</>
 }

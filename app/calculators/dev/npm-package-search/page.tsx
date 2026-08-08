@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -33,6 +34,7 @@ export default function Page() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd.faqPage) }} />
       )}
       <CalculatorClient faqs={faqs} />
-    </>
+          <CalculatorBatch57DeepDive slug="npm-package-search" />
+</>
   )
 }

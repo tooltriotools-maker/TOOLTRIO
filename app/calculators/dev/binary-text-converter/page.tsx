@@ -1,3 +1,4 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateDevToolMetadata, generateDevToolJsonLd } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -40,6 +41,7 @@ export default function Page() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd.faqPage) }} />
       )}
       <CalculatorClient faqs={faqs} />
-    </>
+          <CalculatorBatch47DeepDive slug="binary-text-converter" />
+</>
   )
 }

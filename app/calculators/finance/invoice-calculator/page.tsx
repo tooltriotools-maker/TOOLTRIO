@@ -1,6 +1,8 @@
+import { CalculatorBatch2DeepDive } from '@/components/ui/CalculatorBatch2DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const InvoiceCalculatorClient = dynamic(() => import('./InvoiceCalculatorClient'), {
   
   loading: () => (
@@ -52,5 +54,7 @@ export default function InvoicePage() {
       ))}
       <InvoiceCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="small-business-finance-guide-usa-2026" />
+      <CalculatorDeepDive slug="invoice-calculator" />
+          <CalculatorBatch2DeepDive slug="invoice-calculator" />
     </>
 }

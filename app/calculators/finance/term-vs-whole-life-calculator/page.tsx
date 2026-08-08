@@ -1,3 +1,4 @@
+import { CalculatorBatch54DeepDive } from '@/components/ui/CalculatorBatch54DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,6 +54,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} blogSlug="term-insurance-vs-ulip-vs-endowment-india-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch54DeepDive slug="term-vs-whole-life-calculator" />
+</>
   )
 }

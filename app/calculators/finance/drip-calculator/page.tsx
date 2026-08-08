@@ -1,3 +1,4 @@
+import { CalculatorBatch41DeepDive } from '@/components/ui/CalculatorBatch41DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -11,17 +12,25 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 const faqs = [
   {
-    question: 'What is a DRIP?',
-    answer: 'A Dividend Reinvestment Plan (DRIP) automatically uses dividend payments to purchase additional fractional shares instead of paying cash. Over time, this compounds: more shares means more dividends means even more shares. Companies like Johnson & Johnson, Coca-Cola, and Procter & Gamble have made investors wealthy primarily through DRIP compounding over decades.',
+    question: 'What does DRIP mean?',
+    answer: 'DRIP means dividend reinvestment plan. Instead of leaving a dividend as cash, the dividend is used to buy additional shares or fractional shares. Those additional shares can then receive future dividends, creating compounding through a growing share count.',
   },
   {
-    question: 'How much does DRIP add to returns?',
-    answer: 'Over long periods, DRIP can contribute 40-60% of total returns in dividend-paying stocks. Morningstar data shows that reinvesting S&P 500 dividends turns a $10,000 investment from 1990 into roughly $198,000 by 2024 vs about $97,000 without reinvestment — more than doubling the wealth from the same initial investment.',
+    question: 'Does this calculator use dividend yield or dividend per share?',
+    answer: 'It uses the annual dividend in dollars per share. For example, a stock paying $2 per share should use 2 as the dividend input. Do not enter a 4% yield as 4 unless the annual dividend itself is $4 per share.',
   },
   {
-    question: 'Is DRIP income taxable?',
-    answer: "Yes — dividends are taxable in the year received, whether you take them as cash or reinvest. Qualified dividends are taxed at 0%, 15%, or 20% depending on income. The reinvested dividends increase your cost basis, so you'll pay less capital gains tax when you eventually sell. In a tax-advantaged account (IRA, 401k), dividends reinvest completely tax-free.",
-  }
+    question: 'Does the Without DRIP result include cash dividends?',
+    answer: 'No. The current comparison keeps the original share count and values those shares at the modeled final price. It does not add cash dividends received by a non-reinvesting investor, so DRIP Benefit is not a complete total-wealth comparison with a cash-dividend strategy.',
+  },
+  {
+    question: 'Are reinvested dividends taxable in a taxable brokerage account?',
+    answer: 'Reinvestment generally does not by itself prevent a dividend from being taxable. Tax treatment depends on the dividend, account, taxpayer, and jurisdiction. The calculator does not subtract dividend taxes before reinvesting and does not track tax lots or cost basis.',
+  },
+  {
+    question: 'Can a company cut its dividend?',
+    answer: 'Yes. Dividend payments and dividend growth are not guaranteed. This calculator applies the growth rate you enter every modeled year, so test conservative assumptions and remember that a real company can freeze, reduce, or suspend its dividend.',
+  },
 ]
 const relatedCalculators = [
   { name: 'Dividend Calculator', href: '/calculators/finance/dividend-calculator', icon: '💰', desc: 'Dividend Calculator' },
@@ -34,5 +43,6 @@ export default function Page() {
   return <>
     {structuredData.map((s,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(s)}} />)}
     <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch41DeepDive slug="drip-calculator" />
+</>
 }

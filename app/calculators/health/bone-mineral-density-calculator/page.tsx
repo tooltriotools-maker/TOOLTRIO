@@ -1,3 +1,4 @@
+import { CalculatorBatch49DeepDive } from '@/components/ui/CalculatorBatch49DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -25,6 +26,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Bone Mineral Density T-Score Calculator', description: 'Free DEXA T-score and Z-score calculator 2026. Interpret your bone density scan results, find your o', url: 'https://tooltrio.com/calculators/health/bone-mineral-density-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch49DeepDive slug="bone-mineral-density-calculator" />
+</>
   )
 }

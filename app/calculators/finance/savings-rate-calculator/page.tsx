@@ -1,6 +1,8 @@
+import { CalculatorBatch45DeepDive } from '@/components/ui/CalculatorBatch45DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const SavingsRateCalculatorClient = dynamic(() => import('./SavingsRateCalculatorClient'), {
   
   loading: () => (
@@ -50,5 +52,7 @@ export default function SavingsRatePage() {
       ))}
       <SavingsRateCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="how-much-to-save-for-retirement-by-age-usa" />
-    </>
+      <CalculatorDeepDive slug="savings-rate-calculator" />
+          <CalculatorBatch45DeepDive slug="savings-rate-calculator" />
+</>
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Oral Health Risk Calculator', description: 'Free oral health risk calculator 2026. Assess your risk of tooth decay, gum disease, and oral cancer', url: 'https://tooltrio.com/calculators/health/oral-health-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Oral Health Risk Calculator', description: 'Free oral health risk calculator 2026. Assess your risk of tooth decay, gum disease, and oral cancer', url: 'https://tooltrio.com/calculators/health/oral-health-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="oral-health-risk-calculator" />
+</>)
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch45DeepDive } from '@/components/ui/CalculatorBatch45DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Dehydration Status Calculator', description: 'Free dehydration calculator 2026. Calculate fluid loss percentage, dehydration severity, and precise', url: 'https://tooltrio.com/calculators/health/dehydration-status-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Dehydration Status Calculator', description: 'Free dehydration calculator 2026. Calculate fluid loss percentage, dehydration severity, and precise', url: 'https://tooltrio.com/calculators/health/dehydration-status-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch45DeepDive slug="dehydration-status-calculator" />
+</>)
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch45DeepDive } from '@/components/ui/CalculatorBatch45DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -25,6 +26,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Athlete Heart Rate Zone Calculator', description: 'Free heart rate zone calculator 2026. Uses the Karvonen formula with heart rate reserve to calculate', url: 'https://tooltrio.com/calculators/health/athlete-heart-rate-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch45DeepDive slug="athlete-heart-rate-calculator" />
+</>
   )
 }

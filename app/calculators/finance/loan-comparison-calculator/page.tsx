@@ -1,6 +1,8 @@
+import { CalculatorBatch2DeepDive } from '@/components/ui/CalculatorBatch2DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const LoanComparisonCalculatorClient = dynamic(() => import('./LoanComparisonCalculatorClient'), {
   
   loading: () => (
@@ -51,5 +53,7 @@ export default function LoanComparisonPage() {
       ))}
       <LoanComparisonCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="car-loan-calculator-usa-2026-rates-by-state" />
+      <CalculatorDeepDive slug="loan-comparison-calculator" />
+          <CalculatorBatch2DeepDive slug="loan-comparison-calculator" />
     </>
 }

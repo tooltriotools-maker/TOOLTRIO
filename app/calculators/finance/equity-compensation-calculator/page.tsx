@@ -1,10 +1,11 @@
+import { CalculatorBatch41DeepDive } from '@/components/ui/CalculatorBatch41DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Equity Compensation Calculator USA 2026 — RSU, ISO, NSO | ToolTrio',
-  description: 'Calculate tax on RSUs, ISO and NSO stock options including ordinary income, AMT exposure, and long-term capital gains strategies.',
+  title: 'RSU Equity Compensation Calculator USA 2026 | ToolTrio',
+  description: 'Estimate RSU grant value, modeled ordinary income, vesting shares, and tax using a fair-market-value and flat-tax-rate scenario.',
   slug: 'equity-compensation-calculator',
   category: 'finance',
   region: 'usa',
@@ -13,17 +14,25 @@ export const metadata: Metadata = generateCalculatorMetadata({
 
 const faqs = [
   {
-    question: 'How are RSUs taxed?',
-    answer: 'RSUs are taxed as ordinary income at vesting, based on the FMV of shares on the vest date. Your employer withholds taxes (typically at 22% federal for supplemental income, or 37% for amounts above $1M). Shares are usually sell-to-cover or net-share-settle. After vesting, any additional gain or loss when you sell is a capital gain/loss (long-term if held 12+ months).',
+    question: 'What does this equity compensation calculator currently model?',
+    answer: 'The live calculator currently runs the RSU branch only. It estimates grant value as shares multiplied by fair market value, treats that modeled value as ordinary income, applies the tax rate you enter, and divides shares evenly across the vesting period. It should not be used as an ISO or NSO exercise calculator.',
   },
   {
-    question: "ISOs vs NSOs — what's the tax difference?",
-    answer: 'ISO: no regular income tax at exercise; AMT preference item equal to spread; long-term capital gains if held 1 year after exercise AND 2 years after grant. NSO: ordinary income tax at exercise on the full spread; employer withholds taxes; no AMT preference; additional gain taxed as capital gain when sold. ISOs are more tax-efficient but require careful planning around AMT.',
+    question: 'How should I use the fair market value input for RSUs?',
+    answer: 'Use FMV as a scenario value for the shares. Actual RSU compensation income generally depends on the value when each tranche vests, so a multi-year grant can have different taxable values at different vest dates. The calculator does not forecast future stock prices.',
   },
   {
-    question: 'What is the 83(b) election for restricted stock?',
-    answer: "An 83(b) election allows you to pay income tax on restricted stock NOW at its current (low) value, rather than when it vests (potentially much higher value). File within 30 days of grant — no exceptions. If the stock goes up, your future gains are all capital gains (15-20%) instead of ordinary income (up to 37%). If the company fails, you've paid tax on worthless stock — the election is not reversible.",
-  }
+    question: 'Does the tax result equal my actual RSU withholding or final tax bill?',
+    answer: 'No. The calculator applies one flat tax percentage that you choose. Actual payroll withholding and final tax can involve federal income-tax rules, payroll taxes, state or local tax, other income, and the employer’s withholding method.',
+  },
+  {
+    question: 'Does this calculator track capital gains after RSUs vest?',
+    answer: 'No. It stops at a simplified vesting-value and tax estimate. If you keep vested shares, later price changes can create a separate capital gain or loss when you sell, and cost-basis and holding-period records become important.',
+  },
+  {
+    question: 'Why is there a strike-price field if the calculator is in RSU mode?',
+    answer: 'The interface uses a shared equity-compensation input set, but the current client always calculates type “rsu.” The RSU branch does not subtract an exercise cost, so the strike-price field does not change the live RSU result.',
+  },
 ]
 
 const relatedCalculators = [
@@ -41,5 +50,6 @@ export default function Page() {
       <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
     ))}
     <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch41DeepDive slug="equity-compensation-calculator" />
+</>
 }

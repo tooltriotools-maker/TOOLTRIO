@@ -1,3 +1,4 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -33,6 +34,7 @@ export default function Page() {
         ]}
         relatedCalculators={relatedCalculators}
       />
-    </>
+          <CalculatorBatch47DeepDive slug="bone-density-risk-calculator" />
+</>
   )
 }

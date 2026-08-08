@@ -1,3 +1,4 @@
+import { CalculatorBatch46DeepDive } from '@/components/ui/CalculatorBatch46DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Immune Strength Score Calculator', description: 'Free immune strength calculator 2026. Score your immune system resilience from sleep, stress, exerci', url: 'https://tooltrio.com/calculators/health/immune-strength-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Immune Strength Score Calculator', description: 'Free immune strength calculator 2026. Score your immune system resilience from sleep, stress, exerci', url: 'https://tooltrio.com/calculators/health/immune-strength-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch46DeepDive slug="immune-strength-calculator" />
+</>)
 }

@@ -1,3 +1,4 @@
+import { CalculatorBatch30DeepDive } from '@/components/ui/CalculatorBatch30DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -9,4 +10,5 @@ const faqs = [
 ]
 const relatedCalculators = [{ name: 'College Cost Calculator', href: '/calculators/finance/college-cost-calculator', icon: '🎓', desc: 'Future college costs' }, { name: '529 vs Roth IRA', href: '/calculators/finance/529-vs-roth-ira-education-calculator', icon: '📚', desc: '529 vs Roth' }, { name: '529 vs UTMA', href: '/calculators/finance/529-vs-utma-calculator', icon: '👶', desc: '529 vs UTMA' }]
 const structuredData = [generateFAQStructuredData(faqs)]
-export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></> }
+export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />      <CalculatorBatch30DeepDive slug="prepaid-vs-savings-529-calculator" />
+</> }

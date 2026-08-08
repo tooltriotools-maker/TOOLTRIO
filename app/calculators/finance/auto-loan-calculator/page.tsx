@@ -1,3 +1,4 @@
+import { CalculatorBatch48DeepDive } from '@/components/ui/CalculatorBatch48DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -54,5 +55,6 @@ export default function AutoLoanPage() {
       ))}
       <AutoLoanCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="car-loan-calculator-usa-2026-rates-by-state" />
-    </>
+          <CalculatorBatch48DeepDive slug="auto-loan-calculator" />
+</>
 }

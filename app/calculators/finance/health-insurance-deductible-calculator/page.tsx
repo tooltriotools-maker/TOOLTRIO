@@ -1,3 +1,4 @@
+import { CalculatorBatch43DeepDive } from '@/components/ui/CalculatorBatch43DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 
@@ -55,6 +56,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch43DeepDive slug="health-insurance-deductible-calculator" />
+</>
   )
 }

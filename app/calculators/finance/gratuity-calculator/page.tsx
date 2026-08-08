@@ -1,3 +1,4 @@
+import { CalculatorBatch48DeepDive } from '@/components/ui/CalculatorBatch48DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -59,5 +60,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug="swp-vs-annuity-best-retirement-income-strategy"
  />
-    </>)
+          <CalculatorBatch48DeepDive slug="gratuity-calculator" />
+</>)
 }

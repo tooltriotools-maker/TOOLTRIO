@@ -1,3 +1,4 @@
+import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -93,5 +94,6 @@ export default function MortgageCalculatorPage() {
  relatedCalculators={relatedCalculators}
  blogSlug="best-mortgage-calculators-usa-2026"
  />
-    </>)
+          <CalculatorBatch53DeepDive slug="mortgage-calculator" />
+</>)
 }

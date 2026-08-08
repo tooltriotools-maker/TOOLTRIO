@@ -1,3 +1,4 @@
+import { CalculatorBatch54DeepDive } from '@/components/ui/CalculatorBatch54DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -56,5 +57,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug='home-loan-mortgage-guide-how-to-get-best-rate'
  />
-    </>
+          <CalculatorBatch54DeepDive slug="loan-prepayment-calculator" />
+</>
 }

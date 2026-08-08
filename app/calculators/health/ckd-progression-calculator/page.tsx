@@ -1,3 +1,4 @@
+import { CalculatorBatch45DeepDive } from '@/components/ui/CalculatorBatch45DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -25,6 +26,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'CKD Progression Risk Calculator', description: 'Free CKD progression calculator 2026. Estimate kidney disease progression rate, years to dialysis, a', url: 'https://tooltrio.com/calculators/health/ckd-progression-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch45DeepDive slug="ckd-progression-calculator" />
+</>
   )
 }

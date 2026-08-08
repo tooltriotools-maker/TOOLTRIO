@@ -1,3 +1,4 @@
+import { CalculatorBatch39DeepDive } from '@/components/ui/CalculatorBatch39DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -9,4 +10,5 @@ const faqs = [
 ]
 const relatedCalculators = [{'name': 'Social Security Calculator', 'href': '/calculators/finance/social-security-calculator', 'icon': '🏛️', 'desc': 'SS benefit estimate'}, {'name': 'Social Security Breakeven', 'href': '/calculators/finance/social-security-breakeven-calculator', 'icon': '⚖️', 'desc': 'Claiming age'}, {'name': 'Defined Benefit Pension', 'href': '/calculators/finance/defined-benefit-pension-calculator', 'icon': '🏛️', 'desc': 'Pension calculator'}]
 const structuredData = [generateFAQStructuredData(faqs)]
-export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></> }
+export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />      <CalculatorBatch39DeepDive slug="social-security-wep-calculator" />
+</> }

@@ -1,3 +1,4 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -52,5 +53,6 @@ export default function DownPaymentPage() {
       ))}
       <DownPaymentCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="down-payment-how-much-house-usa-2026" />
-    </>
+          <CalculatorBatch47DeepDive slug="down-payment-calculator" />
+</>
 }

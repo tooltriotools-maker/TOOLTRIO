@@ -1,3 +1,4 @@
+import { CalculatorBatch52DeepDive } from '@/components/ui/CalculatorBatch52DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,5 +54,6 @@ export default function TaxBracketPage() {
       ))}
       <TaxBracketCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="tax-bracket-guide-usa-2026-marginal-vs-effective" />
-    </>
+          <CalculatorBatch52DeepDive slug="tax-bracket-calculator" />
+</>
 }

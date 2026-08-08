@@ -1,3 +1,4 @@
+import { CalculatorBatch55DeepDive } from '@/components/ui/CalculatorBatch55DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,5 +54,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug='retirement-planning-guide-how-much-do-you-need-to-retire'
  />
-    </>
+          <CalculatorBatch55DeepDive slug="retirement-calculator" />
+</>
 }

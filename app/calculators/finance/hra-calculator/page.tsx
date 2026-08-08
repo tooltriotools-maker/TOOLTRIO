@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -59,5 +60,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug="sip-calculator-guide-how-to-grow-wealth-with-systematic-investment"
  />
-    </>)
+          <CalculatorBatch57DeepDive slug="hra-calculator" />
+</>)
 }

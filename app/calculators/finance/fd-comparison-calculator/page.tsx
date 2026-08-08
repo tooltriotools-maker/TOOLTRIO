@@ -1,3 +1,4 @@
+import { CalculatorBatch50DeepDive } from '@/components/ui/CalculatorBatch50DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -59,5 +60,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug="fd-vs-rd-vs-sip-best-investment-for-2026"
  />
-    </>)
+          <CalculatorBatch50DeepDive slug="fd-comparison-calculator" />
+</>)
 }

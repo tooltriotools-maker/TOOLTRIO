@@ -1,3 +1,4 @@
+import { CalculatorBatch22DeepDive } from '@/components/ui/CalculatorBatch22DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -113,6 +114,7 @@ export default function Page() {
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />
-    </>
+          <CalculatorBatch22DeepDive slug="heart-attack-risk-calculator" />
+</>
   )
 }

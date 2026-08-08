@@ -1,3 +1,4 @@
+import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -236,6 +237,7 @@ export default function FunPage() {
           </Link>
         </div>
       </div>
-    </div>
+          <CalculatorBatch53DeepDive slug="fun" />
+</div>
   )
 }

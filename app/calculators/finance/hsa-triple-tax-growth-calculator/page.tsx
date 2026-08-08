@@ -1,3 +1,4 @@
+import { CalculatorBatch44DeepDive } from '@/components/ui/CalculatorBatch44DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -9,4 +10,5 @@ const faqs = [
 ]
 const relatedCalculators = [{'name': 'HSA vs FSA Calculator', 'href': '/calculators/finance/hsa-vs-fsa-calculator', 'icon': '🏥', 'desc': 'HSA vs FSA'}, {'name': 'HSA Investment Calculator', 'href': '/calculators/finance/hsa-investment-calculator', 'icon': '💰', 'desc': 'HSA investing'}, {'name': 'Roth IRA vs HSA', 'href': '/calculators/finance/roth-ira-vs-hsa-calculator', 'icon': '⚖️', 'desc': 'HSA vs Roth IRA'}]
 const structuredData = [generateFAQStructuredData(faqs)]
-export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></> }
+export default function Page() { return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />      <CalculatorBatch44DeepDive slug="hsa-triple-tax-growth-calculator" />
+</> }

@@ -1,3 +1,4 @@
+import { CalculatorBatch43DeepDive } from '@/components/ui/CalculatorBatch43DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -14,5 +15,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Genetic Height Potential Calculator', description: "Free genetic height potential calculator 2026. Predict adult height from parents' heights using the ", url: 'https://tooltrio.com/calculators/health/genetic-height-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Genetic Height Potential Calculator', description: "Free genetic height potential calculator 2026. Predict adult height from parents' heights using the ", url: 'https://tooltrio.com/calculators/health/genetic-height-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch43DeepDive slug="genetic-height-calculator" />
+</>)
 }

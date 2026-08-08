@@ -1,3 +1,4 @@
+import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -56,5 +57,6 @@ export default function Page() {
  relatedCalculators={relatedCalculators}
  blogSlug='compound-interest-guide-eighth-wonder-of-the-world'
  />
-    </>
+          <CalculatorBatch53DeepDive slug="rd-calculator" />
+</>
 }

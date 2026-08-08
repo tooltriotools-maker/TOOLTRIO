@@ -1,3 +1,4 @@
+import { CalculatorBatch7DeepDive } from '@/components/ui/CalculatorBatch7DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'

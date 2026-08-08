@@ -1,3 +1,4 @@
+import { CalculatorBatch8DeepDive } from '@/components/ui/CalculatorBatch8DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -26,5 +27,6 @@ const relatedCalculators = [
 
 const structuredData = [generateFAQStructuredData(faqs)]
 export default function Page() {
-  return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} /></>
+  return <>{structuredData.map((s, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />)}<CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />      <CalculatorBatch8DeepDive slug="w2-vs-1099-calculator" />
+</>
 }

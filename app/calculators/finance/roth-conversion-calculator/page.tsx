@@ -1,3 +1,4 @@
+import { CalculatorBatch51DeepDive } from '@/components/ui/CalculatorBatch51DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -52,5 +53,6 @@ export default function RothConversionPage() {
       ))}
       <RothConversionCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="roth-ira-vs-401k-which-is-better-2026" />
-    </>
+          <CalculatorBatch51DeepDive slug="roth-conversion-calculator" />
+</>
 }

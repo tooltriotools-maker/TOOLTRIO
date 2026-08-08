@@ -1,3 +1,4 @@
+import { CalculatorBatch12DeepDive } from '@/components/ui/CalculatorBatch12DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -26,5 +27,6 @@ export default function Page() {
   return <>
     {structuredData.map((s,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(s)}} />)}
     <CalculatorClient faqs={faqs} structuredData={structuredData} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch12DeepDive slug="collectibles-investment-calculator" />
+</>
 }

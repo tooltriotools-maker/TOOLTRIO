@@ -1,3 +1,4 @@
+import { CalculatorBatch54DeepDive } from '@/components/ui/CalculatorBatch54DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -57,5 +58,6 @@ export default function Page() {
  structuredData={[generateFAQStructuredData(faqs)]}
  relatedCalculators={relatedCalculators}
  />
-    </>
+          <CalculatorBatch54DeepDive slug="france-pea-vs-assurance-vie-calculator" />
+</>
 }

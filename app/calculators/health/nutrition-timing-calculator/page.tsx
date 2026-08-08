@@ -1,3 +1,4 @@
+import { CalculatorBatch48DeepDive } from '@/components/ui/CalculatorBatch48DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Nutrition Timing Calculator', description: 'Free nutrition timing calculator 2026. Optimise meal timing for fat loss, muscle gain, performance, ', url: 'https://tooltrio.com/calculators/health/nutrition-timing-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Nutrition Timing Calculator', description: 'Free nutrition timing calculator 2026. Optimise meal timing for fat loss, muscle gain, performance, ', url: 'https://tooltrio.com/calculators/health/nutrition-timing-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="nutrition-timing-calculator" />
+</>)
 }

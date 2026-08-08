@@ -1,3 +1,4 @@
+import { CalculatorBatch49DeepDive } from '@/components/ui/CalculatorBatch49DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateWebAppStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -11,5 +12,6 @@ const faqs = [
 ]
 export default function Page() {
   const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
-  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Longevity Risk Index Calculator', description: 'Free longevity calculator 2026. Project your life expectancy from 13 lifestyle and health factors: s', url: 'https://tooltrio.com/calculators/health/longevity-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} /></>)
+  return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Longevity Risk Index Calculator', description: 'Free longevity calculator 2026. Project your life expectancy from 13 lifestyle and health factors: s', url: 'https://tooltrio.com/calculators/health/longevity-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch49DeepDive slug="longevity-risk-calculator" />
+</>)
 }

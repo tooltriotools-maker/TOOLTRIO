@@ -1,3 +1,4 @@
+import { CalculatorBatch25DeepDive } from '@/components/ui/CalculatorBatch25DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -41,5 +42,6 @@ export default function Page() {
       <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
     ))}
     <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch25DeepDive slug="annual-bonus-tax-calculator" />
+</>
 }

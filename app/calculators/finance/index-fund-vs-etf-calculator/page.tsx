@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -53,6 +54,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} blogSlug="vanguard-vs-fidelity-voo-fxaix-guide-usa-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={relatedCalculators} />
-    </>
+          <CalculatorBatch57DeepDive slug="index-fund-vs-etf-calculator" />
+</>
   )
 }

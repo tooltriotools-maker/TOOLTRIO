@@ -1,6 +1,8 @@
+import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData, generateCalculatorRatingSchema } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
+import { CalculatorDeepDive } from '@/components/ui/CalculatorDeepDive'
 const WeeklyBudgetCalculatorClient = dynamic(() => import('./WeeklyBudgetCalculatorClient'), {
   
   loading: () => (
@@ -51,5 +53,7 @@ export default function WeeklyBudgetPage() {
       ))}
       <WeeklyBudgetCalculatorClient faqs={faqs} relatedCalculators={relatedCalculators}
  blogSlug="budget-50-30-20-rule-usa-real-examples-2026" />
-    </>
+      <CalculatorDeepDive slug="weekly-budget-calculator" />
+          <CalculatorBatch47DeepDive slug="weekly-budget-calculator" />
+</>
 }

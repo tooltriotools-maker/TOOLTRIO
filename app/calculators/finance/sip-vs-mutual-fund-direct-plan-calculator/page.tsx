@@ -1,3 +1,4 @@
+import { CalculatorBatch57DeepDive } from '@/components/ui/CalculatorBatch57DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -42,6 +43,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} blogSlug="regular-vs-direct-mutual-fund-plan-guide-2026" structuredData={[generateFAQStructuredData(faqs)]} relatedCalculators={rc} />
-    </>
+          <CalculatorBatch57DeepDive slug="sip-vs-mutual-fund-direct-plan-calculator" />
+</>
   )
 }

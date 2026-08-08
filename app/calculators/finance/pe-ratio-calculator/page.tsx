@@ -1,3 +1,4 @@
+import { CalculatorBatch51DeepDive } from '@/components/ui/CalculatorBatch51DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
@@ -54,5 +55,6 @@ export default function Page() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} blogSlug="investment-return-guide-cagr-roi-roi-calculator-usa" />
-    </>
+          <CalculatorBatch51DeepDive slug="pe-ratio-calculator" />
+</>
 }

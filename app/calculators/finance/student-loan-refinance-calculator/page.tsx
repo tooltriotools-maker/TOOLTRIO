@@ -1,3 +1,4 @@
+import { CalculatorBatch41DeepDive } from '@/components/ui/CalculatorBatch41DeepDive'
 import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
@@ -42,5 +43,6 @@ export default function Page() {
   return <>
     {structuredData.map((s,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(s)}} />)}
     <CalculatorClient faqs={faqs} relatedCalculators={relatedCalculators} />
-  </>
+        <CalculatorBatch41DeepDive slug="student-loan-refinance-calculator" />
+</>
 }
