@@ -9,7 +9,7 @@
     "lint": "next lint",
     "dev:safe": "node -e \"const fs=require('fs');try{fs.rmSync('.next',{recursive:true,force:true})}catch(e){}\" && next build && next start",
     "typecheck": "tsc --noEmit",
-    "verify:build": "npm run verify:config && npm run p0:dependency:check && npm run catalog:check && npm run verify:registry && npm run typecheck && npm run lint && npm run llms:generate && npm run build",
+    "verify:build": "npm run verify:config && npm run p0:dependency:check && npm run check:finance-registry-safety && npm run check:calculator-result-props && npm run catalog:check && npm run verify:registry && npm run typecheck && npm run lint && npm run llms:generate && npm run build",
     "verify:config": "node scripts/check-build-safety.mjs",
     "catalog:generate": "node scripts/generate-catalog.mjs && node scripts/generate-blog-catalog.mjs",
     "catalog:check": "node scripts/check-catalog.mjs",
@@ -55,7 +55,9 @@
     "health:claims:check": "node scripts/audit-health-claims.mjs",
     "check:structured-data-props": "node scripts/check-structured-data-props.mjs",
     "check:chart-data-props": "node scripts/check-chart-data-properties.mjs",
-    "check:finance-quality": "node scripts/check-finance-quality-registry.mjs"
+    "check:finance-quality": "node scripts/check-finance-quality-registry.mjs",
+    "check:calculator-result-props": "node scripts/check-calculator-result-props.mjs",
+    "check:finance-registry-safety": "node scripts/check-finance-registry-safety.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",

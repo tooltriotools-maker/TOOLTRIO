@@ -55,9 +55,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <ResultCard label="Tax-Equivalent Yield" value={result ? `${Number(result.taxEquivalentYield).toFixed(1)}%` : "—"} highlight />
                 <ResultCard label="Combined Tax Rate" value={result ? `${Number(result.combinedTaxRate).toFixed(1)}%` : "—"} />
-                <ResultCard label="Annual Tax-Free Income" value={result ? `${Number(result.afterTaxIncome).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Taxable Equivalent Income" value={result ? `${Number(result.taxableEquivalentIncome).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Annual Tax Savings" value={result ? `${Number(result.taxSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="After-Tax Muni Yield" value={result ? `${Number(result.afterTaxMuni).toFixed(2)}%` : "—"} />
+                <ResultCard label="Break-Even Taxable Yield" value={result ? `${Number(result.breakEvenRate).toFixed(2)}%` : "—"} />
+                <ResultCard label="Muni Advantage" value={result ? (result.muniAdvantage ? "Yes" : "No") : "—"} />
                 <ResultCard label="Recommendation" value={result ? String(result.recommendation) : "—"} />
               </div>
 

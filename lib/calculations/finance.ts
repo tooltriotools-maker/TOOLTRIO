@@ -2004,6 +2004,7 @@ export function calculateSEP_IRA(selfEmploymentIncome: number, businessType: 'so
     vsEmployee401k: Math.round(maxContrib - 24500),
     contributionRate: contributionRate * 100,
     age,
+    yearData: Array.from({ length: 31 }, (_, year) => ({ year, balance: Math.round(maxContrib * Math.pow(1.07, year)) })),
   }
 }
 
@@ -2585,7 +2586,7 @@ export function calculateEarlyRetirement(currentAge:number, targetRetirementAge:
   const fiNumber=inflationAdjExpenses/safeWithdrawalRate
   const shortfall=Math.max(0,fiNumber-portfolio)
   const yearsOfFunding=portfolio>0?Math.log(1-(portfolio*realReturn/100)/inflationAdjExpenses)/Math.log(1+realReturn/100)*-1:0
-  return { portfolio:Math.round(portfolio), fiNumber:Math.round(fiNumber), sustainableIncome:Math.round(sustainableIncome), inflationAdjExpenses:Math.round(inflationAdjExpenses), shortfall:Math.round(shortfall), onTrack:portfolio>=fiNumber, yearsOfFunding:Math.round(yearsOfFunding), safeWithdrawalRate:safeWithdrawalRate*100, yearData }
+  return { portfolio:Math.round(portfolio), projectedPortfolio:Math.round(portfolio), fiNumber:Math.round(fiNumber), sustainableIncome:Math.round(sustainableIncome), inflationAdjExpenses:Math.round(inflationAdjExpenses), shortfall:Math.round(shortfall), onTrack:portfolio>=fiNumber, yearsOfFunding:Math.round(yearsOfFunding), safeWithdrawalRate:safeWithdrawalRate*100, yearData }
 }
 
 export function calculateHealthSavingsAccountHDHP(hdhdpPremium:number, traditionalPremium:number, hdhpDeductible:number, tradDeductible:number, expectedMedical:number, hsaContrib:number, taxRate:number) {
@@ -2664,7 +2665,7 @@ export function calculateFIRENumber(annualExpenses:number, currentAge:number, re
     if(portfolio>=fireNumber&&yearData.length===i+1) yearData[i].fireReached=true
   }
   const monthlyToFIRE=Math.max(0,(fireNumber-currentPortfolio)/((Math.pow(1+expectedReturn/100/12,yearsToFIRE*12)-1)/(expectedReturn/100/12)))
-  return { fireNumber:Math.round(fireNumber), currentPortfolio, shortfall:Math.round(Math.max(0,fireNumber-currentPortfolio)), onTrack:portfolio>=fireNumber, inflationAdjExpenses:Math.round(inflationAdjExpenses), projectedPortfolio:Math.round(portfolio), coveragePercent:Math.round(portfolio/fireNumber*100), monthlyToFIRE:Math.round(monthlyToFIRE/12), yearData }
+  return { fireNumber:Math.round(fireNumber), currentPortfolio, shortfall:Math.round(Math.max(0,fireNumber-currentPortfolio)), onTrack:portfolio>=fireNumber, inflationAdjExpenses:Math.round(inflationAdjExpenses), projectedPortfolio:Math.round(portfolio), sustainableIncome:Math.round(portfolio * safeWithdrawal / 100), coveragePercent:Math.round(portfolio/fireNumber*100), monthlyToFIRE:Math.round(monthlyToFIRE/12), yearData }
 }
 
 export function calculateEstatePlanning529(contributions:number[], ages:number[], growthRate:number, taxRate:number) {
@@ -2959,7 +2960,8 @@ export function calculateCoveredCall(sharesOwned: number, currentPrice: number, 
     assignmentProceeds: Math.round(assignmentProceeds),
     capitalGain: Math.round(capitalGain),
     incomePerShare: premium,
-    contractsWritable: Math.floor(sharesOwned / 100)
+    contractsWritable: Math.floor(sharesOwned / 100),
+    contractValue: Math.round(currentPrice * 100)
   }
 }
 
