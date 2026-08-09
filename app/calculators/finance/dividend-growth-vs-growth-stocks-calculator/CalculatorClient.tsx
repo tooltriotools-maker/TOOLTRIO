@@ -9,7 +9,7 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
 const FMT_PREFIX = '$'
 const fmt = (n: number) => FMT_PREFIX + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? FMT_PREFIX + (n/1000000).toFixed(2) + 'M' : FMT_PREFIX + (n/1000).toFixed(0) + 'K'

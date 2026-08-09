@@ -7,7 +7,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props {
+interface Props { structuredData?: object[];
   faqs: any[]
   relatedCalculators?: any[]
   blogSlug?: string

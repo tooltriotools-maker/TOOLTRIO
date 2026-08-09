@@ -6,7 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const STROKES = [
   {label:'Freestyle (moderate)',met:7.0},{label:'Freestyle (fast)',met:10.0},{label:'Backstroke',met:7.0},{label:'Breaststroke',met:10.3},{label:'Butterfly',met:13.8},{label:'Leisurely / recreational',met:6.0},{label:'Water polo',met:10.0},{label:'Treading water',met:3.5},

@@ -52,7 +52,8 @@
     "related:check": "node scripts/check-related-tools.mjs",
     "p0:dependency:check": "node scripts/p0-dependency-diagnostic.mjs",
     "production:config:check": "node scripts/audit-production-config.mjs",
-    "health:claims:check": "node scripts/audit-health-claims.mjs"
+    "health:claims:check": "node scripts/audit-health-claims.mjs",
+    "check:structured-data-props": "node scripts/check-structured-data-props.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",

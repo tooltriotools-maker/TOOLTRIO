@@ -9,7 +9,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp, Shield } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
 const fmt = (n: number) => (n >= 10000000 ? '₹' + (n/10000000).toFixed(2) + 'Cr' : n >= 100000 ? '₹' + (n/100000).toFixed(1) + 'L' : n >= 1000 ? '₹' + (n/1000).toFixed(0) + 'K' : '₹' + Math.round(n))
 const fmtU = (n: number) => (n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M' : '$' + (n/1000).toFixed(0) + 'K')
 const fmtAuto = (n: number, isUSD: boolean) => isUSD ? fmtU(n) : fmt(n)

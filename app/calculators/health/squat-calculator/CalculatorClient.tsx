@@ -6,7 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FORMULAS = [
   {name:'Epley',calc:(w:number,r:number)=>w*(1+r/30)},

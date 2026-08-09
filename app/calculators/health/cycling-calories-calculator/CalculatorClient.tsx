@@ -6,7 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const INTENSITIES = [
   {label:'Leisure (10-12 mph)',met:5.8},{label:'Moderate (12-14 mph)',met:8.0},{label:'Vigorous (14-16 mph)',met:10.0},{label:'Racing (16-20 mph)',met:12.0},{label:'Mountain biking',met:8.5},{label:'Stationary (moderate)',met:7.0},

@@ -10,7 +10,7 @@ import { InternalLinks } from '@/components/ui/InternalLinks'
 import { TrendingUp } from 'lucide-react'
 import { SEOContent } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string }
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const { fmt, fmtCompact } = useCurrency()

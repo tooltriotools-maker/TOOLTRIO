@@ -6,7 +6,7 @@ import { InputField, SelectField } from '@/components/ui/InputField'
 import { FAQSection } from '@/components/ui/FAQSection'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: any[]; relatedCalculators?: any[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 const FOODS = [{n:'Milk (250ml)',mg:300},{n:'Yogurt (200g)',mg:250},{n:'Cheddar cheese (30g)',mg:200},{n:'Almonds (30g)',mg:75},{n:'Broccoli (100g)',mg:47},{n:'Sardines (100g)',mg:382},{n:'Tofu (100g)',mg:350},{n:'Kale (100g)',mg:135}]
 

@@ -8,7 +8,7 @@ import { FAQSection } from '@/components/ui/FAQSection'
 import { Calendar, Heart } from 'lucide-react'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 
-interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [lastPeriod, setLastPeriodStr] = useState('2026-01-01')
