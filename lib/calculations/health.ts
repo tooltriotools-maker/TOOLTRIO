@@ -422,7 +422,7 @@ export function calculateFoodSensitivityLoad(glutenScore: number, dairyScore: nu
   else if (overallBurden >= 20) { category = 'Mild sensitivity patterns'; color = '#eab308' }
   else { category = 'Low sensitivity burden'; color = '#22c55e' }
   const topSensitivity = [{ food: 'Gluten', score: glutenScore }, { food: 'Dairy', score: dairyScore }, { food: 'Eggs', score: eggsScore }, { food: 'Soy', score: soyScore }, { food: 'Nuts', score: nutsScore }].sort((a, b) => b.score - a.score)[0]
-  return { overallBurden, category, color, topSensitivity: topSensitivity.food, symptomCount: symptoms.length, eliminatedFoods: elimCount, testing: overallBurden >= 45 ? 'Consider IgG food sensitivity panel or supervised elimination diet' : 'Keep a food-symptom diary for 2-4 weeks first', nutritionRisk: elimCount >= 3 ? 'Multiple eliminations — consult dietitian to prevent nutritional gaps' : 'Nutritional risk low' }
+  return { overallBurden, category, color, topSensitivity: topSensitivity.food, symptomCount: symptoms.length, eliminatedFoods: elimCount, testing: 'Use a food-symptom diary; if symptoms persist or suggest allergy, discuss evidence-based evaluation with a qualified clinician', nutritionRisk: elimCount >= 3 ? 'Multiple eliminations — consult dietitian to prevent nutritional gaps' : 'Nutritional risk should be assessed from the overall diet' }
 }
 
 export function calculateFrailtyIndex(age: number, unintendedWeightLoss: boolean, exhaustion: number, walkSpeedSlow: boolean, weakGripStrength: boolean, lowPhysicalActivity: boolean) {
@@ -432,9 +432,7 @@ export function calculateFrailtyIndex(age: number, unintendedWeightLoss: boolean
   if (count === 0) { category = 'Robust / Non-frail'; color = '#22c55e'; risk = 'Minimal frailty risk' }
   else if (count === 1 || count === 2) { category = 'Pre-frail'; color = '#f59e0b'; risk = 'Elevated risk — intervention can reverse pre-frailty' }
   else { category = 'Frail'; color = '#ef4444'; risk = 'Frailty syndrome present — medical evaluation recommended' }
-  const fallRiskMultiplier = count >= 3 ? 3 : count >= 1 ? 1.8 : 1
-  const hospitalizationRisk = count >= 3 ? 'High (3-4× population rate)' : count >= 1 ? 'Moderate (1.5-2×)' : 'Low'
-  return { criteriaCount: count, totalCriteria: 5, category, color, risk, fallRiskMultiplier, hospitalizationRisk, interventions: ['Progressive resistance training 2-3×/week', 'Protein intake ≥1.2 g/kg/day', 'Balance and gait training', 'Vitamin D supplementation (if deficient)', 'Social engagement and cognitive stimulation'] }
+  return { criteriaCount: count, totalCriteria: 5, category, color, risk, interventions: ['Progressive resistance training 2-3×/week', 'Protein intake ≥1.2 g/kg/day', 'Balance and gait training', 'Vitamin D supplementation (if deficient)', 'Social engagement and cognitive stimulation'] }
 }
 
 export function calculateGeneticHeightPotential(fatherHeightCm: number, motherHeightCm: number, currentHeightCm: number, currentAgeYears: number, gender: 'male' | 'female', nutritionAdequate: boolean, chronicIllness: boolean) {
@@ -446,17 +444,16 @@ export function calculateGeneticHeightPotential(fatherHeightCm: number, motherHe
   const remainingGrowth = growthComplete ? 0 : Math.max(0, Math.round(targetHeight - currentHeightCm))
   const modifiers = [!nutritionAdequate ? '⚠️ Poor nutrition may reduce growth potential by 2-5 cm' : '', chronicIllness ? '⚠️ Chronic illness can impair growth velocity' : ''].filter(Boolean)
   const heightPercentileEst = Math.min(99, Math.max(1, Math.round(50 + (currentHeightCm - (gender === 'male' ? 175 : 162)) * 3)))
-  return { targetHeight: Math.round(targetHeight), rangeMin: range.min, rangeMax: range.max, currentHeightCm, remainingGrowthCm: remainingGrowth, growthComplete, heightPercentileEst, modifiers, note: 'Mid-parental height calculation (Tanner method) — genetic potential only. Environment (nutrition, sleep, illness) accounts for ~20% of height variation.' }
+  return { targetHeight: Math.round(targetHeight), rangeMin: range.min, rangeMax: range.max, currentHeightCm, remainingGrowthCm: remainingGrowth, growthComplete, modifiers, note: 'Mid-parental height calculation (Tanner method) — an estimate of familial target height, not a prediction of exact adult height.' }
 }
 
-export function calculateGlomerularFiltrationRate(creatinine: number, age: number, gender: 'male' | 'female', raceBlack: boolean, unit: 'mg/dL' | 'μmol/L' = 'mg/dL') {
+export function calculateGlomerularFiltrationRate(creatinine: number, age: number, gender: 'male' | 'female', unit: 'mg/dL' | 'μmol/L' = 'mg/dL') {
   const cr = unit === 'μmol/L' ? creatinine / 88.4 : creatinine
   const kappa = gender === 'female' ? 0.7 : 0.9
   const alpha = gender === 'female' ? -0.241 : -0.302
   const sexFactor = gender === 'female' ? 1.012 : 1
-  const raceFactor = raceBlack ? 1.159 : 1
   const crKappa = cr / kappa
-  const egfr = 142 * Math.pow(Math.min(crKappa, 1), alpha) * Math.pow(Math.max(crKappa, 1), -1.200) * Math.pow(0.9938, age) * sexFactor * raceFactor
+  const egfr = 142 * Math.pow(Math.min(crKappa, 1), alpha) * Math.pow(Math.max(crKappa, 1), -1.200) * Math.pow(0.9938, age) * sexFactor
   const egfrRounded = Math.round(egfr)
   let stage: string, color: string, desc: string
   if (egfrRounded >= 90) { stage = 'G1 — Normal'; color = '#22c55e'; desc = 'Normal kidney function' }
@@ -687,7 +684,7 @@ export function calculateMigraineRisk(headachesPerMonth: number, age: number, ge
   else if (riskPct >= 40) { riskCategory = 'Moderate'; color = '#f97316' }
   else { riskCategory = 'Low-moderate'; color = '#22c55e' }
   const triggers = [caffeineMgPerDay > 400 ? 'High caffeine intake' : '', sleepHours < 7 ? 'Sleep deprivation' : '', stressLevel > 6 ? 'High stress' : '', screenTimeHours > 8 ? 'Extended screen time' : '', hormoneChanges ? 'Hormonal fluctuations' : ''].filter(Boolean)
-  return { score, maxScore, riskPct, riskCategory, color, headachesPerMonth, triggers, preventionStrategies: ['Consistent sleep schedule (7-9 hrs)', 'Limit caffeine to < 200mg/day', 'Identify and avoid personal triggers', 'Consider magnesium supplementation (400mg/day)', 'Stress management (biofeedback, CBT)', 'Consider preventive medication if ≥4 migraines/month'] }
+  return { score, maxScore, riskPct, riskCategory, color, headachesPerMonth, triggers, preventionStrategies: ['Keep a consistent sleep schedule', 'Track personal triggers and headache frequency', 'Keep caffeine intake consistent rather than making abrupt changes', 'Use stress-management strategies that work for you', 'If headaches are frequent or disabling, discuss preventive options with a clinician'] }
 }
 
 export function calculateMuscleRecoveryTime(muscleGroup: string, setsCompleted: number, repRange: '1-5' | '6-12' | '12+', trainingAge: 'beginner' | 'intermediate' | 'advanced', ageYears: number, sleepHoursLastNight: number, proteinGrams: number, bodyweightKg: number) {
@@ -719,15 +716,15 @@ export function calculateNightShiftHealthImpact(yearsOnNightShift: number, shift
   riskScore += mealTiming === 'irregular' ? 10 : 0
   riskScore += lightExposure === 'unmanaged' ? 10 : 0
   const healthRisk = Math.min(100, Math.max(0, riskScore))
-  const t2dRisk = yearsOnNightShift > 5 ? `~${Math.round(25 + yearsOnNightShift)}% higher T2D risk` : 'Moderate'
-  const cvRisk = yearsOnNightShift > 10 ? '~40% higher CVD risk vs day workers' : yearsOnNightShift > 5 ? '~25% higher risk' : 'Low at this duration'
-  const cancerRisk = yearsOnNightShift > 10 ? 'IARC classifies prolonged night work as Group 2A carcinogen' : 'Low to moderate at this duration'
+  const t2dRisk = yearsOnNightShift > 5 ? 'Potentially increased metabolic risk with prolonged night work' : 'No duration-based risk estimate'
+  const cvRisk = yearsOnNightShift > 10 ? 'Potentially increased cardiovascular risk with prolonged night work' : 'No duration-based risk estimate'
+  const cancerRisk = yearsOnNightShift > 10 ? 'Long-term night-shift work has been classified as a probable carcinogenic exposure by IARC; this score does not quantify individual cancer risk' : 'No individual cancer-risk estimate'
   return { healthRisk, t2dRisk, cvRisk, cancerRisk, color: healthRisk >= 60 ? '#ef4444' : healthRisk >= 40 ? '#f97316' : '#eab308', circadianDisruption: yearsOnNightShift > 5 ? 'Significant circadian misalignment' : 'Moderate disruption', mitigationStrategies: ['Wear blue-light blocking glasses on commute home', 'Blackout curtains and white noise for daytime sleep', 'Eat meals aligned with waking hours (not 3am)', 'Exercise at consistent times (not just before sleep)', 'Melatonin 0.5mg before daytime sleep can help circadian anchoring'] }
 }
 
 export function calculateNutritionalDeficiencyRisk(fruitVegServings: number, redMeatServings: number, dairyServings: number, sunExposureHours: number, seafoodServings: number, wholegrainServings: number, legumesServings: number, supplementUse: boolean, restrictedDiet: 'vegan' | 'vegetarian' | 'pescatarian' | 'none', age: number, gender: 'male' | 'female') {
   const deficiencies: { nutrient: string; risk: string; color: string }[] = []
-  if (restrictedDiet === 'vegan' || (seafoodServings < 1 && (restrictedDiet === 'vegetarian'))) deficiencies.push({ nutrient: 'Vitamin B12', risk: 'High risk — found only in animal products', color: '#ef4444' })
+  if (restrictedDiet === 'vegan' || (seafoodServings < 1 && restrictedDiet === 'vegetarian')) deficiencies.push({ nutrient: 'Vitamin B12', risk: 'Potential gap — reliable sources include fortified foods and supplements for people avoiding animal-derived foods', color: '#ef4444' })
   if (sunExposureHours < 0.5 && dairyServings < 2) deficiencies.push({ nutrient: 'Vitamin D', risk: 'High risk — limited sun and dairy intake', color: '#ef4444' })
   if ((restrictedDiet === 'vegan' || restrictedDiet === 'vegetarian') && redMeatServings < 1) deficiencies.push({ nutrient: 'Iron', risk: 'Moderate — plant iron (non-heme) is poorly absorbed', color: '#f97316' })
   if (dairyServings < 1 && fruitVegServings < 5) deficiencies.push({ nutrient: 'Calcium', risk: 'Moderate — low dairy and vegetable intake', color: '#f97316' })
@@ -735,7 +732,7 @@ export function calculateNutritionalDeficiencyRisk(fruitVegServings: number, red
   if (fruitVegServings < 3) deficiencies.push({ nutrient: 'Magnesium', risk: 'Moderate — low plant food intake', color: '#f97316' })
   if (wholegrainServings < 3) deficiencies.push({ nutrient: 'Zinc', risk: 'Mild — low whole grain and meat intake', color: '#eab308' })
   const overallRisk = deficiencies.filter(d => d.color === '#ef4444').length > 0 ? 'High' : deficiencies.filter(d => d.color === '#f97316').length > 1 ? 'Moderate' : 'Low'
-  return { deficiencies, overallRisk, restrictedDiet, recommendBloodwork: deficiencies.length >= 2 || restrictedDiet === 'vegan', keyRecommendations: [restrictedDiet === 'vegan' ? 'B12 supplement 1000mcg/day is essential' : '', sunExposureHours < 0.5 ? 'Vitamin D supplement 2000 IU/day' : '', fruitVegServings < 5 ? 'Aim for 5+ servings of fruit/veg daily' : ''].filter(Boolean) }
+  return { deficiencies, overallRisk, restrictedDiet, recommendBloodwork: deficiencies.length >= 2 || restrictedDiet === 'vegan', keyRecommendations: [restrictedDiet === 'vegan' ? 'Review reliable vitamin B12 sources such as fortified foods or an appropriate supplement with a clinician/dietitian' : '', sunExposureHours < 0.5 ? 'Review vitamin D intake and testing needs with a clinician rather than assuming a treatment dose' : '', fruitVegServings < 5 ? 'Aim for a varied diet with adequate fruit and vegetables' : ''].filter(Boolean) }
 }
 
 export function calculateObesityComorbidityRisk(bmi: number, waistCm: number, gender: 'male' | 'female', age: number, systolicBP: number, fastingGlucose: number, triglycerides: number, hdlCholesterol: number) {
@@ -748,13 +745,13 @@ export function calculateObesityComorbidityRisk(bmi: number, waistCm: number, ge
   ]
   const metSynCount = metSynComponents.filter(Boolean).length
   const hasMetSyn = metSynCount >= 3
-  const t2dRisk = fastingGlucose > 126 ? 'Probable diabetes — confirm HbA1c' : fastingGlucose > 100 ? `Pre-diabetes — ${Math.round(((fastingGlucose - 100) / 25) * 30 + 10)}% 5-yr T2D risk` : 'Normal'
+  const t2dRisk = fastingGlucose >= 126 ? 'Glucose is in a diabetes-range threshold and requires confirmation with appropriate testing' : fastingGlucose > 100 ? 'Elevated fasting glucose may warrant follow-up testing' : 'No elevated fasting-glucose flag from this input alone'
   const bmiCategory = bmi >= 40 ? 'Class III Obesity' : bmi >= 35 ? 'Class II Obesity' : bmi >= 30 ? 'Class I Obesity' : bmi >= 25 ? 'Overweight' : 'Normal'
-  const nafldRisk = bmi >= 30 && (fastingGlucose > 100 || triglycerides > 150) ? 'High NAFLD risk — liver ultrasound recommended' : bmi >= 28 ? 'Moderate NAFLD risk' : 'Low'
-  const apneaRisk = bmi >= 30 && (gender === 'male' || age > 50) ? 'High sleep apnoea risk — consider sleep study' : bmi >= 28 ? 'Moderate risk' : 'Low'
+  const nafldRisk = bmi >= 30 && (fastingGlucose > 100 || triglycerides > 150) ? 'Multiple metabolic risk factors present; discuss liver-health evaluation with a clinician' : bmi >= 28 ? 'Some metabolic risk factors present' : 'No flag from this simple screen'
+  const apneaRisk = bmi >= 30 && (gender === 'male' || age > 50) ? 'Sleep-apnea risk factors present; a validated screening tool is more appropriate' : bmi >= 28 ? 'Some sleep-apnea risk factors present' : 'No flag from this simple screen'
   const overallRisk = hasMetSyn || bmi >= 35 ? 'Very High' : metSynCount >= 2 || bmi >= 30 ? 'High' : bmi >= 25 ? 'Moderate' : 'Low'
   const color = overallRisk === 'Very High' ? '#dc2626' : overallRisk === 'High' ? '#ef4444' : overallRisk === 'Moderate' ? '#f97316' : '#22c55e'
-  return { bmiCategory, metSynComponents: metSynCount, hasMetSyn, t2dRisk, nafldRisk, apneaRisk, overallRisk, color, weightLossTarget: bmi >= 30 ? `${Math.round((bmi - 27) * ((gender === 'male' ? 1.8 : 1.7) * 1.73 ** 2))}kg loss (to BMI 27) reduces most comorbidity risk` : 'Weight within manageable range', metformConsider: fastingGlucose > 110 && bmi >= 30 ? 'Consider discussing metformin with physician for T2D prevention' : '' }
+  return { bmiCategory, metSynComponents: metSynCount, hasMetSyn, t2dRisk, nafldRisk, apneaRisk, overallRisk, color, weightLossTarget: bmi >= 30 ? `${Math.round((bmi - 27) * ((gender === 'male' ? 1.8 : 1.7) * 1.73 ** 2))}kg loss (to BMI 27) reduces most comorbidity risk` : 'Weight within manageable range', metformConsider: fastingGlucose > 110 && bmi >= 30 ? 'Discuss diabetes-prevention options with a qualified clinician' : '' }
 }
 
 export function calculateOralHealthRisk(brushingFreq: number, flossingFreq: number, sugarConsumption: number, smoker: boolean, alcoholPerWeek: number, lastDentalVisitMonths: number, dryMouth: boolean, nightGrinding: boolean, acidicDietScore: number) {
@@ -774,12 +771,12 @@ export function calculateOralHealthRisk(brushingFreq: number, flossingFreq: numb
   else if (oralRisk >= 45) { category = 'Moderate risk — review habits'; color = '#f97316' }
   else if (oralRisk >= 20) { category = 'Low-moderate risk'; color = '#eab308' }
   else { category = 'Good oral health practices'; color = '#22c55e' }
-  const systemicLinks = [oralRisk >= 50 ? 'Poor oral health linked to 2× higher CVD risk (inflammation pathway)' : '', smoker ? 'Smoking raises oral cancer risk 6× — screen annually' : '', dryMouth ? 'Dry mouth dramatically increases cavity risk — saliva is protective' : ''].filter(Boolean)
-  return { oralRisk, category, color, systemicLinks, cancerRisk: smoker || alcoholPerWeek > 14 ? 'Elevated oral cancer risk — HPV + smoking/alcohol = high risk' : 'Standard risk', grindingTip: nightGrinding ? 'Ask dentist about occlusal splint/night guard — prevents enamel damage' : '' }
+  const systemicLinks = [oralRisk >= 50 ? 'Poor oral health can be associated with broader health risks, but this score does not quantify cardiovascular risk' : '', smoker ? 'Smoking increases oral-health and oral-cancer risk; discuss cessation and appropriate dental/oral evaluation' : '', dryMouth ? 'Dry mouth can increase cavity risk because saliva helps protect teeth' : ''].filter(Boolean)
+  return { oralRisk, category, color, systemicLinks, cancerRisk: smoker || alcoholPerWeek > 14 ? 'Smoking and heavier alcohol exposure are oral-cancer risk factors; this score does not quantify individual cancer risk' : 'No smoking/alcohol risk flag from these inputs', grindingTip: nightGrinding ? 'Ask dentist about occlusal splint/night guard — prevents enamel damage' : '' }
 }
 
 export function calculatePCOSRiskScore(cycleLengthDays: number, cycleIrregularity: number, acneScore: number, hirsutismScore: number, bmi: number, fastingInsulin: number, familyHistory: boolean, hairLossScore: number, ovarianCysts: boolean) {
-  // Rotterdam criteria-based risk assessment (not diagnosis)
+  // Custom educational score. This is not the Rotterdam diagnostic criteria.
   let riskScore = 0
   riskScore += cycleLengthDays > 35 || cycleIrregularity >= 3 ? 20 : cycleIrregularity >= 2 ? 12 : 0
   riskScore += acneScore * 3
@@ -791,11 +788,11 @@ export function calculatePCOSRiskScore(cycleLengthDays: number, cycleIrregularit
   riskScore += ovarianCysts ? 15 : 0
   const riskPct = Math.min(100, Math.max(0, riskScore))
   let category: string, color: string
-  if (riskPct >= 60) { category = 'High PCOS likelihood — see gynaecologist/endocrinologist'; color = '#ef4444' }
-  else if (riskPct >= 35) { category = 'Moderate risk — evaluation recommended'; color = '#f97316' }
+  if (riskPct >= 60) { category = 'High score — clinical evaluation may be appropriate'; color = '#ef4444' }
+  else if (riskPct >= 35) { category = 'Moderate score — consider clinical evaluation'; color = '#f97316' }
   else if (riskPct >= 15) { category = 'Low-moderate — monitor cycle patterns'; color = '#eab308' }
   else { category = 'Low PCOS risk indicators'; color = '#22c55e' }
-  return { riskPct, category, color, roterdamCriteriaNote: 'PCOS diagnosis requires 2 of 3 Rotterdam criteria: irregular ovulation, hyperandrogenism, polycystic ovaries on ultrasound', investigations: riskPct >= 35 ? ['Pelvic ultrasound', 'Total testosterone + SHBG + DHEAS', 'Fasting insulin + HOMA-IR', 'Thyroid TSH (rule out thyroid cause)', 'Prolactin (rule out hyperprolactinaemia)'] : [], insulinResistance: fastingInsulin > 10 ? 'Insulin resistance likely — consider low-GI diet and inositol' : 'Insulin sensitivity likely normal', fertilityNote: riskPct >= 40 ? 'PCOS is the leading cause of anovulatory infertility — discuss with specialist if TTC' : '' }
+  return { riskPct, category, color, roterdamCriteriaNote: 'This score does not implement Rotterdam diagnostic criteria. PCOS diagnosis requires clinical assessment and exclusion of alternative causes.', investigations: [], insulinResistance: 'Insulin resistance cannot be diagnosed from this score alone', fertilityNote: riskPct >= 40 ? 'If cycles are irregular or pregnancy is difficult, discuss evaluation with a qualified clinician' : '' }
 }
 
 export function calculatePainScoreAnalysis(currentPain: number, painFrequency: 'constant' | 'daily' | 'weekly' | 'occasional', sleepDisruption: number, activityLimitation: number, painDuration: string, useOfMedication: boolean, qualityOfLife: number) {

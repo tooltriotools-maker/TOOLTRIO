@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What is the optimal pre-workout meal?", "answer": "Pre-workout nutrition depends on session type and timing: for sessions 2-3 hours after a meal, no additional pre-workout fuel is needed. For morning fasted training: 20-30g fast-digesting protein + 30-50g simple carbs 45-60 minutes before maximises performance without excessive caloric load. For endurance training > 90 minutes: carb load 3-4 hours before (3-5g/kg body weight); caffeine 60 minutes before (3-6 mg/kg body weight) consistently improves endurance performance by 2-4%. For strength training: pre-workout carbs do not consistently improve performance in trained athletes eating adequate carbs overall — total daily intake matters more than pre-workout meal."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Nutrition Timing Calculator', description: 'Free nutrition timing calculator 2026. Optimise meal timing for fat loss, muscle gain, performance, ', url: 'https://tooltrio.com/calculators/health/nutrition-timing-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="nutrition-timing-calculator" />
 </>)
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What states have the highest and lowest property taxes?',
-    answer: 'Highest effective rates (2026): New Jersey (2.47%), Illinois (2.27%), Connecticut (2.14%), Wisconsin (1.62%), Texas (1.81%). Lowest rates: Hawaii (0.32%), Alabama (0.37%), Colorado (0.51%), Nevada (0.59%), Arizona (0.63%). However, high property tax states often have no income tax (TX) or lower home values, so absolute dollar amounts vary greatly.',
+    answer: 'Property-tax burdens vary by state, county, taxing unit, assessment rules and exemptions. A national ranking is not a substitute for the actual appraisal and tax rates that apply to a property.',
   },
   {
     question: 'What is a homestead exemption?',
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'When and how can I appeal my property tax?',
-    answer: "If your assessed value exceeds your home's fair market value, appeal within your county's appeal window (typically 30-90 days after assessment notice). Steps: (1) Get comparable sales data from Zillow/Redfin for similar nearby homes, (2) Submit formal appeal with your county assessor or review board, (3) Present evidence of lower market value. Success rate is typically 30-60% of appeals; average savings $1,500-$4,000.",
+    answer: "If your assessed value exceeds your home's fair market value, appeal within your county's appeal window (typically 30-90 days after assessment notice). Steps: (1) Get comparable sales data from Zillow/Redfin for similar nearby homes, (2) Submit formal appeal with your county assessor or review board, (3) Present evidence of lower market value. Appeal outcomes and savings vary widely by jurisdiction and evidence; this calculator does not predict an appeal outcome.",
   },
   { question: 'Does this calculate an official Travis County tax bill?', answer: 'No. The current calculator hard-codes a Texas scenario and uses an 85% assessment ratio plus a stored effective-rate assumption. Official bills depend on local appraised value, exemptions and taxing-unit rates.' },
   { question: 'What does the appeal savings result mean?', answer: 'It is a scenario equal to 15% of the estimated tax. It does not predict an appeal outcome or prove that an assessment is excessive.' },

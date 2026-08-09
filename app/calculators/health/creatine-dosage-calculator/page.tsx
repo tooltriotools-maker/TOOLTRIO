@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'creatine-dosage-calculator',
   title: 'Creatine Dosage Calculator',
   category: 'health' as const,
   intro: `Creatine monohydrate is the most researched supplement in sports science history — thousands of published studies, consistent results, and a safety record spanning 30+ years of widespread use. It doesn't make you stronger directly. It works by increasing your muscles' phosphocreatine stores, which replenish ATP faster during high-intensity efforts. More ATP availability in the first 1-10 seconds of maximal effort means you can maintain higher intensity for slightly longer, which over hundreds of training sessions translates to meaningful gains in strength and muscle mass.
@@ -65,18 +66,6 @@ This calculator personalizes your loading and maintenance doses based on body we
 
 Vegetarians and vegans respond more dramatically to creatine supplementation than omnivores — baseline muscle creatine stores are lower from lower dietary creatine intake (creatine is found almost exclusively in meat and fish), so supplementation produces larger percentage increases in muscle phosphocreatine.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Take creatine with carbohydrates and/or protein — insulin spike from carbohydrates increases muscle creatine uptake via GLUT4 transporter upregulation. Post-workout creatine with a meal is slightly more effective than fasted supplementation.
 
@@ -97,7 +86,7 @@ Creatine works. It won't replace good training and nutrition, but it's a reliabl
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

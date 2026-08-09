@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What nutrition most accelerates wound healing?", "answer": "Key nutrients for wound healing: (1) Protein — 1.5-2g/kg/day supports collagen synthesis and immune function; adequate protein can reduce healing time by 25-30%; (2) Vitamin C — essential for hydroxylation of proline and lysine during collagen synthesis; 500mg/day in wound patients is supported by evidence; (3) Zinc — critical for cell division and protein synthesis; deficiency significantly impairs healing; (4) Arginine — conditionally essential amino acid that stimulates wound-related immune function; (5) Omega-3 fatty acids — modulate inflammatory phase. Malnutrition is present in up to 30-50% of hospitalised patients with non-healing wounds and is a primary correctable cause of delayed healing."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Wound Healing Time Calculator', description: 'Free wound healing calculator 2026. Estimate wound healing time from wound size, depth, location, ag', url: 'https://tooltrio.com/calculators/health/wound-healing-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch49DeepDive slug="wound-healing-calculator" />
 </>)
 }

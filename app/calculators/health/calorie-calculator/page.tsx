@@ -50,7 +50,7 @@ const faqs = [
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
@@ -61,6 +61,7 @@ export default function Page() {
         generateWebAppStructuredData({ name: 'Calorie Calculator', description: 'Find your daily calorie needs using the Mifflin-St Jeor equation. Enter age, weight, height, and activity level to get TDEE plus calorie targets for fat loss, m', url: 'https://tooltrio.com/calculators/health/calorie-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
+        healthSourceProfile: 'calorie-calculator',
         title: 'Calorie Calculator 2026',
         category: 'health',
         intro: `How many calories do you actually need each day? It is one of the most common and most misunderstood questions in nutrition. The simple answer is: it depends on your metabolism, your body size, and how much you move — and this calculator figures all three out from your age, weight, height, and activity level in seconds.

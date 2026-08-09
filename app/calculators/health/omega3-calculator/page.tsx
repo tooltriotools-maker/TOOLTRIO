@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'omega3-calculator',
   title: 'Omega-3 Calculator',
   category: 'health' as const,
   intro: `Omega-3 fatty acids are among the most studied nutrients in clinical medicine. The two marine omega-3s — EPA (eicosapentaenoic acid) and DHA (docosahexaenoic acid) — are the biologically active forms that produce the most documented health effects. ALA (alpha-linolenic acid), from plant sources like flaxseed and walnuts, requires conversion to EPA and DHA, but this conversion is inefficient (roughly 5-15% of ALA converts to EPA, and very little converts to DHA).
@@ -62,33 +63,13 @@ This calculator estimates your current EPA+DHA intake from diet and supplements,
 The omega-6 to omega-3 ratio in modern Western diets — typically 15-20:1 — is far from the 4:1 or lower associated with ancestral diets and better health outcomes.
 
 **Long-tail searches answered here:** daily omega 3 intake calculator free online usa, how much fish oil should i take calculator, omega 3 dha epa dosage calculator free no account, omega 3 requirement calculator by weight free tool, am i getting enough omega 3 calculator usa, fish oil dosage calculator by health goal free, omega 3 to omega 6 ratio optimization calculator free, dha requirement during pregnancy calculator usa free, omega 3 for heart health dosage calculator free, anti inflammatory omega 3 dose calculator usa online, plant vs marine omega 3 conversion calculator free, krill oil vs fish oil omega 3 equivalence calculator usa, omega 3 for brain health dose calculator free online, triglyceride lowering omega 3 dosage calculator usa, omega 3 adequacy from diet alone calculator free`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate omega3 from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate omega3 from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Increasing EPA and DHA while reducing refined seed oil consumption is more effective than supplementation alone. Fatty fish (salmon, sardines, mackerel, herring, anchovies) 2-3 times per week provides roughly 2-4g of EPA+DHA per week — close to clinical target levels. Canned sardines and mackerel are among the most cost-effective omega-3 sources available.
 
 Algae oil supplements (derived from the microalgae that fish eat) provide DHA directly and are the appropriate plant-based alternative for vegans. Quality matters in fish oil supplements: look for products certified by IFOS or similar third-party testing for oxidation and purity. Rancid fish oil not only loses potency but may be counterproductive.
@@ -102,7 +83,7 @@ Pair this with [our Inflammation Risk Calculator](/calculators/health/inflammati
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

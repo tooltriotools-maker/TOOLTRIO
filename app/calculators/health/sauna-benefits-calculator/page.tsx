@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sauna-benefits-calculator',
   title: 'Sauna Benefits Calculator',
   category: 'health' as const,
   intro: `Finnish sauna culture has given the world an unusually well-studied health intervention, primarily through the Kuopio Ischemic Heart Disease study that followed over 2,300 Finnish men for decades. Men who used a sauna 4-7 times per week had a 40% lower risk of all-cause mortality and 50% lower risk of cardiovascular mortality compared to those who used sauna once per week, in a dose-dependent relationship.
@@ -62,31 +63,10 @@ The best-documented specific benefits: cardiovascular function improvement (the 
 This calculator estimates your sauna benefit trajectory based on session frequency, duration, temperature, and the specific outcomes you're targeting.
 
 **Long-tail searches answered here:** sauna health benefits calculator free online usa, how often should i use the sauna calculator, sauna session benefits calculator by frequency free, infrared sauna vs traditional sauna benefits calculator, sauna calorie burn and cardiovascular benefit calculator no signup, sauna protocol health impact calculator usa free, sauna frequency for longevity benefit calculator free, weekly sauna sessions growth hormone impact calculator, sauna benefit timeline weeks to see results calculator, heat shock protein production from sauna calculator usa, sauna blood pressure reduction effect calculator free, sauna for recovery after exercise calculator usa free, sauna dehydration fluid loss calculator free online, infrared sauna session length by temperature calculator usa, sauna benefit for skin and detoxification calculator free`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate sauna benefits from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
-
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
-
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+  howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
+  scienceSection: `The methodology and reference information for this calculator should be interpreted in the context of the specific formula, population, and assumptions described on this page; generic population-survey language is not a substitute for a calculator-specific source.
 
 As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Protocol matters. The health benefits documented in research are primarily from traditional Finnish sauna (80-100°C dry or wet heat, 15-20 minutes per session, followed by cooling). Infrared sauna operates at lower temperatures (45-65°C) and produces different and less-studied physiological responses — potentially beneficial, but with a shorter and less robust evidence base.
@@ -102,7 +82,7 @@ Hydration before and after is essential: sweat losses of 0.5-1.5 liters per sess
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

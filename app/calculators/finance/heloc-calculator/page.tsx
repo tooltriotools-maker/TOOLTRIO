@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free HELOC calculator USA 2026. Calculate your available home equity credit line, monthly interest-only payments, and total borrowing cost. Real examples.',
  slug: 'heloc-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'heloc calculator 2026',
     'heloc calculator',

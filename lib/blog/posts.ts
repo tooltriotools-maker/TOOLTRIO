@@ -3561,7 +3561,7 @@ Enter your contributions in our **[Tax Bracket Calculator](/calculators/finance/
 ## FICA: The Tax Most Calculators Ignore
 
 Federal income tax is only part of your total tax burden. FICA adds:
-- **Social Security:** 6.2% on wages up to $176,100
+- **Social Security:** 6.2% on wages up to  $184,500
 - **Medicare:** 1.45% on all wages (no limit)
 - **Total FICA:** 7.65% on most workers
 

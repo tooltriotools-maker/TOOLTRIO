@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'What is the hardest type of Would You Rather question?',
     answer: 'Questions that pit two things you genuinely value against each other tend to be the most difficult — "Would you rather be extremely successful in your career but have a mediocre personal life, or have an extraordinary personal life but a completely average career?" The hardest ones are not the gross ones. They are the ones that make you actually examine what you want your life to look like.'
   },
-  {
-    question: 'Is this free?',
-    answer: 'Completely free, no account needed. Generate as many dilemmas as you want. Would you rather pay for this or get it free? We made the easy choice for you.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

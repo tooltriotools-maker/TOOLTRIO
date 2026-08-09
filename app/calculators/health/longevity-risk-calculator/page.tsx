@@ -11,7 +11,7 @@ const faqs = [
   {"question": "Does social connection really affect longevity?", "answer": "Yes — Holt-Lunstad's landmark meta-analysis of 148 studies (308,849 participants) found social isolation increases mortality risk by 29% — comparable to smoking 15 cigarettes/day and greater than obesity's effect. Loneliness is associated with higher cortisol, increased inflammation, impaired sleep, reduced immune function, and higher dementia risk. Robert Waldinger's Harvard Study of Adult Development (running 85 years) identifies quality of close relationships as the single strongest predictor of wellbeing and longevity in later life — above wealth, education, and conventional health metrics."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Longevity Risk Index Calculator', description: 'Free longevity calculator 2026. Project your life expectancy from 13 lifestyle and health factors: s', url: 'https://tooltrio.com/calculators/health/longevity-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch49DeepDive slug="longevity-risk-calculator" />
 </>)
 }

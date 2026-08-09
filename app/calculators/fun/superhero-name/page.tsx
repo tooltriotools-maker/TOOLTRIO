@@ -1,6 +1,6 @@
 import { CalculatorBatch46DeepDive } from '@/components/ui/CalculatorBatch46DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -55,14 +55,10 @@ const faqs = [
     question: 'How many possible superhero identities can it generate?',
     answer: 'The combination space across names, powers, backstory elements, and personality branches produces thousands of distinct outcomes. It is rare to get the same result twice unless two people have the same name and answer all personality questions identically. Most users generate 3–5 versions before settling on the one that feels right.'
   },
-  {
-    question: 'Is this free?',
-    answer: 'Completely free, no account needed. Generate as many superhero identities as you want. Your data is never stored. Even superheroes deserve privacy.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

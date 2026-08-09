@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free NPS calculator India 2026. Calculate your NPS retirement corpus, monthly pension from annuity, and lump sum withdrawal at 60. Includes Tier 1 and.',
  slug: 'nps-calculator',
  category: 'finance',
+ region: 'india',
  keywords: [
     'nps calculator 2026',
     'nps calculator',

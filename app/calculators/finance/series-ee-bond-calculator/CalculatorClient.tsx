@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <button onClick={() => setHoldToMaturity(!holdToMaturity)} className={`px-3 py-1 rounded-full text-xs font-bold ${holdToMaturity ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-600'}`}>{holdToMaturity ? 'Yes' : 'No'}</button>
           </div>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-700 space-y-1">
-            <p><strong>Bought at:</strong> {fmt(result.purchasePrice)} (face ÷ 2)</p>
+            <p><strong>Bought at:</strong> {fmt(result.purchasePrice)} </p>
             <p><strong>Years Held:</strong> {result.yearsHeld} years</p>
             <p><strong>Doubles at:</strong> {purchaseYear + 20}</p>
             <p><strong>Matures:</strong> {result.maturityDate}</p>
@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             <ResultCard label="Current Value" value={fmt(result.currentValue)} highlight />
             <ResultCard label="Interest Earned" value={fmt(result.interestEarned)} subValue="total gain" />
             <ResultCard label="Effective Annual Rate" value={result.effectiveAnnualRate + '%'} subValue={holdToMaturity && result.yearsHeld >= 20 ? 'guaranteed' : 'current rate'} />
-            <ResultCard label="Federal Tax Due" value={fmt(result.federalTaxDue)} subValue="est. 22% bracket" />
+            <ResultCard label="Federal Tax Due" value={fmt(result.federalTaxDue)} subValue="based on entered tax assumption" />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Bond Value Summary</h3>
@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <div className="flex justify-between"><span className="text-gray-500">Purchase Price (you paid)</span><span className="font-bold">{fmt(result.purchasePrice)}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Current Redemption Value</span><span className="font-bold text-green-600">{fmt(result.currentValue)}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Interest Earned</span><span className="font-bold">{fmt(result.interestEarned)}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Est. Federal Tax (22%)</span><span className="font-bold text-red-500">-{fmt(result.federalTaxDue)}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Estimated Federal Tax</span><span className="font-bold text-red-500">-{fmt(result.federalTaxDue)}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Education Tax Exclusion Potential</span><span className="font-bold text-green-600">-{fmt(result.educationTaxExclusion)}</span></div>
               <div className="border-t pt-2 flex justify-between font-bold text-green-700">
                 <span>Net After Tax</span><span>{fmt(result.currentValue - result.federalTaxDue)}</span>

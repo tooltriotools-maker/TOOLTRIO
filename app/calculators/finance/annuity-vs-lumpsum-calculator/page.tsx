@@ -14,7 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: "Free annuity vs lump sum calculator USA 2026. Compare guaranteed annuity income vs investing a lump sum payout. Break-even age analysis included. Real.",
  slug: 'annuity-vs-lumpsum-calculator',
  category: 'finance',
- region: 'global',
+ region: 'usa',
  keywords: [
     'annuity vs lumpsum calculator 2026',
     'annuity vs lumpsum calculator',
@@ -46,7 +46,7 @@ const relatedCalculators = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

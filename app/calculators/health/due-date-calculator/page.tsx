@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'due-date-calculator',
   title: 'Due Date Calculator',
   category: 'health' as const,
   intro: `Pregnancy due dates are estimates, not deadlines. Naegele's rule — the standard calculation used by obstetricians for 200 years — adds 280 days (40 weeks) to the first day of your last menstrual period. This assumes a 28-day cycle with ovulation on day 14. Only about 4% of babies are born on their exact due date; roughly 80% arrive within two weeks on either side. The date is a clinical reference point for monitoring development and timing decisions, not a predictive certainty.
@@ -68,18 +69,6 @@ For IVF pregnancies: fresh day-5 blastocyst transfer: EDD = transfer date + 261 
 
 Ultrasound EDD is calculated from crown-rump length (CRL) measured at 8-14 weeks using Hadlock's formula: GA (days) = 42.859 + 1.599 × CRL(mm) − 0.00041 × CRL(mm)². Ultrasound EDD is more accurate than LMP-based dating when measured before 14 weeks.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `If your ultrasound due date differs from your LMP due date by more than 5-7 days (before 14 weeks), most OBs will adjust the due date to the ultrasound estimate — ultrasound crown-rump length before 14 weeks is the most accurate dating method available.
 
@@ -100,7 +89,7 @@ Consider using [our Pregnancy Weight Gain Calculator](/calculators/health/pregna
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

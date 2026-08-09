@@ -140,9 +140,6 @@ CD early withdrawal penalty impact: A 12-month CD earning 5.0% with a 6-month in
 
 Nominal difference: On $20,000, a CD at 5.0% vs HYSA at 4.5% for 12 months = $100 additional interest. On $100,000, that's $500. These are real amounts but not transformative for most investors — the decision deserves calibration to the actual dollar difference at your balance.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -163,12 +160,6 @@ Check both products at the same institution and at others. Sometimes a bank's HY
         conclusion={`The HYSA vs CD decision is genuinely consequential in high-rate environments (where the yield spread between CDs and HYSA is larger) and relatively inconsequential in low-rate environments (where both pay almost nothing). In a 5% rate environment, the choice matters. At 0.5%, neither is a meaningful wealth-building tool.
 
 For most people with $10,000-$50,000 in cash savings, the financial decision is secondary to the behavioral one: will you actually leave the CD intact for the full term, or will you break it when a need arises? An intact HYSA earning slightly less often beats a broken CD with penalties. Be honest about your spending patterns before choosing.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

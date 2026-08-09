@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'ovulation-calculator',
   title: 'Ovulation Calculator',
   category: 'health' as const,
   intro: `Ovulation timing is the key variable for both achieving and avoiding pregnancy, yet many people have a surprisingly incomplete understanding of when it actually occurs. The common assumption — that ovulation happens on day 14 of the cycle — is accurate only for women with textbook 28-day cycles, which is less than 15% of women in population research. For someone with a 24-day cycle, ovulation might occur on day 10. For someone with a 35-day cycle, day 21.
@@ -62,33 +63,13 @@ Ovulation prediction methods vary in accuracy. Calendar prediction is the least 
 This calculator predicts your likely ovulation window and fertile days based on your cycle history, improving accuracy with more logged cycles.
 
 **Long-tail searches answered here:** ovulation calculator free online usa 2026, when am i most fertile calculator free tool, ovulation date calculator by last period free, best days to conceive calculator no signup, ovulation prediction calculator by cycle length free, fertility window calculator usa free online, how to calculate ovulation without a kit free usa, fertile days calculator by luteal phase length free, ovulation timing calculator for irregular cycles free, signs of ovulation and fertile window calculator usa, natural family planning ovulation calculator free online, luteal phase length ovulation date calculator free, how many days after period does ovulation occur calculator, trying to conceive best timing calculator usa free, basal body temperature ovulation tracker calculator free`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate ovulation from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate ovulation from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Calendar-based ovulation prediction has a meaningful margin of error even in regular cycles — cycle length can shift by 2-3 days due to stress, illness, travel, or other factors, shifting ovulation by the same amount. For those trying to conceive, using this calculator alongside OPK (ovulation predictor kit) testing during your predicted fertile window provides substantially more reliable timing.
 
 For natural family planning, calendar-based methods alone carry typical-use failure rates of 12-24%. Symptothermal methods that combine BBT charting with cervical mucus observation and calendar prediction have lower failure rates with perfect use but require consistent, careful tracking.
@@ -102,7 +83,7 @@ If your cycles are highly irregular (varying by more than 7-9 days cycle-to-cycl
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

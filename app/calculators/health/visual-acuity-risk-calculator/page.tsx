@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What is diabetic retinopathy and how common is it?", "answer": "Diabetic retinopathy (DR) is the leading cause of preventable blindness in working-age adults in developed countries. After 20 years of diabetes, 99% of type 1 diabetics and 60% of type 2 diabetics have some degree of retinopathy. The condition begins as microaneurysms and haemorrhages (non-proliferative DR) and can progress to neovascularisation, vitreous haemorrhage, and tractional retinal detachment (proliferative DR). Critically, vision loss from DR is largely preventable with annual dilated fundus examinations and excellent glycaemic and blood pressure control — the DCCT trial showed intensive glucose control reduced DR incidence by 76%."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Visual Acuity Risk Calculator', description: 'Free eye health and visual acuity risk calculator 2026. Assess glaucoma risk, myopia progression, di', url: 'https://tooltrio.com/calculators/health/visual-acuity-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="visual-acuity-risk-calculator" />
 </>)
 }

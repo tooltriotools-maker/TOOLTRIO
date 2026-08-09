@@ -1,10 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { filterCalculatorFAQs } from '@/lib/content/faq-policy'
 
 interface FAQ { question: string; answer: string }
 
 export function FAQSection({ faqs }: { faqs: FAQ[] }) {
+  const visibleFaqs = filterCalculatorFAQs(faqs)
   const [open, setOpen] = useState<number | null>(0)
   return (
     <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(10px)',borderColor:'rgba(255,255,255,0.5)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
@@ -12,7 +14,7 @@ export function FAQSection({ faqs }: { faqs: FAQ[] }) {
         <h2 className="text-lg font-bold text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Frequently Asked Questions</h2>
       </div>
       <div className="divide-y divide-gray-50">
-        {faqs.map((faq, i) => (
+        {visibleFaqs.map((faq, i) => (
           <div key={i}>
             <button
               onClick={() => setOpen(open === i ? null : i)}

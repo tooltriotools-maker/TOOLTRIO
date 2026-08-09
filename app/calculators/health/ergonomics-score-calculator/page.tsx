@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'ergonomics-score-calculator',
   title: 'Ergonomics Score Calculator',
   category: 'health' as const,
   intro: `Musculoskeletal disorders from poor ergonomics are the leading cause of workplace injury in the United States — responsible for more than 30% of all lost-workday injuries and illnesses according to the Bureau of Labor Statistics. The cumulative damage builds over months and years as small postural compromises and repetitive movements create chronic loading patterns in the spine, shoulders, wrists, and hips that exceed the body's capacity to recover.
@@ -64,18 +65,6 @@ Ergonomics science uses standardized assessment tools — RULA (Rapid Upper Limb
 
 Posture-related musculoskeletal disorder (MSD) risk is highest when neutral joint positions are violated for extended periods. Research shows a direct dose-response between hours of non-neutral posture and MSD risk — particularly for neck flexion >20°, shoulder elevation >30°, and wrist deviation >15°.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `The monitor top should be at or just below eye level when sitting straight — not the center of the monitor. Most people position monitors too low (causing prolonged neck flexion) or, less commonly, too high. If bifocals are worn, the monitor may need to be lower to avoid tilting the head backward.
 
@@ -96,7 +85,7 @@ If you're experiencing persistent pain, numbness, or tingling despite addressing
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

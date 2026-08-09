@@ -51,7 +51,7 @@ const faqs = [
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
@@ -62,6 +62,7 @@ export default function Page() {
         generateWebAppStructuredData({ name: 'Body Fat Calculator', description: 'Calculate your body fat percentage using the US Navy circumference method, BMI-based estimate, and athlete formulas. See fat mass vs lean mass, health risk cate', url: 'https://tooltrio.com/calculators/health/body-fat-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
+        healthSourceProfile: 'body-fat-calculator',
         title: 'Body Fat Calculator 2026',
         category: 'health',
         intro: `Body fat percentage is one of the most meaningful numbers you can know about your health — far more informative than body weight or BMI alone. It tells you exactly how much of your total body mass is fat tissue versus everything else (muscle, bone, organs, water), which directly determines metabolic health, athletic performance, and cardiovascular risk in ways that a bathroom scale simply cannot.

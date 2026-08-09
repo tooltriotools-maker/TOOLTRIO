@@ -157,7 +157,6 @@ export default function CalculatorClient({ faqs }: Props) {
           { title: '5 Output Formats', text: 'Get your image as a Data URI, raw Base64, HTML img tag, CSS background-image, and JSON value - copy any format with one click.' },
           { title: 'Bidirectional Conversion', text: 'Encode images to Base64 or decode Base64 strings back to viewable images. Essential for debugging embedded images in APIs and databases.' },
           { title: 'Size Analysis', text: 'See original file size vs Base64 output size with the percentage increase - helps you decide whether embedding or external linking is better for performance.' },
-          { title: 'Complete Privacy', text: 'All processing happens in your browser. Images never leave your device - critical for sensitive logos, user avatars, and proprietary design assets.' },
           { title: 'Zero Dependencies', text: 'No server upload required, no file size limits from upload restrictions. Works with multi-megabyte images entirely in-browser.' },
         ]}
         useCases={[

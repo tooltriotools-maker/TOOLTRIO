@@ -9,6 +9,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
   description: 'Compare W-2 employee vs 1099 independent contractor taxes USA 2026. Calculate self-employment tax, QBI deduction, and true take-home pay.',
   slug: 'w2-vs-1099-calculator',
   category: 'finance',
+ region: 'usa',
   keywords: ['w2 vs 1099 calculator','self employment tax calculator 2026','1099 contractor tax calculator USA','w2 employee vs contractor comparison','self employed tax burden USA'],
 })
 

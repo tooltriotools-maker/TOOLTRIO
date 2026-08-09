@@ -817,23 +817,44 @@ export function calculate401k(
 export function calculateSocialSecurity(
   currentAge: number, startAge: number, monthlyBenefit62: number
 ) {
-  // Benefit adjustments: 62 = 70%, 66 = 100% (FRA), 70 = 124%
+  // Simplified FRA-67 model. SSA benefit estimates should come from the claimant's
+  // earnings record; this function is an educational claiming-age comparison only.
   const fra = 67
-  const adjustmentPerYear = startAge < fra ? -6.67 : 8
-  const yearsFromFRA = startAge - fra
-  const adjustmentPct = 100 + yearsFromFRA * adjustmentPerYear
-  const adjustedMonthly = (monthlyBenefit62 / 0.70) * (adjustmentPct / 100)
+  const benefitAt62 = monthlyBenefit62
+  const pia = benefitAt62 / 0.70
+
+  const benefitAtAge = (age: number) => {
+    const monthsEarly = Math.max(0, Math.round((fra - age) * 12))
+    const monthsLate = Math.max(0, Math.round((age - fra) * 12))
+    let factor = 1
+    if (monthsEarly > 0) {
+      const first36 = Math.min(monthsEarly, 36)
+      const remaining = Math.max(0, monthsEarly - 36)
+      factor -= first36 * (5 / 9 / 100) + remaining * (5 / 12 / 100)
+    } else if (monthsLate > 0) {
+      factor += monthsLate * (8 / 12 / 100)
+    }
+    return pia * factor
+  }
+
+  const adjustedMonthly = benefitAtAge(startAge)
   const lifeExpectancy = 85
   const totalBenefit = adjustedMonthly * 12 * Math.max(0, lifeExpectancy - startAge)
   const scenarios = [62, 64, 65, 66, 67, 68, 70].map(age => {
-    const yrs = age - fra
-    const pct = 100 + yrs * (age < fra ? -6.67 : 8)
-    const monthly = (monthlyBenefit62 / 0.70) * (pct / 100)
+    const monthly = benefitAtAge(age)
     const total = monthly * 12 * Math.max(0, lifeExpectancy - age)
-    return { age, monthly: Math.round(monthly), total: Math.round(total), pct: Math.round(pct) }
+    return { age, monthly: Math.round(monthly), total: Math.round(total), pct: Math.round((monthly / pia) * 100) }
   })
-  const breakEvenAge62 = Math.round(62 + (adjustedMonthly * (startAge - 62) * 12) / ((adjustedMonthly - (monthlyBenefit62)) * 12))
-  return { adjustedMonthly: Math.round(adjustedMonthly), totalBenefit: Math.round(totalBenefit), adjustmentPct: Math.round(adjustmentPct), scenarios, breakEvenAge62 }
+
+  const laterMonthly = adjustedMonthly
+  const monthsForegone = Math.max(0, startAge - 62) * 12
+  const foregoneBenefits = benefitAt62 * monthsForegone
+  const monthlyGain = laterMonthly - benefitAt62
+  const breakEvenAge62 = monthlyGain > 0
+    ? Math.round((startAge + foregoneBenefits / (monthlyGain * 12)) * 10) / 10
+    : null
+
+  return { adjustedMonthly: Math.round(adjustedMonthly), totalBenefit: Math.round(totalBenefit), adjustmentPct: Math.round((adjustedMonthly / pia) * 100), scenarios, breakEvenAge62, fra, currentAge }
 }
 
 export function calculateCDLadder(
@@ -933,13 +954,15 @@ export function calculatePaycheck(
   const pretaxHSA = hsa / periodsPerYear
   const pretaxHealth = healthInsurance / periodsPerYear
   const federalTaxableIncome = annualSalary - (retirement401k / 100 * annualSalary) - hsa - healthInsurance
-  const standardDeductions: Record<string, number> = { single: 14600, married: 29200, hoh: 21900 }
+  const standardDeductions: Record<string, number> = { single: 16100, married: 32200, hoh: 24150 }
   const taxableAfterDeduction = Math.max(0, federalTaxableIncome - standardDeductions[filingStatus])
   // 2026 Federal tax brackets (approximate)
   let federalTaxAnnual = 0
   const brackets = filingStatus === 'married'
-    ? [[23200, 0.10], [94300, 0.12], [201050, 0.22], [383900, 0.24], [487450, 0.32], [731200, 0.35], [Infinity, 0.37]]
-    : [[11600, 0.10], [47150, 0.12], [100525, 0.22], [191950, 0.24], [243725, 0.32], [609350, 0.35], [Infinity, 0.37]]
+    ? [[24800, 0.10], [100800, 0.12], [211400, 0.22], [403550, 0.24], [512450, 0.32], [768700, 0.35], [Infinity, 0.37]]
+    : filingStatus === 'hoh'
+      ? [[17700, 0.10], [67450, 0.12], [105700, 0.22], [201750, 0.24], [256200, 0.32], [640600, 0.35], [Infinity, 0.37]]
+      : [[12400, 0.10], [50400, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [Infinity, 0.37]]
   let prev = 0
   for (const [limit, rate] of brackets as [number, number][]) {
     if (taxableAfterDeduction <= prev) break
@@ -947,7 +970,7 @@ export function calculatePaycheck(
     prev = limit as number
   }
   const federalTaxPerPeriod = federalTaxAnnual / periodsPerYear
-  const ssPerPeriod = Math.min(grossPerPeriod, 160200 / periodsPerYear) * 0.062
+  const ssPerPeriod = Math.min(grossPerPeriod, 184500 / periodsPerYear) * 0.062
   const medicarePerPeriod = grossPerPeriod * 0.0145
   const stateTaxPerPeriod = grossPerPeriod * (stateRate / 100)
   const totalDeductions = pretax401k + pretaxHSA + pretaxHealth + federalTaxPerPeriod + ssPerPeriod + medicarePerPeriod + stateTaxPerPeriod
@@ -1051,40 +1074,35 @@ export function calculateUKStampDuty(
   buyerType: 'firstTime' | 'standard' | 'additionalProperty',
   isEnglandWales: boolean = true
 ) {
-  let tax = 0
-  let brackets: { limit: number; rate: number }[] = []
+  // England/Northern Ireland residential SDLT rates from 1 April 2025.
+  // Scotland/Wales use different devolved taxes and are not modelled here.
+  let brackets: { limit: number; rate: number }[]
 
   if (buyerType === 'additionalProperty') {
-    // Standard + 3% surcharge
     brackets = [
-      { limit: 250000, rate: 0.05 },
+      { limit: 125000, rate: 0.05 },
+      { limit: 250000, rate: 0.07 },
       { limit: 925000, rate: 0.10 },
-      { limit: 1500000, rate: 0.13 },
-      { limit: Infinity, rate: 0.18 },
+      { limit: 1500000, rate: 0.15 },
+      { limit: Infinity, rate: 0.17 },
     ]
-  } else if (buyerType === 'firstTime') {
-    // First time buyer relief: 0% up to £425k, 5% £425k-£625k, no relief above £625k
-    if (propertyPrice <= 425000) {
-      brackets = [{ limit: 425000, rate: 0 }, { limit: Infinity, rate: 0.05 }]
-    } else if (propertyPrice <= 625000) {
-      brackets = [{ limit: 425000, rate: 0 }, { limit: 625000, rate: 0.05 }, { limit: Infinity, rate: 0.05 }]
-    } else {
-      brackets = [
-        { limit: 250000, rate: 0 },
-        { limit: 925000, rate: 0.05 },
-        { limit: 1500000, rate: 0.10 },
-        { limit: Infinity, rate: 0.12 },
-      ]
-    }
+  } else if (buyerType === 'firstTime' && propertyPrice <= 500000) {
+    brackets = [
+      { limit: 300000, rate: 0 },
+      { limit: 500000, rate: 0.05 },
+      { limit: Infinity, rate: 0.05 },
+    ]
   } else {
     brackets = [
-      { limit: 250000, rate: 0 },
+      { limit: 125000, rate: 0 },
+      { limit: 250000, rate: 0.02 },
       { limit: 925000, rate: 0.05 },
       { limit: 1500000, rate: 0.10 },
       { limit: Infinity, rate: 0.12 },
     ]
   }
 
+  let tax = 0
   let prev = 0
   for (const { limit, rate } of brackets) {
     if (propertyPrice <= prev) break
@@ -1092,7 +1110,7 @@ export function calculateUKStampDuty(
     prev = limit
   }
 
-  const effectiveRate = (tax / propertyPrice) * 100
+  const effectiveRate = propertyPrice > 0 ? (tax / propertyPrice) * 100 : 0
   const totalCost = propertyPrice + tax
   return { stampDuty: Math.round(tax), effectiveRate: parseFloat(effectiveRate.toFixed(2)), totalCost: Math.round(totalCost), propertyPrice }
 }
@@ -1967,14 +1985,26 @@ export function calculateMegaBackdoorRoth(salary: number, regularContrib: number
   return { afterTaxMax: Math.round(Math.max(0, afterTaxMax)), inPlanConversion: Math.round(inPlanConversion), taxOnConversion: Math.round(taxOnConversion), taxFreeGrowth30yr: Math.round(taxFreeGrowth30yr), taxSavings30yr: Math.round(taxSavings30yr), totalContrib: Math.round(Math.min(regularContrib, employeeLimit) + inPlanConversion + (employerMatch * salary / 100)) }
 }
 
-export function calculateSEP_IRA(selfEmploymentIncome: number, businessType: 'sole-proprietor' | 'scorp' | 'partnership', age: number) {
+export function calculateSEP_IRA(selfEmploymentIncome: number, businessType: 'sole-proprietor' | 'scorp' | 'partnership', age: number, taxRate: number = 32) {
   const limit2026 = 72000
+  // For a sole proprietor, the effective SEP contribution rate is approximately
+  // 20% of net earnings from self-employment after the SE-tax adjustment.
+  // This is still a planning estimate; Publication 560 has the full worksheet.
   const net = businessType === 'sole-proprietor' ? selfEmploymentIncome * 0.9235 : selfEmploymentIncome
-  const maxContrib = Math.min(net * 0.25, limit2026)
-  const taxSavings = maxContrib * 0.37
-  const catchUp = age >= 50 ? 0 : 0 // SEP has no catch-up
+  const contributionRate = businessType === 'sole-proprietor' ? 0.20 : 0.25
+  const maxContrib = Math.min(net * contributionRate, limit2026)
+  const effectiveTaxRate = Math.max(0, Math.min(100, taxRate)) / 100
+  const taxSavings = maxContrib * effectiveTaxRate
   const growth30 = maxContrib * Math.pow(1.07, 30)
-  return { maxContrib: Math.round(maxContrib), taxSavings: Math.round(taxSavings), netCostAfterTax: Math.round(maxContrib - taxSavings), projectedGrowth30yr: Math.round(growth30), vsEmployee401k: Math.round(maxContrib - 23500) }
+  return {
+    maxContrib: Math.round(maxContrib),
+    taxSavings: Math.round(taxSavings),
+    netCostAfterTax: Math.round(maxContrib - taxSavings),
+    projectedGrowth30yr: Math.round(growth30),
+    vsEmployee401k: Math.round(maxContrib - 24500),
+    contributionRate: contributionRate * 100,
+    age,
+  }
 }
 
 export function calculateCapitalGainsTax(purchasePrice: number, salePrice: number, yearsHeld: number, filingStatus: 'single' | 'married' | 'hoh', income: number, isQOZ: boolean = false) {
@@ -2081,9 +2111,10 @@ export function calculateGiftTax(giftAmount: number, gifteeCount: number, priorT
   return { annualExclusion: totalExclusion, taxableGift: Math.round(taxableGift), giftTaxOwed: Math.round(giftTaxOwed), remainingLifetime: Math.round(remainingLifetime), newRemainingLifetime: Math.round(Math.max(0, remainingLifetime - taxableGift)), formRequired: taxableGift > 0, superfundingOption: remaining529Superfund }
 }
 
-export function calculateQBIDeduction(qbiIncome: number, filingStatus: 'single' | 'married', businessType: 'sstb' | 'non-sstb', wagesAndProperty: number) {
-  const threshold = filingStatus === 'married' ? 394600 : 197300
-  const phaseoutEnd = filingStatus === 'married' ? 494600 : 247300
+export function calculateQBIDeduction(qbiIncome: number, filingStatus: 'single' | 'married', businessType: 'sstb' | 'non-sstb', wagesAndProperty: number, taxRate: number = 37) {
+  // 2026 §199A threshold and phase-in amounts (Rev. Proc. 2025-45).
+  const threshold = filingStatus === 'married' ? 403500 : 201750
+  const phaseoutEnd = filingStatus === 'married' ? 553500 : 276750
   const basicDeduction = Math.min(qbiIncome * 0.20, 0.20 * (qbiIncome - 0))
   let limitedDeduction = basicDeduction
   if (qbiIncome > threshold) {
@@ -2097,8 +2128,9 @@ export function calculateQBIDeduction(qbiIncome: number, filingStatus: 'single' 
       limitedDeduction = basicDeduction - (basicDeduction - wageBasedLimit) * phaseoutRatio
     }
   }
-  const taxSavings = Math.max(0, limitedDeduction) * 0.37
-  return { basicDeduction: Math.round(Math.max(0, basicDeduction)), finalDeduction: Math.round(Math.max(0, limitedDeduction)), taxSavings: Math.round(taxSavings), effectiveRate: qbiIncome > 0 ? ((1 - limitedDeduction / qbiIncome) * 37).toFixed(1) : '37.0', aboveThreshold: qbiIncome > threshold }
+  const normalizedTaxRate = Math.min(100, Math.max(0, taxRate)) / 100
+  const taxSavings = Math.max(0, limitedDeduction) * normalizedTaxRate
+  return { basicDeduction: Math.round(Math.max(0, basicDeduction)), finalDeduction: Math.round(Math.max(0, limitedDeduction)), taxSavings: Math.round(taxSavings), effectiveRate: qbiIncome > 0 ? ((1 - limitedDeduction / qbiIncome) * normalizedTaxRate * 100).toFixed(1) : '0.0', aboveThreshold: qbiIncome > threshold }
 }
 
 export function calculateHospitalCosts(procedure: string, uninsuredCost: number, deductible: number, oopMax: number, coinsurance: number, premium: number) {
@@ -2475,18 +2507,53 @@ export function calculateSalaryNegotiation(currentSalary:number, offerSalary:num
   return { totalCurrent:Math.round(totalCurrent), totalOffer:Math.round(totalOffer), adjustedOffer:Math.round(adjustedOffer), difference:Math.round(difference), percentIncrease:Math.round(percentIncrease*10)/10, worthTaking:difference>0, counterOffer, tenYearDifference:Math.round(difference*12.58) /* 10yr compound */ }
 }
 
-export function calculateChildTaxCredit(numChildren:number, childrenUnder6:number, agi:number, filingStatus:'single'|'married', earned:number) {
+export function calculateChildTaxCredit(
+  numChildren:number,
+  childrenUnder6:number,
+  agi:number,
+  filingStatus:'single'|'married',
+  earned:number,
+  qualifyingCarePersons:number = 0,
+  qualifyingCareExpenses:number = 0,
+) {
   const maxCredit2026=2200*numChildren
   const phaseoutThreshold=filingStatus==='married'?400000:200000
   const phaseout=Math.max(0,Math.ceil((agi-phaseoutThreshold)/1000))*50*numChildren
   const creditAfterPhaseout=Math.max(0,maxCredit2026-phaseout)
-  // Refundable portion (ACTC) = 15% of earned income above $2500, up to $1700/child
+  // Refundable portion (ACTC) = 15% of earned income above $2,500, up to $1,700/child.
   const refundable=Math.min(Math.max(0,(earned-2500)*0.15), 1700*numChildren)
   const nonRefundable=Math.max(0,creditAfterPhaseout-refundable)
-  // Child & Dependent Care Credit (separate)
-  const careExpenses=Math.min(numChildren>=2?6000:3000, numChildren*4000)
-  const careCredit=careExpenses*0.20
-  return { maxCredit:maxCredit2026, phaseoutReduction:Math.round(phaseout), netCredit:Math.round(creditAfterPhaseout), refundablePortion:Math.round(refundable), nonRefundablePortion:Math.round(nonRefundable), childCareCredit:Math.round(careCredit), totalCredits:Math.round(creditAfterPhaseout+careCredit), abovePhaseout:agi>phaseoutThreshold }
+
+  // 2026 Child & Dependent Care Credit. Expense limits remain $3,000 for one
+  // qualifying person and $6,000 for two or more. The applicable percentage
+  // starts at 50%, phases down to 35%, then to a 20% floor. This calculator
+  // intentionally models only the AGI percentage and expense cap; it does not
+  // reproduce Form 2441's earned-income, provider, or dependent-care-benefit rules.
+  const careCap = qualifyingCarePersons >= 2 ? 6000 : qualifyingCarePersons === 1 ? 3000 : 0
+  const careExpenses = Math.min(Math.max(0, qualifyingCareExpenses), careCap)
+  const careRate = get2026ChildDependentCareRate(agi, filingStatus)
+  const careCredit = careExpenses * careRate
+
+  return {
+    maxCredit:maxCredit2026, phaseoutReduction:Math.round(phaseout),
+    netCredit:Math.round(creditAfterPhaseout), refundablePortion:Math.round(refundable),
+    nonRefundablePortion:Math.round(nonRefundable), childCareCredit:Math.round(careCredit),
+    childCareRate:careRate, qualifyingCareExpenses:Math.round(careExpenses),
+    totalCredits:Math.round(creditAfterPhaseout+careCredit), abovePhaseout:agi>phaseoutThreshold
+  }
+}
+
+function get2026ChildDependentCareRate(agi:number, filingStatus:'single'|'married') {
+  const firstThreshold = filingStatus === 'married' ? 30000 : 15000
+  const secondThreshold = filingStatus === 'married' ? 150000 : 75000
+  const secondStep = filingStatus === 'married' ? 4000 : 2000
+
+  if (agi <= firstThreshold) return 0.50
+
+  const firstStepRate = Math.max(0.35, 0.50 - Math.ceil((agi - firstThreshold) / 2000) * 0.01)
+  if (agi <= secondThreshold) return firstStepRate
+
+  return Math.max(0.20, 0.35 - Math.ceil((agi - secondThreshold) / secondStep) * 0.01)
 }
 
 export function calculateAnnuityIncome(premium:number, annuityType:'immediate'|'deferred'|'variable', age:number, deferralYears:number, annualReturn:number, payoutPeriod:'lifetime'|'period-certain', periodYears:number) {
@@ -2589,7 +2656,7 @@ export function calculateFIRENumber(annualExpenses:number, currentAge:number, re
   const inflationAdjExpenses=annualExpenses*Math.pow(1+inflationRate/100,yearsToFIRE)
   const fireNumber=inflationAdjExpenses/(safeWithdrawal/100)
   let portfolio=currentPortfolio
-  const yearData=[]
+  const yearData: Array<{year:number; age:number; portfolio:number; progress:number; fireNumber:number; fireReached?:boolean}> = []
   for(let i=0;i<=yearsToFIRE;i++){
     portfolio=portfolio*(1+expectedReturn/100)+annualSavings
     const progress=Math.min(100,Math.round(portfolio/fireNumber*100))
@@ -4027,7 +4094,7 @@ export function calculateNetWorthSnapshot(assets:{cash:number,investments:number
   const debtToAsset = totalAssets>0 ? totalLiabilities/totalAssets*100 : 0
   const liquidityRatio = totalLiabilities>0 ? liquidAssets/totalLiabilities : 999
   const medianUSNetWorth2022 = 192900
-  const percentileEst = netWorth < 0 ? 10 : netWorth < 50000 ? 25 : netWorth < 192700 ? 50 : netWorth < 500000 ? 70 : netWorth < 1000000 ? 85 : netWorth < 3000000 ? 95 : 99
+  const percentileEst = netWorth < 0 ? 10 : netWorth < 50000 ? 25 : netWorth < 192900 ? 50 : netWorth < 500000 ? 70 : netWorth < 1000000 ? 85 : netWorth < 3000000 ? 95 : 99
   return {
     totalAssets:Math.round(totalAssets), totalLiabilities:Math.round(totalLiabilities),
     netWorth:Math.round(netWorth), liquidAssets:Math.round(liquidAssets),
@@ -4230,7 +4297,7 @@ export function calculateFHAvsConventional(purchasePrice: number, downPaymentPct
 }
 
 export function calculateFICA(grossWages: number, ytdWages: number, selfEmployed: boolean) {
-  const sswageCap2026 = 176100
+  const sswageCap2026 = 184500
   const ssRate = selfEmployed ? 0.124 : 0.062
   const medicareRate = selfEmployed ? 0.029 : 0.0145
   const additionalMedicareThreshold = 200000
@@ -4408,22 +4475,29 @@ export function calculateSafeHarbor401k(annualSalary: number, employeeContrib: n
   }
 }
 
-export function calculateSeriesEEBond(faceValue: number, purchaseYear: number, currentYear: number, holdUntilMaturity: boolean) {
-  const purchasePrice = faceValue / 2 // EE bonds sold at 50% of face value
-  const currentRate = 0.026 // 2026 fixed rate
-  const yearsHeld = currentYear - purchaseYear
+export function calculateSeriesEEBond(faceValue: number, purchaseYear: number, currentYear: number, holdUntilMaturity: boolean, federalTaxRate: number = 22) {
+  // EE bonds issued today are purchased at their stated purchase price; the
+  // historical half-face-value convention is not appropriate for new electronic EE bonds.
+  // This calculator is a simplified model and uses the current May-Oct 2026 fixed rate
+  // as an illustrative rate for a newly issued bond. Historical bonds require their
+  // actual issue-date rate history for an exact redemption value.
+  const purchasePrice = Math.max(0, faceValue)
+  const currentRate = 0.024 // May-Oct 2026 fixed rate
+  const yearsHeld = Math.max(0, currentYear - purchaseYear)
   const guaranteedDoubleYear = 20
-  const currentValue = holdUntilMaturity && yearsHeld >= guaranteedDoubleYear ? faceValue : purchasePrice * Math.pow(1 + currentRate, yearsHeld)
-  const interestEarned = currentValue - purchasePrice
-  const effectiveRate = holdUntilMaturity && yearsHeld >= 20 ? 3.53 : currentRate * 100
-  const federalTax = interestEarned * 0.22 // example 22% bracket
-  const highereducationExclusion = interestEarned * 0.22 // can exclude if used for education
+  const accruedValue = purchasePrice * Math.pow(1 + currentRate, yearsHeld)
+  const currentValue = holdUntilMaturity && yearsHeld >= guaranteedDoubleYear
+    ? Math.max(faceValue, accruedValue)
+    : accruedValue
+  const interestEarned = Math.max(0, currentValue - purchasePrice)
+  const effectiveRate = yearsHeld > 0 ? (Math.pow(currentValue / purchasePrice, 1 / yearsHeld) - 1) * 100 : 0
+  const federalTax = interestEarned * Math.max(0, Math.min(100, federalTaxRate)) / 100
   return {
     purchasePrice: Math.round(purchasePrice), faceValue, yearsHeld, currentValue: Math.round(currentValue),
     interestEarned: Math.round(interestEarned), effectiveAnnualRate: Math.round(effectiveRate * 10) / 10,
-    federalTaxDue: Math.round(federalTax), educationTaxExclusion: Math.round(highereducationExclusion),
+    federalTaxDue: Math.round(federalTax), educationTaxExclusion: 0,
     maturityDate: purchaseYear + 30, doubleDate: purchaseYear + 20,
-    tip: 'EE Bonds are state/local tax-free and federal tax-deferred until redemption'
+    tip: 'EE Bonds are exempt from state and local income tax; federal income tax on interest is generally deferred until redemption.'
   }
 }
 
@@ -4446,7 +4520,7 @@ export function calculateStockOptionTax(optionType: 'iso' | 'nso', grantPrice: n
   const exerciseCost = grantPrice * shares
   if (optionType === 'nso') {
     const ordinaryTax = spread * (ordinaryTaxRate / 100)
-    const ficaTax = Math.min(spread, 176100) * 0.0765
+    const ficaTax = Math.min(spread, 184500) * 0.0765
     const totalTax = ordinaryTax + ficaTax
     return { optionType, spread: Math.round(spread), exerciseCost: Math.round(exerciseCost), ordinaryIncomeTax: Math.round(ordinaryTax), ficaTax: Math.round(ficaTax), capitalGainsTax: 0, totalTax: Math.round(totalTax), netGain: Math.round(spread - totalTax), effectiveRate: Math.round(totalTax/spread*100) }
   } else { // ISO
@@ -5083,7 +5157,7 @@ export function calculateFederalContractorTax(contractRevenue: number, contractT
   const stateRates: Record<string, number> = { CA: 0.093, NY: 0.0685, TX: 0, FL: 0, WA: 0, IL: 0.0495, VA: 0.0575, MD: 0.0575 }
   const stateRate = stateRates[state] || 0.05
   if (contractType === 'w2') {
-    const fica = Math.min(contractRevenue, 176100) * 0.0765
+    const fica = Math.min(contractRevenue, 184500) * 0.0765
     const fedTax = contractRevenue * 0.22
     const stateTax = contractRevenue * stateRate
     return { grossRevenue: contractRevenue, netTakeHome: Math.round(contractRevenue - fica - fedTax - stateTax), fica: Math.round(fica), federalTax: Math.round(fedTax), stateTax: Math.round(stateTax), seTax: 0, effectiveRate: Math.round((fica + fedTax + stateTax) / contractRevenue * 100) }
@@ -5289,7 +5363,7 @@ export function calculateHouseHackingROI(homePrice: number, downPercent: number,
     totalReturn5yr: Math.round(totalReturn5yr),
     roi5yr: Math.round(roi * 10) / 10,
     fhaEligible: downPercent <= 3.5 && unitCount <= 4,
-    strategy: rentalIncome => rentalIncome > payment ? 'Cash flow positive — tenants pay your mortgage' : 'Reduced housing cost — part of mortgage subsidized by tenants'
+    strategy: (rentalIncome: number) => rentalIncome > payment ? 'Cash flow positive — tenants pay your mortgage' : 'Reduced housing cost — part of mortgage subsidized by tenants'
   }
 }
 
@@ -5561,8 +5635,8 @@ export function calculateLeveragedETFDecay(initialInvestment: number, dailyTarge
   }
 }
 
-export function calculateMedicarePrescriptionCosts(brandDrugs: number, genericDrugs: number, planType: 'pdp'|'mapd', incomeLevel: 'standard'|'irmaa1'|'irmaa2'|'irmaa3', partDPremium: number) {
-  const irmaaSurcharge: Record<string, number> = { standard: 0, irmaa1: 13.70, irmaa2: 35.30, irmaa3: 57.00 }
+export function calculateMedicarePrescriptionCosts(brandDrugs: number, genericDrugs: number, planType: 'pdp'|'mapd', incomeLevel: 'standard'|'irmaa1'|'irmaa2'|'irmaa3'|'irmaa4'|'irmaa5', partDPremium: number) {
+  const irmaaSurcharge: Record<string, number> = { standard: 0, irmaa1: 14.50, irmaa2: 37.50, irmaa3: 60.40, irmaa4: 83.30, irmaa5: 91.00 }
   const surcharge = irmaaSurcharge[incomeLevel]
   const monthlyPremium = partDPremium + surcharge
   const deductible = 615 // 2026 defined-standard Part D deductible
@@ -5846,12 +5920,18 @@ export function calculateProfitSharingPlan(annualCompensation: number, profitSha
   }
 }
 
-export function calculateQualifiedSmallBusinessStock(investmentAmount: number, holdYears: number, exitMultiple: number, companyAssetsAtIssuance: number) {
-  const qsbsEligible = companyAssetsAtIssuance < 50000000 && holdYears >= 5
+export function calculateQualifiedSmallBusinessStock(investmentAmount: number, holdYears: number, exitMultiple: number, companyAssetsAtIssuance: number, stockIssuedAfterJuly2025: boolean = false) {
+  // OBBBA changed §1202 for qualifying stock issued after July 4, 2025.
+  // The UI still uses the legacy regime by default until an acquisition-date selector is added.
+  const assetThreshold = stockIssuedAfterJuly2025 ? 75000000 : 50000000
+  const requiredYears = stockIssuedAfterJuly2025 ? 3 : 5
+  const exclusionPct = stockIssuedAfterJuly2025 ? (holdYears >= 5 ? 1 : holdYears >= 4 ? 0.75 : holdYears >= 3 ? 0.5 : 0) : (holdYears >= 5 ? 1 : 0)
+  const qsbsEligible = companyAssetsAtIssuance < assetThreshold && exclusionPct > 0
   const exitValue = investmentAmount * exitMultiple
   const gain = exitValue - investmentAmount
-  const exclusionLimit = Math.max(investmentAmount * 10, 10000000)
-  const excludedGain = qsbsEligible ? Math.min(gain, exclusionLimit) : 0
+  const exclusionCap = stockIssuedAfterJuly2025 ? Math.max(investmentAmount * 10, 15000000) : Math.max(investmentAmount * 10, 10000000)
+  const exclusionLimit = exclusionCap * exclusionPct
+  const excludedGain = qsbsEligible ? Math.min(Math.max(0, gain), exclusionLimit) : 0
   const taxableGain = gain - excludedGain
   const taxOnGain = taxableGain * 0.238 // LTCG + NIIT
   const taxSavingsFromQSBS = excludedGain * 0.238
@@ -6192,8 +6272,8 @@ export function calculateSBALoanAffordability(loanAmount: number, sbaRate: numbe
   const dscr = netProfit / annualPayment
   const debtService = (annualPayment + existingDebt) / annualRevenue * 100
   const sba7aLimit = 5000000
-  const sba504Limit = 5500000
-  const eligibleProgram = loanAmount <= 350000 ? 'SBA Express (faster approval, 36hr turnaround)' : loanAmount <= 5000000 ? 'SBA 7(a) Standard' : 'SBA 504 (real estate/equipment only)'
+  const sba504Limit = 5000000
+  const eligibleProgram = loanAmount <= 5000000 ? 'SBA 7(a) candidate' : 'Outside standard 7(a) maximum'
   return {
     monthlyPayment: Math.round(payment*100)/100, annualPayment: Math.round(annualPayment),
     totalInterest: Math.round(totalInterest), dscr: Math.round(dscr*100)/100,
@@ -6201,7 +6281,7 @@ export function calculateSBALoanAffordability(loanAmount: number, sbaRate: numbe
     dscrAdequate: dscr >= 1.25, debtServiceHealthy: debtService < 35,
     eligibleProgram, qualifies: dscr >= 1.25 && annualRevenue > loanAmount * 0.3,
     maxLoan: Math.round(netProfit / (1.25 * mr * 12) * 0.8),
-    sbaFee: Math.round(loanAmount * 0.035)
+    sbaFee: 0
   }
 }
 
@@ -6577,7 +6657,7 @@ export function calculateTaxLossHarvestingPortfolio(positions: Array<{name: stri
 export function calculateTrustFundGrowth(initialFunding: number, annualContrib: number, beneficiaryAge: number, distributionAge: number, growthRate: number, trusteeAnnualFee: number) {
   const years = distributionAge - beneficiaryAge
   let balance = initialFunding
-  const yearData = []
+  const yearData: Array<{ year: number; age: number; balance: number }> = []
   for (let i = 0; i < years; i++) {
     const fee = balance * trusteeAnnualFee / 100
     balance = balance * (1 + growthRate / 100) - fee + annualContrib

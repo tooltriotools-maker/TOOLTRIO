@@ -15,15 +15,15 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is the SEP-IRA limit for 2026?',
-    answer: 'The 2026 SEP-IRA contribution limit is the lesser of 25% of compensation or $70,000. For sole proprietors, the IRS calculation reduces this slightly to ~20% of net self-employment income (after deducting half of SE tax). On $150,000 net income, the max contribution is approximately $27,714.',
+    answer: 'The 2026 SEP-IRA contribution limit is the lesser of 25% of compensation or $72,000. For sole proprietors, the IRS calculation reduces this slightly to ~20% of net self-employment income (after deducting half of SE tax). On $150,000 net income, the max contribution is approximately $27,714.',
   },
   {
     question: 'SEP-IRA vs Solo 401k — which is better?',
-    answer: 'Solo 401k allows contributions as both employee ($23,500 + catch-up if 50+) AND employer (25% of W-2 or 20% of net SE income), reaching $70,000 on lower incomes. SEP-IRA is simpler (no annual filing), but Solo 401k typically allows much higher contributions at lower income levels. At $50,000 income: SEP-IRA max ~$9,293 vs Solo 401k ~$33,293.',
+    answer: 'Solo 401k allows contributions as both employee ($24,500 + catch-up if 50+) AND employer (25% of W-2 or 20% of net SE income), reaching the applicable 2026 annual-additions limit on lower incomes. SEP-IRA is simpler (no annual filing), but Solo 401k typically allows much higher contributions at lower income levels. At $50,000 income: SEP-IRA max ~$9,293 vs Solo 401k ~$33,293.',
   },
   {
     question: 'Can I have both a SEP-IRA and an employer 401k?',
-    answer: "If you have W-2 employment with a 401k AND self-employment income, you can contribute to both — but the combined employer contributions cannot exceed $70,000. The employee deferral limit ($23,500) is shared across all plans, but each employer's contribution is calculated separately.",
+    answer: "If you have W-2 employment with a 401k AND self-employment income, you can contribute to both — but the combined employer contributions cannot exceed $72,000. The employee deferral limit ($24,500) is shared across all plans, but each employer's contribution is calculated separately.",
   }
 ]
 

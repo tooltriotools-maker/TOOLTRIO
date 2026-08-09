@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free home loan calculator USA 2026. Calculate monthly mortgage payment, total interest, and complete amortization schedule for any home loan. Real.',
  slug: 'home-loan-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'home loan calculator 2026',
     'home loan calculator',
@@ -48,7 +49,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

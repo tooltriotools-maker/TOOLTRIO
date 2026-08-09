@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -57,10 +57,6 @@ const faqs = [
   answer: 'An Elizabethan insult is a humorous or dramatic insult written in the style of the Elizabethan era, the period when William Shakespeare lived and wrote.'
 },
 {
-  question: 'Can I use these Shakespeare roasts for free?',
-  answer: 'Yes. You can generate unlimited Shakespearean roasts and insults completely free without creating an account.'
-},
-{
   question: 'Are these real Shakespeare insults?',
   answer: 'Many of the words come directly from Shakespeare\'s plays, while the generator combines them into new Shakespeare-style insults.'
 },
@@ -101,7 +97,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

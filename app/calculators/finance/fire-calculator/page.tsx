@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free FIRE calculator USA 2026. Calculate your Financial Independence number, target net worth, and earliest possible retirement date using the 4% rule.',
  slug: 'fire-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'fire calculator 2026',
     'fire calculator',

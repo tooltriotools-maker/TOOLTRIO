@@ -11,16 +11,16 @@ import { SEOContent } from '@/components/ui/SEOContent'
 interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string }
 
 const LOAN_TYPES = [
-  { name: 'Direct Sub/Unsub (Undergrad)', rate: 6.53 },
-  { name: 'Direct Unsub (Grad/Prof)', rate: 8.08 },
-  { name: 'Direct PLUS (Parent/Grad)', rate: 9.08 },
+  { name: 'Direct Subsidized/Unsubsidized (Undergrad) 2026-27', rate: 6.52 },
+  { name: 'Direct Unsubsidized (Graduate/Professional) 2026-27', rate: 7.94 },
+  { name: 'Direct PLUS (Parent/Grad) 2026-27', rate: 7.94 },
   { name: 'Private (Good Credit)', rate: 6.0 },
   { name: 'Private (Fair Credit)', rate: 10.5 },
 ]
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [loanBalance, setLoanBalance] = useState(35000)
-  const [interestRate, setInterestRate] = useState(6.53)
+  const [interestRate, setInterestRate] = useState(6.52)
   const [monthlyPayment, setMonthlyPayment] = useState(390)
   const [extraPayment, setExtraPayment] = useState(0)
 
@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Loan Details</h2>
 
           <div className="space-y-2">
-            <label className="text-xs font-medium text-gray-600">Loan Type (2024-25 rates)</label>
+            <label className="text-xs font-medium text-gray-600">Loan Type (federal rates vary by loan year)</label>
             <div className="space-y-1">
               {LOAN_TYPES.map(lt => (
                 <button key={lt.name} onClick={() => setInterestRate(lt.rate)}
@@ -169,13 +169,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Federal vs Private Student Loan Rates 2026</h3>
-              <p>Federal student loan rates for 2024-25: Direct Subsidized/Unsubsidized (undergrad) at 6.53%, Direct Unsubsidized (grad/professional) at 8.08%, Direct PLUS loans (parents and grad students) at 9.08%. Federal loans offer income-driven repayment, deferment, and forgiveness programs not available on private loans. Private loan rates vary from 4-15% based on credit score and lender. Refinancing federal loans to private saves on interest but eliminates federal protections - evaluate carefully.</p>
+              <p>For loans first disbursed from July 1, 2026 through June 30, 2027, the federal fixed rates used as examples are 6.52% for undergraduate Direct Subsidized/Unsubsidized Loans, 7.94% for graduate/professional Direct Unsubsidized Loans, and 7.94% for Direct PLUS Loans. Rates are fixed by loan year; private-loan rates are not modeled as official market quotes. Federal loans offer income-driven repayment, deferment, and forgiveness programs not available on private loans. Private loan rates vary from 4-15% based on credit score and lender. Refinancing federal loans to private saves on interest but eliminates federal protections - evaluate carefully.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Avalanche Strategy for Multiple Student Loans</h3>
               <p>Most borrowers have multiple student loans from different years with different rates. The avalanche method targets the highest-rate loan with extra payments while paying minimums on others. This minimizes total interest paid. Example: $15,000 at 8% and $20,000 at 6%: make minimum on the 6% loan and throw every extra dollar at the 8% loan. Once the 8% loan is gone, redirect all payments to the 6% loan. Our Debt Payoff Calculator can model multiple loans simultaneously.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Income-Driven Repayment Plans</h3>
-              <p>The SAVE Plan (Saving on a Valuable Education), launched 2023, is the most generous IDR plan: payments capped at 5% of discretionary income for undergraduate loans, 10% for graduate loans. Discretionary income defined as income above 225% of federal poverty level, meaning many low-income borrowers pay $0. Interest does not capitalize if you make your required payment. Balance forgiven after 10 years (balances under $12,000) or 20-25 years. PSLF forgives remaining balance after 10 years for government and non-profit employees. Always verify current rules at StudentAid.gov as programs change.</p>
+              <p>SAVE is no longer a current repayment option. Do not use the legacy SAVE scenario on this page to choose a repayment plan; verify currently available federal repayment and forgiveness options through StudentAid.gov or your servicer.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Student Loan Tax Deduction</h3>
               <p>The student loan interest deduction allows you to deduct up to $2,500 of student loan interest paid from your taxable income. Income limits apply: the deduction phases out for single filers with MAGI above $75,000 and is eliminated above $90,000 (married filing jointly: $155,000-$185,000). This saves $550 per year for someone in the 22% bracket paying $2,500 in interest. On income-driven repayment plans with low payments, you may not be paying much interest, reducing the value of this deduction.</p>
             </div>
@@ -204,13 +204,10 @@ Federal student loans have specific features that private loans lack: income-dri
 The debt-to-income ratio on graduation is the most important indicator of student loan manageability: borrowing more than one year's expected starting salary for your field creates manageable debt. Borrowing two times starting salary creates stress; three times or more creates serious financial hardship for many borrowers.`}
         howItWorks={`Standard repayment: PMT = P × r(1+r)^120 / [(1+r)^120 - 1] for a 10-year standard plan. For $50,000 at 6.5%: monthly rate = 0.5417%, PMT ≈ $567/month. Total interest = $567 × 120 - $50,000 = $18,040.
 
-IDR payment: SAVE plan (2024) calculates payment at 5% of discretionary income for undergraduate loans (discretionary = AGI above 225% federal poverty line). For $60,000 AGI single borrower: 225% FPL (2024) ≈ $31,590. Discretionary income = $60,000 - $31,590 = $28,410. Monthly payment = $28,410 × 5% / 12 = $118.38.
+Legacy SAVE-style examples are intentionally not presented as current repayment guidance. Use the current plan terms displayed in your StudentAid.gov account.
 
 PSLF (Public Service Loan Forgiveness): 120 qualifying monthly payments while working full-time for qualifying employer (government, nonprofit). After 120 payments (~10 years), remaining federal loan balance forgiven tax-free. Highest value for high-balance borrowers in public service careers.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -231,12 +228,6 @@ Biweekly payments (half payment every two weeks instead of one payment monthly) 
         conclusion={`The most important student loan insight is at the front end: the value of the degree relative to the debt. A $60,000 loan for a nursing degree with $75,000 starting salary is very manageable. The same $60,000 loan for a degree with $35,000 starting salary is a 10-year financial burden that constrains housing, family formation, and wealth building.
 
 For people already carrying student debt, an organized payoff strategy — understanding all loans, their rates, and prioritizing appropriately — matters more than obsessing about the interest details. Use [our Debt Payoff Calculator](/calculators/finance/debt-payoff-calculator) to model your total debt payoff strategy including student loans alongside any other debt.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

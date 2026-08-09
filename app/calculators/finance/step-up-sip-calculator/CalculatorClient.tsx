@@ -181,9 +181,6 @@ Example: ₹10,000/month with 10% annual step-up at 12% CAGR for 20 years:
 - Year 20: ₹61,159/month
 Total corpus ≈ ₹1.80 crore vs ₹99.9 lakh for flat SIP.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -204,12 +201,6 @@ For AMC platforms: most online AMC portals and mutual fund apps (Groww, Zerodha 
         conclusion={`The step-up SIP concept applies beyond Indian mutual funds — any systematic investment plan in any country benefits from annual increases that pace with income growth. US investors who increase their 401k contribution percentage by 1-2% annually after raises follow the same principle: automatic, behavioral, compounding investment increases that build wealth without requiring monthly willpower.
 
 For investors worried about affordability: start with a step-up SIP that begins at a comfortable amount and increases slowly. ₹5,000/month with 5% step-up for 20 years at 12% produces approximately ₹72 lakh — meaningful wealth from a very accessible starting point. Use [our SIP Calculator](/calculators/finance/sip-calculator) for comparison of flat vs step-up projections.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

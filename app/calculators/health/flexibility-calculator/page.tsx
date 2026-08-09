@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'flexibility-calculator',
   title: 'Flexibility Calculator',
   category: 'health' as const,
   intro: `Flexibility is the least trained fitness component for most adults, and also one of the most systematically lost with aging. Range of motion decreases gradually from the mid-20s onward, with the rate of decline accelerating after 50 unless actively maintained through consistent stretching. The practical consequence isn't abstract: loss of hip flexor and thoracic spine mobility directly contributes to lower back pain, difficulty with everyday movements, and increased fall risk in older adults.
@@ -62,33 +63,13 @@ Sit-and-reach tests, shoulder flexibility assessments, hip mobility screens, and
 This calculator scores your flexibility across major movement domains and provides a prioritized mobility training plan based on your assessment results, training goals, and time available for flexibility work.
 
 **Long-tail searches answered here:** flexibility score calculator free online usa, how flexible am i calculator free tool, sit and reach flexibility assessment calculator, range of motion score calculator no signup free, am i above average flexibility calculator usa, yoga flexibility baseline calculator free online, hamstring flexibility score by age calculator free usa, hip flexor tightness risk score calculator free, flexibility vs age comparison calculator usa free, upper body vs lower body flexibility balance calculator, flexibility improvement rate calculator by training type, injury risk from inflexibility score calculator usa free, how many weeks to improve flexibility calculator free, foam rolling benefit on flexibility calculator usa free, daily stretching duration for flexibility gain calculator`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate flexibility from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate flexibility from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Flexibility gains require consistency more than intensity. Holding a stretch at the point of mild tension for 30-60 seconds, 3-5 times per week, produces measurable range of motion improvements within 4-8 weeks. Less frequent but aggressive stretching produces slower progress and higher injury risk.
 
 The areas worth prioritizing for most adults: hip flexors (shortened by excessive sitting), thoracic spine rotation (important for shoulder health and back pain prevention), ankle dorsiflexion (limits squat mechanics), and posterior chain (hamstrings and calves, which limit pelvic tilt and lower back health).
@@ -102,7 +83,7 @@ Yoga and Pilates are evidence-based flexibility training methods that combine ra
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

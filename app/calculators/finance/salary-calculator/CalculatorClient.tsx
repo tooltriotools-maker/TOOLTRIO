@@ -35,7 +35,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="Salary Calculator USA 2026" description="Calculate take-home pay after federal, state, Social Security, and Medicare deductions." icon="💼" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="salary-calculator">
+    <CalculatorLayout title="Salary Calculator India FY 2026-27" description="Estimate Indian in-hand salary from CTC, PF, HRA, professional tax and the modeled tax regime." icon="💼" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="salary-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Salary Details</h2>
@@ -136,13 +136,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       {/* 600-word SEO explanation */}
       <div className="mt-10">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">CTC to In-Hand Salary Calculator - Decode Your Salary Slip USA 2026</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">CTC to In-Hand Salary Calculator — India FY 2026-27</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">CTC Structure - Understanding Every Component</h3>
               <p>CTC (Cost to Company) is the total annual expenditure an employer makes for an employee. It includes many components beyond your take-home salary. Fixed components: Basic salary (typically 40-50% of CTC), housing allowance (usually 40-50% of basic), Special/Variable allowance (remaining after basic and housing allowance). Statutory components: Employer PF contribution (12% of basic, capped at $1,800/month), Employee PF (same, deducted from salary), Gratuity provision (~4.81% of basic, paid after 5 years), ESIC (for salary {'<'}= $21,000). Optional components: Medical allowance, LTA (Leave Travel Allowance), meal coupons (tax-free up to $50/meal), 401(k) pension contribution by employer (tax-efficient up to 10% of basic).</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Why Your In-Hand Salary Is Much Less Than CTC</h3>
-              <p>The gap between CTC and in-hand salary surprises many new employees. Sources of difference: Employer PF (12% of basic) - included in CTC but never goes to employee directly (goes to PF account). Gratuity provision (~4.81% of basic) - included in CTC, paid only after 5 years. Employee PF (12% of basic) - deducted from gross salary. Professional Tax ($200/month in most states) - state-level deduction. federal withholding/Income Tax - the biggest deduction for high earners. Net result: For a $12 thousand CTC, the monthly in-hand salary is typically $72,000-82,000 depending on tax regime and deductions - not $1,00,000 (/12). Always negotiate based on in-hand salary, not CTC.</p>
+              <p>The gap between CTC and in-hand salary surprises many new employees. Sources of difference: Employer PF (12% of basic) - included in CTC but never goes to employee directly (goes to PF account). Gratuity provision (~4.81% of basic) - included in CTC, paid only after 5 years. Employee PF (12% of basic) - deducted from gross salary. Professional Tax (state-specific; this calculator uses ₹200/month as a simplified assumption) - state-level deduction. federal withholding/Income Tax - the biggest deduction for high earners. Net result: For a ₹12 lakh CTC, monthly in-hand pay depends on the salary structure and tax assumptions entered - not $1,00,000 (/12). Always negotiate based on in-hand salary, not CTC.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">How to Optimize Salary Structure for Maximum In-Hand Pay</h3>
@@ -157,7 +157,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Salary Calculator Example (USA 2026)
+          Salary Calculator Example (India FY 2026-27)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           On a $75,000 salary, the 50/30/20 rule suggests: <strong>$37,500</strong> for needs, $22,500 for wants, and $15,000 for savings and debt repayment.
@@ -167,7 +167,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         </p>
       </Card>
       <SEOContent
-        title="Salary Calculator USA – What Is Your Real Take-Home Pay After All Deductions in 2026?"
+        title="Salary Calculator India — What Is Your Estimated In-Hand Pay After Deductions?"
         category="finance"
         intro={`Your paycheck and your total compensation are very different numbers, and understanding both matters for evaluating job offers, negotiating raises, and accurate financial planning. The gap between gross annual salary and actual take-home pay is typically 25-35% for middle-income earners, comprising federal income tax, FICA (Social Security and Medicare), state income tax, health insurance premiums, and retirement contributions.
 
@@ -180,9 +180,6 @@ Annualized from hourly: Annual salary = Hourly rate × Hours per week × 52. Mon
 
 Effective hourly rate from salary: Annual salary / (hours per week × 52) = effective hourly rate including paid time off. A $100,000 salary working 45 hours/week = $100,000 / 2,340 = $42.74/hour. Compare to a $85,000 salary working 40 hours/week = $85,000 / 2,080 = $40.87/hour — the $100k job pays more hourly than the gap suggests.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -203,12 +200,6 @@ For self-employed or contract workers: the employer's side of FICA (7.65%) comes
         conclusion={`Annual salary reviews rarely keep pace with inflation unless you actively advocate for them. A salary that hasn't increased in 3 years at 3% average inflation has lost approximately 9% of its real purchasing power. Regular salary conversations, using market rate data, are essential for maintaining compensation parity.
 
 For complete compensation analysis, use [our Paycheck Calculator](/calculators/finance/paycheck-calculator) to convert any salary figure to actual take-home pay in your specific state, then compare to your budget requirements.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

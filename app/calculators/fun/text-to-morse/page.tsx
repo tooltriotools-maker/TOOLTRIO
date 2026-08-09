@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Is Morse code still used today?',
     answer: 'More than most people expect. Licensed amateur radio operators (hams) still use Morse code globally. Maritime law required officers to know Morse until 1999. Some military units retain it. Pilots learn the three-letter Morse identifiers for navigational beacons. And it is genuinely useful in emergency scenarios when voice communication fails but a tapping, blinking, or beeping signal is possible.'
   },
-  {
-    question: 'Is this translator free?',
-    answer: 'Completely free, no login needed. Translate as much as you want. The audio playback, reference chart, and bidirectional translation are all included at no cost. --- -. . / -... .. .-.. .-.. / . ...- . .-. .-.-.-'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

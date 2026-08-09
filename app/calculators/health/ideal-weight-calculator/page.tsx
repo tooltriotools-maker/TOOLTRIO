@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Ideal Weight Calculator 2026 | ToolTrio',
-  description: 'Free Ideal Weight Calculator 2026 — Calculate your ideal weight using 5 different medical formulas (Hamwi, Devine, Robinson, Miller, BMI). Real examples.',
+  description: 'Free Ideal Weight Calculator 2026 — Calculate your ideal weight using three clinical ideal-body-weight formulas plus the BMI healthy-weight range. Real examples.',
   slug: 'ideal-weight-calculator',
   category: 'health',
   region: 'usa',
@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'ideal-weight-calculator',
   title: 'Ideal Weight Calculator',
   category: 'health' as const,
   intro: `Ideal weight is one of the most searched health numbers yet one of the most misunderstood. Every formula that produces an 'ideal' number is a clinical approximation designed for a specific purpose — often drug dosing or clinical triage — not a personal health prescription. Understanding this context transforms how you use the result: as one data point in a wider picture rather than an absolute target.
@@ -107,7 +108,7 @@ Use the calculated range to set a realistic, achievable goal weight that represe
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

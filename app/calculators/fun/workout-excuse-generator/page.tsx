@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Should I actually skip my workout?',
     answer: 'That is between you and your conscience. Genuine rest days are important — overtraining is real and strategic recovery is part of any serious fitness program. But if you are generating excuses because motivation is low rather than because your body needs rest, the gym will probably make you feel better than the couch does. We say this while running a tool that helps you avoid the gym. The contradiction is intentional and relatable.'
   },
-  {
-    question: 'Is the generator free?',
-    answer: 'Completely free. No account, no sign-up. Generate as many excuses as you need. We will not judge you. Much.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -1,6 +1,6 @@
 import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -52,17 +52,13 @@ const faqs = [
     answer: 'The translator creates inline emoji sentences rather than 2D emoji pixel art. For full emoji art grids, you would need a different tool. But for emoji-heavy captions and creative text posts, this nails it.'
   },
   {
-    question: 'Is the emoji translator free to use?',
-    answer: 'Yes — 100% free with no account required. Translate as much text as you want. We do not store your inputs or track what you type. Close the page and it is gone.'
-  },
-  {
     question: 'Why does the same word sometimes get different emoji?',
     answer: 'Some words map to multiple reasonable emoji, and the tool deliberately introduces some variety to make repeated use more interesting. "Happy" might get 😊 once and 🎉 another time depending on context. This keeps the output feeling a bit alive rather than rigidly mechanical.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

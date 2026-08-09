@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What does research say about the Mediterranean diet?", "answer": "The Mediterranean diet consistently achieves the highest diet quality scores and has the most robust randomised trial evidence of any dietary pattern. The PREDIMED trial (7,447 high-risk adults) showed Mediterranean diet supplemented with olive oil or nuts reduced major cardiovascular events by 30% vs low-fat diet control. The MIND diet (Mediterranean-DASH for Neurodegenerative Delay) is associated with 35-53% lower risk of Alzheimer's disease. Key components: olive oil, vegetables, fish, legumes, nuts, whole grains, moderate red wine — and critically, low processed meat, refined grains, and added sugar."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Diet Quality Score Calculator', description: 'Free diet quality score calculator 2026. Rate your overall diet quality like the Healthy Eating Inde', url: 'https://tooltrio.com/calculators/health/diet-quality-score-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="diet-quality-score-calculator" />
 </>)
 }

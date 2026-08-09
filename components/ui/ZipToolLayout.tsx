@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
 import { ShareButton } from '@/components/ui/ShareButton'
+import { filterCalculatorFAQs } from '@/lib/content/faq-policy'
 
 
 
@@ -580,13 +581,13 @@ View all 35+ ZIP Tools
             </h2>
             <p className="text-sm text-gray-500 mb-5">Real questions from users — answered with detail and precision.</p>
             <div className="space-y-2">
-              {seoContent.faqs.map((faq, i) => (
+              {filterCalculatorFAQs(seoContent.faqs.map(faq => ({ question: faq.q, answer: faq.a }))).map((faq, i) => (
                 <details key={i} className="group rounded-xl border border-gray-100 overflow-hidden bg-gray-50/40 hover:border-blue-200 transition-colors">
                   <summary className="px-5 py-4 cursor-pointer font-semibold text-gray-800 text-sm hover:bg-blue-50/50 list-none flex items-start justify-between gap-3">
-                    <span className="leading-snug">{faq.q}</span>
+                    <span className="leading-snug">{faq.question}</span>
                     <span className="text-gray-400 group-open:rotate-180 transition-transform shrink-0 mt-0.5 text-xs">▼</span>
                   </summary>
-                  <div className="px-5 pb-4 pt-1 text-sm text-gray-600 leading-7 border-t border-gray-100/80 bg-white">{faq.a}</div>
+                  <div className="px-5 pb-4 pt-1 text-sm text-gray-600 leading-7 border-t border-gray-100/80 bg-white">{faq.answer}</div>
                 </details>
               ))}
             </div>

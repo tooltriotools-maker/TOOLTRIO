@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What causes dry mouth and why does it matter for dental health?", "answer": "Dry mouth (xerostomia) dramatically accelerates tooth decay because saliva is essential for: buffering acid from bacterial metabolism, remineralising early carious lesions, washing away food debris, and providing antimicrobial peptides. Common causes: over 400 medications (antidepressants, antihistamines, antihypertensives, diuretics), diabetes, Sjögren's syndrome, radiation therapy to the head/neck, and mouth breathing. People with untreated dry mouth can develop 10+ new cavities per year. Treatment: stay hydrated, use xylitol products, prescription fluoride varnish, and discuss medication alternatives with your physician."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Oral Health Risk Calculator', description: 'Free oral health risk calculator 2026. Assess your risk of tooth decay, gum disease, and oral cancer', url: 'https://tooltrio.com/calculators/health/oral-health-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="oral-health-risk-calculator" />
 </>)
 }

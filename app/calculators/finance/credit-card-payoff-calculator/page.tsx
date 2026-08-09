@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: "Free credit card payoff calculator USA 2026. Find your debt-free date, total interest paid, and how much extra payments save you. Real examples for.",
  slug: 'credit-card-payoff-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'credit card payoff calculator 2026',
     'credit card payoff calculator',

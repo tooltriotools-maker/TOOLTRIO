@@ -1,6 +1,6 @@
 import { CalculatorBatch49DeepDive } from '@/components/ui/CalculatorBatch49DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -52,17 +52,13 @@ const faqs = [
     answer: 'Try mixing. Generate a dragon name, an elvish name, and blend the phonetics. Or use the "custom" mode to set syllable preferences yourself. Some of the best fictional names come from combining two naming systems that logically would not go together — the result sounds alien and invented in exactly the right way.'
   },
   {
-    question: 'Is it free to use without an account?',
-    answer: 'Completely free, no account, no credits, no limit on generations. Generate hundreds of names in one sitting for an entire world of characters. No data is stored or tracked.'
-  },
-  {
     question: 'Do generated names come with meanings or lore?',
     answer: 'Many do — the generator includes optional meaning tags where relevant (for example, a generated elven name might note it means "silver wind" in the elvish phonetic tradition). These are creative interpretations, not linguistic translations, but they add depth when you are building a character backstory.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

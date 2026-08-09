@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'How often should I rebalance my portfolio?',
-    answer: 'Two common approaches: (1) Calendar rebalancing: annually or semi-annually. (2) Threshold rebalancing: when any asset class drifts 5%+ from target. Research shows threshold rebalancing slightly outperforms calendar rebalancing. Most studies find annual rebalancing is sufficient — rebalancing too frequently increases transaction costs and taxes without meaningfully improving outcomes.',
+    answer: 'Two common approaches: (1) Calendar rebalancing: annually or semi-annually. (2) Threshold rebalancing: when any asset class drifts 5%+ from target. There is no universally best rebalancing frequency. Calendar and threshold approaches each have trade-offs involving taxes, transaction costs and portfolio drift. Most studies find annual rebalancing is sufficient — rebalancing too frequently increases transaction costs and taxes without meaningfully improving outcomes.',
   },
   {
     question: 'How do I rebalance without triggering taxes?',

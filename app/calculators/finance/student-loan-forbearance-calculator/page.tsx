@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: 'Is income-driven repayment better than forbearance?',
-    answer: 'Almost always yes. Instead of $0 payment via forbearance (with interest accruing), an income-driven plan like SAVE sets your payment at 5-10% of discretionary income. If your income is very low, the SAVE plan may set your payment at $0 — same outcome as forbearance, but the time counts toward IDR forgiveness (20-25 years) and PSLF (10 years). Time in forbearance counts toward neither. Contact your servicer and explicitly ask about SAVE plan eligibility.',
+    answer: 'A currently available repayment option may be preferable to forbearance for some borrowers, but do not assume SAVE is available. A court order ended SAVE in March 2026, and new repayment options including RAP and Tiered Standard became available July 1, 2026. Compare the options shown in your StudentAid.gov account and verify how a specific forbearance period affects interest and qualifying payments.',
   }
 ]
 const relatedCalculators = [

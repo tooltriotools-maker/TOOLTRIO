@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'What is the Child and Dependent Care Credit?',
-    answer: 'Separate from the CTC, the Child & Dependent Care Credit covers 20-35% of childcare expenses up to $3,000 (one child) or $6,000 (two+ children). At AGI above $43,000, the credit rate is 20%. This credit is non-refundable. You cannot double-count expenses used for the Dependent Care FSA ($5,000) with this credit.',
+    answer: 'Separate from the CTC, the 2026 Child & Dependent Care Credit can use up to $3,000 of qualifying expenses for one qualifying person or $6,000 for two or more. The maximum percentage is 50% and phases down based on AGI, with a 20% floor. The credit is nonrefundable, and dependent-care benefits can reduce the expenses available for the credit. This calculator models the percentage and expense cap but does not reproduce Form 2441.',
   }
 ]
 const relatedCalculators = [

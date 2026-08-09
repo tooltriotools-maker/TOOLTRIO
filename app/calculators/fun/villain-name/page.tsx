@@ -1,6 +1,6 @@
 import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -55,14 +55,10 @@ const faqs = [
     question: 'Is the content dark or scary?',
     answer: 'Dramatically dark, not genuinely disturbing. The tone is theatrical — the same register as a Saturday morning cartoon villain or a Bond antagonist. There is menace and grandiosity but no graphic violence or genuinely upsetting content. It is appropriate for teenagers and adults who enjoy a bit of dramatic villainy. Young children might find some results slightly intense depending on the personality inputs.'
   },
-  {
-    question: 'Is this free?',
-    answer: 'Completely free. No account, no sign-up, no data stored. Even villains deserve privacy. Especially villains.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'hearing-age-calculator',
   title: 'Hearing Age Calculator',
   category: 'health' as const,
   intro: `Hearing loss is the third most common chronic physical condition in the United States, affecting about 38 million Americans. Yet it's treated as a normal part of aging, accepted as inevitable, and rarely screened for until it's significantly advanced. The average person waits 7 years between noticing hearing difficulties and seeking help.
@@ -62,33 +63,13 @@ Noise-induced hearing loss is entirely preventable. A single exposure to very lo
 This calculator estimates your hearing age based on your highest audible frequency, noise exposure history, protective habits, and self-reported hearing difficulties.
 
 **Long-tail searches answered here:** hearing age calculator free online usa, what is my hearing age vs actual age calculator, age related hearing loss calculator no signup, noise exposure hearing damage calculator usa free, am i losing my hearing calculator free online, hearing health risk calculator by noise exposure, cumulative noise dose hearing damage calculator usa, high frequency hearing loss age prediction calculator, headphone volume hearing damage risk calculator free, concert noise exposure hearing risk calculator usa free, tinnitus risk from noise exposure calculator free, presbycusis age related hearing loss score calculator, hearing protection effectiveness calculator usa free, decibel exposure and safe duration calculator free, hearing loss impact on daily communication calculator`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate hearing age from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate hearing age from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `The most actionable hearing preservation habits: keep headphone volume below 60% of maximum, wear earplugs at concerts and in loud environments, and get a baseline audiogram so you have data to compare future tests against.
 
 Hearing loss treatment has improved dramatically — modern hearing aids are small, Bluetooth-enabled, and far more effective than older generations. But the bigger issue is that untreated hearing loss has significant cognitive consequences: a Johns Hopkins longitudinal study found that mild hearing loss doubles dementia risk; moderate loss triples it.
@@ -102,7 +83,7 @@ Annual hearing screening is recommended starting at 50, or earlier with signific
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

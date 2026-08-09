@@ -17,7 +17,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
   const result = useMemo(() => {
     try {
-      return calculateQBIDeduction(qbiIncome, 'single', 'non-sstb', wagesAndProperty)
+      return calculateQBIDeduction(qbiIncome, 'single', 'non-sstb', wagesAndProperty, taxRate)
     } catch(e) { return null }
   }, [qbiIncome, wagesAndProperty, taxRate])
 
@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📋 QBI Deduction Calculator USA 2026 — Section 199A — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above its threshold.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above the 2026 threshold.</p>
               </Card>
             </>
           ) : (
@@ -87,9 +87,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="QBI Deduction Calculator USA 2026 — Section 199A"
           category="finance"
-          intro="This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above its threshold."
+          intro="This calculator estimates the Section 199A qualified business income deduction for the single-filer, non-SSTB scenario currently implemented by the tool. It starts with 20% of QBI and then applies the calculator’s wage/property limitation when income is above the 2026 threshold."
           howItWorks="Basic deduction = 20% × QBI. Above the modeled threshold, the tool compares a 50% wage limit with a second wage/property approximation and phases the limitation in. Important: the current UI hard-codes single filing status and non-SSTB treatment, and its W-2/property field combines concepts that the tax rules treat separately."
-          tipsSection="Enter QBI rather than gross business revenue. The current Tax Rate field is informational only: the underlying function currently estimates tax savings at a hard-coded 37%, so changing that field does not change results. Treat the output as a screening estimate, especially near Section 199A thresholds."
+          tipsSection="Enter QBI rather than gross business revenue. The current Tax Rate field is informational only: the tax-rate field is used only for the displayed tax-savings estimate; the deduction itself is governed by the simplified Section 199A model. Treat the output as a screening estimate, especially near Section 199A thresholds."
           conclusion="Section 199A depends on taxable income, business type, W-2 wages, qualified property and other return-level limits. This simplified calculator is not a substitute for the Form 8995/8995-A computation."
           benefits={[
             { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },

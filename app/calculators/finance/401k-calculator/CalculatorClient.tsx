@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
   const annualContrib = annualSalary * (employeeContrib / 100)
   const annualMatchAmt = annualSalary * Math.min(employeeContrib, employerMatchLimit) / 100 * (employerMatch / 100)
-  const limit2026 = 23500
+  const limit2026 = 24500
 
   const pieData = [
     { name: 'Your Contributions', value: result.totalEmployee, fill: '#22c55e' },
@@ -184,7 +184,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">The Employer Match: Your Biggest Financial Advantage</h3>
-              <p>The 401k employer match is the single best return available to working Americans. A 50% match up to 6% of salary means every dollar you contribute gets an instant 50% return before any investment growth. On an $80,000 salary contributing 6% ($4,800), your employer adds $2,400 - a guaranteed 50% return on that portion. Not contributing enough to capture the full match is equivalent to leaving part of your salary on the table. The IRS contribution limit for 2026 is $23,500 for employees under 50, with an additional $7,500 catch-up for those 50 and older.</p>
+              <p>The 401k employer match is the single best return available to working Americans. A 50% match up to 6% of salary means every dollar you contribute gets an instant 50% return before any investment growth. On an $80,000 salary contributing 6% ($4,800), your employer adds $2,400 - a guaranteed 50% return on that portion. Not contributing enough to capture the full match is equivalent to leaving part of your salary on the table. The IRS contribution limit for 2026 is $24,500 for employees under 50, with an additional $8,000 catch-up for those 50 and older; eligible participants ages 60–63 may have the higher $11,250 catch-up.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">Traditional vs Roth 401k</h3>
               <p>Traditional 401k contributions are pre-tax, reducing your taxable income today. Withdrawals in retirement are taxed as ordinary income. Best choice if your current marginal rate exceeds your expected retirement rate. Roth 401k contributions are after-tax, but all growth and qualified withdrawals are completely tax-free. Best if you are early in your career (lower income now), expect higher income in retirement, or want tax diversification. Many financial advisors recommend splitting between both for flexibility regardless of current bracket.</p>
             </div>
@@ -192,7 +192,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-800 mb-2">Maximizing 401k Returns: Fund Selection</h3>
               <p>Most 401k plans offer target-date funds, index funds, and actively managed funds. Target-date funds (e.g., Vanguard Target Retirement 2055) automatically rebalance from aggressive to conservative as you approach retirement - ideal for hands-off investors. Low-cost index funds (S&P 500, total market) historically outperform 80%+ of active managers over 10+ year periods. Always check the expense ratio: a 1% fund vs a 0.05% fund on $500,000 costs $4,750 extra per year in fees. Over a 30-year career, high fees can consume $200,000+ of your retirement savings.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">The Order of Retirement Contributions</h3>
-              <p>Financial planning priority order: (1) 401k to full employer match - instant 50-100% return. (2) HSA max contribution if eligible ($4,300 single / $8,550 family 2026) - triple tax advantage. (3) Roth IRA max ($7,000 under 50 / $8,000 over 50) - tax-free growth and more flexible withdrawals. (4) Max 401k to $23,500 limit. (5) Taxable brokerage for additional investing. This sequence maximizes tax advantages at each step, typically saving $15,000-30,000 in lifetime taxes compared to investing in taxable accounts first.</p>
+              <p>Financial planning priority order: (1) 401k to full employer match - instant 50-100% return. (2) HSA max contribution if eligible ($4,400 self-only / $8,750 family 2026) - triple tax advantage. (3) Roth IRA max ($7,500 under 50 / $8,600 age 50+) - tax-free growth and more flexible withdrawals. (4) Max 401k to the $24,500 basic limit. (5) Taxable brokerage for additional investing. This sequence maximizes tax advantages at each step, typically saving $15,000-30,000 in lifetime taxes compared to investing in taxable accounts first.</p>
             </div>
           </div>
         </Card>
@@ -219,13 +219,10 @@ The math inside a 401k compounds in two directions: your contributions grow tax-
 This calculator models your 401k balance at retirement based on your current balance, annual contribution, employer match, salary growth rate, and expected return. It shows you how different contribution levels and starting ages change your retirement outcome — often by hundreds of thousands of dollars.`}
         howItWorks={`The compound growth formula applied here: FV = PV × (1+r)^n + PMT × [(1+r)^n - 1]/r, where PV is current balance, PMT is annual contribution (including employer match), r is annual return rate, and n is years to retirement.
 
-Employer match is added as a percentage of your contribution up to the match cap — so a 50% match up to 6% of salary means the calculator adds 3% of your salary to your contributions if you contribute at least 6%. The 2024 IRS 401k contribution limit is $23,000 ($30,500 if age 50+), which the calculator enforces as a ceiling.
+Employer match is added as a percentage of your contribution up to the match cap — so a 50% match up to 6% of salary means the calculator adds 3% of your salary to your contributions if you contribute at least 6%. The 2026 IRS 401(k) elective-deferral limit is $24,500, with catch-up rules for eligible older participants; the calculator enforces the applicable employee-deferral ceiling.
 
 Returns are compounded annually using your specified rate. Historical S&P 500 returns average about 10% annually before inflation over long periods, but the calculator lets you model conservative (6%), moderate (8%), and aggressive (10%) scenarios.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -246,12 +243,6 @@ Run the calculator again after any salary increase. The same percentage contribu
         conclusion={`The 401k contribution decision compounds over decades — which is why people who start early have such large advantages over late starters. Someone who contributes $6,000/year from age 25 to 65 at 7% real return ends up with about $1.25 million. Someone who starts at 35 with the same contributions ends up with $605,000. Ten years of delay costs you more than half your wealth.
 
 Use this alongside the [Roth IRA Calculator](/calculators/finance/roth-ira-calculator) to understand whether your marginal contributions should go to traditional pre-tax 401k or Roth IRA — the answer depends on whether your tax rate is higher now or expected to be higher in retirement.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free compound interest calculator USA 2026. See exactly how your money grows with daily, monthly, and annual compounding. Includes real examples for.',
  slug: 'compound-interest-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'compound interest calculator 2026',
     'compound interest calculator',
@@ -44,7 +45,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CompoundCalculatorClient

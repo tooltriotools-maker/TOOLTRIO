@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💼 Self-Employment Tax Calculator USA 2026 — SE Tax + QBI — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Self-employed individuals pay both employee and employer portions of Social Security and Medicare — 15.3% on the first $176,100 of net income in 2026. On $100,000 net self-employment income, SE tax is approximately $14,129. The good news: half is deductible, and the QBI deduction can eliminate 20% of remaining taxable income.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Self-employed individuals pay both employee and employer portions of Social Security and Medicare — 15.3% on the first $184,500 of net income in 2026. On $100,000 net self-employment income, SE tax is approximately $14,129. The good news: half is deductible, and the QBI deduction can eliminate 20% of remaining taxable income.</p>
               </Card>
             </>
           ) : (
@@ -88,7 +88,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Self-Employment Tax Calculator USA 2026 — SE Tax + QBI"
           category="finance"
-          intro="Self-employed individuals pay both employee and employer portions of Social Security and Medicare — 15.3% on the first $176,100 of net income in 2026. On $100,000 net self-employment income, SE tax is approximately $14,129. The good news: half is deductible, and the QBI deduction can eliminate 20% of remaining taxable income."
+          intro="Self-employed individuals pay both employee and employer portions of Social Security and Medicare — 15.3% on the first $184,500 of net income in 2026. On $100,000 net self-employment income, SE tax is approximately $14,129. The good news: half is deductible, and the QBI deduction can eliminate 20% of remaining taxable income."
           howItWorks="The calculation multiplies net self-employment income by 92.35%, then applies 12.4% Social Security tax up to the remaining annual wage base and 2.9% Medicare tax. The code also models the 0.9% Additional Medicare Tax above $200,000 as a simplified threshold."
           tipsSection="For 2026 the Social Security wage base used by this calculator is $184,500. W-2 Social Security wages entered by the user reduce the remaining wage base available to self-employment earnings."
           conclusion="The Additional Medicare Tax threshold depends on filing status, while this simplified calculator uses $200,000. Its QBI figure is also only 20% of modeled SE earnings and does not apply the full Section 199A rules."

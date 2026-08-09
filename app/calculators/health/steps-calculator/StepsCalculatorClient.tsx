@@ -136,7 +136,7 @@ export default function StepsCalculatorClient({ faqs, relatedCalculators, blogSl
           Use this Steps 2026 tool to get instant, evidence-based results personalized to your age, weight, and health goals. No signup required — complete privacy guaranteed.
         </p>
         <p className="text-sm text-gray-600">
-          All calculations use validated formulas from CDC, NIH, and peer-reviewed health research. Adjust your inputs to explore different scenarios and health targets.
+          The calculator applies the calculation method described in its methodology and lets you explore different input scenarios. The result is an estimate, not a diagnosis.
         </p>
       </Card>
       <SEOContent {...stepsCalorieSEOContent} category="health" />

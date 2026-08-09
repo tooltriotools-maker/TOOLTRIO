@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What are the long-term health implications of PCOS?", "answer": "PCOS significantly increases risk of metabolic complications: insulin resistance affects 50-70% of women with PCOS regardless of weight, conferring 5× higher lifetime T2D risk. Cardiovascular risk is elevated, particularly in obese PCOS. Endometrial cancer risk is 2-3× higher due to chronic anovulation causing unopposed oestrogen exposure to the endometrium. Mental health impact is significant — depression and anxiety prevalence is 2-3× higher in PCOS, partly hormonal and partly related to the multiple physical symptoms affecting appearance and fertility. Holistic management addresses metabolic, reproductive, and psychological dimensions."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'PCOS Risk Score Calculator', description: 'Free PCOS risk score calculator 2026. Assess polycystic ovary syndrome likelihood from cycle irregul', url: 'https://tooltrio.com/calculators/health/pcos-risk-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="pcos-risk-calculator" />
 </>)
 }

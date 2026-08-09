@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Diabetes Risk Calculator 2026 | ToolTrio',
-  description: 'Free Diabetes Risk Calculator 2026 — Assess your risk and calculate key health metrics using validated medical formulas. Based on CDC and ADA guidelines.',
+  description: 'Free Diabetes Risk Calculator 2026 — Assess your risk and calculate key health metrics using a documented risk-screening approach. Review the underlying model and inputs before treating the result as clinically validated.',
   slug: 'diabetes-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'diabetes-risk-calculator',
   title: 'Diabetes Risk Calculator',
   category: 'health' as const,
   intro: `Type 2 diabetes affects 37.3 million Americans — 11.3% of the population — and an additional 96 million Americans have prediabetes, putting them on the path to full diabetes without lifestyle intervention. The staggering majority of type 2 diabetes cases are preventable: the landmark Diabetes Prevention Program found that modest lifestyle changes (7% body weight reduction and 150 minutes of moderate activity weekly) reduced diabetes development by 58% in high-risk adults.
@@ -64,18 +65,6 @@ For metabolic health context alongside your diabetes risk, combine this with [ou
 
 Total score interpretation: 0-2 = low risk (approximately 3% 10-year risk); 3-8 = moderate risk (10-24% 10-year risk); 9+ = high risk (>25% 10-year risk). High-risk individuals should discuss fasting glucose testing or HbA1c with their doctor.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Track your waist circumference alongside BMI. Abdominal fat is specifically associated with insulin resistance — the underlying mechanism of type 2 diabetes. A waist circumference above 40 inches in men and 35 inches in women signals elevated metabolic risk regardless of BMI.
 
@@ -107,7 +96,7 @@ For a complete metabolic health picture, combine with [our Blood Pressure Calcul
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

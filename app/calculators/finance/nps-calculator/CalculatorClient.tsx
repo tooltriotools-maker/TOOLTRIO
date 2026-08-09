@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const r = useMemo(() => calculateNPS(monthly, years, returns, annuityRate, annuityPct), [monthly, years, returns, annuityRate, annuityPct])
 
   const pie = [
-    { name: 'Lump Sum (Tax-Free)', value: r.lumpsum, color: '#16a34a' },
+    { name: 'Lump Sum Portion', value: r.lumpsum, color: '#16a34a' },
     { name: 'Annuity Corpus', value: r.annuityCorpus, color: '#3b82f6' },
     { name: 'Total Contributed', value: r.totalContributed, color: '#e5e7eb' },
   ]
@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           </div>
           <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-700">
             <p className="font-bold mb-1">📌 NPS Rules</p>
-            <p>Min 40% must be used for annuity. Remaining 60% lump sum is tax-free.</p>
+            <p>For a standard normal-exit scenario, at least 40% of the accumulated pension wealth is used to purchase an annuity and up to 60% may be taken as a lump sum, subject to the applicable NPS model and current rules.</p>
           </div>
         </Card>
 
@@ -51,7 +51,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Maturity Corpus" value={fmt(r.maturityAmount)} highlight icon={<DollarSign className="w-4 h-4" />} />
             <ResultCard label="Monthly Pension" value={fmt(r.monthlyPension)} icon={<Briefcase className="w-4 h-4" />} />
-            <ResultCard label="Lump Sum (60%)" value={fmt(r.lumpsum)} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="Lump Sum Portion" value={fmt(r.lumpsum)} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Total Contributed" value={fmt(r.totalContributed)} icon={<Shield className="w-4 h-4" />} />
           </div>
 
@@ -116,27 +116,18 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         </div>
       </div>
       <div className="mt-8">
-      {/* 600-word SEO explanation */}
       <div className="mt-10">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">401(k) pension Calculator - Complete Guide to National Pension System 2026</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
-            <div>
-              <h3 className="font-bold text-gray-800 mb-2">401(k) pension Investment Options - Equity, Corporate Bonds, Government Securities</h3>
-              <p>401(k) pension offers subscribers choice of investment across three asset classes: Asset Class E (Equity): Maximum 75% allocation (reduces to 50% after age 50 under Auto choice). Historical return: 12-14% CAGR (equity-heavy portfolios). Asset Class C (Corporate Bonds): Invests in investment-grade bonds. Historical return: 9-11% CAGR. Asset Class G (Government Securities): Gilt bonds - safest, lowest return. Historical return: 8-10% CAGR. Investment modes: Active Choice (you decide allocation), Auto Choice (age-based reducing equity exposure: Life Cycle Fund). Fund managers: SBI Pension, LIC Pension, HDFC Pension, ICICI Pru Pension, Kotak Pension, Max Life Pension, Aditya Birla Sun Life Pension. Choose based on historical performance and fund management quality.</p>
-              <h3 className="font-bold text-gray-800 mb-2 mt-4">401(k) pension Tax Benefits - Complete Picture</h3>
-              <p>401(k) pension offers the most comprehensive tax benefits of any retirement instrument: (1) IRA deduction / 401k contributionCD(1): Employee contribution up to 10% of salary (Basic+DA) deductible within the $1.5L overall 80C limit. (2) IRA deduction / 401k contributionCD(1B): Additional deduction of $50,000 over and above 80C - exclusively for 401(k) pension. This is the real 401(k) pension tax advantage. (3) IRA deduction / 401k contributionCD(2): Employer contribution up to 10% of salary (14% for central government employees) is fully deductible from income with no monetary cap - this is over and above 80C and 80CCD(1B). (4) At maturity: 60% lump sum is completely tax-free. 40% annuity is taxable as regular income. Total maximum annual tax benefit from 401(k) pension: $1.5L + $50K + employer contribution - potentially saving $60,000-1,00,000+ in tax for high earners.</p>
-            </div>
-            <div>
-              <h3 className="font-bold text-gray-800 mb-2">Annuity Options at 401(k) pension Maturity</h3>
-              <p>At 401(k) pension retirement (age 60+), minimum 40% of corpus must be used to purchase an annuity from an IRDA-regulated life insurer. Available annuity options: (1) Life annuity: Pension till death - stops when you die. (2) Life annuity with return of purchase price: Family gets the annuity corpus back after your death. (3) Joint life annuity: Pension continues to spouse at same/reduced rate after subscriber's death. (4) Annuity for certain period (5/10/15/20 years): Pension guaranteed for fixed period whether you live or die. Annuity rates (indicative): 6-7% per year. $40 thousand annuity corpus -{'>'} $20,000-23,333/month pension. Compare with SWP (10% expected return) on same corpus: $30,000-35,000/month - SWP is potentially higher but carries market risk.</p>
-              <h3 className="font-bold text-gray-800 mb-2 mt-4">401(k) pension vs 401(k) vs Roth IRA - Which is Best for Retirement?</h3>
-              <p>Comprehensive comparison for a 30-year-old planning retirement at 60. 401(k) (mandatory for salaried): ~8.25% guaranteed, employer matches 12%, EEE tax status, most accessible at retirement. Best for: everyone (automatic). Roth IRA (voluntary): 7.1% guaranteed, max $1.5L/year, 15-year lock-in, EEE tax. Best for: conservative investors, 80C optimization. 401(k) pension (voluntary): 10-14% potential (equity allocation), additional $50K 80CCD(1B) deduction, 60% tax-free at maturity, 40% annuity mandatory. Best for: high-income earners needing additional tax deduction and long-term equity exposure. Optimal strategy: Max 401(k) -{'>'} Max Roth IRA ($1.5L/year) -{'>'} 401(k) pension ($50K for 80CCD benefit) -{'>'} equity mutual funds for additional wealth.</p>
-            </div>
+          <h2 className="text-xl font-black text-gray-900 mb-4">NPS Calculator India — Complete 2026 Guide</h2>
+          <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
+            <p><strong>What this calculator does:</strong> It projects an NPS corpus from a monthly contribution, an assumed annual return and an investment period. It then models how the projected corpus could be divided between the lump-sum and annuity portions.</p>
+            <p><strong>Important:</strong> The return and annuity-rate inputs are assumptions, not guaranteed NPS returns or guaranteed pension rates. Actual results depend on the subscriber's fund choice, market performance, annuity product and applicable NPS rules.</p>
+            <p><strong>Normal exit:</strong> Under the standard all-citizen model, PFRDA guidance provides for up to 60% lump-sum withdrawal and at least 40% annuitisation for normal exit, with special rules for smaller corpora and other exit scenarios.</p>
+            <p><strong>Tax treatment:</strong> Tax treatment depends on the nature and timing of the withdrawal and the applicable tax law. This calculator should be used for projection purposes and not as a tax-return calculation.</p>
+            <p><strong>How to use it:</strong> Try several return assumptions, contribution amounts and annuity rates. Comparing conservative and optimistic scenarios is more useful than relying on one projected corpus.</p>
           </div>
         </Card>
       </div>
-
 
       {/* Internal Links */}
       {/* Internal Links - 10+ Related Finance Calculators */}
@@ -148,24 +139,12 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           ]}
         />
             
-      <Card className="mt-6">
+<Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          NPS Calculator Example (USA 2026)
-        </h2>
-        <p className="text-sm text-gray-600 mb-2">
-          Use this NPS USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
-        </p>
-        <p className="text-sm text-gray-600">
-          Adjust inputs to see Nps Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
-        </p>
-      </Card>
-      
-      <Card className="mt-6">
-        <h2 className="text-lg font-black text-gray-900 mb-3">
-          NPS Calculator Example (India 2026)
+          NPS Calculator Example (India)
         </h2>
         <p className="text-sm text-gray-600">
-          For example, contributing INR 15,000/month to NPS from age 35, your NPS calculator India 2026 shows projected corpus at 60, tax savings under 80CCD, and estimated monthly pension after retirement.
+          For example, contributing ₹15,000/month for 25 years lets you compare the projected corpus, the selected annuity portion and an illustrative monthly pension. The result is a scenario, not a guaranteed benefit.
         </p>
       </Card>
 
@@ -183,9 +162,6 @@ Tax savings calculation: Annual NPS contribution × tax slab rate = annual tax s
 
 Maturity calculation: 60% lump sum (tax-free) + 40% annuity. Annuity return = annuity corpus × annuity rate (typically 5.5-7% from empaneled insurers). Monthly pension from annuity = corpus × rate / 12.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -206,12 +182,6 @@ NPS Tier II accounts have no tax benefit but no lock-in — they function as a f
         conclusion={`The NPS lock-in until age 60 is its main limitation. Premature exits are possible with restrictions: after 3 years, up to 25% can be withdrawn for specific purposes (education, medical, home purchase). Full exit before 60 requires 80% annuitization (only 20% lump sum). Plan NPS as truly long-term retirement money.
 
 For NPS vs EPF comparison: EPF offers guaranteed returns at 8.15% fully tax-free (up to ₹2.5 lakh contribution). NPS offers potentially higher equity-linked returns with tax savings. For most salaried employees, the optimal strategy is to maximize both: EPF contribution plus ₹50,000 NPS contribution for additional 80CCD(1B) benefit plus equity SIP for growth-oriented investments. Use [our EPF vs NPS Calculator](/calculators/finance/epf-vs-nps-calculator) for detailed comparison.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

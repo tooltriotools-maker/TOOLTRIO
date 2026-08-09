@@ -14,7 +14,7 @@ const faqs = [
   {"question": "How do I do a proper elimination diet?", "answer": "A strict elimination diet removes the most common reactive foods simultaneously for 4-6 weeks: gluten, dairy, eggs, soy, tree nuts, peanuts, fish/shellfish, nightshades (tomato, pepper, potato), alcohol, and caffeine. This clean baseline allows symptoms to resolve. Then foods are reintroduced one at a time, every 3-5 days, while tracking symptoms in a food diary. Any symptom reappearance within 72 hours of reintroduction suggests sensitivity to that food. Working with a registered dietitian is strongly recommended to ensure nutritional adequacy, especially during multiple-food elimination phases."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Food Sensitivity Load Calculator', description: 'Free food sensitivity load calculator 2026. Assess your cumulative sensitivity burden from gluten, d', url: 'https://tooltrio.com/calculators/health/food-sensitivity-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="food-sensitivity-calculator" />
 </>)
 }

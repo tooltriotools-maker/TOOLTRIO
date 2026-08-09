@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'altitude-sickness-calculator',
   title: 'Altitude Sickness Calculator',
   category: 'health' as const,
   intro: `Most people who develop acute mountain sickness at altitude were feeling completely fine the day before. That's what makes altitude illness deceptive — it doesn't announce itself immediately. Symptoms typically appear 6-12 hours after arriving at elevation, often after a night's sleep, and they can progress from mild headache to serious pulmonary or cerebral edema if you keep ascending instead of acclimatizing or descending.
@@ -63,18 +64,6 @@ For travel involving significant altitude changes — Kilimanjaro, the Andes, Co
 **Long-tail searches answered here:** altitude sickness risk calculator free online usa, am i at risk for altitude sickness calculator, high altitude acclimatization calculator free tool, altitude adjustment calculator for exercise, how high is too high for altitude sickness, elevation sickness risk calculator no signup, altitude sickness risk for denver colorado calculator free, symptoms of altitude sickness at 8000 feet calculator, how long to acclimatize to 10000 feet elevation free, altitude sickness prevention calculator by ascent rate, ams acute mountain sickness risk score calculator free, how altitude affects exercise performance calculator usa, safe ascent rate above 8000 feet calculator free online, altitude sickness medication need calculator usa free, high altitude camping safety calculator by elevation free`,
   howItWorks: `Acclimatization risk is calculated using the Lake Louise Acute Mountain Sickness (AMS) scoring system combined with ascent rate and destination altitude. The critical thresholds: above 2,500 meters (8,200 ft), AMS symptoms can occur; above 3,500 meters risk increases substantially; above 5,500 meters all unacclimatized individuals experience some degree of altitude effect. The 'climb high, sleep low' principle reflects that nighttime low-altitude sleep allows physiological adjustment to occur with lower hypoxic stress.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Acclimatize gradually — the 'rule of 300' states: above 3,000 meters, ascend no more than 300 meters per day of sleeping elevation gain. Spend two nights at the same elevation for every 1,000 meters of altitude gain. Hydrate well — dehydration worsens AMS. Avoid alcohol and sedatives for the first 48 hours at a new altitude — both suppress the ventilatory response to hypoxia that is critical for acclimatization. Acetazolamide (Diamox, prescription) can accelerate acclimatization when taken 24 hours before ascent at 125-250mg twice daily.`,
   scienceSection: `AMS occurs because at high altitude, lower atmospheric pressure means each breath contains less oxygen (same percentage, lower partial pressure). The body responds by increasing breathing rate (hyperventilation) which creates respiratory alkalosis — driving mechanisms behind most AMS symptoms including headache. Over 2-3 days, the kidneys compensate by excreting bicarbonate, normalizing blood pH and allowing sustained ventilatory response. HACE (cerebral edema) and HAPE (pulmonary edema) represent life-threatening extensions of this process requiring immediate descent.`,
@@ -98,7 +87,7 @@ Check with a travel medicine physician before any major high-altitude expedition
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free CD ladder calculator USA 2026. Build a certificate of deposit laddering strategy to maximize FDIC-insured yield while maintaining annual liquidity.',
  slug: 'cd-ladder-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'cd ladder calculator 2026',
     'cd ladder calculator',

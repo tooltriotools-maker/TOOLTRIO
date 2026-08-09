@@ -19,7 +19,6 @@ export const metadata: Metadata = generateDevToolMetadata({
 const faqs = [
   { question: 'Does this tool send my data to a server?', answer: 'No — all processing happens entirely in your browser using JavaScript on your device. Nothing is transmitted to any server. Your data is cleared when you close the tab.' },
   { question: 'What is the most common mistake when using this tool?', answer: 'The most frequent issue is incorrect input format — this tool follows the standard specification for its data type. If you get unexpected results, verify your input is well-formed and matches the expected format shown in the placeholder.' },
-  { question: 'Does this work on mobile devices?', answer: 'Yes — this tool is fully responsive and works on modern mobile browsers including Safari on iOS and Chrome on Android. For tools involving large text input, a desktop browser provides a better experience.' },
   { question: 'Can I use the output in production?', answer: 'Yes — the output follows standard specifications and conventions. Always test in your specific context before deploying to production, especially for security-sensitive tools.' },
   { question: 'Is there a file size or input length limit?', answer: 'No hard limit is imposed. Processing happens in your browser using your device memory. Very large inputs may slow performance on lower-powered devices.' },
   { question: 'What browsers are supported?', answer: 'All modern browsers: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+. No extensions, plugins, or installs required.' },

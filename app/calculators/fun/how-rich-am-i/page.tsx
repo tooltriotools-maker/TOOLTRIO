@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Does this make people feel guilty or just curious?',
     answer: 'Both, honestly. Many users find it motivating for charitable giving — seeing that $20/month to an effective charity represents a meaningful proportion of the global median income changes how people think about giving. Others find it humbling in a healthy way. Some people are just curious and end up sharing the result because it surprises them.'
   },
-  {
-    question: 'Is my income data stored or shared?',
-    answer: 'No. The calculation runs entirely in your browser. You can type in your actual salary or a completely made-up number — either way, nothing leaves your device. No data is ever transmitted to any server.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

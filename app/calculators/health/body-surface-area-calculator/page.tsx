@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Body Surface Area Calculator 2026 | ToolTrio',
-  description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. BSA is used for chemotherapy dosing, burn.',
+  description: 'Calculate Body Surface Area (BSA) in square meters using Mosteller, DuBois-DuBois, and Haycock formulas. Use BSA results only as an estimate and follow clinical protocols for medication dosing.',
   slug: 'body-surface-area-calculator',
   category: 'health',
   region: 'usa',
@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'body-surface-area-calculator',
   title: 'Body Surface Area Calculator',
   category: 'health' as const,
   intro: `Body surface area is a clinical measurement — most people will encounter it in the context of medication dosing, burn assessment, or chemotherapy calculation rather than general wellness tracking. Unlike BMI, which is a proxy for body fatness, BSA is a direct geometric estimate of the total area of a person's skin. It matters because many drugs distribute across body surfaces and some cancer treatments are dosed by BSA to reduce toxicity while maintaining efficacy.
@@ -65,18 +66,6 @@ If you're using this for a clinical purpose, verify which formula your treatment
 
 BSA in m² is used to normalize drug doses in chemotherapy, cardiac index (cardiac output per m² BSA), and radiation therapy fields.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `The clinical application of BSA is primarily for drug dosing — particularly chemotherapy where dosing errors can be life-threatening. If you are calculating BSA for clinical purposes, use the same formula your oncologist or clinical pharmacist is using, since different formulas produce results differing by 3-7%.
 
@@ -97,7 +86,7 @@ For more health-relevant body metrics, use [our BMI Calculator](/calculators/hea
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

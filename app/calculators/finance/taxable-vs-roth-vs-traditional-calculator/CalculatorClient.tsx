@@ -96,7 +96,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📊 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The account type choice — taxable, Roth, or Traditional — has a larger impact on retirement wealth than most investment decisions. A $7,000 annual contribution over 30 years at 7% return produces dramatically different after-tax outcomes depending on current vs retirement tax rate. This calculator shows exactly which account wins for your specific tax situation.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The account type choice — taxable, Roth, or Traditional — has a larger impact on retirement wealth than most investment decisions. A $7,500 annual contribution over 30 years at 7% return produces dramatically different after-tax outcomes depending on current vs retirement tax rate. This calculator shows exactly which account wins for your specific tax situation.</p>
               </Card>
             </>
           ):(

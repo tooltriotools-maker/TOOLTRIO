@@ -1,0 +1,177 @@
+[
+  {
+    "slug": "age-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "air-quality-health-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "alcohol-calorie-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "alcohol-metabolism-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "altitude-sickness-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "ankle-brachial-index-calculator",
+    "hasProfile": true,
+    "rendersProfile": false,
+    "hasSeoContent": false,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "army-body-fat-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "athlete-heart-rate-calculator",
+    "hasProfile": true,
+    "rendersProfile": false,
+    "hasSeoContent": false,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "athletic-performance-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bac-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "blood-pressure-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "blue-light-exposure-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bmi-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bmi-for-children-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bmr-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "body-age-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "body-fat-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "body-recomposition-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "body-surface-area-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bone-density-risk-calculator",
+    "hasProfile": true,
+    "rendersProfile": false,
+    "hasSeoContent": false,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "bone-mineral-density-calculator",
+    "hasProfile": true,
+    "rendersProfile": false,
+    "hasSeoContent": false,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "breastfeeding-calorie-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "breathing-exercise-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "caffeine-half-life-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  },
+  {
+    "slug": "calcium-calculator",
+    "hasProfile": true,
+    "rendersProfile": true,
+    "hasSeoContent": true,
+    "staleAuthorityClaim": false
+  }
+]

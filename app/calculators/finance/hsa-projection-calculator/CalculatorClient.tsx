@@ -9,7 +9,7 @@ import {SEOContent} from '@/components/ui/SEOContent'
 import { calculateHealthSavingsAccountProjection } from '@/lib/calculations/finance'
 interface Props{faqs:{question:string;answer:string}[];structuredData:object[];relatedCalculators?:{name:string;href:string;icon:string;desc:string}[]}
 export default function CalculatorClient({faqs,structuredData,relatedCalculators}:Props){
-  const [annualContrib,setAnnualContrib]=useState(4300)
+  const [annualContrib,setAnnualContrib]=useState(4400)
   const [currentBalance,setCurrentBalance]=useState(12000)
   const [investmentReturn,setInvestmentReturn]=useState(7)
   const [annualMedicalExpenses,setAnnualMedicalExpenses]=useState(1500)

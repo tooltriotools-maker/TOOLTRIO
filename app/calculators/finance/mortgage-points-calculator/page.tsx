@@ -15,7 +15,7 @@ const faqs = [
  {question:'How is the break-even month calculated?',answer:'The calculator amortizes the original loan and the reduced-rate loan, subtracts the two monthly principal-and-interest payments, then divides the points cost by that monthly savings.'},
  {question:'Does one point always reduce the rate by the same amount?',answer:'No. The rate-reduction input is separate because lender pricing changes with market conditions, loan characteristics and the day the rate is locked.'},
  {question:'What happens if I sell or refinance before break even?',answer:'If you stop using the loan before cumulative payment savings recover the upfront points, the modeled points purchase has not paid for itself. Tax effects and closing-cost differences are not included.'},
- {question:'Are mortgage points always tax deductible?',answer:'No. Federal tax treatment depends on the transaction and applicable IRS requirements. This calculator does not include a tax deduction in its break-even calculation.'}
+ {question:'Are mortgage points always tax deductible?',answer:'No. Points are prepaid interest, and whether they are deductible immediately or over the loan term depends on the mortgage, residence, use of funds, itemization and other IRS requirements. This calculator does not include a tax deduction in its break-even calculation.'}
 ]
 const relatedCalculators = [
   { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Mortgage Calculator' },

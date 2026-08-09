@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Age Calculator – Exact Age in Years 2026 | ToolTrio',
-  description: 'Free Age Calculator 2026 — Calculate age instantly with precise results. Evidence-based tool used by health professionals. No signup, no data stored.',
+  description: 'Free Age Calculator 2026 — Calculate chronological age precisely from a date of birth. No signup, no data stored.',
   slug: 'age-calculator',
   category: 'health',
   region: 'usa',
@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'age-calculator',
   title: 'Age Calculator',
   category: 'health' as const,
   intro: `Your exact age sounds like a simple number — but there is surprising depth in what it actually tells you. This calculator goes beyond a simple year count to give you your age in every unit: years, months, weeks, days, hours, and even minutes if you know your birth time. It also tells you how many days until your next birthday, which generation you belong to based on research-based cohort definitions, and what percentage of a statistical average lifespan you have lived.
@@ -105,7 +106,7 @@ For health-specific age perspectives, explore [our Body Age Calculator](/calcula
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

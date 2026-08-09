@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free lump sum investment calculator USA 2026. See how a one-time investment grows over time with compound interest at different return rates. Real.',
  slug: 'lumpsum-calculator',
  category: 'finance',
+ region: 'india',
  keywords: [
     'lumpsum calculator 2026',
     'lumpsum calculator',
@@ -44,7 +45,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

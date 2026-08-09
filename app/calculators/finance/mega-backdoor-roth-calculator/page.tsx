@@ -4,11 +4,11 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Mega Backdoor Roth Calculator USA 2026 | ToolTrio',
-  description: 'Calculate how much extra after-tax you can contribute to your 401k and convert to Roth under the $70,000 2026 limit.',
+  description: 'Calculate how much extra after-tax you can contribute to your 401k and convert to Roth under the $72,000 2026 annual-additions limit.',
   slug: 'mega-backdoor-roth-calculator',
   category: 'finance',
   region: 'usa',
-  keywords: ['mega backdoor roth calculator 2026', 'after-tax 401k contribution', 'in-plan roth conversion', '401k limit 70000 2026', 'mega backdoor roth strategy'],
+  keywords: ['mega backdoor roth calculator 2026', 'after-tax 401k contribution', 'in-plan roth conversion', '401k annual additions 72000 2026', 'mega backdoor roth strategy'],
 })
 
 const faqs = [

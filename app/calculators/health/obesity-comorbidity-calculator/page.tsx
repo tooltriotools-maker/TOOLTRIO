@@ -12,7 +12,7 @@ const faqs = [
   { question: 'Can this calculator predict diabetes, fatty liver disease or sleep apnoea?', answer: 'No. Any condition-specific risk labels are simplified ToolTrio heuristics and are not validated prediction models. Symptoms, laboratory testing and other clinical assessments may be needed.' }
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Obesity Comorbidity Risk Calculator', description: 'Free obesity comorbidity calculator 2026. Calculate metabolic syndrome components, T2D risk from fas', url: 'https://tooltrio.com/calculators/health/obesity-comorbidity-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="obesity-comorbidity-calculator" />
 </>)
 }

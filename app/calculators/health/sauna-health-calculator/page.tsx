@@ -11,7 +11,7 @@ const faqs = [
   { question: 'Is sauna safe with hypertension or heart disease?', answer: 'Most people with controlled hypertension or stable heart disease can safely use a sauna. Blood pressure initially rises slightly on entering (sympathetic response) then drops below baseline as vasodilation occurs — the net effect is hypotensive. However, individuals with very high or uncontrolled blood pressure, recent MI, unstable angina, or decompensated heart failure should consult their cardiologist first. Contraindications include aortic stenosis, recent MI (< 6 weeks), severe COPD, and acute febrile illness. The risks come primarily from dehydration and the circulatory demands of rapid temperature change.' },
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Sauna Health Benefits Calculator', description: "Free sauna health calculator 2026. Score your sauna routine's cardiovascular, longevity, and recover", url: 'https://tooltrio.com/calculators/health/sauna-health-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch44DeepDive slug="sauna-health-calculator" />
 </>)
 }

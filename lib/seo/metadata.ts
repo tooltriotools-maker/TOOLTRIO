@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { filterCalculatorFAQs } from '@/lib/content/faq-policy'
 
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
@@ -17,7 +18,7 @@ const CORE_KEYWORDS = [
 
 // Category core keywords — only 10-15 per category
 const FINANCE_CORE_KW = [
-  'free financial calculator', 'finance calculator USA',
+  'free financial calculator', 'finance calculator',
   'mortgage calculator', '401k calculator', 'compound interest calculator',
   'retirement calculator', 'Roth IRA calculator', 'auto loan calculator',
   'FIRE calculator', 'debt payoff calculator', 'investment calculator',
@@ -68,7 +69,7 @@ export function generateCalculatorMetadata(params: {
 
   // Keep description within 150-160 chars and end with a clear value prop
   const rawEnriched = category === 'health'
-    ? (description.endsWith('.') ? description : `${description}. Free, no signup. CDC & NIH validated.`)
+    ? (description.endsWith('.') ? description : `${description}. Free, no signup.`)
     : category === 'dev'
     ? (description.endsWith('.') ? description : `${description}. Runs in browser — no install, no signup.`)
     : (description.endsWith('.') ? description : `${description}. Free, no signup, instant results.`)
@@ -81,6 +82,14 @@ export function generateCalculatorMetadata(params: {
         const trimmed = lastSpace > 120 ? cut.slice(0, lastSpace) : cut
         return trimmed.replace(/[,;:—–\s]+$/, '') + '.'
       })()
+
+  const regionalMeta = {
+    usa: { region: 'US', place: 'United States', language: 'en-US', locale: 'en_US' },
+    uk: { region: 'GB', place: 'United Kingdom', language: 'en-GB', locale: 'en_GB' },
+    europe: { region: 'EU', place: 'Europe', language: 'en-GB', locale: 'en_GB' },
+    india: { region: 'IN', place: 'India', language: 'en-IN', locale: 'en_IN' },
+    global: { region: undefined, place: undefined, language: 'en', locale: 'en_US' },
+  }[region]
 
   return {
     title: { absolute: title },
@@ -107,7 +116,7 @@ export function generateCalculatorMetadata(params: {
       title,
       description: enrichedDescription,
       images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
-      locale: 'en_US',
+      locale: regionalMeta.locale,
     },
     twitter: {
       card: 'summary_large_image',
@@ -116,10 +125,9 @@ export function generateCalculatorMetadata(params: {
       images: [OG_IMAGE],
     },
     other: {
-      'geo.region': 'US',
-      'geo.placename': 'United States',
+      ...(regionalMeta.region ? { 'geo.region': regionalMeta.region, 'geo.placename': regionalMeta.place } : {}),
       'language': 'English',
-      'content-language': 'en-US',
+      'content-language': regionalMeta.language,
     },
   }
 }
@@ -188,7 +196,7 @@ export function generateFAQStructuredData(faqs: { question: string; answer: stri
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
+    mainEntity: filterCalculatorFAQs(faqs).map(f => ({
       '@type': 'Question',
       name: f.question,
       acceptedAnswer: { '@type': 'Answer', text: f.answer },
@@ -200,7 +208,7 @@ export function generateFAQStructuredData(faqs: { question: string; answer: stri
 // Note: CalculatorLayout auto-adds this for Health category pages.
 // Only call this manually if you need it outside CalculatorLayout.
 export function generateMedicalWebPageSchema(params: {
-  name: string; description: string; url: string; medicalAudience?: string
+  name: string; description: string; url: string; medicalAudience?: string; lastReviewed?: string
 }) {
   return {
     '@context': 'https://schema.org',
@@ -218,7 +226,7 @@ export function generateMedicalWebPageSchema(params: {
     isAccessibleForFree: 'True',
     inLanguage: 'en-US',
     specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
-    lastReviewed: new Date().toISOString().split('T')[0],
+    ...(params.lastReviewed ? { lastReviewed: params.lastReviewed } : {}),
   }
 }
 

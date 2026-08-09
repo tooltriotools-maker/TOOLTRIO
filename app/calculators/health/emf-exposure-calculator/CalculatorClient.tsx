@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [microwaveUse, setMicrowaveUse] = useState(2)
   const result = useMemo(() => calculateEMFExposureScore(wifiHours, phoneCallHours, routerDistance, sleepsNearPhone, wiredEarphones, smartMeterDistance, microwaveUse), [wifiHours, phoneCallHours, routerDistance, sleepsNearPhone, wiredEarphones, smartMeterDistance, microwaveUse])
   return (
-    <CalculatorLayout title="EMF Exposure Score Calculator" description="Educational tool scoring your relative RF/EMF exposure from phone use, Wi-Fi, and smart devices based on WHO guidelines." icon="📶" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="emf-exposure-calculator">
+    <CalculatorLayout title="EMF Exposure Score Calculator" description="Educational tool scoring your relative RF/EMF exposure from phone use, Wi-Fi, and smart devices informed by international EMF exposure guidance; it is a relative educational score, not a dosimetry result." icon="📶" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="emf-exposure-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Device Usage</h2>

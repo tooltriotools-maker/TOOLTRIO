@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { filterCalculatorFAQs } from '@/lib/content/faq-policy';
 
 // ============================================================
 // INPUT COMPONENTS
@@ -219,11 +220,12 @@ interface FAQItem {
 }
 
 export function FAQSection({ faqs }: { faqs: FAQItem[] }) {
+  const visibleFaqs = filterCalculatorFAQs(faqs);
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
   return (
     <div className="space-y-3">
-      {faqs.map((faq, index) => (
+      {visibleFaqs.map((faq, index) => (
         <div
           key={index}
           className="rounded-xl border overflow-hidden"

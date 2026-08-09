@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Is numerology a real science?',
     answer: 'No — numerology is a metaphysical tradition with ancient roots in Pythagorean philosophy, Babylonian mathematics, and various mystical traditions. There is no scientific evidence supporting numerological predictions. That said, many people find value in it as a framework for self-reflection, much like personality type systems. Use it as a lens, not a rulebook.'
   },
-  {
-    question: 'Is the calculator free and does it store my name or birthday?',
-    answer: 'Completely free, no account needed. Your name and birthday are processed entirely in your browser — nothing is sent to any server or stored anywhere. The calculation happens locally and your data disappears when you close the tab.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

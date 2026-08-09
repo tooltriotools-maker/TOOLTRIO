@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'alcohol-metabolism-calculator',
   title: 'Alcohol Metabolism Calculator',
   category: 'health' as const,
   intro: `Your body eliminates alcohol at a fixed rate — roughly 0.015 g/dL per hour regardless of how much coffee you drink, how much water you consume, or how much sleep you get. Nothing meaningfully speeds up the process. That rate is largely determined by your liver's capacity to metabolize ethanol via the enzyme alcohol dehydrogenase, and it doesn't change based on willpower or effort.
@@ -65,18 +66,6 @@ For a related measure, see [our BAC Calculator](/calculators/health/bac-calculat
 
 Elimination rate of 0.015 g/dL per hour represents the average liver alcohol dehydrogenase (ADH) enzyme activity. Individual variation is significant: chronic heavy drinkers develop microsomal ethanol oxidizing system (MEOS) that can double elimination rate; genetic polymorphisms in ADH2 and ALDH2 create dramatic differences especially in East Asian populations.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `BAC calculators provide estimates, not legal measurements. True BAC varies by ±0.02 g/dL based on individual variation, food intake, hydration, genetic factors, and medications. Never rely on a calculated estimate to determine whether you can safely drive.
 
@@ -106,7 +95,7 @@ Pair this with [our BAC Calculator](/calculators/health/bac-calculator) for a dr
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

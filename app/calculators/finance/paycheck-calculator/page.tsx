@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free paycheck calculator USA 2026. Calculate your exact take-home pay after federal tax, state tax, Social Security, and Medicare deductions. Real.',
  slug: 'paycheck-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'paycheck calculator 2026',
     'paycheck calculator',

@@ -48,6 +48,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'vitamin-d-calculator',
   title: 'Vitamin D Calculator',
   category: 'health' as const,
   intro: `Vitamin D deficiency is one of the most common nutritional deficiencies worldwide — estimates suggest that 40% of Americans have insufficient levels (below 30 ng/mL) and 29% are fully deficient (below 20 ng/mL). Yet it is also one of the most correctable, since supplementation is inexpensive and effective.
@@ -110,7 +111,7 @@ Build a complete micronutrient picture with [our Calcium Calculator](/calculator
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sit-and-reach-calculator',
   title: 'Sit-and-Reach Flexibility Calculator',
   category: 'health' as const,
   intro: `The sit-and-reach test has been a standard component of health-related fitness assessments for decades, providing a standardized, low-equipment measure of hamstring and lower back flexibility — two areas with direct relevance to lower back pain, which affects roughly 80% of adults at some point in their lives.
@@ -62,31 +63,10 @@ The sit-and-reach specifically measures hamstring length (the most limiting fact
 Despite its limitations, the test is useful as a baseline and tracking measure during a flexibility program. Improving your sit-and-reach by 5-10 cm over 12 weeks of consistent hamstring stretching is a reliable outcome indicator that training is working.
 
 **Long-tail searches answered here:** sit and reach flexibility test calculator free online usa, flexibility percentile calculator by age and gender free, sit and reach score interpretation calculator no signup, hamstring flexibility score calculator usa free, how flexible are my hamstrings calculator free tool, sit and reach fitness rating calculator online, sit and reach result vs age norm calculator usa free, how to improve sit and reach score calculator, poor flexibility injury risk correlation calculator free, how yoga affects sit and reach score calculator usa, pes assessment flexibility component calculator free, sit and reach improvement timeline calculator usa free, hip flexor contribution to sit and reach score calculator, male vs female sit and reach standard calculator usa, classroom fitness testing sit reach percentile calculator`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate sit and reach from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
-
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
-
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+  howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
+  scienceSection: `The methodology and reference information for this calculator should be interpreted in the context of the specific formula, population, and assumptions described on this page; generic population-survey language is not a substitute for a calculator-specific source.
 
 As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `The most effective stretches for improving sit-and-reach score are unsurprising: static hamstring stretches held for 30-60 seconds (seated forward fold, standing straight-leg forward bend, supine hamstring stretch with a towel), performed 5+ days per week, produce meaningful improvement within 4-6 weeks. Contract-relax or PNF stretching techniques improve flexibility faster than static alone.
@@ -102,7 +82,7 @@ Don't force the sit-and-reach by rounding the lumbar spine dramatically. The tes
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -932,7 +932,7 @@ When employed, Social Security and Medicare taxes are split: you pay 7.65% and y
 
 | Component | Rate | Applies To |
 |---|---|---|
-| Social Security | 12.4% | First $176,100 of net earnings |
+| Social Security | 12.4% | First  $184,500 of net earnings |
 | Medicare | 2.9% | All net earnings |
 | Additional Medicare | 0.9% | Above $200,000 single |
 
@@ -2891,7 +2891,7 @@ Employer combines bonus with regular paycheck, calculates withholding as if you 
 | $50,000 | $11,000 | $2,500 | $3,825 | **$32,675** |
 | $100,000 | $22,000 | $5,000 | $3,825* | **$69,175** |
 
-*FICA Social Security caps at $176,100 of wages in 2026
+*FICA Social Security caps at  $184,500 of wages in 2026
 
 ## Your ACTUAL Tax Rate vs Withholding
 
@@ -2955,7 +2955,7 @@ See your exact new take-home with our **[Salary Calculator](/calculators/finance
 | $15,000 | $15,000 | $1,250 | **$869** |
 | $20,000 | $20,000 | $1,667 | **$1,159** |
 
-(Assumes 22% federal rate, 5% state, 7.65% FICA on first $176,100)
+(Assumes 22% federal rate, 5% state, 7.65% FICA on first  $184,500)
 
 ## Why the Raise Is Worth Less Than You Think
 

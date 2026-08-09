@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'fasting-window-calculator',
   title: 'Fasting Window Calculator',
   category: 'health' as const,
   intro: `Time-restricted eating works — for some people, for some goals — and the research has become clearer about both its benefits and its limits. The core mechanism is simple: extending the period your body is in a post-absorptive (fasted) state shifts metabolism toward fat oxidation, reduces insulin exposure, and for many people naturally reduces calorie intake without deliberate restriction. These effects are real, but their magnitude depends heavily on what you eat during your eating window.
@@ -66,18 +67,6 @@ This calculator helps you design your fasting protocol around your schedule, sle
 
 Circadian biology consideration: eating earlier in the day aligns with daytime metabolic activity — insulin sensitivity peaks in the morning and declines through the afternoon. Research on time-restricted eating in animal models and some human studies suggests that eating earlier produces better metabolic outcomes than the same calories consumed late — a finding that underlies the 'early TRE' protocol recommendation.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Aim for your eating window to align with daylight hours as much as social factors allow — eating from 8am to 6pm rather than noon to 10pm better aligns with circadian metabolic rhythms. Late eating (within 2-3 hours of bedtime) is consistently associated with worse metabolic outcomes independent of total calorie intake.
 
@@ -98,7 +87,7 @@ Breaking your fast with protein and fiber rather than high-glycemic carbohydrate
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

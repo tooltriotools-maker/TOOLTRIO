@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Is this tool medically accurate enough to use for dieting?',
     answer: 'It gives solid ballpark estimates useful for general awareness. For clinical diet tracking, consult a registered dietitian. But honestly, most people find this eye-opening enough to make smarter drink choices without needing clinical precision. Knowing your Saturday night pints equal a full meal is usually enough motivation.'
   },
-  {
-    question: 'Is it free and private?',
-    answer: 'Yes, completely free. No account needed. Nothing you enter is stored or sent anywhere — all calculations run locally in your browser. Drink up your privacy.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

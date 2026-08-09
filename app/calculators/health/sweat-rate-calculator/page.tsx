@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sweat-rate-calculator',
   title: 'Sweat Rate Calculator',
   category: 'health' as const,
   intro: `Your sweat rate is more individual than most people realize — it varies by up to 3-fold between people at the same exercise intensity, and even within the same person it varies significantly based on temperature, humidity, acclimatization, fitness level, and clothing. Understanding your personal sweat rate is the foundation of a proper hydration strategy, particularly for extended exercise.
@@ -62,33 +63,13 @@ Sweat sodium concentration is also individually variable — salty sweaters (ide
 This calculator guides you through a simple pre/post-exercise weight measurement protocol to determine your personal sweat rate, then calculates your specific fluid and electrolyte replacement targets.
 
 **Long-tail searches answered here:** sweat rate calculator free online usa, how much do i sweat during exercise calculator, hydration needs from sweat calculator free tool, sweat loss calculator by exercise duration weight free, electrolyte replacement from sweating calculator no signup, hourly sweat rate calculator usa free online, pre vs post exercise weight to sweat rate calculator free, sweat rate by temperature and humidity calculator usa, sodium loss from sweat electrolyte calculator free, sweat rate for endurance race hydration plan calculator, heavy sweater vs light sweater classification calculator usa, sweat rate test at home protocol calculator free, how to calculate your sweat rate simple guide usa, intra exercise fluid intake calculator from sweat rate free, sweat evaporation vs drip sweat efficiency calculator usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate sweat rate from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate sweat rate from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `The measurement protocol is simple: weigh yourself (in minimal clothing) immediately before and after a specific exercise session without drinking during the session. Each kilogram of body weight lost represents approximately 1 liter of sweat. Over several measurements at similar conditions, you'll establish a reliable personal sweat rate.
 
 Replace 75-80% of estimated sweat losses — not 100%. Full replacement while exercising is rarely practical, and slight under-replacement is better tolerated than over-drinking, which carries hyponatremia risk.
@@ -102,7 +83,7 @@ For exercise lasting more than 60-90 minutes in warm conditions, electrolyte rep
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

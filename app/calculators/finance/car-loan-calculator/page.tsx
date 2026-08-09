@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free car loan calculator USA 2026. Calculate your exact monthly car payment, total interest cost, and full amortization schedule. Compare loan terms and.',
  slug: 'car-loan-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'car loan calculator 2026',
     'car loan calculator',
@@ -45,7 +46,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

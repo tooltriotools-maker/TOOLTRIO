@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'protein-intake-calculator',
   title: 'Protein Intake Calculator',
   category: 'health' as const,
   intro: `Protein is arguably the most important macronutrient to get right, regardless of your health goal. Whether you are trying to lose fat, build muscle, perform better in sport, or simply maintain your health as you age, protein plays a central role — and the right amount is almost certainly different from what general dietary guidelines suggest.
@@ -60,11 +61,7 @@ This calculator gives you a personalized daily protein target based on your body
 Use your protein target alongside [our Macro Calculator](/calculators/health/macro-calculator) to allocate the remaining calories between carbohydrates and fat based on your dietary preferences.
 
 **Long-tail searches answered here:** daily protein intake calculator free online usa, how much protein should i eat per day calculator, protein calculator for weight loss and muscle gain free, protein grams per pound body weight calculator, how many grams of protein per day calculator no signup, protein needs calculator by activity level and weight usa, protein calculator for women trying to lose weight free, how much protein per day to build muscle calculator usa, protein intake for 150 pound woman calculator free, optimal protein intake for seniors over 60 calculator, protein calculator for endurance athletes usa free online, high protein diet calculator for fat loss free online, daily protein needs during pregnancy calculator free, how much protein does a vegetarian need calculator usa, protein per meal vs total daily protein calculator free`,
-  howItWorks: `Daily protein targets are calculated based on your body weight using evidence-based ranges from the International Society of Sports Nutrition (ISSN) position stands, which represent the scientific consensus from hundreds of controlled studies on protein and muscle metabolism.
-
-For most active adults the calculation uses lean body mass rather than total body weight when body fat percentage is known — this is more accurate for people with higher body fat because fat tissue does not require protein for maintenance. The formula scales protein intake per kilogram of lean mass or body weight based on goal: 1.6 g/kg for general fitness maintenance, 1.8-2.0 g/kg for fat loss with muscle preservation, 2.0-2.2 g/kg for muscle building, and 1.2-1.6 g/kg for older adults focused on preventing sarcopenia.
-
-Per-meal targets are calculated by dividing total daily protein by 3-5 meals, with the minimum per-meal threshold set at 0.4 g/kg (approximately 25-40 grams for most adults) — the minimum shown to maximally stimulate muscle protein synthesis in a single meal.`,
+  howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
         {title:"Goal-specific protein targets",text:"Separate calculations for fat loss (higher to preserve muscle), muscle building, athletic performance, and healthy aging. Each target reflects the current scientific evidence for that specific context rather than a one-size-fits-all recommendation.",},
         {title:"Per-meal protein breakdown",text:"Daily protein divided into optimal per-meal doses based on the 0.4 g/kg per meal research threshold. Makes protein targets immediately actionable when planning meals rather than just tracking a daily total.",},
@@ -117,7 +114,7 @@ Build your complete nutrition foundation with [our Macro Calculator](/calculator
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

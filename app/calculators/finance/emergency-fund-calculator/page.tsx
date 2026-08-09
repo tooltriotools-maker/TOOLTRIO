@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free emergency fund calculator USA 2026. Calculate your ideal emergency fund size based on monthly expenses, job stability, and dependents. Real examples.',
  slug: 'emergency-fund-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'emergency fund calculator 2026',
     'emergency fund calculator',

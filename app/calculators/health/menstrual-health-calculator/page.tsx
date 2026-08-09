@@ -11,7 +11,7 @@ const faqs = [
   {"question": "When should irregular periods prompt medical evaluation?", "answer": "Seek evaluation for: cycles consistently shorter than 21 days or longer than 35 days; no period for 3+ consecutive months (excluding pregnancy) — called amenorrhoea; soaking through a pad/tampon every hour for 2+ consecutive hours — suggestive of heavy menstrual bleeding possibly indicating fibroids, adenomyosis, or coagulopathy; dysmenorrhoea severe enough to miss work/school consistently; intermenstrual bleeding or postcoital bleeding. Common causes of irregular cycles include polycystic ovary syndrome (PCOS), thyroid dysfunction, hyperprolactinaemia, premature ovarian insufficiency (POI), and eating disorders."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Menstrual Health Score Calculator', description: 'Free menstrual health score calculator 2026. Assess your cycle length, period duration, pain level, ', url: 'https://tooltrio.com/calculators/health/menstrual-health-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="menstrual-health-calculator" />
 </>)
 }

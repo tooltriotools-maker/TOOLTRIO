@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Can I use this to motivate myself to cut back?',
     answer: 'That is exactly what it is designed for. Seeing "I will spend 6 more years on my phone before I die if I keep this up" tends to be more motivating than generic advice. You can also use the interactive slider to see how much life you get back by cutting just 30 or 60 minutes per day — the lifetime impact of small daily changes is often surprisingly large.'
   },
-  {
-    question: 'Is this free?',
-    answer: 'Yes, completely free. No account, no email, no data stored. The irony of building a screen time calculator that you have to use a screen to access is not lost on us. We kept it fast so you can get in and out quickly.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'macro-calculator',
   title: 'Macro Calculator',
   category: 'health' as const,
   intro: `Macros — short for macronutrients — are the three major categories of nutrients your body uses for energy: protein, carbohydrates, and fat. Each plays distinct and essential roles in body composition, performance, and health, and the ratio between them shapes how your body responds to training and diet.
@@ -111,7 +112,7 @@ Combine your macro plan with [our Meal Timing Calculator](/calculators/health/me
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

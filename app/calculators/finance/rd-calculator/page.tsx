@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free recurring deposit calculator India 2026. Calculate RD maturity value, total interest earned, and month-by-month growth for any monthly deposit amount.',
  slug: 'rd-calculator',
  category: 'finance',
+ region: 'india',
  keywords: [
     'rd calculator 2026',
     'rd calculator',
@@ -37,18 +38,15 @@ const relatedCalculators = [
 ]
 
 const faqs = [
- { question: 'Is the Recurring Deposit / CD Ladder Calculator free to use?', answer: 'Yes, the Recurring Deposit / CD Ladder Calculator is completely free - no account registration, subscription, or payment of any kind required. All calculations are performed locally in your browser, meaning your financial data is never transmitted or stored anywhere. We believe professional-grade financial calculators should be accessible to every American regardless of income.' },
- { question: 'How accurate are the calculations?', answer: 'This Recurring Deposit / CD Ladder Calculator uses standard financial formulas recognized by certified financial planners (CFPs), CPAs, and investment advisors across the United States. Results assume consistent inputs and standard market conditions. Actual investment returns, taxes, and financial outcomes will vary based on market performance, tax law changes, and individual circumstances. Use results for planning purposes, not as guarantees.' },
- { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), consulting a Certified Financial Planner (CFP) or CPA is strongly recommended. This Recurring Deposit / CD Ladder Calculator provides solid educational estimates and planning scenarios, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
- { question: 'Does this account for inflation?', answer: 'Where applicable, this Recurring Deposit / CD Ladder Calculator uses nominal values (current dollars) by default. For long-term projections, always consider that inflation historically averages 2-3% annually in the United States. To get inflation-adjusted (real) returns, subtract your expected inflation rate from your nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
- { question: 'Are the calculations based on US tax law?', answer: 'This Recurring Deposit / CD Ladder Calculator uses US financial conventions and, where applicable, current US tax brackets and contribution limits. Tax law changes annually - verify current IRS limits (401k, IRA, HSA, etc.) at IRS.gov. For non-US users, contribution limits and tax treatment will differ significantly. Always verify current figures with your tax professional.' },
- { question: 'Is my financial data stored or shared?', answer: 'No. All calculations run entirely in your browser. No financial data - income, savings, investment amounts, or personal details - is ever transmitted to any server, stored in any database, or shared with any third party. When you close the tab, everything disappears. Your financial privacy is completely protected.' },
- { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this Recurring Deposit / CD Ladder Calculator, assume consistent contribution rates, steady returns, and static tax rates - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
- { question: 'Can I use this calculator for both US and international currencies?', answer: 'This Recurring Deposit / CD Ladder Calculator supports multiple currencies - USD ($), GBP (£), EUR (€), and INR (₹) where applicable. For global users, note that contribution limits, tax treatment, and regulatory frameworks vary significantly by country. The mathematical calculations are currency-agnostic, but country-specific planning should involve a local financial professional.' },
+ { question: 'What is an RD?', answer: 'A recurring deposit lets you make scheduled deposits for a fixed tenure at a rate offered by the bank or institution. This calculator estimates maturity value from the contribution, rate and tenure you enter.' },
+ { question: 'Is the RD rate fixed?', answer: 'The rate is product- and institution-specific. Use the rate shown in your actual RD offer rather than treating a generic market rate as current.' },
+ { question: 'Does this calculate Indian RD tax?', answer: 'No. The calculator focuses on the maturity-value scenario. Interest taxation and TDS depend on applicable Indian rules and your circumstances.' },
+ { question: 'How accurate is the maturity calculation?', answer: 'The mathematical result is an estimate based on the compounding convention used by the calculator. Banks can use product-specific compounding and deposit-date conventions, so compare the result with the institution\'s disclosure.' },
+ { question: 'Can I compare RD with FD or PPF?', answer: 'Yes. Compare after-tax returns, tenure, liquidity and rate assumptions rather than headline interest alone.' }
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

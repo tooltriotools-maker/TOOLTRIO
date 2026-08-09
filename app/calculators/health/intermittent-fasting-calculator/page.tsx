@@ -48,6 +48,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'intermittent-fasting-calculator',
   title: 'Intermittent Fasting Calculator',
   category: 'health' as const,
   intro: `Intermittent fasting is one of the most flexible and widely practiced dietary frameworks in the world — and for good reason. Rather than specifying what to eat, it specifies when to eat, making it compatible with virtually any dietary preference from keto to vegan. This calculator helps you structure your fasting protocol by calculating your eating and fasting window times, how many calories to fit into your eating window, and how your chosen protocol compares to alternatives.
@@ -109,7 +110,7 @@ For optimal results, combine IF with [our Calorie Calculator](/calculators/healt
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

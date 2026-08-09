@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏢 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">SBA loans offer below-market rates and longer terms than conventional business loans — but eligibility requires a DSCR of at least 1.25. This calculator models your exact monthly payment, total interest cost, and whether your business qualifies based on net profit. Understanding DSCR before applying saves time and helps you structure the loan amount for maximum approval probability.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">SBA loans offer below-market rates and longer terms than conventional business loans — but eligibility requires a DSCR of at least 1.25. This calculator models your exact monthly payment, total interest cost, and a simplified DSCR scenario based on entered net profit. Understanding DSCR before applying saves time and helps you structure the loan amount for maximum approval probability.</p>
               </Card>
             </>
           ):(
@@ -92,7 +92,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       <div className="mt-8">
         <SEOContent title="SBA Loan Calculator USA 2026 — 7(a) and 504 Loans" category="finance" intro="This page estimates payment burden and a simplified debt-service coverage ratio for a proposed business loan. It can help test whether a requested amount is supportable by the net profit you enter, but it does not perform SBA or lender underwriting."
           howItWorks="The loan is amortized at the entered rate and term. Annual debt service is 12 monthly payments. DSCR = annual net profit ÷ annual modeled payment. The code flags 1.25 or greater as adequate and applies additional internal heuristics for qualification and program labels; existing debt is currently passed as zero."
-          tipsSection="Use cash flow available for debt service rather than assuming accounting net profit always equals repayment capacity. Verify current SBA program limits, guaranty fees, permitted uses of proceeds and lender requirements; the flat 3.5% fee estimate in the code is only a model."
+          tipsSection="Use cash flow available for debt service rather than assuming accounting net profit always equals repayment capacity. Verify current SBA program limits, guaranty fees, permitted uses of proceeds and lender requirements; SBA fees are not modeled because applicable fees vary by program, loan size, guarantee and current rules."
           conclusion="Use the payment and DSCR outputs for scenario planning, not as an approval prediction. SBA eligibility and credit decisions require current program rules and lender review."
           benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
           useCases={[{title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},{title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."}]}

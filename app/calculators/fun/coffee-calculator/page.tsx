@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -51,17 +51,13 @@ const faqs = [
     answer: 'Yes. A single espresso shot (1 oz) has about 63 mg of caffeine — less per serving than drip coffee — but since most drinks use doubles (126 mg), and people often have 2–3 per day, it adds up fast. The tool accounts for serving size and drink type rather than just counting "cups."'
   },
   {
-    question: 'Is this tool free?',
-    answer: 'Completely free, no account needed. We run no ads on the tool itself. The irony of building a free coffee calculator while everyone in the team drinks $6 oat milk lattes is not lost on us.'
-  },
-  {
     question: 'Can I use this to calculate coffee for a group or office?',
     answer: 'Absolutely — just multiply. If your team of 10 each drinks 3 cups daily, that is 30 cups, roughly 2,850 mg of caffeine per day circulating through your office. That might explain the meeting energy. Enter combined numbers for a fun team stat.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

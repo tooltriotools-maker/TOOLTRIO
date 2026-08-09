@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'waist-to-height-ratio-calculator',
   title: 'Waist-to-Height Ratio Calculator',
   category: 'health' as const,
   intro: `Waist-to-height ratio is quietly one of the best single-number predictors of cardiometabolic health risk — better than BMI, better than waist circumference alone, and competitive with or superior to waist-to-hip ratio in most comparative studies. The reason it outperforms BMI is that it specifically captures central adiposity (the viscerally dangerous fat concentrated around internal organs) while adjusting for height.
@@ -62,33 +63,13 @@ Visceral fat — the fat stored inside the abdominal cavity around the liver, in
 Waist measurement technique matters: measured at the midpoint between the lowest rib and the top of the hip bone, relaxed (not sucked in), at the end of a normal exhale, with a non-stretchy tape measure.
 
 **Long-tail searches answered here:** waist to height ratio calculator free online usa, is my waist size healthy for my height calculator, waist height ratio risk calculator free no account, abdominal obesity calculator usa free online, waist measurement health risk calculator free tool, belly fat risk calculator by waist and height usa, whr waist to height compared to bmi calculator, central obesity risk from waist to height ratio free, cardiovascular risk predictor waist height ratio calculator, waist to height ratio 0.5 benchmark meaning calculator usa, visceral fat estimation from waist to height calculator free, waist to height ratio for men vs women standards free, how accurate is waist to height vs bmi calculator usa, ethnic specific waist to height cutoffs calculator free, waist to height vs waist to hip ratio comparison calculator`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate waist to height ratio from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate waist to height ratio from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Waist-to-height ratio improves with fat loss, and the visceral fat component responds particularly well to aerobic exercise and caloric deficit — often faster than overall weight or BMI would suggest, because visceral fat is metabolically active and more easily mobilized than subcutaneous fat.
 
 For most people with elevated waist-to-height ratio, the interventions are familiar: sustained calorie deficit, regular moderate-to-vigorous aerobic exercise, reduced ultra-processed food and refined carbohydrate intake, adequate sleep (sleep deprivation specifically promotes visceral fat accumulation), and stress management.
@@ -101,7 +82,7 @@ Measure your waist monthly under consistent conditions to track progress. Combin
 }
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

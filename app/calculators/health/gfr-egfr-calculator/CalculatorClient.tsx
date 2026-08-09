@@ -18,10 +18,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [creatinine, setCreatinine] = useState(1.1)
   const [age, setAge] = useState(55)
   const [gender, setGender] = useState<'male' | 'female'>('male')
-  const [raceBlack, setRaceBlack] = useState(false)
   const [unit, setUnit] = useState<'mg/dL' | 'μmol/L'>('mg/dL')
 
-  const result = useMemo(() => calculateGlomerularFiltrationRate(creatinine, age, gender, raceBlack, unit), [creatinine, age, gender, raceBlack, unit])
+  const result = useMemo(() => calculateGlomerularFiltrationRate(creatinine, age, gender, unit), [creatinine, age, gender, unit])
 
   const stages = [
     { code: 'G1', range: '≥ 90', label: 'Normal', color: '#22c55e' },
@@ -33,7 +32,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="eGFR Kidney Function Calculator" description="Calculate estimated GFR using CKD-EPI 2021 — the gold standard for kidney function assessment." icon="🫘" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="gfr-egfr-calculator">
+    <CalculatorLayout title="eGFR Kidney Function Calculator" description="Estimate GFR using the race-free CKD-EPI 2021 creatinine equation." icon="🫘" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="gfr-egfr-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Lab Values</h2>
@@ -52,10 +51,6 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <InputField label={`Serum Creatinine (${unit})`} value={creatinine} onChange={setCreatinine} min={0.4} max={15} step={0.1} suffix={unit} />
             <InputField label="Age" value={age} onChange={setAge} min={18} max={100} step={1} suffix="yrs" />
-            <button onClick={() => setRaceBlack(!raceBlack)} className={`w-full flex items-center gap-3 p-3 rounded-xl text-xs font-semibold text-left border transition-all ${raceBlack ? 'bg-rose-50 border-rose-300 text-rose-700' : 'bg-gray-50 border-gray-200 text-gray-600'}`}>
-              <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${raceBlack ? 'bg-rose-500 border-rose-500 text-white' : 'border-gray-300'}`}>{raceBlack ? '✓' : ''}</span>
-              Black race (CKD-EPI coefficient)
-            </button>
             <div className="p-4 rounded-xl border" style={{ background: result.color + '15', borderColor: result.color + '40' }}>
               <p className="text-xs text-gray-500">Your eGFR</p>
               <p className="text-4xl font-black" style={{ color: result.color }}>{result.egfr}</p>

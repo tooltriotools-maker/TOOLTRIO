@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -51,17 +51,13 @@ const faqs = [
     answer: 'Use judgment here. The tone is lighthearted, not morbid, and results are framed as fun estimates. For most people it is an entertaining conversation starter. For someone dealing with a terminal illness or serious health anxiety, a "how long will I live" tool is probably not the right choice. Context matters.'
   },
   {
-    question: 'Is my health data stored anywhere?',
-    answer: 'No. Every question you answer stays in your browser only. Nothing is sent to any server, stored in any database, or shared with anyone. Close the page and your data is gone. We take privacy seriously even for fun tools.'
-  },
-  {
     question: 'Can kids or teenagers use this calculator?',
     answer: 'The content is age-appropriate and framed positively — it emphasizes healthy habits rather than dwelling on mortality. That said, very young children may not have the emotional context to interpret "how long will I live" questions lightly. We would suggest it as a tool for teenagers and adults, ideally as a jumping-off point for conversations about healthy habits rather than a standalone activity.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

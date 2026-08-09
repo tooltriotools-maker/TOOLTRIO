@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     <CalculatorLayout title="UK Income Tax Calculator 2026" description="Calculate take-home pay after PAYE income tax, National Insurance, and pension contributions." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
-          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">2026/26 Tax Year</h2>
+          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">2026/27 Tax Year</h2>
 
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Annual Gross Income</label>
@@ -156,13 +156,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
       <div className="mt-8">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">UK Income Tax Calculator - PAYE, NI and Take-Home Pay 2026/26 2026</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">UK Income Tax Calculator - PAYE, NI and Take-Home Pay 2026/27 2026</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
-              <h3 className="font-bold text-gray-800 mb-2">UK Income Tax Bands 2026/26</h3>
+              <h3 className="font-bold text-gray-800 mb-2">UK Income Tax Bands 2026/27</h3>
               <p>The UK uses a progressive tax system with four bands. Personal Allowance: £12,570 - no tax on this amount. Basic Rate: 20% on £12,571-£50,270. Higher Rate: 40% on £50,271-£125,140. Additional Rate: 45% above £125,140. The Personal Allowance tapers for high earners: £1 reduction for every £2 earned above £100,000, creating an effective 60% marginal rate between £100,000-£125,140. Scotland has separate rates: 19% starter rate, 20% basic, 21% intermediate, 42% higher, 45% advanced, 48% top rate.</p>
-              <h3 className="font-bold text-gray-800 mb-2 mt-4">National Insurance 2026/26</h3>
-              <p>Employee Class 1 NI contributions in 2026/26: 8% on earnings between Primary Threshold (£12,570/year) and Upper Earnings Limit (£50,270/year). Above UEL: 2% on all additional earnings. NI is separate from income tax and does not use the personal allowance. Employer NI (not shown here) is 13.8% on earnings above £9,100 (Secondary Threshold, reduced from April 2026). Salary sacrifice pension contributions reduce NI as well as income tax - a significant advantage for both employee and employer.</p>
+              <h3 className="font-bold text-gray-800 mb-2 mt-4">National Insurance 2026/27</h3>
+              <p>Employee Class 1 NI contributions in 2026/27: 8% on earnings between Primary Threshold (£12,570/year) and Upper Earnings Limit (£50,270/year). Above UEL: 2% on all additional earnings. NI is separate from income tax and does not use the personal allowance. Employer NI (not shown here) is 13.8% on earnings above £9,100 (Secondary Threshold, reduced from April 2026). Salary sacrifice pension contributions reduce NI as well as income tax - a significant advantage for both employee and employer.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">The £100,000 Income Trap</h3>
@@ -186,13 +186,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          UK Income Tax Calculator Example (USA 2026)
+          UK Income Tax Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           On a $75,000 salary, the 50/30/20 rule suggests: <strong>$37,500</strong> for needs, $22,500 for wants, and $15,000 for savings and debt repayment.
         </p>
         <p className="text-sm text-gray-600">
-          This UK Income Tax USA 2026 planner helps you allocate your income optimally and track progress toward your financial goals.
+          This UK Income Tax 2026 planner helps you allocate your income optimally and track progress toward your financial goals.
         </p>
       </Card>
       
@@ -219,9 +219,6 @@ National Insurance (employee): 0% on first £12,570. 8% on £12,570-£50,270. 2%
 
 Take-home calculation: Gross salary - income tax - NI - pension contribution (if salary sacrifice) - student loan repayment (if applicable, 9% of income above Plan 1/2/5 thresholds) = take-home pay. Scotland uses different income tax bands (Scottish Basic: 20%, Intermediate: 21%, Higher: 42%, Advanced: 45%, Top: 48%) from the rest of the UK.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -244,8 +241,6 @@ Scottish taxpayers should model with Scottish rates specifically — the 21% int
 For most UK employees, the three highest-leverage tax actions are: (1) contribute to workplace pension via salary sacrifice to maximize NI savings, (2) understand your position relative to the £100,000 personal allowance taper, and (3) consider ISA contributions for investment income that would otherwise be taxable. Fee-only UK financial planners or accountants can identify additional tax-planning opportunities specific to your situation.`}
 
         didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
           "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
         ]}
       />

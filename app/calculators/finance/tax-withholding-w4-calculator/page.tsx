@@ -3,15 +3,15 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Tax Withholding W-4 Calculator USA 2026 — Adjust Your W-4 | ToolTrio',
-  description: 'Calculate the correct W-4 withholding allowances to owe zero at tax time. Avoid big refunds (free loans to IRS) and underpayment penalties.',
+  title: 'Tax Withholding W-4 Calculator USA 2026 | ToolTrio',
+  description: 'Calculate the appropriate W-4 withholding entries to model federal withholding. Avoid big refunds (free loans to IRS) and underpayment penalties.',
   slug: 'tax-withholding-w4-calculator',
   category: 'finance',
   region: 'usa',
-  keywords: ['W-4 calculator 2026', 'tax withholding calculator USA', 'how to fill out W-4 2026', 'W-4 allowances calculator', 'federal withholding adjustment calculator'],
+  keywords: ['W-4 calculator 2026', 'tax withholding calculator USA', 'how to fill out W-4 2026', 'W-4 entries calculator', 'federal withholding adjustment calculator'],
 })
 const faqs = [
-  { question: "Does this calculator reproduce IRS withholding tables?", answer: "No. It estimates annual income tax with progressive brackets but compares it with a simplified 22% salary-withholding assumption." },
+  { question: "Does this calculator reproduce IRS withholding tables?", answer: "No. It estimates annual federal income tax and compares it with a simplified withholding model; the IRS publishes the actual 2026 withholding methods and tables." },
   { question: "What are the 2026 standard deductions used?", answer: "The model uses $16,100 for a single-style case and $32,200 when spouse income is entered as its married-joint proxy." },
   { question: "Does changing my W-4 change my total tax?", answer: "A W-4 generally changes how much federal income tax is withheld during the year; it does not by itself change the tax imposed by law." },
   { question: "Why might my paycheck withholding differ greatly?", answer: "Payroll frequency, multiple jobs, bonuses, pre-tax benefits, dependents and the actual W-4 steps affect withholding." },

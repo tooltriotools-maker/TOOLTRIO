@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript:      { ignoreBuildErrors: true },
-  eslint:          { ignoreDuringBuilds: true },
+  // Build safety: TypeScript and ESLint errors MUST fail production builds.
+  // Do not re-enable build-error suppression.
 
   compress:        true,
   poweredByHeader: false,

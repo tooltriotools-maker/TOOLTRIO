@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sodium-intake-calculator',
   title: 'Sodium Intake Calculator',
   category: 'health' as const,
   intro: `Sodium is genuinely important to health — but the relationship is more nuanced than less is always better. Sodium is essential for fluid balance, nerve signal transmission, and muscle contraction. The kidneys regulate sodium with extraordinary precision, and sodium deficiency (hyponatremia) can be as dangerous as excess.
@@ -62,31 +63,10 @@ The primary source of sodium in the American diet is not table salt — it's pro
 This calculator estimates your daily sodium intake from dietary habits and gives specific reduction targets and food swap recommendations based on your health profile.
 
 **Long-tail searches answered here:** daily sodium intake calculator free online usa, how much salt should i eat per day calculator, sodium limit calculator for high blood pressure free, am i eating too much sodium calculator no account, recommended sodium per day calculator usa free, sodium intake calculator for heart health free tool, low sodium diet threshold calculator by health condition, restaurant meal hidden sodium estimator calculator usa free, processed food sodium accumulation calculator free, sodium to potassium ratio calculator for blood pressure, how much sodium is too much per day calculator usa, daily sodium from typical american diet calculator free, sodium and water retention relationship calculator usa, low sodium diet transition plan calculator free online, sodium intake calculator for kidney disease patients usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate sodium intake from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
-
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
-
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+  howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
+  scienceSection: `The methodology and reference information for this calculator should be interpreted in the context of the specific formula, population, and assumptions described on this page; generic population-survey language is not a substitute for a calculator-specific source.
 
 As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `For people with high blood pressure, reducing sodium from the typical American intake of 3,400mg to 2,300mg can lower systolic blood pressure by 2-8 mmHg on its own — modest, but meaningful in the context of overall cardiovascular risk.
@@ -102,7 +82,7 @@ When reducing sodium, it takes 2-4 weeks for taste preferences to adapt. Food th
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

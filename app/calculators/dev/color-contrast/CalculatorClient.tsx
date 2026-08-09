@@ -215,7 +215,7 @@ For the US market, remember that the Department of Justice has clarified that AD
 A landmark 2008 study by Gregg Vanderheiden and others for the W3C found that approximately 1 in 12 men (8%) and 1 in 200 women (0.5%) have some form of color vision deficiency in the United States - approximately 13 million Americans. For text contrast specifically, the 4.5:1 AA ratio was validated against subjects with moderate visual impairments as the minimum for readable text without assistive technology.
 
 The proposed WCAG 3.0 introduces APCA (Advanced Perceptual Contrast Algorithm) which provides more nuanced contrast requirements based on actual typography research - accounting for font weight, size, and polarity (light vs. dark backgrounds). APCA corrects several known issues with the WCAG 2.x formula, particularly its poor performance for dark mode interfaces and large display text.`}
-        conclusion={`The Color Contrast Checker makes WCAG accessibility testing fast, free, and accessible to every American web developer and designer. Build accessible websites from the start - not as an afterthought - and protect your organization from ADA liability while creating better experiences for all users.
+        conclusion={`The Color Contrast Checker makes WCAG accessibility testing fast, free, and useful for web developers and designers worldwide. Build accessible websites from the start - not as an afterthought - and protect your organization from ADA liability while creating better experiences for all users.
 
 Use this alongside our Color Converter and Color Palette Generator for a complete accessibility-first color workflow.`}
       />

@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'How do I pay quarterly estimated taxes?',
-    answer: 'Self-employed people making $1,000+ annually owe estimated taxes quarterly. 2026 due dates: April 15 (Q1), June 16 (Q2), September 15 (Q3), January 15, 2027 (Q4). Calculate by estimating annual income, subtracting deductions, and dividing tax by 4. Safe harbor: pay 100% of prior year tax (110% if AGI >$150K). Underpayment penalty is approximately 8% annualized (2026 rate). Use EFTPS.gov or IRS Direct Pay for electronic payments.',
+    answer: 'Self-employed people making $1,000+ annually owe estimated taxes quarterly. 2026 due dates: April 15 (Q1), June 15 (Q2), September 15 (Q3), January 15, 2027 (Q4). Calculate by estimating annual income, subtracting deductions, and dividing tax by 4. Safe harbor: pay 100% of prior year tax (110% if AGI >$150K). Underpayment penalty is approximately 8% annualized (2026 rate). Use EFTPS.gov or IRS Direct Pay for electronic payments.',
   }
 ]
 const relatedCalculators = [

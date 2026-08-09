@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'heart-rate-calculator',
   title: 'Heart Rate Calculator',
   category: 'health' as const,
   intro: `Your heart rate is the most accessible real-time window into how hard your cardiovascular system is working — and using that information intelligently can transform how you exercise. Instead of training by feel (too easy some days, too hard others), heart rate zones let you apply a precise, physiologically grounded intensity framework to every workout.
@@ -124,7 +125,7 @@ Combine your zones with [our VO2 Max Calculator](/calculators/health/vo2-max-cal
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -30,7 +30,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
     { label: 'Exercise used for emotional control (0–5)', value: exerciseForControl, set: setExerciseForControl },
   ]
   return (
-    <CalculatorLayout title="Exercise Addiction Risk Calculator" description="Assess compulsive exercise patterns using validated EAI criteria — guilt, anxiety, social sacrifice, and control." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="exercise-addiction-calculator">
+    <CalculatorLayout title="Exercise Addiction Risk Calculator" description="Assess compulsive exercise patterns with an educational behavioral-pattern score covering guilt, anxiety, social sacrifice, and control." icon="🏋️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="exercise-addiction-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Exercise Patterns</h2>

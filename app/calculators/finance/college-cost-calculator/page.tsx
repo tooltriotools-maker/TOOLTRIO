@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free college cost calculator USA 2026. Calculate future tuition costs with inflation, 529 plan growth, and monthly savings needed. Real examples for.',
  slug: 'college-cost-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'college cost calculator 2026',
     'college cost calculator',

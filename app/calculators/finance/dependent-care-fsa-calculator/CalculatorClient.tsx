@@ -72,7 +72,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">👶 Dependent Care FSA Calculator USA 2026 — Childcare Tax Savings — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The Dependent Care FSA allows working parents to pay up to $5,000 in childcare costs with pre-tax dollars. At the 28% tax bracket plus 7.65% FICA, every $5,000 in DC-FSA contributions saves $1,783 in taxes. Compare this against the Child and Dependent Care Credit to find your optimal childcare tax strategy.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">For 2026, the federal dependent-care assistance exclusion is up to $7,500 ($3,750 if married filing separately), subject to plan and eligibility rules. This page models the payroll-tax and marginal-income-tax effect of an entered contribution; it is not a complete Form 2441 analysis. Compare this against the Child and Dependent Care Credit to find your optimal childcare tax strategy.</p>
               </Card>
             </>
           ) : (
@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Dependent Care FSA Calculator" category="finance"
           intro="This calculator compares the payroll-tax and marginal-income-tax savings from a Dependent Care FSA with a simplified Child and Dependent Care Credit estimate."
-          howItWorks="The FSA side caps the entered contribution at $7,500 for 2026 and multiplies it by the entered marginal rate plus 7.65% FICA. The credit side currently models 20% of up to $3,000 of care expense, so it represents one qualifying person at the minimum credit percentage."
+          howItWorks="The FSA side caps the entered contribution at $7,500 for 2026 and multiplies it by the entered marginal rate plus 7.65% FICA. The credit side is intentionally simplified: it models one qualifying person and a 20% rate. Actual credit calculations can use up to $3,000 of expenses for one qualifying person or $6,000 for two or more, with the percentage determined by income and other rules."
           tipsSection="Worked example: Example: a $7,500 contribution at a 28% marginal rate plus 7.65% FICA produces a simplified $2,673.75 tax-saving estimate. Actual payroll-tax treatment and credit interaction can differ."
           conclusion="Important assumptions and limitations: The 2026 dependent-care assistance exclusion is $7,500 ($3,750 married filing separately). The actual Child and Dependent Care Credit can use up to $3,000 of expenses for one qualifying person or $6,000 for two or more, with a percentage based on income. This calculator does not ask number of dependents, filing status or earned income, so its credit comparison is intentionally simplified."
           benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}

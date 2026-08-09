@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free rent vs buy calculator USA 2026. Compare the 10-year true cost of renting vs buying including mortgage, taxes, maintenance, appreciation, and.',
  slug: 'rent-vs-buy-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'rent vs buy calculator 2026',
     'rent vs buy calculator',

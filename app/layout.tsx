@@ -134,7 +134,7 @@ const websiteSchema = {
   name: 'ToolTrio',
   url: siteUrl,
   description:
-    'Free finance and health calculators including mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required.',
+    'Free calculators and online tools across finance, health, developer utilities, ZIP tools and commodities. No signup required.',
   inLanguage: 'en-US',
 }
 
@@ -155,10 +155,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        <meta name="geo.region" content="US" />
-        <meta name="geo.placename" content="United States" />
         <meta name="language" content="English" />
-        <meta name="content-language" content="en-US" />
         <meta name="rating" content="general" />
 
         {/* Site-level schemas only — no WebApplication/SoftwareApplication/FAQPage here */}

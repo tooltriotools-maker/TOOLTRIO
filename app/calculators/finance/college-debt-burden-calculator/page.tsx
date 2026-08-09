@@ -16,8 +16,8 @@ const faqs = [
     answer: 'The commonly cited rule: borrow no more than your expected first-year salary. On $58,000 expected salary, borrow no more than $58,000. Payment at that balance: $637/month = 13.2% of monthly income — slightly above the 10% guideline. Above 15% of income is considered unmanageable without IDR. Above 20% typically means IDR is the only viable repayment path.',
   },
   {
-    question: 'What is the SAVE plan and how does it help?',
-    answer: "SAVE (Saving on a Valuable Education) calculates payments at 5% of discretionary income (income above 225% of poverty line) for undergraduate loans. On $58,000 salary, SAVE payment: approx $175/month vs $637 standard — a $462/month reduction. SAVE also provides forgiveness after 20-25 years, and if your payment doesn't cover interest, the government absorbs the difference (no negative amortization). Enroll at studentaid.gov.",
+    question: 'What happened to the SAVE plan?',
+    answer: "The SAVE Plan ended after a March 2026 court order. Borrowers affected by the change are being directed to choose another legal repayment plan. New federal repayment options include the Repayment Assistance Plan (RAP) and Tiered Standard Repayment Plan, effective July 1, 2026. Use StudentAid.gov's current repayment tools rather than relying on an old SAVE estimate.",
   },
   {
     question: 'At what debt-to-income ratio should I consider IDR?',

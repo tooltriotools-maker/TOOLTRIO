@@ -14,7 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'How is self-employment tax calculated?',
-    answer: "SE tax = 15.3% of 92.35% of net self-employment income. The 92.35% adjustment accounts for the employer's share. Of the 15.3%: 12.4% goes to Social Security (up to $176,100 wage base in 2026) and 2.9% to Medicare (no limit). An additional 0.9% Medicare surtax applies above $200,000 (single) or $250,000 (married). Half of SE tax is deductible from your AGI.",
+    answer: "SE tax = 15.3% of 92.35% of net self-employment income. The 92.35% adjustment accounts for the employer's share. Of the 15.3%: 12.4% goes to Social Security (up to $184,500 wage base in 2026) and 2.9% to Medicare (no limit). An additional 0.9% Medicare surtax applies above $200,000 (single) or $250,000 (married). Half of SE tax is deductible from your AGI.",
   },
   {
     question: 'When are quarterly estimated taxes due?',

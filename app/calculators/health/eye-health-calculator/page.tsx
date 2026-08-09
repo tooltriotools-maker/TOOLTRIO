@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'eye-health-calculator',
   title: 'Eye Health Calculator',
   category: 'health' as const,
   intro: `Most eye diseases progress without symptoms until significant damage has already occurred. Age-related macular degeneration, glaucoma, and diabetic retinopathy — the leading causes of vision loss in adults — are all largely asymptomatic in early stages when intervention is most effective. This makes regular eye exams not just a vision correction issue but a genuine health screening, comparable in importance to cholesterol checks for identifying disease before it becomes irreversible.
@@ -64,18 +65,6 @@ This calculator assesses your risk across the main categories of eye health conc
 
 Digital eye strain risk is assessed from daily screen time, screen distance, refresh rate, ambient lighting, and break frequency. The 20-20-20 rule compliance and blue light exposure timing (particularly evening) are weighted components.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Schedule comprehensive eye exams at evidence-based intervals: adults 18-39 with no risk factors: every 2 years; 40-64: every 2 years (or annually with risk factors); 65+: annually. Many vision-threatening conditions (glaucoma, macular degeneration, diabetic retinopathy) are asymptomatic until advanced — regular exams are the only way to catch them early when intervention is most effective.
 
@@ -96,7 +85,7 @@ If you wear contact lenses, follow storage, replacement, and wearing time guidel
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

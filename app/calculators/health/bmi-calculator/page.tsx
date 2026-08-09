@@ -10,7 +10,7 @@ const BMICalculatorClient = dynamic(() => import('./BMICalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BMI Calculator USA 2026 | ToolTrio',
-  description: 'Free BMI Calculator 2026 — Calculate your Body Mass Index using CDC & NIH standards. Instant results for adults with healthy weight range, category.',
+  description: 'Free BMI Calculator 2026 — Calculate adult Body Mass Index and view the CDC screening categories and healthy-weight range.',
   slug: 'bmi-calculator',
   category: 'health',
   region: 'usa',
@@ -49,7 +49,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
@@ -57,9 +57,10 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'BMI Calculator', description: 'Calculate your Body Mass Index instantly using CDC and NIH validated formulas. Supports pounds/inches and kg/cm. See your BMI category, healthy weight range, an', url: 'https://tooltrio.com/calculators/health/bmi-calculator', category: 'HealthApplication' }),      ]}
+        generateWebAppStructuredData({ name: 'BMI Calculator', description: 'Calculate your Body Mass Index using the standard BMI formula and published screening categories. Supports pounds/inches and kg/cm. See your BMI category, healthy weight range, an', url: 'https://tooltrio.com/calculators/health/bmi-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
+        healthSourceProfile: 'bmi-calculator',
         title: 'BMI Calculator 2026',
         category: 'health',
         intro: `The BMI Calculator on this page uses the same formula applied by the CDC, NIH, and WHO for population health screening — weight in kilograms divided by height in meters squared. For US customary units it multiplies by 703 to convert pounds and inches to the same result. Despite being invented by Belgian mathematician Adolphe Quetelet in the 1830s, BMI remains the most widely used weight-screening metric in clinical medicine because it requires only a scale and a measuring tape, takes seconds to calculate, and produces a number that meaningfully stratifies disease risk across large populations.

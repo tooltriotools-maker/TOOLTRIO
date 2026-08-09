@@ -14,6 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free mortgage refinance calculator USA 2026. Calculate monthly savings, break-even month, and total interest saved from refinancing. Real examples for.',
  slug: 'mortgage-refinance-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'mortgage refinance calculator 2026',
     'mortgage refinance calculator',

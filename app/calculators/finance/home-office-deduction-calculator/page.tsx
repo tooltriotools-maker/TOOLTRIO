@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'Who qualifies for the home office deduction?',
-    answer: 'Self-employed individuals and independent contractors who use part of their home exclusively and regularly for business. Two tests: (1) Regular and exclusive use — a dedicated workspace used only for business, not a kitchen table or guest room. (2) Principal place of business — your primary business location or where you meet clients. W-2 employees cannot take this deduction under current law (TCJA suspended it through 2025+).',
+    answer: 'Self-employed individuals and independent contractors who use part of their home exclusively and regularly for business. Two tests: (1) Regular and exclusive use — a dedicated workspace used only for business, not a kitchen table or guest room. (2) Principal place of business — your primary business location or where you meet clients. W-2 employees cannot take this deduction under current law (the federal employee business-expense deduction remains unavailable under current law).',
   },
   {
     question: 'Actual method vs simplified method — which is better?',

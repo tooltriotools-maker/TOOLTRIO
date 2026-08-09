@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="space-y-4">
             <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="£" />
             <InputField label="Lifetime ISA Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
-            <InputField label="Help to Buy Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="Legacy Help to Buy ISA Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <ResultCard label="Lifetime ISA" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Help to Buy" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Invested" value={fmtC(result.invested)} subValue={`${years}yr x £${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Lifetime ISA wins' : 'Help to Buy wins'} highlight />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Lifetime ISA wins' : 'Legacy Help to Buy wins'} highlight />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-4">Lifetime ISA vs Help to Buy - Wealth Growth Over {years} Years</h3>
@@ -119,8 +119,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Uk Help To Buy vs Lisa: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
-              <h3 className="font-bold text-gray-900 mb-2 text-base">What is Uk Help To Buy?</h3>
-              <p>Uk Help To Buy is a UK investment or financial product that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
+              <h3 className="font-bold text-gray-900 mb-2 text-base">What was the Help to Buy ISA?</h3>
+              <p>The Help to Buy ISA was a UK first-home savings scheme that closed to new accounts in November 2019. that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">What is Lisa?</h3>
               <p>Lisa takes a different approach to growing or protecting your wealth. Each has its own risk profile, liquidity characteristics, and tax treatment that makes it suited to specific financial situations.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Key Differences</h3>
@@ -155,10 +155,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          UK Help To Buy Vs LISA Calculator Example (USA 2026)
+          UK Help to Buy ISA vs Lifetime ISA Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this UK Help To Buy Vs LISA USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
+          Use this UK Help to Buy ISA vs Lifetime ISA calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
           Adjust inputs to see Uk Help To Buy Vs Lisa Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
@@ -177,7 +177,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <SEOContent
         title="UK Help to Buy vs Lifetime ISA Calculator – Which Account Gets First-Time Buyers on the Ladder Faster?"
         category="finance"
-        intro={`The UK government's first-time buyer support landscape shifted significantly when Help to Buy equity loans closed to new applications in March 2023. The Lifetime ISA (LISA) is now the primary government-subsidized first home savings vehicle — offering a 25% bonus on contributions up to £4,000/year, which translates to up to £1,000 free government money annually. For a first-time buyer saving for a deposit over 4-5 years, the LISA bonus can add £4,000-£5,000 to their deposit.
+        intro={`The Help to Buy ISA closed to new accounts on 30 November 2019; existing account holders can continue under the scheme rules. The Lifetime ISA remains available to eligible savers. The Lifetime ISA (LISA) is now the primary government-subsidized first home savings vehicle — offering a 25% bonus on contributions up to £4,000/year, which translates to up to £1,000 free government money annually. For a first-time buyer saving for a deposit over 4-5 years, the LISA bonus can add £4,000-£5,000 to their deposit.
 
 The LISA has specific constraints: you must be 18-39 when you first open the account, you must be a first-time buyer, the property must cost no more than £450,000, and you must use the property as your main home (not buy-to-let). The 25% withdrawal penalty if you access the funds for any other reason effectively means 6.25% of your savings is lost — the bonus minus the withdrawal charge — making it important to be genuinely committed to using LISA funds for the qualifying purchase.
 
@@ -188,9 +188,6 @@ LISA vs standard S&S ISA: The 25% government bonus makes LISA far superior to a 
 
 Property price ceiling: LISA property limit is £450,000. Properties above this don't qualify, and you'd face the withdrawal penalty. In London and South East, significant portions of the market are above this threshold — check whether your target area has meaningful supply below £450,000 before making LISA your primary vehicle.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -213,8 +210,6 @@ Max the LISA before adding to a standard ISA for first home savings. The 25% bon
 For buyers close to their purchase timeline who don't have an existing LISA: if you're more than 12 months from purchase, opening a LISA now captures the bonus on whatever you contribute before completing. The time constraint on the 12-month rule makes opening immediately the right default.`}
 
         didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
           "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
         ]}
       />

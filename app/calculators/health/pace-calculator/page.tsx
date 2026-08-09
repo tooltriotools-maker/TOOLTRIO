@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'pace-calculator',
   title: 'Running Pace Calculator',
   category: 'health' as const,
   intro: `Pace is the universal language of running — it translates effort into a number that connects your training to your race goals. This calculator handles every pace conversion you need: minutes per mile, minutes per kilometer, mph, km/h, and projected finish times for every major race distance from 5K to marathon.
@@ -111,7 +112,7 @@ For a complete performance picture, combine it with [our Marathon Training Calcu
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

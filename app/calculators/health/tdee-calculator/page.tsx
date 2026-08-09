@@ -50,7 +50,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
@@ -61,6 +61,7 @@ export default function Page() {
         generateWebAppStructuredData({ name: 'TDEE Calculator', description: 'Calculate your Total Daily Energy Expenditure (TDEE) using BMR and activity factors. Find your true maintenance calories using Mifflin-St Jeor or Katch-McArdle ', url: 'https://tooltrio.com/calculators/health/tdee-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={{
+        healthSourceProfile: 'tdee-calculator',
         title: 'TDEE Calculator 2026',
         category: 'health',
         intro: `TDEE is the single most important number in nutrition science for any weight management goal. It represents the exact caloric breakeven point where energy in equals energy out — the threshold above which weight is gained and below which weight is lost. Every diet, every meal plan, every calorie target is ultimately defined by its relationship to this number.

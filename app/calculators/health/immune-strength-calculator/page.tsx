@@ -11,7 +11,7 @@ const faqs = [
   {"question": "Which supplements have evidence for immune support?", "answer": "Vitamin D deficiency (< 20 ng/mL) is associated with higher respiratory infection risk — supplementation in deficient individuals reduces infection incidence. Zinc supplementation (within 24 hours of cold onset) reduces duration by approximately 1 day. Elderberry extract has Level 1B evidence for reducing cold duration. Vitamin C marginally reduces cold duration (not prevention) in non-deficient adults. Probiotics (Lactobacillus and Bifidobacterium strains) reduce cold incidence and severity. Echinacea has mixed evidence. No supplement substitutes for vaccination, the most evidence-based immune intervention available."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Immune Strength Score Calculator', description: 'Free immune strength calculator 2026. Score your immune system resilience from sleep, stress, exerci', url: 'https://tooltrio.com/calculators/health/immune-strength-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch46DeepDive slug="immune-strength-calculator" />
 </>)
 }

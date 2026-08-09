@@ -130,10 +130,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          RD Calculator Example (USA 2026)
+          RD Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this RD USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
+          Use this RD India 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
           Adjust inputs to see Rd Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
@@ -163,9 +163,6 @@ Alternatively: Maturity = Sum of [Each monthly deposit × (1+r/4)^(4 × remainin
 
 TDS: Banks deduct TDS on RD interest when aggregate interest across all accounts at the bank exceeds ₹40,000 per financial year. File Form 15G (15H for seniors) if total income is below taxable limit to avoid TDS.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -188,7 +185,7 @@ RDs can be prematurely withdrawn at most banks for a 1% penalty on the applicabl
 For higher returns on the same systematic savings principle, SIP in liquid mutual funds currently offers comparable returns to RD with better liquidity (instant redemption vs premature withdrawal penalties). For medium-to-long-term goals where equity returns are acceptable, equity mutual fund SIPs dramatically outperform RDs on expected returns, though with market risk. Use [our SIP vs RD Calculator](/calculators/finance/sip-vs-rd-calculator) for direct comparison of expected returns across both vehicles.`}
 
         didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
+          "Use your own contribution, rate and time-horizon assumptions; generic retirement benchmarks are not a substitute for a calculator-specific scenario.",
           "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
           "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
         ]}

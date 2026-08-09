@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What is the difference between rotating and fixed night shifts?", "answer": "Fixed night shifts allow eventual circadian adaptation, although complete adaptation (shifting all circadian clocks) takes weeks to months. Rotating shifts prevent any adaptation — the circadian clock is perpetually misaligned, which research suggests is more harmful than fixed night work. Weekly rotation is more disruptive than monthly rotation. Forward rotation (day→evening→night) is better tolerated than backward rotation because it follows the natural delay tendency of human circadian rhythms. For health outcomes, permanent night work with excellent daytime sleep is preferable to irregular rotating schedules."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Night Shift Health Impact Calculator', description: 'Free night shift health calculator 2026. Assess the health impact of shift work from years worked, f', url: 'https://tooltrio.com/calculators/health/night-shift-health-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch47DeepDive slug="night-shift-health-calculator" />
 </>)
 }

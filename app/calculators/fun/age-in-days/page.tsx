@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -51,17 +51,13 @@ const faqs = [
     answer: 'Absolutely — just enter any birth date. Whether you want to know how old your dog is in days, how long Abraham Lincoln lived in seconds, or how many days your favorite band has existed, the calculator handles any date from the 1800s onward.'
   },
   {
-    question: 'Is this free and does it store my birthday?',
-    answer: 'Completely free, no account needed. Your birthday never leaves your browser — the calculation happens locally on your device. Close the tab and the data is gone. No email, no cookies, no tracking.'
-  },
-  {
     question: 'How can I share my age in days on social media?',
     answer: 'Copy your result text and paste it into Instagram, Twitter/X, TikTok captions, or WhatsApp. A caption like "I am 11,203 days old today 🎂 how about you?" typically gets strong engagement. Many people screenshot the full stats card and post it as their birthday story.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

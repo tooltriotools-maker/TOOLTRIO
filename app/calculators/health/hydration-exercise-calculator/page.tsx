@@ -11,7 +11,7 @@ const faqs = [
   {"question": "How much water do I need after exercise?", "answer": "The post-exercise rehydration target is 1.5× the fluid lost — the extra 50% accounts for urine losses during the rehydration process. The easiest measurement: weigh yourself before and after exercise; every kilogram lost equals approximately 1 litre of fluid deficit. So if you lost 1.5 kg, drink 2.25 L over the following hours. Rehydration should not be rushed — spreading fluid intake over 2–4 hours optimises retention versus drinking large volumes rapidly."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Hydration for Exercise Calculator', description: 'Free exercise hydration calculator 2026. Calculate exact pre-workout, during-workout, and post-worko', url: 'https://tooltrio.com/calculators/health/hydration-exercise-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch46DeepDive slug="hydration-exercise-calculator" />
 </>)
 }

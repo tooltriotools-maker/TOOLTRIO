@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'menstrual-cycle-calculator',
   title: 'Menstrual Cycle Calculator',
   category: 'health' as const,
   intro: `Menstrual cycle tracking has evolved from basic period prediction into a broader window into hormonal health and fertility. The average menstrual cycle is 28 days, but research consistently shows that fewer than 15% of women have precisely 28-day cycles — normal cycles range from 21 to 35 days, and slight variation from cycle to cycle is entirely normal. What matters more than hitting 28 days is your personal regularity.
@@ -62,33 +63,13 @@ Predicting ovulation matters most for those trying to conceive or avoid pregnanc
 This calculator predicts your next period, estimated ovulation window, and fertile window based on your cycle history, with accuracy improving as you log more cycles.
 
 **Long-tail searches answered here:** menstrual cycle calculator free online usa, period tracker and cycle length calculator free, when is my next period calculator free no signup, irregular period cycle calculator free tool usa, period due date calculator by last period free, ovulation and period calendar calculator usa free, how to predict irregular period dates calculator free, period calculator for irregular cycles by average free, shortest longest period cycle calculator usa free, period tracker without app or account free online, spotting vs period start date calculator free usa, pms symptom predictor by cycle phase calculator free, period calculator for birth control planning free usa, how many days between periods is normal calculator, late period calculator no pregnancy needed usa free`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate menstrual cycle from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the method documented for this specific calculator to estimate menstrual cycle from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Cycle irregularity has many causes — stress, significant weight change, thyroid dysfunction, PCOS, perimenopause, over-exercising, or undereating can all disrupt the hormonal signaling that regulates cycle timing. A suddenly irregular cycle that wasn't irregular before is worth noting and potentially discussing with a healthcare provider.
 
 Period pain (dysmenorrhea) is common but not something to simply accept if it's severe. Primary dysmenorrhea is very manageable with NSAIDs started 1-2 days before menstruation onset. Secondary dysmenorrhea — severe pain caused by endometriosis, fibroids, or other conditions — requires medical evaluation and is often dramatically undertreated.
@@ -102,7 +83,7 @@ Track at least 3-4 cycles before relying on this calculator's ovulation predicti
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

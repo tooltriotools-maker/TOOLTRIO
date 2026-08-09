@@ -11,7 +11,7 @@ const faqs = [
   {"question": "Does protein timing around workouts matter?", "answer": "The post-workout anabolic window is real but wider than previously believed. Research by Aragon and Schoenfeld (2013) suggests the critical window is at least 4-6 hours around training — not the 30-minute 'golden hour' originally proposed. For most people eating adequately throughout the day, exact post-workout timing matters less than total daily protein intake and meal distribution. However, if you train fasted (e.g., morning training before breakfast), consuming protein within 30-60 minutes post-workout is beneficial. Pre-sleep casein protein (30-40g) consistently increases overnight MPS by 15-25% across multiple RCTs."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Protein Synthesis Optimizer', description: 'Free muscle protein synthesis optimizer 2026. Calculate your optimal protein intake, per-meal distri', url: 'https://tooltrio.com/calculators/health/protein-synthesis-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch45DeepDive slug="protein-synthesis-calculator" />
 </>)
 }

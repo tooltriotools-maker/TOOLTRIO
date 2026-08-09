@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free break-even calculator USA 2026. Calculate your break-even point in units and revenue, contribution margin, and profit at any sales volume. Real.',
  slug: 'break-even-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'break even calculator 2026',
     'break even calculator',

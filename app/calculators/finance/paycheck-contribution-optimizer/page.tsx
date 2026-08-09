@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Paycheck Contribution Optimizer USA 2026 — Maximize Take-Home & Tax Savings | ToolTrio',
+  title: 'Paycheck Contribution Optimizer 2026 — Maximize Take-Home & Tax Savings | ToolTrio',
   description: 'Find the optimal 401k, HSA, and FSA contributions per paycheck to maximize tax savings while maintaining target take-home pay.',
   slug: 'paycheck-contribution-optimizer',
   category: 'finance',
@@ -13,15 +13,16 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What are the 2026 contribution limits per paycheck?',
-    answer: 'For biweekly pay (26 periods): 401k max = $23,500 / 26 = $903.85/check. HSA max (individual) = $4,300 / 26 = $165.38/check. FSA max = $3,300 / 26 = $126.92/check. Maxing all three at the 24% federal + 7.65% FICA rate saves $7,200+ in taxes annually — without reducing take-home as much as people expect, because the tax savings offset much of the contribution.',
+    answer: 'For biweekly pay (26 periods), divide the applicable annual limits by 26 as a planning shortcut. For 2026, the employee 401(k) limit is $24,500, the self-only HSA limit is $4,400, and the health FSA salary-reduction limit is $3,400. Employer contributions, catch-ups and plan rules can change the usable amount.',
   },
   {
     question: 'How much does maxing your 401k actually reduce take-home?',
-    answer: 'At 24% federal tax + 7.65% FICA, maxing the 401k ($23,500/year) costs $7,200 in taxes saved, meaning your take-home only drops by $23,500 - $7,200 = $16,300 annually ($627/month). The contribution is $1,958/month but actual take-home reduction is only $1,358/month — 31% of the contribution is offset by tax savings. Many people dramatically overestimate the take-home impact of maxing retirement accounts.',
+    answer: 'The take-home impact depends on your marginal tax rate, payroll taxes, pay frequency, employer plan and other pre-tax benefits. This calculator models the effect using the assumptions you enter; it does not reproduce payroll withholding.'
   },
+
   {
     question: 'Should I contribute to 401k or HSA first?',
-    answer: 'Order of operations: (1) Contribute enough 401k to get full employer match (immediate 50-100% return). (2) Max HSA — triple tax advantage is the best return available. (3) Max 401k to $23,500. (4) Max IRA ($7,000 Roth if eligible). (5) Max FSA. (6) Taxable investing. HSA gets priority over maxing 401k because its triple tax advantage (deductible + tax-free growth + tax-free withdrawal for medical) mathematically outperforms 401k.',
+    answer: 'Order of operations: (1) Contribute enough 401k to get full employer match (immediate 50-100% return). (2) Max HSA — triple tax advantage is the best return available. (3) Max 401k to the applicable 2026 limit. (4) Consider an IRA if eligible. (5) Max FSA. (6) Taxable investing. HSA gets priority over maxing 401k because its triple tax advantage (deductible + tax-free growth + tax-free withdrawal for medical) mathematically outperforms 401k.',
   }
 ]
 const relatedCalculators = [

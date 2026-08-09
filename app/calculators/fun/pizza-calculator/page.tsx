@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Can I calculate the cost per person?',
     answer: 'Yes — enter the price per pizza (or per slice) and the calculator outputs total cost and cost per person. Useful for splitting bills fairly or budgeting an event. It also shows the price difference between ordering large vs medium pizzas so you can make the value-optimized choice.'
   },
-  {
-    question: 'Is this calculator free?',
-    answer: 'Completely free. No account needed. Use it every time you order pizza for a group and never again end up with either three leftover boxes or a crowd staring at empty trays wondering if more is coming.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

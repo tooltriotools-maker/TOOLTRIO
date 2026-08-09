@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'calorie-deficit-calculator',
   title: 'Calorie Deficit Calculator',
   category: 'health' as const,
   intro: `Your calorie deficit is the single variable that determines whether you lose fat, maintain weight, or gain weight. Everything else in a diet — food choices, meal timing, macronutrient ratios — operates within the constraint of whether you are eating above or below your total daily energy expenditure. Understanding exactly how large your deficit should be is the foundation of any effective fat loss plan.
@@ -111,7 +112,7 @@ Complete your fat loss toolkit with [our Macro Calculator](/calculators/health/m
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -11,9 +11,10 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'Mutual Fund Calculator India 2026 | ToolTrio',
- description: 'Free mutual fund calculator USA 2026. See how expense ratios, front-end loads, and management fees erode long-term returns. Compare low-cost index funds.',
+ description: 'Free mutual fund calculator India 2026. See how expense ratios, front-end loads, and management fees erode long-term returns. Compare low-cost index funds.',
  slug: 'mutual-fund-calculator',
  category: 'finance',
+ region: 'india',
  keywords: [
     'mutual fund calculator 2026',
     'mutual fund calculator',
@@ -45,7 +46,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

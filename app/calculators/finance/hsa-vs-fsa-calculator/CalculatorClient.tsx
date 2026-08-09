@@ -14,7 +14,7 @@ const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : `$${(n/1000).toFixed(1)}K`
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
-  const [annualContrib, setAnnualContrib] = useState(3850)
+  const [annualContrib, setAnnualContrib] = useState(3400)
   const [medicalExpenses, setMedicalExpenses] = useState(2000)
   const [taxRate, setTaxRate] = useState(24)
   const [returnRate, setReturnRate] = useState(7)
@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Account Details</h2>
           <div className="space-y-4">
-            <InputField label="Annual Contribution" value={annualContrib} onChange={setAnnualContrib} min={100} max={8300} step={100} prefix="$" />
+            <InputField label="Annual Contribution" value={annualContrib} onChange={setAnnualContrib} min={100} max={8750} step={100} prefix="$" />
             <InputField label="Annual Medical Expenses" value={medicalExpenses} onChange={setMedicalExpenses} min={0} max={8000} step={100} prefix="$" />
             <InputField label="Your Tax Rate" value={taxRate} onChange={setTaxRate} min={10} max={37} step={1} suffix="%" />
             <InputField label="HSA Investment Return" value={returnRate} onChange={setReturnRate} min={3} max={12} step={0.5} suffix="%" />
@@ -87,9 +87,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           </Card>
           <div className="grid grid-cols-2 gap-3">
             <Card>
-              <h3 className="text-sm font-semibold text-green-400 mb-2">🏥 HSA 2024 Facts</h3>
+              <h3 className="text-sm font-semibold text-green-400 mb-2">🏥 HSA 2026 Facts</h3>
               <ul className="text-xs text-gray-400 space-y-1">
-                <li>v 2024 limit: $4,150 individual / $8,300 family</li>
+                <li>2026 limit: $4,400 self-only / $8,750 family</li>
                 <li>v Funds roll over indefinitely - never expires</li>
                 <li>v Invest in stocks/ETFs for long-term growth</li>
                 <li>v After 65: use for ANY expense (like IRA)</li>
@@ -97,12 +97,12 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               </ul>
             </Card>
             <Card>
-              <h3 className="text-sm font-semibold text-blue-400 mb-2">💊 FSA 2024 Facts</h3>
+              <h3 className="text-sm font-semibold text-blue-400 mb-2">💊 FSA 2026 Facts</h3>
               <ul className="text-xs text-gray-400 space-y-1">
-                <li>v 2024 limit: $3,200</li>
+                <li>2026 limit: $3,400</li>
                 <li>v Available with any health insurance plan</li>
                 <li>v Funds available on Jan 1 (immediate use)</li>
-                <li>✗ Use-it-or-lose-it (up to $640 rollover)</li>
+                <li>✗ Plan rules vary; maximum federal carryover for a plan permitting carryover: $680</li>
                 <li>✗ No investment growth</li>
               </ul>
             </Card>
@@ -160,18 +160,15 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         category="finance"
         intro={`HSAs and FSAs are two of the most tax-advantaged accounts available to Americans — and they're consistently underused or misunderstood. Both let you pay for medical expenses with pre-tax dollars, but they work very differently. Getting this choice right can save you $500-$2,000 or more annually in taxes, depending on your income and expected healthcare costs.
 
-An HSA (Health Savings Account) is triple tax-advantaged: contributions are deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free. The catch: you must be enrolled in a High-Deductible Health Plan (HDHP) to contribute. HSA funds roll over forever — there's no use-it-or-lose-it — and after age 65, you can withdraw for any purpose (taxable, like a traditional IRA). The 2024 HSA limits are $4,150 for individuals and $8,300 for families.
+An HSA (Health Savings Account) is triple tax-advantaged: contributions are deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free. The catch: you must be enrolled in a High-Deductible Health Plan (HDHP) to contribute. HSA funds roll over forever — there's no use-it-or-lose-it — and after age 65, you can withdraw for any purpose (taxable, like a traditional IRA). The 2026 HSA limits are $4,400 for self-only coverage and $8,750 for family coverage.
 
-An FSA (Flexible Spending Account) is available with most insurance types. Contributions reduce taxable income, but most FSAs have a use-it-or-lose-it rule each year (with a $640 rollover allowance in 2024). FSAs are best for predictable healthcare expenses you'll definitely incur during the year.`}
-        howItWorks={`Tax savings calculation: Contribution × marginal federal income tax rate + FICA rate (7.65% for most employees) = annual tax savings. HSA contribution of $4,150 at 22% federal + 7.65% FICA = $4,150 × 29.65% = $1,230 in annual tax savings.
+An FSA (Flexible Spending Account) is available with most insurance types. Contributions reduce taxable income, but most FSAs have a use-it-or-lose-it rule each year (with a maximum federal carryover of $680 for plans that permit carryover in 2026). FSAs are best for predictable healthcare expenses you'll definitely incur during the year.`}
+        howItWorks={`Tax savings calculation: Contribution × marginal federal income tax rate + FICA rate (7.65% for most employees) = annual tax savings. HSA contribution of $4,400 at 22% federal + 7.65% FICA = $4,400 × 29.65% = $1,304 in annual tax savings.
 
-HSA investment projection: After paying current-year medical expenses out-of-pocket and leaving HSA funds invested, the triple tax-free compounding makes the HSA function as a powerful retirement account. $4,150/year invested in HSA at 7% for 30 years = approximately $418,000 in tax-free medical expense reserves.
+HSA investment projection: After paying current-year medical expenses out-of-pocket and leaving HSA funds invested, the triple tax-free compounding makes the HSA function as a powerful retirement account. $4,400/year invested in HSA at 7% for 30 years = approximately $418,000 in tax-free medical expense reserves.
 
 FSA vs HSA decision matrix: If you have predictable healthcare costs within FSA use-it-or-lose-it constraints, FSA can be optimal. If you have unpredictable costs or want long-term investment accumulation, HSA (with HDHP) is typically superior for people who can afford higher out-of-pocket costs when needed.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -192,12 +189,6 @@ For HSA investment options: many HSA custodians have limited fund menus with hig
         conclusion={`The HSA's combination of immediate tax deduction, tax-free growth, tax-free medical withdrawals, and retirement account functionality after 65 makes it the only truly triple tax-advantaged account in the US tax code. Financial planners who maximize client wealth generally recommend: (1) capture full 401k employer match, (2) max HSA, (3) max Roth IRA, (4) continue 401k.
 
 For people who are generally healthy and can afford a higher deductible, the HDHP + HSA combination often produces lower total healthcare costs than a comprehensive PPO — the lower premiums plus tax savings on HSA contributions typically exceed the higher out-of-pocket exposure in years without major medical events.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

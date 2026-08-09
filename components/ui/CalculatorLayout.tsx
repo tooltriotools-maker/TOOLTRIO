@@ -5,16 +5,12 @@ import Link from 'next/link'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { DownloadPDFButton } from './ExportPDFButton'
 import { ShareButton } from './ShareButton'
+import { getRelatedTools, type RelatedTool } from '@/lib/catalog/related-tools'
 
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
 
-interface RelatedCalc {
-  name: string
-  href: string
-  icon: string
-  desc: string
-}
+type RelatedCalc = RelatedTool
 
 interface CalculatorLayoutProps {
   title: string
@@ -43,6 +39,12 @@ export function CalculatorLayout({ title, description, icon, category, children,
   const pageUrl = slug
     ? `${BASE_URL}/calculators/${catPath}/${slug}`
     : `${BASE_URL}/calculators/${catPath}`
+
+  const resolvedRelatedCalculators = relatedCalculators?.length
+    ? relatedCalculators
+    : slug
+      ? getRelatedTools(`/calculators/${catPath}/${slug}`)
+      : []
 
   // ── Schema injection removed from this client component ──────────────────
   // All JSON-LD schemas (BreadcrumbList, HowTo, FAQPage, WebApplication,
@@ -114,7 +116,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
         )}
 
         {/* Related Calculators */}
-        {relatedCalculators && relatedCalculators.length > 0 && (
+        {resolvedRelatedCalculators.length > 0 && (
           <div className="mt-8">
             <div className="rounded-3xl border overflow-hidden" style={{background:'rgba(255,255,255,0.8)', backdropFilter:'blur(10px)', borderColor:'rgba(255,255,255,0.5)', boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
               <div className={`px-6 py-4 border-b border-gray-100 ${category === 'Finance' ? 'bg-green-50' : category === 'Health' ? 'bg-red-50' : category === 'Dev' ? 'bg-blue-50' : 'bg-purple-50'}`}>
@@ -122,7 +124,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
                 <p className="text-sm text-gray-500 mt-0.5">You might also find these useful</p>
               </div>
               <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {relatedCalculators.map(rc => (
+                {resolvedRelatedCalculators.map(rc => (
                   <Link key={rc.href} href={rc.href}
                     className={`flex items-start gap-3 p-4 rounded-2xl border transition-all group hover:-translate-y-0.5 hover:shadow-md hover:border-green-200/60`} style={{borderColor:'rgba(226,232,240,0.6)', transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
                   >

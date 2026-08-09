@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'water-intake-calculator',
   title: 'Water Intake Calculator',
   category: 'health' as const,
   intro: `Hydration is one of the most foundational pillars of human health and performance, yet individual water needs vary far more than the generic '8 glasses a day' recommendation suggests. Your actual daily water requirement depends on how much you weigh, how hard you exercise, what climate you live in, your age, and whether you are pregnant or breastfeeding — factors that can shift your optimal intake by a liter or more per day.
@@ -118,7 +119,7 @@ For athletes, combine hydration planning with [our Sweat Rate Calculator](/calcu
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

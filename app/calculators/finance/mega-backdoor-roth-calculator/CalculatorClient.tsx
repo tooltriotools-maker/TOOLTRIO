@@ -12,7 +12,7 @@ interface Props { faqs: { question: string; answer: string }[]; relatedCalculato
 
 export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [salary, setSalary] = useState(120000)
-  const [regularContrib, setRegularContrib] = useState(23500)
+  const [regularContrib, setRegularContrib] = useState(24500)
   const [employerMatch, setEmployerMatch] = useState(4)
   const [afterTaxContrib, setAfterTaxContrib] = useState(20000)
   const [taxRate, setTaxRate] = useState(32)
@@ -26,7 +26,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Mega Backdoor Roth Calculator USA 2026"
-      description="Calculate how much extra after-tax you can contribute to your 401k and convert to Roth under the $70,000 2026 limit."
+      description="Calculate how much extra after-tax you can contribute to your 401k and convert to Roth under the $72,000 2026 annual-additions limit."
       icon="💪"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -90,7 +90,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💪 Mega Backdoor Roth Calculator USA 2026 — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The mega backdoor Roth strategy allows high-income earners to contribute up to $70,000 total to their 401k in 2026 — far exceeding the standard $23,500 pre-tax limit — by making after-tax contributions that are immediately converted to Roth. This creates massive tax-free compounding potential unavailable through any other vehicle.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The mega backdoor Roth strategy can allow additional after-tax 401(k) contributions within the $72,000 2026 annual-additions limit after regular deferrals and employer contributions — by making after-tax contributions that are immediately converted to Roth. This creates massive tax-free compounding potential unavailable through any other vehicle.</p>
               </Card>
             </>
           ) : (

@@ -17,7 +17,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'How much does probate cost?',
-    answer: 'Probate costs vary by state and estate complexity. California uses a statutory fee schedule: 4% of first $100K, 3% of next $100K, 2% of next $800K, 1% of next $9M — applied to both attorney AND executor. On an $850,000 estate: approximately $24,000 in attorney fees + $24,000 in executor fees = $48,000 total, plus 12-18 months of court process. Other states range from 2-5% of gross estate value.',
+    answer: 'Probate costs vary by state and estate complexity. California has a statutory fee schedule for ordinary probate compensation, but probate costs vary materially by state, estate complexity, professional arrangements, and court requirements. This calculator uses simplified scenarios and is not a nationwide fee schedule.',
   },
   {
     question: 'What assets avoid probate automatically?',

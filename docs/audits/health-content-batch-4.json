@@ -1,0 +1,25 @@
+{
+  "health_tsx_files": 348,
+  "remaining_patterns": {
+    "blanket_cdc_nih_claim": 0,
+    "generic_privacy": 105,
+    "generic_use_case": 105
+  },
+  "examples": {
+    "blanket_cdc_nih_claim": [],
+    "generic_privacy": [
+      "app/calculators/health/plank-time-calculator/page.tsx",
+      "app/calculators/health/sauna-benefits-calculator/page.tsx",
+      "app/calculators/health/fasting-window-calculator/page.tsx",
+      "app/calculators/health/vitamin-c-calculator/page.tsx",
+      "app/calculators/health/pregnancy-due-date-calculator/page.tsx"
+    ],
+    "generic_use_case": [
+      "app/calculators/health/plank-time-calculator/page.tsx",
+      "app/calculators/health/sauna-benefits-calculator/page.tsx",
+      "app/calculators/health/fasting-window-calculator/page.tsx",
+      "app/calculators/health/vitamin-c-calculator/page.tsx",
+      "app/calculators/health/pregnancy-due-date-calculator/page.tsx"
+    ]
+  }
+}

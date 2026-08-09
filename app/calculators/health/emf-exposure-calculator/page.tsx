@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What simple steps reduce RF exposure most effectively?", "answer": "The highest-impact reductions: (1) Use speakerphone or wired earphones for calls — reduces head RF exposure ~98%; (2) Move phone 6+ feet from sleeping area — eliminates 8+ hours of close proximity; (3) Prefer Wi-Fi or speakerphone for video calls over cellular data; (4) Keep phone in bag rather than pocket when not in use; (5) Move router 6+ feet from frequent sitting areas. These measures cost nothing and dramatically reduce total cumulative exposure for those with concerns, regardless of whether current evidence confirms harm at typical consumer levels."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'EMF Exposure Score Calculator', description: 'Free EMF (electromagnetic field) exposure calculator 2026. Score your relative RF and EMF exposure f', url: 'https://tooltrio.com/calculators/health/emf-exposure-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch48DeepDive slug="emf-exposure-calculator" />
 </>)
 }

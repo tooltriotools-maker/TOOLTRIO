@@ -121,7 +121,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="text-sm font-semibold text-blue-400 mb-2">🏦 Traditional 401k</h3>
               <ul className="text-xs text-gray-400 space-y-1.5">
                 <li>v Pre-tax contributions reduce taxable income NOW</li>
-                <li>v 2024 limit: $23,000 ($30,500 if 50+)</li>
+                <li>2026 limit: $24,500 ($32,500 with the standard age-50+ catch-up)</li>
                 <li>v Employer match (typically 3-6%)</li>
                 <li>✗ Required Minimum Distributions at 73</li>
                 <li>✗ Withdrawals taxed as ordinary income</li>
@@ -133,7 +133,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                 <li>v Tax-free growth AND tax-free withdrawal</li>
                 <li>v No Required Minimum Distributions</li>
                 <li>v Contributions can be withdrawn anytime</li>
-                <li>✗ 2024 limit: $7,000 ($8,000 if 50+)</li>
+                <li>✗ 2026 IRA limit: $7,500 ($8,600 if age 50+)</li>
                 <li>✗ Income limits: $161K single / $240K married</li>
               </ul>
             </Card>
@@ -204,9 +204,6 @@ The Roth advantage is most significant when: you expect to be in a higher tax br
 
 The 401k advantage is most significant when: your current marginal tax rate is high (32%+), your employer only matches traditional contributions, or you expect significantly lower income in retirement.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -221,18 +218,12 @@ The 401k advantage is most significant when: your current marginal tax rate is h
         ]}
         tipsSection={`Max your employer match in the 401k first — always. This is a guaranteed 50-100% return that beats the tax advantage of either account. After the match is captured, evaluate your current vs. expected future tax bracket to decide where additional contributions should go.
 
-Income limits matter for Roth IRA: contributions phase out between $146,000-$161,000 (single) and $230,000-$240,000 (married filing jointly) in 2024. If you're above these limits, investigate the backdoor Roth IRA strategy.
+Income limits matter for Roth IRA: contributions phase out between $153,000-$168,000 (single/head of household) and $242,000-$252,000 (married filing jointly) in 2026. If you're above these limits, investigate the backdoor Roth IRA strategy.
 
-The both/and strategy is often correct: contribute enough to 401k to get the full match, then max the Roth IRA ($7,000 in 2024, $8,000 if 50+), then return to the 401k if you have more to invest.`}
+The both/and strategy is often correct: contribute enough to 401k to get the full match, then max the Roth IRA ($7,500 in 2026, $8,600 if age 50+), then return to the 401k if you have more to invest.`}
         conclusion={`The tax diversification argument is underrated: having money in both traditional and Roth accounts gives you flexibility in retirement to manage your taxable income precisely. You can draw from the tax-deferred account up to the top of a lower bracket, then switch to the Roth — effectively paying the lowest possible rate across your lifetime.
 
 Young earners who expect decades of income growth often make the Roth choice more attractive than it appears. Someone in the 22% bracket today who expects to retire with substantial Social Security, rental income, and investment accounts might be in the 24% or 28% bracket in retirement. Use [our Income Tax Calculator](/calculators/finance/income-tax-calculator) to model your current marginal rate and compare it to your expected retirement income.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

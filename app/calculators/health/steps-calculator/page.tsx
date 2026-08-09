@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'steps-calculator',
   title: 'Steps Calculator',
   category: 'health' as const,
   intro: `Steps are the most accessible measure of daily physical activity — yet converting step counts into meaningful health metrics (distance, calories, and health impact) requires knowing your personal stride length and body weight. This calculator does the complete conversion.
@@ -60,11 +61,7 @@ With fitness trackers and smartphones making step counting ubiquitous, understan
 Combine your step data with [our Calorie Burned Walking Calculator](/calculators/health/calorie-burned-walking-calculator) and [our TDEE Calculator](/calculators/health/tdee-calculator) to understand how walking fits into your complete daily energy balance.
 
 **Long-tail searches answered here:** daily steps calculator free online usa, how many steps a day should i take calculator free, steps to distance calculator by height free tool, step count health benefit calculator no signup usa, 10000 steps calories burned calculator free online, steps to miles calculator free no account, steps goal calculator for weight loss free online usa, steps per day vs all cause mortality risk calculator, how 7500 steps compares to 10000 steps benefit calculator, steps from sedentary to active transition calculator free, step goal by age and fitness level calculator usa free, steps equivalent to other exercise calculator free, daily step goal for blood sugar management calculator usa, how many steps to lose 1 pound calculator free, steps accumulation vs continuous walk benefit calculator`,
-  howItWorks: `Stride length is estimated from height: step length ≈ 0.413 × height in meters for walking. Steps per mile = 5,280 feet ÷ step length in feet. Total distance = steps ÷ steps per mile.
-
-Calorie burn uses MET (Metabolic Equivalent of Task) values from the Ainsworth Compendium of Physical Activities. Walking at 2.5 mph = MET 2.8; 3.0 mph = MET 3.5; 3.5 mph = MET 4.3; 4.0 mph = MET 5.0. Calories = MET × body weight (kg) × duration (hours). Duration is estimated from total steps and walking speed.
-
-Reverse calculation: goal calories ÷ (calories burned per step at your weight and speed) = steps needed to reach goal.`,
+  howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
         {title:"Height-based stride estimation",text:"Uses your height to personalize the steps-to-distance conversion rather than the generic 2,000 steps/mile that can be off by 10-20% for people significantly shorter or taller than average.",},
         {title:"Bi-directional calculation",text:"Works both ways: steps to distance/calories, or calorie/distance goal to steps needed. Supports both post-activity analysis and pre-activity planning.",},
@@ -113,7 +110,7 @@ For your complete activity and nutrition picture, combine steps data with [our C
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

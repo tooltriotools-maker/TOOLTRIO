@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'What are zodiac "cusps" and does the calculator handle them?',
     answer: 'Cusp dates are when the Sun transitions between signs — typically around the 19th–23rd of each month. If you were born on one of these dates, your exact birth year matters because the Sun\'s transition point shifts slightly each year. The calculator uses the actual astronomical transition date for each year rather than fixed calendar dates, so cusp-born users get an accurate result instead of a generic "you might be either sign" non-answer.'
   },
-  {
-    question: 'Is this calculator free?',
-    answer: 'Completely free, no account needed. Discover your sign, your compatibility, your Chinese animal, and your elemental traits in under a minute. The stars do not charge admission and neither do we.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

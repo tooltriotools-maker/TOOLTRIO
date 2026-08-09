@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -51,17 +51,13 @@ const faqs = [
     answer: 'Yes — proper nouns are capitalized as expected in the output. "Harry Potter" becomes "Arryhay Otterpay" with the capital letters preserved. This is one of the details most quick translators get wrong, particularly for names that start with vowels or unusual consonant clusters.'
   },
   {
-    question: 'Is this free and ad-free?',
-    answer: 'Free, no account needed, and no ads on the converter tool itself. Translate as much as you want. Your input text is not stored or transmitted anywhere — it processes locally in your browser.'
-  },
-  {
     question: 'Why do different Pig Latin translators give different results for the same word?',
     answer: 'There are a few regional variations in the rules. The treatment of "qu" clusters (does "queen" become "queenway" or "eenquay"?), words starting with "y" (vowel or consonant?), and the choice of "ay" vs "way" vs "yay" for vowel-initial words all vary by tradition. Our converter follows the most widely taught American English rules, which align with most dictionaries and educational resources.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

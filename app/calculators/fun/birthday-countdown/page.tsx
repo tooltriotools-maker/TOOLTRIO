@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -51,17 +51,13 @@ const faqs = [
     answer: 'Yes — grab a screenshot or copy the countdown result and post it anywhere. "Only 47 days until I\'m officially a quarter-century old 😱" tends to do well on Instagram Stories and Twitter. People love birthday content.'
   },
   {
-    question: 'Is it free and does it store my date of birth?',
-    answer: 'Free, always. No account, no email, no personal data stored. The countdown runs in your browser and your birth date never hits any server. Close the tab and it is gone. We built it to be fast and private by design.'
-  },
-  {
     question: 'Does it show what day of the week my birthday falls on?',
     answer: 'Yes! The result includes the exact day of the week for your upcoming birthday, so you can start planning whether it lands on a weekend (lucky you) or a Monday (our condolences). Knowing months in advance helps with booking restaurants, venues, or travel.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

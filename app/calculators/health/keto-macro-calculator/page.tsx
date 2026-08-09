@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'keto-macro-calculator',
   title: 'Keto Macro Calculator',
   category: 'health' as const,
   intro: `A ketogenic diet works through a specific metabolic mechanism: restricting carbohydrates below roughly 20-50 grams net per day depletes liver glycogen, which triggers the production of ketone bodies from fat in the liver. These ketones become an alternative fuel for the brain and muscles. This metabolic state — nutritional ketosis — produces appetite suppression, stable blood glucose, and fat oxidation that many people find beneficial for weight loss and blood sugar management.
@@ -62,33 +63,13 @@ What makes keto hard is precision. The difference between ketosis and just eatin
 This calculator sets your precise keto macros — carbohydrates, protein, and fat targets — based on your weight, height, activity level, and goal, with protein set to preserve lean mass and fat adjusted to hit your calorie target.
 
 **Long-tail searches answered here:** keto macro calculator free online usa 2026, ketogenic diet macro calculator by weight free, how many carbs on keto calculator by goal free tool, keto calories protein fat ratio calculator no signup, keto diet macro breakdown calculator for women usa, net carbs vs total carbs keto calculator free, keto macro calculator for beginners free online usa, how much fat on keto diet per day calculator free, keto protein limit to stay in ketosis calculator free, lazy keto macro calculator free no account usa, keto macros for 200 pound man weight loss calculator, standard vs cyclical keto macro calculator free usa, carb limit for ketosis by body weight calculator free, how many grams of carbs on keto calculator usa free, keto calculator for kidney disease caution free usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate keto macro from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the method documented for this specific calculator to estimate keto macro from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `The keto flu — fatigue, headache, brain fog, irritability in the first 1-2 weeks — is caused by glycogen depletion, electrolyte losses from the diuretic effect of low insulin levels, and your brain temporarily running on reduced glucose while ketone production ramps up. Aggressive sodium, potassium, and magnesium supplementation in the first 2-4 weeks dramatically reduces these symptoms — this is not optional for most people transitioning to keto.
 
 Protein matters as much as carbohydrates. Excessive protein intake can cause gluconeogenesis (conversion of protein to glucose) that prevents or kicks you out of ketosis. The protein targets in this calculator are set to the sweet spot that preserves muscle without generating excess glucose.
@@ -102,7 +83,7 @@ Track your ketones with blood ketone strips (most accurate) or urine strips (les
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

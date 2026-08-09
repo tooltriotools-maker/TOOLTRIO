@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   })
 
   return (
-    <CalculatorLayout title="Sales Tax GST Calculator USA 2026" description="Calculate tax-inclusive and tax-exclusive amounts, and reverse-calculate pre-tax price for any rate." icon="🧾" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gst-calculator">
+    <CalculatorLayout title="GST Calculator India 2026" description="Calculate tax-inclusive and tax-exclusive amounts, and reverse-calculate pre-tax price for any rate." icon="🧾" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="gst-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">GST Details</h2>
@@ -175,10 +175,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          GST Calculator Example (USA 2026)
+          GST Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this GST USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
+          Use this GST India 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
           Adjust inputs to see Gst Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
@@ -187,10 +187,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Sales Tax GST Calculator Example (USA 2026)
+          Sales Tax GST Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600">
-          For example, on a $2,000 business purchase in Texas (8.25% rate), your sales tax GST calculator USA 2026 instantly shows $165 in tax, a $2,165 total, and the pre-tax amount for any tax-inclusive price.
+          For example, enter an India transaction amount and the applicable GST rate to calculate the GST component, tax-inclusive total, or tax-exclusive amount.
         </p>
       </Card>
 
@@ -208,9 +208,6 @@ Tax-inclusive to tax-exclusive: Original price = Inclusive price / (1 + GST rate
 
 For US sales tax, the same formulas apply with state-specific rates. California's base sales tax is 7.25%, but county and city additions bring many California locations to 9.5-10.25%. New York City sales tax is 8.875%. The calculator lets you input any rate for any jurisdiction.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -231,12 +228,6 @@ If you frequently deal with GST calculations in India, the GST portal (gst.gov.i
         conclusion={`GST calculation errors on invoices are common and occasionally costly. Using this calculator to verify vendor invoices before payment catches errors before they become disputes. Running your own sales invoices through the calculator before sending prevents embarrassing corrections.
 
 For businesses, quarterly or monthly GST return preparation requires accurate accumulation of all input tax credits and output tax. Professional accounting software handles this automatically, but understanding the underlying calculations helps you identify when figures look wrong. For smaller businesses handling GST manually, this calculator supports quick verification.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

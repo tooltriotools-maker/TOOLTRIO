@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'How long does the quiz take?',
     answer: 'About 3–5 minutes. It is designed to be fast enough that people actually finish it, with enough substance that the result feels earned rather than arbitrary. Answer based on instinct rather than overthinking each question — your first reaction tends to be most reflective of your natural personality.'
   },
-  {
-    question: 'Is the quiz free and does it require my email?',
-    answer: 'Completely free, no email, no account. Your answers are never stored or shared. We built it this way because asking for an email to access a free personality quiz is exactly the kind of thing a strong-willed INTJ would call "unnecessarily gatekeeping." We agree.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

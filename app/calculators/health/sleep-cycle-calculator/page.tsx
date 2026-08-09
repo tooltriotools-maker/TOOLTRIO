@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sleep-cycle-calculator',
   title: 'Sleep Cycle Calculator',
   category: 'health' as const,
   intro: `The timing of when you wake up matters as much as how many hours you sleep. Have you ever slept 8 hours and felt more groggy than after 7? Have you ever snapped awake before your alarm feeling surprisingly alert? The difference is almost always where in your sleep cycle you woke up.
@@ -60,13 +61,7 @@ This calculator finds the optimal wake-up times based on 90-minute cycle interva
 Combine this with [our Sleep Need Calculator](/calculators/health/sleep-need-calculator) to ensure you are getting enough total sleep, not just optimally timed sleep.
 
 **Long-tail searches answered here:** sleep cycle calculator free online usa, best time to wake up calculator by bedtime free, sleep cycle alarm calculator no signup free tool, how many sleep cycles per night calculator usa, rem sleep schedule calculator free online, optimal bedtime calculator by wake time free no account, best time to go to bed for 6 am wake up free, how many sleep cycles in 7 hours of sleep calculator, sleep quality score calculator by cycle completions free, how long is one complete sleep cycle calculator usa, best wake time to avoid sleep inertia calculator free, sleep cycle stages nrem rem timing calculator usa, how to time alarm for sleep cycles calculator free, sleep efficiency calculator by cycle and duration free, light sleep vs deep sleep cycle calculator free usa`,
-  howItWorks: `The calculator adds 15 minutes to your sleep onset time (the time it takes the average adult to fall asleep after getting into bed in relaxed conditions) and then calculates backwards or forwards in 90-minute intervals — the average length of one complete sleep cycle.
-
-For bedtime-to-wake-up mode: enter your desired wake time, and the calculator shows ideal bedtimes that allow 4 cycles (6h15m), 5 cycles (7h45m), or 6 cycles (9h15m) of sleep.
-
-For wake-up-from-bedtime mode: enter when you plan to go to sleep, and the calculator shows ideal alarm times at 4, 5, and 6 complete cycles after sleep onset.
-
-Note that individual cycle length varies 70-120 minutes. If the suggested times consistently feel slightly off for you, adjust by adding or subtracting 15 minutes to match your personal cycle length.`,
+  howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
     {title:"Wake-up time calculator",text:"Enter your required wake time and instantly see the best times to go to sleep — calculated backwards from your alarm so you plan to wake up naturally between cycles rather than in the middle of deep sleep."},
     {title:"Bedtime calculator",text:"Enter when you plan to go to sleep and see the optimal alarm times at 4, 5, and 6-cycle intervals — helping you pick an alarm that aligns with natural cycle transitions."},
@@ -124,7 +119,7 @@ For persistent sleep problems — difficulty falling asleep, frequent waking, or
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

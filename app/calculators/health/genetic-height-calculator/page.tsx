@@ -14,7 +14,7 @@ const faqs = [
   { question: 'At what age does height growth stop?', answer: 'Girls typically complete height growth by age 14-16 (2-3 years after the peak of the adolescent growth spurt, which occurs around age 11-12). Boys typically finish growing by age 17-18 (the growth spurt peaks around age 13-14). However, minor additional growth (< 1 cm) can occur into the early 20s for some individuals as growth plate closure completes. Bone age X-rays are more reliable than chronological age for predicting remaining growth potential — open growth plates indicate potential for more growth.' },
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Genetic Height Potential Calculator', description: "Free genetic height potential calculator 2026. Predict adult height from parents' heights using the ", url: 'https://tooltrio.com/calculators/health/genetic-height-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch43DeepDive slug="genetic-height-calculator" />
 </>)
 }

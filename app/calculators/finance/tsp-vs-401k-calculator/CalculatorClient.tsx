@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[salary, tspContrib, yearsService, age])
 
   return (
-    <CalculatorLayout title="TSP vs 401k Calculator USA 2026 — Federal Employee Retirement" description="Compare Thrift Savings Plan (TSP) vs private sector 401k. Calculate FERS pension value, TSP matching, and total federal employee retirement package." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="tsp-vs-401k-calculator">
+    <CalculatorLayout title="TSP vs 401(k) Calculator USA 2026 — Federal Employee Retirement" description="Compare Thrift Savings Plan (TSP) vs private sector 401k. Calculate FERS pension value, TSP matching, and total federal employee retirement package." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="tsp-vs-401k-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -97,7 +97,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="TSP vs 401k Calculator USA 2026 — Federal Employee Retirement" category="finance"
+        <SEOContent title="TSP vs 401(k) Calculator USA 2026 — Federal Employee Retirement" category="finance"
           intro="This federal-retirement model combines an entered TSP contribution, a fixed 5% matching assumption and a simplified FERS pension estimate. It illustrates how federal retirement can combine defined-contribution savings with a pension; it is not a full private-sector 401(k) comparison."
           howItWorks="Annual modeled match = salary × 5%. The current function grows one year of contribution plus match at 7% for 30 minus current service years; it does not add a fresh contribution every future year. FERS pension = salary × 1% × service years, or 1.1% at age 62+ with 20+ years. Pension present value is approximated as annual pension ÷ 4%."
           tipsSection="The 7% return and 4% pension capitalization rate are assumptions. Actual FERS uses high-3 average pay and eligibility rules. The 2026 TSP elective-deferral limit is $24,500; catch-up is $8,000 generally at 50+, or $11,250 at ages 60–63."

@@ -11,7 +11,7 @@ const faqs = [
   {"question": "How much does restricted mobility increase injury risk?", "answer": "Mobility restrictions alter movement mechanics and force distribution. A restricted ankle (poor dorsiflexion) in a squat forces compensatory knee cave or forward lean, increasing anterior cruciate ligament (ACL) and patellofemoral stress. Restricted hip flexion compensation through lumbar flexion is a primary contributor to lumbar disc injuries in deadlifts and running. Restricted thoracic rotation forces cervical or lumbar compensation, increasing neck and lower back injury risk. Functional Movement Screen (FMS) research shows athletes with asymmetrical or restricted movement patterns have significantly higher injury rates than those with adequate fundamental movement."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Joint Mobility Score Calculator', description: 'Free joint mobility calculator 2026. Score your range of motion at shoulder, hip, ankle, neck, thora', url: 'https://tooltrio.com/calculators/health/joint-mobility-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch46DeepDive slug="joint-mobility-calculator" />
 </>)
 }

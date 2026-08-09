@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     question: 'At what age should I buy LTC insurance?',
-    answer: 'The optimal window is 55-65: premiums are significantly lower than at 70+, but not so many years of premium payments as buying at 45. Buying at 55 vs 65 roughly halves annual premiums. However, 50% of applicants over 70 are declined for medical reasons vs 15% under 60. Most financial planners suggest evaluating at 55-60 and purchasing if affordable.',
+    answer: 'The optimal window is 55-65: premiums are significantly lower than at 70+, but not so many years of premium payments as buying at 45. Buying at 55 vs 65 roughly halves annual premiums. Underwriting becomes more important with age and health history, but approval rates and premiums vary substantially by insurer and applicant. Consider evaluating coverage before health changes make it harder or more expensive to qualify.',
   },
   {
     question: 'LTC insurance vs self-funding?',
-    answer: 'With $2M+ in liquid assets, self-funding is viable — set aside $250,000-$400,000 in conservative investments for potential LTC needs. Below that threshold, insurance protects against catastrophic LTC costs depleting assets intended for a surviving spouse or heirs. Hybrid life/LTC policies (paying death benefit if LTC not needed) have grown popular as an alternative to pure LTC insurance.',
+    answer: 'Self-funding may be appropriate for some households, but there is no universal asset threshold. Compare expected care costs, liquid assets, insurance premiums, family resources and the risk of a prolonged care event. Hybrid life/LTC policies (paying death benefit if LTC not needed) have grown popular as an alternative to pure LTC insurance.',
   }
 ]
 const relatedCalculators = [

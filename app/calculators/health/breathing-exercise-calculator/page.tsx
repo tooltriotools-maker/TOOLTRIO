@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Breathing Exercise Calculator 2026 | ToolTrio',
-  description: 'Calculate personalized timing for breathing exercises including box breathing, 4-7-8 breathing, diaphragmatic breathing, and Wim Hof method. Set breath.',
+  description: 'Set timing for breathing exercises such as box breathing, 4-7-8 and diaphragmatic breathing. This is a pacing tool, not medical treatment.',
   slug: 'breathing-exercise-calculator',
   category: 'health',
   region: 'usa',
@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'breathing-exercise-calculator',
   title: 'Breathing Exercise Calculator',
   category: 'health' as const,
   intro: `Breathing is the only autonomic function you can consciously control — and that access point is why structured breathing exercises have measurable effects on heart rate, blood pressure, anxiety, and stress hormone levels. The mechanism isn't mystical: slow, controlled breathing directly activates the parasympathetic nervous system by stimulating the vagus nerve, lowering heart rate, and shifting your nervous system state from sympathetic (fight-or-flight) to parasympathetic (rest-and-digest).
@@ -63,18 +64,6 @@ Consistency matters more than duration. Five minutes of coherent breathing daily
 **Long-tail searches answered here:** breathing exercise calculator free online usa, how long should i do breathing exercises calculator, box breathing timing calculator free tool, pranayama breathing timer calculator no signup, 4 7 8 breathing calculator free online, deep breathing exercise duration calculator usa, diaphragmatic breathing session timer calculator free, breathing exercise frequency for anxiety relief calculator, wim hof method breathing calculator free online usa, breathing rate per minute normal range calculator free, pursed lip breathing technique timing calculator usa, belly breathing vs chest breathing comparison calculator, daily breathing practice benefit calculator free usa, breathing exercises for blood pressure timing free, coherent breathing 5 5 seconds timer calculator free`,
   howItWorks: `Breathing exercise timing is calculated based on established protocols from clinical research. Box breathing: equal timing of 4 phases (inhale-hold-exhale-hold) where the total cycle length is adapted to comfortable breath hold capacity. 4-7-8 breathing: timing ratio of 4 seconds inhale, 7 seconds hold, 8 seconds exhale — producing a respiratory rate of roughly 3 breaths per minute that activates parasympathetic nervous system response. Diaphragmatic breathing target: 6 breaths per minute (5 seconds in, 5 seconds out) which resonates with heart rate variability at the Mayer wave frequency, maximizing baroreflex sensitivity and HRV.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Start with shorter breath holds than you think you need. Box breathing for beginners should use a 4-second box (4-4-4-4), not the advanced 6-second box (6-6-6-6). Progress takes weeks of consistent practice.
 
@@ -95,7 +84,7 @@ Combine breathing exercises with [our Heart Rate Calculator](/calculators/health
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -13,7 +13,8 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [holdYears, setHoldYears] = useState(6)
   const [exitMultiple, setExitMultiple] = useState(25)
   const [companyAssetsAtIssuance, setCompanyAssetsAtIssuance] = useState(8000000)
-  const result = useMemo(()=>{try{return calculateQualifiedSmallBusinessStock(investmentAmount,holdYears,exitMultiple,companyAssetsAtIssuance)}catch(e){return null}},[investmentAmount, holdYears, exitMultiple, companyAssetsAtIssuance])
+  const [postJuly2025Stock, setPostJuly2025Stock] = useState(false)
+  const result = useMemo(()=>{try{return calculateQualifiedSmallBusinessStock(investmentAmount,holdYears,exitMultiple,companyAssetsAtIssuance,postJuly2025Stock)}catch(e){return null}},[investmentAmount, holdYears, exitMultiple, companyAssetsAtIssuance, postJuly2025Stock])
   return (
     <CalculatorLayout title="QSBS Section 1202 Calculator USA 2026" description="QSBS Section 1202 Calculator USA 2026" icon="🚀" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="qsbs-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -44,6 +45,13 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Stock issued after July 4, 2025?</label>
+            <select value={postJuly2025Stock ? 'yes' : 'no'} onChange={e=>setPostJuly2025Stock(e.target.value==='yes')} className="w-full border rounded-xl px-3 py-2 text-sm">
+              <option value="no">No — legacy Section 1202 regime</option>
+              <option value="yes">Yes — newer Section 1202 regime</option>
+            </select>
+          </div>
+          <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Company Gross Assets at Issuance</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
@@ -70,8 +78,8 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       <div className="mt-8">
         <SEOContent title="QSBS Section 1202 Calculator" category="finance"
           intro="Estimate a potential Section 1202 gain exclusion from an original startup-stock investment. The calculator models exit value, gain, an exclusion cap and simplified federal tax savings, but QSBS qualification depends on facts that four numeric inputs cannot establish."
-          howItWorks="Exit value = investment × exit multiple; gain = exit value − investment. The current model treats stock as eligible only when held at least five years and company assets at issuance are below $50 million. It then caps excluded gain at the greater of $10 million or 10× the entered investment and applies a flat 23.8% rate to taxable/excluded gain for illustration."
-          tipsSection="Important: the current eligibility test reflects older Section 1202 thresholds and cannot determine original-issuance status, qualified trade/business use, shareholder eligibility or acquisition date. IRS 2025 Schedule D instructions state that the gross-asset threshold is $75 million for stock issued after July 4, 2025, versus $50 million for earlier stock. The page therefore treats its eligibility output as a screening estimate, not a tax conclusion."
+          howItWorks="Exit value = investment × exit multiple; gain = exit value − investment. The model now distinguishes stock issued after July 4, 2025 from the legacy regime: newer stock uses a $75 million asset threshold, a 3/4/5-year exclusion schedule, and a greater-of-$15 million-or-10×-basis cap. The legacy option retains the older $50 million / five-year / $10 million-or-10× assumptions. The tax rate remains a simplified illustration."
+          tipsSection="Important: the current eligibility test reflects older Section 1202 thresholds and cannot determine original-issuance status, qualified trade/business use, shareholder eligibility or acquisition date. IRS guidance distinguishes the newer $75 million gross-asset threshold from the earlier $50 million threshold. The calculator still cannot determine original issuance, active-business, shareholder or other eligibility tests, so its output remains a screening estimate."
           conclusion="The exclusion can be valuable, but eligibility is highly fact-specific. Use the modeled gain and cap as a conversation starter and verify issuance date, corporation status, gross assets, active-business requirements, holding period and the law applicable to the shares."
           benefits={[{title:"Methodology",text:"Explains the exact assumptions used by this ToolTrio model."},{title:"Scenario testing",text:"Change the inputs to see which assumptions drive the result."},{title:"Limitations",text:"Highlights important factors the simplified model does not capture."}]}
           useCases={[{title:"Planning",text:"Build a calculator-specific baseline from your own inputs."},{title:"Sensitivity check",text:"Compare a conservative scenario with a more optimistic one."}]}

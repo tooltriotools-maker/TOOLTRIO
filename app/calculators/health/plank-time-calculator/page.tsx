@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'plank-time-calculator',
   title: 'Plank Time Calculator',
   category: 'health' as const,
   intro: `The plank is one of the most misunderstood exercises in mainstream fitness. It's marketed primarily as a core toning exercise, but its actual value lies in developing isometric endurance in the muscles that stabilize the spine and pelvis during movement — a capacity that has direct carryover to almost every athletic activity and daily movement.
@@ -62,33 +63,13 @@ For healthy adults under 45, 90-120 seconds is generally considered a reasonable
 This calculator assesses your plank performance against age and sex norms, evaluates your plank-to-side-plank ratio for core stability balance, and generates a progression plan based on your current performance.
 
 **Long-tail searches answered here:** plank time score calculator free online usa, is my plank time good for my age calculator, plank fitness assessment calculator free no signup, how long should i plank for calculator usa free, plank time percentile by age and gender calculator, core strength plank benchmark calculator free tool, 1 minute plank vs 2 minute plank benefit comparison, how to improve plank time calculator free online usa, plank time progression goal calculator free, side plank vs front plank time equivalence calculator, plank core strength vs back strength indicator calculator free, how plank time correlates to core injury prevention, plank training frequency for improvement calculator free usa, plank time milestone tracker free calculator usa, hollow body hold vs plank difficulty comparison calculator`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate plank time from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate plank time from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `If your maximum plank hold time exceeds 2 minutes, adding duration is not the highest-value use of your training time. Progress to more challenging variations instead: stir-the-pot (forearms on stability ball), plank with alternating leg lifts, RKC plank, or weighted plank with plate on back.
 
 For lower back pain specifically, the research supports plank and its variations as rehabilitation exercises — but technique matters enormously. A plank with sagging hips and forward head position actively compresses the lumbar spine and is counterproductive. Perfect technique at shorter durations is more therapeutic than sloppy technique held for minutes.
@@ -102,7 +83,7 @@ Pair it with anti-rotation work (Pallof press, landmine rotations) and hip stabi
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

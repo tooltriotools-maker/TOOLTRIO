@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free SIP calculator India 2026. Calculate monthly SIP investment returns, total wealth at any CAGR, and the power of rupee cost averaging. Real examples.',
  slug: 'sip-calculator',
  category: 'finance',
+ region: 'india',
  keywords: [
     'sip calculator 2026',
     'sip calculator',
@@ -44,7 +45,7 @@ const relatedCalculators = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <SIPCalculatorClient

@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free Social Security calculator USA 2026. Estimate your monthly Social Security benefit based on earnings history, claiming age (62–70), and break-even.',
  slug: 'social-security-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'social security calculator 2026',
     'social security calculator',

@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Student Loan Forgiveness Calculator USA 2026 — IDR & PSLF"
-      description="Calculate payments and forgiveness amounts under SAVE, IBR, and PSLF plans. Compare total cost vs standard repayment."
+      description="Compare a simplified student-loan forgiveness scenario with current federal repayment guidance; legacy SAVE output is not a current-plan recommendation."
       icon="🎓"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Monthly Payment (SAVE)" value={result ? `${Number(result.monthlyPayment).toLocaleString()} /mo` : "—"} highlight />
+                <ResultCard label="Monthly Payment (Legacy Scenario)" value={result ? `${Number(result.monthlyPayment).toLocaleString()} /mo` : "—"} highlight />
                 <ResultCard label="Total Paid" value={result ? `${Number(result.totalPaid).toLocaleString()}` : "—"} />
                 <ResultCard label="Estimated Forgiven" value={result ? `${Number(result.remainingBalance).toLocaleString()}` : "—"} />
                 <ResultCard label="Tax on Forgiveness" value={result ? `${Number(result.taxOnForgiveness).toLocaleString()}` : "—"} />

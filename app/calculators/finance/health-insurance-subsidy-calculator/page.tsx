@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'What income qualifies for ACA subsidies in 2026?',
-    answer: "Subsidies are available to households with income between 100% and 400% of the Federal Poverty Level (FPL) who don't have affordable employer coverage or Medicaid. 100% FPL for 2 people: $20,440. 400% FPL: $81,760. American Rescue Plan expanded subsidies beyond 400% FPL through 2025 — check healthcare.gov for current rules. If your income changes during the year, update your marketplace application immediately to avoid owing back subsidies.",
+    answer: "Subsidies are available to households with income between 100% and 400% of the Federal Poverty Level (FPL) who don't have affordable employer coverage or Medicaid. Current premium-tax-credit eligibility is generally within 100%–400% of FPL; use the current Marketplace application for the exact household calculation and benchmark premium. If your income changes during the year, update your marketplace application immediately to avoid owing back subsidies.",
   },
   {
     question: 'What is cost-sharing reduction (CSR)?',

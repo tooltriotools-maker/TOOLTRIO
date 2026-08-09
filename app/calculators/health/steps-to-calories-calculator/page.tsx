@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'steps-to-calories-calculator',
   title: 'Steps to Calories Calculator',
   category: 'health' as const,
   intro: `Step count has become one of the most tracked health metrics in the world — almost every smartphone and wearable device counts steps — but translating those steps into calorie expenditure requires accounting for variables that dramatically affect the result. A 130-pound woman walking at 3 mph burns roughly 0.04 calories per step. A 220-pound man walking at the same speed burns about 0.06 calories per step. Pace, incline, fitness level, and carrying weight all modify this further.
@@ -62,33 +63,13 @@ The MET-based calculation for steps uses the fact that walking burns approximate
 This calculator converts your daily step count to calorie expenditure based on your weight, height, and typical walking pace, and shows you how your step activity fits into your total daily energy picture.
 
 **Long-tail searches answered here:** steps to calories burned calculator free online usa, how many calories do 10000 steps burn calculator, steps burned calorie calculator by weight free tool, daily steps calorie conversion calculator no signup, walking steps to calories calculator usa free 2026, fitbit steps to calories burned calculator free, steps calorie burn calculator by walking speed and weight, how body weight affects step calorie burn calculator usa, steps to calorie deficit calculator for weight loss free, 5000 steps vs 10000 steps calorie difference calculator, active vs passive steps calorie burn calculator usa free, stair steps calorie burn vs flat walking calculator, calories per step calculation by height and stride free, monthly calorie burn from daily step count calculator usa, how to verify step calorie calculation accuracy free`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate steps to calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate steps to calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Steps are a useful proxy for overall activity, but the quality of steps matters. Ten thousand steps at 2 mph on flat terrain produces significantly fewer health and calorie benefits than 7,000 steps that include hill climbing, brisk walking segments, or carrying items.
 
 Stair climbing, often undervalued in step-based tracking, burns roughly 8-10 calories per floor climbed and adds significant cardiovascular and leg strength benefits per calorie burned compared to flat walking.
@@ -102,7 +83,7 @@ For more comprehensive calorie tracking, combine step-based activity with [our C
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

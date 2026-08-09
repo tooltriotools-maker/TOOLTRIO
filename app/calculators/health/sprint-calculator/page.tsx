@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'sprint-calculator',
   title: 'Sprint Calculator',
   category: 'health' as const,
   intro: `Sprint performance is a window into your neuromuscular system — the combination of fast-twitch muscle fiber recruitment, motor neuron firing rate, stride mechanics, and ground contact time that determines how fast you can move over short distances. Unlike endurance performance, which adapts gradually over months, sprint performance can improve meaningfully in 4-8 weeks of specific training because much of the initial gain comes from neural adaptations.
@@ -62,31 +63,10 @@ Sprint times correlate with vertical jump, strength-to-weight ratio, and reactiv
 This calculator converts sprint times across distances using validated prediction models, estimates your speed percentiles against athletic population norms, and identifies which phase of your sprint most limits your overall performance.
 
 **Long-tail searches answered here:** sprint speed calculator free online usa, how fast can i sprint calculator free tool, sprint time to mph converter calculator free, 40 yard dash to mph calculator no signup usa, sprint training pace calculator free online 2026, maximum sprint speed estimator by age free, 100 meter dash to mph speed calculator usa free, elite vs average sprint speed comparison calculator free, sprint speed and fast twitch muscle ratio calculator, sprint training zone heart rate calculator usa free, acceleration phase vs max velocity sprint calculator free, resisted vs free sprint training benefit calculator usa, sprint power output calculator from time and weight, fat loss from sprint interval training calculator free, sprinting mechanics ground contact time calculator usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate sprint from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
-
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
-
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+  howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
+  scienceSection: `The methodology and reference information for this calculator should be interpreted in the context of the specific formula, population, and assumptions described on this page; generic population-survey language is not a substitute for a calculator-specific source.
 
 As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Sprint training should never begin without a thorough warm-up. Maximal sprint efforts with cold, unprepared muscles carry significant hamstring strain risk — the hamstring is the most commonly injured muscle in sprinting, typically occurring at maximum velocity during the late swing phase.
@@ -102,7 +82,7 @@ For improvement, sprint training volume should be low and intensity high. Three 
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

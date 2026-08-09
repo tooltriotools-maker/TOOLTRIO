@@ -15,7 +15,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is IRMAA?',
-    answer: "IRMAA (Income-Related Monthly Adjustment Amount) is a surcharge on Medicare Part B and Part D premiums for higher-income beneficiaries. It's based on your income from 2 years prior. In 2026, IRMAA kicks in above $106,000 (single) or $212,000 (married). At the highest tier ($500,000+ single), Part B costs $628.90/month vs the standard $185.00.",
+    answer: "IRMAA (Income-Related Monthly Adjustment Amount) is a surcharge on Medicare Part B and Part D premiums for higher-income beneficiaries. It's based on your income from 2 years prior. In 2026, For 2026, the first IRMAA tier begins above $109,000 for single filers or $218,000 for married filing jointly. The standard Part B premium is $202.90/month, and the highest single-filer tier has a $689.90 total Part B premium.",
   },
   {
     question: 'How can I reduce Medicare IRMAA?',
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'When does Medicare IRMAA kick in for 2026?',
-    answer: 'Part B standard premium: $185.00/month (income under $106,000 single / $212,000 married). First IRMAA tier starts at $106,000+ single: Part B jumps to $259.00/month — a $74/month increase or $888/year. The highest IRMAA tier ($500,000+ single) pays $628.90/month for Part B plus $85.80/month Part D surcharge.',
+    answer: 'For 2026, the standard Part B premium is $202.90/month. The first single-filer IRMAA tier applies above $109,000 MAGI and the highest tier starts at $500,000; the corresponding total Part B premium is $689.90/month.',
   },
   { question: 'Does the total include my Part D plan premium?', answer: 'No. It adds the 2026 Part B premium and Part D IRMAA surcharge only; your Part D plan premium varies by plan.' },
   { question: 'What income thresholds does the current UI use?', answer: 'The UI models a single filer: 2026 IRMAA tiers begin above $109,000, $137,000, $171,000, $205,000 and at $500,000 of MAGI.' },

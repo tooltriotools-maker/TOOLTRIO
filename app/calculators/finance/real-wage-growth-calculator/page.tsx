@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'How much should I ask for in a salary negotiation?',
-    answer: 'Rule of thumb: inflation rate (3-4%) plus productivity/merit premium (1-3%) = 4-7% annual raise target. Simply matching inflation keeps purchasing power flat. Any raise below inflation is effectively a pay cut. Research your market rate on Levels.fyi, LinkedIn Salary, Glassdoor, and industry surveys — then negotiate for market rate, not just an inflation adjustment.',
+    answer: 'A raise below the inflation rate reduces purchasing power if all else is equal. A negotiation target should reflect market pay, role scope, performance and the employer compensation structure rather than one universal percentage. Research your market rate on Levels.fyi, LinkedIn Salary, Glassdoor, and industry surveys — then negotiate for market rate, not just an inflation adjustment.',
   }
 ]
 const relatedCalculators = [

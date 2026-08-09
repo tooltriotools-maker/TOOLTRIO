@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'calorie-burned-walking-calculator',
   title: 'Calorie Burned Walking Calculator',
   category: 'health' as const,
   intro: `Walking is metabolically underrated. It's low-intensity enough that it doesn't generate the afterburn effect of high-intensity exercise, but it's accessible, sustainable, and accumulates to meaningful calorie expenditure when done consistently throughout the day. A 160-pound person walking at 3.5 mph burns roughly 300-350 calories per hour — less than jogging, but easy enough to do for much longer and with far less recovery cost.
@@ -61,33 +62,13 @@ This calculator uses the MET (metabolic equivalent of task) framework validated 
 The result gives you a realistic estimate — not a fitness tracker's optimistic overcount — of what your walks are actually contributing to your energy expenditure.
 
 **Long-tail searches answered here:** calories burned walking calculator free online usa, how many calories do i burn walking 10000 steps, walking calorie burn calculator by weight and distance, calories burned walking 30 minutes free calculator, treadmill walking calorie calculator no signup, how many calories burned walking 1 mile by weight, calories burned walking uphill vs flat free calculator, walking 5 miles a day calorie burn calculator usa, calories burned walking vs running same distance free, how many calories burned walking 45 minutes free, slow walking vs brisk walking calorie difference calculator, daily calorie burn from 7000 steps calculator free usa, walking 2 miles calorie burn calculator by body weight, calories burned walking with a stroller free calculator, incline walking on treadmill calorie calculator free usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate calorie burned walking from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses published MET/activity equations to estimate calories burned walking from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `Walking's real value isn't in any single walk but in the cumulative effect of more steps taken consistently. Research shows people who average 7,000-9,000 steps per day show significantly lower all-cause mortality compared to sedentary peers, with diminishing returns above 10,000 steps for most age groups.
 
 If you're using walking specifically for weight management, the math works best when you track trends over weeks rather than individual sessions. A 30-minute brisk walk burns 150-250 calories depending on your weight — not transformative in isolation, but adding up to 1,000-1,500+ calories per week consistently is meaningful.
@@ -101,7 +82,7 @@ Use [our Steps to Calories Calculator](/calculators/health/steps-to-calories-cal
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

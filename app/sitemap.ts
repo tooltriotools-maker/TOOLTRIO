@@ -1,401 +1,81 @@
 import { MetadataRoute } from 'next'
 import { allBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { MASTER_TOOL_REGISTRY } from '@/lib/catalog'
 
 const BASE = 'https://tooltrio.com'
-// Use stable dates for static pages - prevents Google thinking ALL pages
-// changed on every build (which wastes crawl budget and confuses change signals)
-// NOTE: Do NOT use new Date().toISOString() for static pages.
-// Signals to Google that EVERY page changed on every build → wastes crawl budget.
-// Update SITE_DATE manually only when core pages actually change.
-const STABLE_DATE = '2026-05-01T00:00:00.000Z'   // site launch date
-const CALC_DATE   = '2026-05-15T00:00:00.000Z'   // calculators published
-const SITE_DATE   = '2026-06-10T00:00:00.000Z'   // last meaningful site-wide update
 
-// ── USA Finance calculator slugs ──────────────────────────────────────────────
-const financeCalcsUSA = [
-  '401k-calculator', '401k-early-withdrawal-vs-loan-calculator', '401k-vs-pension-calculator', '401k-vs-roth-ira-calculator', '401k-vs-taxable-account-calculator',
-  '529-vs-roth-ira-education-calculator', '529-vs-utma-calculator',
-  'annuity-vs-lumpsum-calculator', 'bonds-vs-cds-usa-calculator', 'break-even-calculator', 'budget-calculator', 'cagr-calculator',
-  'car-depreciation-calculator', 'car-loan-calculator', 'cash-out-refinance-vs-heloc-calculator', 'cd-ladder-calculator', 'cd-vs-hysa-calculator', 'college-cost-calculator',
-  'compound-interest-calculator', 'credit-card-payoff-calculator', 'crypto-profit-calculator', 'currency-converter', 'currency-profit-calculator', 'debt-payoff-calculator',
-  'dividend-calculator', 'dividend-growth-vs-growth-stocks-calculator', 'dollar-cost-averaging-vs-lumpsum-usa-calculator', 'education-goal-calculator',
-  'emergency-fund-calculator', 'fire-calculator', 'government-bond-calculator',
-  'heloc-calculator', 'home-affordability-calculator', 'hsa-vs-fsa-calculator', 'i-bonds-vs-tips-calculator', 'income-tax-calculator', 'index-fund-vs-etf-calculator',
-  'inflation-calculator', 'inflation-protected-bonds-vs-stocks-calculator',
-  'lease-vs-buy-calculator', 'loan-prepayment-calculator', 'medicare-vs-private-insurance-calculator', 'mortgage-refinance-calculator', 'mortgage-vs-renting-usa-calculator',
-  'municipal-bonds-vs-corporate-bonds-calculator', 'net-worth-calculator',
-  'pay-off-mortgage-vs-invest-calculator', 'paycheck-calculator', 'pe-ratio-calculator', 'personal-loan-calculator',
-  'real-estate-roi-calculator', 'real-return-calculator', 'refinance-vs-invest-calculator', 'reit-vs-direct-property-usa-calculator', 'rent-vs-buy-calculator',
-  'rental-yield-calculator', 'retirement-calculator', 'roi-calculator',
-  'roth-ira-calculator', 'roth-ira-vs-401k-employer-match-calculator', 'roth-ira-vs-hsa-calculator', 'roth-ira-vs-traditional-ira-calculator',
-  'salary-calculator', 'savings-goal-calculator', 'sep-ira-vs-solo-401k-calculator', 'simple-interest-calculator',
-  'social-security-calculator', 'social-security-vs-private-pension-calculator', 'sp500-vs-bonds-calculator', 'sp500-vs-real-estate-usa-calculator',
-  'stock-profit-calculator', 'student-loan-calculator', 'term-vs-whole-life-calculator', 'tip-calculator',
-  'traditional-ira-vs-taxable-account-calculator', 'us-real-estate-vs-reits-calculator', 'vanguard-vs-fidelity-etf-calculator', 'whole-market-vs-sp500-calculator',
-  'xirr-calculator',
-  // New 2026 trending
-  'mortgage-calculator', 'auto-loan-calculator', 'biweekly-mortgage-calculator',
-  'down-payment-calculator', 'closing-cost-calculator', 'payoff-date-calculator',
-  'budget-planner-calculator', 'savings-rate-calculator', 'loan-comparison-calculator',
-  'annual-income-calculator', 'interest-rate-calculator',
-  'business-loan-calculator', 'weekly-budget-calculator', 'invoice-calculator',
-  'wealth-calculator', 'tax-bracket-calculator', 'roth-conversion-calculator',
-  // New 25 USA Finance Calculators 2026
-  'heloc-credit-line-calculator', 'social-security-breakeven-calculator',
-  'required-minimum-distribution-calculator', 'backdoor-roth-ira-calculator',
-  'mega-backdoor-roth-calculator', 'sep-ira-calculator',
-  'capital-gains-tax-calculator', 'real-estate-cost-basis-calculator',
-  'i-bonds-calculator', 'hsa-investment-calculator',
-  'medicare-premium-calculator', 'estate-tax-calculator',
-  'gift-tax-calculator', 'qbi-deduction-calculator',
-  'health-insurance-deductible-calculator', 'fsa-calculator',
-  'dependent-care-fsa-calculator', 'student-loan-forgiveness-calculator',
-  'alternative-minimum-tax-calculator', 'self-employment-tax-calculator',
-  'equity-compensation-calculator', 'net-investment-income-tax-calculator',
-  'crypto-tax-calculator', 'college-savings-529-calculator',
-  'annual-bonus-tax-calculator',
-  // Batch 2 — 25 more USA Finance Calculators
-  'payroll-tax-calculator',
-  'wealth-transfer-calculator',
-  'student-loan-vs-invest-calculator',
-  'social-security-spousal-calculator',
-  'home-equity-loan-calculator',
-  'rental-property-investment-calculator',
-  'tax-loss-harvesting-calculator',
-  'drip-calculator',
-  'life-insurance-needs-calculator',
-  'roth-conversion-ladder-calculator',
-  'inflation-impact-calculator',
-  'rent-increase-calculator',
-  'mortgage-points-calculator',
-  'salary-negotiation-calculator',
-  'child-tax-credit-calculator',
-  'annuity-income-calculator',
-  'early-retirement-calculator',
-  'hdhp-vs-traditional-insurance-calculator',
-  'cost-of-debt-calculator',
-  'net-salary-calculator',
-  'business-valuation-calculator',
-  'fire-number-calculator',
-  'property-tax-calculator',
-  'retirement-withdrawal-calculator',
-  'long-term-care-insurance-calculator',
-  'scholarship-financial-aid-calculator',
-  // Batch 3 — 25 more USA Finance Calculators
-  'solo-401k-calculator',
-  'inherited-ira-calculator',
-  'mortgage-affordability-calculator',
-  'college-roi-calculator',
-  'house-flip-calculator',
-  'social-security-tax-calculator',
-  'home-office-deduction-calculator',
-  'municipal-bond-tax-calculator',
-  'covered-call-calculator',
-  'tsp-vs-401k-calculator',
-  'options-pricing-calculator',
-  'estate-probate-calculator',
-  'taxable-vs-roth-vs-traditional-calculator',
-  'cash-value-life-insurance-calculator',
-  'state-tax-relocation-calculator',
-  'emergency-fund-hysa-calculator',
-  'student-loan-refinance-calculator',
-  'net-unrealized-appreciation-calculator',
-  'bond-ladder-calculator',
-  'crypto-dca-calculator',
-  'pension-vs-lump-sum-calculator',
-  'index-fund-fee-calculator',
-  'i-bond-ladder-calculator',
-  'wealth-building-comparison-calculator',
-  'tax-withholding-w4-calculator',
-  // Batch 4 — 21 new USA Finance Calculators (merged from V7)
-  '72t-sepp-calculator',
-  'alimony-tax-calculator',
-  'bonus-depreciation-calculator',
-  'capital-gains-harvesting-calculator',
-  'charitable-giving-tax-calculator',
-  'cobra-vs-marketplace-calculator',
-  'defined-benefit-pension-calculator',
-  'fha-vs-conventional-calculator',
-  'fica-tax-calculator',
-  'freelancer-quarterly-tax-calculator',
-  'hsa-triple-tax-growth-calculator',
-  'margin-trading-calculator',
-  'prepaid-vs-savings-529-calculator',
-  'qualified-dividend-tax-calculator',
-  'rental-property-depreciation-calculator',
-  'safe-harbor-401k-calculator',
-  'series-ee-bond-calculator',
-  'social-security-wep-calculator',
-  'stock-option-tax-calculator',
-  'treasury-bill-calculator',
-  'w2-vs-1099-calculator',
-  'wash-sale-calculator',
-  // Batch 5 — 95 new USA Finance Calculators (merged from V10)
-  '529-to-roth-rollover-calculator', 'alimony-calculator', 'annuity-certain-vs-lifetime-calculator', 'background-check-roi-calculator', 'barista-fire-calculator',
-  'bridge-loan-calculator', 'business-startup-calculator', 'career-earnings-calculator', 'charitable-bunching-calculator', 'collectibles-investment-calculator',
-  'college-debt-burden-calculator', 'college-financial-aid-strategies-calculator', 'college-savings-goal-calculator', 'cost-segregation-study-calculator', 'crypto-staking-calculator',
-  'debt-to-income-optimizer', 'disability-insurance-calculator', 'dividend-growth-portfolio-calculator', 'donor-advised-fund-calculator', 'elder-care-cost-calculator',
-  'equity-indexed-annuity-calculator', 'esop-value-calculator', 'estate-liquidity-calculator', 'estate-planning-checklist-calculator', 'family-budget-planner-calculator',
-  'federal-contractor-tax-calculator', 'gig-economy-tax-calculator', 'health-insurance-subsidy-calculator', 'home-equity-vs-personal-loan', 'house-hacking-roi-calculator',
-  'hsa-projection-calculator', 'hsa-vs-401k-priority-calculator', 'income-replacement-ratio-calculator', 'income-tax-estimator', 'insurance-by-life-stage-calculator',
-  'investment-fee-drag-calculator', 'investment-property-depreciation-calculator', 'investment-property-leverage-calculator', 'irs-installment-agreement-calculator', 'k1-income-tax-calculator',
-  'k1-passive-loss-calculator', 'leveraged-etf-decay-calculator', 'medicare-part-d-calculator', 'merit-raise-vs-job-change-calculator', 'mortgage-forbearance-impact-calculator',
-  'mortgage-refinance-breakeven-calculator', 'municipal-bond-ladder-calculator', 'nanny-tax-calculator', 'net-operating-loss-calculator', 'opportunity-zone-calculator',
-  'options-greeks-calculator', 'passive-income-portfolio-calculator', 'peer-to-peer-lending-calculator', 'pmi-calculator', 'portfolio-rebalancing-calculator',
-  'prenup-asset-protection-calculator', 'profit-sharing-plan-calculator', 'qsbs-calculator', 'real-estate-appreciation-calculator', 'real-estate-crowdfunding-calculator',
-  'real-wage-growth-calculator', 'relocation-mortgage-calculator', 'rental-property-tax-strategy-calculator', 'retirement-bucket-strategy-calculator', 'retirement-healthcare-bridge-calculator',
-  'retirement-healthcare-cost-calculator', 'reverse-mortgage-calculator', 'roth-vs-traditional-401k-calculator', 'rv-annual-cost-calculator', 'salary-negotiation-lifetime-calculator',
-  'sba-loan-calculator', 'self-employed-retirement-plan-comparison', 'shareholder-loan-calculator', 'side-hustle-breakeven-calculator', 'social-security-cola-calculator',
-  'social-security-couples-optimizer', 'spin-off-tax-basis-calculator', 'ssdi-benefit-calculator', 'startup-equity-value-calculator', 'state-estate-tax-calculator',
-  'stock-option-vesting-calculator', 'stock-split-calculator', 'syndication-k1-tax-calculator', 'tax-deferral-benefit-calculator', 'tax-efficient-withdrawal-calculator',
-  'tax-exempt-bond-comparison-calculator', 'tax-free-savings-optimizer', 'tax-loss-harvesting-portfolio-calculator', 'tips-vs-nominal-bonds-calculator', 'trust-fund-growth-calculator',
-  'umbrella-insurance-calculator', 'vacation-rental-roi-calculator', 'variable-annuity-fee-calculator', 'wage-garnishment-calculator', 'wedding-budget-calculator',
-  // Auto-audited indexable finance routes previously missing from sitemap
-  'buy-vs-lease-vehicle-calculator', 'cap-rate-calculator', 'car-affordability-calculator', 'cd-vs-hysa-vs-money-market-calculator', 'conforming-loan-limit-calculator', 'credit-card-annual-fee-calculator', 'crypto-profit-loss-tracker', 'early-mortgage-payoff-calculator', 'forbearance-cost-calculator', 'freelance-income-tax-calculator', 'gold-vs-stocks-calculator', 'loan-origination-fee-calculator', 'mortgage-recast-calculator', 'mortgage-vs-rent-calculator', 'net-worth-tracker', 'paycheck-contribution-optimizer', 'personal-finance-score-calculator', 'real-estate-syndication-calculator', 'renters-insurance-calculator', 'roth-conversion-tax-calculator', 'savings-goal-planner-calculator', 'savings-rate-fire-calculator', 'social-security-timing-optimizer', 'spy-vs-bitcoin-portfolio-calculator', 'ss-vs-private-pension-calculator', 'student-loan-forbearance-calculator', 'tax-bracket-optimizer', 'vesting-schedule-calculator',
-]
+// Stable dates prevent every deployment from pretending every URL changed.
+const STABLE_DATE = '2026-05-01T00:00:00.000Z'
+const SITE_DATE = '2026-06-10T00:00:00.000Z'
 
-// ── India Finance ─────────────────────────────────────────────────────────────
-const financeCalcsIndia = [
-  'elss-vs-nps-calculator', 'elss-vs-ppf-calculator', 'emi-calculator', 'emi-vs-sip-calculator', 'epf-vs-nps-calculator',
-  'fd-calculator', 'fd-comparison-calculator', 'gratuity-calculator', 'gst-calculator', 'home-loan-calculator', 'hra-calculator',
-  'lumpsum-calculator', 'lumpsum-vs-gold-calculator', 'lumpsum-vs-sip-calculator',
-  'mutual-fund-calculator', 'mutual-fund-return-calculator', 'mutual-fund-vs-fd-calculator',
-  'nps-calculator', 'nsc-vs-fd-calculator', 'nsc-vs-ppf-calculator',
-  'ppf-calculator', 'ppf-vs-fd-calculator', 'ppf-vs-nps-calculator', 'rd-calculator',
-  'salary-hike-calculator', 'senior-citizen-savings-vs-fd-calculator',
-  'sip-calculator', 'sip-vs-bonds-calculator', 'sip-vs-crypto-calculator', 'sip-vs-endowment-calculator', 'sip-vs-fd-calculator', 'sip-vs-gold-calculator',
-  'sip-vs-mutual-fund-direct-plan-calculator', 'sip-vs-nps-calculator', 'sip-vs-ppf-calculator', 'sip-vs-rd-calculator', 'sip-vs-real-estate-calculator',
-  'sip-vs-savings-account-calculator', 'sip-vs-stocks-calculator', 'step-up-sip-calculator',
-  'sukanya-samriddhi-vs-ppf-calculator', 'swp-calculator', 'term-vs-ulip-calculator',
-]
+const TOOL_PRIORITY: Record<string, number> = {
+  finance: 0.90,
+  health: 0.90,
+  dev: 0.65,
+  fun: 0.55,
+  zip: 0.80,
+  commodities: 0.82,
+}
 
-// ── UK Finance ────────────────────────────────────────────────────────────────
-const financeCalcsUK = [
-  'isa-calculator', 'isa-vs-sipp-uk-calculator', 'offset-mortgage-vs-savings-uk-calculator',
-  'stocks-shares-isa-vs-cash-isa-calculator',
-  'uk-buy-to-let-vs-stocks-calculator', 'uk-fixed-rate-vs-tracker-mortgage-calculator', 'uk-help-to-buy-vs-lisa-calculator', 'uk-income-tax-calculator',
-  'uk-lifetime-isa-vs-sipp-calculator', 'uk-pension-calculator', 'uk-pension-drawdown-vs-annuity-calculator', 'uk-pension-vs-isa-calculator',
-  'uk-premium-bonds-vs-cash-isa-calculator', 'uk-remortgage-vs-invest-calculator', 'uk-stamp-duty-calculator', 'uk-stocks-vs-bonds-calculator',
-]
-
-// ── Europe Finance ────────────────────────────────────────────────────────────
-const financeCalcsEurope = [
-  'euro-auto-loan-calculator', 'euro-bonds-vs-etf-calculator', 'europe-etf-vs-property-calculator', 'europe-growth-vs-value-etf-calculator',
-  'europe-msci-world-vs-sp500-calculator', 'europe-property-vs-reit-calculator', 'european-mortgage-calculator', 'fire-europe-calculator',
-  'france-pea-vs-assurance-vie-calculator', 'germany-etf-vs-tagesgeld-calculator', 'netherlands-aow-vs-private-pension-calculator',
-  'spain-pension-vs-etf-calculator', 'vat-calculator-europe',
-]
-
-// ── Health ────────────────────────────────────────────────────────────────────
-const healthCalcs = [
-  'age-calculator', 'air-quality-health-calculator', 'alcohol-calorie-calculator', 'alcohol-metabolism-calculator', 'altitude-sickness-calculator',
-  'army-body-fat-calculator', 'athletic-performance-calculator', 'bac-calculator', 'blood-pressure-calculator', 'blue-light-exposure-calculator',
-  'bmi-calculator', 'bmi-for-children-calculator', 'bmr-calculator', 'body-age-calculator', 'body-fat-calculator', 'body-recomposition-calculator',
-  'body-surface-area-calculator', 'breastfeeding-calorie-calculator', 'breathing-exercise-calculator', 'caffeine-half-life-calculator', 'calcium-calculator',
-  'calorie-burned-walking-calculator', 'calorie-calculator', 'calorie-deficit-calculator', 'calories-burned-calculator', 'cholesterol-calculator',
-  'cold-exposure-calculator', 'cold-shower-benefits-calculator', 'cortisol-stress-calculator', 'creatine-dosage-calculator', 'creatinine-clearance-calculator',
-  'cycling-calories-calculator', 'dehydration-calculator', 'dental-health-calculator', 'diabetes-risk-calculator', 'due-date-calculator',
-  'ergonomics-score-calculator', 'eye-health-calculator', 'fasting-window-calculator', 'fat-loss-rate-calculator', 'fiber-intake-calculator',
-  'flexibility-calculator', 'glycemic-load-calculator', 'gratitude-health-calculator', 'grip-strength-calculator', 'gut-health-calculator',
-  'hangover-recovery-calculator', 'hearing-age-calculator', 'heart-age-calculator', 'heart-attack-risk-calculator', 'heart-rate-calculator',
-  'hiit-calculator', 'hydration-calculator', 'ideal-weight-calculator', 'immune-health-calculator', 'infant-weight-percentile-calculator',
-  'inflammation-risk-calculator', 'injury-recovery-calculator', 'intermittent-fasting-calculator', 'iron-intake-calculator', 'jet-lag-calculator',
-  'keto-macro-calculator', 'kidney-function-calculator', 'lean-body-mass-calculator', 'liver-health-calculator', 'loneliness-health-calculator',
-  'longevity-calculator', 'macro-calculator', 'magnesium-calculator', 'marathon-training-calculator', 'meal-timing-calculator',
-  'meditation-benefits-calculator', 'menopause-symptom-calculator', 'menstrual-cycle-calculator', 'mental-health-score-calculator', 'mold-exposure-calculator',
-  'muscle-gain-calculator', 'nicotine-withdrawal-calculator', 'omega3-calculator', 'one-rep-max-calculator', 'ovulation-calculator',
-  'pace-calculator', 'plank-time-calculator', 'posture-calculator', 'pregnancy-calculator', 'pregnancy-conception-calculator',
-  // 'pregnancy-due-date-calculator' — REMOVED: permanent 301 redirect to pregnancy-calculator (never include redirected URLs in sitemap)
-  'pregnancy-nutrition-calculator', 'pregnancy-weight-gain-calculator', 'protein-intake-calculator', 'protein-per-meal-calculator',
-  'pull-up-calculator', 'pushup-calculator', 'resting-metabolic-rate-calculator', 'running-pace-calculator', 'sauna-benefits-calculator',
-  'shift-work-health-calculator', 'sit-and-reach-calculator', 'skin-health-calculator', 'sleep-cycle-calculator', 'sleep-need-calculator',
-  'sodium-intake-calculator', 'sprint-calculator', 'squat-calculator', 'standing-desk-calculator', 'steps-calculator', 'steps-to-calories-calculator',
-  'stress-level-calculator', 'stroke-risk-calculator', 'sugar-intake-calculator', 'sweat-rate-calculator', 'swimming-calories-calculator',
-  'target-weight-calculator', 'tdee-calculator', 'testosterone-age-calculator', 'thyroid-calculator', 'uv-exposure-calculator',
-  'vitamin-c-calculator', 'vitamin-d-calculator', 'vo2-max-calculator', 'waist-to-height-ratio-calculator', 'water-intake-calculator',
-  'yoga-calories-calculator', 'zinc-calculator',
-  // New health calculators (merged from V7)
-  'ankle-brachial-index-calculator', 'athlete-heart-rate-calculator', 'bone-density-risk-calculator', 'bone-mineral-density-calculator',
-  'caloric-needs-calculator', 'cardiac-output-calculator', 'ckd-progression-calculator', 'cognitive-load-calculator',
-  'dehydration-status-calculator', 'diet-quality-score-calculator', 'dietary-inflammatory-index-calculator', 'emf-exposure-calculator',
-  'erectile-dysfunction-risk-calculator', 'exercise-addiction-calculator', 'food-sensitivity-calculator', 'frailty-index-calculator',
-  'genetic-height-calculator', 'gfr-egfr-calculator', 'grip-strength-age-calculator', 'heart-rate-variability-calculator',
-  'hydration-exercise-calculator', 'immune-strength-calculator', 'joint-mobility-calculator', 'longevity-risk-calculator',
-  'lung-capacity-calculator', 'menstrual-health-calculator', 'mental-fatigue-calculator', 'metabolic-age-calculator',
-  'migraine-risk-calculator', 'muscle-recovery-time-calculator', 'night-shift-health-calculator', 'nutrition-timing-calculator',
-  'nutritional-deficiency-risk-calculator', 'obesity-comorbidity-calculator', 'oral-health-risk-calculator', 'pain-score-calculator',
-  'pcos-risk-calculator', 'posture-assessment-calculator', 'protein-synthesis-calculator', 'respiratory-rate-calculator',
-  'sauna-health-calculator', 'skin-aging-calculator', 'sleep-debt-calculator', 'spo2-risk-calculator',
-  'visual-acuity-risk-calculator', 'vitamin-d-status-calculator', 'waist-hip-ratio-calculator', 'workout-volume-calculator',
-  'wound-healing-calculator',
-]
-
-// ── Commodities ───────────────────────────────────────────────────────────────
-const commodityCalcs = [
-  'gold-price-calculator', 'silver-price-calculator', 'platinum-price-calculator',
-  'palladium-price-calculator', 'crude-oil-calculator', 'brent-crude-calculator',
-  'natural-gas-calculator', 'gold-loan-calculator', 'precious-metals-profit-calculator',
-  'commodity-portfolio-tracker',
-]
-
-// ── Dev tools ─────────────────────────────────────────────────────────────────
-const devTools = [
-  'json-formatter', 'regex-tester', 'base64-encoder', 'uuid-generator', 'hash-generator', 'color-converter',
-  'unix-timestamp', 'base-converter', 'password-generator', 'url-encoder', 'html-encoder', 'css-unit-converter',
-  'pixel-rem-converter', 'aspect-ratio-calculator', 'bandwidth-calculator', 'ip-subnet-calculator', 'bit-byte-converter',
-  'lorem-ipsum-generator', 'cron-expression', 'jwt-decoder', 'markdown-preview', 'diff-checker', 'code-minifier',
-  'text-case-converter', 'chmod-calculator', 'http-status-codes', 'svg-optimizer', 'responsive-breakpoints',
-  'api-response-time', 'color-palette', 'yaml-formatter', 'csv-to-json', 'json-to-csv', 'html-to-markdown',
-  'sql-formatter', 'xml-formatter', 'toml-formatter', 'graphql-formatter', 'string-inspector', 'word-counter',
-  'line-sorter', 'duplicate-remover', 'number-formatter', 'epoch-converter', 'timezone-converter', 'cidr-calculator',
-  'docker-compose-gen', 'gitignore-generator', 'htaccess-generator', 'robots-txt-generator', 'meta-tag-generator',
-  'open-graph-preview', 'favicon-generator', 'image-base64', 'table-generator', 'css-gradient-generator',
-  'box-shadow-generator', 'flex-generator', 'grid-generator', 'npm-package-search', 'json-path-tester',
-  'css-specificity', 'html-validator', 'markdown-table-gen', 'curl-builder', 'http-headers-analyzer',
-  'mime-type-lookup', 'semver-calculator', 'git-commit-gen', 'env-file-parser', 'css-clip-path',
-  'border-radius-gen', 'text-diff-inline', 'string-hash-calc', 'color-contrast', 'font-size-calculator',
-  'z-index-manager', 'css-animation-gen', 'json-schema-gen', 'html-entity-ref', 'sql-join-visualizer',
-  'bitwise-calculator', 'network-speed-test', 'character-encoder', 'css-filter-gen', 'fake-data-generator',
-  'xml-to-json', 'binary-text-converter', 'rsa-key-info', 'package-json-gen',
-]
-
-// ── Fun tools ─────────────────────────────────────────────────────────────────
-const funTools = [
-  'lucky-number', 'zodiac-calculator', 'love-compatibility', 'personality-quiz', 'random-name-generator',
-  'superhero-name', 'villain-name', 'fantasy-name-generator', 'age-in-days', 'birthday-countdown',
-  'life-expectancy-fun', 'how-rich-am-i', 'coffee-calculator', 'sleep-debt-calculator', 'social-media-addiction',
-  'screen-time-calculator', 'calories-in-beer', 'pizza-calculator', 'workout-excuse-generator', 'procrastination-score',
-  'emoji-translator', 'text-to-morse', 'pig-latin-converter', 'uwu-text-generator', 'compliment-generator',
-  'shakespeare-insult-generator', 'fortune-cookie', 'would-you-rather', 'trivia-quiz', 'random-fact-generator',
-  'insult-generator',
-]
-
-// ── ZIP tools (ALL 35) ────────────────────────────────────────────────────────
-const zipTools = [
-  'address-to-zip',
-  'area-code-by-zip',
-  'city-to-zip',
-  'county-zip-codes',
-  'drive-time-by-zip',
-  'largest-zip-codes',
-  'multi-zip-distance',
-  'multiple-cities-in-zip',
-  'nearest-zip-code',
-  'same-timezone-zips',
-  'state-zip-codes',
-  'usps-address-format',
-  'zip-boundary-info',
-  'zip-by-area-code',
-  'zip-code-distance',
-  'zip-code-elevation',
-  'zip-code-format-guide',
-  'zip-code-generator',
-  'zip-code-lookup',
-  'zip-code-map',
-  'zip-code-population',
-  'zip-code-type',
-  'zip-code-validator',
-  'zip-plus-4-lookup',
-  'zip-time-converter',
-  'zip-to-area-code',
-  'zip-to-city',
-  'zip-to-coordinates',
-  'zip-to-county',
-  'zip-to-state',
-  'zip-to-timezone',
-  'zip-to-timezone-map',
-  'zip-to-zip-route',
-  'zips-by-city-name',
-  'zips-within-radius',
-]
+const TOOL_CHANGE_FREQUENCY: Record<string, 'daily' | 'monthly'> = {
+  finance: 'monthly',
+  health: 'monthly',
+  dev: 'monthly',
+  fun: 'monthly',
+  zip: 'monthly',
+  commodities: 'daily',
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // ── Deduplicate allBlogPosts by slug (safety net) ──────────────────────────
   const seenBlogSlugs = new Set<string>()
-  const uniqueBlogPosts = allBlogPosts.filter(p => {
-    if (seenBlogSlugs.has(p.slug)) return false
-    seenBlogSlugs.add(p.slug)
+  const uniqueBlogPosts = allBlogPosts.filter(post => {
+    if (seenBlogSlugs.has(post.slug)) return false
+    seenBlogSlugs.add(post.slug)
     return true
   })
 
+  const toolUrls = MASTER_TOOL_REGISTRY.map(tool => ({
+    url: `${BASE}${tool.href}`,
+    ...(tool.metadata.lastReviewed ? { lastModified: tool.metadata.lastReviewed } : {}),
+    changeFrequency: TOOL_CHANGE_FREQUENCY[tool.cat],
+    priority: TOOL_PRIORITY[tool.cat],
+  }))
+
+  const categoryRoutes = [
+    ['finance', '/calculators/finance', 0.95],
+    ['health', '/calculators/health', 0.95],
+    ['dev', '/calculators/dev', 0.80],
+    ['fun', '/calculators/fun', 0.75],
+    ['zip', '/zip', 0.75],
+    ['commodities', '/commodities', 0.85],
+  ] as const
+
   return [
-    // ── Core pages ──────────────────────────────────────────────────────────
-    { url: BASE,                               lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 1.0  },
-    { url: `${BASE}/calculators/finance`,      lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/calculators/health`,       lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.95 },
-    { url: `${BASE}/calculators/dev`,          lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.80 },
-    { url: `${BASE}/calculators/fun`,          lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.75 },
-    { url: `${BASE}/zip`,                      lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.75 },
-    { url: `${BASE}/commodities`,              lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.85 },
-    { url: `${BASE}/blog`,                     lastModified: SITE_DATE, changeFrequency: 'weekly',  priority: 0.90 },
-    { url: `${BASE}/about`,                    lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.70 },
-    { url: `${BASE}/methodology`,              lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${BASE}/contact`,                  lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.60 },
-    { url: `${BASE}/privacy-policy`,           lastModified: STABLE_DATE, changeFrequency: 'yearly',  priority: 0.40 },
-    { url: `${BASE}/disclaimer`,               lastModified: STABLE_DATE, changeFrequency: 'yearly',  priority: 0.40 },
-
-    // ── Finance calculators ─────────────────────────────────────────────────
-    ...financeCalcsUSA.map(slug => ({
-      url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.90,
+    { url: BASE, lastModified: SITE_DATE, changeFrequency: 'weekly', priority: 1.0 },
+    ...categoryRoutes.map(([, href, priority]) => ({
+      url: `${BASE}${href}`,
+      lastModified: SITE_DATE,
+      changeFrequency: 'weekly' as const,
+      priority,
     })),
-    ...financeCalcsIndia.map(slug => ({
-      url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.85,
-    })),
-    ...financeCalcsUK.map(slug => ({
-      url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.85,
-    })),
-    ...financeCalcsEurope.map(slug => ({
-      url: `${BASE}/calculators/finance/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.83,
-    })),
-
-    // ── Health calculators ──────────────────────────────────────────────────
-    ...healthCalcs.map(slug => ({
-      url: `${BASE}/calculators/health/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.90,
-    })),
-
-    // ── Commodity calculators ───────────────────────────────────────────────
-    ...commodityCalcs.map(slug => ({
-      url: `${BASE}/commodities/${slug}`,
-      lastModified: SITE_DATE, changeFrequency: 'daily' as const, priority: 0.82,
-    })),
-
-    // ── Dev tools ───────────────────────────────────────────────────────────
-    ...devTools.map(slug => ({
-      url: `${BASE}/calculators/dev/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.65,
-    })),
-
-    // ── Fun tools ───────────────────────────────────────────────────────────
-    ...funTools.map(slug => ({
-      url: `${BASE}/calculators/fun/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.55,
-    })),
-
-    // ── ZIP tools (ALL 35 — previously missing from sitemap) ────────────────
-    ...zipTools.map(slug => ({
-      url: `${BASE}/zip/${slug}`,
-      lastModified: CALC_DATE, changeFrequency: 'monthly' as const, priority: 0.80,
-    })),
-
-    // ── Blog posts — DYNAMIC: auto-includes every post in allBlogPosts ──────
-    // Adding a new post to lib/blog/posts.ts automatically adds it here.
-    // No manual sitemap edits needed ever again.
-    ...uniqueBlogPosts.map(p => ({
-      url: `${BASE}/blog/${p.slug}`,
-      lastModified: new Date(p.publishedAt).toISOString(),
+    { url: `${BASE}/blog`, lastModified: SITE_DATE, changeFrequency: 'weekly', priority: 0.90 },
+    { url: `${BASE}/about`, lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.70 },
+    { url: `${BASE}/methodology`, lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/contact`, lastModified: STABLE_DATE, changeFrequency: 'monthly', priority: 0.60 },
+    { url: `${BASE}/privacy-policy`, lastModified: STABLE_DATE, changeFrequency: 'yearly', priority: 0.40 },
+    { url: `${BASE}/disclaimer`, lastModified: STABLE_DATE, changeFrequency: 'yearly', priority: 0.40 },
+    ...toolUrls,
+    ...uniqueBlogPosts.map(post => ({
+      url: `${BASE}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt).toISOString(),
       changeFrequency: 'monthly' as const,
       priority: 0.82,
     })),
-
-    // ── Blog categories — DYNAMIC: auto-includes every category ────────────
-    ...blogCategories.map(cat => ({
-      url: `${BASE}/blog/category/${cat.slug}`,
-      lastModified: SITE_DATE, changeFrequency: 'monthly' as const, priority: 0.65,
+    ...blogCategories.map(category => ({
+      url: `${BASE}/blog/category/${category.slug}`,
+      lastModified: SITE_DATE,
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
     })),
   ]
 }

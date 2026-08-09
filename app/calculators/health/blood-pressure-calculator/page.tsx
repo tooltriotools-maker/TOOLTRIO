@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'blood-pressure-calculator',
   title: 'Blood Pressure Calculator',
   category: 'health' as const,
   intro: `Blood pressure is one of the most powerful predictors of cardiovascular health — yet most people do not know what their numbers actually mean. A reading of 135/85 mmHg might be dismissed as 'a little high' without understanding that it classifies as Stage 1 Hypertension under current ACC/AHA guidelines and carries a meaningfully elevated risk of heart attack and stroke over the next decade.
@@ -121,7 +122,7 @@ Build a complete cardiovascular risk picture with [our Heart Attack Risk Calcula
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

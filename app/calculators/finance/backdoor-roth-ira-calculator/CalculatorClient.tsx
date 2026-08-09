@@ -12,9 +12,9 @@ interface Props { faqs: { question: string; answer: string }[]; relatedCalculato
 
 export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [income, setIncome] = useState(200000)
-  const [conversionAmount, setConversionAmount] = useState(7000)
-  const [nonDeductibleBasis, setNonDeductibleBasis] = useState(7000)
-  const [totalIRABalance, setTotalIRABalance] = useState(7000)
+  const [conversionAmount, setConversionAmount] = useState(7500)
+  const [nonDeductibleBasis, setNonDeductibleBasis] = useState(7500)
+  const [totalIRABalance, setTotalIRABalance] = useState(7500)
   const [taxRate, setTaxRate] = useState(32)
 
   const result = useMemo(() => {

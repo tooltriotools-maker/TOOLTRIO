@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { MASTER_TOOL_REGISTRY, TOOL_COUNTS, TOOL_TOTAL } from '@/lib/catalog'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -34,7 +35,7 @@ const KB: Record<string, { answer: string; tools: { n: string; p: string; d: str
     ]
   },
   '401k': {
-    answer: `A 401k is a US employer-sponsored retirement plan.\n\n• Contributions are pre-tax (reduces taxable income now)\n• Employer match is free money — always contribute at least enough to get the full match\n• 2024 contribution limit: $23,000 ($30,500 if 50+)\n• Money grows tax-deferred until withdrawal`,
+    answer: `A 401k is a US employer-sponsored retirement plan.\n\n• Contributions are pre-tax (reduces taxable income now)\n• Employer match is free money — always contribute at least enough to get the full match\n• Annual contribution limits change by tax year; check the current IRS limit before planning contributions\n• Money grows tax-deferred until withdrawal`,
     tools: [
       { n: '401k Calculator', p: '/calculators/finance/401k-calculator', d: 'Project your 401k balance at retirement with employer match.' },
       { n: 'Roth IRA Calculator', p: '/calculators/finance/roth-ira-calculator', d: 'Calculate tax-free Roth IRA growth and retirement balance.' },
@@ -42,7 +43,7 @@ const KB: Record<string, { answer: string; tools: { n: string; p: string; d: str
     ]
   },
   roth_ira: {
-    answer: `Roth IRA = Tax-free retirement savings.\n\n• Contributions with after-tax money, withdrawals are tax-free\n• 2024 limit: $7,000/year ($8,000 if 50+)\n• Income limit: $161k single / $240k married (2024)\n• No required minimum distributions in your lifetime`,
+    answer: `Roth IRA = Tax-free retirement savings.\n\n• Contributions with after-tax money, withdrawals are tax-free\n• Annual contribution and income limits change by tax year; check the current IRS limits before planning contributions\n• No required minimum distributions in your lifetime`,
     tools: [
       { n: 'Roth IRA Calculator', p: '/calculators/finance/roth-ira-calculator', d: 'Calculate tax-free Roth IRA growth and retirement balance.' },
       { n: '401k Calculator', p: '/calculators/finance/401k-calculator', d: 'Project your 401k balance at retirement with employer match.' },
@@ -111,45 +112,21 @@ const KB: Record<string, { answer: string; tools: { n: string; p: string; d: str
     ]
   },
   about: {
-    answer: `ToolTrio is a free finance and health calculator website with 450+ tools:\n\n💰 Finance (150+): Mortgage, 401k, SIP, EMI, FIRE, Crypto, Tax...\n❤️ Health (70+): BMI, Calories, BMR, TDEE, Macros, Pregnancy...\n⚙️ Dev Tools (14+): JSON, Password, Regex, UUID...\n📮 ZIP Tools (8): Lookup, Distance, Timezone, County...\n📈 Commodities (5): Gold, Silver, Crude Oil...\n🎉 Fun (12+): Age in Days, Birthday, Lucky Number...\n\nAll 100% free — no signup needed!`,
+    answer: `ToolTrio has ${TOOL_TOTAL}+ tools across Finance (${TOOL_COUNTS.finance}), Health (${TOOL_COUNTS.health}), Developer (${TOOL_COUNTS.dev}), Fun (${TOOL_COUNTS.fun}), ZIP (${TOOL_COUNTS.zip}) and Commodities (${TOOL_COUNTS.commodities}).\n\nThe catalog is shared across the site, so counts and searchable tools stay synchronized. All tools are free to use without signup.`,
     tools: []
   }
 }
 
 type ToolEntry = { n: string; p: string; c: string; d: string }
 
-const ALL_TOOLS: ToolEntry[] = [
-  { n: 'SIP Calculator', p: '/calculators/finance/sip-calculator', c: 'finance', d: 'Calculate returns on monthly SIP investments.' },
-  { n: 'EMI Calculator', p: '/calculators/finance/emi-calculator', c: 'finance', d: 'Find monthly EMI for any loan.' },
-  { n: 'Compound Interest', p: '/calculators/finance/compound-interest-calculator', c: 'finance', d: 'See how money grows with compound interest.' },
-  { n: 'Simple Interest', p: '/calculators/finance/simple-interest-calculator', c: 'finance', d: 'Calculate simple interest on any principal.' },
-  { n: 'Mortgage Calculator', p: '/calculators/finance/mortgage-calculator', c: 'finance', d: 'Calculate US mortgage monthly payment (PITI).' },
-  { n: '401k Calculator', p: '/calculators/finance/401k-calculator', c: 'finance', d: 'Project your 401k balance at retirement with employer match.' },
-  { n: 'Roth IRA Calculator', p: '/calculators/finance/roth-ira-calculator', c: 'finance', d: 'Calculate tax-free Roth IRA growth and retirement balance.' },
-  { n: 'Retirement Calculator', p: '/calculators/finance/retirement-calculator', c: 'finance', d: 'Find how much you need to retire comfortably.' },
-  { n: 'FIRE Calculator', p: '/calculators/finance/fire-calculator', c: 'finance', d: 'Find your FIRE number and years to financial independence.' },
-  { n: 'Budget Planner', p: '/calculators/finance/budget-planner-calculator', c: 'finance', d: 'Plan monthly budget using the 50/30/20 rule.' },
-  { n: 'BMI Calculator', p: '/calculators/health/bmi-calculator', c: 'health', d: 'Calculate BMI and see if you are in a healthy range.' },
-  { n: 'BMR Calculator', p: '/calculators/health/bmr-calculator', c: 'health', d: 'Calculate calories burned at rest.' },
-  { n: 'TDEE Calculator', p: '/calculators/health/tdee-calculator', c: 'health', d: 'Find total daily calorie burn including activity level.' },
-  { n: 'Calorie Calculator', p: '/calculators/health/calorie-calculator', c: 'health', d: 'Calculate daily calorie needs for your goal.' },
-  { n: 'Age Calculator', p: '/calculators/health/age-calculator', c: 'health', d: 'Calculate your exact age in years, months and days.' },
-  { n: 'Macro Calculator', p: '/calculators/health/macro-calculator', c: 'health', d: 'Calculate daily macros — protein, carbs and fat.' },
-  { n: 'Ideal Weight', p: '/calculators/health/ideal-weight-calculator', c: 'health', d: 'See your ideal weight range across 4 formulas.' },
-  { n: 'Body Fat Calculator', p: '/calculators/health/body-fat-calculator', c: 'health', d: 'Estimate body fat % using the US Navy method.' },
-  { n: 'Tip Calculator', p: '/calculators/finance/tip-calculator', c: 'finance', d: 'Split restaurant bill and calculate tip per person.' },
-  { n: 'GST Calculator', p: '/calculators/finance/gst-calculator', c: 'finance', d: 'Add or remove GST at any slab rate.' },
-  { n: 'Gold Price Calculator', p: '/commodities/gold-price-calculator', c: 'commodities', d: 'Calculate the value of gold by weight and karat.' },
-  { n: 'ZIP Code Lookup', p: '/zip/zip-code-lookup', c: 'zip', d: 'Look up city, state and county for any US ZIP code.' },
-  { n: 'ZIP Distance', p: '/zip/zip-code-distance', c: 'zip', d: 'Calculate distance between two US ZIP codes.' },
-  { n: 'Debt Payoff Calculator', p: '/calculators/finance/debt-payoff-calculator', c: 'finance', d: 'Pay off debt faster using avalanche or snowball method.' },
-  { n: 'Savings Goal Calculator', p: '/calculators/finance/savings-goal-calculator', c: 'finance', d: 'Find how much to save monthly to reach your goal.' },
-  { n: 'Auto Loan Calculator', p: '/calculators/finance/auto-loan-calculator', c: 'finance', d: 'Calculate car loan monthly payment.' },
-  { n: 'Pregnancy Calculator', p: '/calculators/health/pregnancy-calculator', c: 'health', d: 'Calculate due date and week-by-week pregnancy timeline.' },
-  { n: 'Sleep Cycle Calculator', p: '/calculators/health/sleep-cycle-calculator', c: 'health', d: 'Find the best time to wake up based on sleep cycles.' },
-  { n: 'Heart Rate Calculator', p: '/calculators/health/heart-rate-calculator', c: 'health', d: 'Calculate your max heart rate and cardio training zones.' },
-  { n: 'Running Pace Calculator', p: '/calculators/health/running-pace-calculator', c: 'health', d: 'Calculate running pace, finish time or distance.' },
-]
+// Searchable tool catalog comes from the shared registry. This prevents TrioBot
+// from drifting away from GlobalSearch, sitemap and category counts.
+const ALL_TOOLS: ToolEntry[] = MASTER_TOOL_REGISTRY.map(tool => ({
+  n: tool.name,
+  p: tool.href,
+  c: tool.cat,
+  d: `${tool.name} — free online ToolTrio tool.`,
+}))
 
 const CAT_EMOJI: Record<string, string> = {
   finance: '💰', health: '❤️', dev: '⚙️', zip: '📮', commodities: '📈', fun: '🎉'

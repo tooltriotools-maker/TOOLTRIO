@@ -36,7 +36,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const stageRanges = ['0', '1–2', '3–5']
 
   return (
-    <CalculatorLayout title="Frailty Index Calculator" description="Assess frailty using the validated Fried Frailty Phenotype — 5 clinical criteria used worldwide." icon="🧓" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="frailty-index-calculator">
+    <CalculatorLayout title="Frailty Index Calculator" description="Screen for the five domains of the Fried frailty phenotype: weight loss, exhaustion, weakness, slowness, and low physical activity." icon="🧓" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="frailty-index-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Fried Frailty Criteria</h2>
@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-3 gap-3">
             <ResultCard label="Criteria Met" value={`${result.criteriaCount} / 5`} highlight />
             <ResultCard label="Category" value={result.category} />
-            <ResultCard label="Fall Risk" value={`${result.fallRiskMultiplier}× baseline`} />
+            <ResultCard label="Phenotype domains" value="5" />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Frailty Staging</h3>
@@ -81,7 +81,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               })}
             </div>
             <div className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-gray-500">Hospitalization Risk</span><span className="font-bold">{result.hospitalizationRisk}</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Frailty screening result</span><span className="font-bold">{result.category}</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Assessment</span><span className="font-semibold" style={{ color: result.color }}>{result.risk}</span></div>
             </div>
           </Card>

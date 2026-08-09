@@ -11,7 +11,7 @@ const faqs = [
   {"question": "What colour should my urine be?", "answer": "Urine colour is a practical hydration indicator: pale straw yellow (like lemonade) indicates good hydration. Dark amber or tea-coloured urine indicates significant dehydration — drink 500mL immediately. Bright yellow after B-vitamin supplementation is harmless. First morning urine is normally darker from overnight concentration — this is physiological, not pathological dehydration. For endurance athletes, checking urine colour before and after training is a simple, reliable hydration monitoring tool."}
 ]
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} /><CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'Dehydration Status Calculator', description: 'Free dehydration calculator 2026. Calculate fluid loss percentage, dehydration severity, and precise', url: 'https://tooltrio.com/calculators/health/dehydration-status-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />      <CalculatorBatch45DeepDive slug="dehydration-status-calculator" />
 </>)
 }

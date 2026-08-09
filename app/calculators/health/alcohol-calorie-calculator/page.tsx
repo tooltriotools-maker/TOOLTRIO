@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'alcohol-calorie-calculator',
   title: 'Alcohol Calorie Calculator',
   category: 'health' as const,
   intro: `Two glasses of wine with dinner. A beer at the game. A cocktail at happy hour. None of it feels like much in the moment, but alcohol is surprisingly calorie-dense — 7 calories per gram, almost as much as fat and nearly twice as much as carbohydrates. Unlike food calories, alcohol calories carry no nutritional value: no protein, no vitamins, no fiber. They go straight to your energy balance.
@@ -63,18 +64,6 @@ Pair this with [our TDEE Calculator](/calculators/health/tdee-calculator) to see
 **Long-tail searches answered here:** how many calories in a beer vs wine calculator free, alcohol calorie counter by drink type usa, calories in mixed drinks calculator online free, beer wine spirits calorie comparison tool, how to count alcohol calories for weight loss, free drink calorie estimator no app required, calories in a glass of red wine 5oz calculator free usa, how many calories in a vodka soda calculator free, light beer vs regular beer calorie difference calculator, weekly alcohol calorie intake calculator free usa, alcohol calories per gram explained calculator free, lowest calorie alcoholic drink options calculator usa, calories in margarita vs beer vs wine free comparison, alcohol calorie impact on weight loss calculator free usa, how many calories in prosecco vs champagne calculator`,
   howItWorks: `Alcohol calories are calculated using the Atwater factor for ethanol: 7.1 kcal per gram of pure alcohol. For a standard drink: calories = (volume in mL × ABV%) × 0.789 (density of ethanol in g/mL) × 7.1 kcal/g. A 12 oz (355 mL) beer at 5% ABV contains: 355 × 0.05 × 0.789 × 7.1 = 99.6 alcohol calories, plus additional calories from carbohydrates in malt (typically 50-100 additional calories for regular beer). Wine calories include both alcohol and residual sugar. Spirits are primarily alcohol calories with minimal carbohydrates.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Track alcohol calories separately from food calories to understand their true contribution to your calorie budget. Many people are surprised to find that 2-3 drinks add 300-500 calories — equivalent to a full meal — on top of their food intake.
 
@@ -103,7 +92,7 @@ Use [our Calorie Calculator](/calculators/health/calorie-calculator) alongside t
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Does the generator include facts suitable for kids?',
     answer: 'All facts in the generator are family-friendly. The animal category is particularly popular with younger audiences — facts about weird animal superpowers, unusual animal behaviors, and record-breaking creatures tend to be the most shared facts by parents with their kids.'
   },
-  {
-    question: 'Is this free to use?',
-    answer: 'Completely free, no account needed, no limit on how many facts you generate. The generator runs in your browser with no data tracked. Click until you have enough facts to sound impressively knowledgeable at your next dinner party.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

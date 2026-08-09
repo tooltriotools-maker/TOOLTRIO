@@ -15,11 +15,11 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'How much can I give tax-free in 2026?',
-    answer: "The 2026 annual gift tax exclusion is $19,000 per recipient. You can give $19,000 to as many people as you want with no gift tax and no Form 709 filing. Married couples can combine exclusions to give $38,000 per recipient. Gifts above $19,000 per person reduce your lifetime exemption ($15,000,000 in 2026) but don't trigger actual gift tax until you exhaust the lifetime exemption.",
+    answer: "The 2026 annual gift tax exclusion is $19,000 per recipient. You can generally exclude up to $19,000 of qualifying present-interest gifts per recipient in 2026. Gifts that qualify for the annual exclusion generally do not require a Form 709 solely because of that gift, but special situations such as future interests or gift-splitting can change the filing requirement. Married couples can combine exclusions to give $38,000 per recipient. Gifts above $19,000 per person reduce your lifetime exemption ($15,000,000 in 2026) but don't trigger actual gift tax until you exhaust the lifetime exemption.",
   },
   {
     question: 'Do I need to file Form 709 for gifts?',
-    answer: "Form 709 (US Gift Tax Return) is required if you give more than $19,000 to any single person in 2026, even if no tax is owed. The form tracks cumulative taxable gifts against your lifetime exemption. Gifts to spouses (unlimited marital deduction), charities, or directly to educational/medical institutions don't require Form 709.",
+    answer: "Form 709 (US Gift Tax Return) is required if you give more than $19,000 to any single person in 2026, even if no tax is owed. The form tracks cumulative taxable gifts against your lifetime exemption. Certain transfers can qualify for deductions or exclusions, but filing requirements depend on the facts. In particular, direct payments to qualifying educational institutions or medical providers can receive special treatment, while gift-splitting and other exceptions can require Form 709.",
   },
   {
     question: 'What is 529 superfunding?',

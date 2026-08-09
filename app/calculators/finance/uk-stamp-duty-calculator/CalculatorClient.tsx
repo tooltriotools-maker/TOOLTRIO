@@ -36,21 +36,22 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }))
 
   const BUYER_OPTIONS: { value: BuyerType; label: string; desc: string; color: string }[] = [
-    { value: 'firstTime', label: '🏠 First-Time Buyer', desc: '0% up to £425k, relief up to £625k', color: 'green' },
-    { value: 'standard', label: '🔑 Standard Purchase', desc: '0% up to £250k, standard rates', color: 'blue' },
+    { value: 'firstTime', label: '🏠 First-Time Buyer', desc: '0% up to £300k, relief up to £500k', color: 'green' },
+    { value: 'standard', label: '🔑 Standard Purchase', desc: '0% up to £125k, standard rates', color: 'blue' },
     { value: 'additionalProperty', label: '🏘️ Additional Property', desc: '+3% surcharge on all bands', color: 'amber' },
   ]
 
 
   function getBands(price: number, bt: BuyerType) {
     if (bt === 'firstTime') return [
-      { band: '£0 - £425,000', rate: '0%', amount: Math.min(price, 425000), tax: 0 },
-      { band: '£425,001 - £625,000', rate: '5%', amount: price > 425000 ? Math.min(price, 625000) - 425000 : 0, tax: price > 425000 ? (Math.min(price, 625000) - 425000) * 0.05 : 0 },
+      { band: '£0 - £300,000', rate: '0%', amount: Math.min(price, 300000), tax: 0 },
+      { band: '£300,001 - £500,000', rate: '5%', amount: price > 300000 ? Math.min(price, 500000) - 300000 : 0, tax: price > 300000 ? (Math.min(price, 500000) - 300000) * 0.05 : 0 },
     ]
     if (bt === 'additionalProperty') return [
-      { band: '£0 - £250,000', rate: '5%', amount: Math.min(price, 250000), tax: Math.min(price, 250000) * 0.05 },
-      { band: '£250,001 - £925,000', rate: '10%', amount: price > 250000 ? Math.min(price, 925000) - 250000 : 0, tax: price > 250000 ? (Math.min(price, 925000) - 250000) * 0.10 : 0 },
-      { band: '£925,001 - £1,500,000', rate: '13%', amount: price > 925000 ? Math.min(price, 1500000) - 925000 : 0, tax: price > 925000 ? (Math.min(price, 1500000) - 925000) * 0.13 : 0 },
+      { band: '£0 - £125,000', rate: '0%', amount: Math.min(price, 125000), tax: 0 },
+      { band: '£125,001 - £250,000', rate: '2%', amount: price > 125000 ? Math.min(price, 250000) - 125000 : 0, tax: price > 125000 ? (Math.min(price, 250000) - 125000) * 0.02 : 0 },
+      { band: '£250,001 - £925,000', rate: '5%', amount: price > 250000 ? Math.min(price, 925000) - 250000 : 0, tax: price > 250000 ? (Math.min(price, 925000) - 250000) * 0.05 : 0 },
+      { band: '£925,001 - £1,500,000', rate: '10%', amount: price > 925000 ? Math.min(price, 1500000) - 925000 : 0, tax: price > 925000 ? (Math.min(price, 1500000) - 925000) * 0.10 : 0 },
     ]
     return [
       { band: '£0 - £250,000', rate: '0%', amount: Math.min(price, 250000), tax: 0 },
@@ -160,7 +161,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-800 mb-2">SDLT Bands and How It Works</h3>
               <p>Stamp Duty Land Tax (SDLT) is a tiered tax - like income tax - meaning you only pay each rate on the portion of the price that falls within that band. For a £400,000 standard purchase: 0% on first £250,000 = £0 tax, 5% on remaining £150,000 = £7,500. Total SDLT = £7,500. SDLT must be paid within 14 days of property completion. Most buyers have their solicitor handle this as part of the conveyancing process. Failure to pay on time results in interest and penalties charged by HMRC.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">First-Time Buyer Relief Explained</h3>
-              <p>First-time buyers purchasing a property for £425,000 or less pay zero stamp duty. On properties between £425,001 and £625,000, only the portion above £425,000 is taxed at 5%. A first-time buyer at £500,000: 0% on £425,000 + 5% on £75,000 = £3,750. Compare to a standard buyer at £500,000: 0% on £250,000 + 5% on £250,000 = £12,500. Saving of £8,750. Both buyers on the transaction must be genuine first-time buyers to claim the relief.</p>
+              <p>For purchases from 1 April 2025, qualifying first-time buyers pay 0% on the first £300,000 and 5% on the portion from £300,001 to £500,000. A £500,000 qualifying purchase therefore has £10,000 of SDLT. Purchases above £500,000 do not qualify for the relief.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Additional Dwelling Surcharge</h3>
@@ -184,10 +185,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          UK Stamp Duty Calculator Example (USA 2026)
+          UK Stamp Duty Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this UK Stamp Duty USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
+          Use this UK Stamp Duty 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
           Adjust inputs to see Uk Stamp Duty Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
@@ -206,20 +207,17 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <SEOContent
         title="UK Stamp Duty Calculator – How Much SDLT Will You Pay on Your UK Property Purchase in 2026?"
         category="finance"
-        intro={`Stamp Duty Land Tax (SDLT) in England and Northern Ireland is a tiered transaction tax on property purchases that has evolved significantly over the past decade, with frequent temporary reliefs and permanent structural changes. The temporary first-time buyer relief raising the nil-rate band to £425,000 is due to revert to £300,000 in April 2026 — making timing a genuine financial consideration for buyers near this threshold.
+        intro={`Stamp Duty Land Tax (SDLT) in England and Northern Ireland is a tiered transaction tax on property purchases that has evolved significantly over the past decade, with frequent temporary reliefs and permanent structural changes. The first-time buyer relief threshold is currently £300,000, with relief available on qualifying purchases up to £500,000.
 
-SDLT rates in 2024-25 for standard residential purchases: 0% on first £250,000, 5% on £250,001-£925,000, 10% on £925,001-£1.5M, 12% above £1.5M. First-time buyers have higher nil-rate (currently £425,000 until April 2026) and reduced rates. Buy-to-let and second home purchases attract a 3% surcharge on all bands.
+For 2026/27, standard residential SDLT in England and Northern Ireland is 0% to £125,000, 2% on £125,001-£250,000, 5% on £250,001-£925,000, 10% on £925,001-£1.5M, and 12% above £1.5M. Higher rates for additional dwellings are 5, 7, 10, 15 and 17% across the same bands.
 
 Scotland uses Land and Buildings Transaction Tax (LBTT) and Wales uses Land Transaction Tax (LTT) — both with different rate structures. This calculator handles all UK jurisdictions with the appropriate rates for each.`}
         howItWorks={`SDLT calculation: Each rate band applies only to the portion of purchase price within that band. On a £400,000 purchase (standard residential 2024-25): £250,000 × 0% = £0, £150,000 × 5% = £7,500. Total SDLT = £7,500.
 
-First-time buyer relief: On a £400,000 purchase: £425,000 nil-rate applies, so £400,000 × 0% = £0. Saving versus standard rate: £7,500. The relief applies only on properties up to £625,000; purchases above £625,000 get no first-time buyer relief.
+First-time buyer relief applies to qualifying purchases of £500,000 or less: 0% on the first £300,000 and 5% on the next £200,000. A purchase above £500,000 does not qualify for the relief.
 
 BTL/second home surcharge: 3% added to each rate band. On £400,000: (£250,000 × 3%) + (£150,000 × 8%) = £7,500 + £12,000 = £19,500. The surcharge is substantial — nearly £12,000 more than the standard rate on this price.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -232,7 +230,7 @@ BTL/second home surcharge: 3% added to each rate band. On £400,000: (£250,000 
           { title: "Tracking Progress Over Time", text: "Save your baseline calculation and rerun it quarterly to measure progress. Are you on track against your original projection? Has the market return or interest rate environment changed enough to require adjusting your plan? Regular recalculation turns this from a one-time tool into an ongoing financial management system. Track your net worth progress with the [Net Worth Calculator](/calculators/finance/net-worth-calculator)." },
           { title: "Teaching Financial Concepts", text: "The best way to understand compound interest, investment returns, or debt amortization is to see the math with real numbers. This calculator makes abstract financial concepts concrete \u2014 especially valuable for teaching younger family members about money. The [FIRE Calculator](/calculators/finance/fire-calculator) is particularly powerful for demonstrating how savings rate connects to retirement age." },
         ]}
-        tipsSection={`For first-time buyers near the £425,000 threshold (until April 2026) or the eventual £300,000 threshold: SDLT saving may justify buying slightly below the threshold rather than slightly above. On a £430,000 purchase after the relief reverts to £300,000, SDLT = £250,000 × 0% + £130,000 × 5% = £6,500 vs £0 for a £295,000 purchase. This isn't always the right decision, but it's worth considering when properties near the threshold are available.
+        tipsSection={`For first-time buyers, compare the SDLT on the actual purchase price with the £300,000 nil-rate threshold and £500,000 relief ceiling. SDLT is marginal, so only the portion within each band is taxed.
 
 For BTL investors: the 3% surcharge significantly affects investment return calculations. On a £250,000 BTL purchase, SDLT is £7,500 (£0 standard + £7,500 surcharge). This upfront cost takes 1-2 years of rental income to recover, reducing effective returns in the early years of ownership.
 
@@ -242,8 +240,6 @@ For lease extensions and other transactions: SDLT rules differ for leasehold pur
 For property portfolio owners considering selling and reinvesting: the 3% surcharge on any additional residential property purchase makes portfolio restructuring expensive. Model the full round-trip cost (SDLT on purchase + CGT on sale) before deciding to sell and re-purchase in a different market.`}
 
         didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
           "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
         ]}
       />

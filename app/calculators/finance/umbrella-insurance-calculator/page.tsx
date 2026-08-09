@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Umbrella Insurance Calculator USA 2026 | ToolTrio',
+  title: 'Umbrella Insurance Calculator 2026 | ToolTrio',
   description: 'Calculate how much umbrella liability insurance you may need based on your net worth versus your existing auto and home liability coverage limits.',
   slug: 'umbrella-insurance-calculator',
   category: 'finance',

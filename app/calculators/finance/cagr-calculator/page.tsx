@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free CAGR calculator USA 2026. Calculate compound annual growth rate for stocks, real estate, mutual funds, and business revenue. Reverse-calculate.',
  slug: 'cagr-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'cagr calculator 2026',
     'cagr calculator',
@@ -45,7 +46,7 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
  return <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
        <CalculatorClient

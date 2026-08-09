@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -54,14 +54,10 @@ const faqs = [
     question: 'Can I challenge friends with my score?',
     answer: 'Yes — your result includes a shareable score card showing how many you got right and which categories you excelled or struggled in. Posting "7/10 — I was robbed on the music question" to a group chat or social media typically generates competitive responses. The share card is designed for WhatsApp and Instagram Stories specifically.'
   },
-  {
-    question: 'Is the trivia quiz free?',
-    answer: 'Completely free, unlimited plays, no account needed. Trivia should not be behind a paywall. Go test your knowledge.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

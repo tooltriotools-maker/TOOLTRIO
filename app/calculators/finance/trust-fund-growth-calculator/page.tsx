@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Trust Fund Growth Calculator USA 2026 | ToolTrio',
+  title: 'Trust Fund Growth Calculator 2026 | ToolTrio',
   description: 'Project how a trust fund will grow from initial funding through a beneficiary\'s distribution age, accounting for contributions, growth, and trustee fees.',
   slug: 'trust-fund-growth-calculator',
   category: 'finance',

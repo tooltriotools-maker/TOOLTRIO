@@ -16,7 +16,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [umbrellaAnnualCost, setUmbrellaAnnualCost] = useState(250)
   const result = useMemo(()=>{try{return calculateUmbrellaPolicyValue(netWorth,autoLiabilityLimit,homeLiabilityLimit,umbrellaCoverage,umbrellaAnnualCost)}catch(e){return null}},[netWorth, autoLiabilityLimit, homeLiabilityLimit, umbrellaCoverage, umbrellaAnnualCost])
   return (
-    <CalculatorLayout title="Umbrella Insurance Calculator USA 2026" description="Umbrella Insurance Calculator USA 2026" icon="☂️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="umbrella-insurance-calculator">
+    <CalculatorLayout title="Umbrella Insurance Calculator 2026" description="Umbrella Insurance Calculator 2026" icon="☂️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="umbrella-insurance-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

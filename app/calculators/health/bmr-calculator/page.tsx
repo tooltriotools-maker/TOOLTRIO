@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'BMR Calculator – Basal Metabolic Rate | ToolTrio',
-  description: 'Free BMR Calculator 2026 — Calculate your Basal Metabolic Rate at complete rest. Uses Mifflin-St Jeor and Harris-Benedict equations. Real examples for men.',
+  description: 'Free BMR Calculator 2026 — Estimate resting energy expenditure using the Mifflin–St Jeor and Harris–Benedict predictive equations.',
   slug: 'bmr-calculator',
   category: 'health',
   region: 'usa',
@@ -49,6 +49,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'bmr-calculator',
   title: 'BMR Calculator',
   category: 'health' as const,
   intro: `Your BMR — Basal Metabolic Rate — is the foundation number that every calorie target, diet plan, and weight management strategy ultimately rests on. It represents the energy cost of simply existing: the calories your body burns to maintain every biological function at complete rest, every hour of every day, whether you're dieting, training hard, or doing nothing at all.
@@ -118,7 +119,7 @@ Complete your calorie picture with [our TDEE Calculator](/calculators/health/tde
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

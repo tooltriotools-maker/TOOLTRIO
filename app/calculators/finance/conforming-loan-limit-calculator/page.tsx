@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is the 2026 conforming loan limit?',
-    answer: "The 2026 conforming loan limit is $806,500 for single-family homes in most US counties. High-cost areas (San Francisco, NYC, Hawaii) have limits up to $1,209,750. Loans above these limits are 'jumbo loans' — they cannot be sold to Fannie Mae/Freddie Mac and typically carry higher rates (0.25-0.75% above conforming) and stricter qualification requirements (usually 20%+ down, 700+ credit score, 6-12 months reserves).",
+    answer: "The 2026 baseline conforming loan limit for a one-unit property is $832,750 in most U.S. counties. Qualifying high-cost areas can have higher limits, up to $1,249,125 for one-unit properties in most high-cost jurisdictions. Loans above these limits are 'jumbo loans' — they cannot be sold to Fannie Mae/Freddie Mac and typically carry higher rates (0.25-0.75% above conforming) and stricter qualification requirements (usually 20%+ down, 700+ credit score, 6-12 months reserves).",
   },
   {
     question: 'What is PMI and when can it be removed?',

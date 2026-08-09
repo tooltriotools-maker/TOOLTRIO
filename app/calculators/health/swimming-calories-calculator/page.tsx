@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'swimming-calories-calculator',
   title: 'Swimming Calories Calculator',
   category: 'health' as const,
   intro: `Swimming is one of the most complete full-body workouts available — it simultaneously challenges cardiovascular fitness, muscular endurance, flexibility, and coordination across almost every major muscle group. Yet its calorie burn is frequently either overestimated (by people who feel exhausted after swimming) or underestimated (because the cool water suppresses the perceived exertion that makes effort obvious on land).
@@ -62,33 +63,13 @@ Stroke choice also matters significantly. Butterfly and breaststroke are the mos
 This calculator estimates calorie expenditure based on your weight, swim distance or duration, stroke type, estimated pace, and skill level — with adjustments that account for the drag-reducing effect of better swimming efficiency at higher skill levels.
 
 **Long-tail searches answered here:** swimming calorie burn calculator free online usa, calories burned swimming calculator by stroke and speed, how many calories do i burn swimming 30 minutes free, swimming vs running calorie burn calculator no signup, lap swimming calorie calculator by weight and distance usa, calories burned freestyle swimming calculator free, backstroke vs breaststroke vs butterfly calorie burn calculator, open water swimming calorie burn calculator usa free, swimming calories per lap calculator by pool length free, how pool temperature affects swim calorie burn calculator, swimming calorie burn compared to walking calculator usa, water aerobics vs lap swimming calorie burn calculator, swim duration needed to burn 500 calories calculator free usa, competitive vs recreational swimming calorie comparison, triathlon swim portion calorie estimator free usa`,
-  howItWorks: `This calculator uses peer-reviewed, clinically validated formulas to estimate swimming calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
+  howItWorks: `This calculator uses the published estimation method described for this tool to estimate swimming calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
-Results are calibrated against population reference data from major US health surveys including NHANES (National Health and Nutrition Examination Survey), giving your result meaningful context relative to real Americans of your age and sex.
 
-All calculations run locally in your browser. No data is transmitted anywhere. Results appear instantly as you adjust inputs.`,
+
+`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
   ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
-  ],
-  tipsSection: `Take measurements consistently under the same conditions for meaningful trend comparisons. Use the same time of day, same equipment, and same protocol each time you recalculate to minimize measurement variability.
-
-Track trends over months rather than reacting to any single measurement. Health metrics fluctuate naturally based on hydration, food intake, sleep, and stress — patterns over 3-6 months are far more meaningful than individual data points.
-
-Bring your results to your healthcare provider for professional interpretation in the context of your full health history, especially if results fall significantly outside the healthy reference ranges shown.`,
-  scienceSection: `The formulas underlying this calculator are derived from peer-reviewed research published in major medical and scientific journals. Reference ranges are drawn from NHANES population survey data — the CDC's nationally representative survey of American adults — ensuring your result is compared against real, current population data.
-
-As with all health calculations, individual results differ from population-average predictions based on genetic factors, medications, health conditions, and lifestyle variables. These calculations are educational tools, not diagnostic instruments. Always consult qualified healthcare professionals for medical decisions.`,
   conclusion: `For people using swimming for weight management, the post-swim hunger response deserves attention. Many swimmers report greater post-exercise hunger than after land-based workouts of similar duration — possibly due to the cool water preventing the body temperature elevation that suppresses appetite after land exercise.
 
 Swimming is particularly valuable for people with joint conditions — arthritis, hip replacements, chronic knee or ankle issues — that make land-based cardio difficult. The near-weightlessness of buoyancy allows cardiovascular training at heart rate intensities that would be impossible or painful on land.
@@ -102,7 +83,7 @@ To improve swimming calorie burn and efficiency simultaneously, technique coachi
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

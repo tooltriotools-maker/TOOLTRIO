@@ -51,6 +51,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'fat-loss-rate-calculator',
   title: 'Fat Loss Rate Calculator',
   category: 'health' as const,
   intro: `The lose no more than 2 pounds per week guideline is a starting point, not a universal rule. What matters is the proportion of weight loss coming from fat versus lean mass — and that ratio depends critically on your starting body fat percentage, protein intake, resistance training, and calorie deficit size. A person at 35% body fat can lose 2-2.5 pounds per week while preserving nearly all lean mass. The same deficit in someone at 15% body fat would likely result in significant muscle loss.
@@ -66,18 +67,6 @@ This calculator estimates your sustainable fat loss rate, realistic timeline to 
 
 Body composition adjustment: at higher body fat percentages, a larger proportion of weight lost is fat versus lean mass; as body fat decreases, more weight lost comes from lean tissue at the same deficit size — reflected in the calculator's decreasing predicted fat loss rate at lower body fat percentages.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Weigh daily and use a 7-day rolling average for meaningful data — daily weight fluctuates by 1-4 lbs from water, glycogen, and digestive contents. A rolling average smooths these fluctuations and reveals the true weight loss trend over weeks and months.
 
@@ -98,7 +87,7 @@ Pair this with [our Body Recomposition Calculator](/calculators/health/body-reco
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

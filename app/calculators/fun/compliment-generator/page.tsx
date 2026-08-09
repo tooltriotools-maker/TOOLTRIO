@@ -1,6 +1,6 @@
 import { CalculatorBatch45DeepDive } from '@/components/ui/CalculatorBatch45DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -52,17 +52,13 @@ const faqs = [
     answer: 'Yes — you can use it as a daily pick-me-up to send to someone or keep for yourself as a positive affirmation. Some people use it every morning to send one compliment to a different person in their life. Apparently it becomes a habit that people enjoy being on the receiving end of.'
   },
   {
-    question: 'Is it free and does it require login?',
-    answer: 'Completely free, no account, no email. Generate as many compliments as you want. We do not store who you send them to or what you generate. The world needs more compliments — we are not going to put them behind a paywall.'
-  },
-  {
     question: 'Can I share my generated compliment on social media?',
     answer: 'Yes — each compliment has a share button. Posting a compliment publicly to a friend on Twitter or Instagram is a powerful public display of appreciation that the person genuinely remembers. It also makes you look like a thoughtful human being, which is a nice side effect.'
   },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

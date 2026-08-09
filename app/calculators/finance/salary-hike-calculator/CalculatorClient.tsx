@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const result = useMemo(() => calculateSalaryHike(currentSalary, hikePercent, years, annualHike, inflation), [currentSalary, hikePercent, years, annualHike, inflation])
 
   return (
-    <CalculatorLayout title="Salary Hike Calculator USA 2026" description="Calculate the exact after-tax impact of any salary raise and its lifetime investment value." icon="💰" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="salary-hike-calculator">
+    <CalculatorLayout title="Salary Hike Calculator 2026" description="Model the nominal and inflation-adjusted impact of a salary raise and its projected lifetime earnings." icon="💰" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="salary-hike-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1">
           <h2 className="text-lg font-bold text-gray-900 mb-5">Salary Details</h2>
@@ -108,17 +108,17 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Salary Hike Calculator Example (USA 2026)
+          Salary Hike Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           On a $75,000 salary, the 50/30/20 rule suggests: <strong>$37,500</strong> for needs, $22,500 for wants, and $15,000 for savings and debt repayment.
         </p>
         <p className="text-sm text-gray-600">
-          This Salary Hike USA 2026 planner helps you allocate your income optimally and track progress toward your financial goals.
+          This 2026 salary-hike planner helps you allocate your income optimally and track progress toward your financial goals.
         </p>
       </Card>
       <SEOContent
-        title="Salary Hike Calculator USA – What Is a Raise Really Worth to You After Taxes in 2026?"
+        title="Salary Hike Calculator — What Is a Raise Worth Over Time?"
         category="finance"
         intro={`A salary raise feels significant in the moment and often disappoints after taxes reduce it to a smaller take-home increase than expected. A $5,000 raise at the 22% federal bracket takes home approximately $3,500-$3,800 after income taxes and FICA. Understanding the actual take-home impact helps calibrate what raise amounts to target in negotiations and how to weigh different compensation packages.
 
@@ -131,9 +131,6 @@ Compound salary trajectory: Year n salary = Starting salary × (1 + annual raise
 
 Lifetime earnings impact: Difference in annual salary at year 20 = $63,626. Sum of all salary differences over 20 years (NPV approach): approximately $800,000-$1M in total additional lifetime earnings from the 2% annual raise differential.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -154,12 +151,6 @@ If you receive a below-market or flat raise, research the specific market condit
         conclusion={`Salary growth in your 20s and 30s compounds into dramatically different wealth trajectories by your 50s. An extra $5,000/year starting at 28, invested rather than spent, becomes approximately $460,000 at 58 at 7% returns. The combination of higher income (providing more investable income) and compound returns on that invested difference is the financial case for aggressive early-career salary development.
 
 For complete context on how a raise affects your finances: use [our Paycheck Calculator](/calculators/finance/paycheck-calculator) to see the exact take-home increase, and [our Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to map what the additional monthly savings can accomplish toward specific financial targets.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

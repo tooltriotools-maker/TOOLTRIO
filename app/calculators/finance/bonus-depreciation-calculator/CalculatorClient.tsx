@@ -33,7 +33,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {[
             { label: 'Asset Cost', value: assetCost, set: setAssetCost, step: 5000, prefix: '$' },
             { label: 'Asset Useful Life (years)', value: assetLife, set: setAssetLife, step: 1, suffix: 'yrs' },
-            { label: 'Bonus Depreciation % (2026: 20%)', value: bonusPct, set: setBonusPct, step: 5, suffix: '%' },
+            { label: 'Bonus Depreciation % (current-law default: 100%)', value: bonusPct, set: setBonusPct, step: 5, suffix: '%' },
             { label: 'Business Tax Rate', value: taxRate, set: setTaxRate, step: 1, suffix: '%' },
           ].map(({ label, value, set, step, prefix, suffix }) => (
             <div key={label} className="space-y-1">
@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           ))}
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-700">
             <p className="font-bold">2026 Sec 179 Limit: $1,220,000</p>
-            <p className="mt-1">Bonus: 40% in 2025 → 20% in 2026</p>
+            <p className="mt-1">Bonus: generally 100% for qualifying property acquired and placed in service after January 19, 2025</p>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">

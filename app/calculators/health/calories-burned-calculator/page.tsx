@@ -50,6 +50,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'calories-burned-calculator',
   title: 'Calories Burned Calculator',
   category: 'health' as const,
   intro: `Every physical activity has a metabolic cost — a rate of energy expenditure above your resting baseline that depends on the activity's intensity, your body weight, and how long you do it. The framework for quantifying this is METs (metabolic equivalents of task): a 1 MET equals your resting metabolic rate (roughly 1 kcal/kg/hour), and every activity is assigned a MET value based on oxygen consumption measurements in research settings. Walking at 3.5 mph is about 3.5 METs. Running at 6 mph is about 10 METs. Compendium MET values for hundreds of activities have been validated and published by the ACSM.
@@ -65,18 +66,6 @@ Understanding your actual caloric expenditure from exercise gives you the inform
 
 Total calorie burn adds resting metabolic rate (1 MET) to activity-specific METs, since the body continues burning baseline calories during activity.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Use heart rate to verify calorie burn for high-intensity work. MET-based calculations are most accurate for steady-state aerobic exercise at moderate intensity. For HIIT, heavy strength training, and activities with large between-person variation, heart rate-based calorie monitoring (available on most fitness devices) gives more personalized estimates.
 
@@ -97,7 +86,7 @@ Use [our Running Pace Calculator](/calculators/health/running-pace-calculator) f
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

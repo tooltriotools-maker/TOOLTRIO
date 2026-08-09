@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free car depreciation calculator USA 2026. Calculate how much your car loses in value per year, total depreciation over 5 years, and true cost of.',
  slug: 'car-depreciation-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'car depreciation calculator 2026',
     'car depreciation calculator',

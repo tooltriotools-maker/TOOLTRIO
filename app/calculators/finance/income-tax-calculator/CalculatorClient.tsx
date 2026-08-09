@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="Income Tax Calculator USA 2026" description="Calculate your federal income tax, effective rate, and marginal bracket with 2026 IRS brackets." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="income-tax-calculator">
+    <CalculatorLayout title="Income Tax Calculator India FY 2026-27" description="Calculate estimated Indian income tax, cess, surcharge, and effective rate for FY 2026-27." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="income-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">Tax Details - FY 2026-27</h2>
@@ -52,8 +52,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             {regime === 'old' && (
               <div className="space-y-3 p-3 rounded-xl bg-gray-50 border border-gray-200">
                 <p className="text-xs font-bold text-gray-600">Old Regime Deductions</p>
-                <InputField label="Tax Deductions (80C/IRA equiv.)" value={sec80C} onChange={setSec80C} min={0} max={150000} step={5000} prefix="₹" />
-                <InputField label="Health Insurance Deduction" value={sec80D} onChange={setSec80D} min={0} max={50000} step={1000} prefix="₹" />
+                <InputField label="Section 80C Deductions" value={sec80C} onChange={setSec80C} min={0} max={150000} step={5000} prefix="₹" />
+                <InputField label="Section 80D Deduction" value={sec80D} onChange={setSec80D} min={0} max={50000} step={1000} prefix="₹" />
                 <InputField label="HRA Exemption" value={hra} onChange={setHra} min={0} max={500000} step={5000} prefix="₹" />
               </div>
             )}
@@ -140,19 +140,19 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       {/* 600-word SEO explanation */}
       <div className="mt-10">
         <Card>
-          <h2 className="text-xl font-black text-gray-900 mb-4">Income Tax Calculator - New vs Old Regime Complete Guide FY 2026-2026</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">Income Tax Calculator - New vs Old Regime Complete Guide FY 2026-27</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">New Tax Regime vs Old Tax Regime - Key Differences</h3>
               <p>India has two income tax regimes since 2020. New Regime (default from FY 2023-24): Lower tax rates, higher standard deduction ($75,000 from FY 2024-25), but most deductions and exemptions are not available. Cannot claim: 80C, 80D, housing allowance, LTA, home loan interest (24b), state payroll tax, etc. Old Regime: Higher tax rates, but allows all deductions and exemptions. Can claim: 80C ($1.5L), 80D ($25-50K), housing allowance exemption, LTA, home loan interest (up to $2L under 24b), standard deduction ($50,000), 401(k) pension under 80CCD(1B) ($50K). The regime that saves more tax depends on your total eligible deductions.</p>
-              <h3 className="font-bold text-gray-800 mb-2 mt-4">New Regime Tax Slabs FY 2026-2026 (Tax Year 2026)</h3>
+              <h3 className="font-bold text-gray-800 mb-2 mt-4">New Regime Tax Slabs FY 2026-27 (Tax Year 2026)</h3>
               <p>New regime slabs (post-Budget 2026-26): 0% tax up to $4 thousand. 5% on $4-8 thousand. 10% on $8-12 thousand. 15% on $12-16 thousand. 20% on $16-20 thousand. 25% on $20-24 thousand. 30% above $24 thousand. Tax rebate under standard deduction: Up to $60,000 rebate if total income {'<'}= $12 thousand (new regime), making income effectively tax-free up to $12 thousand. Standard deduction: $75,000 for salaried. So income up to $12.75 thousand faces zero tax under new regime (after $75K standard deduction + $12L rebate limit). This is a significant benefit for salaried middle class.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Who Benefits From Old Regime?</h3>
               <p>Old regime benefits those with high deductions. Break-even analysis: If total deductions (80C + 80D + housing allowance + Home loan interest + LTA + others) exceed approximately $3-4 thousands, old regime often wins. High-deduction scenarios: Home loan borrower ($2L interest u/s 24b + $1.5L principal u/s 80C + housing allowance = potentially $4.5-5L deductions). Renter in metro ($1.5L 80C + large housing allowance exemption + 80D = $3-4L deductions). Business professional with significant expenses. For income above $25-30 thousands with these deductions, old regime can save $50,000-$1.5 thousand in tax annually. Always calculate both with our calculator before choosing.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">How to File Form 1040 and Key Deadlines</h3>
-              <p>Income Tax Return (Form 1040) filing calendar for FY 2026-2026 (Tax Year 2026): July 31, 2027: Due date for individuals (non-audit cases) - file Form 1040-1 (Sahaj) for salaried, Form 1040-2 for capital gains. October 31, 2027: Due date for audit cases (businesses, professions). December 31, 2027: Last date for belated return (with late fee: $1,000 if income {'<'}=5L; $5,000 otherwise). Use your Form 26AS and AIS (Annual Information Statement) to verify federal withholding credits before filing. Common Form 1040 forms: Form 1040-1 (salaried, one house property, income {'<'}=$50L), Form 1040-2 (capital gains, multiple properties, foreign income), Form 1040-3 (business income), Form 1040-4 Sugam (presumptive business/profession).</p>
+              <p>Income Tax Return (Form 1040) filing calendar for FY 2026-27 (Tax Year 2026): July 31, 2027: Due date for individuals (non-audit cases) - file Form 1040-1 (Sahaj) for salaried, Form 1040-2 for capital gains. October 31, 2027: Due date for audit cases (businesses, professions). December 31, 2027: Last date for belated return (with late fee: $1,000 if income {'<'}=5L; $5,000 otherwise). Use your Form 26AS and AIS (Annual Information Statement) to verify federal withholding credits before filing. Common Form 1040 forms: Form 1040-1 (salaried, one house property, income {'<'}=$50L), Form 1040-2 (capital gains, multiple properties, foreign income), Form 1040-3 (business income), Form 1040-4 Sugam (presumptive business/profession).</p>
             </div>
           </div>
         </Card>
@@ -161,32 +161,29 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Income Tax Calculator Example (USA 2026)
+          Income Tax Calculator Example (India FY 2026-27)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           On a $75,000 salary, the 50/30/20 rule suggests: <strong>$37,500</strong> for needs, $22,500 for wants, and $15,000 for savings and debt repayment.
         </p>
         <p className="text-sm text-gray-600">
-          This Income Tax USA 2026 planner helps you allocate your income optimally and track progress toward your financial goals.
+          This Income Tax India FY 2026-27 planner helps you allocate your income optimally and track progress toward your financial goals.
         </p>
       </Card>
       <SEOContent
-        title="Income Tax Calculator USA 2026"
+        title="Income Tax Calculator India FY 2026-27"
         category="finance"
         intro={`US federal income tax uses a progressive marginal rate system — which is the source of one of the most persistent tax misconceptions: that earning more money can somehow result in taking home less money because you've entered a higher bracket. This is simply not how it works. Each dollar of income is taxed only at its marginal rate — the rate applicable to that bracket — not at that rate on all income.
 
 The difference between marginal rate and effective rate matters enormously. In 2024, a single filer with $100,000 in taxable income pays 10% on the first $11,600, 12% on income from $11,600 to $47,150, 22% on income from $47,150 to $100,525 — giving a marginal rate of 22% but an effective rate of approximately 16.8%. The marginal rate is relevant for evaluating additional income, deductions, or Roth vs. traditional decisions; the effective rate shows the actual tax burden.
 
 State income taxes vary dramatically: no income tax in Texas, Florida, Nevada, Wyoming, South Dakota, Washington, and New Hampshire; flat taxes in some states; progressive rates up to 13.3% in California and 10.9% in New York. State taxes add a significant layer that federal-only calculations miss.`}
-        howItWorks={`Federal tax calculation: Apply tax brackets progressively to taxable income (gross income minus above-the-line deductions minus standard or itemized deduction). 2024 standard deduction: $14,600 single, $29,200 married filing jointly.
+        howItWorks={`Federal tax calculation: Apply tax brackets progressively to taxable income (gross income minus above-the-line deductions minus standard or itemized deduction). India FY 2026-27: the calculator applies the implemented Indian new/old regime assumptions shown above. Verify your final tax against the Income Tax Department rules before filing.
 
 AGI and taxable income: Adjusted Gross Income (AGI) = gross income minus above-the-line adjustments (HSA contributions, student loan interest, traditional IRA contributions, self-employment expenses). Taxable income = AGI minus standard or itemized deductions minus QBI deduction if applicable.
 
 Credits vs deductions: Deductions reduce taxable income (saving taxes at your marginal rate). Credits reduce taxes owed dollar-for-dollar — generally more valuable. Child Tax Credit ($2,000/child), Child and Dependent Care Credit, and education credits are common examples.`}
         benefits={[
-          { title: "Instant Real-Time Results", text: "Results update as you type \u2014 no button clicks needed. Compare multiple scenarios in minutes to understand how each variable changes your outcome. Small changes in rate, time, or amount often have surprisingly large long-term impacts due to compounding. Use alongside the [Compound Interest Calculator](/calculators/finance/compound-interest-calculator) to model growth scenarios." },
-          { title: "US-Standard Formula Accuracy", text: "All calculations use formulas recognized by US financial institutions, the CFP Board, and IRS guidelines. Whether comparing to the S&P 500's historical 10.5% annual return or evaluating debt at your specific rate, the math is the same as professional advisors use. Connect to the [ROI Calculator](/calculators/finance/roi-calculator) to benchmark your results." },
-          { title: "Complete Privacy \u2014 No Data Stored", text: "Everything runs locally in your browser. No financial data is transmitted to any server or stored anywhere. When you close the tab, your inputs disappear permanently. This is essential for sensitive financial information \u2014 your income, debts, and savings details stay entirely private." },
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most powerful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
           { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
@@ -207,12 +204,6 @@ Quarterly estimated taxes: If you have significant income not subject to withhol
         conclusion={`The most actionable insight from running income tax calculations: identify your current marginal rate, then evaluate every deduction, pre-tax contribution, and tax credit in terms of that marginal rate. A 22% bracket taxpayer saves $220 in taxes for every $1,000 of traditional 401k contribution. A 32% bracket taxpayer saves $320 for the same contribution — a much stronger argument for traditional over Roth.
 
 Software like TurboTax or Tax Act provides accurate calculations with state tax integration. This calculator helps you understand the structure and make year-round planning decisions. For complex situations (multiple income sources, business income, significant investments), consider a CPA for at least an annual review.`}
-
-        didYouKnow={[
-          "The average American has only $87,000 saved for retirement by ages 55\u201364 \u2014 far below the $1.5M+ typically needed for a secure retirement (Vanguard 2026).",
-          "Starting to invest at 25 vs. 35 with $500/month at 7% produces $1.3M vs. $567,000 by age 65 \u2014 a $745,000 difference from just 10 extra years of compounding.",
-          "The S&P 500 has returned approximately 10.5% per year on average since 1957, turning $1 into over $1,400 with dividends reinvested over 68 years.",
-        ]}
       />
       <InternalLinks
         title="Related Finance Calculators"

@@ -48,6 +48,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'air-quality-health-calculator',
   title: 'Air Quality & Health Impact Calculator',
   category: 'health' as const,
   intro: `Your local air quality index (AQI) number tells you how polluted the air is — but translating that number into personal health risk requires knowing your individual sensitivity, what activities you plan to do, and how long you will be outdoors. This calculator does exactly that conversion.
@@ -107,7 +108,7 @@ For respiratory health, combine air quality awareness with [our Breathing Exerci
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

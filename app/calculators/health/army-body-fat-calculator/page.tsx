@@ -11,7 +11,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Army Body Fat Calculator (AR 600-9 Tape Test) | Army Standards 2026',
   description:
-    'Calculate Army body fat percentage using the official AR 600-9 tape test. Check Army body fat standards by age and gender. Instant Army pass/fail results.',
+    'Estimate body-fat percentage using the page tape-test method. Army standards changed in 2026, so verify current service requirements before using the result.',
   slug: 'army-body-fat-calculator',
   category: 'health',
   region: 'usa',
@@ -80,6 +80,7 @@ const faqs = [
 ]
 
 const seoContent = {
+  healthSourceProfile: 'army-body-fat-calculator',
   title: 'US Army Body Fat Calculator',
   category: 'health' as const,
   intro: `The Army's tape test exists because BMI doesn't cut it for a population of active-duty soldiers. A highly muscular 6-foot soldier who weighs 220 lbs may have a BMI of 29.8 — technically "overweight" — while actually being in exceptional physical condition with low body fat. The Army's circumference-based formula estimates body fat from neck, waist, and hip measurements instead, giving a number that better reflects actual body composition.
@@ -93,18 +94,6 @@ Whether you're preparing for a physical fitness assessment, tracking progress in
 **Long-tail searches answered here:** army body fat calculator free online usa, us army tape test calculator 2026 free, army pft body fat percentage calculator, military body fat standard calculator by age gender, army body fat measurement tape method calculator free, does i pass army body fat test calculator, army body fat allowance by age category calculator free, female army body fat standard calculator free usa, how to take army tape test measurements free guide, army body fat waist neck hip measurement calculator, 2026 army body fat regulations by age free calculator, army medical standards body fat calculator online free, national guard body fat standard calculator usa free, army body fat calculator for promotion eligibility free, marine corps vs army body fat standard comparison free`,
   howItWorks: `The US Army tape test uses circumference measurements to estimate body fat percentage per Army Regulation 600-9. For men: %BF = 86.010 × log₁₀(waist − neck) − 70.041 × log₁₀(height) + 36.76. For women: %BF = 163.205 × log₁₀(waist + hip − neck) − 97.684 × log₁₀(height) − 78.387. All measurements in inches. Waist for men is measured at the navel; for women at the narrowest point. This method was validated against hydrostatic weighing in military populations.`,
   benefits: [
-        {title:"Evidence-based clinical formulas",text:"Uses peer-reviewed, validated formulas from major health organizations — the same calculations trusted by healthcare professionals in clinical and research settings."},
-        {title:"Instant real-time results",text:"Results update as you type — no button to click. Explore multiple scenarios in seconds to understand how changes affect your result."},
-        {title:"Complete data privacy",text:"All calculations run entirely in your browser. No personal health data is transmitted, stored, or shared anywhere — ever."},
-        {title:"Health context included",text:"Beyond a raw number, results include reference ranges, health category classification, and guidance from major health organizations on what your result means."},
-        {title:"Works on all devices",text:"Fully responsive design works perfectly on phone, tablet, and desktop. No app download required — just open in your browser."},
-        {title:"Completely free",text:"No signup, no subscription, no premium features. Every calculation and all health context is permanently free for every user."},
-  ],
-  useCases: [
-        {title:"Annual health monitoring",text:"Calculate and record key health metrics annually to build a personal health history that reveals meaningful trends and supports proactive health decisions over time."},
-        {title:"Doctor appointment preparation",text:"Arrive at medical appointments with your own calculations already done, enabling more focused and productive conversations about your health with your healthcare provider."},
-        {title:"Wellness program participation",text:"Track progress in employer wellness programs or personal health initiatives with objective, calculated metrics that are meaningful and evidence-based."},
-        {title:"Health education and research",text:"Students, educators, and researchers in health and nutrition fields use these tools to apply classroom formulas to real-world calculations and develop genuine health literacy."},
   ],
   tipsSection: `Measure precisely — Army tape test results are taken seriously for career implications. Neck: measure just below the larynx, tape at a slight downward slope. Waist (men): measure at the navel with a normal standing posture, not sucking in. Waist (women): at the narrowest point between ribs and hips. Hips (women): at the largest circumference of the hips and buttocks.
 
@@ -133,7 +122,7 @@ Use [our Body Fat Calculator](/calculators/health/body-fat-calculator) to compar
 
 export default function Page() {
   
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

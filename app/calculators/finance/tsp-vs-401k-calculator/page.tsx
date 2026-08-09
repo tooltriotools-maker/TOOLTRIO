@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'TSP vs 401k Calculator USA 2026 — Federal Employee Retirement | ToolTrio',
+  title: 'TSP vs 401(k) Calculator USA 2026 — Federal Employee Retirement | ToolTrio',
   description: 'Compare Thrift Savings Plan (TSP) vs private sector 401k. Calculate FERS pension value, TSP matching, and total federal employee retirement package.',
   slug: 'tsp-vs-401k-calculator',
   category: 'finance',

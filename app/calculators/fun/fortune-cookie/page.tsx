@@ -1,6 +1,6 @@
 import { CalculatorBatch46DeepDive } from '@/components/ui/CalculatorBatch46DeepDive'
 import type { Metadata } from 'next'
-import { generateFunToolMetadata } from '@/lib/seo/metadata'
+import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -55,14 +55,10 @@ const faqs = [
     question: 'Is there a daily fortune feature?',
     answer: 'The generator gives you a fresh fortune every time you click — use it as a daily ritual if you like. Some people open one each morning as a lighthearted prompt for the day. The fortunes are intentionally written to be open-ended enough that they feel personally relevant regardless of what you are going through.'
   },
-  {
-    question: 'Is this free and does it work on mobile?',
-    answer: 'Completely free, no account needed, works perfectly on iPhone and Android without an app. The cracking animation works on mobile and is satisfying enough that most people tap it more than once just to see it again.'
-  },
 ]
 
 export default function Page() {
-  const _faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f: any) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }
+  const _faqSchema = generateFAQStructuredData(faqs)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />

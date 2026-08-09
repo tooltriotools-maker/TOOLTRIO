@@ -13,6 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
  description: 'Free home affordability calculator USA 2026. Calculate your maximum home purchase price using the 28/36 rule with your income, debts, and down payment.',
  slug: 'home-affordability-calculator',
  category: 'finance',
+ region: 'usa',
  keywords: [
     'home affordability calculator 2026',
     'home affordability calculator',

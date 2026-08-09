@@ -1,3 +1,4 @@
+import { HEALTH_CANONICAL_SLUGS } from '@/lib/content/health-quality'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -6,8 +7,8 @@ const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'tooltrio.com'
 
 export const metadata: Metadata = {
-  title: '124 Free Health Calculators 2026 | ToolTrio',
-  description: '124 free health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle.',
+  title: '172 Health Calculators 2026 | ToolTrio',
+  description: '172 health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle.',
   keywords: [
     'free health calculators',
     'health calculators online free',
@@ -20,8 +21,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE_URL}/calculators/health` },
   openGraph: {
-    title: '124 Free Health Calculators 2026 — BMI, Calories, Heart Risk & More',
-    description: '124 free health calculators using CDC, NIH & AHA validated formulas. BMI, TDEE, body fat, pregnancy, heart risk, sleep, macros and more. No signup required.',
+    title: '172 Health Calculators 2026 — BMI, Calories, Heart Risk & More',
+    description: '172 health calculators using evidence-reviewed formulas and calculation methods. BMI, TDEE, body fat, pregnancy, heart risk, sleep, macros and more. No signup required.',
     url: `${BASE_URL}/calculators/health`,
     siteName: SITE_NAME,
     type: 'website',
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '124 Free Health Calculators 2026',
+    title: '172 Health Calculators 2026',
     description: 'BMI, TDEE, calorie, pregnancy, heart risk and 120+ more free health calculators. CDC & NIH formulas.',
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
@@ -306,7 +307,7 @@ const CATEGORIES = [
     tools: [
       { name: 'Menstrual Health Score Calculator — Cycle Analysis', href: '/calculators/health/menstrual-health-calculator', icon: '🌙', desc: 'Free menstrual health score calculator 2026' },
       { name: 'PCOS Risk Calculator — Symptom Score & Investigations', href: '/calculators/health/pcos-risk-calculator', icon: '🌀', desc: 'Free PCOS risk score calculator 2026' },
-      { name: 'Pregnancy Due Date Calculator', href: '/calculators/health/pregnancy-due-date-calculator', icon: '🤱', desc: 'Free Pregnancy Due Date Calculator 2026' },
+      { name: 'Pregnancy Due Date Calculator', href: '/calculators/health/pregnancy-calculator', icon: '🤱', desc: 'Free Pregnancy Due Date Calculator 2026' },
       { name: 'Testosterone Calculator', href: '/calculators/health/testosterone-age-calculator', icon: '⚡', desc: 'Free Testosterone Age Calculator 2026 — Calculate testosterone age ins' },
     ],
   },
@@ -316,10 +317,10 @@ const CATEGORIES = [
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: '124 Free Health Calculators 2026',
-  description: 'Complete directory of free health calculators using CDC, NIH and AHA validated formulas. No signup required.',
+  name: '172 Health Calculators 2026',
+  description: 'Complete directory of free health calculators using evidence-reviewed formulas and calculation methods. No signup required.',
   url: `${BASE_URL}/calculators/health`,
-  numberOfItems: 124,
+  numberOfItems: HEALTH_CANONICAL_SLUGS.length,
   itemListElement: FEATURED.map((t, i) => ({
     '@type': 'ListItem',
     position: i + 1,
@@ -332,8 +333,8 @@ const itemListSchema = {
 const medicalOrgSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
-  name: '124 Free Health Calculators — tooltrio.com',
-  description: '124 free health calculators using CDC, NIH, AHA and ACSM validated formulas. Covers BMI, nutrition, fitness, heart health, pregnancy, and wellness.',
+  name: '172 Health Calculators — tooltrio.com',
+  description: '172 health calculators using evidence-reviewed formulas and calculation methods. Covers BMI, nutrition, fitness, heart health, pregnancy, and wellness.',
   url: `${BASE_URL}/calculators/health`,
   author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
   publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
@@ -361,10 +362,10 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Are these health calculators free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, all 124 health calculators are completely free with no signup, subscription, or payment required. All calculations run in your browser and no personal data is stored.' } },
+    { '@type': 'Question', name: 'Are these health calculators free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, all 172 health calculators are completely free with no signup, subscription, or payment required. All calculations run in your browser and no personal data is stored.' } },
     { '@type': 'Question', name: 'Do these calculators use US standard units?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All calculators default to US standard units (pounds for weight, feet and inches for height). A toggle is available on each calculator to switch to metric (kg/cm) if preferred.' } },
     { '@type': 'Question', name: 'Which health formulas are used?', acceptedAnswer: { '@type': 'Answer', text: 'All calculators use peer-reviewed formulas from CDC, NIH, AHA, ACSM, and WHO. For example: BMI uses the standard CDC formula, TDEE uses the Mifflin-St Jeor equation, and heart risk uses the AHA Pooled Cohort Equations.' } },
-    { '@type': 'Question', name: 'How accurate are the health calculators?', acceptedAnswer: { '@type': 'Answer', text: 'These calculators use the same validated formulas used by healthcare professionals for population screening. They provide meaningful estimates but individual results may vary. Always consult a licensed healthcare provider for medical decisions.' } },
+    { '@type': 'Question', name: 'How accurate are the health calculators?', acceptedAnswer: { '@type': 'Answer', text: 'Each calculator has its own method and evidence status. Some are standard mathematical or screening calculations, while others are simplified estimates that require clinical context. Always consult a qualified healthcare professional for medical decisions.' } },
   ],
 }
 
@@ -393,14 +394,14 @@ export default function HealthPage() {
             </div>
             <h1 className="text-3xl md:text-5xl font-black mb-3 leading-tight">
               Free Health Calculators<br />
-              <span className="text-rose-200">CDC & NIH Validated</span>
+              <span className="text-rose-200">Evidence & Formula Reviewed</span>
             </h1>
             <p className="text-rose-100 max-w-2xl text-base md:text-lg leading-relaxed mb-5">
-              124 health calculators — BMI, calories, TDEE, macros, heart risk, pregnancy, sleep, fitness, and more.
+              172 health calculators — BMI, calories, TDEE, macros, heart risk, pregnancy, sleep, fitness, and more.
               All free. No signup. US standard units (lbs & ft-in) by default.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['🇺🇸 lbs & ft-in default', '💊 CDC / NIH / AHA formulas', '⚡ Instant results', '🔒 100% private', '📱 Mobile ready', '🆓 Always free'].map(b => (
+              {['🇺🇸 lbs & ft-in default', '📚 Source-linked methods', '⚡ Instant results', '🔒 100% private', '📱 Mobile ready', '🆓 Always free'].map(b => (
                 <span key={b} className="text-xs font-semibold bg-white/15 border border-white/25 rounded-full px-3 py-1.5">{b}</span>
               ))}
             </div>
@@ -466,7 +467,7 @@ export default function HealthPage() {
           <h2 className="text-xl font-black text-gray-900 mb-4">About Our Free Health Calculators</h2>
           <div className="prose prose-sm max-w-none text-gray-600 space-y-3">
             <p>
-              tooltrio.com provides 124 free health calculators grounded in peer-reviewed research and guidelines
+              tooltrio.com provides 172 health calculators grounded in peer-reviewed research and guidelines
               from the <strong>Centers for Disease Control and Prevention (CDC)</strong>, <strong>National Institutes of Health (NIH)</strong>,
               <strong>American Heart Association (AHA)</strong>, and <strong>American College of Sports Medicine (ACSM)</strong>.
               Every tool defaults to <strong>US standard units</strong> — pounds for weight, feet and inches for height —
@@ -506,7 +507,7 @@ export default function HealthPage() {
 
         {/* Footer disclaimer */}
         <p className="mt-8 text-center text-xs text-gray-400 leading-relaxed max-w-3xl mx-auto">
-          All health calculators use <strong>CDC, NIH, AHA, and ACSM validated formulas</strong>.
+          Health calculators use tool-specific formulas and evidence profiles; some are simplified estimates and some require manual clinical review.
           Results are educational estimates and should not replace professional medical advice.
           Always consult a licensed healthcare provider before making health decisions.
         </p>
