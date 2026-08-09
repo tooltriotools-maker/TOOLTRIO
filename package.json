@@ -54,7 +54,8 @@
     "production:config:check": "node scripts/audit-production-config.mjs",
     "health:claims:check": "node scripts/audit-health-claims.mjs",
     "check:structured-data-props": "node scripts/check-structured-data-props.mjs",
-    "check:chart-data-props": "node scripts/check-chart-data-properties.mjs"
+    "check:chart-data-props": "node scripts/check-chart-data-properties.mjs",
+    "check:finance-quality": "node scripts/check-finance-quality-registry.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",

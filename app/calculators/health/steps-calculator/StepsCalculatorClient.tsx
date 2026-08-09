@@ -9,7 +9,7 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 import { stepsCalorieSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 export default function StepsCalculatorClient({ faqs, relatedCalculators, blogSlug, seoContent }: Props) {
   const [steps, setSteps]         = useState(10000)

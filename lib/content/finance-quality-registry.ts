@@ -25,11 +25,19 @@ const batches: FinanceQualityProfile[][] = [
   FINANCE_BATCH_14, FINANCE_BATCH_15, FINANCE_BATCH_17, FINANCE_BATCH_18, FINANCE_BATCH_19, FINANCE_UNREVIEWED,
 ]
 
-const profiles = batches.flat()
-const duplicates = profiles.map(p => p.slug).filter((slug, i, all) => all.indexOf(slug) !== i)
+const allProfiles = batches.flat()
 
-if (duplicates.length) {
-  throw new Error(`Duplicate finance quality profiles: ${[...new Set(duplicates)].join(', ')}`)
+// A slug is the identity key for a finance quality profile. Some historical
+// batches can overlap during migrations, so duplicates must not crash the
+// application at runtime. Earlier/reviewed batches win deterministically;
+// later duplicate records are ignored. The audit script reports duplicates
+// separately so they remain visible to maintainers.
+const seen = new Set<string>()
+const profiles: FinanceQualityProfile[] = []
+for (const profile of allProfiles) {
+  if (seen.has(profile.slug)) continue
+  seen.add(profile.slug)
+  profiles.push(profile)
 }
 
 export const FINANCE_QUALITY_REGISTRY: FinanceQualityProfile[] = profiles

@@ -10,7 +10,7 @@ import { ChartWrapper } from '@/components/ui/ChartWrapper'
 import { SEOContent, SEOContentProps } from '@/components/ui/SEOContent'
 import { walkingCalorieSEOContent } from '@/lib/seo/calculator-seo-content'
 
-interface Props { faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
+interface Props { structuredData?: object[]; faqs: { question: string; answer: string }[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[]; blogSlug?: string; seoContent?: SEOContentProps }
 
 // MET values from ACSM Compendium of Physical Activities
 const ACTIVITIES = [
