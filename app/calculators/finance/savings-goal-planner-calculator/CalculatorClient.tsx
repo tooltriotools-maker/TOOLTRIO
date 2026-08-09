@@ -90,7 +90,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                         <YAxis tick={{fill:'#374151',fontSize:10}} axisLine={false} tickLine={false} width={65} tickFormatter={v=>`$${v>=1000000?(v/1000000).toFixed(1)+'M':v>=1000?(v/1000).toFixed(0)+'k':v}`}/>
                         <Tooltip contentStyle={{background:'#fff',border:'1px solid #e5e7eb',borderRadius:10,fontSize:12}} formatter={(v:number)=>[`$${v.toLocaleString()}`,'Value']}/>
                         <Area type="monotone" dataKey="savings" name="Savings" stroke="#22c55e" strokeWidth={2.5} fill="url(#cgfin)"/>
-                        {result.yearData[0]?.goal && <Area type="monotone" dataKey="goal" name="Goal" stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 4" fill="none"/>}
+                        {Object.prototype.hasOwnProperty.call(result.yearData[0] ?? {}, 'goal') && <Area type="monotone" dataKey="goal" name="Goal" stroke="#f59e0b" strokeWidth={1.5} strokeDasharray="4 4" fill="none"/>}
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
