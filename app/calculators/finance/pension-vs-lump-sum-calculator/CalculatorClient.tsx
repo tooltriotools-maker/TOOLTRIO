@@ -116,7 +116,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='Pension vs Lump Sum Calculator'
+          title={"Pension vs Lump Sum Calculator"}
           category="finance"
           intro={'This calculator compares a lifetime monthly pension with a lump-sum offer by discounting future pension payments back to present value and separately projecting how a lump sum could change if it earned the entered discount rate while funding the same pension withdrawals.'}
           howItWorks={'For each year through the entered life expectancy, annual pension = monthly pension × 12 × COLA growth. Each annual payment is discounted by the entered discount rate to calculate pension present value. The model also compounds the lump sum at that rate and subtracts the annual pension. Break-even age is when cumulative nominal pension payments first exceed the original lump sum.'}

@@ -11,9 +11,9 @@ export interface SEOContentProps {
   intro: string
   howItWorks: string
   benefits: { title: string; text: string }[]
-  useCases: { title: string; text: string }[]
+  useCases?: { title: string; text: string }[]
   scienceSection?: string
-  tipsSection: string
+  tipsSection?: string
   commonMistakes?: string
   conclusion: string
   didYouKnow?: string[]
@@ -93,8 +93,8 @@ function RichParagraphs({ text, category }: { text: string; category: SEOContent
 }
 
 export function SEOContent({
-  title, regionLabel, category, intro, howItWorks, benefits, useCases,
-  scienceSection, tipsSection, commonMistakes, conclusion,
+  title, regionLabel, category, intro, howItWorks, benefits, useCases = [],
+  scienceSection, tipsSection = '', commonMistakes, conclusion,
   didYouKnow, comparisonTable, caseStudy, inlineLinks,
   keyStats, mistakesDetailed, strategySections, healthSourceProfile,
 }: SEOContentProps) {
@@ -224,19 +224,24 @@ export function SEOContent({
       )}
 
       {/* Use Cases */}
-      <section aria-labelledby="use-cases-heading">
-        <h2 id="use-cases-heading" className="text-xl font-black text-gray-900 mb-5">🎯 When to Use {title}</h2>
-        <div className="space-y-5">
-          {useCases.filter(uc => !isGenericMarketingBlock(uc) && (category !== 'health' || !isGenericHealthUseCase(uc.title))).map((uc, i) => (
-            <div key={i} className="border-l-4 border-gray-200 pl-5">
-              <h3 className="font-black text-gray-900 mb-1.5">{uc.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                <RichText content={uc.text} category={category} />
-              </p>
+      {(() => {
+        const filteredUseCases = useCases.filter(uc => !isGenericMarketingBlock(uc) && (category !== 'health' || !isGenericHealthUseCase(uc.title)))
+        return filteredUseCases.length > 0 ? (
+          <section aria-labelledby="use-cases-heading">
+            <h2 id="use-cases-heading" className="text-xl font-black text-gray-900 mb-5">🎯 When to Use {title}</h2>
+            <div className="space-y-5">
+              {filteredUseCases.map((uc, i) => (
+                <div key={i} className="border-l-4 border-gray-200 pl-5">
+                  <h3 className="font-black text-gray-900 mb-1.5">{uc.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    <RichText content={uc.text} category={category} />
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        ) : null
+      })()}
 
       {/* Strategy Sections */}
       {strategySections && strategySections.length > 0 && (
@@ -261,10 +266,12 @@ export function SEOContent({
       )}
 
       {/* Tips */}
-      <section aria-labelledby="tips-heading" className="bg-amber-50 border border-amber-100 rounded-2xl p-6">
-        <h2 id="tips-heading" className="text-xl font-black text-amber-800 mb-4">💡 {title}: Tips for Accurate Results</h2>
-        <RichParagraphs text={tipsSection} category={category} />
-      </section>
+      {tipsSection && (
+        <section aria-labelledby="tips-heading" className="bg-amber-50 border border-amber-100 rounded-2xl p-6">
+          <h2 id="tips-heading" className="text-xl font-black text-amber-800 mb-4">💡 {title}: Tips for Accurate Results</h2>
+          <RichParagraphs text={tipsSection} category={category} />
+        </section>
+      )}
 
       {/* Common Mistakes (text form) */}
       {commonMistakes && !mistakesDetailed && (

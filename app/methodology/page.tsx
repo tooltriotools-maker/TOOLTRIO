@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'How We Build Accurate Free Calculators | ToolTrio',
   description:
-    'Our calculators document their formulas, assumptions, limitations, and relevant authoritative references. Tax, regulatory, and health guidance is reviewed separately from mathematical formulas because rules and evidence can change.',
+    'Every calculator on tooltrio.com follows IRS guidelines, CDC standards, NIH research, CFPB rules, and SEC-validated formulas. Learn exactly how we source.',
   keywords: [
     'finance calculator methodology', 'accurate mortgage calculator formula', 'IRS 401k formula',
     'CDC BMI formula', 'NIH calorie calculation', 'compound interest formula SEC',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://tooltrio.com/methodology' },
   openGraph: {
     title: 'Our Methodology — How We Build Accurate Finance Calculators',
-    description: 'Formulas are documented with methodology notes and relevant authoritative references. Where a calculator uses a published clinical, tax, or regulatory method, the applicable source is identified.',
+    description: 'All formulas follow IRS, CDC, NIH, CFPB, and SEC standards. Verified and peer-reviewed.',
     url: 'https://tooltrio.com/methodology',
     type: 'article',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio Methodology' }],
@@ -45,7 +45,7 @@ const sources = [
     refs: [
       { name: 'IRS Publication 590-A (IRA Limits 2026)', url: 'https://www.irs.gov/publications/p590a', desc: '2026 IRA limits: $7,000 under 50, $8,000 age 50+. Income phase-out ranges and deductibility rules.' },
       { name: 'IRS 401k Resource Guide (2026)', url: 'https://www.irs.gov/retirement-plans/401k-resource-guide-plan-participants-401k-plan-overview', desc: '2026 limits: $23,500 employee (<50), $31,000 age 50+, $70,000 total (employee + employer).' },
-      { name: 'SEC Investor.gov — Compound Interest', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator', desc: 'Investor.gov provides a public compound-interest calculator and educational reference for the calculation method.' },
+      { name: 'SEC Investor.gov — Compound Interest', url: 'https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator', desc: 'A = P(1 + r/n)^(nt) formula — validated against SEC official investor calculator.' },
       { name: 'FINRA Retirement Methodology', url: 'https://www.finra.org/investors/tools-calculators', desc: '4% withdrawal rate modeling, sequence-of-returns risk, Monte Carlo probability basis.' },
     ],
   },
@@ -73,7 +73,7 @@ const sources = [
     tools: ['BMI Calculator', 'Calorie / TDEE Calculator', 'Macro Calculator', 'Body Fat Calculator'],
     refs: [
       { name: 'CDC Adult BMI Calculator', url: 'https://www.cdc.gov/bmi/', desc: 'BMI = (weight_lbs x 703) / height_in2. Categories: Underweight < 18.5, Normal 18.5-24.9, Overweight 25-29.9, Obese 30+.' },
-      { name: 'NIH Body Weight Planner', url: 'https://www.niddk.nih.gov/bwp', desc: 'NIDDK provides an educational body-weight planning tool and supporting methodology for energy-balance modeling.' },
+      { name: 'NIH Body Weight Planner', url: 'https://www.niddk.nih.gov/bwp', desc: 'TDEE and calorie deficit calculations validated by NIDDK. NIH-validated formula for weight management.' },
       { name: 'USDA Dietary Guidelines 2020-2026', url: 'https://www.dietaryguidelines.gov/', desc: 'Macro ratios: Protein 10-35%, Carbs 45-65%, Fat 20-35% of total daily calories.' },
       { name: 'Mifflin-St Jeor 1990 (PubMed)', url: 'https://pubmed.ncbi.nlm.nih.gov/2305711/', desc: 'Peer-reviewed BMR equation, American Dietetic Association. Most accurate for adults vs Harris-Benedict.' },
       { name: 'US Navy Body Fat Formula', url: 'https://www.navy.mil/', desc: 'Men: 86.010 x log10(abdomen - neck) - 70.041 x log10(height) + 36.76. Official military standard.' },

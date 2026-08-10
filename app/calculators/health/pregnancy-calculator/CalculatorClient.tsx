@@ -13,7 +13,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const [lmpDate, setLmpDate] = useState('2026-10-01')
 
   const result = useMemo(() => {
-    try { return calculatePregnancyDueDate(new Date(lmpDate)) }
+    try { return calculatePregnancyDueDate(new Date(lmpDate)) as any }
     catch { return null }
   }, [lmpDate])
 
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
             <div className="mt-5 p-4 rounded-xl bg-pink-50 border border-pink-200 text-center">
               <p className="text-xs text-pink-700 font-bold mb-1">🎉 Expected Due Date</p>
               <p className="text-xl font-black text-pink-700">{result.dueDate?.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-              {result.gestationalWeeks > 0 && <p className="text-xs text-pink-600 mt-1">Currently: Week {result.gestationalWeeks}, Day {result.gestationalDays || 0}</p>}
+              {result.currentWeek > 0 && <p className="text-xs text-pink-600 mt-1">Currently: Week {result.currentWeek}, Day {result.currentDay || 0}</p>}
             </div>
           )}
         </Card>
@@ -57,9 +57,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
           {result && (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <ResultCard label="Due Date" value={result.dueDate?.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) || '-'} highlight icon={<Calendar className="w-4 h-4" />} />
-              <ResultCard label="Current Week" value={result.gestationalWeeks > 0 ? `Week ${result.gestationalWeeks}` : 'Before LMP'} icon={<Baby className="w-4 h-4" />} />
-              <ResultCard label="Trimester" value={result.gestationalWeeks <= 12 ? '1st' : result.gestationalWeeks <= 26 ? '2nd' : '3rd'} icon={<Heart className="w-4 h-4" />} />
-              <ResultCard label="Weeks Remaining" value={result.daysLeft >= 0 ? `${Math.ceil(result.daysLeft / 7)} wks` : 'Past due'} icon={<Calendar className="w-4 h-4" />} />
+              <ResultCard label="Current Week" value={result.currentWeek > 0 ? `Week ${result.currentWeek}` : 'Before LMP'} icon={<Baby className="w-4 h-4" />} />
+              <ResultCard label="Trimester" value={result.currentWeek <= 12 ? '1st' : result.currentWeek <= 26 ? '2nd' : '3rd'} icon={<Heart className="w-4 h-4" />} />
+              <ResultCard label="Weeks Remaining" value={result.weeksRemaining >= 0 ? `${result.weeksRemaining} wks` : 'Past due'} icon={<Calendar className="w-4 h-4" />} />
             </div>
           )}
 

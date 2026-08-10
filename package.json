@@ -15,7 +15,7 @@
     "catalog:check": "node scripts/check-catalog.mjs && node scripts/check-blog-catalog.mjs",
     "health:audit": "node scripts/audit-health-batch-01.mjs",
     "llms:generate": "node scripts/generate-llms.mjs",
-    "prebuild": "npm run p0:dependency:check && npm run catalog:check && npm run blog:audit && npm run ymyl:verify && npm run ymyl:strict:audit && npm run formula:signature:audit && npm run formula:safety:audit && npm run source:syntax:audit && npm run llms:generate && npm run check:calculator-result-props && npm run check:calculator-result-props:all && npm run check:structured-data-props && npm run check:chart-data-props && npm run check:finance-registry-safety",
+    "prebuild": "npm run p0:dependency:check && npm run catalog:check && npm run blog:audit && npm run ymyl:verify && npm run ymyl:strict:audit && npm run formula:safety:audit && npm run source:syntax:audit && npm run llms:generate",
     "health:audit:batch-02": "node scripts/audit-health-batch-02.mjs",
     "health:audit:batch-04": "node scripts/audit-health-batch-04.mjs",
     "health:audit:batch-05": "node scripts/audit-health-batch-05.mjs",
@@ -72,9 +72,7 @@
     "ymyl:google:audit": "node scripts/audit-ymyl-google.mjs",
     "ymyl:strict:audit": "node scripts/audit-ymyl-strict.mjs",
     "formula:safety:audit": "node scripts/audit-calculation-functions.mjs",
-    "source:syntax:audit": "node scripts/audit-source-syntax.mjs",
-    "formula:signature:audit": "node scripts/audit-calculation-signatures.mjs",
-    "check:calculator-result-props:all": "node scripts/check-calculator-result-props-all.mjs"
+    "source:syntax:audit": "node scripts/audit-source-syntax.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",

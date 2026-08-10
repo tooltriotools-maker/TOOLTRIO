@@ -100,7 +100,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='House Flip Calculator'
+          title={"House Flip Calculator"}
           category="finance"
           intro={'This fix-and-flip calculator combines purchase price, rehab, financing, holding and selling costs to estimate gross profit, cash-on-cash ROI and annualized ROI. It also shows a 70%-rule screening price.'}
           howItWorks={'Loan amount = purchase price − down payment. Holding costs include interest-only financing plus a built-in 1.5% annual property-cost allowance. Selling costs use a fixed 6% agent commission plus 2% other selling costs. Gross profit = ARV sale price − total modeled cost. The 70% rule output = 70% of ARV − rehab cost.'}

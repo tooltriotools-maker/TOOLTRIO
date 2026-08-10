@@ -106,7 +106,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='Taxable vs Roth vs Traditional Calculator'
+          title={"Taxable vs Roth vs Traditional IRA Calculator"}
           category="finance"
           intro={'This calculator compares the after-tax future value of one contribution placed in a taxable account, Roth IRA or Traditional IRA. It is designed to isolate the effect of current tax rate, retirement tax rate, time horizon and assumed return.'}
           howItWorks={'The model first converts the contribution to after-tax dollars for the taxable and Roth cases. Roth grows at the full entered return and is shown tax-free. Traditional grows the full pre-tax contribution and then applies the entered retirement tax rate. The taxable case applies a built-in 15% annual return drag and a 15% tax to modeled gains at the end.'}
