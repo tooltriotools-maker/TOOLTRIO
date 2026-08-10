@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [expectedReturn, setExpectedReturn] = useState(7)
 
   const result = useMemo(()=>{
-    try{return calculateEarlyRetirement(currentAge, targetRetirementAge, currentPortfolio, annualSavings, annualExpenses, expectedReturn, 3.0, 3.5)}catch(e){return null}
+    try{return calculateEarlyRetirement(currentAge, targetRetirementAge, currentPortfolio, annualSavings, annualExpenses, expectedReturn, 3.0)}catch(e){return null}
   },[currentAge, targetRetirementAge, currentPortfolio, annualSavings, annualExpenses, expectedReturn])
 
   return (

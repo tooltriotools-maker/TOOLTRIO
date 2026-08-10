@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T05:34:45.842Z",
+  "generatedAt": "2026-08-10T07:14:34.803Z",
   "policy": "ToolTrio internal YMYL page-quality gate. Google does not publish a binary YMYL pass/fail score.",
   "criteria": [
     "methodology disclosure",
