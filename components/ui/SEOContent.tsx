@@ -224,24 +224,21 @@ export function SEOContent({
       )}
 
       {/* Use Cases */}
-      {(() => {
-        const filteredUseCases = useCases.filter(uc => !isGenericMarketingBlock(uc) && (category !== 'health' || !isGenericHealthUseCase(uc.title)))
-        return filteredUseCases.length > 0 ? (
-          <section aria-labelledby="use-cases-heading">
-            <h2 id="use-cases-heading" className="text-xl font-black text-gray-900 mb-5">🎯 When to Use {title}</h2>
-            <div className="space-y-5">
-              {filteredUseCases.map((uc, i) => (
-                <div key={i} className="border-l-4 border-gray-200 pl-5">
-                  <h3 className="font-black text-gray-900 mb-1.5">{uc.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    <RichText content={uc.text} category={category} />
-                  </p>
-                </div>
-              ))}
+      {useCases.length > 0 && (
+      <section aria-labelledby="use-cases-heading">
+        <h2 id="use-cases-heading" className="text-xl font-black text-gray-900 mb-5">🎯 When to Use {title}</h2>
+        <div className="space-y-5">
+          {useCases.filter(uc => !isGenericMarketingBlock(uc) && (category !== 'health' || !isGenericHealthUseCase(uc.title))).map((uc, i) => (
+            <div key={i} className="border-l-4 border-gray-200 pl-5">
+              <h3 className="font-black text-gray-900 mb-1.5">{uc.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                <RichText content={uc.text} category={category} />
+              </p>
             </div>
-          </section>
-        ) : null
-      })()}
+          ))}
+        </div>
+      </section>
+      )}
 
       {/* Strategy Sections */}
       {strategySections && strategySections.length > 0 && (
@@ -266,11 +263,11 @@ export function SEOContent({
       )}
 
       {/* Tips */}
-      {tipsSection && (
-        <section aria-labelledby="tips-heading" className="bg-amber-50 border border-amber-100 rounded-2xl p-6">
-          <h2 id="tips-heading" className="text-xl font-black text-amber-800 mb-4">💡 {title}: Tips for Accurate Results</h2>
-          <RichParagraphs text={tipsSection} category={category} />
-        </section>
+      {tipsSection.trim() && (
+      <section aria-labelledby="tips-heading" className="bg-amber-50 border border-amber-100 rounded-2xl p-6">
+        <h2 id="tips-heading" className="text-xl font-black text-amber-800 mb-4">💡 {title}: Tips for Accurate Results</h2>
+        <RichParagraphs text={tipsSection} category={category} />
+      </section>
       )}
 
       {/* Common Mistakes (text form) */}

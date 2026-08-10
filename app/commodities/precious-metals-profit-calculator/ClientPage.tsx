@@ -131,8 +131,8 @@ export default function PreciousMetalsProfitPage() {
 
       {/* Metal selector */}
       <div className="flex gap-3 mb-6 flex-wrap">
-        {METALS.map((m: any) => {
-          const c = data[m.key as keyof CommodityData]
+        {METALS.map((m) => {
+          const c = data[m.key]
           const up = c.changePct >= 0
           return (
             <button key={m.key}

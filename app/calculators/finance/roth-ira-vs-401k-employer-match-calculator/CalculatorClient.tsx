@@ -172,7 +172,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 The sequence is almost universally recommended the same way: contribute enough to your 401k to capture the full employer match (stated return under the applicable terms), then evaluate whether additional dollars should go to Roth IRA or continue in the 401k. For most people in their 20s and 30s who expect their income and tax rates to rise, Roth IRA for the next dollars makes sense — you pay taxes at today's lower rate on money that will compound tax-free for decades.
 
 For high earners already in the 32%+ bracket, the traditional 401k's immediate tax deduction becomes more compelling. A $23,000 contribution at 32% saves $7,360 in taxes today — money that can be invested alongside the retirement savings, potentially outweighing the future tax-free benefit of Roth.`}
-        howItWorks={`Employer match value: If your employer matches 50% up to 6% of salary, and your salary is $80,000: max match = $80,000 × 6% × 50% = $2,400/year in free money. Declining to contribute 6% means leaving $2,400 on the table — a guaranteed 50% return on that portion of your contribution.
+        howItWorks={`Employer match value: If your employer matches 50% up to 6% of salary, and your salary is $80,000: max match = $80,000 × 6% × 50% = $2,400/year in free money. Declining to contribute 6% means leaving $2,400 on the table — an immediate employer-match benefit equal to 50% of that contribution, before investment growth.
 
 Roth vs 401k break-even: The Roth wins when your effective withdrawal rate in retirement exceeds your current marginal rate. Traditional 401k wins when current rate exceeds expected withdrawal rate. Tax equivalence: $7,000 Roth contribution (after-tax) = $7,000 / (1 - current marginal rate) in traditional 401k contribution for equal after-tax value at identical growth rates.
 
@@ -197,7 +197,7 @@ After the match: use the Roth IRA for the next $7,000 if you're in the 22% brack
 For the Roth vs traditional debate beyond the IRA: consider tax diversification rather than optimizing for one tax treatment. Having both traditional 401k (large balance, tax-deferred) and Roth IRA (growing, tax-free) gives you levers to manage taxable income in retirement, potentially keeping you in lower brackets throughout.`}
         conclusion={`The sequence that financial planners nearly universally recommend: (1) 401k to employer match (always), (2) max HSA if enrolled in HDHP (triple tax advantage), (3) max Roth IRA if eligible, (4) return to 401k up to the $23,000 limit, (5) taxable investing.
 
-For people who can only make one choice and have modest income: the employer match in the 401k is the unambiguous priority. The guaranteed match return overwhelms any theoretical advantage of Roth versus traditional analysis. Use [our 401k Calculator](/calculators/finance/401k-calculator) to model the full 401k accumulation alongside the Roth IRA projection.`}
+For people who can only make one choice and have modest income: the employer match in the 401k is the unambiguous priority. The employer-match benefit can materially outweigh differences in tax treatment for the matched contribution of Roth versus traditional analysis. Use [our 401k Calculator](/calculators/finance/401k-calculator) to model the full 401k accumulation alongside the Roth IRA projection.`}
       />
       <InternalLinks
         title="Related Finance Calculators"

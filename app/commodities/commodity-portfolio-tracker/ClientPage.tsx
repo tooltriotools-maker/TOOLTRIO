@@ -86,8 +86,8 @@ export default function CommodityPortfolioTrackerPage() {
   // Set default buy price when metal changes in add form
   useEffect(() => { setAddBuy(Math.round(data[addMetal].price)) }, [addMetal, data])
 
-  const rows = useMemo(() => holdings.map((h: any) => {
-    const livePrice  = data[h.metal as keyof CommodityData].price
+  const rows = useMemo(() => holdings.map((h: Holding) => {
+    const livePrice  = data[h.metal].price
     const currentVal = livePrice * h.qty
     const costBasis  = h.buyPrice * h.qty
     const pnl        = currentVal - costBasis
@@ -217,7 +217,7 @@ export default function CommodityPortfolioTrackerPage() {
                     <label className="block text-[11px] font-semibold text-gray-500 mb-1">Metal</label>
                     <select value={addMetal} onChange={(e: any) => setAddMetal(e.target.value as keyof CommodityData)}
                       className="w-full px-2.5 py-2 border border-gray-200 rounded-xl bg-white text-sm font-semibold">
-                      {METAL_OPTS.map((m: any) => <option key={m.key} value={m.key}>{m.emoji} {m.name}</option>)}
+                      {METAL_OPTS.map((m) => <option key={m.key} value={m.key}>{m.emoji} {m.name}</option>)}
                     </select>
                   </div>
                   <div>
@@ -365,8 +365,8 @@ export default function CommodityPortfolioTrackerPage() {
                 {anyLive ? 'LIVE' : 'CACHED'}
               </span>
             </div>
-            {METAL_OPTS.map((m: any) => {
-              const c = data[m.key as keyof CommodityData]
+            {METAL_OPTS.map((m) => {
+              const c = data[m.key]
               const up = c.changePct >= 0
               return (
                 <Link key={m.key} href={COMMODITY_META[m.key as keyof typeof COMMODITY_META].href}
