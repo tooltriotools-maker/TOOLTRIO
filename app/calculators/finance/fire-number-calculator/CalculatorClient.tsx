@@ -125,7 +125,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title={undefined}
+          title='FIRE Number Calculator'
           category="finance"
           intro={'This FIRE calculator estimates the portfolio required to support inflation-adjusted annual spending at your chosen withdrawal rate, then projects whether current investments plus annual savings can reach that target by the retirement age you enter.'}
           howItWorks={'Years to FIRE = retirement age − current age. Future annual expenses = today’s expenses × (1 + 3%)^years because this implementation passes a fixed 3% inflation assumption. FIRE number = future expenses ÷ withdrawal rate. The portfolio projection compounds the entered expected return and adds annual savings each year.'}

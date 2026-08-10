@@ -1,6 +1,8 @@
 {
-  "generatedAt": "2026-08-10T05:34:39.416Z",
+  "generatedAt": "2026-08-10T05:54:14.833Z",
   "filesChecked": 1652,
+  "seoTitleUndefined": 0,
+  "hardcodedGlobalTypeScriptPaths": 0,
   "syntaxFailures": 0,
   "failures": [],
   "pass": true

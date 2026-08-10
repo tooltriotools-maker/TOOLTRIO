@@ -109,7 +109,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title={undefined}
+          title='Salary Negotiation Calculator'
           category="finance"
           intro={'This calculator compares an existing job with an offer using base salary, bonus percentage, annualized equity, 401(k) benefit, a fixed health-benefit value, PTO and a cost-of-living adjustment. It is a compensation-modeling tool, not a market-salary database.'}
           howItWorks={'Current compensation = current salary plus the entered bonus percentage, entered current benefit value, a fixed $18,000 health-benefit value, and PTO valued at salary ÷ 260 per day. Offer compensation adds bonus, one-fourth of entered equity value, 401(k) benefit as a percentage of offer salary, the same fixed health value and PTO. The offer is then reduced by the entered cost-of-living difference.'}
