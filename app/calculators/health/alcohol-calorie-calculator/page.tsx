@@ -10,17 +10,17 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Alcohol Calorie Calculator 2026 | ToolTrio',
-  description: 'Estimate calories from alcoholic drinks using serving size and ABV. Compare beer, wine, spirits, and cocktails while accounting for alcohol and other calorie sources.',
+  description: 'Free Alcohol Calorie Calculator 2026 — Find your daily calorie needs using the Mifflin-St Jeor equation. TDEE, weight loss, and muscle gain targets. Real.',
   slug: 'alcohol-calorie-calculator',
   category: 'health',
   region: 'usa',
   keywords: [
     'alcohol calorie calculator 2026',
-    'alcohol calories calculator',
+    'free alcohol calorie calculator',
     'alcohol calorie calculator usa 2026',
-    'beer calories by abv',
-    'wine calories by serving size',
-    'cocktail calorie calculator',
+    'calorie calculator 2026',
+    'daily calorie calculator 2026',
+    'calorie needs calculator usa 2026',
     'calories in beer by abv',
     'wine calorie calculator by glass size',
   ],

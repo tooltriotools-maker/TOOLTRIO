@@ -2929,18 +2929,7 @@ export function calculateSocialSecurityTaxability(ssBenefit: number, otherIncome
 }
 
 export function calculateHomeOfficeDeduction(officeSquareFt: number, homeTotalSqFt: number, annualRent: number, utilities: number, internet: number, businessType: 'self-employed' | 'employee') {
-  if (businessType === 'employee') return {
-    percentage: 0,
-    actualDeduction: 0,
-    simplifiedDeduction: 0,
-    betterMethod: 'none' as const,
-    optimalDeduction: 0,
-    taxSavings: 0,
-    deduction: 0,
-    note: 'W-2 employees generally cannot deduct unreimbursed home-office expenses on a federal return under current law. This result is informational; state rules and employer reimbursement policies can differ.',
-    simplified: 0,
-    actual: 0,
-  }
+  if (businessType === 'employee') return { deduction: 0, note: 'W-2 employees cannot deduct home office expenses under current law (TCJA suspended this through 2025+). Only self-employed and independent contractors qualify.', simplified: 0, actual: 0 }
   const percentage = homeTotalSqFt > 0 ? officeSquareFt / homeTotalSqFt : 0
   const actualDeduction = (annualRent + utilities) * percentage + internet * 0.5
   const simplifiedDeduction = Math.min(officeSquareFt, 300) * 5
@@ -4555,13 +4544,13 @@ export function calculateStockOptionTax(optionType: 'iso' | 'nso', grantPrice: n
     const ordinaryTax = spread * (ordinaryTaxRate / 100)
     const ficaTax = Math.min(spread, 184500) * 0.0765
     const totalTax = ordinaryTax + ficaTax
-    return { optionType, spread: Math.round(spread), exerciseCost: Math.round(exerciseCost), ordinaryIncomeTax: Math.round(ordinaryTax), ficaTax: Math.round(ficaTax), capitalGainsTax: 0, totalTax: Math.round(totalTax), netGain: Math.round(spread - totalTax), effectiveRate: spread > 0 ? Math.round(totalTax / spread * 100) : 0 }
+    return { optionType, spread: Math.round(spread), exerciseCost: Math.round(exerciseCost), ordinaryIncomeTax: Math.round(ordinaryTax), ficaTax: Math.round(ficaTax), capitalGainsTax: 0, totalTax: Math.round(totalTax), netGain: Math.round(spread - totalTax), effectiveRate: Math.round(totalTax/spread*100) }
   } else { // ISO
     const amtPreference = spread // AMT adjustment
     const regularTax = heldOver1Year ? spread * (capitalGainsTaxRate / 100) : spread * (ordinaryTaxRate / 100)
     const amtTax = amtPreference * 0.28
     const taxDue = Math.max(regularTax, amtTax)
-    return { optionType, spread: Math.round(spread), exerciseCost: Math.round(exerciseCost), ordinaryIncomeTax: 0, amtExposure: Math.round(amtTax), capitalGainsTax: Math.round(heldOver1Year ? spread * (capitalGainsTaxRate/100) : 0), totalTax: Math.round(taxDue), netGain: Math.round(spread - taxDue), heldLongTerm: heldOver1Year, effectiveRate: spread > 0 ? Math.round(taxDue / spread * 100) : 0 }
+    return { optionType, spread: Math.round(spread), exerciseCost: Math.round(exerciseCost), ordinaryIncomeTax: 0, amtExposure: Math.round(amtTax), capitalGainsTax: Math.round(heldOver1Year ? spread * (capitalGainsTaxRate/100) : 0), totalTax: Math.round(taxDue), netGain: Math.round(spread - taxDue), heldLongTerm: heldOver1Year, effectiveRate: Math.round(taxDue/spread*100) }
   }
 }
 
@@ -5193,8 +5182,7 @@ export function calculateFederalContractorTax(contractRevenue: number, contractT
     const fica = Math.min(contractRevenue, 184500) * 0.0765
     const fedTax = contractRevenue * 0.22
     const stateTax = contractRevenue * stateRate
-    const totalTax = fica + fedTax + stateTax
-    return { grossRevenue: contractRevenue, netTakeHome: Math.round(contractRevenue - totalTax), fica: Math.round(fica), federalTax: Math.round(fedTax), stateTax: Math.round(stateTax), seTax: 0, totalTax: Math.round(totalTax), effectiveRate: Math.round(totalTax / contractRevenue * 100) }
+    return { grossRevenue: contractRevenue, netTakeHome: Math.round(contractRevenue - fica - fedTax - stateTax), fica: Math.round(fica), federalTax: Math.round(fedTax), stateTax: Math.round(stateTax), seTax: 0, effectiveRate: Math.round((fica + fedTax + stateTax) / contractRevenue * 100) }
   }
   const netSE = contractRevenue - businessExpenses
   const seEarnings = Math.max(0, netSE * 0.9235)

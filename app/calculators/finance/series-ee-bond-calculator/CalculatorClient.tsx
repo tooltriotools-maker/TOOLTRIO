@@ -13,7 +13,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const result = useMemo(() => calculateSeriesEEBond(faceValue, purchaseYear, currentYear, holdToMaturity), [faceValue, purchaseYear, currentYear, holdToMaturity])
   const fmt = (v: number) => '$' + Math.round(v).toLocaleString()
   return (
-    <CalculatorLayout title="Series EE Savings Bond Calculator USA 2026" description="Calculate Series EE bond current value, scheduled doubling at 20 years under the applicable Treasury terms, and effective annual return." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="series-ee-bond-calculator">
+    <CalculatorLayout title="Series EE Savings Bond Calculator USA 2026" description="Calculate Series EE bond current value, guaranteed doubling at 20 years, and effective annual return." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="series-ee-bond-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Bond Details</h2>

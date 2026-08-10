@@ -100,7 +100,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='Paycheck Contribution Optimizer'
+          title={"Paycheck Contribution Optimizer"}
           category="finance"
           intro={'This paycheck optimizer compares your current per-paycheck 401(k), HSA and health FSA elections with a modeled higher pre-tax contribution level, then estimates the change in tax savings and take-home pay using the tax rate you enter.'}
           howItWorks={'Annual gross pay = gross pay per check × pay periods. The optimizer spreads annual account limits across the entered pay frequency, compares current versus modeled pre-tax contributions, and applies the entered tax rate to estimate tax savings. Net pay is gross pay minus contributions minus modeled tax on the remaining pay.'}

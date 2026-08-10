@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import { Card } from '@/components/ui/Card'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
@@ -28,7 +27,7 @@ export default function CalculatorClient({ faqs }: Props) {
     { op:'A >>> '+shift,sym:'>>>',r: a >>> shift },
   ], [a,b,shift])
 
-  const BitRow = ({label, n}: {label:string; n:number; key?: React.Key}) => (
+  const BitRow = ({label, n}: {label:string; n:number}) => (
     <div className="flex items-center gap-2 mb-1">
       <span className="text-xs font-mono text-gray-500 w-16 text-right flex-shrink-0">{label}</span>
       <div className="flex gap-0.5">

@@ -59,11 +59,11 @@ export default function ZipToolClient() {
   const stateName = STATES.find(([, code]) => code === state)?.[0] || state
 
   // Chart: top 8 cities by population
-  const cityPop = (Object.entries(
+  const cityPop = Object.entries(
     results.reduce((acc: Record<string,number>, r) => {
       acc[r.city] = (acc[r.city] || 0) + (r.population || 0); return acc
     }, {})
-  ) as Array<[string, number]>).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([city, pop]) => ({ city, pop }))
+  ).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([city, pop]) => ({ city, pop }))
 
   const colors = ['#22c55e','#16a34a','#4ade80','#86efac','#15803d','#166534','#bbf7d0','#dcfce7']
 
