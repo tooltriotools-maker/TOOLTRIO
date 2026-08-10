@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'Should I invest or pay off debt first?',
-    answer: "Any debt above 6-7% should generally be paid off before investing in taxable accounts — it's a guaranteed risk-free return at that rate. Always maximize employer 401k match first (instant 50-100% return). Then pay off high-rate debt. Then invest. The exception: very low-rate debt (2-4% mortgage or subsidized student loans) where expected investment returns exceed the rate.",
+    answer: "Any debt above 6-7% should generally be paid off before investing in taxable accounts — it's a guaranteed lower-risk reference outcome at that rate. Always maximize employer 401k match first (instant 50-100% return). Then pay off high-rate debt. Then invest. The exception: very low-rate debt (2-4% mortgage or subsidized student loans) where expected investment returns exceed the rate.",
   }
 ]
 const relatedCalculators = [

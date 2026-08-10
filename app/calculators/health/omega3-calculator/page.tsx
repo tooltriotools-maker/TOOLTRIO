@@ -62,7 +62,7 @@ This calculator estimates your current EPA+DHA intake from diet and supplements,
 
 The omega-6 to omega-3 ratio in modern Western diets — typically 15-20:1 — is far from the 4:1 or lower associated with ancestral diets and better health outcomes.
 
-**Long-tail searches answered here:** daily omega 3 intake calculator free online usa, how much fish oil should i take calculator, omega 3 dha epa dosage calculator free no account, omega 3 requirement calculator by weight free tool, am i getting enough omega 3 calculator usa, fish oil dosage calculator by health goal free, omega 3 to omega 6 ratio optimization calculator free, dha requirement during pregnancy calculator usa free, omega 3 for heart health dosage calculator free, anti inflammatory omega 3 dose calculator usa online, plant vs marine omega 3 conversion calculator free, krill oil vs fish oil omega 3 equivalence calculator usa, omega 3 for brain health dose calculator free online, triglyceride lowering omega 3 dosage calculator usa, omega 3 adequacy from diet alone calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate omega3 from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

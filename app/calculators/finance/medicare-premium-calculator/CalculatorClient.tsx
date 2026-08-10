@@ -55,7 +55,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏥 Medicare Premium Calculator USA 2026 — IRMAA Surcharge — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Medicare premiums in 2026 are not a flat rate. The IRMAA surcharge can add up to $5,334 per year to your Part B premiums alone if your income exceeds certain thresholds. IRMAA is calculated on income from 2 years prior — meaning your 2024 income determines your 2026 Medicare premiums. Income planning before age 63 can save thousands annually in retirement.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Medicare premiums in 2026 are not a flat rate. The IRMAA surcharge can add up to $5,334 per year to your Part B premiums alone if your income exceeds certain thresholds. IRMAA is calculated on income from 2 years prior — meaning your 2024 income determines your 2026 Medicare premiums. Income planning before age 63 can can reduce interest in some scenarios annually in retirement.</p>
               </Card>
             </>
           ) : (

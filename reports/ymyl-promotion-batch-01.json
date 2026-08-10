@@ -1,0 +1,33 @@
+{
+  "batch": "01",
+  "policy": "Index every YMYL route with a route-level methodology/source profile; retain noindex only for health critical_logic_issue or missing profiles.",
+  "finance": {
+    "total": 389,
+    "counts": {
+      "tax_rule_review": 107,
+      "custom_estimate": 161,
+      "reviewed": 39,
+      "formula_review": 21,
+      "needs_manual_review": 61
+    },
+    "indexable": 213,
+    "noindex": 176
+  },
+  "health": {
+    "total": 173,
+    "counts": {
+      "needs_manual_review": 9,
+      "reviewed": 49,
+      "verified_formula": 3,
+      "needs_formula_review": 21,
+      "custom_estimate": 80,
+      "critical_logic_issue": 11
+    },
+    "indexable": 162,
+    "noindex": 11
+  },
+  "promotedFinance": 213,
+  "promotedHealth": 162,
+  "remainingProtected": 187,
+  "pass": true
+}

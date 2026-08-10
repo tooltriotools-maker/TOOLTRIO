@@ -62,7 +62,7 @@ The equations typically agree within 5-10% for most people, but meaningful outli
 
 This calculator provides your estimated RMR from multiple equations for comparison, plus your TDEE (total daily energy expenditure) across activity levels.
 
-**Long-tail searches answered here:** resting metabolic rate calculator free online usa, how many calories do i burn just breathing calculator, rmr vs bmr calculator free no account, resting calorie burn calculator by weight and age, daily calorie burn at rest calculator free tool usa, resting metabolism calculator no signup 2026, rmr suppression from chronic dieting calculator free, how does muscle mass affect resting metabolic rate, rmr decline with age by decade calculator usa free, rmr calculation for underweight individuals usa free, calorie burn comparison sleep vs sitting vs standing, rmr adaptation from calorie restriction calculator free, rmr for sedentary vs very active person same weight, measuring rmr accuracy of formulas comparison calculator, rmr and body composition relationship calculator free usa`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
   ],

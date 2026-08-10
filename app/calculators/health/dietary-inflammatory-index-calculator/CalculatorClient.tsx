@@ -22,15 +22,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
   const result = useMemo(() => calculateDietaryInflammatoryIndex(redMeat, processedMeat, sugarDrinks, vegetables, fruit, fish, wholegrains, alcohol, turmeric, omega3), [redMeat, processedMeat, sugarDrinks, vegetables, fruit, fish, wholegrains, alcohol, turmeric, omega3])
 
-  const gaugePosition = Math.min(100, Math.max(0, ((result.score + 4) / 8) * 100))
+  const gaugePosition = Math.min(100, Math.max(0, 50 + result.score * 10))
 
   return (
-    <CalculatorLayout title="Dietary Inflammatory Index Calculator" description="Score your diet's inflammatory potential and find your top anti-inflammatory improvements." icon="🔬" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="dietary-inflammatory-index-calculator">
+    <CalculatorLayout title="Dietary Inflammatory Pattern Score" description="Explore a simplified dietary inflammatory pattern score. This is not the published Dietary Inflammatory Index (published DII)." icon="🔬" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="dietary-inflammatory-index-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
-          <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Weekly Food Servings</h2>
+          <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Weekly Food Pattern Inputs</h2>
           <div className="space-y-3">
-            <p className="text-xs text-gray-500">Pro-inflammatory foods ↑ score · Anti-inflammatory ↓ score</p>
+            <p className="text-xs text-gray-500">This simplified score is an educational ToolTrio pattern estimate, not the published DII methodology.</p>
             <div className="space-y-1">
               <p className="text-xs font-bold text-red-500 uppercase tracking-wide">Pro-inflammatory</p>
               <InputField label="Red meat servings/week" value={redMeat} onChange={setRedMeat} min={0} max={21} step={1} suffix="/wk" />
@@ -58,9 +58,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <ResultCard label="DII Score" value={result.score.toFixed(1)} highlight />
+            <ResultCard label="Pattern score" value={result.score.toFixed(1)} highlight />
             <ResultCard label="Category" value={result.category} />
-            <ResultCard label="CRP Estimate" value={result.crpEstimate} />
+            <ResultCard label="Top change" value={result.topImprovement} />
           </div>
 
           <Card>
@@ -70,21 +70,18 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
             <div className="flex justify-between text-xs text-gray-400 mt-1"><span>Anti-inflammatory</span><span>Neutral</span><span>Pro-inflammatory</span></div>
             <p className="text-center mt-2 font-black text-2xl" style={{ color: result.color }}>{result.category}</p>
-            <p className="text-center text-xs text-gray-500">DII score: {result.score.toFixed(1)} (scale: -4 to +4)</p>
+            <p className="text-center text-xs text-gray-500">ToolTrio simplified score; not the published DII scale or formula</p>
           </Card>
 
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-3">Health Impact</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex justify-between"><span className="text-gray-500">CRP Estimate</span><span className="font-bold">{result.crpEstimate}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Disease Risk</span><span className="font-bold">{result.diseaseRisk}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Top Improvement</span><span className="font-bold text-green-600">{result.topImprovement}</span></div>
-            </div>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Pattern interpretation</h3>
+            <p className="text-sm text-gray-600">{result.category}. This score is a simplified dietary pattern estimate and does not estimate CRP, disease risk, or future health outcomes.</p>
+            <p className="text-sm text-green-700 font-semibold mt-3">Top change to review: {result.topImprovement}</p><p className="text-xs text-gray-500 mt-3">Methodology: weighted food-pattern inputs. Limitations: no CRP prediction, no disease-risk prediction, and no published DII reference database is reproduced here.</p>
           </Card>
 
           <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-sm text-green-800">
             <p className="font-bold mb-1">💡 Your #1 Improvement: {result.topImprovement}</p>
-            <p>A Mediterranean-style diet (vegetables, fish, olive oil, whole grains, nuts) consistently achieves DII scores of -1.5 to -3.0, associated with 30-40% lower cardiovascular events in clinical trials.</p>
+            <p>Dietary patterns can be discussed with a clinician or dietitian when a person has a health condition or specific nutrition goal; this simplified score does not quantify disease-risk reduction.</p>
           </div>
         </div>
       </div>

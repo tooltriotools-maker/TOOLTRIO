@@ -62,7 +62,7 @@ Urine color remains one of the most practical real-time hydration indicators: pa
 
 This calculator estimates your personalized daily fluid target from body weight, activity level, sweat rate, climate, and diet patterns.
 
-**Long-tail searches answered here:** daily hydration calculator free online usa, how much water should i drink today calculator, hydration needs by weight and activity calculator free, am i drinking enough water calculator no signup, water intake calculator for athletes usa free, optimal daily fluid intake calculator free tool online, hydration needs for hot climate workers calculator usa, hydration calculator for marathon runners free online, how does alcohol affect hydration needs calculator free, hydration requirements by sweat rate calculator usa, electrolyte hydration calculator for endurance sports free, daily fluid goal calculator from body weight in pounds, coffee tea dehydration impact on hydration calculator free, hydration for kidney stone prevention calculator usa free, fluid intake calculator for elderly adults usa free online`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate hydration from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

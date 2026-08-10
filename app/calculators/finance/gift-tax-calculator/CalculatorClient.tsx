@@ -92,9 +92,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Worked example: A donor giving $50,000 split equally between two recipients has $38,000 of annual exclusions in the single-donor scenario, leaving $12,000 to use against the lifetime exclusion."
           conclusion="Important assumptions and limitations: Form 709 rules have exceptions and special elections. Gift splitting, future interests, direct tuition/medical payments, marital deductions, valuation discounts and GST tax require separate analysis. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            { title: "Real-Time USA Results", text: "Results update immediately from the inputs and methodology described on this page." },
+            { title: "Calculator results", text: "Results update immediately from the inputs and methodology described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

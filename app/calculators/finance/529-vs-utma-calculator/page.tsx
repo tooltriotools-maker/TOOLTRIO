@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free 529 vs utma calculator',
     '529 vs utma calculator online',
     'best 529 vs utma calculator 2026',
-    '529 vs utma calculator no signup',
+    '529 vs utma calculator ',
     'accurate 529 vs utma calculator',
     'how to calculate 529 vs utma',
     'tooltrio.com',

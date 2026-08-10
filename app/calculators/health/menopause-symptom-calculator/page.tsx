@@ -62,7 +62,7 @@ Hormone therapy (HT) is the most effective treatment for vasomotor symptoms, wit
 
 This calculator assesses your symptom severity, identifies your primary concerns, and maps evidence-based management options to your specific profile.
 
-**Long-tail searches answered here:** menopause symptom severity calculator free online usa, am i in perimenopause or menopause calculator, menopause stage calculator by age and symptoms free, hot flash severity calculator no account free, menopause health risk calculator usa free, hormonal change symptom score calculator free online, perimenopause symptoms checklist score calculator free usa, average menopause symptom duration calculator free, hot flash frequency and severity tracker calculator usa, sleep disruption from menopause score calculator free, brain fog from menopause severity calculator usa free, hrt benefit assessment calculator from menopause score, natural menopause management effectiveness calculator free, early menopause risk factor calculator usa free online, bone density risk from early menopause calculator free`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate menopause symptom from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

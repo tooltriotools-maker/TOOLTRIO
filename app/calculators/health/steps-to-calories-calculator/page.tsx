@@ -62,7 +62,7 @@ The MET-based calculation for steps uses the fact that walking burns approximate
 
 This calculator converts your daily step count to calorie expenditure based on your weight, height, and typical walking pace, and shows you how your step activity fits into your total daily energy picture.
 
-**Long-tail searches answered here:** steps to calories burned calculator free online usa, how many calories do 10000 steps burn calculator, steps burned calorie calculator by weight free tool, daily steps calorie conversion calculator no signup, walking steps to calories calculator usa free 2026, fitbit steps to calories burned calculator free, steps calorie burn calculator by walking speed and weight, how body weight affects step calorie burn calculator usa, steps to calorie deficit calculator for weight loss free, 5000 steps vs 10000 steps calorie difference calculator, active vs passive steps calorie burn calculator usa free, stair steps calorie burn vs flat walking calculator, calories per step calculation by height and stride free, monthly calorie burn from daily step count calculator usa, how to verify step calorie calculation accuracy free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate steps to calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

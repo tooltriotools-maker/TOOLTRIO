@@ -26,7 +26,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "calorie-deficit-calculator",
@@ -37,7 +37,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "calories-burned-calculator",
@@ -48,7 +48,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "cardiac-output-calculator",
@@ -97,7 +97,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "cold-shower-benefits-calculator",
@@ -108,7 +108,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "cortisol-stress-calculator",
@@ -130,7 +130,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "creatinine-clearance-calculator",
@@ -150,7 +150,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "dehydration-calculator",
@@ -189,6 +189,7 @@
     "hasCalculationAudit": true,
     "clientFile": "CalculatorClient.tsx",
     "staleClaimHits": [
+      "clinically validated",
       "healthy range"
     ],
     "routeMismatch": false,
@@ -221,7 +222,7 @@
       "healthy range"
     ],
     "routeMismatch": false,
-    "usesCustomRiskLanguage": true
+    "usesCustomRiskLanguage": false
   },
   {
     "slug": "emf-exposure-calculator",

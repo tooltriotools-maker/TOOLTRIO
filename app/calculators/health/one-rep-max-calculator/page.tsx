@@ -62,7 +62,7 @@ The commonly used prediction equations — Epley, Brzycki, Lander, and O'Conner 
 
 This calculator applies multiple validated equations to your submaximal performance and gives you both an estimated 1RM and a complete percentage chart for programming use.
 
-**Long-tail searches answered here:** one rep max calculator free online usa, 1rm calculator by reps and weight free tool, bench press one rep max calculator free no signup, squat one rep max calculator usa free online, how to calculate max lift from reps free tool, epley formula 1rm calculator free online 2026, deadlift 1rm calculator by sets and reps free usa, overhead press one rep max estimator free online, brzycki formula vs epley 1rm calculator comparison, one rep max calculator from 5 reps 3 reps 10 reps free, powerlifting total calculator from three lifts free usa, how accurate is one rep max formula calculator free, strength standards by bodyweight 1rm calculator usa, training percentage of 1rm calculator free online, 1rm testing without maxing out calculator free usa`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate one rep max from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

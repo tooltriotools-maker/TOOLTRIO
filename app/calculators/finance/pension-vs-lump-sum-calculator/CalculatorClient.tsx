@@ -120,7 +120,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           category="finance"
           intro={'This calculator compares a lifetime monthly pension with a lump-sum offer by discounting future pension payments back to present value and separately projecting how a lump sum could change if it earned the entered discount rate while funding the same pension withdrawals.'}
           howItWorks={'For each year through the entered life expectancy, annual pension = monthly pension × 12 × COLA growth. Each annual payment is discounted by the entered discount rate to calculate pension present value. The model also compounds the lump sum at that rate and subtracts the annual pension. Break-even age is when cumulative nominal pension payments first exceed the original lump sum.'}
-          tipsSection={'The discount rate is a valuation assumption, not a guaranteed investment return. Survivor benefits, plan funding, PBGC coverage, taxes, annuity form, health and longevity uncertainty can change the decision materially.'}
+          tipsSection={'The discount rate is a valuation assumption, not a contractual interest-saving comparison. Survivor benefits, plan funding, PBGC coverage, taxes, annuity form, health and longevity uncertainty can change the decision materially.'}
           conclusion={'Present value above or below the lump sum does not by itself determine which option is appropriate. Review the pension plan’s actual election forms and consider professional retirement/tax advice before an irrevocable choice.'}
           benefits={[
             {title:"Calculator-specific methodology",text:"The explanation above follows the formulas and assumptions used by this ToolTrio calculator."},

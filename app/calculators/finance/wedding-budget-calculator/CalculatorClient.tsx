@@ -76,7 +76,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="The model starts with a venue base cost, multiplies venue/catering/photography/flowers/music by a regional factor, calculates catering as $85 per guest before that factor, adds fixed attire and ring assumptions, and reserves 10% of the entered budget for miscellaneous costs."
           tipsSection="The current UI maps its numeric region control to Northeast, West, South or Midwest and always passes ballroom as the venue type. Vendor quotes, taxes, gratuities, rentals and local seasonality can differ substantially from these embedded planning assumptions."
           conclusion="Use the category totals to create a first-pass spending plan, then replace assumptions with actual local vendor quotes. The model is a budgeting framework, not a market-price survey."
-          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

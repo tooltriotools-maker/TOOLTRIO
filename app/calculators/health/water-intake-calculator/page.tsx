@@ -60,7 +60,7 @@ The result includes both total fluid intake and a breakdown showing how much of 
 
 If you exercise regularly, combine this with [our Sweat Rate Calculator](/calculators/health/sweat-rate-calculator) for sport-specific hydration planning, and [our Electrolyte/Sodium Calculator](/calculators/health/sodium-intake-calculator) to balance fluid intake with sodium replacement.
 
-**Long-tail searches answered here:** water intake calculator free online usa 2026, how much water should i drink per day calculator, daily water intake by weight and activity calculator free, water consumption calculator for weight loss free, how many ounces of water per day calculator usa, 8 glasses of water a day is it enough calculator free, water intake calculator for athletes and runners usa, how much water to drink in hot weather calculator free, water intake during pregnancy calculator free online, water intake for kidney health calculator usa free, how much water should a 150 pound woman drink daily, dehydration prevention water calculator free online usa, water intake calculator by body weight in pounds free, how does caffeine affect daily water needs calculator, water intake for breastfeeding mothers calculator free usa`,
+`,
   howItWorks: `The calculator applies a three-step process. First, base hydration need is calculated at 30-35 mL per kilogram of body weight — the midpoint of the range recommended by the European Food Safety Authority for sedentary adults.
 
 Second, adjustments are added for physical activity (estimated sweat loss based on exercise duration and intensity), environmental factors (additional needs in hot or humid climates, at high altitude), and physiological state (pregnancy, breastfeeding, illness with fever or diarrhea).

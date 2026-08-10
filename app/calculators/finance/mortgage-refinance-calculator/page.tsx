@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free mortgage refinance calculator',
     'mortgage refinance calculator online',
     'best mortgage refinance calculator 2026',
-    'mortgage refinance calculator no signup',
+    'mortgage refinance calculator ',
     'accurate mortgage refinance calculator',
     'how to calculate mortgage refinance',
     'tooltrio.com',

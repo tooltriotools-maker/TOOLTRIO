@@ -8,8 +8,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   )
 })
 
-// This page has a permanent 301 redirect to /calculators/health/pregnancy-calculator
-// Marking noindex prevents duplicate content penalty if crawled before redirect fires
+// Legacy route: next.config.mjs permanently redirects this URL to the canonical pregnancy calculator.
 export const metadata: Metadata = {
   ...generateCalculatorMetadata({
   title: 'Pregnancy Due Date Calculator 2026 | ToolTrio',
@@ -28,8 +27,6 @@ export const metadata: Metadata = {
     'naegele rule due date',
   ],
   }),
-  // Noindex: this URL has a permanent redirect to /calculators/health/pregnancy-calculator
-  robots: { index: false, follow: false },
 }
 
 const relatedCalculators = [
@@ -67,7 +64,7 @@ Early ultrasound (before 12 weeks) provides the most accurate gestational dating
 
 This calculator provides your due date using multiple methods, along with current gestational age, trimester, and key milestone weeks.
 
-**Long-tail searches answered here:** pregnancy due date calculator free online usa 2026, when is my baby due date calculator free tool, due date calculator from last period date free, ivf embryo transfer due date calculator usa free, how many weeks until my due date calculator no signup, naegele rule due date calculator free online, due date calculator with irregular cycle adjustment free, ivf fresh vs frozen cycle due date calculator usa, when is my due date from positive test date calculator, gestational age from due date calculator usa free, how accurate is lmp based due date calculator free, third trimester start date from due date calculator, early anatomy scan due date adjustment calculator free, postdate pregnancy how overdue calculator usa free, due date estimator with multiple calculation methods free`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate pregnancy due date from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

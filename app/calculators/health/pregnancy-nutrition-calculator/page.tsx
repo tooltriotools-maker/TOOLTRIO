@@ -62,7 +62,7 @@ DHA is structurally essential for fetal brain and retinal development during the
 
 This calculator generates your trimester-specific nutrient targets based on your pre-pregnancy weight, current gestational week, activity level, and whether you're carrying multiples — with specific food sources for the most critical nutrients.
 
-**Long-tail searches answered here:** pregnancy nutrition calculator free online usa, how much to eat while pregnant calculator, pregnancy calorie needs by trimester calculator free, prenatal nutrition requirements calculator no account, what nutrients do i need in pregnancy calculator usa, pregnancy vitamin and mineral needs calculator free, additional calorie needs first vs second vs third trimester, folate vs folic acid needs pregnancy calculator free usa, iron needs increase during pregnancy calculator free, dha requirement for fetal brain development calculator usa, calcium needs during pregnancy without dairy calculator, pregnancy nutrition for vegetarian or vegan calculator usa free, hyperemesis nausea calorie minimums calculator free, gestational diabetes nutrition calculator usa free, weight gain trajectory with pregnancy nutrition calculator`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
   ],

@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free inflation calculator',
     'inflation calculator online',
     'best inflation calculator 2026',
-    'inflation calculator no signup',
+    'inflation calculator ',
     'accurate inflation calculator',
     'how to calculate inflation',
     'tooltrio.com',

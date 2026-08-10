@@ -8,7 +8,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Tax-Exempt vs Taxable Bond Comparison Calculator USA 2026 | ToolTrio',
-  description: 'Compare after-tax yields on municipal bonds vs corporate bonds vs US Treasuries. Calculate the exact tax-equivalent yield for any tax bracket and state.',
+  description: 'Compare after-tax yields on municipal bonds vs corporate bonds vs US Treasuries. Calculate the estimated tax-equivalent yield for any tax bracket and state.',
   slug: 'tax-exempt-bond-comparison-calculator',
   category: 'finance',
   region: 'usa',

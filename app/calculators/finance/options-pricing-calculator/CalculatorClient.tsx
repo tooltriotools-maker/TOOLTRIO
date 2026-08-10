@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">📈 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a risk-free rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a lower-risk reference rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even.</p>
               </Card>
             </>
           ):(
@@ -91,14 +91,14 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Options Pricing Calculator USA 2026 — Black-Scholes" category="finance"
-          intro="This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a risk-free rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even."
+          intro="This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a lower-risk reference rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even."
           howItWorks="The function converts days to years, volatility and interest to decimals, calculates d1 and d2, and uses the Black-Scholes call equation C = S·N(d1) − K·e^(−rT)·N(d2). Break-even is strike + theoretical premium. The current UI always prices a call; despite older copy, it does not let the user select a put."
           tipsSection="Implied volatility usually has a large effect on theoretical value. Compare the model price with the market quote, but remember Black-Scholes assumes constant volatility/rates and continuous trading and this implementation does not include dividends."
           conclusion="A theoretical option value is not a prediction of the market price or future profit. American exercise features, dividends, volatility skew, liquidity and transaction costs can make traded prices differ from this simplified model."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update from the calculator inputs and stated assumptions."},
+            {title:"Calculator results",text:"Results update from the calculator inputs and stated assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

@@ -62,7 +62,7 @@ What makes keto hard is precision. The difference between ketosis and just eatin
 
 This calculator sets your precise keto macros — carbohydrates, protein, and fat targets — based on your weight, height, activity level, and goal, with protein set to preserve lean mass and fat adjusted to hit your calorie target.
 
-**Long-tail searches answered here:** keto macro calculator free online usa 2026, ketogenic diet macro calculator by weight free, how many carbs on keto calculator by goal free tool, keto calories protein fat ratio calculator no signup, keto diet macro breakdown calculator for women usa, net carbs vs total carbs keto calculator free, keto macro calculator for beginners free online usa, how much fat on keto diet per day calculator free, keto protein limit to stay in ketosis calculator free, lazy keto macro calculator free no account usa, keto macros for 200 pound man weight loss calculator, standard vs cyclical keto macro calculator free usa, carb limit for ketosis by body weight calculator free, how many grams of carbs on keto calculator usa free, keto calculator for kidney disease caution free usa`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate keto macro from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

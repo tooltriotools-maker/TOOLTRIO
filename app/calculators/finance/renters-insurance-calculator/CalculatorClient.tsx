@@ -77,7 +77,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="This calculator estimates premium from personal-property value, liability limit and deductible, using an internal Texas/78701 rating scenario. It is best used to see how those three inputs interact inside this model, not as an insurance quote."
           tipsSection="Start by inventorying belongings at realistic replacement values, then compare liability limits and deductibles you could afford after a covered loss. A larger deductible generally shifts more loss cost to you."
           conclusion="The current function is hard-coded to Texas ZIP 78701 and uses internal rating assumptions. It does not price a user-selected state, insurer underwriting, credit-based insurance score, catastrophe exposure, endorsements or actual-cash-value versus replacement-cost terms."
-          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

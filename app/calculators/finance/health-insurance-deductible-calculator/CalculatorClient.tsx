@@ -121,9 +121,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Example: on $25,000 of modeled allowed charges, a $3,000 deductible, 20% coinsurance and $8,000 out-of-pocket maximum produce $3,000 deductible plus $4,400 coinsurance, or $7,400 in modeled cost sharing. A $450 monthly premium adds $5,400 annually."
           conclusion="Real plans use negotiated allowed amounts, copays, networks, covered-service rules, separate prescription benefits and exclusions. Premiums generally do not count toward the plan out-of-pocket maximum. Treat the result as a scenario, not an insurer claim estimate."
           benefits={[
-            { title: 'Real-Time USA Results', text: 'Calculator-specific scenario outputs based on the inputs and assumptions described above.' },
+            { title: 'Calculator results', text: 'Calculator-specific scenario outputs based on the inputs and assumptions described above.' },
             { title: '100% Private',          text: 'Everything runs in your browser. No data stored or transmitted.' },
-            { title: 'Free Forever',          text: 'No signup, no paywall, no hidden costs.' },
+            { title: 'Available without a paid plan',          text: 'No account is required to run the calculation.' },
           ]}
           useCases={[
             { title: 'Personal Planning',    text: 'Model your specific situation with real numbers before making decisions.' },

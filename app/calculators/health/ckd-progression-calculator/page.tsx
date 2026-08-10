@@ -6,11 +6,11 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'))
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'CKD Progression Calculator — Kidney Disease Timeline 2026 | ToolTrio',
-  description: 'Free CKD progression calculator 2026. Estimate kidney disease progression rate, years to dialysis, and overall CKD risk from eGFR trend, proteinuria, blood pressure, and diabetes status.',
+  description: 'Explore an educational eGFR-slope scenario. This page does not predict an individual dialysis timeline or kidney-failure probability.',
   slug: 'ckd-progression-calculator',
   category: 'health',
   region: 'usa',
-  keywords: ['CKD progression calculator', 'kidney disease progression rate', 'eGFR decline calculator', 'years to dialysis calculator', 'chronic kidney disease risk calculator'],
+  keywords: ['CKD progression calculator', 'kidney disease progression rate', 'eGFR decline calculator', 'linear eGFR-slope scenario calculator', 'chronic kidney disease risk calculator'],
 })
 
 const relatedCalculators = [{'name': 'eGFR Kidney Function', 'href': '/calculators/health/gfr-egfr-calculator', 'icon': '🫘', 'desc': 'eGFR from creatinine'}, {'name': 'Blood Pressure', 'href': '/calculators/health/blood-pressure-calculator', 'icon': '🩺', 'desc': 'BP categories'}, {'name': 'Diabetes Risk', 'href': '/calculators/health/diabetes-risk-calculator', 'icon': '🩸', 'desc': 'T2D risk'}, {'name': 'Hydration', 'href': '/calculators/health/hydration-calculator', 'icon': '💧', 'desc': 'Daily fluid needs'}]
@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
-      <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'CKD Progression Risk Calculator', description: 'Free CKD progression calculator 2026. Estimate kidney disease progression rate, years to dialysis, a', url: 'https://tooltrio.com/calculators/health/ckd-progression-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
+      <CalculatorClient faqs={faqs} structuredData={[generateFAQStructuredData(faqs), generateWebAppStructuredData({ name: 'CKD Progression Risk Calculator', description: 'Free CKD progression calculator 2026. Estimate kidney disease progression rate, linear eGFR-slope scenario, a', url: 'https://tooltrio.com/calculators/health/ckd-progression-calculator', category: 'HealthApplication' })]} relatedCalculators={relatedCalculators} />
           <CalculatorBatch45DeepDive slug="ckd-progression-calculator" />
 </>
   )

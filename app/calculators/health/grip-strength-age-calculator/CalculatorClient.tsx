@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const pctColor = result.percentile >= 70 ? '#22c55e' : result.percentile >= 40 ? '#eab308' : result.percentile >= 20 ? '#f97316' : '#ef4444'
 
   return (
-    <CalculatorLayout title="Grip Strength Age Percentile Calculator" description="Find your grip strength percentile by age and gender — a validated predictor of longevity and all-cause mortality." icon="✊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="grip-strength-age-calculator">
+    <CalculatorLayout title="Grip Strength Age Percentile Calculator" description="Find your grip strength percentile by age and gender — an age- and sex-based grip-strength percentile; this result is not an individual prognosis." icon="✊" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="grip-strength-age-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Your Measurement</h2>

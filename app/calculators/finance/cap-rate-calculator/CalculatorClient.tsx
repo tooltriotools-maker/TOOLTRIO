@@ -95,7 +95,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="Cap rate is net operating income (NOI) divided by property value. This tool first reduces gross rent for vacancy, subtracts operating expenses, then compares the resulting NOI with the property value. Mortgage payments are shown separately because debt service is not part of NOI."
           tipsSection="Example: $36,000 annual rent with 5% vacancy leaves $34,200 effective rent. After $8,000 of operating expenses, NOI is $26,200; on a $425,000 property the cap rate is about 6.16%."
           conclusion="Cap rate does not measure financing, appreciation, taxes, depreciation, capital expenditures omitted from your expense input, or future rent growth. Use actual trailing or carefully normalized operating figures."
-          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

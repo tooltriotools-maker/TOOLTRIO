@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'What is the savings rate needed for FIRE?',
-    answer: "Savings rate is the most powerful lever. At 10% savings rate, retirement takes 40+ years. At 50% savings rate, roughly 17 years. At 70% savings rate, under 10 years. These assume 5% real return and match historical data from J.L. Collins' research. Increase your savings rate, not just your income, for faster FIRE.",
+    answer: "Savings rate is the most useful lever. At 10% savings rate, retirement takes 40+ years. At 50% savings rate, roughly 17 years. At 70% savings rate, under 10 years. These assume 5% real return and match historical data from J.L. Collins' research. Increase your savings rate, not just your income, for faster FIRE.",
   },
   {
     question: 'What are the types of FIRE?',

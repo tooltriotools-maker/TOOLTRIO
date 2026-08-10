@@ -62,7 +62,7 @@ You need both types, and both contribute to the total fiber target. The fastest 
 
 This calculator estimates your current fiber intake, compares it against age- and sex-specific targets, and gives you specific food additions needed to close the gap without major dietary overhaul.
 
-**Long-tail searches answered here:** daily fiber intake calculator free online usa, how much fiber should i eat per day calculator, fiber needs calculator by age weight activity free, dietary fiber requirement calculator no signup, am i getting enough fiber calculator usa, fiber deficiency risk calculator free tool online, soluble vs insoluble fiber needs calculator free usa, fiber intake for cholesterol reduction calculator free, daily fiber from food vs supplement calculator usa, fiber intake for ibs management calculator free, constipation relief fiber amount calculator usa free, high fiber diet transition plan calculator free online, fiber calculator for diabetics and blood sugar control, weight management fiber daily needs calculator usa free, fiber adequacy from typical american diet calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate fiber intake from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

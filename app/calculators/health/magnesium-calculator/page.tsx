@@ -62,7 +62,7 @@ Several factors deplete magnesium status: high alcohol intake, high sugar intake
 
 Good dietary sources are dark leafy greens, nuts (particularly almonds, cashews, pumpkin seeds), legumes, whole grains, and dark chocolate. The RDA is 310-320mg for women, 400-420mg for men.
 
-**Long-tail searches answered here:** daily magnesium intake calculator free online usa, how much magnesium should i take calculator, magnesium deficiency risk calculator free no account, magnesium requirements by age and gender calculator, am i getting enough magnesium calculator usa free, dietary magnesium calculator from food sources free, magnesium for sleep quality dose calculator usa free, magnesium glycinate vs citrate dosage calculator free, magnesium requirement during high stress periods calculator, magnesium depletion from alcohol calculator usa free, magnesium for muscle cramps dosage calculator free, magnesium needs for athletes calculator free usa online, magnesium and anxiety reduction dose calculator free, upper limit magnesium supplement safety calculator usa, magnesium from food vs supplement calculator comparison`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate magnesium from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

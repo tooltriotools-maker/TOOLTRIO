@@ -114,9 +114,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Match the replacement period to how long dependents actually need support and use a cautious return assumption. The premium outputs are rough internal estimates—not insurer quotes—and the model does not separately value Social Security survivor benefits, education goals or liquid assets."
           conclusion="Use the result to organize family obligations before requesting actual insurance illustrations. Coverage needs and policy type depend on circumstances that this simplified model cannot determine."
           benefits={[
-            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
+            {title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},

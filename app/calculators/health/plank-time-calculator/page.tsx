@@ -62,7 +62,7 @@ For healthy adults under 45, 90-120 seconds is generally considered a reasonable
 
 This calculator assesses your plank performance against age and sex norms, evaluates your plank-to-side-plank ratio for core stability balance, and generates a progression plan based on your current performance.
 
-**Long-tail searches answered here:** plank time score calculator free online usa, is my plank time good for my age calculator, plank fitness assessment calculator free no signup, how long should i plank for calculator usa free, plank time percentile by age and gender calculator, core strength plank benchmark calculator free tool, 1 minute plank vs 2 minute plank benefit comparison, how to improve plank time calculator free online usa, plank time progression goal calculator free, side plank vs front plank time equivalence calculator, plank core strength vs back strength indicator calculator free, how plank time correlates to core injury prevention, plank training frequency for improvement calculator free usa, plank time milestone tracker free calculator usa, hollow body hold vs plank difficulty comparison calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate plank time from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

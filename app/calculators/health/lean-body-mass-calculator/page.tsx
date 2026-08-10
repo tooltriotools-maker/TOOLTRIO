@@ -62,7 +62,7 @@ Several methods estimate lean body mass: body fat percentage methods (Navy tape,
 
 This calculator estimates your lean body mass using multiple formulas for comparison and gives context on what it means for your metabolic rate, protein needs, and strength training targets.
 
-**Long-tail searches answered here:** lean body mass calculator free online usa, how to calculate lean muscle mass free tool, lean mass vs fat mass calculator by weight free, total body lean mass calculator no signup usa, skeletal muscle mass calculator free online, fat free body mass calculator by height weight free, lean body mass percentage calculator by gender free, lean mass index calculator vs bmi free usa online, how to increase lean body mass calculator free, lean mass for powerlifters calculator usa free, ffmi fat free mass index calculator free online, lean body mass goal calculator for my height free, lean to fat ratio calculator by measurements usa free, lean body mass changes from resistance training calculator, lean body mass decline with aging calculator free usa`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate lean body mass from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

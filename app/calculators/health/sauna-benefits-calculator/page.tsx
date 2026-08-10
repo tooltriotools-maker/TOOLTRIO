@@ -62,7 +62,7 @@ The best-documented specific benefits: cardiovascular function improvement (the 
 
 This calculator estimates your sauna benefit trajectory based on session frequency, duration, temperature, and the specific outcomes you're targeting.
 
-**Long-tail searches answered here:** sauna health benefits calculator free online usa, how often should i use the sauna calculator, sauna session benefits calculator by frequency free, infrared sauna vs traditional sauna benefits calculator, sauna calorie burn and cardiovascular benefit calculator no signup, sauna protocol health impact calculator usa free, sauna frequency for longevity benefit calculator free, weekly sauna sessions growth hormone impact calculator, sauna benefit timeline weeks to see results calculator, heat shock protein production from sauna calculator usa, sauna blood pressure reduction effect calculator free, sauna for recovery after exercise calculator usa free, sauna dehydration fluid loss calculator free online, infrared sauna session length by temperature calculator usa, sauna benefit for skin and detoxification calculator free`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

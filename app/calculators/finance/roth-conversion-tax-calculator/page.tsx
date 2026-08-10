@@ -14,9 +14,9 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   { question: 'Why can a Roth conversion create current income tax?', answer: 'IRS guidance says untaxed amounts converted from a traditional IRA to a Roth IRA are generally included in income. Nondeductible basis can change the taxable portion.' },
   { question: 'Does the 10% early-distribution tax apply just because I convert?', answer: 'A properly completed Roth conversion is generally not itself subject to the 10% additional tax, but amounts withheld or not rolled over can create different consequences.' },
-  { question: 'What filing status and state does this page model?', answer: 'The current ToolTrio UI passes single filing status and California to the calculation. Other filing statuses and states should not rely on this result as an exact tax estimate.' },
+  { question: 'What filing status and state does this page model?', answer: 'The current ToolTrio UI passes single filing status and California to the calculation. Other filing statuses and states should not rely on this result as an estimated tax estimate.' },
   { question: 'Does the calculator handle nondeductible IRA basis?', answer: 'No. It does not perform the Form 8606 pro-rata calculation, so users with after-tax IRA basis need a more complete tax computation.' },
-  { question: 'What assumptions drive the long-term benefit result?', answer: 'The current function assumes 7% annual growth for 30 years and values future avoided tax at 24%. Those are planning assumptions, not guaranteed returns or future tax rates.' }
+  { question: 'What assumptions drive the long-term benefit result?', answer: 'The current function assumes 7% annual growth for 30 years and values future avoided tax at 24%. Those are planning assumptions, not stated return under the applicable termss or future tax rates.' }
 ]
 const relatedCalculators = [
   { name: 'Roth Conversion Ladder', href: '/calculators/finance/roth-conversion-ladder-calculator', icon: '🪜', desc: 'Roth Conversion Ladder' },

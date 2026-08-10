@@ -62,7 +62,7 @@ The most effective quit strategies combine multiple approaches. Nicotine replace
 
 This calculator estimates your withdrawal timeline, maps your peak symptom windows, and provides timing-specific coping strategies and pharmacotherapy guidance.
 
-**Long-tail searches answered here:** nicotine withdrawal timeline calculator free online usa, how long does nicotine withdrawal last calculator, quit smoking symptom timeline calculator free tool, nicotine cravings duration calculator no signup, smoking cessation timeline calculator usa free, when will withdrawal symptoms end calculator free, nicotine withdrawal week 1 vs week 4 symptoms calculator, how long before nicotine urges stop calculator usa free, nicotine patch vs cold turkey withdrawal timeline, vaping cessation withdrawal duration calculator usa free, nicotine replacement therapy duration calculator free, nicotine withdrawal anxiety peak timing calculator usa, sleep disruption during nicotine withdrawal calculator free, weight gain from quitting smoking calculator usa free, nicotine withdrawal symptom peak day calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate nicotine withdrawal from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

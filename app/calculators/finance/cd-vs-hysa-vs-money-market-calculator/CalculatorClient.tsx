@@ -120,7 +120,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="Each option compounds the entered annual rate monthly for the CD term. Interest is ending value minus principal, and the calculator applies the same entered tax rate to all three interest amounts. It also shows a hypothetical CD early-withdrawal penalty equal to three months of interest."
           tipsSection="Use current APYs/yields from the actual products you are comparing. The model holds each rate constant for the whole term even though HYSA and money-market yields can change, and actual CD penalties vary by institution."
           conclusion="The highest modeled after-tax balance is not automatically the best choice. FDIC/NCUA coverage, money-market-fund investment risk, access needs, rate variability and CD penalties also matter."
-          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -82,9 +82,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations based on the assumptions documented on this page." },
+            { title: "Calculator results", text: "Instant calculations based on the assumptions documented on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

@@ -103,7 +103,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="Loan payment uses standard amortization. The model fixes insurance at $3,600/year, maintenance at 1.5% of price, storage at $2,400/year, campsites at $45/night, fuel at $3.80/gallon and travel at 250 miles per trip/night input. Break-even nights = annual cost ÷ $200."
           tipsSection="The function calculates 15% first-year depreciation but does not include it in total annual cash cost. Taxes, registration, repairs, towing vehicle costs and resale value are also outside the total."
           conclusion="Cost per night depends heavily on usage and these fixed assumptions; it is not a universal RV-versus-hotel comparison."
-          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Methodology-specific results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Decision support",text:"Model your situation."},{title:"Assumption testing",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

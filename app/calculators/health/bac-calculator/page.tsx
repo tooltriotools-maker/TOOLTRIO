@@ -62,7 +62,7 @@ This calculator applies the Widmark formula — the same pharmacokinetic model u
 
 The number is an estimate, not a measurement. Breathalyzers and blood tests are the only way to know your actual BAC.
 
-**Long-tail searches answered here:** blood alcohol content calculator free online usa, bac calculator by weight and drinks free tool, am i over the legal limit to drive calculator, blood alcohol level estimator by gender weight, how many drinks to reach 0.08 bac calculator, free bac calculator no app no download, bac calculator beer wine shots mixed free usa, how long until i reach zero bac calculator free, bac by body weight 130 lb woman 3 drinks calculator, legal driving limit bac by state calculator usa free, bac calculator for 180 pound man 2 beers free, bac impact on driving ability calculator usa free, blood alcohol rising vs falling phase calculator free, bac hour by hour after stopping drinking calculator, how accurate are home breathalyzers vs bac calculator`,
+`,
   howItWorks: `The Widmark formula calculates estimated BAC: BAC = [alcohol consumed (g)] ÷ [body weight (g) × Vd] − [elimination rate × hours]. Standard drink is 14g ethanol. Vd (volume of distribution): 0.68 for men, 0.55 for women — reflecting lower average total body water percentage in women. Elimination rate: 0.015 g/dL/hour (range 0.010-0.035 depending on metabolism).
 
 The calculator shows BAC at time of drinking, peak BAC (accounting for absorption time: 30-60 minutes for empty stomach, 60-90 minutes with food), and current estimated BAC accounting for elapsed time and ongoing elimination.`,
@@ -72,7 +72,7 @@ The calculator shows BAC at time of drinking, peak BAC (accounting for absorptio
 
 Pace yourself: one standard drink per hour keeps most average-weight adults under 0.04 g/dL — well below the legal limit. Two drinks in the first hour produces meaningfully higher peak BAC than spreading two drinks over two hours.
 
-Beware the dose-response curve on judgment impairment: research consistently shows that BAC around 0.04-0.06 g/dL produces overconfidence about one's own impairment level — people feel less drunk than they are at these intermediate BAC values.`,
+Beware the dose-response curve on judgment impairment: published research indicates that BAC around 0.04-0.06 g/dL produces overconfidence about one's own impairment level — people feel less drunk than they are at these intermediate BAC values.`,
   scienceSection: `Widmark published his foundational alcohol pharmacokinetics research in 1932, establishing the mathematical relationship between alcohol dose, body weight, and BAC that remains standard in forensic medicine. The legal BAC limit of 0.08 g/dL was established in all 50 US states by 2004 (following federal encouragement through highway funding incentives). NHTSA research shows relative crash risk at 0.08 g/dL is approximately 11× higher than at 0.00 g/dL.`,
   conclusion: `A BAC calculator should inform decisions, not justify them. If this tool shows your estimated BAC at 0.06 and you're thinking about driving, the correct response is to wait — not to conclude you're "technically under the limit." Individual variation means your real BAC could be 0.02 higher or lower than the estimate. On a highway at 70 mph, that margin matters enormously.
 

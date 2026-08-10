@@ -14,16 +14,16 @@ export const metadata: Metadata = generateCalculatorMetadata({ title: 'SCSS vs F
     'free senior citizen savings vs fd calculator',
     'senior citizen savings vs fd calculator online',
     'best senior citizen savings vs fd calculator 2026',
-    'senior citizen savings vs fd calculator no signup',
+    'senior citizen savings vs fd calculator ',
     'accurate senior citizen savings vs fd calculator',
     'how to calculate senior citizen savings vs fd',
     'tooltrio.com',
   ] })
 const faqs = [
  { question: 'How accurate are the calculations?', answer: 'This calculator uses the formulas and assumptions shown on the page. Results are planning estimates; actual returns, taxes, fees, and product terms can differ.' },
- { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), consulting a Certified Financial Planner (CFP) or CPA is strongly recommended. This SCSS vs FD Calculator provides solid educational estimates and planning scenarios, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
- { question: 'Does this account for inflation?', answer: 'Where applicable, this SCSS vs FD Calculator uses nominal values (current dollars) by default. For long-term projections, always consider that inflation varies by country and period; use an assumption appropriate to your planning horizon. To get inflation-adjusted (real) returns, subtract your expected inflation rate from your nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
- { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this SCSS vs FD Calculator, assume consistent contribution rates, steady returns, and static tax rates - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
+ { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), considering advice from a qualified financial professional (CFP) or CPA is strongly recommended. This SCSS vs FD Calculator provides a calculation based on the inputs and assumptions shown, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
+ { question: 'Does this account for inflation?', answer: 'Where applicable, this SCSS vs FD Calculator uses nominal values (current dollars) by default. For long-term projections, always consider that inflation varies by country and period; use an assumption appropriate to your planning horizon. To get inflation-adjusted (real) returns, account for inflation only when an inflation assumption is explicitly provided from the nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
+ { question: 'What are the limitations of financial calculators?', answer: 'Financial calculators, including this SCSS vs FD Calculator, assume consistent contribution rates, steady returns, and tax assumptions shown on this page - which never perfectly match reality. Markets fluctuate, tax laws change, and life circumstances evolve. Use projections as directional guides rather than precise predictions. The most valuable insight is understanding the relationship between variables (rate, time, amount) not the exact output number.' },
 ]
 const rc = [
  { name: 'FD Calculator', href: '/calculators/finance/fd-calculator', icon: '🏦', desc: 'Fixed deposit' },

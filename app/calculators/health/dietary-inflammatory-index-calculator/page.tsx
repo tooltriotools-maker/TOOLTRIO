@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Dietary Inflammatory Index (DII) Calculator 2026 | ToolTrio',
+  title: 'Dietary Inflammatory Pattern Score 2026 | ToolTrio',
   description: "Free Dietary Inflammatory Index calculator 2026. Score your diet's pro- or anti-inflammatory potential based on red meat, processed foods, vegetables, fish, whole grains, and supplements.",
   slug: 'dietary-inflammatory-index-calculator',
   category: 'health',
@@ -22,7 +22,7 @@ const relatedCalculators = [{'name': 'Inflammation Risk', 'href': '/calculators/
 
 const faqs = [
   { question: 'What is the Dietary Inflammatory Index (DII)?', answer: "The DII is a validated scoring tool developed by researchers at the University of South Carolina to measure the inflammatory potential of an individual's diet. Each food and nutrient is assigned a score based on its effect on six inflammatory biomarkers (IL-1β, IL-4, IL-6, IL-10, TNF-α, and CRP). Scores range from approximately -8.87 (maximally anti-inflammatory) to +7.98 (maximally pro-inflammatory). Higher DII scores are associated with increased risk of type 2 diabetes, cardiovascular disease, depression, and certain cancers." },
-  { question: 'Which foods are the most anti-inflammatory?', answer: 'The most powerful anti-inflammatory foods by DII scoring are: turmeric (curcumin), omega-3 fatty acids (from fatty fish and supplements), fiber-rich whole grains, ginger, garlic, onions, cruciferous vegetables (broccoli, kale), berries, green tea, and olive oil. Regular fatty fish consumption (2-3 servings/week) has one of the strongest anti-inflammatory effects in research. Conversely, the most pro-inflammatory foods are processed meats, refined sugar, fried foods, and trans fats.' },
+  { question: 'Which foods are the most anti-inflammatory?', answer: 'The most useful anti-inflammatory foods by DII scoring are: turmeric (curcumin), omega-3 fatty acids (from fatty fish and supplements), fiber-rich whole grains, ginger, garlic, onions, cruciferous vegetables (broccoli, kale), berries, green tea, and olive oil. Regular fatty fish consumption (2-3 servings/week) has one of the strongest anti-inflammatory effects in research. Conversely, the most pro-inflammatory foods are processed meats, refined sugar, fried foods, and trans fats.' },
   { question: 'Can diet really reduce CRP and inflammation markers?', answer: 'Yes — dietary pattern changes can meaningfully reduce blood CRP (C-reactive protein) within 6-12 weeks. A Mediterranean-style diet has been shown in multiple randomized trials to reduce CRP by 20-30%. The landmark PREDIMED trial demonstrated that a Mediterranean diet supplemented with olive oil or nuts reduced major cardiovascular events by 30% in high-risk individuals. CRP is a key marker because even modestly elevated CRP (> 3 mg/L) is associated with 2× higher heart disease risk independent of cholesterol.' },
 ]
 

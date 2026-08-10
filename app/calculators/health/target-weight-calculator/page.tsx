@@ -10,7 +10,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Target Weight Calculator 2026 | ToolTrio',
-  description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline.',
+  description: 'Set a specific goal weight and calculate the estimated daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline.',
   slug: 'target-weight-calculator',
   category: 'health',
   region: 'usa',
@@ -62,7 +62,7 @@ Waist circumference is often a more clinically meaningful target than scale weig
 
 This calculator provides your healthy weight range, a realistic target based on your age, sex, frame size, and current body composition, and a timeline estimate based on sustainable rate of change.
 
-**Long-tail searches answered here:** target weight calculator free online usa, what is a healthy goal weight for my height calculator, how long to reach my target weight calculator free, realistic weight loss goal calculator by height free, ideal target weight calculator by bmi free no account, weight goal calculator usa free online 2026, target weight for healthy bmi calculator by age free, target weight for marathon performance calculator usa free, fighter weight cut target weight calculator free, target weight for clothing size goal calculator free usa, how to set realistic target weight calculator, target weight by frame size calculator usa free online, target weight calculator for teenage girls free, healthy weight goal range not single number calculator, body recomposition target vs weight loss target calculator usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate target weight from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 
@@ -91,7 +91,7 @@ export default function Page() {
       faqs={faqs}
       structuredData={[
         generateFAQStructuredData(faqs),
-        generateWebAppStructuredData({ name: 'Target Weight Calculator', description: 'Set a specific goal weight and calculate the exact daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline a', url: 'https://tooltrio.com/calculators/health/target-weight-calculator', category: 'HealthApplication' }),      ]}
+        generateWebAppStructuredData({ name: 'Target Weight Calculator', description: 'Set a specific goal weight and calculate the estimated daily calorie deficit or surplus needed to reach it by a target date. Includes realistic timeline a', url: 'https://tooltrio.com/calculators/health/target-weight-calculator', category: 'HealthApplication' }),      ]}
       relatedCalculators={relatedCalculators}
       seoContent={seoContent}
     />

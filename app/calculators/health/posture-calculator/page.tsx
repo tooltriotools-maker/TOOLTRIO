@@ -62,7 +62,7 @@ Lower crossed syndrome — anterior pelvic tilt, shortened hip flexors, inhibite
 
 This calculator assesses your posture across major postural patterns, identifies your primary imbalances, and provides a specific corrective exercise program prioritized by clinical significance.
 
-**Long-tail searches answered here:** posture assessment score calculator free online usa, how bad is my posture calculator free tool, posture health risk calculator no signup, forward head posture health impact calculator usa free, poor posture pain risk calculator free online, posture correction priority score calculator usa, kyphosis risk score from posture habits calculator free, scoliosis severity screening score calculator usa free, text neck forward head posture score calculator free, sitting posture injury risk per hour calculator usa, posture improvement timeline calculator free online, daily posture habit score calculator usa free, desk worker posture vs standing worker comparison calculator, back pain likelihood from posture calculator free usa, posture correction exercise frequency calculator free`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate posture from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

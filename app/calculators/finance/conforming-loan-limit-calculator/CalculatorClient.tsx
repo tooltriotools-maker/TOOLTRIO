@@ -86,7 +86,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="The tool subtracts the down payment from home price to find the loan amount, compares a conventional loan with the 2026 baseline conforming limit, and calculates a 30-year principal-and-interest payment from the entered rate."
           tipsSection="The 2026 one-unit baseline conforming loan limit is $832,750. FHFA permits higher limits in qualifying high-cost areas, up to $1,249,125 for most high-cost jurisdictions, so a loan flagged as jumbo here may still conform locally."
           conclusion="PMI, FHA MIP and VA funding-fee outputs are simplified estimates. Actual mortgage-insurance pricing, FHA/VA eligibility, county limits, taxes, homeowners insurance and lender fees require lender/program-specific data."
-          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

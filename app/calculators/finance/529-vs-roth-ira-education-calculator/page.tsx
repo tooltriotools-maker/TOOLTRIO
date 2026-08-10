@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free 529 vs roth ira education calculator',
     '529 vs roth ira education calculator online',
     'best 529 vs roth ira education calculator 2026',
-    '529 vs roth ira education calculator no signup',
+    '529 vs roth ira education calculator ',
     'accurate 529 vs roth ira education calculator',
     'how to calculate 529 vs roth ira education',
     'tooltrio.com',

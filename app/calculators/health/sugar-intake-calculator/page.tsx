@@ -62,7 +62,7 @@ Fructose — the form of sugar in both sucrose (table sugar, 50% fructose) and h
 
 This calculator estimates your daily added sugar intake, identifies your highest-contributing sources, and gives specific reduction strategies.
 
-**Long-tail searches answered here:** daily sugar intake calculator free online usa, how much sugar should i eat per day calculator, added sugar calculator by diet free no account, am i eating too much sugar calculator usa free, sugar intake health risk calculator free tool, recommended daily sugar limit calculator 2026 free, hidden sugar in food calculator free usa online, total vs added sugar daily limit calculator free, sugar intake and type 2 diabetes risk calculator usa, fructose vs glucose daily intake comparison calculator free, sugar impact on triglycerides calculator usa free, how to reduce sugar intake by 50 percent calculator, daily sugar from beverages vs food calculator usa free, natural sugar vs added sugar health difference calculator, sugar intake from breakfast foods total calculator usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate sugar intake from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

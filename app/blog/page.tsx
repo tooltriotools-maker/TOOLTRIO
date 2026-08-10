@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { allBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
+import { publishedBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -12,9 +12,11 @@ function Home({size=16,className=""}: {size?:number;className?:string}) { const 
 function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> }
 
 
+const CURRENT_YEAR = new Date().getFullYear()
+
 export const metadata: Metadata = {
-  title: 'Free Finance & Health Guides 2026 | ToolTrio',
-  description: '157 in-depth guides on SIP investing, 401k vs Roth IRA, UK income tax, ISA, compound interest, FIRE, retirement planning, BMI, TDEE and more. USA, UK.',
+  title: `Free Finance & Health Guides ${CURRENT_YEAR} | ToolTrio`,
+  description: `${blogPosts.length} in-depth finance, health, tax, retirement and ZIP guides for India, USA, UK and Europe.`,
   keywords: [
     'finance guides 2026',
     'investment guides india usa uk',
@@ -27,8 +29,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
   openGraph: {
-    title: '157 Expert Finance & Health Guides 2026',
-    description: '157 expert guides on SIP, 401k, UK tax, ISA, retirement, FIRE, BMI and more. USA, UK, India & Europe.',
+    title: `${blogPosts.length} Expert Finance & Health Guides ${CURRENT_YEAR}`,
+    description: `${blogPosts.length} expert guides on investing, tax, retirement, loans, health, property and ZIP codes.`,
     url: 'https://tooltrio.com/blog',
     siteName: 'ToolTrio',
     type: 'website',
@@ -36,39 +38,49 @@ export const metadata: Metadata = {
   },
 }
 
-const CAT_CONFIG: Record<string, { label: string; icon: string; color: string; border: string; bg: string; desc: string }> = {
-  'zip-codes':       { label: 'ZIP Codes',        icon: '📮', color: 'text-teal-700',   border: 'border-teal-200',   bg: 'bg-teal-50',    desc: 'ZIP code lookup, ZIP+4, distance, timezones & format rules' },
-  investment:        { label: 'Investment',       icon: '📈', color: 'text-green-700',  border: 'border-green-200',  bg: 'bg-green-50',   desc: 'SIP, mutual funds, stocks, gold, crypto - grow your wealth' },
-  retirement:        { label: 'Retirement',       icon: '🌅', color: 'text-purple-700', border: 'border-purple-200', bg: 'bg-purple-50',  desc: '401k, NPS, PPF, SIPP, FIRE - plan your retirement' },
-  loans:             { label: 'Loans',            icon: '🏦', color: 'text-blue-700',   border: 'border-blue-200',   bg: 'bg-blue-50',    desc: 'Mortgage, EMI, student loans, debt payoff strategies' },
-  'personal-finance':{ label: 'Personal Finance', icon: '💰', color: 'text-orange-700', border: 'border-orange-200', bg: 'bg-orange-50',  desc: 'Budgeting, savings, net worth, emergency fund' },
-  health:            { label: 'Health',           icon: '❤️', color: 'text-red-700',    border: 'border-red-200',    bg: 'bg-red-50',     desc: 'BMI, calories, macros, heart rate, fitness guides' },
-  property:          { label: 'Property',         icon: '🏠', color: 'text-yellow-700', border: 'border-yellow-200', bg: 'bg-yellow-50',  desc: 'Buy-to-let, mortgage, rent vs buy, real estate' },
-  tax:               { label: 'Tax',              icon: '📋', color: 'text-gray-700',   border: 'border-gray-200',   bg: 'bg-gray-50',    desc: 'Income tax, GST, UK PAYE, capital gains, tax planning' },
+const CATEGORY_STYLE: Record<string, { color: string; border: string; bg: string }> = {
+  'zip-codes': { color: 'text-teal-700', border: 'border-teal-200', bg: 'bg-teal-50' },
+  investment: { color: 'text-green-700', border: 'border-green-200', bg: 'bg-green-50' },
+  retirement: { color: 'text-purple-700', border: 'border-purple-200', bg: 'bg-purple-50' },
+  loans: { color: 'text-blue-700', border: 'border-blue-200', bg: 'bg-blue-50' },
+  'personal-finance': { color: 'text-orange-700', border: 'border-orange-200', bg: 'bg-orange-50' },
+  health: { color: 'text-red-700', border: 'border-red-200', bg: 'bg-red-50' },
+  property: { color: 'text-yellow-700', border: 'border-yellow-200', bg: 'bg-yellow-50' },
+  tax: { color: 'text-gray-700', border: 'border-gray-200', bg: 'bg-gray-50' },
+  commodity: { color: 'text-amber-700', border: 'border-amber-200', bg: 'bg-amber-50' },
+  'developer-tools': { color: 'text-indigo-700', border: 'border-indigo-200', bg: 'bg-indigo-50' },
 }
+
+const CAT_CONFIG = Object.fromEntries(
+  blogCategories.map(category => ({
+    ...category,
+    label: category.name,
+    ...(CATEGORY_STYLE[category.slug] ?? CATEGORY_STYLE.investment),
+  })).map(category => [category.slug, category]),
+) as Record<string, (typeof blogCategories)[number] & { label: string; color: string; border: string; bg: string }>
 
 const blogListingSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: 'tooltrio.com Blog',
   url: 'https://tooltrio.com/blog',
-  description: '157 expert finance and health guides for India, USA, UK and Europe investors.',
+  description: `${blogPosts.length} expert finance, health, tax and ZIP guides for India, USA, UK and Europe investors.`,
   blogPost: blogPosts.map(p => ({
     '@type': 'BlogPosting',
     headline: p.seoTitle,
     description: p.seoDescription,
     url: `https://tooltrio.com/blog/${p.slug}`,
     datePublished: p.publishedAt,
-    author: { '@type': 'Organization', name: 'tooltrio Team' },
+    author: { '@type': 'Person', name: p.author },
   })),
 }
 
 const TRENDING_KEYWORDS = [
-  'SIP Calculator 2026', 'Gold Price Today', 'Brent Crude $112', 'USD to INR Live',
-  'Home Loan EMI', 'Income Tax New Regime', 'FIRE Calculator India', 'Roth IRA 2026',
+  `SIP Calculator ${CURRENT_YEAR}`, 'Gold Price Today', 'Brent Crude $112', 'USD to INR Live',
+  'Home Loan EMI', 'Income Tax New Regime', 'FIRE Calculator India', `Roth IRA ${CURRENT_YEAR}`,
   '401k vs Pension', 'UK ISA Guide', 'Retirement Planning', 'Mutual Fund Returns',
   'NPS vs PPF', 'SIP vs Real Estate', 'Bitcoin Tax India', 'Compound Interest',
-  'Credit Score Tips', 'Salary Hike Guide', 'Rent vs Buy 2026', 'ELSS vs PPF',
+  'Credit Score Tips', 'Salary Hike Guide', `Rent vs Buy ${CURRENT_YEAR}`, 'ELSS vs PPF',
 ]
 
 const POPULAR_KEYWORDS = [
@@ -77,7 +89,7 @@ const POPULAR_KEYWORDS = [
   { label: 'Home Loan EMI',     href: '/blog/emi-calculator-complete-guide-understand-home-car-personal-loans' },
   { label: 'Retirement Planning', href: '/blog/retirement-planning-guide-how-much-do-you-need-to-retire' },
   { label: 'UK Tax Guide',      href: '/blog/uk-income-tax-guide-paye-national-insurance-take-home-pay-2026' },
-  { label: '401k vs Roth IRA',  href: '/blog/roth-ira-vs-traditional-ira-guide-usa-2026' },
+  { label: '401k vs Roth IRA',  href: '/blog/401k-vs-roth-ira-complete-guide-2026' },
   { label: 'FIRE Movement India', href: '/blog/fire-movement-india-guide-2026' },
   { label: 'Compound Interest', href: '/blog/compound-interest-guide-eighth-wonder-of-the-world' },
   { label: 'Income Tax Regime', href: '/blog/income-tax-new-vs-old-regime-india-2026' },

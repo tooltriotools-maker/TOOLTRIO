@@ -62,7 +62,7 @@ Bikram and hot yoga add a metabolic component through thermoregulation — sweat
 
 This calculator estimates your calorie burn based on yoga style, session duration, body weight, and effort level, with comparisons to other exercise modalities for equivalent duration.
 
-**Long-tail searches answered here:** yoga calorie burn calculator free online usa, how many calories does yoga burn calculator free tool, calories burned different yoga styles calculator no signup, hot yoga vs regular yoga calorie comparison calculator, yoga calories per hour by type and weight free, is yoga good for weight loss calorie calculator usa, bikram yoga 90 minute session calorie calculator free, vinyasa vs hatha yoga calorie burn difference calculator, restorative yoga calorie burn per hour calculator usa, power yoga calorie burn vs gym workout comparison free, yin yoga vs yang yoga calorie expenditure calculator, yoga calorie burn for 130 lb vs 180 lb person free, daily yoga calorie total by style and duration calculator usa, ashtanga yoga calorie burn per session calculator free, is one hour yoga equivalent to cardio calculator usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate yoga calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

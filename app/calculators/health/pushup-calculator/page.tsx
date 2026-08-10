@@ -62,7 +62,7 @@ Technique determines what you're actually measuring. A push-up counted with inco
 
 This calculator compares your push-up max against ACSM norms, interprets your relative strength and endurance level, and generates a progressive push-up improvement program based on your current performance.
 
-**Long-tail searches answered here:** pushup fitness calculator free online usa, how many pushups should i be able to do by age calculator, push up test fitness level calculator free no signup, pushup reps fitness percentile calculator usa, how many push ups is average for a man calculator, army pushup standard calculator by age free, pushup to bench press strength correlation calculator free, how to increase pushup count calculator usa free online, female pushup standard by age calculator free, knee vs regular pushup equivalence calculator usa, decline incline pushup benefit comparison calculator free, pushup progression from 0 to 50 calculator usa free, pushup max test without rest fatigue calculator free, daily pushup challenge results calculator usa free, pushup muscle activation vs bench press calculator free`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

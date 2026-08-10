@@ -112,9 +112,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="For federal loans, private refinancing removes the loan from the federal student-aid system and can eliminate federal repayment and forgiveness protections. Federal consolidation is different from private refinancing. For private loans, compare APR, term, fees, cosigner release, and fixed-versus-variable rate—not only the monthly payment."
           conclusion="A refinance is financially favorable in this model only under its rate, term, and fee assumptions. Review the new promissory note and any federal benefits you would surrender before refinancing."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
+            {title:"Calculator results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},

@@ -150,7 +150,9 @@ export function calculateOvulation(lastPeriodDate: Date, cycleLength: number) {
 
 /** Sleep Cycle Calculator */
 export function calculateSleepCycle(bedtime: string, wakeGoal: 'wake' | 'bed') {
-  const [h, m] = bedtime.split(':').map(Number)
+  const [rawH, rawM] = bedtime.split(':').map(Number)
+  const h = Number.isFinite(rawH) ? rawH : 22
+  const m = Number.isFinite(rawM) ? rawM : 0
   const fallAsleepMinutes = 14
   const cycleMinutes = 90
   const results = []
@@ -275,11 +277,11 @@ export function calculateChronicKidneyDiseaseProgression(eGFR: number, eGFRChang
   )
   const riskCategory = kidneyRiskScore >= 60 ? 'Very High' : kidneyRiskScore >= 40 ? 'High' : kidneyRiskScore >= 20 ? 'Moderate' : 'Low'
   const color = kidneyRiskScore >= 60 ? '#dc2626' : kidneyRiskScore >= 40 ? '#ef4444' : kidneyRiskScore >= 20 ? '#f97316' : '#22c55e'
-  const bpTarget = proteinuria > 30 || diabetic ? '< 130/80 mmHg' : '< 140/90 mmHg'
+  const bpTarget = 'Discuss an individualized BP target with your clinician'
   return {
     eGFR, eGFRChange, kidneyRiskScore, riskCategory, color, yearsToDialysis: yearsToDialysis === 999 ? 'Stable/not declining' : `~${yearsToDialysis} years`,
     proteinuriaRisk: proteinuria > 300 ? 'Overt proteinuria — high progression risk' : proteinuria > 30 ? 'Microalbuminuria — moderate risk' : 'Normal',
-    bpTarget, keyInterventions: ['ACE inhibitor or ARB if proteinuria present', 'BP control to target', 'Avoid NSAIDs and nephrotoxins', 'Dietary protein 0.8g/kg/day', 'Control diabetes if present', 'Smoking cessation']
+    bpTarget, keyInterventions: ['Review blood-pressure management with your clinician', 'Review urine albumin/protein results with your clinician', 'Avoid unnecessary NSAID/nephrotoxin exposure unless advised', 'Keep diabetes management and smoking cessation in the clinical plan', 'Use serial eGFR/ACR measurements rather than a single projection']
   }
 }
 
@@ -362,7 +364,7 @@ export function calculateDietaryInflammatoryIndex(redMeatServings: number, proce
   else if (score >= -0.5) { category = 'Neutral'; color = '#eab308' }
   else if (score >= -2) { category = 'Anti-inflammatory'; color = '#22c55e' }
   else { category = 'Strongly anti-inflammatory'; color = '#10b981' }
-  return { score, category, color, topImprovement: processedMeatServings > 1 ? 'Reduce processed meat' : sugarDrinksPerDay > 1 ? 'Cut sugary drinks' : vegetableServings < 4 ? 'Add more vegetables' : 'Add turmeric/omega-3', crpEstimate: score > 1 ? 'Likely elevated CRP (>2 mg/L)' : score > 0 ? 'Borderline CRP' : 'CRP likely in healthy range', diseaseRisk: score > 1.5 ? 'Higher risk for T2D, CVD, certain cancers' : 'Reduced chronic disease risk' }
+  return { score, category, color, topImprovement: processedMeatServings > 1 ? 'Review processed-meat intake' : sugarDrinksPerDay > 1 ? 'Review sugary-drink intake' : vegetableServings < 4 ? 'Consider more vegetables' : 'Review overall dietary pattern' }
 }
 
 export function calculateEMFExposureScore(wifiHoursPerDay: number, phoneCallHoursPerDay: number, distanceFromRouter: number, sleepsNearPhone: boolean, useWiredEarphones: boolean, smartMeterDistance: number, microwaveUsePerDay: number) {
@@ -507,11 +509,13 @@ export function calculateHydrationForExercise(bodyWeightKg: number, exerciseDura
   const sweatRateLH = Math.round(baseSweatRate * heatFactor * altitudeFactor * typeFactor * 10) / 10
   const totalFluidNeedL = Math.round(sweatRateLH * (exerciseDurationMin / 60) * 10) / 10
   const preDrinkMl = 400
-  const duringDrinkMl = Math.round((totalFluidNeedL * 1000 - preDrinkMl) * 0.7) // 70% during, 30% after
+  const duringDrinkMl = Math.max(0, Math.round((totalFluidNeedL * 1000 - preDrinkMl) * 0.7)) // 70% during, 30% after
   const afterDrinkMl = Math.round(totalFluidNeedL * 1000 * 0.3 * 1.5) // 150% post
   const electrolytesNeeded = exerciseDurationMin > 60 || temperatureCelsius > 28
   const sodiumMg = electrolytesNeeded ? Math.round(sweatRateLH * exerciseDurationMin / 60 * 900) : 0 // ~900mg/L sweat
-  return { sweatRateLH, totalFluidNeedL, preDrinkMl, duringDrinkMl, afterDrinkMl, electrolytesNeeded, sodiumMg, drinkInterval: `Every ${Math.round(15 / sweatRateLH)} minutes`, perBottle: `${Math.round(duringDrinkMl / (exerciseDurationMin / 15))} mL per 15 min`, color: totalFluidNeedL > 2 ? '#f97316' : totalFluidNeedL > 1 ? '#eab308' : '#22c55e' }
+  const drinkIntervalMinutes = sweatRateLH > 0 ? Math.max(1, Math.round(15 / sweatRateLH)) : 15
+  const perBottleMinutes = exerciseDurationMin > 0 ? Math.max(1, exerciseDurationMin / 15) : 1
+  return { sweatRateLH, totalFluidNeedL, preDrinkMl, duringDrinkMl, afterDrinkMl, electrolytesNeeded, sodiumMg, drinkInterval: `Every ${drinkIntervalMinutes} minutes`, perBottle: `${Math.round(duringDrinkMl / perBottleMinutes)} mL per 15 min`, color: totalFluidNeedL > 2 ? '#f97316' : totalFluidNeedL > 1 ? '#eab308' : '#22c55e' }
 }
 
 export function calculateImmuneStrengthScore(sleepHours: number, stressLevel: number, exerciseMinPerWeek: number, fruitVegServings: number, alcoholPerWeek: number, smokingStatus: boolean, bmi: number, age: number, chronicConditions: number, supplementsScore: number) {
@@ -796,7 +800,7 @@ export function calculatePCOSRiskScore(cycleLengthDays: number, cycleIrregularit
 }
 
 export function calculatePainScoreAnalysis(currentPain: number, painFrequency: 'constant' | 'daily' | 'weekly' | 'occasional', sleepDisruption: number, activityLimitation: number, painDuration: string, useOfMedication: boolean, qualityOfLife: number) {
-  const freqScore = { constant: 4, daily: 3, weekly: 2, occasional: 1 }[painFrequency]
+  const freqScore = { constant: 4, daily: 3, weekly: 2, occasional: 1 }[painFrequency] ?? 1
   const composite = Math.round((currentPain * 0.35 + freqScore * 0.15 + sleepDisruption * 0.20 + activityLimitation * 0.20 + (10 - qualityOfLife) * 0.10) * 10) / 10
   let category: string, color: string, guidance: string
   if (composite >= 8) { category = 'Severe chronic pain'; color = '#dc2626'; guidance = 'Pain specialist or multidisciplinary pain clinic strongly recommended' }
@@ -1009,8 +1013,10 @@ export function calculateWorkoutVolumeLoad(sets: number, reps: number, weightKg:
 
 export function calculateWoundHealingEstimate(woundSize: number, woundDepth: 'superficial' | 'partial' | 'full', location: 'face' | 'scalp' | 'torso' | 'extremity', age: number, diabetic: boolean, bmi: number, smokingStatus: boolean, nutritionStatus: 'good' | 'moderate' | 'poor', immunocompromised: boolean) {
   const baseHealDays: Record<string, number> = { face: 7, scalp: 10, torso: 14, extremity: 14 }
+  const safeLocation = baseHealDays[location] ? location : 'extremity'
   const depthFactor = woundDepth === 'superficial' ? 1 : woundDepth === 'partial' ? 2 : 3.5
-  let base = baseHealDays[location] * depthFactor * (woundSize / 5 + 0.5)
+  const safeSize = Math.max(0, woundSize)
+  let base = baseHealDays[safeLocation] * depthFactor * (safeSize / 5 + 0.5)
   base *= age > 65 ? 1.4 : age > 50 ? 1.2 : 1.0
   base *= diabetic ? 1.6 : 1.0
   base *= bmi > 35 ? 1.3 : bmi > 30 ? 1.15 : 1.0
@@ -1019,6 +1025,6 @@ export function calculateWoundHealingEstimate(woundSize: number, woundDepth: 'su
   base *= immunocompromised ? 1.5 : 1.0
   const estimatedDays = Math.round(base)
   const infectionRisk = (diabetic ? 3 : 1) * (immunocompromised ? 2 : 1) * (bmi > 35 ? 1.5 : 1) > 3 ? 'High' : (diabetic || immunocompromised) ? 'Moderate' : 'Low'
-  const complications = [diabetic ? 'Diabetic wound healing significantly impaired — monitor daily' : '', smokingStatus ? 'Smoking reduces tissue perfusion — slows healing 25%' : '', immunocompromised ? 'Immune suppression: prophylactic antibiotics may be appropriate' : '', nutritionStatus === 'poor' ? 'Poor nutrition: increase protein and vitamin C immediately' : ''].filter(Boolean)
-  return { estimatedDays, infectionRisk, complications, color: estimatedDays <= 14 ? '#22c55e' : estimatedDays <= 30 ? '#eab308' : estimatedDays <= 60 ? '#f97316' : '#ef4444', nutritionTip: 'Vitamin C 500mg/day + protein 1.5-2g/kg/day significantly accelerates wound healing', professionalCare: infectionRisk === 'High' || woundDepth === 'full' ? 'Professional wound care strongly recommended' : 'Home care likely sufficient with proper technique', phases: ['Days 1-4: Inflammation — normal redness/swelling', `Days 5-${Math.round(estimatedDays * 0.5)}: Proliferation — granulation tissue`, `Days ${Math.round(estimatedDays * 0.5)}-${estimatedDays}: Remodelling — scar maturation`] }
+  const complications = [diabetic ? 'Diabetes can impair healing; discuss wound monitoring with a clinician' : '', smokingStatus ? 'Smoking can impair tissue perfusion and healing' : '', immunocompromised ? 'Immunosuppression can complicate healing and infection assessment' : '', nutritionStatus === 'poor' ? 'Poor nutrition can impair healing; discuss nutrition support when appropriate' : ''].filter(Boolean)
+  return { estimatedDays, infectionRisk, complications, color: estimatedDays <= 14 ? '#22c55e' : estimatedDays <= 30 ? '#eab308' : estimatedDays <= 60 ? '#f97316' : '#ef4444', nutritionTip: 'Adequate nutrition, including sufficient protein and micronutrients, supports normal wound healing; individualized needs should be assessed clinically.', professionalCare: infectionRisk === 'High' || woundDepth === 'full' ? 'Professional assessment is appropriate' : 'Review care needs with a clinician if the wound is worsening or not healing', phases: ['Days 1-4: Inflammation — normal redness/swelling', `Days 5-${Math.round(estimatedDays * 0.5)}: Proliferation — granulation tissue`, `Days ${Math.round(estimatedDays * 0.5)}-${estimatedDays}: Remodelling — scar maturation`] }
 }

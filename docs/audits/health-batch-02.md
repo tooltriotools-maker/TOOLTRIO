@@ -24,7 +24,7 @@ Route/function mismatches: 0
 - dehydration-calculator: claim-review (healthy range)
 - dehydration-status-calculator: no flagged blanket claim
 - dental-health-calculator: claim-review (healthy range)
-- diabetes-risk-calculator: claim-review (healthy range)
+- diabetes-risk-calculator: claim-review (clinically validated, healthy range)
 - diet-quality-score-calculator: no flagged blanket claim
 - dietary-inflammatory-index-calculator: no flagged blanket claim
 - due-date-calculator: claim-review (healthy range)

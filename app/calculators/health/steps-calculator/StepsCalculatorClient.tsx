@@ -133,7 +133,7 @@ export default function StepsCalculatorClient({ faqs, relatedCalculators, blogSl
           Steps Calculator Example (2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this Steps 2026 tool to get instant, evidence-based results personalized to your age, weight, and health goals. No signup required — complete privacy guaranteed.
+          Use this Steps tool to explore an estimate based on the inputs you provide. Results depend on the assumptions shown and should not be treated as a diagnosis or individualized medical advice. No account is required.
         </p>
         <p className="text-sm text-gray-600">
           The calculator applies the calculation method described in its methodology and lets you explore different input scenarios. The result is an estimate, not a diagnosis.

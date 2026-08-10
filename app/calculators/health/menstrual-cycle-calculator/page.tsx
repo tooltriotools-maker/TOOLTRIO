@@ -54,7 +54,7 @@ const seoContent = {
   healthSourceProfile: 'menstrual-cycle-calculator',
   title: 'Menstrual Cycle Calculator',
   category: 'health' as const,
-  intro: `Menstrual cycle tracking has evolved from basic period prediction into a broader window into hormonal health and fertility. The average menstrual cycle is 28 days, but research consistently shows that fewer than 15% of women have precisely 28-day cycles — normal cycles range from 21 to 35 days, and slight variation from cycle to cycle is entirely normal. What matters more than hitting 28 days is your personal regularity.
+  intro: `Menstrual cycle tracking has evolved from basic period prediction into a broader window into hormonal health and fertility. The average menstrual cycle is 28 days, but published research indicates that fewer than 15% of women have precisely 28-day cycles — normal cycles range from 21 to 35 days, and slight variation from cycle to cycle is entirely normal. What matters more than hitting 28 days is your personal regularity.
 
 The cycle has four phases with distinct hormonal profiles: menstruation (days 1-5 on average), follicular phase (estrogen rising, days 1-13), ovulation (LH surge triggering egg release, day 14 on average — but highly variable), and luteal phase (progesterone dominant, days 15-28). Symptoms, energy levels, cognitive patterns, and physical performance all shift predictably across these phases.
 
@@ -62,7 +62,7 @@ Predicting ovulation matters most for those trying to conceive or avoid pregnanc
 
 This calculator predicts your next period, estimated ovulation window, and fertile window based on your cycle history, with accuracy improving as you log more cycles.
 
-**Long-tail searches answered here:** menstrual cycle calculator free online usa, period tracker and cycle length calculator free, when is my next period calculator free no signup, irregular period cycle calculator free tool usa, period due date calculator by last period free, ovulation and period calendar calculator usa free, how to predict irregular period dates calculator free, period calculator for irregular cycles by average free, shortest longest period cycle calculator usa free, period tracker without app or account free online, spotting vs period start date calculator free usa, pms symptom predictor by cycle phase calculator free, period calculator for birth control planning free usa, how many days between periods is normal calculator, late period calculator no pregnancy needed usa free`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate menstrual cycle from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

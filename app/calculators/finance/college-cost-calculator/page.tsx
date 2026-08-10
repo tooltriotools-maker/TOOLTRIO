@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free college cost calculator',
     'college cost calculator online',
     'best college cost calculator 2026',
-    'college cost calculator no signup',
+    'college cost calculator ',
     'accurate college cost calculator',
     'how to calculate college cost',
     'tooltrio.com',

@@ -62,7 +62,7 @@ For athletes, grip strength is directly relevant to performance across any sport
 
 This calculator compares your grip strength against sex- and age-stratified population norms, provides a percentile ranking, and interprets what your result suggests about your overall muscular health trajectory.
 
-**Long-tail searches answered here:** grip strength calculator free online usa, am i above average grip strength for my age calculator, hand grip strength percentile calculator free tool, grip strength longevity predictor calculator no signup, dynamometer reading interpretation calculator usa free, grip strength vs age comparison calculator free online, grip strength and cardiovascular health link calculator, how grip strength predicts all cause mortality calculator, grip strength decline rate with age calculator usa free, grip strength standard by profession and sport free, bilateral grip strength asymmetry risk calculator free, grip strength comparison to athletes vs average free usa, training to improve grip strength progress calculator, handshake firmness interpretation calculator free usa, grip strength as biological age indicator calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate grip strength from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

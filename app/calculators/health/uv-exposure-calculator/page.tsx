@@ -62,7 +62,7 @@ The UV Index — a standardized scale from 0-11+ — quantifies daily UV intensi
 
 This calculator estimates your UV exposure risk based on your skin type, sun habits, and protection practices, and gives you a personalized safe exposure guideline for vitamin D synthesis versus skin damage risk.
 
-**Long-tail searches answered here:** uv exposure risk calculator free online usa, how much uv exposure is safe calculator free tool, sunburn risk calculator by skin type and uv index, daily uv dose calculator by location and time free, skin cancer risk from uv exposure calculator usa, safe sun exposure time calculator by skin tone free, uv index 7 vs uv index 10 exposure risk calculator, cumulative uv lifetime skin cancer risk calculator usa free, uv exposure for vitamin d without burning calculator free, cloud cover uv reduction effect calculator usa, reflective surfaces uv exposure increase calculator free, shade vs direct sun uv exposure comparison calculator, annual uv damage score by geographic location calculator usa, sunscreen spf vs time in sun calculator free, uv exposure monitoring for outdoor workers calculator usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate uv exposure from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

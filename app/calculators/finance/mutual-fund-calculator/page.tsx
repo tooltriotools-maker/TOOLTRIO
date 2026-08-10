@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free mutual fund calculator',
     'mutual fund calculator online',
     'best mutual fund calculator 2026',
-    'mutual fund calculator no signup',
+    'mutual fund calculator ',
     'accurate mutual fund calculator',
     'how to calculate mutual fund',
     'tooltrio.com',

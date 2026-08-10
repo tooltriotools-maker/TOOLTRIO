@@ -113,7 +113,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="The function assumes property tax of 1.1% of home value yearly, insurance of 0.5%, maintenance of 1%, and a rough mortgage-interest tax benefit. Rent grows at the entered inflation rate and home value compounds at the entered appreciation rate."
           tipsSection="Closing/selling costs, PMI, HOA dues, tax-law limits, major repairs, opportunity cost of the down payment and renter investment returns are not fully modeled."
           conclusion="Use the result as a scenario comparison, not a prediction that buying or renting will be cheaper in your market."
-          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Methodology-specific results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

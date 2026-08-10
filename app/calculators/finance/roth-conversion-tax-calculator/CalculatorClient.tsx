@@ -77,7 +77,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="The tool computes simplified federal tax before and after adding the conversion to AGI and treats the difference as federal conversion tax. It then applies a simplified California state rate. Its long-term comparison assumes 7% annual growth for 30 years and a 24% future tax rate on modeled growth."
           tipsSection="A real conversion can include both taxable and nontaxable basis, and Form 8606 pro-rata rules may matter. Also consider Medicare IRMAA, ACA credits and other income-sensitive items that this model does not calculate."
           conclusion="Roth conversions can be taxable even when cash never leaves the retirement system. Use the estimate for scenario planning and verify the taxable amount and timing with current IRS rules."
-          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

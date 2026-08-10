@@ -62,7 +62,7 @@ The most evidence-backed recommendation is position variety: sitting for 30-45 m
 
 This calculator assesses your current sitting pattern, estimates the health impact of your sedentary time, and generates a specific desk routine — sit/stand ratio, break schedule, and movement prompts — calibrated to your work type.
 
-**Long-tail searches answered here:** standing desk health benefit calculator free online usa, how much time should i stand at my desk calculator, sitting vs standing health effects calculator free, standing desk calories burned calculator no signup, optimum sitting standing ratio calculator usa free, desk posture health impact calculator free tool, sitting disease risk from 8 hours at desk calculator, lower back pain reduction from standing desk calculator usa, standing desk productivity impact calculator free online, standing desk benefit for varicose veins calculator free, anti fatigue mat benefit with standing desk calculator, alternating sit stand schedule optimization calculator usa, calorie burn difference from standing vs sitting daily, standing desk height adjustment calculator for posture free, standing desk introduction timeline for back pain calculator`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

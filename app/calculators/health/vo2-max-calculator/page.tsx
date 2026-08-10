@@ -54,7 +54,7 @@ const seoContent = {
   healthSourceProfile: 'vo2-max-calculator',
   title: 'VO2 Max Calculator',
   category: 'health' as const,
-  intro: `VO2 max is the single most powerful predictor of cardiovascular health and longevity available without expensive equipment. It measures the maximum rate at which your body can take in, transport, and use oxygen during intense exercise. Higher VO2 max means your cardiovascular system is more efficient at delivering oxygen to working muscles, which translates to better endurance performance and significantly lower mortality risk.
+  intro: `VO2 max is the single most useful predictor of cardiovascular health and longevity available without expensive equipment. It measures the maximum rate at which your body can take in, transport, and use oxygen during intense exercise. Higher VO2 max means your cardiovascular system is more efficient at delivering oxygen to working muscles, which translates to better endurance performance and significantly lower mortality risk.
 
 A landmark study published in JAMA Network Open in 2018 analyzed over 120,000 patients and found that the least fit group had a 5-fold higher all-cause mortality risk compared to the most fit group — a larger effect than smoking, hypertension, or diabetes. Other analyses have found that each 1 MET increase in cardiorespiratory fitness corresponds to a 13-15% reduction in all-cause mortality.
 
@@ -62,7 +62,7 @@ VO2 max declines with age — roughly 1% per year after 30 in sedentary individu
 
 This calculator estimates your VO2 max from field tests (1.5-mile run, 12-minute Cooper test, Rockport 1-mile walk, or submaximal step test) and compares your result against American College of Sports Medicine age and sex norms.
 
-**Long-tail searches answered here:** vo2 max calculator free online usa, how to estimate my vo2 max without testing calculator, vo2 max from resting heart rate calculator free tool, aerobic fitness score calculator no signup usa free, vo2 max percentile calculator by age and gender, cardio fitness level calculator free online 2026, vo2 max estimate from 1 mile run time calculator free, how to improve vo2 max calculator goal setting free, elite vs average vo2 max by age calculator usa free, vo2 max for recreational runner interpretation free, distance runner vo2 max score calculator usa free, vo2 max decline with age calculator free online, age adjusted vo2 max fitness level calculator free, what is a good vo2 max for a 35 year old free, cycling vo2 max estimator from watts calculator free usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate vo2 max from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

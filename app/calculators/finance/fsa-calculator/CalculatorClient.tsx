@@ -93,9 +93,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Base the election on expenses you can reasonably predict, such as recurring prescriptions, copays, dental work and vision costs. Employer plans may offer either a carryover or grace period under plan rules; verify your own plan instead of assuming every unused dollar can roll forward."
           conclusion="The result estimates tax savings and spending risk; it does not determine whether a particular purchase is FSA-eligible or override your employer plan document."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },
+            { title: "Calculator results", text: "Instant calculations from the inputs and assumptions shown on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

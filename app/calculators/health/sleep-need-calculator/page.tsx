@@ -62,7 +62,7 @@ Chronic sleep insufficiency — consistently less than 7 hours for adults — ha
 
 This calculator estimates your personal sleep need based on your age, activity level, health status, and current sleep patterns, and helps identify whether you're accumulating sleep debt.
 
-**Long-tail searches answered here:** how much sleep do i need calculator free online usa, sleep requirements by age calculator free tool, am i getting enough sleep calculator no signup, sleep debt calculator by age and habits usa free, optimal sleep duration calculator free online 2026, personalized sleep hours calculator free no account, how much sleep does a 40 year old need calculator free, sleep need calculator for shift workers usa free online, recommended sleep for athletes training hard calculator, sleep deprivation effects by hours lost calculator free, minimum sleep to function well calculator usa free, sleep quality vs sleep quantity calculator free online, how does stress affect sleep needs calculator usa free, sleep need calculator for postpartum mothers free usa, natural short sleeper vs sleep deprived quiz free usa`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
   ],

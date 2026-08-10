@@ -79,7 +79,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💼 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The Solo 401k is the most powerful retirement account for self-employed Americans. Unlike SEP-IRA, you contribute as both employer (25% of net income) and employee ($23,500 flat), reaching $70,000 at much lower income levels. Ages 60-63 get a SECURE 2.0 super catch-up taking the limit to $81,250.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The Solo 401k is the most useful retirement account for self-employed Americans. Unlike SEP-IRA, you contribute as both employer (25% of net income) and employee ($23,500 flat), reaching $70,000 at much lower income levels. Ages 60-63 get a SECURE 2.0 super catch-up taking the limit to $81,250.</p>
               </Card>
             </>
           ):(
@@ -94,9 +94,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},
+            {title:"Calculator results",text:"Instant calculations based on the assumptions documented on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

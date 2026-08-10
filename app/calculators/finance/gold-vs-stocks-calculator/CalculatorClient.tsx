@@ -102,7 +102,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="The code assumes 6% annual growth for gold and 10% for stocks, compounds each allocation separately, and adds the ending values. It also shows an artificial 'hedge value' based on a 15% adjustment; that figure is a ToolTrio scenario assumption, not a measured or guaranteed crash-protection benefit."
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

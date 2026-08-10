@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const result = useMemo(() => calculateWoundHealingEstimate(woundSize, woundDepth, location, age, diabetic, bmi, smoking, nutrition, immunocompromised), [woundSize, woundDepth, location, age, diabetic, bmi, smoking, nutrition, immunocompromised])
   const infectionColor = result.infectionRisk === 'High' ? '#ef4444' : result.infectionRisk === 'Moderate' ? '#f97316' : '#22c55e'
   return (
-    <CalculatorLayout title="Wound Healing Time Calculator" description="Estimate wound healing time and infection risk from wound characteristics, age, diabetes, BMI, smoking, and nutrition." icon="🩹" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="wound-healing-calculator">
+    <CalculatorLayout title="Wound Healing Factors Calculator" description="Review wound-healing factors and care flags. This tool does not predict an exact healing time or diagnose infection." icon="🩹" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="wound-healing-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Wound Details</h2>
@@ -64,13 +64,13 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="Estimated Healing" value={`${result.estimatedDays} days`} highlight />
-            <ResultCard label="Infection Risk" value={result.infectionRisk} />
+            <ResultCard label="Factor score" value={`${Math.round(result.estimatedDays)}`} highlight />
+            <ResultCard label="Care flag" value={result.infectionRisk} />
             <ResultCard label="Care Level" value={result.professionalCare.split(' ')[0]} />
             <ResultCard label="Healing Phase" value="3 stages" />
           </div>
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-3">Healing Timeline</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-3">Healing phases</h3>
             <div className="space-y-2">
               {result.phases.map((phase, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: ['#3b82f6','#22c55e','#f59e0b'][i] + '12' }}>
@@ -98,7 +98,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         <Card>
           <h2 className="text-lg font-bold text-gray-900 mb-3">Understanding this wound healing calculator</h2>
           <div className="space-y-3 text-sm leading-6 text-gray-600">
-            <p>This calculator uses Wound size (cm), Age, BMI, Estimated Healing, Infection Risk, Care Level, Healing Phase to produce the displayed result. The output reflects the formula implemented by this tool and the values entered.</p>
+            <p>Methodology: structured wound-factor score. Limitations: it does not predict an exact healing time or diagnose infection. This calculator uses Wound size (cm), Age, BMI, Estimated Healing, Infection Risk, Care Level, Healing Phase to produce the displayed result. The output reflects the formula implemented by this tool and the values entered.</p>
             <p>When comparing scenarios, change one input at a time. This makes it easier to understand which assumption is responsible for the change instead of treating the calculated value as a guaranteed outcome.</p>
             <p>Review the units, measurement method, time horizon, and factors outside the calculator&apos;s inputs before relying on the result. For health-related outputs, an online calculation is educational and does not replace appropriate clinical assessment.</p>
           </div>

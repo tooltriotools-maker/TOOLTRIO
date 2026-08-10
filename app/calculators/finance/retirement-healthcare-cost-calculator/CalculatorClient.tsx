@@ -76,7 +76,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="The current function uses $24,000 per pre-Medicare year and $7,000 per post-Medicare year, adjusted by a health-status multiplier. It then adds an expected long-term-care amount based on $350 per day for 2.5 years multiplied by a modeled probability. These are internal planning assumptions, not CMS premium schedules or individualized long-term-care forecasts."
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
-          benefits={[{title:"Real-Time USA Results",text:"Instant calculations based on the assumptions documented on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Instant calculations based on the assumptions documented on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

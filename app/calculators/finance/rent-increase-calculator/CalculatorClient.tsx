@@ -96,9 +96,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Include deposits or fees only when they are true economic costs rather than refundable transfers. Also consider commute, utilities, concessions and likely future increases. This calculator does not determine whether a rent increase complies with local law."
           conclusion="The output identifies the cash-cost crossover under your assumptions. A small annual difference may not justify moving once nonfinancial costs and uncertainty are considered."
           benefits={[
-            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
+            {title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},

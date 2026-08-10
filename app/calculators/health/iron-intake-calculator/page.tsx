@@ -62,7 +62,7 @@ The RDA for iron is 8mg for adult men and postmenopausal women, 18mg for premeno
 
 This calculator estimates your daily iron intake, absorption efficiency given your dietary patterns, and whether you're likely meeting your individual needs.
 
-**Long-tail searches answered here:** daily iron intake calculator free online usa, how much iron do i need per day calculator, iron deficiency risk calculator for women free tool, iron requirements during pregnancy calculator usa, am i getting enough iron from food calculator no signup, iron absorption calculator by food source free, iron needs for vegan and vegetarian women calculator usa, iron rich foods calculator for anemia prevention free, heme vs non heme iron absorption rate calculator free, vitamin c effect on iron absorption calculator usa free, iron requirement during menstruation vs post menopausal, iron for endurance runners anemia risk calculator free, calcium and iron absorption conflict calculator usa, iron supplement dose from deficiency level calculator free, cast iron cooking iron intake contribution calculator usa`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate iron intake from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

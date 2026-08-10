@@ -59,7 +59,7 @@ Air quality varies significantly by time of day and season. Pollution from traff
 
 For respiratory health management, combine this with [our Breathing Exercise Calculator](/calculators/health/breathing-exercise-calculator) and [our Inflammation Risk Calculator](/calculators/health/inflammation-risk-calculator).
 
-**Long-tail searches answered here:** air quality health impact calculator usa free, how does aqi affect breathing free tool online, air quality index health risk calculator for seniors, what aqi level is unsafe for outdoor exercise, pm2.5 exposure health effects calculator, free air pollution health risk calculator no account needed, aqi 100 vs 150 health risk difference calculator free, when should i stay indoors due to air quality calculator, air quality health effects for asthma patients calculator, wildfire smoke aqi health risk calculator free usa, outdoor exercise safety by aqi level calculator free, long term air pollution exposure health calculator usa, children air quality sensitivity calculator free online, indoor vs outdoor air quality health comparison tool, air quality headache fatigue risk calculator usa free`,
+`,
   howItWorks: `AQI is calculated from measured concentrations of up to six pollutants: PM2.5, PM10, ozone (O3), carbon monoxide (CO), sulfur dioxide (SO2), and nitrogen dioxide (NO2). The highest individual pollutant AQI becomes the overall AQI reported.
 
 Personal health risk is adjusted from the standard AQI categories using multipliers for: age (children and elderly +1 risk category at each level), asthma/COPD/heart disease (+2 categories), exercise intensity (moderate exercise doubles breathing rate, high-intensity triples it, increasing pollutant delivery proportionally), and outdoor exposure duration.

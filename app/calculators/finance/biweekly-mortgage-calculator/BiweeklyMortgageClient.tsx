@@ -29,7 +29,7 @@ export default function BiweeklyMortgageClient({ faqs, relatedCalculators, blogS
   ]
 
   return (
-    <CalculatorLayout title="Biweekly Mortgage Calculator USA 2026" description="See how paying every two weeks cuts years off your mortgage and saves thousands in interest." icon="📅" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="biweekly-mortgage-calculator">
+    <CalculatorLayout title="Biweekly Mortgage Calculator USA 2026" description="See how paying every two weeks cuts years off your mortgage and can reduce interest in some scenarios in interest." icon="📅" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="biweekly-mortgage-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-5">Mortgage Details</h2>
@@ -116,13 +116,13 @@ export default function BiweeklyMortgageClient({ faqs, relatedCalculators, blogS
           A $350,000 mortgage at 6.5% over 30 years results in a monthly payment of approximately <strong>$2,212</strong> with total interest paid of $446,320.
         </p>
         <p className="text-sm text-gray-600">
-          Use this Biweekly Mortgage USA 2026 tool to compare different loan amounts, interest rates, and terms to find your best option.
+          Use this Biweekly Mortgage USA 2026 tool to compare different loan amounts, interest rates, and terms to find your one option.
         </p>
       </Card>
       
       <Card className="mt-4 p-4">
         <h2 className="text-xl font-black text-gray-900 mb-3">Biweekly Mortgage Calculator USA 2026 – Pay Off Your Home Years Earlier</h2>
-        <p className="text-sm text-gray-600">Biweekly mortgage payments are one of the most powerful zero-cost strategies to build home equity faster. This biweekly mortgage calculator USA 2026 shows exactly how many years earlier you will pay off your mortgage and how much interest you will save.</p>
+        <p className="text-sm text-gray-600">Biweekly mortgage payments are one of the most useful zero-cost strategies to build home equity faster. This biweekly mortgage calculator USA 2026 shows the estimated payoff difference your mortgage and how much interest you may save.</p>
       </Card>
 
         <SEOContent {...biweeklyMortgageSEOContent} category="finance" />

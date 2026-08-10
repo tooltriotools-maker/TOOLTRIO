@@ -21,7 +21,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [smoking, setSmoking] = useState(false)
   const result = useMemo(() => calculateChronicKidneyDiseaseProgression(eGFR, eGFRChange, proteinuria, systolicBP, diabetic, smoking), [eGFR, eGFRChange, proteinuria, systolicBP, diabetic, smoking])
   return (
-    <CalculatorLayout title="CKD Progression Risk Calculator" description="Estimate kidney disease progression rate, years to dialysis, and risk category from eGFR trend and clinical factors." icon="🫘" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="ckd-progression-calculator">
+    <CalculatorLayout title="CKD eGFR Slope Scenario Calculator" description="Explore an educational eGFR-slope scenario from entered trend and selected risk factors; not a dialysis timeline or validated kidney-failure prediction." icon="🫘" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="ckd-progression-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Kidney Function</h2>
@@ -39,9 +39,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="Risk Category" value={result.riskCategory} highlight />
+            <ResultCard label="Scenario category" value={result.riskCategory} highlight />
             <ResultCard label="Risk Score" value={`${result.kidneyRiskScore}/100`} />
-            <ResultCard label="Years to Dialysis" value={result.yearsToDialysis} />
+            <ResultCard label="Linear slope scenario" value={result.yearsToDialysis} />
             <ResultCard label="BP Target" value={result.bpTarget} />
           </div>
           <Card>
@@ -66,7 +66,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h3 className="text-sm font-semibold text-gray-800 mb-2">CKD progression: important limitations</h3>
           <div className="space-y-3 text-sm leading-6 text-gray-600">
             <p>Kidney-disease progression cannot be predicted reliably from a single eGFR value. Modern CKD risk assessment considers eGFR trend, urine albumin-to-creatinine ratio (ACR), age, diabetes, blood pressure, medications, acute kidney injury, and other clinical factors.</p>
-            <p>Any 'years to dialysis' result on this page is therefore a scenario estimate, not a clinical forecast. eGFR decline is often non-linear and can stabilize, accelerate, or temporarily worsen.</p>
+            <p>The displayed slope scenario is not a clinical forecast and should not be interpreted as an individualized dialysis timeline. eGFR decline is often non-linear and can stabilize, accelerate, or temporarily worsen.</p>
             <p>Use serial laboratory results and clinician assessment for CKD staging and prognosis. Medication changes—especially ACE inhibitors, ARBs, SGLT2 inhibitors, diuretics, or NSAIDs—should not be made from this calculator.</p>
           </div>
           <p className="mt-3 text-xs text-gray-500">Clinical reference: KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of CKD.</p>

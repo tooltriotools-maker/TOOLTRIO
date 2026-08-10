@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-09T15:16:49.369Z",
+  "policy": "ToolTrio internal YMYL page-quality gate. Google does not publish a binary YMYL pass/fail score.",
+  "criteria": [
+    "methodology disclosure",
+    "limitations and assumptions",
+    "topic-appropriate authoritative source coverage",
+    "safety/educational framing",
+    "publisher identity",
+    "canonical/metadata architecture",
+    "structured data",
+    "no unsupported authority claims or keyword stuffing"
+  ],
+  "stats": {
+    "finance": {
+      "routes": 389,
+      "profiles": 389,
+      "missingProfile": 0,
+      "methodologyCoverage": 389,
+      "limitationsCoverage": 389,
+      "sourceCoverage": 389
+    },
+    "health": {
+      "routes": 173,
+      "profiles": 173,
+      "missingProfile": 0,
+      "methodologyCoverage": 173,
+      "limitationsCoverage": 173,
+      "sourceCoverage": 173
+    },
+    "suspiciousPhrases": 0
+  },
+  "failures": []
+}

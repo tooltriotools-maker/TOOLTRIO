@@ -93,9 +93,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="For 2026 the Social Security wage base used by this calculator is $184,500. W-2 Social Security wages entered by the user reduce the remaining wage base available to self-employment earnings."
           conclusion="The Additional Medicare Tax threshold depends on filing status, while this simplified calculator uses $200,000. Its QBI figure is also only 20% of modeled SE earnings and does not apply the full Section 199A rules."
           benefits={[
-            { title: "Real-Time USA Results", text: "Calculator-specific scenario outputs based on the inputs and assumptions described above." },
+            { title: "Calculator results", text: "Calculator-specific scenario outputs based on the inputs and assumptions described above." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

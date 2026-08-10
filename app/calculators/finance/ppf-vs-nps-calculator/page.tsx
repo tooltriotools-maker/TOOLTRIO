@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free ppf vs nps calculator',
     'ppf vs nps calculator online',
     'best ppf vs nps calculator 2026',
-    'ppf vs nps calculator no signup',
+    'ppf vs nps calculator ',
     'accurate ppf vs nps calculator',
     'how to calculate ppf vs nps',
     'tooltrio.com',

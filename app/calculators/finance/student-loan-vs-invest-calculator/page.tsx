@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'Should I pay off student loans or invest?',
-    answer: 'The mathematical answer: if your expected investment return exceeds your loan interest rate (after tax), invest. With a 6.5% student loan rate and expected 8% market return, investing wins — but by a smaller margin than most people expect after risk-adjustment. If your loans are above 7%, paying them off is a guaranteed risk-free return at that rate.',
+    answer: 'The mathematical answer: if your expected investment return exceeds your loan interest rate (after tax), invest. With a 6.5% student loan rate and expected 8% market return, investing wins — but by a smaller margin than most people expect after risk-adjustment. If your loans are above 7%, paying them off is a guaranteed lower-risk reference outcome at that rate.',
   },
   {
     question: 'Does student loan interest deduction change the math?',

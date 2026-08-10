@@ -9,8 +9,8 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Stroke Risk Calculator 2026 | ToolTrio',
-  description: 'Calculate your 10-year ischemic stroke risk using the Framingham Stroke Profile. Based on age, systolic blood pressure, cholesterol, smoking, diabetes.',
+  title: 'Stroke Risk Factor Calculator 2026 | ToolTrio',
+  description: 'Review selected stroke risk factors with a transparent educational score. Not a validated 10-year probability model.',
   slug: 'stroke-risk-calculator',
   category: 'health',
   region: 'usa',
@@ -56,15 +56,15 @@ const seoContent = {
   category: 'health' as const,
   intro: `Stroke is the fifth leading cause of death in the United States and the leading cause of long-term disability — yet 80% of strokes are considered preventable through control of modifiable risk factors. The tragedy of stroke is that its risk factors are well-established, the interventions are available, but risk often goes unaddressed until the event that could have been prevented.
 
-The two types of stroke have different mechanisms: ischemic stroke (87% of strokes) occurs when a clot blocks a blood vessel supplying the brain. Hemorrhagic stroke occurs when a blood vessel ruptures. Risk factors for both overlap substantially: hypertension is the single most powerful modifiable risk factor for both types.
+The two types of stroke have different mechanisms: ischemic stroke (87% of strokes) occurs when a clot blocks a blood vessel supplying the brain. Hemorrhagic stroke occurs when a blood vessel ruptures. Risk factors for both overlap substantially: hypertension is the single most useful modifiable risk factor for both types.
 
-The Framingham Stroke Risk Score uses age, systolic blood pressure, diabetes status, smoking, cardiovascular disease history, atrial fibrillation, and left ventricular hypertrophy to estimate 10-year stroke risk. These models have been validated in millions of patients and are the basis for clinical treatment guidelines.
+The Framingham Stroke Feature score uses age, systolic blood pressure, diabetes status, smoking, cardiovascular disease history, atrial fibrillation, and left ventricular hypertrophy to estimate 10-year stroke risk. These models have been validated in millions of patients and are the basis for clinical treatment guidelines.
 
 Atrial fibrillation deserves special attention in stroke risk — it increases stroke risk by 4-5 times compared to people without AF. Many cases of AF are intermittent and asymptomatic, which is why pulse irregularity screening is increasingly recommended.
 
 This calculator estimates your 10-year stroke risk and identifies which risk factors are contributing most significantly to your score.
 
-**Long-tail searches answered here:** stroke risk calculator free online usa 2026, am i at high risk for a stroke calculator, 10 year stroke risk calculator free no account, stroke probability calculator by risk factors usa, chads2 score stroke risk calculator free online, cardiovascular stroke risk assessment calculator usa free, ischemic vs hemorrhagic stroke risk calculator free, atrial fibrillation stroke risk calculator usa free, high blood pressure stroke risk score calculator free, lifestyle modification stroke risk reduction calculator usa, diabetes and stroke risk combined calculator free online, statin eligibility from stroke risk score calculator usa, aspirin for stroke prevention eligibility calculator free, young adult stroke risk factors calculator usa free, recurrent stroke risk after first event calculator free usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate stroke risk from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

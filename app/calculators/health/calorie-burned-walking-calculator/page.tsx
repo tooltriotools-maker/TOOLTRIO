@@ -61,7 +61,7 @@ This calculator uses the MET (metabolic equivalent of task) framework validated 
 
 The result gives you a realistic estimate — not a fitness tracker's optimistic overcount — of what your walks are actually contributing to your energy expenditure.
 
-**Long-tail searches answered here:** calories burned walking calculator free online usa, how many calories do i burn walking 10000 steps, walking calorie burn calculator by weight and distance, calories burned walking 30 minutes free calculator, treadmill walking calorie calculator no signup, how many calories burned walking 1 mile by weight, calories burned walking uphill vs flat free calculator, walking 5 miles a day calorie burn calculator usa, calories burned walking vs running same distance free, how many calories burned walking 45 minutes free, slow walking vs brisk walking calorie difference calculator, daily calorie burn from 7000 steps calculator free usa, walking 2 miles calorie burn calculator by body weight, calories burned walking with a stroller free calculator, incline walking on treadmill calorie calculator free usa`,
+`,
   howItWorks: `This calculator uses published MET/activity equations to estimate calories burned walking from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

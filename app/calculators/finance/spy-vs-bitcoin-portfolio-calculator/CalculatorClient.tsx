@@ -111,7 +111,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="Each starting allocation is compounded independently for the selected years, then the three ending balances are added. The all-SPY benchmark compounds the entire starting amount at 10%. The bear case applies half the modeled SPY return and a 75% annual Bitcoin loss assumption, so it is a stress scenario rather than a statistical forecast."
           tipsSection="Make sure SPY + Bitcoin + cash equals 100%. Compare several Bitcoin weights and focus on the range of outcomes rather than the headline CAGR. The model does not rebalance annually and does not include taxes, fees, spreads or changing returns."
           conclusion="This calculator is a deterministic scenario comparison, not an investment forecast or recommendation. Bitcoin and equity returns can differ dramatically from the fixed assumptions used here."
-          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

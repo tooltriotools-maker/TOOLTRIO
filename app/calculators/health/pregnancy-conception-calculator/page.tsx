@@ -62,7 +62,7 @@ The other dominant factor is timing intercourse appropriately within the fertile
 
 This calculator estimates your conception date from your due date or last period, identifies your fertile window for upcoming cycles, and provides evidence-based guidance on optimizing conception probability.
 
-**Long-tail searches answered here:** pregnancy conception date calculator free online usa, when did i conceive calculator free tool, how to find conception date from due date free, conception date estimate calculator no signup usa, backward due date to conception calculator free, when was my baby conceived calculator free online, conception window calculator by ovulation date free, how accurate is conception date from due date calculator, conception date for twins calculator free usa online, early ultrasound to conception date back calculator free, conception date calculator from positive pregnancy test, biological father determination by conception date calculator usa, conception date range calculator around ovulation free, conception to implantation timing calculator usa free, when did fertilization occur estimated calculator free`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate pregnancy conception from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

@@ -113,7 +113,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="For buying, the vehicle price minus down payment is amortized at the entered APR and term. The model estimates end value by applying 15% annual depreciation. Buy net cost = down payment + all loan payments − estimated end value. Lease net cost = lease payments + lease down payment + $0.25 per mile above 12,000 annual miles; the current UI passes a $0 lease down payment."
           tipsSection="Use the exact purchase APR and lease payment from dealer worksheets. The model does not reconstruct a lease money factor or include all taxes, acquisition/disposition fees, maintenance or insurance, so compare those items separately."
           conclusion="The lower modeled net cost is useful as a baseline, but vehicle choice, actual resale value, lease terms and how long you keep the car can dominate the result."
-          benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -62,7 +62,7 @@ Pace zones for training are derived from your current fitness level — specific
 
 This calculator converts between pace and speed units, predicts your race times across distances from any input, calculates training zones from your current fitness, and provides splits for goal race paces.
 
-**Long-tail searches answered here:** running pace calculator free online usa, 5k finish time calculator by training pace free, how fast should i run for my age calculator, per mile pace calculator no signup free usa, marathon pace calculator from 5k time free, running speed calculator by distance and time online free, easy run pace vs race pace calculator free usa, easy aerobic pace by heart rate zone calculator free, interval training pace for 5k goal calculator usa free, 10 percent weekly mileage increase rule calculator free, race pace conversion km to miles calculator usa free, half marathon target pace calculator from 10k time free, long run pace calculator for marathon training usa free, strava pace comparison by age group calculator free, run walk interval pace calculator for beginners usa free`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
   ],

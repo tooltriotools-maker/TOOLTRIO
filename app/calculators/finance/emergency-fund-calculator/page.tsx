@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free emergency fund calculator',
     'emergency fund calculator online',
     'best emergency fund calculator 2026',
-    'emergency fund calculator no signup',
+    'emergency fund calculator ',
     'accurate emergency fund calculator',
     'how to calculate emergency fund',
     'tooltrio.com',

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import CalcFilterBar from '@/components/ui/CalcFilterBar'
+import { FinanceYMYLPolicy } from './ymyl-policy'
+import { FINANCE_QUALITY_REGISTRY } from '@/lib/content/finance-quality-registry'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -13,10 +15,10 @@ function X({size=16,className=""}: {size?:number;className?:string}) { const w=s
 
 
 export const metadata: Metadata = {
-  title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
-  description: '272 free finance calculators for USA, UK, India & Europe. Mortgage calculator with PITI, 401k calculator with employer match, budget planner, wealth.',
+  title: 'Finance Calculators — Mortgage, SIP, 401(k), Tax & More | ToolTrio',
+  description: 'Finance calculators for USA, UK, India and Europe with transparent assumptions, methodology, limitations and source references. Mortgage, retirement, tax, investing and budgeting tools.',
   keywords: [
-    'free finance calculators 2026',
+    'finance calculators 2026',
     'SIP calculator India',
     'EMI calculator',
     '401k calculator USA',
@@ -27,14 +29,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/calculators/finance' },
   openGraph: {
-    title: 'Free Finance Calculators – Mortgage, SIP, 401k & More | ToolTrio',
-    description: '272 free finance calculators: mortgage, SIP, 401k, EMI, Roth IRA, UK tax, ISA, FIRE, compound interest and more. No signup required.',
+    title: 'Finance Calculators — Mortgage, SIP, 401(k), Tax & More | ToolTrio',
+    description: 'Finance calculators with route-level methodology, assumptions, limitations and source references where available.',
     url: 'https://tooltrio.com/calculators/finance',
     siteName: 'ToolTrio',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
   },
 }
+
+const FINANCE_COUNT = FINANCE_QUALITY_REGISTRY.length
 
 const calculators = [
   // Investment
@@ -236,7 +240,7 @@ const calculators = [
   { name: 'QBI Deduction Calculator', desc: 'Section 199A 20% pass-through deduction for self-employed and small business', href: '/calculators/finance/qbi-deduction-calculator', icon: '📋', tag: 'Tax', popular: false },
   { name: 'Health Insurance Deductible Calculator', desc: 'Actual out-of-pocket costs after deductible, coinsurance, and OOP max', href: '/calculators/finance/health-insurance-deductible-calculator', icon: '💊', tag: 'USA', popular: false },
   { name: 'FSA Calculator', desc: 'FSA tax savings, effective discount, and optimal contribution to avoid forfeiture', href: '/calculators/finance/fsa-calculator', icon: '🏥', tag: 'Tax', popular: false },
-  { name: 'Dependent Care FSA Calculator', desc: 'DC-FSA vs Child Care Credit — find the best childcare tax strategy', href: '/calculators/finance/dependent-care-fsa-calculator', icon: '👶', tag: 'Tax', popular: false },
+  { name: 'Dependent Care FSA Calculator', desc: 'DC-FSA vs Child Care Credit — compare childcare tax strategy', href: '/calculators/finance/dependent-care-fsa-calculator', icon: '👶', tag: 'Tax', popular: false },
   { name: 'Student Loan Forgiveness Calculator', desc: 'SAVE, IBR, and PSLF payments, total cost, and forgiveness benefit', href: '/calculators/finance/student-loan-forgiveness-calculator', icon: '🎓', tag: 'Debt', popular: true },
   { name: 'AMT Calculator', desc: 'Alternative Minimum Tax from ISO options and preference items', href: '/calculators/finance/alternative-minimum-tax-calculator', icon: '⚠️', tag: 'Tax', popular: false },
   { name: 'Self-Employment Tax Calculator', desc: 'SE tax, deductible half, QBI deduction, and quarterly estimates for freelancers', href: '/calculators/finance/self-employment-tax-calculator', icon: '💼', tag: 'Tax', popular: true },
@@ -471,7 +475,7 @@ const tagColors: Record<string, string> = {
 
 const structured = {
   '@context': 'https://schema.org', '@type': 'ItemList',
-  name: 'Finance Calculators — 272 Free Tools',
+  name: 'Finance Calculators',
   url: 'https://tooltrio.com/calculators/finance',
   numberOfItems: calculators.length,
   itemListElement: calculators.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, description: c.desc, url: `https://tooltrio.com${c.href}` })),
@@ -496,14 +500,14 @@ export default function FinancePage() {
               </div>
               <div>
                 <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Finance Calculators</h1>
-                <p className="text-green-600 font-semibold text-sm mt-0.5">272 Free Tools . No Signup . Instant Results</p>
+                <p className="text-green-600 font-semibold text-sm mt-0.5">Tools for planning and calculation · No account required</p>
               </div>
             </div>
             <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-              272 free finance calculators for <strong>SIP</strong>, <strong>EMI</strong>, <strong>GST</strong>, <strong>Income Tax</strong>, <strong>PPF</strong>, <strong>NPS</strong>, <strong>Gratuity</strong>, <strong>HRA</strong>, <strong>Currency</strong>, <strong>ROI</strong> and more. All free, no login.
+              Finance calculators for <strong>SIP</strong>, <strong>EMI</strong>, <strong>GST</strong>, <strong>Income Tax</strong>, <strong>PPF</strong>, <strong>NPS</strong>, <strong>Gratuity</strong>, <strong>HRA</strong>, <strong>Currency</strong>, <strong>ROI</strong> and more. Publicly available; no account is required to run the calculation.
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
-              {[{ label: '272 Finance Tools', icon: '🧮' }, { label: 'Live Charts', icon: '📊' }, { label: 'Multi-Currency', icon: '💱' }, { label: '100% Free', icon: '✅' }].map(s => (
+              {[{ label: 'Finance tools', icon: '🧮' }, { label: 'Live Charts', icon: '📊' }, { label: 'Multi-Currency', icon: '💱' }, { label: 'No account required', icon: '✅' }].map(s => (
                 <div key={s.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-green-200 shadow-sm text-sm font-semibold text-gray-700">
                   <span>{s.icon}</span> {s.label}
                 </div>
@@ -512,7 +516,7 @@ export default function FinancePage() {
           </div>
 
           <div>
-            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">All 272 Finance Calculators</h2>
+            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">Finance calculator directory</h2>
             <CalcFilterBar calculators={calculators} tagColors={tagColors} />
           </div>
 
@@ -521,9 +525,10 @@ export default function FinancePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-gray-600 leading-relaxed">
               <div><h3 className="font-bold text-gray-800 mb-2">Tax Calculators</h3><p>Our <strong>income tax calculator</strong> compares New vs Old regime for FY 2026-27. The <strong>GST calculator</strong> handles all rates (5%, 12%, 18%, 28%) with CGST/SGST/IGST breakdown. The <strong>HRA calculator</strong> finds your maximum tax exemption.</p></div>
               <div><h3 className="font-bold text-gray-800 mb-2">Salary & Employee Benefits</h3><p>The <strong>salary/CTC calculator</strong> breaks down your in-hand pay from CTC with PF, TDS, and professional tax. The <strong>gratuity calculator</strong> calculates your payout after 5+ years. The <strong>NPS calculator</strong> estimates retirement corpus and monthly pension.</p></div>
-              <div><h3 className="font-bold text-gray-800 mb-2">Investment Calculators</h3><p>Our <strong>PPF calculator</strong> shows EEE (triple tax-free) returns at 7.1%. The <strong>ROI calculator</strong> measures your investment return against benchmarks like Nifty 50 and S&P 500. The <strong>XIRR calculator</strong> gives true annualized returns for SIPs.</p></div>
+              <div><h3 className="font-bold text-gray-800 mb-2">Investment Calculators</h3><p>Our <strong>PPF calculator</strong> models the tax treatment and contribution assumptions documented on its page. The <strong>ROI calculator</strong> measures your investment return against benchmarks like Nifty 50 and S&P 500. The <strong>XIRR calculator</strong> gives true annualized returns for SIPs.</p></div>
             </div>
           </div>
+          <FinanceYMYLPolicy />
         </div>
       </div>
 

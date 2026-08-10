@@ -102,9 +102,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Worked example: At 3% inflation, $50,000 of today’s purchasing power requires substantially more nominal dollars after 20 years. Compare that with the investment-return scenario."
           conclusion="Important assumptions and limitations: Inflation and returns vary year to year. Taxes, investment fees, volatility and the composition of your own spending are excluded. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
+            {title:"Calculator results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

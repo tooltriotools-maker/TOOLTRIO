@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { filterCalculatorFAQs } from '@/lib/content/faq-policy'
+import { getYMYLQuality } from '@/lib/seo/ymyl'
 
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
@@ -7,25 +8,22 @@ const OG_IMAGE = `${BASE_URL}/og-image.png`
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BRAND keywords — injected on every page (keep lean — 10 terms max)
-// Google ignores <meta keywords> for ranking; these are purely for GSC identity
+// Keep topical terms for internal metadata generation only; do not emit meta keywords to HTML.
 // ─────────────────────────────────────────────────────────────────────────────
 const CORE_KEYWORDS = [
-  'tooltrio', 'tool trio', 'tooltrio.com',
-  'free calculator', 'online calculator', 'free online calculator',
-  'calculator no signup', 'calculator instant results',
-  'finance and health calculator', 'tooltrio calculator',
+  'tooltrio', 'tool trio', 'tooltrio.com', 'calculator', 'finance and health tools', 'tooltrio calculator',
 ]
 
 // Category core keywords — only 10-15 per category
 const FINANCE_CORE_KW = [
-  'free financial calculator', 'finance calculator',
+  'finance calculator',
   'mortgage calculator', '401k calculator', 'compound interest calculator',
   'retirement calculator', 'Roth IRA calculator', 'auto loan calculator',
   'FIRE calculator', 'debt payoff calculator', 'investment calculator',
 ]
 
 const HEALTH_CORE_KW = [
-  'free health calculator', 'BMI calculator', 'calorie calculator',
+  'health calculator', 'BMI calculator', 'calorie calculator',
   'TDEE calculator', 'BMR calculator', 'macro calculator',
   'body fat calculator', 'ideal weight calculator',
   'water intake calculator', 'sleep calculator', 'heart rate calculator',
@@ -44,6 +42,13 @@ const FUN_CORE_KW = [
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
+function sanitizeYMYLKeywords(values: string[], category: 'finance' | 'health' | 'dev' | 'fun') {
+  const blocked = category === 'finance' || category === 'health'
+    ? [/\bfree\b/i, /\bonline\b/i, /\bbest\b/i, /\bno[- ]?signup\b/i, /\binstant results\b/i, /\baccurate\b/i, /\bguaranteed\b/i]
+    : []
+  return Array.from(new Set(values.map(v => v.trim()).filter(Boolean).filter(v => !blocked.some(r => r.test(v)))))
+}
+
 export function generateCalculatorMetadata(params: {
   title: string
   description: string
@@ -52,8 +57,20 @@ export function generateCalculatorMetadata(params: {
   keywords: string[]
   region?: 'usa' | 'uk' | 'europe' | 'india' | 'global'
 }): Metadata {
-  const { title, description, slug, category, keywords, region = 'global' } = params
+  const { title: rawTitle, description, slug, category, keywords, region = 'global' } = params
+  const cleanedTitle = (category === 'finance' || category === 'health') ? rawTitle.replace(/^Free\s+/i, '') : rawTitle
+  const title = (() => {
+    if (cleanedTitle.length <= 70) return cleanedTitle
+    const withoutBrand = cleanedTitle.replace(/\s*\|\s*ToolTrio\s*$/i, '')
+    if (withoutBrand.length <= 70) return withoutBrand
+    const withoutYear = withoutBrand.replace(/\s+2026\b/g, '')
+    if (withoutYear.length <= 70) return withoutYear
+    const cut = withoutYear.slice(0, 70)
+    const lastSpace = cut.lastIndexOf(' ')
+    return (lastSpace > 48 ? cut.slice(0, lastSpace) : cut).replace(/[\s—–,:;|-]+$/, '')
+  })()
   const url = `${BASE_URL}/calculators/${category}/${slug}`
+  const ymyl = category === 'finance' || category === 'health' ? getYMYLQuality(category, slug) : null
 
   const catKW = category === 'health' ? HEALTH_CORE_KW
     : category === 'finance' ? FINANCE_CORE_KW
@@ -61,18 +78,14 @@ export function generateCalculatorMetadata(params: {
     : FUN_CORE_KW
 
   // Deduplicate — page-specific keywords first, then brand + category
-  const allKeywords = Array.from(new Set([
+  const allKeywords = sanitizeYMYLKeywords([
     ...keywords,
     ...CORE_KEYWORDS,
     ...catKW,
-  ]))
+  ], category)
 
   // Keep description within 150-160 chars and end with a clear value prop
-  const rawEnriched = category === 'health'
-    ? (description.endsWith('.') ? description : `${description}. Free, no signup.`)
-    : category === 'dev'
-    ? (description.endsWith('.') ? description : `${description}. Runs in browser — no install, no signup.`)
-    : (description.endsWith('.') ? description : `${description}. Free, no signup, instant results.`)
+  const rawEnriched = description.endsWith('.') ? description : `${description}.`
   // Hard-cap at 155 chars (word boundary) to prevent SERP truncation
   const enrichedDescription = rawEnriched.length <= 155
     ? rawEnriched
@@ -94,15 +107,15 @@ export function generateCalculatorMetadata(params: {
   return {
     title: { absolute: title },
     description: enrichedDescription,
-    keywords: allKeywords,
+    // Do not emit the obsolete meta keywords tag. Google ignores it for Search ranking.
     authors: [{ name: 'ToolTrio', url: BASE_URL }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
     robots: {
-      index: true,
+      index: ymyl ? ymyl.indexable : true,
       follow: true,
       googleBot: {
-        index: true,
+        index: ymyl ? ymyl.indexable : true,
         follow: true,
         'max-snippet': -1,
         'max-image-preview': 'large',
@@ -392,35 +405,26 @@ export function generateCalculatorPageSchemas(params: {
       url: pageUrl,
       isAccessibleForFree: true,
       totalTime: 'PT2M',
-      step: category === 'health' ? [
-        { '@type': 'HowToStep', position: 1, name: 'Select your unit system', text: 'Choose US Standard (lbs/ft-in) or Metric (kg/cm) using the toggle at the top.' },
-        { '@type': 'HowToStep', position: 2, name: 'Enter your measurements', text: 'Type your age, weight, height, and other values into the input fields.' },
-        { '@type': 'HowToStep', position: 3, name: 'View instant results', text: 'Results calculate automatically as you type.' },
-        { '@type': 'HowToStep', position: 4, name: 'Compare against healthy ranges', text: 'Check where your result falls against CDC, NIH, and AHA reference ranges.' },
-        { '@type': 'HowToStep', position: 5, name: 'Read personalized guidance', text: 'Scroll down for evidence-based recommendations, FAQ answers, and related calculators.' },
-      ] : [
-        { '@type': 'HowToStep', position: 1, name: 'Enter your values', text: 'Enter your values in the input fields or use the sliders.' },
-        { '@type': 'HowToStep', position: 2, name: 'Get instant results', text: 'Results update instantly as you type — no button to click.' },
-        { '@type': 'HowToStep', position: 3, name: 'View the chart', text: 'View the interactive chart for a visual breakdown of your results.' },
-        { '@type': 'HowToStep', position: 4, name: 'Review the detail table', text: 'Check the year-by-year table for detailed annual figures.' },
-        { '@type': 'HowToStep', position: 5, name: 'Read the FAQ', text: 'Scroll down for worked examples and expert guidance in the FAQ section.' },
+      step: [
+        { '@type': 'HowToStep', position: 1, name: 'Enter the required inputs', text: 'Enter the values requested by this calculator and check the units before calculating.' },
+        { '@type': 'HowToStep', position: 2, name: 'Review the calculated result', text: 'Review the result produced from the inputs and assumptions shown on the page.' },
+        { '@type': 'HowToStep', position: 3, name: 'Read the methodology', text: 'Review how the result is calculated, including the formula or model described on the page.' },
+        { '@type': 'HowToStep', position: 4, name: 'Check limitations', text: 'Read the assumptions and limitations before using the result for planning or decision-making.' },
+        { '@type': 'HowToStep', position: 5, name: 'Review sources', text: 'Check the references and evidence status shown for the calculator before relying on the result.' },
       ],
     },
   ]
 
-  if (category === 'health') {
+  if (category === 'health' || category === 'finance') {
     schemas.push({
       '@context': 'https://schema.org',
-      '@type': 'MedicalWebPage',
+      '@type': 'WebPage',
       name: title,
       description,
       url: pageUrl,
-      audience: { '@type': 'MedicalAudience', audienceType: 'Patient' },
-      author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
-      isAccessibleForFree: 'True',
+      isAccessibleForFree: true,
       inLanguage: 'en-US',
-      specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
+      publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
     })
   }
 

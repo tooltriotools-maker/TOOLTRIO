@@ -60,7 +60,7 @@ This calculator gives you a personalized daily protein target based on your body
 
 Use your protein target alongside [our Macro Calculator](/calculators/health/macro-calculator) to allocate the remaining calories between carbohydrates and fat based on your dietary preferences.
 
-**Long-tail searches answered here:** daily protein intake calculator free online usa, how much protein should i eat per day calculator, protein calculator for weight loss and muscle gain free, protein grams per pound body weight calculator, how many grams of protein per day calculator no signup, protein needs calculator by activity level and weight usa, protein calculator for women trying to lose weight free, how much protein per day to build muscle calculator usa, protein intake for 150 pound woman calculator free, optimal protein intake for seniors over 60 calculator, protein calculator for endurance athletes usa free online, high protein diet calculator for fat loss free online, daily protein needs during pregnancy calculator free, how much protein does a vegetarian need calculator usa, protein per meal vs total daily protein calculator free`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
         {title:"Goal-specific protein targets",text:"Separate calculations for fat loss (higher to preserve muscle), muscle building, athletic performance, and healthy aging. Each target reflects the current scientific evidence for that specific context rather than a one-size-fits-all recommendation.",},

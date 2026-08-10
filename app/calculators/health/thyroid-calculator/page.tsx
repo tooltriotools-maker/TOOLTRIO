@@ -9,8 +9,8 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Thyroid Health Calculator 2026 | ToolTrio',
-  description: 'Interpret your TSH blood test result in context of symptoms, T3/T4 levels, and risk factors. Calculate your thyroid symptom burden score and understand.',
+  title: 'Thyroid Function Test Context Calculator 2026 | ToolTrio',
+  description: 'Interpret TSH with optional free T4 context. Laboratory ranges and clinical context vary.',
   slug: 'thyroid-calculator',
   category: 'health',
   region: 'usa',
@@ -62,7 +62,7 @@ TSH (thyroid-stimulating hormone) is the primary screening test: when thyroid ho
 
 This calculator assesses your symptom burden across hypothyroid and hyperthyroid dimensions, identifies risk factors for thyroid disease, and helps you understand when testing and medical evaluation is appropriate.
 
-**Long-tail searches answered here:** thyroid health calculator free online usa, am i hypothyroid or hyperthyroid calculator free tool, thyroid symptom score calculator no signup, thyroid function risk calculator usa free online, tsh level interpretation calculator free tool, thyroid disorder risk calculator free no account, hypothyroid symptom severity score calculator free usa, hyperthyroid symptom checklist calculator free online, tsh normal range by trimester pregnancy calculator usa, hashimoto vs graves disease risk factor calculator free, thyroid antibody risk score calculator free usa online, subclinical hypothyroid health impact calculator free, thyroid function and metabolism connection calculator usa, thyroid disorder in women prevalence risk calculator free, thyroid impact on weight management calculator usa free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate thyroid from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

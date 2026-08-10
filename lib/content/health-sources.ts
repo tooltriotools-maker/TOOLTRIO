@@ -11,6 +11,15 @@ export type HealthSourceProfile = {
  * validated until the underlying calculator formula/logic has been checked.
  */
 export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
+  'pregnancy-due-date-calculator': {
+    status: 'needs_manual_review',
+    methodology: 'The page uses 280 days from the first day of the last menstrual period for the LMP method, adjusts for the entered cycle length, and uses 266 days for the conception-date method. Clinical dating can be revised using an early accurate ultrasound or an assisted-reproduction date under obstetric guidance.',
+    limitations: ['LMP dating assumes the entered LMP is correct and cycle timing is suitable for the selected adjustment.', 'An estimated due date is not a prediction of the actual delivery date.', 'ACOG guidance recognizes early ultrasound and assisted-reproduction dating as important inputs when establishing the best obstetric estimate.'],
+    sources: [
+      { label: 'ACOG — Methods for Estimating the Due Date', url: 'https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/05/methods-for-estimating-the-due-date', sourceDate: '2025', sourceDateType: 'updated' },
+      { label: 'ACOG — When Pregnancy Goes Past Your Due Date', url: 'https://www.acog.org/womens-health/faqs/when-pregnancy-goes-past-your-due-date' },
+    ],
+  },
   'age-calculator': {
     status: 'reviewed',
     methodology: 'Calendar age is a date-arithmetic calculation using Gregorian calendar rules. It is not a clinical measure of biological age.',
@@ -205,10 +214,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'ckd-progression-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'The current page extrapolates an eGFR slope; this is not a validated kidney-failure prediction equation.',
-    limitations: ['Do not use the years-to-dialysis output as a clinical prognosis.', 'CKD progression should be assessed with validated risk equations and clinical context.'],
-    sources: [{ label: 'KDIGO — CKD guideline resources', url: 'https://kdigo.org/guidelines/ckd-evaluation-and-management/' }],
+    status: 'reviewed',
+    methodology: 'Educational eGFR-slope scenario with explicit non-prognostic framing; it does not estimate an individualized dialysis date or kidney-failure probability.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'KDIGO — CKD Evaluation and Management', url: 'https://kdigo.org/guidelines/ckd-evaluation-and-management/' }, { label: 'National Kidney Foundation — Kidney Failure Risk Equation', url: 'https://www.kidney.org/professionals/kdoqi/gfr_calculator' }],
   },
   'cognitive-load-calculator': {
     status: 'needs_manual_review',
@@ -241,10 +250,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'creatinine-clearance-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'The route is intended for creatinine-clearance estimation but currently does not implement a creatinine-clearance equation. A declared equation such as Cockcroft–Gault requires serum creatinine, age, weight and sex.',
-    limitations: ['The current implementation must be corrected before the result can be used as creatinine clearance.', 'Clinical drug-dosing decisions require appropriate medical context.'],
-    sources: [{ label: 'PubMed — Cockcroft-Gault equation', url: 'https://pubmed.ncbi.nlm.nih.gov/1244564/' }],
+    status: 'reviewed',
+    methodology: 'Cockcroft–Gault creatinine-clearance estimate using age, weight, serum creatinine and the original sex coefficient; the page distinguishes it from normalized eGFR.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'Cockcroft & Gault — PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/1244564/' }, { label: 'National Kidney Foundation — eGFR and kidney function', url: 'https://www.kidney.org/kidney-topics/estimated-glomerular-filtration-rate-egfr' }],
   },
   'cycling-calories-calculator': {
     status: 'needs_manual_review',
@@ -283,10 +292,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'dietary-inflammatory-index-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'The published DII is a literature-derived index with substantially more food/nutrient parameters than the current simplified ten-input implementation.',
-    limitations: ['The current score should not be labeled DII® or mapped to a canonical DII range.', 'Observed associations do not establish that changing the score will cause a particular health outcome.'],
-    sources: [{ label: 'PubMed — DII umbrella review', url: 'https://pubmed.ncbi.nlm.nih.gov/34095187/' }, { label: 'PubMed — 2026 DII umbrella review', url: 'https://pubmed.ncbi.nlm.nih.gov/42435895/' }],
+    status: 'reviewed',
+    methodology: 'A simplified dietary inflammatory pattern score. It is explicitly not the published DII because the published index uses a literature-derived parameter set and global reference distributions.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'Original DII methodology — PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/23941862/' }, { label: 'DII methodology — PMC', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3925198/' }],
   },
   'due-date-calculator': {
     status: 'reviewed',
@@ -476,10 +485,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'infant-weight-percentile-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'WHO weight-for-age reference calculation for 0–24 completed months using published LMS parameters and the LMS z-score transformation.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'WHO Child Growth Standards — Weight-for-age', url: 'https://www.who.int/tools/child-growth-standards/standards/weight-for-age' }, { label: 'WHO Child Growth Standards — Q&A', url: 'https://www.who.int/news-room/questions-and-answers/item/child-growth-standards' }],
   },
   'inflammation-risk-calculator': {
     status: 'needs_manual_review',
@@ -620,10 +629,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'mental-health-score-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Educational wellbeing score based on the tool inputs. It is not a validated mental-health screening instrument and is not used for diagnosis.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'NIMH — Mental Health Information', url: 'https://www.nimh.nih.gov/health' }, { label: 'NIMH — My Mental Health: Do I Need Help?', url: 'https://www.nimh.nih.gov/health/publications/my-mental-health-do-i-need-help' }],
   },
   'metabolic-age-calculator': {
     status: 'needs_manual_review',
@@ -722,10 +731,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'pcos-risk-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Educational PCOS-feature score. It does not implement the international diagnostic criteria or provide a diagnostic probability.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: '2023 International PCOS Guideline — Monash University', url: 'https://www.monash.edu/medicine/mchri/pcos/guideline' }, { label: '2023 International PCOS Guideline — Research publication', url: 'https://research.monash.edu/en/publications/recommendations-from-the-2023-international-evidence-based-guidel-2/' }],
   },
   'plank-time-calculator': {
     status: 'needs_manual_review',
@@ -920,10 +929,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'stroke-risk-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Educational stroke-risk-factor score. It is not a validated 10-year probability model and must not be interpreted as one.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'American Stroke Association — Stroke risk factors', url: 'https://www.stroke.org/en/about-stroke/stroke-risk-factors' }, { label: 'American Stroke Association — Stroke facts', url: 'https://www.stroke.org/en/stroke-facts' }],
   },
   'sugar-intake-calculator': {
     status: 'needs_manual_review',
@@ -956,16 +965,16 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'testosterone-age-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Lifestyle-support estimate only. Serum testosterone cannot be inferred reliably from age, exercise, sleep, stress, BMI and alcohol inputs.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'Endocrine Society — Hypogonadism in Men', url: 'https://www.endocrine.org/patient-engagement/endocrine-library/hypogonadism' }, { label: 'Endocrine Society — Testosterone therapy guideline resources', url: 'https://www.endocrine.org/clinical-practice-guidelines/testosterone-therapy' }],
   },
   'thyroid-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'TSH-first interpretation with optional free T4 context. The result is informational and does not diagnose thyroid disease.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'American Thyroid Association — Thyroid Function Tests', url: 'https://www.thyroid.org/thyroid-function-tests/' }, { label: 'American Thyroid Association — How to Order Thyroid Function Tests', url: 'https://www.thyroid.org/wp-content/uploads/2026/01/ATA-Thyroid-Function-Tests.pdf' }],
   },
   'uv-exposure-calculator': {
     status: 'needs_manual_review',
@@ -992,10 +1001,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'vitamin-d-status-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Vitamin-D intake and status-context guidance. The tool does not infer serum 25(OH)D concentration from sunlight or lifestyle inputs.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'NIH Office of Dietary Supplements — Vitamin D Fact Sheet', url: 'https://ods.od.nih.gov/factsheets/Vitamind-HealthProfessional/' }],
   },
   'vo2-max-calculator': {
     status: 'needs_manual_review',
@@ -1028,10 +1037,10 @@ export const HEALTH_SOURCE_PROFILES: Record<string, HealthSourceProfile> = {
     sources: [],
   },
   'wound-healing-calculator': {
-    status: 'needs_manual_review',
-    methodology: 'No claim-level source profile has been assigned yet. This page must not be described as clinically validated until its formula and claims are reviewed against an authoritative source.',
-    limitations: ['The calculator output is informational until the underlying method is reviewed.', 'Do not use the result as a diagnosis or treatment recommendation.'],
-    sources: [],
+    status: 'reviewed',
+    methodology: 'Educational wound-healing factor assessment based on local and systemic factors; it does not predict an exact healing time or diagnose infection.',
+    limitations: ['The calculator is informational and not a diagnosis.', 'Clinical decisions require the appropriate history, examination, laboratory data or validated model when applicable.'],
+    sources: [{ label: 'NCBI Bookshelf — Physiology, Wound Healing', url: 'https://www.ncbi.nlm.nih.gov/books/NBK535406/' }, { label: 'PubMed — Factors Affecting Wound Healing', url: 'https://pubmed.ncbi.nlm.nih.gov/20139336/' }],
   },
   'yoga-calories-calculator': {
     status: 'needs_manual_review',

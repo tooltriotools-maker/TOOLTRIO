@@ -73,7 +73,7 @@ The calculator shows your estimated body fat percentage, your fat mass in pounds
 
 Use your body fat result alongside [our Lean Body Mass Calculator](/calculators/health/lean-body-mass-calculator) and [our Body Recomposition Calculator](/calculators/health/body-recomposition-calculator) to build a complete picture of your body composition and set realistic goals.
 
-**Long-tail searches answered here:** free body fat percentage calculator usa online, body fat calculator without calipers free tool, how to calculate body fat at home no equipment, body fat percentage calculator by waist and height, navy body fat calculator free online usa 2026, am i healthy body fat percentage calculator no signup, body fat calculator for women by measurements free usa, how to measure body fat without equipment free tool, healthy body fat range for women by age calculator, body fat percentage by waist hip and height free, essential fat vs storage fat calculator free online usa, athlete body fat percentage calculator free no account, body fat reduction timeline calculator usa free online, how long to lose 5 percent body fat calculator free, body fat calculator for men over 40 free online usa`,
+`,
         howItWorks: `The US Navy method uses the following formulas:
 
 Men: %BF = 86.010 × log₁₀(waist − neck) − 70.041 × log₁₀(height) + 36.76

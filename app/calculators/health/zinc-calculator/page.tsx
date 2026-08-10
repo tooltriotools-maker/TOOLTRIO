@@ -62,7 +62,7 @@ Animal foods contain the most bioavailable zinc: oysters are the richest source 
 
 This calculator estimates your daily zinc intake from food and supplements, assesses absorption efficiency based on dietary patterns, and compares against RDA targets for your age and sex.
 
-**Long-tail searches answered here:** daily zinc intake calculator free online usa, how much zinc should i take per day calculator, zinc deficiency risk calculator free no account, zinc supplement dose calculator by age and gender, am i getting enough zinc calculator usa free, dietary zinc calculator from food sources free online, zinc for immune function dosage calculator free usa, zinc and testosterone connection dose calculator, zinc and copper ratio balance calculator usa free, zinc from oysters vs red meat vs beans calculator free, zinc absorption from different food sources calculator, zinc deficiency symptom checklist score calculator usa, zinc supplementation for acne treatment calculator free, upper safe zinc intake limit calculator usa free, zinc for wound healing dosage calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate zinc from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

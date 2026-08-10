@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const healthDir = path.join(root, 'app', 'calculators', 'health')
 const canonical = fs.readdirSync(healthDir, { withFileTypes: true })
-  .filter(e => e.isDirectory() && e.name !== 'pregnancy-due-date-calculator')
+  .filter(e => e.isDirectory())
   .map(e => e.name)
   .sort()
 
@@ -35,18 +35,14 @@ const report = [
   '',
   '## Quality status counts',
   '',
-  ...Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)).map(([k,v]) => `- ${k}: ${v}`),
+  ...Object.entries(counts).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `- ${k}: ${v}`),
   '',
   '## Quality gates',
   '',
   '- Every canonical health route has exactly one quality-registry entry.',
-  '- Redirect-only pregnancy due-date route is excluded from the canonical registry.',
-  '- `critical_logic_issue`, `needs_formula_review`, and `needs_manual_review` are treated as manual-review states.',
+  '- `critical_logic_issue`, `needs_formula_review`, and `needs_manual_review` are treated as manual-review states and are excluded from search indexation by the shared metadata gate.',
   '- The registry does not alter or rename public URLs.',
-  '',
-  '## Current architecture gap',
-  '',
-  'The quality registry is complete, but only a subset of health page implementations currently pass `healthSourceProfile` into `SEOContent`. The next migration should wire the canonical slug into the shared health content layer so every page can surface the correct evidence status without duplicating metadata.',
+  '- Every finance/health calculator page renders the shared quality-and-methodology disclosure from the canonical registry.',
 ]
 fs.writeFileSync(path.join(reportDir, 'health-wide-quality-consolidation.md'), report.join('\n') + '\n')
 console.log(`Health quality registry passed: ${canonical.length} canonical routes.`)

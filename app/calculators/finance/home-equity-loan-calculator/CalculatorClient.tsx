@@ -112,9 +112,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Worked example: A $75,000 loan at 8% for 10 years has 120 monthly payments. Compare the payment and total interest with the equity and CLTV shown before treating the result as affordable."
           conclusion="Important assumptions and limitations: Rates, closing costs, appraisal rules, lien position and lender CLTV limits are not modeled. Interest deductibility depends on how proceeds are used and current tax law. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
+            {title:"Calculator results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

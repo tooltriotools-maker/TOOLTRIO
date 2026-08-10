@@ -78,9 +78,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Worked example: A 4% tax-exempt municipal yield can require a materially higher taxable yield to produce the same after-tax income for an investor in higher tax brackets."
           conclusion="Important assumptions and limitations: Not every municipal bond is exempt from every tax. AMT exposure, capital gains, residency, bond credit quality, price changes and fund expenses are outside this calculation. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
+            {title:"Calculator results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

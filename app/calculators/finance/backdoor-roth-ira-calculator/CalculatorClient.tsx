@@ -110,9 +110,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="For 2026 the direct Roth IRA contribution phaseout is $153,000–$168,000 for single/head-of-household filers and $242,000–$252,000 for married filing jointly. The IRA contribution limit is $7,500, or $8,600 if age 50+. A backdoor contribution does not bypass the annual IRA contribution limit."
           conclusion="Use this calculator to understand why existing pre-tax IRA balances can make a backdoor Roth conversion taxable. Confirm basis and year-end IRA balances before filing Form 8606."
           benefits={[
-            { title: "Real-Time USA Results", text: "Results follow the calculation methodology and assumptions explained on this page." },
+            { title: "Calculator results", text: "Results follow the calculation methodology and assumptions explained on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Use the calculator inputs to test a concrete planning scenario." },

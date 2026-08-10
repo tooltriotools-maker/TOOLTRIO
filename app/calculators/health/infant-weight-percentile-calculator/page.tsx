@@ -9,8 +9,8 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Infant Weight Percentile Calculator | ToolTrio',
-  description: 'Free Infant Weight Percentile Calculator 2026. Calculate your baby\'s weight, height, and head circumference percentile using WHO and CDC growth charts. Track development from birth to 24 months.\', height, and head circumference percentiles using WHO growth charts for ages 0-24 months. Understand what percentile means for growth and identify patterns that warrant medical attention.',
+  title: 'Infant Weight-for-Age Percentile Calculator 2026 | ToolTrio',
+  description: 'Estimate infant weight-for-age percentile for 0–24 completed months using WHO Child Growth Standards. Use the result as a reference for growth tracking, not as a diagnosis.',
   slug: 'infant-weight-percentile-calculator',
   category: 'health',
   region: 'usa',
@@ -62,7 +62,7 @@ This calculator plots your baby's weight, length, and head circumference against
 
 A single measurement tells you where a baby is. The visit-to-visit trajectory tells you whether they're growing on their curve.
 
-**Long-tail searches answered here:** infant weight percentile calculator free online usa, baby weight percentile calculator by age free tool, is my baby a healthy weight cdc growth chart calculator, newborn weight percentile calculator no account, 6 month baby weight percentile calculator free usa, child growth percentile calculator cdc free online, who growth chart vs cdc chart comparison calculator free, newborn birth weight percentile calculator usa free, how much should my 3 month old weigh calculator, breastfed vs formula fed baby weight curve calculator, low birth weight percentile risk calculator usa free, preemie adjusted age weight percentile calculator free, infant weight for length percentile calculator usa, 9 month baby growth percentile assessment calculator free, baby weight gain per week tracker calculator usa free`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate infant weight percentile from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

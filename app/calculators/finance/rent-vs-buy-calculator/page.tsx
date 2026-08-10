@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free rent vs buy calculator',
     'rent vs buy calculator online',
     'best rent vs buy calculator 2026',
-    'rent vs buy calculator no signup',
+    'rent vs buy calculator ',
     'accurate rent vs buy calculator',
     'how to calculate rent vs buy',
     'tooltrio.com',

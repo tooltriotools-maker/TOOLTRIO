@@ -62,7 +62,7 @@ The 2021 CKD-EPI creatinine equation estimates eGFR from serum creatinine, age, 
 
 This calculator requires your serum creatinine from a recent blood test. Without that value, eGFR cannot be meaningfully estimated — kidney function cannot be assessed from symptoms or general health information alone.
 
-**Long-tail searches answered here:** kidney function calculator free online usa, how healthy are my kidneys calculator free tool, gfr kidney function calculator from creatinine, ckd stage calculator from egfr no signup free, kidney disease risk score calculator usa free, kidney health assessment calculator free online 2026, egfr 60 vs 90 kidney function comparison calculator, stage 3 ckd egfr range calculator free usa, how quickly does kidney function decline calculator, creatinine to gfr conversion calculator usa free, medication dosing adjustment for kidney function calculator, kidney function from blood urea nitrogen calculator free, hydration impact on kidney function calculator usa free, protein intake and kidney health risk calculator free, progression of ckd stages timeline calculator free usa`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate kidney function from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

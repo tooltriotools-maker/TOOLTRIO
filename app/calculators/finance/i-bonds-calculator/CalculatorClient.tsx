@@ -101,9 +101,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="I bonds cannot be redeemed during the first 12 months. If redeemed before five years, Treasury deducts the last three months of interest. The electronic annual purchase limit is $10,000 per Social Security number; the federal-refund paper I-bond purchase program has ended."
           conclusion="Use the projection for a current-rate scenario and verify the bond's actual issue-date rate history on TreasuryDirect before making a redemption or purchase decision."
           benefits={[
-            { title: "Real-Time USA Results", text: "Results follow the calculation methodology and assumptions explained on this page." },
+            { title: "Calculator results", text: "Results follow the calculation methodology and assumptions explained on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Use the calculator inputs to test a concrete planning scenario." },

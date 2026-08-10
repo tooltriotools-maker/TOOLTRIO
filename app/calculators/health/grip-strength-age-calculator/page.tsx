@@ -11,7 +11,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Grip Strength Calculator — Age Percentile & Mortality Risk | ToolTrio',
-  description: 'Free grip strength calculator 2026. Find your grip strength percentile by age and gender. Grip strength is a validated predictor of all-cause mortality, disability, and longevity — discover where you rank.',
+  description: 'Grip strength calculator 2026. Estimate an age- and sex-based percentile from the entered grip measurement and explain what the result can and cannot indicate.',
   slug: 'grip-strength-age-calculator',
   category: 'health',
   region: 'usa',
@@ -22,7 +22,7 @@ const relatedCalculators = [{'name': 'One-Rep Max', 'href': '/calculators/health
 
 const faqs = [
   {"question": "Why is grip strength linked to longevity?", "answer": "Grip strength is one of the strongest single-measure predictors of all-cause mortality in research. A landmark Lancet study of 140,000 people in 17 countries found that a 5 kg decrease in grip strength was associated with a 16% higher risk of death from any cause, 17% higher cardiovascular death, and 9% higher stroke risk — stronger associations than blood pressure. Grip strength serves as a proxy for overall musculoskeletal health, nutritional status, and neurological function. It reflects the total-body lean mass that drives metabolic health."},
-  {"question": "What is the clinical threshold for low grip strength?", "answer": "Clinical guidelines define low grip strength as below 26 kg for men and below 16 kg for women (using the dominant hand). These thresholds were established by the European Working Group on Sarcopenia (EWGSOP2) and are used to diagnose sarcopenia. Below these thresholds, research consistently shows approximately 2× higher mortality risk. The World Health Organization (WHO) now recognizes sarcopenia as a disease, emphasizing that preserving muscle mass and strength is a legitimate medical treatment goal."},
+  {"question": "What is the clinical threshold for low grip strength?", "answer": "Clinical guidelines define low grip strength as below 26 kg for men and below 16 kg for women (using the dominant hand). These thresholds were established by the European Working Group on Sarcopenia (EWGSOP2) and are used to diagnose sarcopenia. Below these thresholds, published research indicates approximately 2× higher mortality risk. The World Health Organization (WHO) now recognizes sarcopenia as a disease, emphasizing that preserving muscle mass and strength is a legitimate medical treatment goal."},
   {"question": "How can I improve grip strength?", "answer": "Grip strength responds well to targeted training. Dead hangs (hanging from a bar for 30-60 seconds) and farmer's carries (walking with heavy dumbbells at your sides) are the two most effective exercises. Heavy pulling movements — deadlifts, rows, pull-ups — significantly develop grip as a secondary benefit. For rehabilitation contexts, progressive resistance with a hand gripper (squeeze-hold-release, 3×15 daily) produces measurable gains in 6-8 weeks. Older adults should incorporate forearm and grip-specific work into strength training programs."}
 ]
 

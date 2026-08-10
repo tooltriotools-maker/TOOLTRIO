@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free student loan calculator',
     'student loan calculator online',
     'best student loan calculator 2026',
-    'student loan calculator no signup',
+    'student loan calculator ',
     'accurate student loan calculator',
     'how to calculate student loan',
     'tooltrio.com',

@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free India income tax calculator',
     'India income tax calculator online',
     'India income tax calculator FY 2026-27',
-    'India tax calculator no signup',
+    'India tax calculator ',
     'India tax regime calculator',
     'how to calculate income tax in India',
     'tooltrio.com',

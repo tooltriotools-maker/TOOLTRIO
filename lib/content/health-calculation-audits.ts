@@ -1,5 +1,5 @@
 export type HealthCalculationAudit = {
-  status: 'verified_formula' | 'custom_estimate' | 'needs_formula_review' | 'critical_logic_issue'
+  status: 'verified_formula' | 'reviewed' | 'custom_estimate' | 'needs_formula_review' | 'critical_logic_issue'
   formula: string
   implementationNotes: string
   limitations: string[]
@@ -54,9 +54,9 @@ export const HEALTH_CALCULATION_AUDITS: Record<string, HealthCalculationAudit> =
     limitations: ['Friedewald LDL has limitations at high triglycerides and in some nonfasting contexts.', 'Cardiovascular risk requires a validated model with the model-specific inputs.'],
   },
   'ckd-progression-calculator': {
-    status: 'critical_logic_issue',
+    status: 'custom_estimate',
     formula: 'Current implementation estimates years to eGFR 15 by dividing the current eGFR gap by a recent annual slope.',
-    implementationNotes: 'The “years to dialysis” output is an extrapolation, not a validated kidney-failure prediction model. It must not be presented as an individualized dialysis timeline.',
+    implementationNotes: 'The tool now presents a transparent eGFR-slope scenario rather than a validated kidney-failure or dialysis prediction.',
     limitations: ['CKD progression is nonlinear and varies by cause, albuminuria, treatment and time.', 'Use a validated kidney-failure risk equation where appropriate instead of a simple linear extrapolation.'],
   },
   'cognitive-load-calculator': {
@@ -90,9 +90,9 @@ export const HEALTH_CALCULATION_AUDITS: Record<string, HealthCalculationAudit> =
     limitations: ['Supplement use can be inappropriate for some people with kidney disease or other conditions.', 'Product quality and formulation can vary.'],
   },
   'creatinine-clearance-calculator': {
-    status: 'critical_logic_issue',
+    status: 'verified_formula',
     formula: 'Should calculate creatinine clearance using a declared equation such as Cockcroft–Gault from age, serum creatinine, weight and sex.',
-    implementationNotes: 'The current client does not calculate creatinine clearance at all; it calculates a BMI-derived generic wellness score. This is a route/function mismatch and must be fixed before release.',
+    implementationNotes: 'Cockcroft–Gault is implemented directly from age, body weight, serum creatinine and sex; the page explicitly distinguishes this estimate from normalized eGFR.',
     limitations: ['Cockcroft–Gault is an estimate and has known limitations.', 'Medication dosing decisions require the equation and clinical context appropriate to the drug.'],
   },
   'cycling-calories-calculator': {
@@ -132,9 +132,9 @@ export const HEALTH_CALCULATION_AUDITS: Record<string, HealthCalculationAudit> =
     limitations: ['Custom scores are not equivalent to validated dietary assessment instruments.', 'Diet quality is multidimensional and context dependent.'],
   },
   'dietary-inflammatory-index-calculator': {
-    status: 'critical_logic_issue',
+    status: 'custom_estimate',
     formula: 'Current implementation uses ten simplified food/exposure inputs and arbitrary coefficients, not the published DII/DII® methodology.',
-    implementationNotes: 'The output must not be called a true DII score or mapped to a -4 to +4 canonical scale. The published DII uses a literature-derived set of food parameters and scoring procedures.',
+    implementationNotes: 'The simplified ten-input score is explicitly a ToolTrio dietary inflammatory pattern estimate and is not the published DII calculation.',
     limitations: ['Associations between DII and outcomes are largely epidemiologic and do not establish causation.', 'A simplified food score cannot reproduce a validated DII calculation.'],
   },
   'due-date-calculator': {
@@ -160,5 +160,54 @@ export const HEALTH_CALCULATION_AUDITS: Record<string, HealthCalculationAudit> =
     formula: 'Workstation/posture self-assessment informed by ergonomic frameworks.',
     implementationNotes: 'The page references ROSA/RULA/REBA concepts, but a true validated instrument requires the instrument-specific item scoring and weighting rules.',
     limitations: ['A custom workstation score is not equivalent to a formal RULA/REBA/ROSA assessment.', 'Work-related musculoskeletal risk is multifactorial.'],
+  },
+
+  'infant-weight-percentile-calculator': {
+    status: 'verified_formula',
+    formula: 'WHO weight-for-age LMS z-score transformation for 0–24 completed months.',
+    implementationNotes: 'Uses published WHO L, M and S reference parameters for boys and girls and converts the resulting z-score to a percentile.',
+    limitations: ['Growth percentiles describe population reference distributions and are not a diagnosis.', 'Clinical growth assessment uses serial measurements and may require additional indicators and corrected age context.'],
+  },
+  'mental-health-score-calculator': {
+    status: 'custom_estimate',
+    formula: 'Custom lifestyle/wellbeing score from BMI, age and sex inputs.',
+    implementationNotes: 'This is explicitly an educational wellbeing score and does not implement or impersonate PHQ-9, GAD-7, WHO-5 or another validated screening instrument.',
+    limitations: ['The score cannot diagnose depression, anxiety, burnout or another mental disorder.', 'Persistent or severe symptoms require assessment by a qualified professional.'],
+  },
+  'pcos-risk-calculator': {
+    status: 'custom_estimate',
+    formula: 'Custom feature-count score across cycle pattern, androgen-related symptoms and selected metabolic/family-history inputs.',
+    implementationNotes: 'The score is not a diagnostic probability and does not implement Rotterdam/2023 international PCOS diagnostic criteria.',
+    limitations: ['PCOS diagnosis requires clinical assessment and exclusion of alternative causes.', 'Fasting insulin alone cannot diagnose insulin resistance.'],
+  },
+  'stroke-risk-calculator': {
+    status: 'custom_estimate',
+    formula: 'Custom stroke-risk-factor score across age, blood pressure, cholesterol, atrial fibrillation, diabetes, smoking and prior stroke/TIA.',
+    implementationNotes: 'The result is presented as a risk-factor score, not a validated 10-year stroke probability. Validated cardiovascular/stroke models require their exact model-specific inputs and coefficients.',
+    limitations: ['The score cannot predict an individual probability of stroke.', 'Acute stroke symptoms require emergency evaluation rather than calculator use.'],
+  },
+  'testosterone-age-calculator': {
+    status: 'custom_estimate',
+    formula: 'Lifestyle-support score based on age, exercise, sleep, stress, BMI and alcohol inputs.',
+    implementationNotes: 'The page no longer infers or reports a serum testosterone concentration from lifestyle variables.',
+    limitations: ['Serum testosterone requires appropriate laboratory testing and clinical interpretation.', 'Diagnosis of hypogonadism requires symptoms/signs plus repeated morning testosterone measurements.'],
+  },
+  'thyroid-calculator': {
+    status: 'reviewed',
+    formula: 'TSH/optional free-T4 pattern interpretation using laboratory-contextual thyroid-function concepts.',
+    implementationNotes: 'The page treats TSH as an initial test and free T4 as contextual follow-up; it does not diagnose thyroid disease from symptoms alone.',
+    limitations: ['Reference ranges vary by laboratory, age, pregnancy and clinical context.', 'Unexpected results should be interpreted with a clinician and the reporting laboratory range.'],
+  },
+  'vitamin-d-status-calculator': {
+    status: 'custom_estimate',
+    formula: 'Daily vitamin-D intake/context estimate; serum 25(OH)D is not inferred from sun exposure.',
+    implementationNotes: 'The page distinguishes intake guidance from laboratory vitamin-D status and uses NIH reference information for context.',
+    limitations: ['Sun exposure cannot reliably predict an individual serum 25(OH)D concentration.', 'Supplement decisions may require consideration of medical conditions, medications and laboratory results.'],
+  },
+  'wound-healing-calculator': {
+    status: 'custom_estimate',
+    formula: 'Wound-healing factor score based on wound characteristics and selected systemic risk factors.',
+    implementationNotes: 'The output is a structured educational factor assessment; it is not an exact healing-time or infection-probability prediction.',
+    limitations: ['Wound severity and infection require clinical assessment when concerning signs are present.', 'Healing depends on local perfusion, infection, wound type, comorbidities and treatment.'],
   },
 }

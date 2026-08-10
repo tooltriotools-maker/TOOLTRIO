@@ -96,9 +96,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Worked example: A high-rate credit-card balance usually consumes more interest per dollar than a lower-rate auto loan. Enter both balances and compare the modeled payoff cost before allocating extra cash."
           conclusion="Important assumptions and limitations: Minimum payments are approximated as percentages of balance in the UI. Issuer minimum-payment rules, fees, promotional APRs and variable rates are not modeled. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
+            {title:"Calculator results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

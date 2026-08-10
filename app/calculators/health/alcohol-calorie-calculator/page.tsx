@@ -61,7 +61,7 @@ This calculator uses the Atwater factor for ethanol (7.1 kcal per gram of pure a
 
 Pair this with [our TDEE Calculator](/calculators/health/tdee-calculator) to see what percentage of your daily energy budget alcohol is consuming, or use [our Calorie Calculator](/calculators/health/calorie-calculator) to fit drinking into a wider nutrition plan.
 
-**Long-tail searches answered here:** how many calories in a beer vs wine calculator free, alcohol calorie counter by drink type usa, calories in mixed drinks calculator online free, beer wine spirits calorie comparison tool, how to count alcohol calories for weight loss, free drink calorie estimator no app required, calories in a glass of red wine 5oz calculator free usa, how many calories in a vodka soda calculator free, light beer vs regular beer calorie difference calculator, weekly alcohol calorie intake calculator free usa, alcohol calories per gram explained calculator free, lowest calorie alcoholic drink options calculator usa, calories in margarita vs beer vs wine free comparison, alcohol calorie impact on weight loss calculator free usa, how many calories in prosecco vs champagne calculator`,
+`,
   howItWorks: `Alcohol calories are calculated using the Atwater factor for ethanol: 7.1 kcal per gram of pure alcohol. For a standard drink: calories = (volume in mL × ABV%) × 0.789 (density of ethanol in g/mL) × 7.1 kcal/g. A 12 oz (355 mL) beer at 5% ABV contains: 355 × 0.05 × 0.789 × 7.1 = 99.6 alcohol calories, plus additional calories from carbohydrates in malt (typically 50-100 additional calories for regular beer). Wine calories include both alcohol and residual sugar. Spirits are primarily alcohol calories with minimal carbohydrates.`,
   benefits: [
   ],

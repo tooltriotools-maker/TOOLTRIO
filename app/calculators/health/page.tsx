@@ -2,37 +2,39 @@ import { HEALTH_CANONICAL_SLUGS } from '@/lib/content/health-quality'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
+import { HealthYMYLPolicy } from './ymyl-policy'
 
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'tooltrio.com'
+const HEALTH_COUNT = HEALTH_CANONICAL_SLUGS.length
 
 export const metadata: Metadata = {
-  title: '172 Health Calculators 2026 | ToolTrio',
-  description: '172 health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle.',
+  title: 'Health Calculators 2026 | ToolTrio',
+  description: 'Health calculators: BMI calculator (lbs/in), calorie calculator, TDEE, macros, body fat, pregnancy, heart attack risk, cholesterol, sleep cycle.',
   keywords: [
-    'free health calculators',
-    'health calculators online free',
-    'best health calculators 2026',
+    'health calculators 2026',
+    'health calculation tools',
+    'BMI calculator',
     'BMI calculator pounds inches',
-    'calorie calculator free',
-    'TDEE calculator free',
-    'BMR calculator online',
-    'body fat calculator free',
+    'calorie calculator',
+    'TDEE calculator',
+    'BMR calculator',
+    'body fat calculator',
   ],
   alternates: { canonical: `${BASE_URL}/calculators/health` },
   openGraph: {
-    title: '172 Health Calculators 2026 — BMI, Calories, Heart Risk & More',
-    description: '172 health calculators using evidence-reviewed formulas and calculation methods. BMI, TDEE, body fat, pregnancy, heart risk, sleep, macros and more. No signup required.',
+    title: 'Health Calculators 2026 — BMI, Calories, Heart Risk & More',
+    description: 'Health calculators with route-level methodology, limitations and evidence-status disclosures. BMI, TDEE, body fat, pregnancy, heart risk, sleep, macros and more.  required.',
     url: `${BASE_URL}/calculators/health`,
     siteName: SITE_NAME,
     type: 'website',
-    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Free Health Calculators 2026' }],
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: 'Health Calculators 2026' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '172 Health Calculators 2026',
-    description: 'BMI, TDEE, calorie, pregnancy, heart risk and 120+ more free health calculators. CDC & NIH formulas.',
+    title: 'Health Calculators 2026',
+    description: 'Health calculators with transparent methodology, limitations, evidence-status disclosures and source references.',
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
 }
@@ -40,18 +42,18 @@ export const metadata: Metadata = {
 // ─── Data ───────────────────────────────────────────────────────────────────
 
 const FEATURED = [
-  { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator', icon: '⚖️', desc: 'Body Mass Index with lbs/ft or kg/cm. Healthy weight range.', tag: 'Body', searches: '1.2M/mo' },
-  { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator', icon: '🔥', desc: 'Daily calories (TDEE) for weight loss, maintenance or gain.', tag: 'Nutrition', searches: '900K/mo' },
-  { name: 'BMR Calculator', href: '/calculators/health/bmr-calculator', icon: '❤️', desc: 'Basal Metabolic Rate — calories burned at complete rest.', tag: 'Nutrition', searches: '550K/mo' },
-  { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator', icon: '📊', desc: 'Total Daily Energy Expenditure by activity level.', tag: 'Nutrition', searches: '450K/mo' },
-  { name: 'Macro Calculator', href: '/calculators/health/macro-calculator', icon: '🥗', desc: 'Protein, carbs, and fat targets for your goal.', tag: 'Nutrition', searches: '380K/mo' },
-  { name: 'Body Fat Calculator', href: '/calculators/health/body-fat-calculator', icon: '💪', desc: 'Body fat % using US Navy tape method.', tag: 'Body', searches: '320K/mo' },
-  { name: 'Calorie Deficit Calculator', href: '/calculators/health/calorie-deficit-calculator', icon: '📉', desc: 'Daily calorie target for fat loss with macro split.', tag: 'Nutrition', searches: '290K/mo' },
-  { name: 'Sleep Cycle Calculator', href: '/calculators/health/sleep-cycle-calculator', icon: '😴', desc: 'Best wake-up times aligned to 90-minute sleep cycles.', tag: 'Wellness', searches: '280K/mo' },
-  { name: 'Pregnancy Calculator', href: '/calculators/health/pregnancy-calculator', icon: '🤰', desc: 'Week-by-week pregnancy milestones from LMP.', tag: "Women's", searches: '260K/mo' },
-  { name: 'Heart Attack Risk Calculator', href: '/calculators/health/heart-attack-risk-calculator', icon: '❤️‍🔥', desc: '10-year ASCVD risk using AHA Pooled Cohort Equations.', tag: 'Heart', searches: '240K/mo' },
-  { name: 'Ideal Weight Calculator', href: '/calculators/health/ideal-weight-calculator', icon: '🎯', desc: 'Healthy weight range using 5 validated formulas.', tag: 'Body', searches: '230K/mo' },
-  { name: 'Protein Intake Calculator', href: '/calculators/health/protein-intake-calculator', icon: '🥩', desc: 'Daily protein grams for muscle building or fat loss.', tag: 'Nutrition', searches: '210K/mo' },
+  { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator', icon: '⚖️', desc: 'Body Mass Index with lbs/ft or kg/cm. Healthy weight range.', tag: 'Body', searches: 'Popular' },
+  { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator', icon: '🔥', desc: 'Daily calories (TDEE) for weight loss, maintenance or gain.', tag: 'Nutrition', searches: 'Popular' },
+  { name: 'BMR Calculator', href: '/calculators/health/bmr-calculator', icon: '❤️', desc: 'Basal Metabolic Rate — calories burned at complete rest.', tag: 'Nutrition', searches: 'Popular' },
+  { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator', icon: '📊', desc: 'Total Daily Energy Expenditure by activity level.', tag: 'Nutrition', searches: 'Popular' },
+  { name: 'Macro Calculator', href: '/calculators/health/macro-calculator', icon: '🥗', desc: 'Protein, carbs, and fat targets for your goal.', tag: 'Nutrition', searches: 'Popular' },
+  { name: 'Body Fat Calculator', href: '/calculators/health/body-fat-calculator', icon: '💪', desc: 'Body fat % using US Navy tape method.', tag: 'Body', searches: 'Popular' },
+  { name: 'Calorie Deficit Calculator', href: '/calculators/health/calorie-deficit-calculator', icon: '📉', desc: 'Daily calorie target for fat loss with macro split.', tag: 'Nutrition', searches: 'Popular' },
+  { name: 'Sleep Cycle Calculator', href: '/calculators/health/sleep-cycle-calculator', icon: '😴', desc: 'Wake-time estimates based on the selected sleep-cycle assumption.', tag: 'Wellness', searches: 'Popular' },
+  { name: 'Pregnancy Calculator', href: '/calculators/health/pregnancy-calculator', icon: '🤰', desc: 'Week-by-week pregnancy milestones from LMP.', tag: "Women's", searches: 'Popular' },
+  { name: 'Heart Attack Risk Calculator', href: '/calculators/health/heart-attack-risk-calculator', icon: '❤️‍🔥', desc: '10-year ASCVD risk using AHA Pooled Cohort Equations.', tag: 'Heart', searches: 'Popular' },
+  { name: 'Ideal Weight Calculator', href: '/calculators/health/ideal-weight-calculator', icon: '🎯', desc: 'Healthy-weight estimates using documented formulas.', tag: 'Body', searches: 'Popular' },
+  { name: 'Protein Intake Calculator', href: '/calculators/health/protein-intake-calculator', icon: '🥩', desc: 'Daily protein grams for muscle building or fat loss.', tag: 'Nutrition', searches: 'Popular' },
 ]
 
 const CATEGORIES = [
@@ -71,8 +73,8 @@ const CATEGORIES = [
       { name: 'Body Age Calculator', href: '/calculators/health/body-age-calculator', icon: '🧬', desc: 'Biological vs chronological age' },
       { name: 'Body Recomposition', href: '/calculators/health/body-recomposition-calculator', icon: '🔄', desc: 'Lose fat while building muscle' },
       { name: 'Infant Weight Percentile', href: '/calculators/health/infant-weight-percentile-calculator', icon: '👶', desc: 'WHO 0-24 month growth charts' },
-      { name: 'Genetic Height Potential Calculator — Mid-Parental Height', href: '/calculators/health/genetic-height-calculator', icon: '📏', desc: 'Free genetic height potential calculator 2026' },
-      { name: 'Waist-to-Hip Ratio Calculator — WHR & Cardiovascular Risk', href: '/calculators/health/waist-hip-ratio-calculator', icon: '📏', desc: 'Free waist-to-hip ratio (WHR) calculator 2026' },
+      { name: 'Genetic Height Potential Calculator — Mid-Parental Height', href: '/calculators/health/genetic-height-calculator', icon: '📏', desc: 'Genetic height potential estimate 2026' },
+      { name: 'Waist-to-Hip Ratio Calculator — WHR & Cardiovascular Risk', href: '/calculators/health/waist-hip-ratio-calculator', icon: '📏', desc: 'Waist-to-hip ratio (WHR) estimate 2026' },
     ],
   },
   {
@@ -84,14 +86,14 @@ const CATEGORIES = [
       { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator', icon: '📊', desc: 'Total daily energy by activity level' },
       { name: 'Calorie Deficit Calculator', href: '/calculators/health/calorie-deficit-calculator', icon: '📉', desc: 'Safe deficit for fat loss' },
       { name: 'Fat Loss Rate Calculator', href: '/calculators/health/fat-loss-rate-calculator', icon: '⏱️', desc: 'Realistic weekly fat loss timeline' },
-      { name: 'BMI Calculator', href: '/calculators/health/resting-metabolic-rate-calculator', icon: '💤', desc: 'RMR by 3 validated formulas' },
+      { name: 'BMI Calculator', href: '/calculators/health/resting-metabolic-rate-calculator', icon: '💤', desc: 'RMR estimates using documented formulas' },
       { name: 'Muscle Gain Calculator', href: '/calculators/health/muscle-gain-calculator', icon: '📈', desc: 'Max natural monthly muscle gain' },
       { name: 'Calories Burned', href: '/calculators/health/calories-burned-calculator', icon: '⚡', desc: '150+ activities via MET values' },
       { name: 'Calories Burned Walking', href: '/calculators/health/calorie-burned-walking-calculator', icon: '🚶', desc: 'By speed, weight & incline' },
       { name: 'Alcohol Calorie Calculator', href: '/calculators/health/alcohol-calorie-calculator', icon: '🍷', desc: 'Calories in beer, wine & spirits' },
-      { name: 'Caloric Needs Calculator — Daily Calories by Goal', href: '/calculators/health/caloric-needs-calculator', icon: '🍽️', desc: 'Free caloric needs calculator 2026' },
-      { name: 'Metabolic Age Calculator — Is Your Body Older Than You Think?', href: '/calculators/health/metabolic-age-calculator', icon: '⚡', desc: 'Free metabolic age calculator 2026' },
-      { name: 'Yoga Calorie Calculator', href: '/calculators/health/yoga-calories-calculator', icon: '🧘', desc: 'Free Yoga Calories Calculator 2026' },
+      { name: 'Caloric Needs Calculator — Daily Calories by Goal', href: '/calculators/health/caloric-needs-calculator', icon: '🍽️', desc: 'Caloric needs estimate 2026' },
+      { name: 'Metabolic Age Calculator — Is Your Body Older Than You Think?', href: '/calculators/health/metabolic-age-calculator', icon: '⚡', desc: 'Metabolic age estimate 2026' },
+      { name: 'Yoga Calorie Calculator', href: '/calculators/health/yoga-calories-calculator', icon: '🧘', desc: 'Yoga calorie estimate 2026' },
     ],
   },
   {
@@ -307,7 +309,7 @@ const CATEGORIES = [
     tools: [
       { name: 'Menstrual Health Score Calculator — Cycle Analysis', href: '/calculators/health/menstrual-health-calculator', icon: '🌙', desc: 'Free menstrual health score calculator 2026' },
       { name: 'PCOS Risk Calculator — Symptom Score & Investigations', href: '/calculators/health/pcos-risk-calculator', icon: '🌀', desc: 'Free PCOS risk score calculator 2026' },
-      { name: 'Pregnancy Due Date Calculator', href: '/calculators/health/pregnancy-calculator', icon: '🤱', desc: 'Free Pregnancy Due Date Calculator 2026' },
+      { name: 'Pregnancy Due Date Calculator', href: '/calculators/health/pregnancy-calculator', icon: '🤱', desc: 'Pregnancy due-date estimate 2026' },
       { name: 'Testosterone Calculator', href: '/calculators/health/testosterone-age-calculator', icon: '⚡', desc: 'Free Testosterone Age Calculator 2026 — Calculate testosterone age ins' },
     ],
   },
@@ -317,8 +319,8 @@ const CATEGORIES = [
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: '172 Health Calculators 2026',
-  description: 'Complete directory of free health calculators using evidence-reviewed formulas and calculation methods. No signup required.',
+  name: 'Health Calculators 2026',
+  description: 'Health calculator directory with route-level methodology, limitations, evidence status and source references where available.',
   url: `${BASE_URL}/calculators/health`,
   numberOfItems: HEALTH_CANONICAL_SLUGS.length,
   itemListElement: FEATURED.map((t, i) => ({
@@ -332,15 +334,14 @@ const itemListSchema = {
 
 const medicalOrgSchema = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalWebPage',
-  name: '172 Health Calculators — tooltrio.com',
-  description: '172 health calculators using evidence-reviewed formulas and calculation methods. Covers BMI, nutrition, fitness, heart health, pregnancy, and wellness.',
+  '@type': 'WebPage',
+  name: 'Health Calculators — ToolTrio',
+  description: 'Health calculators with route-level methodology, evidence-status disclosures, limitations, and source references where available.',
   url: `${BASE_URL}/calculators/health`,
   author: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
   publisher: { '@type': 'Organization', name: SITE_NAME, url: BASE_URL },
   isAccessibleForFree: 'True',
   inLanguage: 'en-US',
-  specialty: { '@type': 'MedicalSpecialty', name: 'Preventive Medicine' },
   about: [
     { '@type': 'MedicalCondition', name: 'Body Mass Index Assessment' },
     { '@type': 'MedicalCondition', name: 'Cardiovascular Disease Prevention' },
@@ -362,9 +363,9 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Are these health calculators free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, all 172 health calculators are completely free with no signup, subscription, or payment required. All calculations run in your browser and no personal data is stored.' } },
-    { '@type': 'Question', name: 'Do these calculators use US standard units?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All calculators default to US standard units (pounds for weight, feet and inches for height). A toggle is available on each calculator to switch to metric (kg/cm) if preferred.' } },
-    { '@type': 'Question', name: 'Which health formulas are used?', acceptedAnswer: { '@type': 'Answer', text: 'All calculators use peer-reviewed formulas from CDC, NIH, AHA, ACSM, and WHO. For example: BMI uses the standard CDC formula, TDEE uses the Mifflin-St Jeor equation, and heart risk uses the AHA Pooled Cohort Equations.' } },
+    { '@type': 'Question', name: 'Are these health calculators free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The public calculator pages are available without signup or payment. Review the individual page for its methodology, limitations, evidence status, and privacy details.' } },
+    { '@type': 'Question', name: 'Do these calculators use US standard units?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Most calculators default to US customary units where appropriate; individual pages document supported units and conversions.' } },
+    { '@type': 'Question', name: 'Which health formulas are used?', acceptedAnswer: { '@type': 'Answer', text: 'Each calculator documents its own method and evidence status. Some use established equations or published reference standards; others are simplified estimates. Review the individual calculator page for its sources and limitations.' } },
     { '@type': 'Question', name: 'How accurate are the health calculators?', acceptedAnswer: { '@type': 'Answer', text: 'Each calculator has its own method and evidence status. Some are standard mathematical or screening calculations, while others are simplified estimates that require clinical context. Always consult a qualified healthcare professional for medical decisions.' } },
   ],
 }
@@ -390,18 +391,18 @@ export default function HealthPage() {
           <div className="relative">
             <div className="inline-flex items-center gap-2 bg-white/20 border border-white/30 rounded-full px-4 py-1.5 text-xs font-bold mb-4">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              124 Free Tools — Updated 2026
+              {HEALTH_COUNT} Tools — Methodology and evidence status shown per page
             </div>
             <h1 className="text-3xl md:text-5xl font-black mb-3 leading-tight">
-              Free Health Calculators<br />
+              Health Calculators<br />
               <span className="text-rose-200">Evidence & Formula Reviewed</span>
             </h1>
             <p className="text-rose-100 max-w-2xl text-base md:text-lg leading-relaxed mb-5">
-              172 health calculators — BMI, calories, TDEE, macros, heart risk, pregnancy, sleep, fitness, and more.
-              All free. No signup. US standard units (lbs & ft-in) by default.
+              {HEALTH_COUNT} health calculators — BMI, calories, TDEE, macros, heart risk, pregnancy, sleep, fitness, and more.
+              All free. . US standard units (lbs & ft-in) by default.
             </p>
             <div className="flex flex-wrap gap-2">
-              {['🇺🇸 lbs & ft-in default', '📚 Source-linked methods', '⚡ Instant results', '🔒 100% private', '📱 Mobile ready', '🆓 Always free'].map(b => (
+              {['🇺🇸 lbs & ft-in default', '📚 Source-linked methods', '⚡ Instant results', '🔒 100% private', '📱 Mobile ready', '🆓 No account required'].map(b => (
                 <span key={b} className="text-xs font-semibold bg-white/15 border border-white/25 rounded-full px-3 py-1.5">{b}</span>
               ))}
             </div>
@@ -413,7 +414,7 @@ export default function HealthPage() {
           <h2 id="popular-heading" className="text-2xl font-black text-gray-900 mb-1 flex items-center gap-2">
             ⭐ Most Popular Health Calculators
           </h2>
-          <p className="text-gray-500 text-sm mb-5">The calculators Americans search for most — all free, no signup.</p>
+          <p className="text-gray-500 text-sm mb-5">The calculators Americans search for most — publicly available; methodology and limitations are shown per page.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {FEATURED.map(tool => (
               <Link key={tool.href} href={tool.href}
@@ -427,7 +428,7 @@ export default function HealthPage() {
                 </span>
                 <div className="mt-auto flex items-center justify-between">
                   <span className="text-xs font-bold text-gray-400">{tool.tag}</span>
-                  <span className="text-xs font-black text-rose-500 opacity-0 group-hover:opacity-100 transition-opacity">Use free →</span>
+                  <span className="text-xs font-black text-rose-500 opacity-0 group-hover:opacity-100 transition-opacity">Open →</span>
                 </div>
               </Link>
             ))}
@@ -464,38 +465,32 @@ export default function HealthPage() {
 
         {/* SEO text block — E-E-A-T signals */}
         <section className="mt-12 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
-          <h2 className="text-xl font-black text-gray-900 mb-4">About Our Free Health Calculators</h2>
+          <h2 className="text-xl font-black text-gray-900 mb-4">About Our Health Calculators</h2>
           <div className="prose prose-sm max-w-none text-gray-600 space-y-3">
             <p>
-              tooltrio.com provides 172 health calculators grounded in peer-reviewed research and guidelines
-              from the <strong>Centers for Disease Control and Prevention (CDC)</strong>, <strong>National Institutes of Health (NIH)</strong>,
-              <strong>American Heart Association (AHA)</strong>, and <strong>American College of Sports Medicine (ACSM)</strong>.
+              ToolTrio publishes health calculators with route-level evidence and methodology profiles. Some tools use published equations or guidance; others are explicitly labeled as educational estimates. Each calculator page states its limitations and, where available, links to the underlying reference sources.
               Every tool defaults to <strong>US standard units</strong> — pounds for weight, feet and inches for height —
-              with a metric toggle available on every calculator.
+              with a metric toggle available on supported calculators.
             </p>
             <p>
               Our <Link href="/calculators/health/bmi-calculator" className="text-rose-600 hover:underline font-semibold">BMI Calculator</Link> uses
               the CDC standard formula with separate categories for adults and children.
               The <Link href="/calculators/health/calorie-calculator" className="text-rose-600 hover:underline font-semibold">Calorie Calculator</Link> uses
-              the Mifflin-St Jeor equation, validated as the most accurate TDEE formula for the general US population.
-              The <Link href="/calculators/health/heart-attack-risk-calculator" className="text-rose-600 hover:underline font-semibold">Heart Attack Risk Calculator</Link> uses
-              the AHA/ACC Pooled Cohort Equations, the standard tool for ASCVD risk estimation.
+              the Mifflin-St Jeor equation as one commonly used predictive equation; the individual page explains its assumptions and limitations.
+              The <Link href="/calculators/health/heart-attack-risk-calculator" className="text-rose-600 hover:underline font-semibold">Heart Attack Risk Calculator</Link> has a route-specific quality profile; check that page's methodology and source section before interpreting its result.
             </p>
             <p>
-              All calculations run <strong>entirely in your browser</strong>. No personal health data is sent to any server,
-              stored in any database, or shared with any third party. This privacy-first design is essential for sensitive
-              health information. Results are for educational and informational purposes — always consult a licensed
-              healthcare provider for medical decisions.
+              Where a calculator operates entirely in the browser, its page explains that behavior and the relevant privacy boundary. Do not enter sensitive information unless it is necessary for the calculation. Results are educational estimates and should not replace professional medical advice.
             </p>
           </div>
 
           {/* Quick FAQ */}
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { q: 'What units do these calculators use?', a: 'All calculators default to US standard units — lbs for weight, feet and inches for height. Every calculator has a toggle to switch to metric (kg/cm).' },
-              { q: 'Are these calculators medically accurate?', a: 'Yes. All use peer-reviewed formulas from CDC, NIH, AHA, and ACSM. Results are population-level estimates; consult your doctor for personal medical advice.' },
-              { q: 'Do I need to create an account?', a: 'No signup, registration, or payment is ever required. All 124 calculators are permanently free and fully functional without an account.' },
-              { q: 'Do these calculators work on iPhone?', a: 'Yes. All calculators are fully responsive and tested on iPhone, Android, iPad, and all major desktop browsers. No app download needed.' },
+              { q: 'What units do these calculators use?', a: 'Many calculators support US customary units, and supported units/conversions are documented on each individual page.' },
+              { q: 'Are these calculators medically accurate?', a: 'Accuracy depends on the individual calculator, its formula, population assumptions and evidence status. Review the methodology, limitations and sources shown on the individual page; do not treat an estimate as a diagnosis.' },
+              { q: 'Do I need to create an account?', a: ', registration, or payment is required to use the public calculator pages.' },
+              { q: 'Do these calculators work on iPhone?', a: 'The calculator interface is designed to be responsive across common mobile and desktop layouts; device-specific behavior can vary.' },
             ].map(faq => (
               <div key={faq.q} className="bg-gray-50 rounded-xl p-4">
                 <p className="font-bold text-gray-900 text-sm mb-1">{faq.q}</p>
@@ -504,6 +499,8 @@ export default function HealthPage() {
             ))}
           </div>
         </section>
+
+        <HealthYMYLPolicy />
 
         {/* Footer disclaimer */}
         <p className="mt-8 text-center text-xs text-gray-400 leading-relaxed max-w-3xl mx-auto">

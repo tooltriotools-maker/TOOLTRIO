@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free cd ladder calculator',
     'cd ladder calculator online',
     'best cd ladder calculator 2026',
-    'cd ladder calculator no signup',
+    'cd ladder calculator ',
     'accurate cd ladder calculator',
     'how to calculate cd ladder',
     'tooltrio.com',

@@ -81,7 +81,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🧾 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Understanding your marginal vs effective tax rate — and the 'room' remaining in your current bracket — unlocks powerful tax optimization strategies. If you have $15,000 of room in the 22% bracket, a Roth conversion of exactly $15,000 costs 22 cents per dollar vs 24%+ if you wait. This optimizer maps your complete bracket situation and identifies the best strategies for your specific income level.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Understanding your marginal vs effective tax rate — and the 'room' remaining in your current bracket — unlocks useful tax optimization strategies. If you have $15,000 of room in the 22% bracket, a Roth conversion of exactly $15,000 costs 22 cents per dollar vs 24%+ if you wait. This optimizer maps your complete bracket situation and identifies the best strategies for your specific income level.</p>
               </Card>
             </>
           ):(
@@ -90,11 +90,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="Tax Bracket Optimizer USA 2026 — Minimize Your Tax Bill" category="finance" intro="Understanding your marginal vs effective tax rate — and the 'room' remaining in your current bracket — unlocks powerful tax optimization strategies. If you have $15,000 of room in the 22% bracket, a Roth conversion of exactly $15,000 costs 22 cents per dollar vs 24%+ if you wait. This optimizer maps your complete bracket situation and identifies the best strategies for your specific income level."
+        <SEOContent title="Tax Bracket Optimizer USA 2026 — Minimize Your Tax Bill" category="finance" intro="Understanding your marginal vs effective tax rate — and the 'room' remaining in your current bracket — unlocks useful tax optimization strategies. If you have $15,000 of room in the 22% bracket, a Roth conversion of exactly $15,000 costs 22 cents per dollar vs 24%+ if you wait. This optimizer maps your complete bracket situation and identifies the best strategies for your specific income level."
           howItWorks="Ordinary taxable income is modeled after the greater of the entered deduction or the 2026 standard deduction, then passed through the progressive federal brackets. Long-term capital gains and qualified dividends are modeled separately before entered credits are subtracted."
           tipsSection="For 2026 the code now uses $16,100 single and $32,200 married-filing-jointly standard deductions and the current 10%–37% bracket thresholds."
           conclusion="Capital-gain stacking is more complicated than this simplified implementation because preferential-rate income sits on top of ordinary taxable income. NIIT, AMT, special gain categories, filing statuses beyond single/MFJ and credit limitations are not fully modeled."
-          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -94,9 +94,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Worked example: On a $100,000 salary with a 10% bonus, the gross bonus is $10,000. The result shows modeled withholding—not the final income tax ultimately due on the bonus."
           conclusion="Important assumptions and limitations: The UI currently hard-codes single filing status and California. Withholding can differ from final tax, and Medicare Additional Tax, payroll history and employer withholding method can affect actual pay. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            { title: "Real-Time USA Results", text: "Results update immediately from the inputs and methodology described on this page." },
+            { title: "Calculator results", text: "Results update immediately from the inputs and methodology described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

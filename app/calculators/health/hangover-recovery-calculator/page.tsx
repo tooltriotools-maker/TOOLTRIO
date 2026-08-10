@@ -62,7 +62,7 @@ There are no evidence-based hangover cures — not coffee (worsens anxiety rebou
 
 This calculator estimates your recovery timeline based on how much you drank, when, and what you consumed, along with prioritized recovery actions for your specific symptom profile.
 
-**Long-tail searches answered here:** hangover recovery time calculator free online usa, how long will my hangover last calculator, hangover severity estimator by drinks consumed free, when will i feel better after drinking calculator, alcohol recovery timeline calculator free tool usa, hangover cure effectiveness calculator no signup, hangover duration by blood alcohol peak calculator, dehydration component of hangover calculator usa free, acetaldehyde toxicity hangover score calculator free, how food before drinking reduces hangover calculator, vitamin depletion from alcohol hangover risk calculator, sleep disruption from alcohol calculator usa free, electrolyte replacement for hangover calculator free, anxiety after drinking hangover anxiety calculator free usa, next day performance impairment from drinking calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate hangover recovery from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

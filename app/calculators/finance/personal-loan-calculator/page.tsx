@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free personal loan calculator',
     'personal loan calculator online',
     'best personal loan calculator 2026',
-    'personal loan calculator no signup',
+    'personal loan calculator ',
     'accurate personal loan calculator',
     'how to calculate personal loan',
     'tooltrio.com',

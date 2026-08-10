@@ -62,7 +62,7 @@ Stachybotrys chartarum (black mold) generates disproportionate fear, but color a
 
 This calculator assesses your mold exposure risk based on home characteristics, moisture indicators, symptoms, and exposure duration, and provides prioritized remediation and health action recommendations.
 
-**Long-tail searches answered here:** mold exposure health risk calculator free online usa, am i at risk from mold in my home calculator, indoor mold exposure health impact calculator free, mold illness risk score calculator no signup usa, black mold health effects risk calculator free tool, how dangerous is my mold exposure calculator, mycotoxin exposure health risk score calculator free, mold exposure symptoms severity calculator usa free, chronic mold exposure neurological risk calculator, duration of mold exposure health damage calculator usa, water damaged building sickness risk calculator free, mold sensitivity vs mold allergy difference calculator, mold health risk for immunocompromised individuals calculator, basement mold exposure severity calculator usa free, whole house mold health burden calculator free online`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate mold exposure from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

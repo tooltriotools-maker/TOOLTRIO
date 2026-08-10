@@ -62,7 +62,7 @@ The mechanisms are multiple and interacting. Sleeping out of phase with your cir
 
 This calculator assesses your shift work health risk profile and generates specific, evidence-based mitigation strategies calibrated to your shift pattern.
 
-**Long-tail searches answered here:** shift work health risk calculator free online usa, night shift health impact calculator free tool, rotating shift health effects calculator no signup, how bad is night shift for my health calculator, shift work sleep disorder risk calculator usa free, cumulative shift work health damage calculator free, years of night shift cumulative cancer risk calculator, metabolic syndrome risk from shift work calculator usa, sleep deprivation from rotating shifts calculator free, social isolation from night shift health impact calculator, circadian disruption severity by shift type calculator free, night shift worker cardiovascular risk calculator usa free, tips for reducing shift work health damage calculator, how long until shift work effects reverse calculator free usa, rotating vs permanent night shift health comparison calculator`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

@@ -6,24 +6,24 @@ export const viralFinanceBlogPosts: BlogPost[] = [
     slug: 'debt-to-income-ratio-calculator-usa-2026',
     title: 'Debt-to-Income Ratio in 2026: What Lenders See And How to Fix It Fast',
     excerpt: 'Most Americans fail mortgage approval because their DTI is too high. 43% DTI is the hard limit for most loans. Here is exactly how to calculate yours and 7 moves to lower it before applying.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '7 min read', publishedAt: '2026-04-01', author: 'tooltrio Team',
     tags: ['debt to income ratio 2026','DTI calculator USA','mortgage DTI limit 2026','how to lower DTI fast'],
-    relatedCalc: { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-calculator' },
+    relatedCalc: { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-optimizer' },
     relatedCalcs: [
-      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-calculator', icon: '📊', desc: 'Find your DTI instantly' },
+      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-optimizer', icon: '📊', desc: 'Find your DTI instantly' },
       { name: 'Debt Payoff Calculator', href: '/calculators/finance/debt-payoff-calculator', icon: '💳', desc: 'Build your payoff plan' },
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'See what you can borrow' },
     ],
     seoTitle: 'Debt-to-Income Ratio Calculator USA 2026: Fix Your DTI Before Applying',
     seoDescription: 'DTI above 43% means loan denied. Calculate your exact debt-to-income ratio and learn 7 proven ways to lower it before your mortgage application.',
-    keywords: ['debt to income ratio calculator USA 2026','what is good DTI ratio 2026','DTI for mortgage approval','how to lower debt to income ratio','43 DTI rule'],
+    keywords: ['debt to income ratio calculator USA 2026', 'what is good DTI ratio 2026', 'DTI for mortgage approval', 'how to lower debt to income ratio', '43 DTI rule'],
     trendingKeywords: ['DTI ratio 2026','debt to income mortgage','DTI calculator free'],
     content: `# Debt-to-Income Ratio in 2026: What Lenders See And How to Fix It Fast
 
 Your debt-to-income ratio is the single number that decides whether you get approved for a mortgage, car loan, or personal loan. Yet most people do not know theirs until they get rejected.
 
-Calculate yours with our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)**.
+Calculate yours with our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)**.
 
 ## What Is DTI?
 
@@ -74,24 +74,24 @@ Use our **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** to s
     slug: 'balance-transfer-vs-debt-payoff-which-saves-more-2026',
     title: 'Balance Transfer vs Paying Off Debt: Which Saves More in 2026?',
     excerpt: 'A 0% balance transfer sounds like free money but the 3-5% transfer fee and revert APR can cost more than aggressively paying down debt. Here is the real math.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '6 min read', publishedAt: '2026-04-03', author: 'tooltrio Team',
     tags: ['balance transfer 2026','0% APR credit card 2026','balance transfer vs payoff','balance transfer fee'],
-    relatedCalc: { name: 'Balance Transfer Calculator', href: '/calculators/finance/balance-transfer-calculator' },
+    relatedCalc: { name: 'Balance Transfer Calculator', href: '/calculators/finance/credit-card-payoff-calculator' },
     relatedCalcs: [
-      { name: 'Balance Transfer Calculator', href: '/calculators/finance/balance-transfer-calculator', icon: '💳', desc: 'See exact savings vs fees' },
+      { name: 'Balance Transfer Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '💳', desc: 'See exact savings vs fees' },
       { name: 'Credit Card Payoff Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '📉', desc: 'Payoff without transferring' },
       { name: 'Debt Payoff Calculator', href: '/calculators/finance/debt-payoff-calculator', icon: '✅', desc: 'Snowball vs avalanche' },
     ],
     seoTitle: 'Balance Transfer vs Debt Payoff 2026: Which Saves More?',
     seoDescription: '0% balance transfer sounds perfect but transfer fees and revert APR can make it worse. See the real math before you move your credit card debt.',
-    keywords: ['balance transfer calculator 2026','0% APR balance transfer fee','balance transfer vs paying off debt','best balance transfer cards USA 2026'],
+    keywords: ['balance transfer calculator 2026', '0% APR balance transfer fee', 'balance transfer vs paying off debt', 'best balance transfer cards USA 2026'],
     trendingKeywords: ['balance transfer 2026','0% APR card 2026','pay off credit card debt fast'],
     content: `# Balance Transfer vs Paying Off Debt: Which Saves More in 2026?
 
 You have $8,000 in credit card debt at 24% APR. Do a 0% balance transfer or attack the debt directly? The math might surprise you.
 
-Run your exact numbers with our **[Balance Transfer Calculator](/calculators/finance/balance-transfer-calculator)**.
+Run your exact numbers with our **[Balance Transfer Calculator](/calculators/finance/credit-card-payoff-calculator)**.
 
 ## The Real Math (Example: $8,000 at 24% APR)
 
@@ -129,30 +129,30 @@ Use our **[Credit Card Payoff Calculator](/calculators/finance/credit-card-payof
 ## Related Tools
 
 - **[Debt Payoff Calculator](/calculators/finance/debt-payoff-calculator)** — Snowball vs avalanche comparison
-- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)** — How debt affects loan eligibility
-- **[Credit Score Impact Calculator](/calculators/finance/credit-score-impact-calculator)** — How balance transfer affects your score
+- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)** — How debt affects loan eligibility
+- **[Credit Score Impact Calculator](/calculators/finance/credit-card-payoff-calculator)** — How balance transfer affects your score
 `
   },
   {
     slug: 'credit-score-what-hurts-most-usa-2026',
     title: 'What Destroys Your Credit Score the Most in 2026? Ranked by Damage',
     excerpt: 'A single missed payment costs 60-110 points. Maxing a card costs 20-45 points. Closing an old account costs 5-20 points. Every action ranked by credit score damage with recovery timelines.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '7 min read', publishedAt: '2026-04-05', author: 'tooltrio Team',
     tags: ['credit score damage 2026','what hurts credit score most','missed payment credit score drop','how to fix credit score USA'],
-    relatedCalc: { name: 'Credit Score Impact Calculator', href: '/calculators/finance/credit-score-impact-calculator' },
+    relatedCalc: { name: 'Credit Score Impact Calculator', href: '/calculators/finance/credit-card-payoff-calculator' },
     relatedCalcs: [
-      { name: 'Credit Score Impact Calculator', href: '/calculators/finance/credit-score-impact-calculator', icon: '📊', desc: 'Model your score changes' },
-      { name: 'Balance Transfer Calculator', href: '/calculators/finance/balance-transfer-calculator', icon: '💳', desc: 'Transfer without hurting score' },
+      { name: 'Credit Score Impact Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '📊', desc: 'Model your score changes' },
+      { name: 'Balance Transfer Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '💳', desc: 'Transfer without hurting score' },
       { name: 'Debt Payoff Calculator', href: '/calculators/finance/debt-payoff-calculator', icon: '✅', desc: 'Pay down and rebuild score' },
     ],
     seoTitle: 'What Hurts Your Credit Score the Most in 2026? Ranked by Damage',
     seoDescription: 'Missed payment drops score 60-110 points. Maxing a card drops 20-45. Every action ranked by damage with exact timelines to recover.',
-    keywords: ['what hurts credit score most 2026','credit score drop missed payment','credit utilization impact score','how to improve credit score fast USA 2026'],
+    keywords: ['what hurts credit score most 2026', 'credit score drop missed payment', 'credit utilization impact score', 'how to improve credit score fast USA 2026'],
     trendingKeywords: ['credit score 2026','fix credit score fast','credit utilization ratio'],
     content: `# What Destroys Your Credit Score the Most in 2026?
 
-Credit score damage is not random. Certain actions hurt far more than others. Model any scenario with our **[Credit Score Impact Calculator](/calculators/finance/credit-score-impact-calculator)**.
+Credit score damage is not random. Certain actions hurt far more than others. Model any scenario with our **[Credit Score Impact Calculator](/calculators/finance/credit-card-payoff-calculator)**.
 
 ## Credit Score Damage Ranked Worst to Least
 
@@ -191,8 +191,8 @@ One 30-day late payment on a $50 bill can drop a 780 score by 90-110 points. Tha
 
 ## Related Tools
 
-- **[Balance Transfer Calculator](/calculators/finance/balance-transfer-calculator)** — Spread balances to cut utilization
-- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)** — Credit score impact on loan eligibility
+- **[Balance Transfer Calculator](/calculators/finance/credit-card-payoff-calculator)** — Spread balances to cut utilization
+- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)** — Credit score impact on loan eligibility
 `
   },
   // ── CLUSTER 2: RETIREMENT ─────────────────────────────────────────────────
@@ -200,18 +200,18 @@ One 30-day late payment on a $50 bill can drop a 780 score by 90-110 points. Tha
     slug: '401k-contribution-limits-2026-how-much-can-you-save',
     title: '401(k) Contribution Limits 2026: How Much Can You Actually Save This Year?',
     excerpt: 'The 2026 401k limit is $23,500 ($31,000 if 50+). But with mega backdoor Roth you can shelter up to $70,000 legally. Here is the full breakdown.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '7 min read', publishedAt: '2026-04-07', author: 'tooltrio Team',
     tags: ['401k contribution limit 2026','how much 401k 2026','mega backdoor roth 2026','401k max'],
     relatedCalc: { name: '401(k) Calculator', href: '/calculators/finance/401k-calculator' },
     relatedCalcs: [
       { name: '401(k) Calculator', href: '/calculators/finance/401k-calculator', icon: '📈', desc: 'Project your 401k growth' },
       { name: '401k vs Roth IRA Calculator', href: '/calculators/finance/401k-vs-roth-ira-calculator', icon: '🆚', desc: 'Which account wins for you?' },
-      { name: 'Catch-Up Contribution Calculator', href: '/calculators/finance/catch-up-contribution-calculator', icon: '⏩', desc: 'Maximize savings at 50+' },
+      { name: 'Catch-Up Contribution Calculator', href: '/calculators/finance/paycheck-contribution-optimizer', icon: '⏩', desc: 'Maximize savings at 50+' },
     ],
     seoTitle: '401(k) Contribution Limits 2026: Max Out Your Retirement Savings',
     seoDescription: '2026 401k limit: $23,500 ($31,000 if 50+). Mega backdoor Roth lets you shelter up to $70,000/year. Full breakdown of every limit and strategy.',
-    keywords: ['401k contribution limit 2026','how much 401k 2026','catch up contribution 2026','mega backdoor roth 2026','total 401k limit employer 2026'],
+    keywords: ['401k contribution limit 2026', 'how much 401k 2026', 'catch up contribution 2026', 'mega backdoor roth 2026', 'total 401k limit employer 2026'],
     trendingKeywords: ['401k limits 2026','max 401k 2026','retirement savings limit 2026'],
     content: `# 401(k) Contribution Limits 2026: How Much Can You Save?
 
@@ -228,7 +228,7 @@ Use our **[401(k) Calculator](/calculators/finance/401k-calculator)** to project
 
 ## The SECURE 2.0 Super Catch-Up (Ages 60-63)
 
-Ages 60-63 get $11,250 instead of $7,500 — a new benefit from SECURE 2.0. Use our **[Catch-Up Contribution Calculator](/calculators/finance/catch-up-contribution-calculator)** to see the tax savings.
+Ages 60-63 get $11,250 instead of $7,500 — a new benefit from SECURE 2.0. Use our **[Catch-Up Contribution Calculator](/calculators/finance/paycheck-contribution-optimizer)** to see the tax savings.
 
 ## The Mega Backdoor Roth: Up to $70,000/Year
 
@@ -261,22 +261,22 @@ Use our **[401k vs Roth IRA Calculator](/calculators/finance/401k-vs-roth-ira-ca
     slug: 'social-security-when-to-claim-62-vs-70-usa-2026',
     title: 'Social Security at 62 vs 67 vs 70: Which Age Makes You the Most Money in 2026?',
     excerpt: 'Claiming at 62 gives 30% smaller checks forever. Waiting to 70 gives 77% more than 62 but you must live past 78-82 to win. Here is the math by health scenario.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '8 min read', publishedAt: '2026-04-09', author: 'tooltrio Team',
     tags: ['social security 62 vs 70','when to claim social security 2026','SS break even age','social security optimization'],
     relatedCalc: { name: 'Social Security Calculator', href: '/calculators/finance/social-security-calculator' },
     relatedCalcs: [
       { name: 'Social Security Calculator', href: '/calculators/finance/social-security-calculator', icon: '🏛️', desc: 'Estimate your SS benefit' },
-      { name: 'Social Security Optimization Calculator', href: '/calculators/finance/social-security-optimization-calculator', icon: '⚡', desc: 'Find your ideal claim age' },
+      { name: 'Social Security Optimization Calculator', href: '/calculators/finance/social-security-timing-optimizer', icon: '⚡', desc: 'Find your ideal claim age' },
       { name: 'Retirement Calculator', href: '/calculators/finance/retirement-calculator', icon: '🎯', desc: 'Full retirement plan' },
     ],
     seoTitle: 'Social Security 62 vs 70: Best Age to Claim in 2026',
     seoDescription: 'Claim at 62 = 30% less forever. Wait to 70 = 77% more. Break-even age is 78-82. See which claiming age wins for your health and financial situation.',
-    keywords: ['when to claim social security 2026','social security 62 vs 70','SS break even age','social security optimization','best age claim SS USA'],
+    keywords: ['when to claim social security 2026', 'social security 62 vs 70', 'SS break even age', 'social security optimization', 'best age claim SS USA'],
     trendingKeywords: ['social security 2026','when to take SS','social security at 62'],
     content: `# Social Security at 62 vs 67 vs 70: Which Age Wins?
 
-35% of people claim at 62 without doing the math. Find your break-even with our **[Social Security Optimization Calculator](/calculators/finance/social-security-optimization-calculator)**.
+35% of people claim at 62 without doing the math. Find your break-even with our **[Social Security Optimization Calculator](/calculators/finance/social-security-timing-optimizer)**.
 
 ## The Core Numbers (FRA Benefit = $2,000/month)
 
@@ -323,7 +323,7 @@ The surviving spouse receives the larger benefit. Higher earner delaying to 70 c
     slug: 'roth-conversion-ladder-strategy-2026',
     title: 'The Roth Conversion Ladder: How to Pay Zero Tax in Early Retirement',
     excerpt: 'Early retirees can convert traditional IRA to Roth during low-income years, withdraw 5 years later tax-free, and legally pay $0 federal income tax on $60k+ per year.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '8 min read', publishedAt: '2026-04-11', author: 'tooltrio Team',
     tags: ['roth conversion ladder 2026','FIRE roth conversion','early retirement tax strategy','roth conversion calculator USA'],
     relatedCalc: { name: 'Roth Conversion Calculator', href: '/calculators/finance/roth-conversion-calculator' },
@@ -334,7 +334,7 @@ The surviving spouse receives the larger benefit. Higher earner delaying to 70 c
     ],
     seoTitle: 'Roth Conversion Ladder 2026: Pay Zero Tax in Early Retirement',
     seoDescription: 'Convert traditional IRA to Roth during low-income years, wait 5 years, withdraw tax-free. Legal $0 federal tax on $60k+/year. Complete 2026 strategy.',
-    keywords: ['roth conversion ladder 2026','FIRE tax strategy','roth conversion early retirement','how to pay no tax retirement','roth IRA conversion rules 2026'],
+    keywords: ['roth conversion ladder 2026', 'FIRE tax strategy', 'roth conversion early retirement', 'how to pay no tax retirement', 'roth IRA conversion rules 2026'],
     trendingKeywords: ['roth conversion 2026','early retirement tax free','roth ladder strategy'],
     content: `# The Roth Conversion Ladder: Pay Zero Tax in Early Retirement
 
@@ -383,18 +383,18 @@ Roth conversions count as income for ACA subsidy calculations. Stay under 400% o
     slug: 'dollar-cost-averaging-vs-lump-sum-2026',
     title: 'DCA vs Lump Sum Investing in 2026: Research Says One Wins 68% of the Time',
     excerpt: 'Lump sum beats DCA 68% of the time over 10 years. But DCA beats lump sum in bear markets. Here is when each strategy makes sense for your situation.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '7 min read', publishedAt: '2026-04-13', author: 'tooltrio Team',
     tags: ['dollar cost averaging vs lump sum 2026','DCA investing','lump sum vs DCA research','best investing strategy 2026'],
     relatedCalc: { name: 'DCA vs Lump Sum Calculator', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator' },
     relatedCalcs: [
       { name: 'DCA vs Lump Sum Calculator', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator', icon: '📊', desc: 'Compare strategies with real data' },
-      { name: 'Stock DCA Calculator', href: '/calculators/finance/stock-dollar-cost-averaging-calculator', icon: '📈', desc: 'Plan your DCA schedule' },
+      { name: 'Stock DCA Calculator', href: '/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator', icon: '📈', desc: 'Plan your DCA schedule' },
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '💰', desc: 'Project long-term growth' },
     ],
     seoTitle: 'DCA vs Lump Sum Investing 2026: Which Strategy Wins? (Research-Backed)',
     seoDescription: 'Lump sum beats DCA 68% of the time per Vanguard research. But DCA wins in bear markets. See which strategy fits your situation in 2026.',
-    keywords: ['dollar cost averaging vs lump sum 2026','DCA vs lump sum investing','which investing strategy better 2026','how to invest $10000 2026'],
+    keywords: ['dollar cost averaging vs lump sum 2026', 'DCA vs lump sum investing', 'which investing strategy better 2026', 'how to invest $10000 2026'],
     trendingKeywords: ['DCA investing 2026','lump sum vs DCA','best way to invest 2026'],
     content: `# DCA vs Lump Sum Investing in 2026
 
@@ -436,7 +436,7 @@ Invest **60% as lump sum** immediately, deploy remaining **40% over 3-6 months**
 
 ## Related Tools
 
-- **[Stock DCA Calculator](/calculators/finance/stock-dollar-cost-averaging-calculator)** — Plan your DCA schedule
+- **[Stock DCA Calculator](/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator)** — Plan your DCA schedule
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — Project both strategies over time
 - **[Portfolio Rebalancing Calculator](/calculators/finance/portfolio-rebalancing-calculator)** — Keep allocation on track
 `
@@ -445,18 +445,18 @@ Invest **60% as lump sum** immediately, deploy remaining **40% over 3-6 months**
     slug: 'dividend-investing-how-much-to-live-off-dividends-2026',
     title: 'Dividend Investing in 2026: Exactly How Much You Need to Live Off Dividends',
     excerpt: 'To earn $5,000 per month in dividends you need $1.5M-$2M invested at 3-4% yield. With dividend growth stocks that number shrinks over time. Here is the math and best dividend ETFs for 2026.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '8 min read', publishedAt: '2026-04-15', author: 'tooltrio Team',
     tags: ['dividend investing 2026','live off dividends','how much for dividend income','dividend ETF 2026'],
     relatedCalc: { name: 'Dividend Calculator', href: '/calculators/finance/dividend-calculator' },
     relatedCalcs: [
       { name: 'Dividend Calculator', href: '/calculators/finance/dividend-calculator', icon: '💰', desc: 'Calculate dividend income' },
-      { name: 'Dividend Reinvestment Calculator', href: '/calculators/finance/dividend-reinvestment-calculator', icon: '🔄', desc: 'Model DRIP growth' },
-      { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-calculator', icon: '📊', desc: 'All passive income streams' },
+      { name: 'Dividend Reinvestment Calculator', href: '/calculators/finance/dividend-growth-portfolio-calculator', icon: '🔄', desc: 'Model DRIP growth' },
+      { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-portfolio-calculator', icon: '📊', desc: 'All passive income streams' },
     ],
     seoTitle: 'Dividend Investing 2026: How Much You Need to Live Off Dividends',
     seoDescription: 'Need $5,000/month in dividends? You need $1.5M-$2M at 3-4% yield. See portfolio sizes by income target, best dividend ETFs, and DRIP strategy for 2026.',
-    keywords: ['how much to live off dividends 2026','dividend income calculator','dividend investing 2026','best dividend ETFs 2026','DRIP investing 2026'],
+    keywords: ['how much to live off dividends 2026', 'dividend income calculator', 'dividend investing 2026', 'best dividend ETFs 2026', 'DRIP investing 2026'],
     trendingKeywords: ['dividend investing 2026','live off dividends','passive income 2026'],
     content: `# Dividend Investing in 2026: How Much You Need to Live Off Dividends
 
@@ -480,7 +480,7 @@ Calculate your personal target with our **[Dividend Calculator](/calculators/fin
 | Div Growth 3%, 7% growth | $15,000 | $29,500 | $58,000 |
 | Div Growth 2%, 10% growth | $10,000 | $25,900 | $67,000 |
 
-Winner over 20 years: Dividend growth. Model your DRIP with our **[Dividend Reinvestment Calculator](/calculators/finance/dividend-reinvestment-calculator)**.
+Winner over 20 years: Dividend growth. Model your DRIP with our **[Dividend Reinvestment Calculator](/calculators/finance/dividend-growth-portfolio-calculator)**.
 
 ## Best Dividend ETFs in 2026
 
@@ -498,7 +498,7 @@ Winner over 20 years: Dividend growth. Model your DRIP with our **[Dividend Rein
 
 ## Related Tools
 
-- **[Passive Income Calculator](/calculators/finance/passive-income-calculator)** — Model full passive income portfolio
+- **[Passive Income Calculator](/calculators/finance/passive-income-portfolio-calculator)** — Model full passive income portfolio
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — Project long-term growth
 - **[Retirement Calculator](/calculators/finance/retirement-calculator)** — Dividend income in retirement
 `
@@ -507,7 +507,7 @@ Winner over 20 years: Dividend growth. Model your DRIP with our **[Dividend Rein
     slug: 'portfolio-rebalancing-guide-2026',
     title: 'Portfolio Rebalancing in 2026: When to Do It and How to Avoid the Tax Bill',
     excerpt: 'A 60/40 portfolio left unrebalanced for 5 years in a bull market becomes 80/20 — taking on 40% more risk than intended. Here is when and how to rebalance without triggering a massive tax bill.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '7 min read', publishedAt: '2026-04-17', author: 'tooltrio Team',
     tags: ['portfolio rebalancing 2026','how to rebalance portfolio','60 40 portfolio rebalancing','rebalancing tax strategy'],
     relatedCalc: { name: 'Portfolio Rebalancing Calculator', href: '/calculators/finance/portfolio-rebalancing-calculator' },
@@ -518,7 +518,7 @@ Winner over 20 years: Dividend growth. Model your DRIP with our **[Dividend Rein
     ],
     seoTitle: 'Portfolio Rebalancing Guide 2026: When, How, and Tax Strategy',
     seoDescription: 'Unrebalanced 60/40 becomes 80/20 in a bull market — 40% more risk. Learn when to rebalance and how to do it tax-efficiently in 2026.',
-    keywords: ['portfolio rebalancing 2026','how to rebalance portfolio USA','60 40 portfolio strategy','rebalancing frequency','tax efficient rebalancing'],
+    keywords: ['portfolio rebalancing 2026', 'how to rebalance portfolio USA', '60 40 portfolio strategy', 'rebalancing frequency', 'tax efficient rebalancing'],
     trendingKeywords: ['portfolio rebalancing','60 40 portfolio 2026','how to rebalance'],
     content: `# Portfolio Rebalancing in 2026: When, How, and the Tax Strategy
 
@@ -561,7 +561,7 @@ Calculate rebalancing tax cost with our **[Capital Gains Tax Calculator](/calcul
 
 ## Related Tools
 
-- **[Risk Tolerance Calculator](/calculators/finance/risk-tolerance-calculator)** — Are you in the right allocation?
+- **Risk Tolerance Calculator** — Are you in the right allocation?
 - **[DCA vs Lump Sum Calculator](/calculators/finance/dollar-cost-averaging-vs-lumpsum-usa-calculator)** — Invest new cash or wait?
 - **[CAGR Calculator](/calculators/finance/cagr-calculator)** — Is rebalancing helping returns?
 `
@@ -571,18 +571,18 @@ Calculate rebalancing tax cost with our **[Capital Gains Tax Calculator](/calcul
     slug: 'rental-property-real-roi-calculator-2026',
     title: 'Is Your Rental Property Actually Making Money? The Real ROI Calculation for 2026',
     excerpt: 'Most landlords think they are making 8% ROI but when you factor in vacancy, maintenance, and property management many are actually earning 2-4%. Here is how to calculate real rental ROI.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '8 min read', publishedAt: '2026-04-19', author: 'tooltrio Team',
     tags: ['rental property ROI 2026','rental yield calculator','real estate cash flow 2026','is rental property worth it'],
     relatedCalc: { name: 'Rental Property Investment Calculator', href: '/calculators/finance/rental-property-investment-calculator' },
     relatedCalcs: [
       { name: 'Rental Property Investment Calculator', href: '/calculators/finance/rental-property-investment-calculator', icon: '🏠', desc: 'Full rental ROI analysis' },
       { name: 'Rental Yield Calculator', href: '/calculators/finance/rental-yield-calculator', icon: '📊', desc: 'Gross vs net yield' },
-      { name: 'Rental Income Tax Calculator', href: '/calculators/finance/rental-income-tax-calculator', icon: '💸', desc: 'Tax on rental income' },
+      { name: 'Rental Income Tax Calculator', href: '/calculators/finance/rental-property-tax-strategy-calculator', icon: '💸', desc: 'Tax on rental income' },
     ],
     seoTitle: 'Rental Property ROI Calculator USA 2026: The Real Numbers',
     seoDescription: 'Think you are making 8% on your rental? After vacancy, maintenance, and taxes many landlords earn 2-4%. Calculate your true rental property ROI for 2026.',
-    keywords: ['rental property ROI 2026','rental yield calculator USA','how to calculate rental income','is rental property good investment 2026','cash on cash return rental'],
+    keywords: ['rental property ROI 2026', 'rental yield calculator USA', 'how to calculate rental income', 'is rental property good investment 2026', 'cash on cash return rental'],
     trendingKeywords: ['rental property 2026','real estate investment calculator','rental ROI'],
     content: `# Is Your Rental Property Actually Making Money?
 
@@ -630,7 +630,7 @@ The old 1% rule (monthly rent = 1% of purchase price) is nearly impossible in ma
 ## Related Real Estate Tools
 
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Payment on investment property
-- **[Rental Income Tax Calculator](/calculators/finance/rental-income-tax-calculator)** — Tax on rental income
+- **[Rental Income Tax Calculator](/calculators/finance/rental-property-tax-strategy-calculator)** — Tax on rental income
 - **[ROI Calculator](/calculators/finance/roi-calculator)** — Real estate vs stocks comparison
 `
   },
@@ -638,22 +638,22 @@ The old 1% rule (monthly rent = 1% of purchase price) is nearly impossible in ma
     slug: 'home-renovation-roi-which-upgrades-add-value-2026',
     title: 'Home Renovation ROI in 2026: Which Upgrades Actually Increase Home Value?',
     excerpt: 'A $75,000 kitchen remodel returns only $45,000 in resale value (60% ROI). But a $4,000 garage door replacement returns $5,200 (131% ROI). Every major renovation ranked by 2026 return data.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '7 min read', publishedAt: '2026-04-21', author: 'tooltrio Team',
     tags: ['home renovation ROI 2026','which home improvements add value','kitchen remodel ROI','home improvement resale value'],
-    relatedCalc: { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/home-renovation-roi-calculator' },
+    relatedCalc: { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/real-estate-roi-calculator' },
     relatedCalcs: [
-      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/home-renovation-roi-calculator', icon: '🔨', desc: 'Calculate renovation returns' },
-      { name: 'Home Sale Proceeds Calculator', href: '/calculators/finance/home-sale-proceeds-calculator', icon: '🏠', desc: 'Net proceeds after selling' },
+      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/real-estate-roi-calculator', icon: '🔨', desc: 'Calculate renovation returns' },
+      { name: 'Home Sale Proceeds Calculator', href: '/calculators/finance/home-affordability-calculator', icon: '🏠', desc: 'Net proceeds after selling' },
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '💰', desc: 'Finance your renovation' },
     ],
     seoTitle: 'Home Renovation ROI 2026: Which Upgrades Add the Most Value?',
     seoDescription: 'Kitchen remodel: 60% ROI. Garage door: 131% ROI. Every major home renovation ranked by 2026 resale return data. Know before you spend.',
-    keywords: ['home renovation ROI 2026','best home improvements for resale 2026','kitchen remodel ROI','bathroom remodel ROI 2026','home improvement calculator'],
+    keywords: ['home renovation ROI 2026', 'best home improvements for resale 2026', 'kitchen remodel ROI', 'bathroom remodel ROI 2026', 'home improvement calculator'],
     trendingKeywords: ['home renovation 2026','home improvement ROI','what adds value to home'],
     content: `# Home Renovation ROI in 2026: Which Upgrades Pay Off?
 
-Before spending $80,000 on a dream kitchen, check the data. Use our **[Home Renovation ROI Calculator](/calculators/finance/home-renovation-roi-calculator)**.
+Before spending $80,000 on a dream kitchen, check the data. Use our **[Home Renovation ROI Calculator](/calculators/finance/real-estate-roi-calculator)**.
 
 ## 2026 Renovation ROI Rankings
 
@@ -688,31 +688,31 @@ In a neighborhood where homes sell for $350,000, spending $60,000 on renovations
 - New windows: 30% credit up to $600
 - Solar panels: 30% credit no cap
 
-Model ongoing savings with our **[Energy Savings Calculator](/calculators/finance/energy-savings-calculator)**.
+Model ongoing savings with our **Energy Savings Calculator**.
 
 ## Related Tools
 
-- **[Home Sale Proceeds Calculator](/calculators/finance/home-sale-proceeds-calculator)** — Net after renovations and sale
+- **[Home Sale Proceeds Calculator](/calculators/finance/home-affordability-calculator)** — Net after renovations and sale
 - **[Cash Out Refinance vs HELOC Calculator](/calculators/finance/cash-out-refinance-vs-heloc-calculator)** — Best way to finance renovations
-- **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** — Renovation may push equity above 20%
+- **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** — Renovation may push equity above 20%
 `
   },
   {
     slug: 'how-much-house-can-i-afford-2026',
     title: 'How Much House Can You Afford in 2026? The Real Formula (Not What Lenders Say)',
     excerpt: 'Lenders will approve you for the maximum your DTI allows — often far more than you should spend. Here is the conservative formula and why buying at 70% of your max approval is usually smarter.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '7 min read', publishedAt: '2026-04-23', author: 'tooltrio Team',
     tags: ['how much house can I afford 2026','home affordability 2026','mortgage affordability USA','house buying budget 2026'],
     relatedCalc: { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
     relatedCalcs: [
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Monthly payment by home price' },
-      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-calculator', icon: '📊', desc: 'What lenders see' },
+      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-optimizer', icon: '📊', desc: 'What lenders see' },
       { name: 'Closing Cost Calculator', href: '/calculators/finance/closing-cost-calculator', icon: '💼', desc: 'Full purchase cost' },
     ],
     seoTitle: 'How Much House Can You Afford in 2026? The Conservative Formula',
     seoDescription: 'Lenders approve your max DTI but that is often more than you should spend. The conservative home affordability formula for 2026.',
-    keywords: ['how much house can I afford 2026','home affordability USA 2026','mortgage calculator 2026','housing budget by income 2026'],
+    keywords: ['how much house can I afford 2026', 'home affordability USA 2026', 'mortgage calculator 2026', 'housing budget by income 2026'],
     trendingKeywords: ['home affordability 2026','how much house 2026','mortgage rate 2026'],
     content: `# How Much House Can You Afford in 2026?
 
@@ -733,7 +733,7 @@ Monthly housing costs (PITI) should stay under 28% of gross monthly income.
 **Rule 2: The 36% Back-End Rule**
 Housing plus all other monthly debt payments under 36% of gross income. Have $600/month in other debts on $100k income? Your home budget shrinks accordingly.
 
-Use our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)** to see exact numbers.
+Use our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)** to see exact numbers.
 
 ## Why 70% of Max Approval Is Smarter
 
@@ -768,7 +768,7 @@ Every 1% rate increase costs $90,000+ over 30 years.
 
 - **[Closing Cost Calculator](/calculators/finance/closing-cost-calculator)** — Total purchase costs
 - **[Biweekly Mortgage Calculator](/calculators/finance/biweekly-mortgage-calculator)** — Pay off years early
-- **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** — When you can drop PMI
+- **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** — When you can drop PMI
 `
   },
   // ── CLUSTER 5: TAX STRATEGY ───────────────────────────────────────────────
@@ -776,7 +776,7 @@ Every 1% rate increase costs $90,000+ over 30 years.
     slug: 'tax-loss-harvesting-strategy-usa-2026',
     title: 'Tax Loss Harvesting in 2026: Turn Portfolio Losses Into a Tax Refund',
     excerpt: 'Tax loss harvesting saved investors $1,200-$5,000 per year in the 2022 bear market. In 2026 volatile markets the opportunity is back. Here is exactly how to do it and the wash-sale trap to avoid.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-04-25', author: 'tooltrio Team',
     tags: ['tax loss harvesting 2026','wash sale rule','how to harvest tax losses','capital gains offset USA'],
     relatedCalc: { name: 'Tax Loss Harvesting Calculator', href: '/calculators/finance/tax-loss-harvesting-calculator' },
@@ -785,9 +785,9 @@ Every 1% rate increase costs $90,000+ over 30 years.
       { name: 'Capital Gains Tax Calculator', href: '/calculators/finance/capital-gains-tax-calculator', icon: '💸', desc: 'How much you owe on gains' },
       { name: 'Tax Bracket Calculator', href: '/calculators/finance/tax-bracket-calculator', icon: '📊', desc: 'Your marginal tax rate' },
     ],
-    seoTitle: 'Tax Loss Harvesting 2026: Turn Losses Into Tax Savings (Avoid the Wash-Sale Trap)',
+    seoTitle: 'Tax Loss Harvesting 2026',
     seoDescription: 'Tax loss harvesting saved $1,200-$5,000/year in bear markets. Exact how-to for 2026 including the wash-sale rule that invalidates your harvest.',
-    keywords: ['tax loss harvesting 2026','how to harvest tax losses USA','wash sale rule 30 days','capital gains offset losses','tax loss harvesting strategy 2026'],
+    keywords: ['tax loss harvesting 2026', 'how to harvest tax losses USA', 'wash sale rule 30 days', 'capital gains offset losses', 'tax loss harvesting strategy 2026'],
     trendingKeywords: ['tax loss harvesting 2026','wash sale rule 2026','reduce capital gains tax'],
     content: `# Tax Loss Harvesting in 2026: Turn Losses Into a Tax Refund
 
@@ -847,7 +847,7 @@ Unused losses carry forward to future years — they never expire. Harvesting $2
     slug: 'capital-gains-tax-guide-pay-zero-2026',
     title: 'Capital Gains Tax in 2026: The Legal Ways to Pay 0% (Yes, Really)',
     excerpt: 'Married couples earning under $94,050 pay ZERO capital gains tax in 2026. Single filers under $47,025 also pay 0%. If you are in a low-income year you can realize gains completely tax-free.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-04-27', author: 'tooltrio Team',
     tags: ['capital gains tax 2026','0% capital gains','avoid capital gains tax legally','capital gains rates USA 2026'],
     relatedCalc: { name: 'Capital Gains Tax Calculator', href: '/calculators/finance/capital-gains-tax-calculator' },
@@ -858,7 +858,7 @@ Unused losses carry forward to future years — they never expire. Harvesting $2
     ],
     seoTitle: 'Capital Gains Tax 2026: How to Pay 0% Legally',
     seoDescription: 'Married under $94,050? You pay 0% capital gains tax in 2026. Time asset sales and use tax gain harvesting to legally reduce your capital gains bill.',
-    keywords: ['capital gains tax rate 2026','0% capital gains tax 2026','avoid capital gains tax USA','long term vs short term capital gains 2026'],
+    keywords: ['capital gains tax rate 2026', '0% capital gains tax 2026', 'avoid capital gains tax USA', 'long term vs short term capital gains 2026'],
     trendingKeywords: ['capital gains 2026','0% capital gains','sell stocks tax free'],
     content: `# Capital Gains Tax in 2026: The Legal Ways to Pay 0%
 
@@ -909,7 +909,7 @@ Income above $200,000 single / $250,000 married triggers an additional **3.8% NI
     slug: 'self-employment-tax-reduce-legally-2026',
     title: 'Self-Employment Tax in 2026: How Much You Owe and 8 Legal Ways to Reduce It',
     excerpt: 'Self-employed people pay 15.3% SE tax on top of income tax. On $80,000 net profit that is $11,304 in SE tax alone. Here are 8 legal strategies to cut your bill.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '8 min read', publishedAt: '2026-04-29', author: 'tooltrio Team',
     tags: ['self employment tax 2026','SE tax calculator','reduce SE tax legally','1099 taxes 2026','freelancer tax USA'],
     relatedCalc: { name: 'Self-Employment Tax Calculator', href: '/calculators/finance/self-employment-tax-calculator' },
@@ -920,7 +920,7 @@ Income above $200,000 single / $250,000 married triggers an additional **3.8% NI
     ],
     seoTitle: 'Self-Employment Tax 2026: How Much You Owe + 8 Ways to Reduce It',
     seoDescription: 'Self-employed pay 15.3% SE tax + income tax. On $80k profit = $11,304 SE tax alone. 8 legal strategies — SEP IRA, S-Corp election, deductions.',
-    keywords: ['self employment tax 2026','SE tax rate 2026','how much self employment tax','1099 tax calculator 2026','reduce self employment tax legally'],
+    keywords: ['self employment tax 2026', 'SE tax rate 2026', 'how much self employment tax', '1099 tax calculator 2026', 'reduce self employment tax legally'],
     trendingKeywords: ['self employment tax 2026','freelancer taxes','1099 taxes 2026'],
     content: `# Self-Employment Tax in 2026: What You Owe and How to Cut It
 
@@ -968,7 +968,7 @@ When employed, Social Security and Medicare taxes are split: you pay 7.65% and y
 
 - **[Tax Bracket Calculator](/calculators/finance/tax-bracket-calculator)** — Full income tax after deductions
 - **[Gig Economy Tax Calculator](/calculators/finance/gig-economy-tax-calculator)** — Platform-specific calculations
-- **[Freelancer Hourly Rate Calculator](/calculators/finance/freelancer-hourly-rate-calculator)** — Price work to cover tax burden
+- **[Freelancer Hourly Rate Calculator](/calculators/finance/salary-calculator)** — Price work to cover tax burden
 `
   },
   // ── CLUSTER 6: BUDGETING & SAVING ─────────────────────────────────────────
@@ -976,22 +976,22 @@ When employed, Social Security and Medicare taxes are split: you pay 7.65% and y
     slug: 'subscription-audit-Americans-waste-2026',
     title: 'The Average American Wastes $329/Month on Forgotten Subscriptions (2026)',
     excerpt: 'A 2026 study found the average person pays for 4.2 subscriptions they do not actively use. That is $3,948 per year gone. Here is a complete audit guide to find and cancel every forgotten subscription.',
-    category: 'Budgeting', categorySlug: 'budgeting',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-05-01', author: 'tooltrio Team',
     tags: ['subscription audit 2026','cancel subscriptions','subscription spending USA','subscription creep'],
-    relatedCalc: { name: 'Subscription Audit Calculator', href: '/calculators/finance/subscription-audit-calculator' },
+    relatedCalc: { name: 'Subscription Audit Calculator', href: '/calculators/finance/budget-calculator' },
     relatedCalcs: [
-      { name: 'Subscription Audit Calculator', href: '/calculators/finance/subscription-audit-calculator', icon: '🔍', desc: 'Track all your subscriptions' },
+      { name: 'Subscription Audit Calculator', href: '/calculators/finance/budget-calculator', icon: '🔍', desc: 'Track all your subscriptions' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📊', desc: 'Full monthly budget' },
       { name: 'Savings Goal Calculator', href: '/calculators/finance/savings-goal-calculator', icon: '🎯', desc: 'Put savings to work' },
     ],
-    seoTitle: 'Subscription Audit 2026: Americans Waste $329/Month on Forgotten Subscriptions',
+    seoTitle: 'Subscription Audit 2026',
     seoDescription: 'Average American pays for 4+ subscriptions they do not use. $3,948/year wasted. Complete audit guide to find and cancel every forgotten subscription in 2026.',
-    keywords: ['subscription audit 2026','cancel unused subscriptions USA','how many subscriptions does average American have','subscription calculator'],
+    keywords: ['subscription audit 2026', 'cancel unused subscriptions USA', 'how many subscriptions does average American have', 'subscription calculator'],
     trendingKeywords: ['subscription audit 2026','cancel subscriptions 2026','stop wasting money'],
     content: `# Americans Waste $329/Month on Forgotten Subscriptions in 2026
 
-Run your own audit with our **[Subscription Audit Calculator](/calculators/finance/subscription-audit-calculator)**.
+Run your own audit with our **[Subscription Audit Calculator](/calculators/finance/budget-calculator)**.
 
 ## The Subscription Explosion
 
@@ -1040,7 +1040,7 @@ Track your full budget with our **[Budget Planner Calculator](/calculators/finan
 
 ## Related Tools
 
-- **[Grocery Budget Calculator](/calculators/finance/grocery-budget-calculator)** — Another big hidden cost
+- **[Grocery Budget Calculator](/calculators/finance/family-budget-planner-calculator)** — Another big hidden cost
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — What cutting waste builds over time
 - **[Savings Goal Calculator](/calculators/finance/savings-goal-calculator)** — Set a goal for the savings
 `
@@ -1049,22 +1049,22 @@ Track your full budget with our **[Budget Planner Calculator](/calculators/finan
     slug: 'grocery-budget-benchmarks-usa-2026',
     title: 'How Much Should You Spend on Groceries in 2026? USDA Benchmarks by Family Size',
     excerpt: 'USDA data says the average American family of 4 spends $1,076-$1,300 per month on groceries. With the right strategies you can eat well for 40% less.',
-    category: 'Budgeting', categorySlug: 'budgeting',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-05-03', author: 'tooltrio Team',
     tags: ['grocery budget 2026','how much to spend on food USA','grocery budget by family size','food budget calculator'],
-    relatedCalc: { name: 'Grocery Budget Calculator', href: '/calculators/finance/grocery-budget-calculator' },
+    relatedCalc: { name: 'Grocery Budget Calculator', href: '/calculators/finance/family-budget-planner-calculator' },
     relatedCalcs: [
-      { name: 'Grocery Budget Calculator', href: '/calculators/finance/grocery-budget-calculator', icon: '🛒', desc: 'Set your grocery target' },
+      { name: 'Grocery Budget Calculator', href: '/calculators/finance/family-budget-planner-calculator', icon: '🛒', desc: 'Set your grocery target' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📊', desc: 'Full household budget' },
       { name: 'Savings Goal Calculator', href: '/calculators/finance/savings-goal-calculator', icon: '🎯', desc: 'Save what you do not spend' },
     ],
     seoTitle: 'Grocery Budget 2026: How Much Should You Spend by Family Size?',
     seoDescription: 'USDA: family of 4 spends $1,076-$1,300/month on groceries. Eat well for 40% less. 2026 benchmarks by household size and city.',
-    keywords: ['grocery budget 2026','how much to spend on groceries USA 2026','USDA food cost 2026','family grocery budget calculator'],
+    keywords: ['grocery budget 2026', 'how much to spend on groceries USA 2026', 'USDA food cost 2026', 'family grocery budget calculator'],
     trendingKeywords: ['grocery budget 2026','food prices 2026','cut grocery bill'],
     content: `# How Much Should You Spend on Groceries in 2026?
 
-Set your target with our **[Grocery Budget Calculator](/calculators/finance/grocery-budget-calculator)**.
+Set your target with our **[Grocery Budget Calculator](/calculators/finance/family-budget-planner-calculator)**.
 
 ## USDA Monthly Food Cost Guidelines (2026)
 
@@ -1113,14 +1113,14 @@ Cooking 80% of meals vs 50% saves $800-$1,000/month for a couple.
 ## Related Tools
 
 - **[Budget Planner Calculator](/calculators/finance/budget-planner-calculator)** — Full budget context
-- **[Subscription Audit Calculator](/calculators/finance/subscription-audit-calculator)** — Find other savings to redirect
+- **[Subscription Audit Calculator](/calculators/finance/budget-calculator)** — Find other savings to redirect
 `
   },
   {
     slug: 'emergency-fund-how-much-where-to-keep-2026',
     title: 'Emergency Fund in 2026: How Much You Need and the Best Place to Keep It',
     excerpt: 'The old rule says 3-6 months of expenses. But gig workers need 9-12 months. Home owners need more. And keeping it in a regular savings account costs you $800-$2,000 per year at current HYSA rates.',
-    category: 'Budgeting', categorySlug: 'budgeting',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-05-05', author: 'tooltrio Team',
     tags: ['emergency fund 2026','how much emergency fund','where to keep emergency fund','HYSA 2026 rates'],
     relatedCalc: { name: 'Emergency Fund Calculator', href: '/calculators/finance/emergency-fund-calculator' },
@@ -1131,7 +1131,7 @@ Cooking 80% of meals vs 50% saves $800-$1,000/month for a couple.
     ],
     seoTitle: 'Emergency Fund 2026: How Much You Need and Where to Keep It',
     seoDescription: 'Gig workers need 9-12 months. Homeowners need more. And the wrong account costs $800-$2,000/year in lost interest. The complete 2026 emergency fund guide.',
-    keywords: ['emergency fund 2026','how much emergency fund USA','best place to keep emergency fund 2026','HYSA emergency fund','emergency savings target'],
+    keywords: ['emergency fund 2026', 'how much emergency fund USA', 'best place to keep emergency fund 2026', 'HYSA emergency fund', 'emergency savings target'],
     trendingKeywords: ['emergency fund 2026','HYSA rates 2026','how much savings'],
     content: `# Emergency Fund in 2026: How Much and Where to Keep It
 
@@ -1194,7 +1194,7 @@ Use our **[Savings Goal Calculator](/calculators/finance/savings-goal-calculator
     slug: 'wedding-budget-average-cost-usa-2026',
     title: 'Average Wedding Cost in 2026: What You Will Spend and Where to Cut 40%',
     excerpt: 'The average US wedding now costs $35,000-$38,000 but 60% of couples go over budget. The single biggest mistake is not setting a guest-count budget first. Here is the complete 2026 breakdown.',
-    category: 'Life Milestones', categorySlug: 'life-milestones',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-05-07', author: 'tooltrio Team',
     tags: ['wedding budget 2026','average wedding cost USA 2026','how much does a wedding cost','wedding budget breakdown'],
     relatedCalc: { name: 'Wedding Budget Calculator', href: '/calculators/finance/wedding-budget-calculator' },
@@ -1205,7 +1205,7 @@ Use our **[Savings Goal Calculator](/calculators/finance/savings-goal-calculator
     ],
     seoTitle: 'Wedding Budget 2026: Average Cost and Where to Cut 40%',
     seoDescription: 'Average US wedding: $35,000-$38,000 in 2026. 60% go over budget. Exact breakdown by category and 12 ways to cut costs without sacrificing the day.',
-    keywords: ['average wedding cost USA 2026','wedding budget calculator 2026','how much to spend on wedding','wedding budget breakdown 2026'],
+    keywords: ['average wedding cost USA 2026', 'wedding budget calculator 2026', 'how much to spend on wedding', 'wedding budget breakdown 2026'],
     trendingKeywords: ['wedding cost 2026','wedding budget 2026','cheap wedding ideas'],
     content: `# Average Wedding Cost in 2026: What You Will Actually Spend
 
@@ -1253,7 +1253,7 @@ Save first with our **[Savings Goal Calculator](/calculators/finance/savings-goa
 
 ## Related Tools
 
-- **[Baby Cost Calculator](/calculators/finance/baby-cost-calculator)** — Plan for what comes next
+- **[Baby Cost Calculator](/calculators/finance/family-budget-planner-calculator)** — Plan for what comes next
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Buying a home after the wedding?
 - **[Budget Planner Calculator](/calculators/finance/budget-planner-calculator)** — Full financial plan as a couple
 `
@@ -1262,22 +1262,22 @@ Save first with our **[Savings Goal Calculator](/calculators/finance/savings-goa
     slug: 'baby-cost-first-year-usa-2026',
     title: 'How Much Does a Baby Cost in 2026? The First Year Breakdown',
     excerpt: 'The average first year with a baby costs $21,000-$26,000 in the US. Childcare alone averages $1,300 per month. Here is the complete breakdown and how to prepare financially before the birth.',
-    category: 'Life Milestones', categorySlug: 'life-milestones',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-05-09', author: 'tooltrio Team',
     tags: ['baby cost 2026','how much does a baby cost USA','first year baby expenses','childcare costs USA 2026'],
-    relatedCalc: { name: 'Baby Cost Calculator', href: '/calculators/finance/baby-cost-calculator' },
+    relatedCalc: { name: 'Baby Cost Calculator', href: '/calculators/finance/family-budget-planner-calculator' },
     relatedCalcs: [
-      { name: 'Baby Cost Calculator', href: '/calculators/finance/baby-cost-calculator', icon: '👶', desc: 'Calculate first-year costs' },
+      { name: 'Baby Cost Calculator', href: '/calculators/finance/family-budget-planner-calculator', icon: '👶', desc: 'Calculate first-year costs' },
       { name: 'Child Tax Credit Calculator', href: '/calculators/finance/child-tax-credit-calculator', icon: '💰', desc: 'Reduce your tax bill' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📊', desc: 'Adjust budget for baby' },
     ],
-    seoTitle: 'Baby Cost Calculator 2026: How Much Does a Baby Cost in the First Year?',
+    seoTitle: 'Baby Cost Calculator 2026',
     seoDescription: 'First year with a baby costs $21,000-$26,000. Childcare alone: $1,300/month average. Full breakdown + financial prep guide for 2026.',
-    keywords: ['how much does a baby cost 2026','first year baby expenses USA','childcare costs 2026','baby budget calculator'],
+    keywords: ['how much does a baby cost 2026', 'first year baby expenses USA', 'childcare costs 2026', 'baby budget calculator'],
     trendingKeywords: ['baby cost 2026','childcare costs USA','having a baby'],
     content: `# How Much Does a Baby Cost in 2026?
 
-Calculate your full estimate with our **[Baby Cost Calculator](/calculators/finance/baby-cost-calculator)**.
+Calculate your full estimate with our **[Baby Cost Calculator](/calculators/finance/family-budget-planner-calculator)**.
 
 ## One-Time Setup Costs
 
@@ -1337,22 +1337,22 @@ Calculate your full estimate with our **[Baby Cost Calculator](/calculators/fina
     slug: 'pet-cost-calculator-true-cost-of-owning-pet-2026',
     title: 'True Cost of Owning a Pet in 2026: What Nobody Tells You Before You Buy',
     excerpt: 'The average dog costs $3,700 per year. A cat costs $1,800 per year. But a single emergency vet visit can run $5,000-$10,000. Here is the full financial picture before you adopt.',
-    category: 'Life Milestones', categorySlug: 'life-milestones',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-05-11', author: 'tooltrio Team',
     tags: ['pet cost 2026','how much does a dog cost per year','pet budget USA 2026','pet insurance worth it 2026'],
-    relatedCalc: { name: 'Pet Cost Calculator', href: '/calculators/finance/pet-cost-calculator' },
+    relatedCalc: { name: 'Pet Cost Calculator', href: '/calculators/finance/family-budget-planner-calculator' },
     relatedCalcs: [
-      { name: 'Pet Cost Calculator', href: '/calculators/finance/pet-cost-calculator', icon: '🐾', desc: 'Annual pet ownership cost' },
+      { name: 'Pet Cost Calculator', href: '/calculators/finance/family-budget-planner-calculator', icon: '🐾', desc: 'Annual pet ownership cost' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📊', desc: 'Add pet to your budget' },
       { name: 'Emergency Fund Calculator', href: '/calculators/finance/emergency-fund-calculator', icon: '🛡️', desc: 'Buffer for vet emergencies' },
     ],
     seoTitle: 'True Cost of Owning a Pet 2026: Dog, Cat, and More',
     seoDescription: 'Dog: $3,700/year. Cat: $1,800/year. Emergency vet: $5,000-$10,000. The full financial picture before you adopt any pet in 2026.',
-    keywords: ['pet cost 2026','how much does a dog cost per year USA','annual pet cost calculator','pet insurance 2026','true cost owning cat dog'],
+    keywords: ['pet cost 2026', 'how much does a dog cost per year USA', 'annual pet cost calculator', 'pet insurance 2026', 'true cost owning cat dog'],
     trendingKeywords: ['pet cost 2026','dog cost per year','is pet insurance worth it'],
     content: `# True Cost of Owning a Pet in 2026
 
-Calculate your full annual cost with our **[Pet Cost Calculator](/calculators/finance/pet-cost-calculator)**.
+Calculate your full annual cost with our **[Pet Cost Calculator](/calculators/finance/family-budget-planner-calculator)**.
 
 ## Annual Pet Costs by Animal (2026)
 
@@ -1402,7 +1402,7 @@ Add pet expenses to your **[Budget Planner Calculator](/calculators/finance/budg
 ## Related Tools
 
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — What pet costs invested instead would grow to
-- **[Baby Cost Calculator](/calculators/finance/baby-cost-calculator)** — Comparing life's big expenses
+- **[Baby Cost Calculator](/calculators/finance/family-budget-planner-calculator)** — Comparing life's big expenses
 `
   },
   // ── CLUSTER 8: CARS & TRANSPORTATION ─────────────────────────────────────
@@ -1410,22 +1410,22 @@ Add pet expenses to your **[Budget Planner Calculator](/calculators/finance/budg
     slug: 'ev-vs-gas-car-total-cost-comparison-2026',
     title: 'EV vs Gas Car in 2026: Which Is Cheaper Over 5 Years?',
     excerpt: 'Electric cars cost more upfront but less to run. After the $7,500 federal tax credit and lower fuel and maintenance costs many EVs become cheaper than gas cars after 2-3 years.',
-    category: 'Major Purchases', categorySlug: 'major-purchases',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '8 min read', publishedAt: '2026-05-13', author: 'tooltrio Team',
     tags: ['EV vs gas car 2026','electric car cost comparison','is EV cheaper 2026','EV tax credit 2026'],
-    relatedCalc: { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/ev-vs-gas-car-calculator' },
+    relatedCalc: { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/car-affordability-calculator' },
     relatedCalcs: [
-      { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/ev-vs-gas-car-calculator', icon: '⚡', desc: '5-year cost comparison' },
-      { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-total-cost-of-ownership-calculator', icon: '🚗', desc: 'Full ownership costs' },
+      { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/car-affordability-calculator', icon: '⚡', desc: '5-year cost comparison' },
+      { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-affordability-calculator', icon: '🚗', desc: 'Full ownership costs' },
       { name: 'Car Depreciation Calculator', href: '/calculators/finance/car-depreciation-calculator', icon: '📉', desc: 'How fast your car loses value' },
     ],
     seoTitle: 'EV vs Gas Car 2026: Which Is Cheaper Over 5 Years?',
     seoDescription: '$7,500 tax credit + lower fuel + cheaper maintenance = EVs often break even in 2-3 years. Complete 2026 cost comparison by vehicle class.',
-    keywords: ['EV vs gas car cost comparison 2026','electric car cheaper than gas 2026','EV total cost ownership','EV tax credit 2026','best EV 2026'],
+    keywords: ['EV vs gas car cost comparison 2026', 'electric car cheaper than gas 2026', 'EV total cost ownership', 'EV tax credit 2026', 'best EV 2026'],
     trendingKeywords: ['EV 2026','electric car 2026','EV tax credit'],
     content: `# EV vs Gas Car in 2026: Which Is Cheaper Over 5 Years?
 
-Use our **[EV vs Gas Car Calculator](/calculators/finance/ev-vs-gas-car-calculator)** to run your specific comparison.
+Use our **[EV vs Gas Car Calculator](/calculators/finance/car-affordability-calculator)** to run your specific comparison.
 
 ## Toyota Camry vs Tesla Model 3 (5-Year Comparison)
 
@@ -1478,7 +1478,7 @@ High-mileage drivers (rideshare, commuters) benefit most from EVs.
 
 ## Related Tools
 
-- **[Car Total Cost of Ownership Calculator](/calculators/finance/car-total-cost-of-ownership-calculator)** — Full ownership costs
+- **[Car Total Cost of Ownership Calculator](/calculators/finance/car-affordability-calculator)** — Full ownership costs
 - **[Car Loan Calculator](/calculators/finance/car-loan-calculator)** — Monthly payment comparison
 - **[Car Depreciation Calculator](/calculators/finance/car-depreciation-calculator)** — EV vs gas value loss
 `
@@ -1487,22 +1487,22 @@ High-mileage drivers (rideshare, commuters) benefit most from EVs.
     slug: 'car-total-cost-of-ownership-2026',
     title: 'True Cost of Owning a Car in 2026: Most People Underestimate by $4,000 Per Year',
     excerpt: 'AAA data shows the average car costs $12,182 per year to own and operate in 2026. Most drivers think it is under $8,000. Here is every cost category and how to pick a car that costs $3,000-$5,000 less per year.',
-    category: 'Major Purchases', categorySlug: 'major-purchases',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-05-15', author: 'tooltrio Team',
     tags: ['cost of owning a car 2026','car total cost ownership','AAA car costs 2026','real cost of car USA 2026'],
-    relatedCalc: { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-total-cost-of-ownership-calculator' },
+    relatedCalc: { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-affordability-calculator' },
     relatedCalcs: [
-      { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-total-cost-of-ownership-calculator', icon: '🚗', desc: 'True annual car cost' },
+      { name: 'Car Total Cost of Ownership Calculator', href: '/calculators/finance/car-affordability-calculator', icon: '🚗', desc: 'True annual car cost' },
       { name: 'Car Loan Calculator', href: '/calculators/finance/car-loan-calculator', icon: '💳', desc: 'Monthly payment calculator' },
       { name: 'Car Depreciation Calculator', href: '/calculators/finance/car-depreciation-calculator', icon: '📉', desc: 'Value loss over time' },
     ],
     seoTitle: 'True Cost of Owning a Car 2026: $12,182/Year — Where Does It Go?',
     seoDescription: 'AAA 2026: average car costs $12,182/year. Most drivers think it is $8,000. Full breakdown + how to choose a car that costs $3,000-$5,000 less annually.',
-    keywords: ['cost owning car 2026','car ownership cost USA','total cost of ownership car calculator','cheapest cars to own 2026'],
+    keywords: ['cost owning car 2026', 'car ownership cost USA', 'total cost of ownership car calculator', 'cheapest cars to own 2026'],
     trendingKeywords: ['car costs 2026','car ownership 2026','cheapest car to own'],
     content: `# True Cost of Owning a Car in 2026: $12,182/Year
 
-Know your number with our **[Car Total Cost of Ownership Calculator](/calculators/finance/car-total-cost-of-ownership-calculator)**.
+Know your number with our **[Car Total Cost of Ownership Calculator](/calculators/finance/car-affordability-calculator)**.
 
 ## Full Annual Cost Breakdown (AAA 2026, Medium Sedan)
 
@@ -1545,13 +1545,13 @@ Use our **[Car Depreciation Calculator](/calculators/finance/car-depreciation-ca
 2. **Choose Toyota, Honda, or Mazda** — lowest repair costs over time
 3. **Go smaller** — small vs large SUV saves $4,000-$6,000/year
 4. **Compare insurance before buying** — sports car can cost $800-$2,000 more annually
-5. **Consider EV if driving 15k+ miles/year** — see our **[EV vs Gas Car Calculator](/calculators/finance/ev-vs-gas-car-calculator)**
+5. **Consider EV if driving 15k+ miles/year** — see our **[EV vs Gas Car Calculator](/calculators/finance/car-affordability-calculator)**
 
 ## Related Tools
 
 - **[Auto Loan Calculator](/calculators/finance/car-loan-calculator)** — Monthly payment on any car
 - **[Budget Planner Calculator](/calculators/finance/budget-planner-calculator)** — How car fits into total budget
-- **[EV vs Gas Car Calculator](/calculators/finance/ev-vs-gas-car-calculator)** — Electric vs gas full comparison
+- **[EV vs Gas Car Calculator](/calculators/finance/car-affordability-calculator)** — Electric vs gas full comparison
 `
   },
   // ── CLUSTER 9: FREELANCE & SIDE HUSTLE ───────────────────────────────────
@@ -1559,22 +1559,22 @@ Use our **[Car Depreciation Calculator](/calculators/finance/car-depreciation-ca
     slug: 'freelancer-hourly-rate-formula-2026',
     title: 'How to Set Your Freelance Rate in 2026: The Formula That Actually Works',
     excerpt: 'Most freelancers underprice themselves by 30-50% because they forget taxes, benefits, vacation, and non-billable hours. Here is the exact formula to price your work profitably.',
-    category: 'Self-Employed', categorySlug: 'self-employed',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-05-17', author: 'tooltrio Team',
     tags: ['freelance rate calculator 2026','how to set freelance rate','freelancer pricing 2026','hourly rate freelance USA'],
-    relatedCalc: { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/freelancer-hourly-rate-calculator' },
+    relatedCalc: { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/salary-calculator' },
     relatedCalcs: [
-      { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/freelancer-hourly-rate-calculator', icon: '💼', desc: 'Calculate your profitable rate' },
+      { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/salary-calculator', icon: '💼', desc: 'Calculate your profitable rate' },
       { name: 'Self-Employment Tax Calculator', href: '/calculators/finance/self-employment-tax-calculator', icon: '📊', desc: 'What you will owe in taxes' },
-      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-income-calculator', icon: '💰', desc: 'Net income from any side hustle' },
+      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-breakeven-calculator', icon: '💰', desc: 'Net income from any side hustle' },
     ],
     seoTitle: 'Freelance Rate Calculator 2026: Set Your Rate Without Undercharging',
     seoDescription: 'Most freelancers underprice by 30-50% ignoring taxes, benefits, vacation, and non-billable time. The exact formula to calculate your profitable rate in 2026.',
-    keywords: ['freelance rate calculator 2026','how to price freelance work','what to charge as freelancer USA 2026','freelancer hourly rate formula'],
+    keywords: ['freelance rate calculator 2026', 'how to price freelance work', 'what to charge as freelancer USA 2026', 'freelancer hourly rate formula'],
     trendingKeywords: ['freelance rates 2026','how much to charge','freelancer pricing'],
     content: `# How to Set Your Freelance Rate in 2026 Without Undercharging
 
-Use our **[Freelancer Hourly Rate Calculator](/calculators/finance/freelancer-hourly-rate-calculator)** to get your real number.
+Use our **[Freelancer Hourly Rate Calculator](/calculators/finance/salary-calculator)** to get your real number.
 
 ## Why $40/Hour When You Want $80k Will Not Work
 
@@ -1624,7 +1624,7 @@ Writing a 2,000-word blog post:
 ## Related Tools
 
 - **[Self-Employment Tax Calculator](/calculators/finance/self-employment-tax-calculator)** — Plan quarterly payments
-- **[Side Hustle Income Calculator](/calculators/finance/side-hustle-income-calculator)** — After-tax earnings
+- **[Side Hustle Income Calculator](/calculators/finance/side-hustle-breakeven-calculator)** — After-tax earnings
 - **[SEP IRA Calculator](/calculators/finance/sep-ira-calculator)** — Retirement savings as a freelancer
 `
   },
@@ -1632,22 +1632,22 @@ Writing a 2,000-word blog post:
     slug: 'best-side-hustles-real-after-tax-income-2026',
     title: 'Best Side Hustles in 2026: Real After-Tax Income Ranked (Not the Hype)',
     excerpt: 'Make $5,000 a month driving for Uber sounds great until you do the math. After fuel, depreciation, and SE tax many gig drivers earn under $10 per hour net. Here is real after-tax income for 20 popular side hustles.',
-    category: 'Self-Employed', categorySlug: 'self-employed',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '8 min read', publishedAt: '2026-05-19', author: 'tooltrio Team',
     tags: ['best side hustles 2026','side hustle after tax income','real side hustle earnings 2026','gig economy income USA'],
-    relatedCalc: { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-income-calculator' },
+    relatedCalc: { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-breakeven-calculator' },
     relatedCalcs: [
-      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-income-calculator', icon: '💰', desc: 'Real after-tax earnings' },
+      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-breakeven-calculator', icon: '💰', desc: 'Real after-tax earnings' },
       { name: 'Self-Employment Tax Calculator', href: '/calculators/finance/self-employment-tax-calculator', icon: '📊', desc: 'SE tax on hustle income' },
       { name: 'Gig Economy Tax Calculator', href: '/calculators/finance/gig-economy-tax-calculator', icon: '🚗', desc: 'Gig-specific tax planner' },
     ],
     seoTitle: 'Best Side Hustles 2026: Real After-Tax Income Ranked',
     seoDescription: 'Uber sounds like $5k/month — actually $8-12/hour after expenses. Real after-tax income for 20 popular side hustles ranked for 2026.',
-    keywords: ['best side hustles 2026','side hustle income after tax USA','real side hustle earnings','gig economy pay 2026','how much Uber drivers make after expenses'],
+    keywords: ['best side hustles 2026', 'side hustle income after tax USA', 'real side hustle earnings', 'gig economy pay 2026', 'how much Uber drivers make after expenses'],
     trendingKeywords: ['side hustle 2026','best side hustle','extra income 2026'],
     content: `# Best Side Hustles in 2026: Real After-Tax Income
 
-Calculate your specific hustle income with our **[Side Hustle Income Calculator](/calculators/finance/side-hustle-income-calculator)**.
+Calculate your specific hustle income with our **[Side Hustle Income Calculator](/calculators/finance/side-hustle-breakeven-calculator)**.
 
 ## 2026 Side Hustles: Real After-Tax Hourly Earnings
 
@@ -1691,7 +1691,7 @@ Use our **[Self-Employment Tax Calculator](/calculators/finance/self-employment-
 ## Related Tools
 
 - **[Gig Economy Tax Calculator](/calculators/finance/gig-economy-tax-calculator)** — Platform-specific taxes
-- **[Freelancer Hourly Rate Calculator](/calculators/finance/freelancer-hourly-rate-calculator)** — Price services correctly
+- **[Freelancer Hourly Rate Calculator](/calculators/finance/salary-calculator)** — Price services correctly
 - **[SEP IRA Calculator](/calculators/finance/sep-ira-calculator)** — Shelter hustle income
 `
   },
@@ -1699,18 +1699,18 @@ Use our **[Self-Employment Tax Calculator](/calculators/finance/self-employment-
     slug: 'gig-economy-tax-guide-2026',
     title: 'Gig Economy Taxes in 2026: Complete Guide for DoorDash, Uber, and Fiverr Workers',
     excerpt: 'Gig workers are surprised twice — when they see the 15.3% SE tax and again at the quarterly deadline. Here is every deduction you are entitled to and why mileage tracking alone could save $2,400 per year.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '8 min read', publishedAt: '2026-05-21', author: 'tooltrio Team',
     tags: ['gig economy taxes 2026','DoorDash tax 2026','Uber driver taxes USA','1099 worker taxes'],
     relatedCalc: { name: 'Gig Economy Tax Calculator', href: '/calculators/finance/gig-economy-tax-calculator' },
     relatedCalcs: [
       { name: 'Gig Economy Tax Calculator', href: '/calculators/finance/gig-economy-tax-calculator', icon: '🚗', desc: 'Platform-specific tax calculator' },
       { name: 'Self-Employment Tax Calculator', href: '/calculators/finance/self-employment-tax-calculator', icon: '📊', desc: 'Total SE tax owed' },
-      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-income-calculator', icon: '💰', desc: 'Net after-tax hustle income' },
+      { name: 'Side Hustle Income Calculator', href: '/calculators/finance/side-hustle-breakeven-calculator', icon: '💰', desc: 'Net after-tax hustle income' },
     ],
-    seoTitle: 'Gig Economy Taxes 2026: Complete Guide for Uber, DoorDash, Instacart Workers',
+    seoTitle: 'Gig Economy Taxes 2026',
     seoDescription: 'Gig workers owe 15.3% SE tax and income tax. Mileage tracking alone saves $2,400+/year. Complete 2026 tax guide with every deduction explained.',
-    keywords: ['gig economy taxes 2026','DoorDash taxes 2026','Uber driver tax deductions','gig worker quarterly taxes','1099 deductions 2026'],
+    keywords: ['gig economy taxes 2026', 'DoorDash taxes 2026', 'Uber driver tax deductions', 'gig worker quarterly taxes', '1099 deductions 2026'],
     trendingKeywords: ['gig worker taxes 2026','DoorDash taxes','Uber driver tax'],
     content: `# Gig Economy Taxes in 2026: Complete Guide
 
@@ -1761,7 +1761,7 @@ Track every mile. Use MileIQ, Everlance, or Hurdlr — they log automatically.
 ## Related Tools
 
 - **[Self-Employment Tax Calculator](/calculators/finance/self-employment-tax-calculator)** — Full SE tax calculation
-- **[Side Hustle Income Calculator](/calculators/finance/side-hustle-income-calculator)** — Net after-tax from any hustle
+- **[Side Hustle Income Calculator](/calculators/finance/side-hustle-breakeven-calculator)** — Net after-tax from any hustle
 - **[SEP IRA Calculator](/calculators/finance/sep-ira-calculator)** — Save for retirement while reducing taxes
 `
   },
@@ -1770,22 +1770,22 @@ Track every mile. Use MileIQ, Everlance, or Hurdlr — they log automatically.
     slug: 'financial-freedom-number-calculator-2026',
     title: 'Your Financial Freedom Number in 2026: The Exact Amount You Need to Never Work Again',
     excerpt: 'The 4% rule says multiply annual expenses by 25 to get your FI number. On $60,000 per year expenses that is $1,500,000. But the 4% rule has 2026 nuances that can get you there 5-10 years earlier.',
-    category: 'Financial Planning', categorySlug: 'financial-planning',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '8 min read', publishedAt: '2026-05-23', author: 'tooltrio Team',
     tags: ['financial freedom number 2026','how much to retire USA','4% rule 2026','financial independence calculator'],
-    relatedCalc: { name: 'Financial Freedom Calculator', href: '/calculators/finance/financial-freedom-calculator' },
+    relatedCalc: { name: 'Financial Freedom Calculator', href: '/calculators/finance/fire-number-calculator' },
     relatedCalcs: [
-      { name: 'Financial Freedom Calculator', href: '/calculators/finance/financial-freedom-calculator', icon: '🏆', desc: 'Your exact FI number' },
+      { name: 'Financial Freedom Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🏆', desc: 'Your exact FI number' },
       { name: 'FIRE Number Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🔥', desc: 'Early retirement number' },
       { name: 'Retirement Calculator', href: '/calculators/finance/retirement-calculator', icon: '🎯', desc: 'Full retirement planning' },
     ],
-    seoTitle: 'Financial Freedom Number Calculator 2026: How Much to Never Work Again?',
+    seoTitle: 'Financial Freedom Number Calculator 2026',
     seoDescription: '4% rule: spend $60k/year means needing $1.5M. But 2026 updates may mean you need more — or reach it faster. Calculate your exact FI number.',
-    keywords: ['financial freedom number 2026','how much money to retire USA 2026','4% rule 2026','financial independence calculator','FIRE number USA'],
+    keywords: ['financial freedom number 2026', 'how much money to retire USA 2026', '4% rule 2026', 'financial independence calculator', 'FIRE number USA'],
     trendingKeywords: ['financial freedom 2026','how much to retire','financial independence'],
     content: `# Your Financial Freedom Number in 2026
 
-Calculate your exact number with our **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)**.
+Calculate your exact number with our **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)**.
 
 ## The 4% Rule
 
@@ -1847,7 +1847,7 @@ $100,000 saved, contributing $2,000/month, 8% return:
 ## Related Tools
 
 - **[FIRE Number Calculator](/calculators/finance/fire-number-calculator)** — Early retirement target
-- **[Passive Income Calculator](/calculators/finance/passive-income-calculator)** — Income streams that lower FI number
+- **[Passive Income Calculator](/calculators/finance/passive-income-portfolio-calculator)** — Income streams that lower FI number
 - **[Retirement Calculator](/calculators/finance/retirement-calculator)** — Traditional retirement planning
 `
   },
@@ -1855,7 +1855,7 @@ $100,000 saved, contributing $2,000/month, 8% return:
     slug: 'net-worth-by-age-usa-2026-benchmarks',
     title: 'Net Worth by Age in 2026: Are You Behind, On Track, or Ahead?',
     excerpt: 'The median net worth of Americans aged 35-44 is $135,600. The average is $549,000. The gap exists because a small number of very wealthy people pull the average up. Here is what the median and 75th percentile look like by age.',
-    category: 'Financial Planning', categorySlug: 'financial-planning',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-05-25', author: 'tooltrio Team',
     tags: ['net worth by age USA 2026','average net worth USA 2026','am I on track retirement','net worth benchmarks 2026'],
     relatedCalc: { name: 'Wealth Calculator', href: '/calculators/finance/wealth-calculator' },
@@ -1866,7 +1866,7 @@ $100,000 saved, contributing $2,000/month, 8% return:
     ],
     seoTitle: 'Net Worth by Age USA 2026: Median, Average, and Top 10% Benchmarks',
     seoDescription: 'Median net worth age 35-44: $135,600. Average: $549,000. See where you stand and the fastest paths to catch up to your age group benchmark.',
-    keywords: ['net worth by age USA 2026','average net worth 35 year old USA','median net worth 2026','am I on track retirement savings'],
+    keywords: ['net worth by age USA 2026', 'average net worth 35 year old USA', 'median net worth 2026', 'am I on track retirement savings'],
     trendingKeywords: ['net worth 2026','average savings by age USA','retirement savings benchmark'],
     content: `# Net Worth by Age in 2026: Where Do You Stand?
 
@@ -1919,7 +1919,7 @@ Earlier investor contributed 3x less but ends up with $130,000 more.
 ## Related Tools
 
 - **[401(k) Calculator](/calculators/finance/401k-calculator)** — Project retirement account growth
-- **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)** — Your FI number
+- **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)** — Your FI number
 - **[Savings Rate Calculator](/calculators/finance/savings-rate-calculator)** — Track progress
 `
   },
@@ -1927,22 +1927,22 @@ Earlier investor contributed 3x less but ends up with $130,000 more.
     slug: 'passive-income-streams-ranked-capital-needed-2026',
     title: '7 Passive Income Streams in 2026: Capital Needed and Real Returns Ranked',
     excerpt: 'Real passive income requires significant capital or upfront work. Here is the honest ranking of 7 passive income streams by required capital and realistic 2026 returns.',
-    category: 'Financial Planning', categorySlug: 'financial-planning',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '8 min read', publishedAt: '2026-05-27', author: 'tooltrio Team',
     tags: ['passive income 2026','passive income streams USA','how to earn passive income','best passive income 2026'],
-    relatedCalc: { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-calculator' },
+    relatedCalc: { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-portfolio-calculator' },
     relatedCalcs: [
-      { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-calculator', icon: '💰', desc: 'Model all income streams' },
+      { name: 'Passive Income Calculator', href: '/calculators/finance/passive-income-portfolio-calculator', icon: '💰', desc: 'Model all income streams' },
       { name: 'Dividend Calculator', href: '/calculators/finance/dividend-calculator', icon: '📈', desc: 'Dividend income projection' },
       { name: 'Rental Property Investment Calculator', href: '/calculators/finance/rental-property-investment-calculator', icon: '🏠', desc: 'Rental income vs expenses' },
     ],
-    seoTitle: 'Passive Income 2026: 7 Streams Ranked by Capital Needed and Real Returns',
+    seoTitle: 'Passive Income 2026',
     seoDescription: '7 passive income streams ranked by required capital, actual passivity, and 2026 realistic returns. From dividends to real estate to digital products.',
-    keywords: ['passive income streams 2026','best passive income USA 2026','how much capital for passive income','dividend passive income 2026'],
+    keywords: ['passive income streams 2026', 'best passive income USA 2026', 'how much capital for passive income', 'dividend passive income 2026'],
     trendingKeywords: ['passive income 2026','financial freedom income','make passive income'],
     content: `# 7 Passive Income Streams in 2026: Ranked by Capital and Real Returns
 
-Model your own streams with our **[Passive Income Calculator](/calculators/finance/passive-income-calculator)**.
+Model your own streams with our **[Passive Income Calculator](/calculators/finance/passive-income-portfolio-calculator)**.
 
 ## Capital to Generate $1,000/Month by Stream
 
@@ -1983,8 +1983,8 @@ The difference between starting passive income investing at 30 vs 40 on $500/mon
 
 ## Related Tools
 
-- **[Dividend Reinvestment Calculator](/calculators/finance/dividend-reinvestment-calculator)** — DRIP compounding
-- **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)** — How passive income reaches FI number
+- **[Dividend Reinvestment Calculator](/calculators/finance/dividend-growth-portfolio-calculator)** — DRIP compounding
+- **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)** — How passive income reaches FI number
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — Project any stream over time
 `
   },
@@ -1993,7 +1993,7 @@ The difference between starting passive income investing at 30 vs 40 on $500/mon
     slug: 'is-college-degree-worth-it-roi-2026',
     title: 'Is Your College Degree Worth It in 2026? ROI by Major and School Type',
     excerpt: 'A computer science degree from a state school returns 400%+ ROI over a career. A private art history degree may never break even. Here is how to calculate the real financial return on any college choice.',
-    category: 'Education', categorySlug: 'education',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '8 min read', publishedAt: '2026-05-29', author: 'tooltrio Team',
     tags: ['college ROI 2026','is college worth it 2026','best college majors salary','college degree return investment'],
     relatedCalc: { name: 'College ROI Calculator', href: '/calculators/finance/college-roi-calculator' },
@@ -2004,7 +2004,7 @@ The difference between starting passive income investing at 30 vs 40 on $500/mon
     ],
     seoTitle: 'College ROI Calculator 2026: Is Your Degree Worth the Cost?',
     seoDescription: 'CS degree from state school: 400%+ ROI. Private art history: may never break even. Calculate the exact financial return on any college choice in 2026.',
-    keywords: ['college ROI 2026','is college worth it 2026','best paying college majors','college ROI calculator','return on investment college USA'],
+    keywords: ['college ROI 2026', 'is college worth it 2026', 'best paying college majors', 'college ROI calculator', 'return on investment college USA'],
     trendingKeywords: ['college worth it 2026','college ROI','best college major for money'],
     content: `# Is Your College Degree Worth It in 2026?
 
@@ -2053,14 +2053,14 @@ Vs 4-year business degree at $110,000: Starting $52,000/yr. Trade school ROI on 
 
 - **[Student Loan Calculator](/calculators/finance/student-loan-calculator)** — Total loan cost with interest
 - **[College Savings 529 Calculator](/calculators/finance/college-savings-529-calculator)** — Save for your child
-- **[College Loan vs Work Calculator](/calculators/finance/college-loan-vs-work-calculator)** — Working while in school vs borrowing
+- **[College Loan vs Work Calculator](/calculators/finance/college-debt-burden-calculator)** — Working while in school vs borrowing
 `
   },
   {
     slug: 'student-loan-payoff-fastest-strategies-2026',
     title: 'Pay Off Student Loans 5 Years Faster: 6 Strategies Ranked by Speed (2026)',
     excerpt: '$40,000 in student loans at 6.5% takes 10 years at standard payments. The avalanche method cuts 2 years and saves $3,400. Refinancing to 4.8% saves $5,600 more. Here is every strategy compared.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '7 min read', publishedAt: '2026-05-31', author: 'tooltrio Team',
     tags: ['student loan payoff 2026','pay off student loans fast','student loan refinancing 2026','student loan strategies USA'],
     relatedCalc: { name: 'Student Loan Calculator', href: '/calculators/finance/student-loan-calculator' },
@@ -2071,7 +2071,7 @@ Vs 4-year business degree at $110,000: Starting $52,000/yr. Trade school ROI on 
     ],
     seoTitle: 'Pay Off Student Loans Faster in 2026: 6 Strategies Ranked',
     seoDescription: '$40k loans at 6.5% takes 10 years standard. Avalanche cuts 2 years. Refinancing saves $5,600. 6 strategies ranked for fastest payoff in 2026.',
-    keywords: ['student loan payoff strategies 2026','pay off student loans faster USA','student loan refinancing 2026','avalanche vs snowball student loans'],
+    keywords: ['student loan payoff strategies 2026', 'pay off student loans faster USA', 'student loan refinancing 2026', 'avalanche vs snowball student loans'],
     trendingKeywords: ['student loan payoff 2026','student loan refinancing','pay off student loans fast'],
     content: `# Pay Off Student Loans 5 Years Faster in 2026
 
@@ -2110,7 +2110,7 @@ Calculate your payoff plan with our **[Student Loan Calculator](/calculators/fin
 
 ## Related Tools
 
-- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)** — How loans affect mortgage eligibility
+- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)** — How loans affect mortgage eligibility
 - **[College ROI Calculator](/calculators/finance/college-roi-calculator)** — Was the degree worth it?
 `
   },
@@ -2119,7 +2119,7 @@ Calculate your payoff plan with our **[Student Loan Calculator](/calculators/fin
     slug: 'term-vs-whole-life-insurance-2026',
     title: 'Term Life vs Whole Life Insurance in 2026: Why Experts Unanimously Recommend Term',
     excerpt: 'A $500,000 whole life policy costs $5,000+ per month. The same $500,000 term policy costs $40 per month for a healthy 35-year-old. The difference invested for 20 years grows to $3.5M. Here is the math.',
-    category: 'Insurance & Risk', categorySlug: 'insurance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-06-02', author: 'tooltrio Team',
     tags: ['term vs whole life insurance 2026','whole life insurance worth it','buy term invest the rest','life insurance 2026'],
     relatedCalc: { name: 'Term vs Whole Life Calculator', href: '/calculators/finance/term-vs-whole-life-calculator' },
@@ -2130,7 +2130,7 @@ Calculate your payoff plan with our **[Student Loan Calculator](/calculators/fin
     ],
     seoTitle: 'Term vs Whole Life Insurance 2026: The Math That Settles the Debate',
     seoDescription: 'Term: $40/month. Whole life: $500+/month. Same $500k coverage. Difference invested 20 years = $3.5M. Why nearly every expert says buy term.',
-    keywords: ['term vs whole life insurance 2026','is whole life insurance worth it','buy term invest rest','life insurance calculator 2026','how much life insurance'],
+    keywords: ['term vs whole life insurance 2026', 'is whole life insurance worth it', 'buy term invest rest', 'life insurance calculator 2026', 'how much life insurance'],
     trendingKeywords: ['life insurance 2026','term life vs whole life','best life insurance 2026'],
     content: `# Term Life vs Whole Life Insurance in 2026
 
@@ -2186,22 +2186,22 @@ A $1.3M 20-year term for a healthy 35-year-old: ~$90-120/month.
     slug: 'rule-of-72-how-long-to-double-money-2026',
     title: 'The Rule of 72: How Long to Double Your Money at Any Interest Rate (2026)',
     excerpt: 'Divide 72 by your interest rate to find how long money takes to double. At 8% money doubles in 9 years. At 4% in 18 years. At 24% credit card debt doubles in just 3 years — working against you.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '5 min read', publishedAt: '2026-06-04', author: 'tooltrio Team',
     tags: ['rule of 72 2026','how long to double money','investment doubling time','compound interest rule 72'],
-    relatedCalc: { name: 'Rule of 72 Calculator', href: '/calculators/finance/rule-of-72-calculator' },
+    relatedCalc: { name: 'Rule of 72 Calculator', href: '/calculators/finance/compound-interest-calculator' },
     relatedCalcs: [
-      { name: 'Rule of 72 Calculator', href: '/calculators/finance/rule-of-72-calculator', icon: '🔢', desc: 'Find your doubling time' },
+      { name: 'Rule of 72 Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '🔢', desc: 'Find your doubling time' },
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'Full compounding projection' },
       { name: 'CAGR Calculator', href: '/calculators/finance/cagr-calculator', icon: '📊', desc: 'What rate are you actually earning?' },
     ],
     seoTitle: 'Rule of 72 Calculator 2026: How Long to Double Your Money?',
     seoDescription: 'Rule of 72: divide 72 by return rate = years to double. At 8% = 9 years. At 4% = 18 years. Full table + why it matters for every financial decision.',
-    keywords: ['rule of 72 explained','how long to double money 2026','investment doubling time','compound interest doubling','72 rule investing'],
+    keywords: ['rule of 72 explained', 'how long to double money 2026', 'investment doubling time', 'compound interest doubling', '72 rule investing'],
     trendingKeywords: ['rule of 72','doubling money','compound interest 2026'],
     content: `# The Rule of 72: How Long to Double Your Money?
 
-Calculate your exact doubling time with our **[Rule of 72 Calculator](/calculators/finance/rule-of-72-calculator)**.
+Calculate your exact doubling time with our **[Rule of 72 Calculator](/calculators/finance/compound-interest-calculator)**.
 
 ## The Formula
 
@@ -2255,22 +2255,22 @@ Use our **[CAGR Calculator](/calculators/finance/cagr-calculator)** to find what
     slug: 'opportunity-cost-every-decision-has-a-price-2026',
     title: 'Opportunity Cost in 2026: Every Financial Decision Has a Hidden Price',
     excerpt: 'Buying a $55,000 car instead of a $30,000 car does not just cost $25,000. It costs $25,000 plus the $171,000 that money would have been worth in 25 years. Opportunity cost is the most undervalued concept in finance.',
-    category: 'Financial Planning', categorySlug: 'financial-planning',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-06-06', author: 'tooltrio Team',
     tags: ['opportunity cost calculator','opportunity cost investing','hidden cost decisions 2026','financial decision making'],
-    relatedCalc: { name: 'Opportunity Cost Calculator', href: '/calculators/finance/opportunity-cost-calculator' },
+    relatedCalc: { name: 'Opportunity Cost Calculator', href: '/calculators/finance/compound-interest-calculator' },
     relatedCalcs: [
-      { name: 'Opportunity Cost Calculator', href: '/calculators/finance/opportunity-cost-calculator', icon: '🔄', desc: 'True cost of any choice' },
+      { name: 'Opportunity Cost Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '🔄', desc: 'True cost of any choice' },
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'What money grows to' },
       { name: 'ROI Calculator', href: '/calculators/finance/roi-calculator', icon: '📊', desc: 'Compare financial options' },
     ],
-    seoTitle: 'Opportunity Cost Calculator 2026: Every Financial Decision Has a Hidden Price',
+    seoTitle: 'Opportunity Cost Calculator 2026',
     seoDescription: 'Choosing a $55k car over $30k costs $171,000 in future wealth at 8% over 25 years. Opportunity cost examples for every major financial decision.',
-    keywords: ['opportunity cost calculator 2026','opportunity cost examples finance','real cost expensive purchases','opportunity cost investing','financial decision calculator'],
+    keywords: ['opportunity cost calculator 2026', 'opportunity cost examples finance', 'real cost expensive purchases', 'opportunity cost investing', 'financial decision calculator'],
     trendingKeywords: ['opportunity cost 2026','real cost of money','investing vs spending'],
     content: `# Opportunity Cost: The Hidden Price of Every Financial Decision
 
-Every dollar spent on one thing cannot be invested in something else. Use our **[Opportunity Cost Calculator](/calculators/finance/opportunity-cost-calculator)** to calculate the true cost of any major financial choice.
+Every dollar spent on one thing cannot be invested in something else. Use our **Opportunity Cost Calculator** to calculate the true cost of any major financial choice.
 
 ## The Compound Opportunity Cost at 8% Return
 
@@ -2313,7 +2313,7 @@ Opportunity cost also works in your favor:
 
 - **[ROI Calculator](/calculators/finance/roi-calculator)** — Compare any two financial paths
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — Project opportunity cost precisely
-- **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)** — How spending choices delay FI
+- **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)** — How spending choices delay FI
 `
   },
   // ── CLUSTER 13: PMI, MORTGAGE & HOME ─────────────────────────────────────
@@ -2321,22 +2321,22 @@ Opportunity cost also works in your favor:
     slug: 'pmi-removal-how-to-stop-paying-2026',
     title: 'How to Get Rid of PMI in 2026: 3 Ways to Stop Paying $200+/Month Sooner',
     excerpt: 'PMI costs $100-$300 per month on a $300,000 home and protects the lender not you. Once you hit 20% equity you can legally cancel it. Here are 3 ways to get there faster.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '6 min read', publishedAt: '2026-06-08', author: 'tooltrio Team',
     tags: ['how to remove PMI 2026','PMI cancellation 2026','when does PMI go away','stop paying PMI USA'],
-    relatedCalc: { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-removal-calculator' },
+    relatedCalc: { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-calculator' },
     relatedCalcs: [
-      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-removal-calculator', icon: '✅', desc: 'When you can remove PMI' },
+      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-calculator', icon: '✅', desc: 'When you can remove PMI' },
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Full mortgage breakdown' },
-      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/home-renovation-roi-calculator', icon: '🔨', desc: 'Build equity with renovations' },
+      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/real-estate-roi-calculator', icon: '🔨', desc: 'Build equity with renovations' },
     ],
     seoTitle: 'PMI Removal Calculator 2026: 3 Ways to Stop Paying $200+/Month',
     seoDescription: 'PMI costs $100-300/month and protects the lender not you. Three legal ways to cancel PMI early in 2026 and the exact steps to make it happen.',
-    keywords: ['how to remove PMI 2026','PMI cancellation USA','when does PMI go away','stop paying PMI','PMI removal calculator'],
+    keywords: ['how to remove PMI 2026', 'PMI cancellation USA', 'when does PMI go away', 'stop paying PMI', 'PMI removal calculator'],
     trendingKeywords: ['PMI removal 2026','cancel PMI','get rid of PMI'],
     content: `# How to Get Rid of PMI in 2026: Stop Paying $200+/Month
 
-Calculate your PMI removal timeline with our **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)**.
+Calculate your PMI removal timeline with our **[PMI Removal Calculator](/calculators/finance/pmi-calculator)**.
 
 ## What PMI Actually Costs
 
@@ -2385,7 +2385,7 @@ FHA MIP (mortgage insurance premium) lasts the entire loan term for loans origin
 ## Related Tools
 
 - **[Biweekly Mortgage Calculator](/calculators/finance/biweekly-mortgage-calculator)** — Pay off loan and remove PMI faster
-- **[Home Renovation ROI Calculator](/calculators/finance/home-renovation-roi-calculator)** — Build equity with improvements
+- **[Home Renovation ROI Calculator](/calculators/finance/real-estate-roi-calculator)** — Build equity with improvements
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Full mortgage breakdown
 `
   },
@@ -2393,18 +2393,18 @@ FHA MIP (mortgage insurance premium) lasts the entire loan term for loans origin
     slug: 'biweekly-mortgage-vs-monthly-save-years-2026',
     title: 'Biweekly Mortgage Payments in 2026: Save $28,000 and Pay Off 4 Years Early',
     excerpt: 'Switching from monthly to biweekly mortgage payments makes 26 half-payments per year which equals 13 full payments instead of 12. On a $300,000 loan that saves $28,000 in interest and cuts 4 years off your mortgage.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '5 min read', publishedAt: '2026-06-10', author: 'tooltrio Team',
     tags: ['biweekly mortgage 2026','pay off mortgage early','biweekly vs monthly mortgage','mortgage payoff accelerator'],
     relatedCalc: { name: 'Biweekly Mortgage Calculator', href: '/calculators/finance/biweekly-mortgage-calculator' },
     relatedCalcs: [
       { name: 'Biweekly Mortgage Calculator', href: '/calculators/finance/biweekly-mortgage-calculator', icon: '📅', desc: 'See your exact savings' },
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Full mortgage comparison' },
-      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-removal-calculator', icon: '✅', desc: 'Remove PMI faster with biweekly' },
+      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-calculator', icon: '✅', desc: 'Remove PMI faster with biweekly' },
     ],
-    seoTitle: 'Biweekly Mortgage Payments 2026: Save $28,000 and Pay Off 4 Years Early',
+    seoTitle: 'Biweekly Mortgage Payments 2026',
     seoDescription: 'Biweekly payments = 13 full payments per year instead of 12. On a $300,000 loan this saves $28,000 in interest and cuts 4 years off your mortgage.',
-    keywords: ['biweekly mortgage 2026','pay off mortgage early','biweekly vs monthly mortgage payments','mortgage payoff savings'],
+    keywords: ['biweekly mortgage 2026', 'pay off mortgage early', 'biweekly vs monthly mortgage payments', 'mortgage payoff savings'],
     trendingKeywords: ['pay off mortgage early 2026','biweekly mortgage','mortgage savings'],
     content: `# Biweekly Mortgage Payments in 2026: The Free Hack That Saves $28,000
 
@@ -2444,20 +2444,20 @@ Every January make one full extra payment directed to principal. Same mathematic
 
 Biweekly payments also accelerate reaching 20% equity, removing PMI faster. On a $300,000 home with 10% down, biweekly payments remove PMI **14-18 months earlier** — saving an additional $2,500-$5,000 in PMI premiums.
 
-Use our **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** to see your combined savings.
+Use our **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** to see your combined savings.
 
 ## Related Tools
 
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Full payment breakdown
 - **[Mortgage Refinance Calculator](/calculators/finance/mortgage-refinance-calculator)** — Combine with a refinance?
-- **[Home Sale Proceeds Calculator](/calculators/finance/home-sale-proceeds-calculator)** — Equity built by payoff time
+- **[Home Sale Proceeds Calculator](/calculators/finance/home-affordability-calculator)** — Equity built by payoff time
 `
   },
   {
     slug: 'mortgage-refinance-when-does-it-make-sense-2026',
     title: 'Should You Refinance Your Mortgage in 2026? The Break-Even Calculator',
     excerpt: 'Refinancing costs $3,000-$6,000 in closing costs. At a 1% rate drop on a $300,000 loan you save $200/month — breaking even in 15-30 months. Here is exactly how to calculate if refinancing makes sense for you.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '7 min read', publishedAt: '2026-06-12', author: 'tooltrio Team',
     tags: ['mortgage refinance 2026','when to refinance mortgage','refinance break even calculator','mortgage refinance savings'],
     relatedCalc: { name: 'Mortgage Refinance Calculator', href: '/calculators/finance/mortgage-refinance-calculator' },
@@ -2466,9 +2466,9 @@ Use our **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)*
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Compare loan scenarios' },
       { name: 'Closing Cost Calculator', href: '/calculators/finance/closing-cost-calculator', icon: '💼', desc: 'Estimate refinance costs' },
     ],
-    seoTitle: 'Mortgage Refinance 2026: When Does It Make Sense? Break-Even Calculator',
+    seoTitle: 'Mortgage Refinance 2026',
     seoDescription: 'Refinancing costs $3,000-$6,000. At 1% rate drop on $300k loan you save $200/month — break-even in 15-30 months. Exact calculation for your situation.',
-    keywords: ['mortgage refinance 2026','when to refinance mortgage USA','refinance break even point','should I refinance 2026','mortgage refinance calculator'],
+    keywords: ['mortgage refinance 2026', 'when to refinance mortgage USA', 'refinance break even point', 'should I refinance 2026', 'mortgage refinance calculator'],
     trendingKeywords: ['refinance mortgage 2026','mortgage rates 2026','when to refinance'],
     content: `# Should You Refinance Your Mortgage in 2026?
 
@@ -2529,7 +2529,7 @@ Estimate your closing costs with our **[Closing Cost Calculator](/calculators/fi
 
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Compare old vs new payment
 - **[Biweekly Mortgage Calculator](/calculators/finance/biweekly-mortgage-calculator)** — Combine with biweekly payments
-- **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** — Does refinance remove PMI?
+- **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** — Does refinance remove PMI?
 `
   },
   // ── CLUSTER 14: COMPOUND INTEREST & WEALTH BUILDING ──────────────────────
@@ -2537,18 +2537,18 @@ Estimate your closing costs with our **[Closing Cost Calculator](/calculators/fi
     slug: 'compound-interest-the-eighth-wonder-2026',
     title: 'Compound Interest in 2026: Why Einstein Called It the Eighth Wonder of the World',
     excerpt: '$10,000 invested at 10% for 30 years becomes $174,000 — without adding another dollar. The same $10,000 left for 40 years becomes $452,000. Here is the math that changes how you see every financial decision.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '6 min read', publishedAt: '2026-06-14', author: 'tooltrio Team',
     tags: ['compound interest 2026','power of compound interest','how compound interest works','investing early returns'],
     relatedCalc: { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator' },
     relatedCalcs: [
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'Project any investment' },
       { name: 'Savings Goal Calculator', href: '/calculators/finance/savings-goal-calculator', icon: '🎯', desc: 'How long to reach any target' },
-      { name: 'Rule of 72 Calculator', href: '/calculators/finance/rule-of-72-calculator', icon: '🔢', desc: 'Quick doubling time estimate' },
+      { name: 'Rule of 72 Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '🔢', desc: 'Quick doubling time estimate' },
     ],
     seoTitle: 'Compound Interest 2026: The Math That Changes Every Financial Decision',
     seoDescription: '$10,000 at 10% for 30 years = $174,000. For 40 years = $452,000. How compound interest works and why starting early is worth more than starting big.',
-    keywords: ['compound interest calculator 2026','how compound interest works','power of compounding','investing early vs investing more','compound interest examples'],
+    keywords: ['compound interest calculator 2026', 'how compound interest works', 'power of compounding', 'investing early vs investing more', 'compound interest examples'],
     trendingKeywords: ['compound interest 2026','investing early','how to grow wealth'],
     content: `# Compound Interest: The Math That Changes Every Financial Decision
 
@@ -2612,7 +2612,7 @@ $500/month at 8% return:
 
 ## Related Tools
 
-- **[Rule of 72 Calculator](/calculators/finance/rule-of-72-calculator)** — Quick doubling time estimates
+- **[Rule of 72 Calculator](/calculators/finance/compound-interest-calculator)** — Quick doubling time estimates
 - **[Savings Goal Calculator](/calculators/finance/savings-goal-calculator)** — How long to reach any target
 - **[401(k) Calculator](/calculators/finance/401k-calculator)** — Compound interest in tax-advantaged accounts
 `
@@ -2621,18 +2621,18 @@ $500/month at 8% return:
     slug: 'savings-rate-calculator-path-to-financial-freedom-2026',
     title: 'Your Savings Rate Is the #1 Predictor of Financial Freedom in 2026',
     excerpt: 'Your savings rate determines how many years you need to work — not your salary. Someone earning $50k and saving 40% will retire in 22 years. Someone earning $200k and saving 5% will never retire. Here is the math.',
-    category: 'Financial Planning', categorySlug: 'financial-planning',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-06-16', author: 'tooltrio Team',
     tags: ['savings rate calculator 2026','savings rate financial independence','how much to save retire early','savings rate vs income'],
     relatedCalc: { name: 'Savings Rate Calculator', href: '/calculators/finance/savings-rate-calculator' },
     relatedCalcs: [
       { name: 'Savings Rate Calculator', href: '/calculators/finance/savings-rate-calculator', icon: '📊', desc: 'Calculate your savings rate' },
-      { name: 'Financial Freedom Calculator', href: '/calculators/finance/financial-freedom-calculator', icon: '🏆', desc: 'Years to financial freedom' },
+      { name: 'Financial Freedom Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🏆', desc: 'Years to financial freedom' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📋', desc: 'Find where savings can grow' },
     ],
     seoTitle: 'Savings Rate Calculator 2026: The #1 Predictor of Financial Freedom',
     seoDescription: 'Save 40% and retire in 22 years. Save 5% and never retire — regardless of income. Why savings rate beats salary as the key to financial freedom.',
-    keywords: ['savings rate calculator 2026','savings rate financial independence','how much to save retire USA','optimal savings rate 2026'],
+    keywords: ['savings rate calculator 2026', 'savings rate financial independence', 'how much to save retire USA', 'optimal savings rate 2026'],
     trendingKeywords: ['savings rate 2026','financial independence savings','how much to save'],
     content: `# Your Savings Rate Is the #1 Predictor of Financial Freedom
 
@@ -2691,8 +2691,8 @@ Each 5% increase in savings rate shortens your working years by 3-7 years. The f
 
 ## Related Tools
 
-- **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)** — Your specific FI timeline
-- **[Subscription Audit Calculator](/calculators/finance/subscription-audit-calculator)** — Free up savings instantly
+- **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)** — Your specific FI timeline
+- **[Subscription Audit Calculator](/calculators/finance/budget-calculator)** — Free up savings instantly
 - **[Compound Interest Calculator](/calculators/finance/compound-interest-calculator)** — What your savings grows to
 `
   },
@@ -2700,7 +2700,7 @@ Each 5% increase in savings rate shortens your working years by 3-7 years. The f
     slug: 'cagr-calculator-what-return-are-you-actually-earning-2026',
     title: 'CAGR Calculator in 2026: What Return Are You Actually Earning on Your Investments?',
     excerpt: 'Your portfolio went from $50,000 to $80,000 in 5 years. That sounds like 60% return. But the actual annual return is only 9.9% per year. CAGR is the only honest way to compare investments.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '5 min read', publishedAt: '2026-06-18', author: 'tooltrio Team',
     tags: ['CAGR calculator 2026','compound annual growth rate','how to calculate investment return','real investment return'],
     relatedCalc: { name: 'CAGR Calculator', href: '/calculators/finance/cagr-calculator' },
@@ -2711,7 +2711,7 @@ Each 5% increase in savings rate shortens your working years by 3-7 years. The f
     ],
     seoTitle: 'CAGR Calculator 2026: What Return Are You Actually Earning?',
     seoDescription: 'Portfolio from $50k to $80k in 5 years sounds like 60% return. Actual CAGR: only 9.9%/year. How to calculate and compare real investment returns.',
-    keywords: ['CAGR calculator 2026','compound annual growth rate','what is CAGR','real investment return calculator','how to measure portfolio performance'],
+    keywords: ['CAGR calculator 2026', 'compound annual growth rate', 'what is CAGR', 'real investment return calculator', 'how to measure portfolio performance'],
     trendingKeywords: ['investment return calculator 2026','CAGR 2026','portfolio performance'],
     content: `# CAGR: What Return Are You Actually Earning in 2026?
 
@@ -2773,18 +2773,18 @@ CAGR shows smooth growth but hides volatility. A portfolio that lost 40% then ga
     slug: 'salary-negotiation-calculator-how-much-are-you-worth-2026',
     title: 'Salary Negotiation in 2026: How to Know Your Market Rate and Ask for More',
     excerpt: 'The average employee who never negotiates earns $1 million less over their career than one who negotiates at every job change. Here is the data on how to know your market rate and exactly what to say.',
-    category: 'Income & Career', categorySlug: 'income-career',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-06-20', author: 'tooltrio Team',
     tags: ['salary negotiation 2026','how to negotiate salary USA','what is my market rate 2026','salary increase strategies'],
     relatedCalc: { name: 'Salary Calculator', href: '/calculators/finance/salary-calculator' },
     relatedCalcs: [
       { name: 'Salary Calculator', href: '/calculators/finance/salary-calculator', icon: '💼', desc: 'Your take-home after taxes' },
-      { name: 'Hourly to Salary Calculator', href: '/calculators/finance/hourly-to-salary-calculator', icon: '⏱️', desc: 'Convert hourly to annual' },
-      { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/freelancer-hourly-rate-calculator', icon: '🔢', desc: 'Price your consulting work' },
+      { name: 'Hourly to Salary Calculator', href: '/calculators/finance/salary-calculator', icon: '⏱️', desc: 'Convert hourly to annual' },
+      { name: 'Freelancer Hourly Rate Calculator', href: '/calculators/finance/salary-calculator', icon: '🔢', desc: 'Price your consulting work' },
     ],
     seoTitle: 'Salary Negotiation 2026: Know Your Market Rate and Ask for More',
     seoDescription: 'Never negotiating costs $1M+ over a career. Here is how to find your 2026 market rate and the exact scripts to negotiate a raise or higher starting salary.',
-    keywords: ['salary negotiation 2026','how to negotiate salary USA 2026','what is my market rate','salary increase how to ask','job offer negotiation tips'],
+    keywords: ['salary negotiation 2026', 'how to negotiate salary USA 2026', 'what is my market rate', 'salary increase how to ask', 'job offer negotiation tips'],
     trendingKeywords: ['salary negotiation 2026','ask for raise 2026','how much am I worth'],
     content: `# Salary Negotiation in 2026: Know Your Worth and Ask for It
 
@@ -2845,15 +2845,15 @@ If salary is truly frozen:
 ## Related Tools
 
 - **[Salary Calculator](/calculators/finance/salary-calculator)** — Exact take-home at any salary
-- **[Hourly to Salary Calculator](/calculators/finance/hourly-to-salary-calculator)** — Compare job offers
-- **[Freelancer Hourly Rate Calculator](/calculators/finance/freelancer-hourly-rate-calculator)** — If contracting is your alternative
+- **[Hourly to Salary Calculator](/calculators/finance/salary-calculator)** — Compare job offers
+- **[Freelancer Hourly Rate Calculator](/calculators/finance/salary-calculator)** — If contracting is your alternative
 `
   },
   {
     slug: 'annual-bonus-tax-calculator-how-much-do-you-keep-2026',
     title: 'Your Annual Bonus in 2026: How Much Tax You Actually Pay (And How to Keep More)',
     excerpt: 'Bonuses are taxed differently from regular salary — at a flat 22% federal withholding rate regardless of your bracket. But your actual bonus tax rate depends on your total annual income. Here is the real math.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '6 min read', publishedAt: '2026-06-22', author: 'tooltrio Team',
     tags: ['bonus tax 2026','how much tax on bonus USA','bonus withholding rate','take home from bonus'],
     relatedCalc: { name: 'Annual Bonus Tax Calculator', href: '/calculators/finance/annual-bonus-tax-calculator' },
@@ -2864,7 +2864,7 @@ If salary is truly frozen:
     ],
     seoTitle: 'Annual Bonus Tax Calculator 2026: How Much Do You Actually Keep?',
     seoDescription: 'Bonuses withheld at 22% federal flat rate but your real rate depends on total income. See how much you actually keep from any bonus size in 2026.',
-    keywords: ['bonus tax 2026','how much tax on bonus USA','bonus withholding rate 22%','take home from bonus calculator','supplement wage tax rate'],
+    keywords: ['bonus tax 2026', 'how much tax on bonus USA', 'bonus withholding rate 22%', 'take home from bonus calculator', 'supplement wage tax rate'],
     trendingKeywords: ['bonus tax 2026','how much bonus after tax','tax on bonus'],
     content: `# Your Annual Bonus in 2026: How Much Tax Do You Actually Pay?
 
@@ -2928,7 +2928,7 @@ Bunch charitable donations, medical expenses, or prepay state property taxes in 
     slug: 'pay-raise-calculator-how-much-more-take-home-2026',
     title: 'Got a Raise in 2026? Here Is Exactly How Much More You Actually Take Home',
     excerpt: 'A $10,000 raise does not mean $10,000 more per year. After federal tax, state tax, and FICA you might only take home $6,000-$6,800 of it. Here is the real after-tax breakdown for every raise size.',
-    category: 'Income & Career', categorySlug: 'income-career',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '5 min read', publishedAt: '2026-06-24', author: 'tooltrio Team',
     tags: ['pay raise calculator 2026','how much more after raise','raise take home pay','salary increase after tax'],
     relatedCalc: { name: 'Salary Calculator', href: '/calculators/finance/salary-calculator' },
@@ -2939,7 +2939,7 @@ Bunch charitable donations, medical expenses, or prepay state property taxes in 
     ],
     seoTitle: 'Pay Raise Calculator 2026: How Much More Do You Actually Take Home?',
     seoDescription: '$10,000 raise = only $6,000-$6,800 more take-home after taxes. See the real after-tax breakdown for every raise size in 2026.',
-    keywords: ['pay raise calculator 2026','how much more after raise USA','raise take home pay calculator','salary increase net pay 2026'],
+    keywords: ['pay raise calculator 2026', 'how much more after raise USA', 'raise take home pay calculator', 'salary increase net pay 2026'],
     trendingKeywords: ['raise calculator 2026','how much more take home raise','salary after tax'],
     content: `# Got a Raise in 2026? Here Is How Much More You Actually Keep
 
@@ -2998,18 +2998,18 @@ That $200 to 401k at age 35, invested for 30 years at 8% = **$24,000 at retireme
     slug: 'inflation-impact-calculator-purchasing-power-2026',
     title: 'Inflation in 2026: How Much Your Money Lost (And What to Do About It)',
     excerpt: '$100,000 saved in 2016 has the purchasing power of only $73,000 today. Inflation silently erodes wealth. Here is how to calculate your real loss and the investments that beat inflation in 2026.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '7 min read', publishedAt: '2026-06-26', author: 'tooltrio Team',
     tags: ['inflation calculator 2026','purchasing power 2026','how much has inflation cost me','beat inflation investing 2026'],
     relatedCalc: { name: 'Inflation Impact Calculator', href: '/calculators/finance/inflation-impact-calculator' },
     relatedCalcs: [
       { name: 'Inflation Impact Calculator', href: '/calculators/finance/inflation-impact-calculator', icon: '📉', desc: 'Calculate purchasing power loss' },
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'Project real vs nominal returns' },
-      { name: 'HYSA Calculator', href: '/calculators/finance/high-yield-savings-calculator', icon: '💰', desc: 'HYSA vs inflation comparison' },
+      { name: 'HYSA Calculator', href: '/calculators/finance/real-return-calculator', icon: '💰', desc: 'HYSA vs inflation comparison' },
     ],
     seoTitle: 'Inflation Impact Calculator 2026: How Much Did Inflation Cost You?',
     seoDescription: '$100,000 from 2016 has the buying power of $73,000 today. Calculate your personal inflation loss and the best inflation-beating investments for 2026.',
-    keywords: ['inflation calculator 2026','purchasing power loss USA','how much has inflation cost','beat inflation 2026','real return vs nominal return'],
+    keywords: ['inflation calculator 2026', 'purchasing power loss USA', 'how much has inflation cost', 'beat inflation 2026', 'real return vs nominal return'],
     trendingKeywords: ['inflation 2026','purchasing power 2026','how to beat inflation'],
     content: `# Inflation in 2026: How Much Your Money Lost and What to Do About It
 
@@ -3078,9 +3078,9 @@ Use our **[Compound Interest Calculator](/calculators/finance/compound-interest-
   },
   {
     slug: '529-college-savings-plan-guide-2026',
-    title: '529 College Savings Plan in 2026: How Much to Save and When to Start',
+    title: '529 College Savings Plan 2026: Complete Savings Guide by Child Age',
     excerpt: '4-year college costs $140,000-$320,000 in 2026. Starting a 529 at birth vs age 10 can mean the difference between having enough and being $80,000 short. Here is the exact savings plan by child age.',
-    category: 'Education', categorySlug: 'education',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-06-28', author: 'tooltrio Team',
     tags: ['529 plan 2026','college savings calculator','how much to save for college','529 contribution limits 2026'],
     relatedCalc: { name: 'College Savings 529 Calculator', href: '/calculators/finance/college-savings-529-calculator' },
@@ -3089,9 +3089,9 @@ Use our **[Compound Interest Calculator](/calculators/finance/compound-interest-
       { name: 'College ROI Calculator', href: '/calculators/finance/college-roi-calculator', icon: '📊', desc: 'Is the degree worth the cost?' },
       { name: 'Compound Interest Calculator', href: '/calculators/finance/compound-interest-calculator', icon: '📈', desc: 'Project savings growth' },
     ],
-    seoTitle: '529 College Savings Plan 2026: How Much to Save and When to Start',
+    seoTitle: '529 College Savings Plan 2026: Complete Savings Guide by Child Age',
     seoDescription: 'College costs $140,000-$320,000 in 2026. Starting a 529 at birth vs age 10 can leave you $80,000 short. Exact monthly savings plan by child age.',
-    keywords: ['529 plan 2026','college savings calculator 2026','how much to save for college USA','529 contribution limits 2026','when to start 529'],
+    keywords: ['529 plan 2026', 'college savings calculator 2026', 'how much to save for college USA', '529 contribution limits 2026', 'when to start 529'],
     trendingKeywords: ['529 plan 2026','college savings 2026','save for college'],
     content: `# 529 College Savings Plan in 2026: How Much to Save and When to Start
 
@@ -3155,18 +3155,18 @@ At 5% annual cost inflation, in 18 years these numbers are 2.4x higher.
     slug: 'fire-calculator-retire-early-2026',
     title: 'FIRE Calculator in 2026: Exactly How Long Until You Can Retire Early',
     excerpt: 'FIRE (Financial Independence Retire Early) is not just for extreme frugalists. Someone earning $80,000 and saving 40% can reach financial independence in 22 years. Here is the complete framework including lean FIRE, fat FIRE, and barista FIRE.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '8 min read', publishedAt: '2026-06-30', author: 'tooltrio Team',
     tags: ['FIRE calculator 2026','retire early 2026','lean FIRE fat FIRE barista FIRE','financial independence retire early USA'],
     relatedCalc: { name: 'FIRE Number Calculator', href: '/calculators/finance/fire-number-calculator' },
     relatedCalcs: [
       { name: 'FIRE Number Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🔥', desc: 'Your early retirement number' },
-      { name: 'Financial Freedom Calculator', href: '/calculators/finance/financial-freedom-calculator', icon: '🏆', desc: 'Years to FI at your savings rate' },
+      { name: 'Financial Freedom Calculator', href: '/calculators/finance/fire-number-calculator', icon: '🏆', desc: 'Years to FI at your savings rate' },
       { name: 'Roth Conversion Ladder Calculator', href: '/calculators/finance/roth-conversion-ladder-calculator', icon: '🪜', desc: 'Tax plan for early retirement' },
     ],
     seoTitle: 'FIRE Calculator 2026: How Long Until You Can Retire Early?',
-    seoDescription: 'Save 40% and retire in 22 years on any income. Complete FIRE framework for 2026 including Lean FIRE, Fat FIRE, Barista FIRE, and the tax strategy to make it work.',
-    keywords: ['FIRE calculator 2026','retire early 2026','financial independence calculator','lean FIRE fat FIRE 2026','how to retire early USA'],
+    seoDescription: 'Save 40% and retire in 22 years on any income.',
+    keywords: ['FIRE calculator 2026', 'retire early 2026', 'financial independence calculator', 'lean FIRE fat FIRE 2026', 'how to retire early USA'],
     trendingKeywords: ['FIRE 2026','retire early','financial independence 2026'],
     content: `# FIRE Calculator in 2026: How Long Until You Can Retire Early?
 
@@ -3227,31 +3227,31 @@ Use our **[Roth Conversion Ladder Calculator](/calculators/finance/roth-conversi
 
 ## Related Retirement Tools
 
-- **[Financial Freedom Calculator](/calculators/finance/financial-freedom-calculator)** — Detailed FI timeline
+- **[Financial Freedom Calculator](/calculators/finance/fire-number-calculator)** — Detailed FI timeline
 - **[Retirement Withdrawal Calculator](/calculators/finance/retirement-withdrawal-calculator)** — Safe withdrawal planning
-- **[Social Security Optimization Calculator](/calculators/finance/social-security-optimization-calculator)** — Delay SS to maximize benefit
+- **[Social Security Optimization Calculator](/calculators/finance/social-security-timing-optimizer)** — Delay SS to maximize benefit
 `
   },
   {
     slug: 'hsa-triple-tax-advantage-guide-2026',
     title: 'HSA in 2026: The Triple Tax Advantage Account Nobody Uses Correctly',
     excerpt: 'An HSA is the only account that gives you a tax deduction going in, tax-free growth, and tax-free withdrawals. But 72% of people use it as a spending account instead of an investment account. Here is the right strategy.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-07-02', author: 'tooltrio Team',
     tags: ['HSA 2026','HSA triple tax advantage','HSA investment strategy','health savings account limits 2026'],
-    relatedCalc: { name: 'HSA Calculator', href: '/calculators/finance/hsa-calculator' },
+    relatedCalc: { name: 'HSA Calculator', href: '/calculators/finance/hsa-triple-tax-growth-calculator' },
     relatedCalcs: [
-      { name: 'HSA Calculator', href: '/calculators/finance/hsa-calculator', icon: '🏥', desc: 'Project HSA investment growth' },
+      { name: 'HSA Calculator', href: '/calculators/finance/hsa-triple-tax-growth-calculator', icon: '🏥', desc: 'Project HSA investment growth' },
       { name: 'Tax Bracket Calculator', href: '/calculators/finance/tax-bracket-calculator', icon: '📊', desc: 'Your HSA tax savings' },
       { name: 'Retirement Calculator', href: '/calculators/finance/retirement-calculator', icon: '🎯', desc: 'Include HSA in retirement plan' },
     ],
     seoTitle: 'HSA Triple Tax Advantage 2026: The Investment Strategy Nobody Uses',
     seoDescription: 'HSA: tax deduction in, tax-free growth, tax-free withdrawal. But 72% of people use it wrong as a spending account. The correct 2026 HSA investment strategy.',
-    keywords: ['HSA 2026 limits','HSA triple tax advantage','HSA investment strategy 2026','health savings account 2026','HSA vs 401k'],
+    keywords: ['HSA 2026 limits', 'HSA triple tax advantage', 'HSA investment strategy 2026', 'health savings account 2026', 'HSA vs 401k'],
     trendingKeywords: ['HSA 2026','HSA limits 2026','HSA investing'],
     content: `# HSA in 2026: The Triple Tax Advantage You Are Probably Underusing
 
-Project your HSA growth with our **[HSA Calculator](/calculators/finance/hsa-calculator)**.
+Project your HSA growth with our **[HSA Calculator](/calculators/finance/hsa-triple-tax-growth-calculator)**.
 
 ## What Makes the HSA Unique: Triple Tax Advantage
 
@@ -3318,22 +3318,22 @@ If your employer offers both HDHP and traditional plan options, compare them:
     slug: 'net-present-value-calculator-make-better-decisions-2026',
     title: 'Net Present Value in 2026: The Formula That Makes Every Financial Decision Clearer',
     excerpt: 'NPV tells you what a stream of future cash flows is worth in today dollars. Should you buy rental property, take a job offer with stock options, or lease vs buy equipment? NPV gives you one number to compare all options.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '6 min read', publishedAt: '2026-07-04', author: 'tooltrio Team',
     tags: ['NPV calculator 2026','net present value explained','financial decision making formula','time value of money 2026'],
-    relatedCalc: { name: 'Net Present Value Calculator', href: '/calculators/finance/net-present-value-calculator' },
+    relatedCalc: { name: 'Net Present Value Calculator', href: '/calculators/finance/roi-calculator' },
     relatedCalcs: [
-      { name: 'Net Present Value Calculator', href: '/calculators/finance/net-present-value-calculator', icon: '📊', desc: 'NPV of any cash flow stream' },
+      { name: 'Net Present Value Calculator', href: '/calculators/finance/roi-calculator', icon: '📊', desc: 'NPV of any cash flow stream' },
       { name: 'ROI Calculator', href: '/calculators/finance/roi-calculator', icon: '💰', desc: 'Return on investment' },
       { name: 'Rental Property Investment Calculator', href: '/calculators/finance/rental-property-investment-calculator', icon: '🏠', desc: 'Rental property NPV' },
     ],
     seoTitle: 'Net Present Value Calculator 2026: Make Smarter Financial Decisions',
     seoDescription: 'NPV turns any future cash flow into a single today-dollars number. Compare rental properties, job offers, equipment purchases — any decision with future value.',
-    keywords: ['NPV calculator 2026','net present value explained','time value of money','financial decision formula','NPV rental property'],
+    keywords: ['NPV calculator 2026', 'net present value explained', 'time value of money', 'financial decision formula', 'NPV rental property'],
     trendingKeywords: ['NPV calculator 2026','net present value','investment comparison'],
     content: `# Net Present Value: The Formula That Clarifies Every Financial Decision
 
-Calculate NPV for any scenario with our **[Net Present Value Calculator](/calculators/finance/net-present-value-calculator)**.
+Calculate NPV for any scenario with our **Net Present Value Calculator**.
 
 ## What Is Net Present Value?
 
@@ -3395,29 +3395,29 @@ Use NPV when cash flows are irregular or multi-year. Use ROI for simple one-peri
 
 - **[ROI Calculator](/calculators/finance/roi-calculator)** — Simple return percentage
 - **[Rental Property Investment Calculator](/calculators/finance/rental-property-investment-calculator)** — Full property NPV analysis
-- **[Opportunity Cost Calculator](/calculators/finance/opportunity-cost-calculator)** — Time value of spending decisions
+- **Opportunity Cost Calculator** — Time value of spending decisions
 `
   },
   {
     slug: 'profit-margin-calculator-business-pricing-guide-2026',
-    title: 'Profit Margin Calculator in 2026: Are You Actually Making Money on Every Sale?',
+    title: 'Profit Margin Calculator 2026: Gross, Operating & Net Margin Guide',
     excerpt: 'A product selling for $100 with $60 in costs has a 40% gross margin — but after overhead, labor, and taxes the net margin might be 8%. Here is how to calculate every margin metric and price your products correctly.',
-    category: 'Business Finance', categorySlug: 'business-finance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-07-06', author: 'tooltrio Team',
     tags: ['profit margin calculator 2026','gross vs net margin','business pricing strategy 2026','markup vs margin'],
-    relatedCalc: { name: 'Profit Margin Calculator', href: '/calculators/finance/profit-margin-calculator' },
+    relatedCalc: { name: 'Profit Margin Calculator', href: '/calculators/finance/break-even-calculator' },
     relatedCalcs: [
-      { name: 'Profit Margin Calculator', href: '/calculators/finance/profit-margin-calculator', icon: '📊', desc: 'Calculate all margin metrics' },
+      { name: 'Profit Margin Calculator', href: '/calculators/finance/break-even-calculator', icon: '📊', desc: 'Calculate all margin metrics' },
       { name: 'Break-Even Calculator', href: '/calculators/finance/break-even-calculator', icon: '⚖️', desc: 'When do you break even?' },
       { name: 'ROI Calculator', href: '/calculators/finance/roi-calculator', icon: '💰', desc: 'Return on business investment' },
     ],
-    seoTitle: 'Profit Margin Calculator 2026: Are You Actually Making Money?',
+    seoTitle: 'Profit Margin Calculator 2026: Gross, Operating & Net Margin Guide',
     seoDescription: '$100 product, $60 cost = 40% gross margin. But after overhead and taxes net margin might be only 8%. How to calculate every margin metric and price correctly.',
-    keywords: ['profit margin calculator 2026','gross vs net profit margin','business pricing strategy','markup vs margin explained','how to calculate profit margin'],
+    keywords: ['profit margin calculator 2026', 'gross vs net profit margin', 'business pricing strategy', 'markup vs margin explained', 'how to calculate profit margin'],
     trendingKeywords: ['profit margin 2026','business pricing','gross margin calculator'],
     content: `# Profit Margin Calculator 2026: Are You Actually Making Money?
 
-Calculate all your margin metrics with our **[Profit Margin Calculator](/calculators/finance/profit-margin-calculator)**.
+Calculate all your margin metrics with our **[Profit Margin Calculator](/calculators/finance/break-even-calculator)**.
 
 ## The 4 Profit Margin Metrics
 

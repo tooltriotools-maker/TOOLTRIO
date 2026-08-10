@@ -104,7 +104,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="Maximum payment = 15% of gross monthly income − $150 insurance. That payment is converted to a loan present value using the entered monthly interest rate and number of payments. Down payment and trade-in are then added to produce the maximum modeled car price."
           tipsSection="Treat 15% as a ToolTrio budgeting assumption, not a lender rule. The monthly-debt input is currently not used by the underlying function, and actual insurance, fuel, maintenance, taxes and depreciation can materially reduce what is comfortable."
           conclusion="Use the output as a conservative scenario to test price, APR and term combinations. A lender may approve more than this model, but approval and affordability are different questions."
-          benefits={[{title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

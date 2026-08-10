@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free car loan calculator',
     'car loan calculator online',
     'best car loan calculator 2026',
-    'car loan calculator no signup',
+    'car loan calculator ',
     'accurate car loan calculator',
     'how to calculate car loan',
     'tooltrio.com',

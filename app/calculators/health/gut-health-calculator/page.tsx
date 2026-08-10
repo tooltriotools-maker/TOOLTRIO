@@ -62,7 +62,7 @@ Microbiome research is still young, and most studies are observational. But the 
 
 This calculator assesses your gut health risk factors and microbiome support habits: dietary diversity, fermented food intake, fiber, antibiotic exposure, stress, and sleep — areas where the research is strong enough to justify behavioral recommendations.
 
-**Long-tail searches answered here:** gut health score calculator free online usa, am i at risk for gut problems calculator, digestive health assessment calculator free no account, gut microbiome health risk calculator usa free, ibs risk score calculator free online no signup, how healthy is my digestive system calculator, gut permeability risk score calculator free usa, dysbiosis risk from diet and lifestyle calculator free, gut brain connection health score calculator usa, fiber and probiotic impact on gut health calculator free, gut health recovery timeline calculator usa free, antibiotic gut damage recovery calculator free online, stress impact on gut microbiome calculator usa free, fermented foods benefit on gut health calculator free, gut motility speed assessment calculator usa free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate gut health from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

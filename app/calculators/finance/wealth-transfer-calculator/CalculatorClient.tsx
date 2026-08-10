@@ -87,9 +87,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Worked example: A $12 million estate growing for 10 years can cross the federal exclusion even when annual gifts reduce the modeled estate. Compare the projected estate with the $15 million 2026 exclusion."
           conclusion="Important assumptions and limitations: GRAT, SLAT and ILIT results depend on drafting, valuation, interest rates, retained rights and tax rules. The calculator does not determine whether a transfer is complete or excluded from the taxable estate. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update immediately from the inputs and methodology described on this page."},
+            {title:"Calculator results",text:"Results update immediately from the inputs and methodology described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

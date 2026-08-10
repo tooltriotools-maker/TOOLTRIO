@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free home affordability calculator',
     'home affordability calculator online',
     'best home affordability calculator 2026',
-    'home affordability calculator no signup',
+    'home affordability calculator ',
     'accurate home affordability calculator',
     'how to calculate home affordability',
     'tooltrio.com',

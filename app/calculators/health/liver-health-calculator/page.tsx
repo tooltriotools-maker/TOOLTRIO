@@ -62,7 +62,7 @@ Liver enzymes (ALT, AST, GGT) in blood tests provide an early warning of liver s
 
 This calculator assesses your lifestyle-based liver health risk factors — alcohol consumption, dietary patterns, metabolic risk indicators, medication use — and gives you a composite risk score and the most impactful changes to protect your liver.
 
-**Long-tail searches answered here:** liver health score calculator free online usa, am i damaging my liver calculator free tool, liver disease risk calculator by lifestyle factors, fatty liver risk calculator free no account usa, alcohol liver damage risk calculator free online, liver health assessment calculator usa free 2026, nafld nonalcoholic fatty liver risk score calculator, how alcohol units per week affects liver calculator free, liver function test results interpretation calculator usa, acetaminophen liver damage threshold calculator free, liver health recovery from alcohol cessation calculator, hepatitis risk factor score calculator usa free, liver enzyme elevation risk calculator free online, liver health impact of high fructose diet calculator usa, liver cirrhosis risk progression calculator free`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate liver health from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 
@@ -70,7 +70,7 @@ This calculator assesses your lifestyle-based liver health risk factors — alco
 `,
   benefits: [
   ],
-  conclusion: `The most powerful interventions for liver health are also the most basic: achieve and maintain a healthy weight (even 5-10% weight loss significantly reduces liver fat in NAFLD), eliminate or substantially reduce alcohol intake, replace sugar-sweetened beverages with water or unsweetened alternatives, and exercise regularly (aerobic exercise reduces liver fat independent of weight loss).
+  conclusion: `The most useful interventions for liver health are also the most basic: achieve and maintain a healthy weight (even 5-10% weight loss significantly reduces liver fat in NAFLD), eliminate or substantially reduce alcohol intake, replace sugar-sweetened beverages with water or unsweetened alternatives, and exercise regularly (aerobic exercise reduces liver fat independent of weight loss).
 
 Coffee — surprisingly — has strong and consistent evidence of liver protection: multiple studies find that 2-4 cups per day is associated with reduced risk of liver fibrosis, cirrhosis, and hepatocellular carcinoma. The mechanism likely involves polyphenols and caffeine reducing inflammation and oxidative stress in the liver.
 

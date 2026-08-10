@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free car depreciation calculator',
     'car depreciation calculator online',
     'best car depreciation calculator 2026',
-    'car depreciation calculator no signup',
+    'car depreciation calculator ',
     'accurate car depreciation calculator',
     'how to calculate car depreciation',
     'tooltrio.com',

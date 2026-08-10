@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free dividend calculator',
     'dividend calculator online',
     'best dividend calculator 2026',
-    'dividend calculator no signup',
+    'dividend calculator ',
     'accurate dividend calculator',
     'how to calculate dividend',
     'tooltrio.com',

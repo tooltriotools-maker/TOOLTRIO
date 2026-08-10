@@ -95,7 +95,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="Annual spend = monthly spend × 12. Fee-card rewards = annual spend × fee-card rate × redemption multiplier; net value subtracts the annual fee. No-fee rewards use the no-fee rate. Break-even spend is where incremental rewards equal the annual fee."
           tipsSection="Only enter spending that actually earns the stated rates. Welcome bonuses, category caps, credits, travel benefits, transfer partners, interest and other fees are outside the model."
           conclusion="A positive result only means modeled rewards exceed the fee relative to the entered alternative; it does not justify carrying a balance or spending more."
-          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Methodology-specific results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

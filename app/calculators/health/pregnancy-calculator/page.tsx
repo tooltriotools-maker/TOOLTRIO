@@ -65,7 +65,7 @@ The third trimester (weeks 27-40) involves rapid fetal weight gain and preparati
 
 This calculator provides a week-by-week milestone guide based on your due date or last menstrual period.
 
-**Long-tail searches answered here:** pregnancy calculator free online usa 2026, how many weeks pregnant am i calculator free, pregnancy milestone calculator by due date free tool, am i pregnant how far along calculator no signup, pregnancy trimester calculator usa free online, first trimester end date calculator free no account, pregnancy weeks and days calculator from lmp free, how far along am i in my pregnancy calculator usa, trimester start and end dates calculator free online, pregnancy due date by conception date calculator free, how big is my baby by pregnancy week calculator free, pregnancy calendar week by week calculator usa free, second trimester start calculator from due date free, total pregnancy duration calculator free online usa, pregnancy viability week calculator free no account`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate pregnancy from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

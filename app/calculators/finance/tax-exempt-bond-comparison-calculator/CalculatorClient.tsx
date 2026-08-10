@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   },[municipalYield, corporateYield, treasuryYield, federalRate, stateRate])
 
   return (
-    <CalculatorLayout title="Tax-Exempt vs Taxable Bond Comparison Calculator USA 2026" description="Compare after-tax yields on municipal bonds vs corporate bonds vs US Treasuries. Calculate the exact tax-equivalent yield for any tax bracket and state." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="tax-exempt-bond-comparison-calculator">
+    <CalculatorLayout title="Tax-Exempt vs Taxable Bond Comparison Calculator USA 2026" description="Compare after-tax yields on municipal bonds vs corporate bonds vs US Treasuries. Calculate the estimated tax-equivalent yield for any tax bracket and state." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="tax-exempt-bond-comparison-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>

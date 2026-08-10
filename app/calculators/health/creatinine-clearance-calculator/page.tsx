@@ -61,7 +61,7 @@ Values below 60 mL/min indicate at least moderate kidney function reduction; bel
 
 This calculator requires your serum creatinine from a blood test. If you don't have that value, this calculator won't give you useful results — creatinine clearance cannot be estimated without lab data.
 
-**Long-tail searches answered here:** creatinine clearance calculator free online usa, gfr calculator from creatinine level free tool, cockcroft gault creatinine clearance formula calculator, kidney function calculator from blood test free, egfr calculator no signup free online usa, how to calculate kidney function from creatinine, creatinine 1.2 what does that mean gfr calculator, cockcroft gault vs mdrd egfr formula comparison free, creatinine clearance for elderly patients calculator usa free, creatinine based drug dosing adjustment calculator free, serum creatinine to gfr conversion steps free usa, creatinine clearance for 70 year old female calculator, adjusted vs unadjusted creatinine clearance calculator free, creatinine clearance race correction calculator usa free, creatinine clearance decline rate calculator free`,
+`,
   howItWorks: `This calculator uses the Cockcroft–Gault equation to estimate creatinine clearance from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

@@ -101,7 +101,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="For projection year i, monthly benefit = starting benefit × (1 + assumed COLA)^i. The tool sums 12 months of each projected benefit to estimate cumulative payments and compares that with a no-COLA baseline. It assumes the same COLA every year and does not model Medicare premium deductions or benefit taxation."
           tipsSection="Use 2.8% when you specifically want to reproduce the 2026 increase, then test lower and higher long-run assumptions. Do not interpret the cumulative difference as guaranteed purchasing-power protection because actual inflation and future COLAs vary."
           conclusion="SSA determines each annual COLA from CPI-W data. This page models a constant user-selected rate for planning; it does not predict future SSA COLAs."
-          benefits={[{title:"Real-Time USA Results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

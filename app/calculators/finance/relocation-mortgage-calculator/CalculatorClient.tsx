@@ -89,7 +89,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="Relocation Mortgage Break-Even Calculator USA 2026" category="finance" intro="Compare the modeled financial effect of giving up an existing mortgage and buying a new home after relocation. The result combines the mortgage-payment change, salary increase, cost-of-living adjustment and one-time relocation costs." howItWorks="The calculator amortizes the current balance and a new loan assumed to equal 80% of the new home's price, both over 360 months. It reduces the entered salary increase by the cost-of-living percentage, subtracts the annualized mortgage-payment increase, then applies the chosen horizon and relocation costs. Property taxes, insurance, selling costs and income taxes are not included." tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision." conclusion="Consult a qualified financial advisor."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
+          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>

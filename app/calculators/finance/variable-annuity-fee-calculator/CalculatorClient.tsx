@@ -82,7 +82,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="Variable Annuity Fee Calculator USA 2026" category="finance" intro="See how annual variable-annuity charges can compound into a meaningful difference in ending account value. Enter the assumed subaccount return plus mortality/expense, administration and rider charges to compare gross growth with growth after the modeled fee load." howItWorks="The calculator subtracts the entered annual charges from the assumed subaccount return and compounds both gross and net scenarios. It separately estimates a surrender charge from the entered surrender period and compares the result with a hypothetical investment charging 0.10% annually. Real annuity contracts can use different fee bases and surrender schedules." tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision." conclusion="Consult a financial advisor for personalized advice."
-          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
+          benefits={[{title:"Real-Time",text:"2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>
         <FAQSection faqs={faqs}/>

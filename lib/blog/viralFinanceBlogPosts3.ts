@@ -5,7 +5,7 @@ export const viralFinanceBlogPosts3: BlogPost[] = [
     slug: 'crypto-tax-guide-usa-2026',
     title: 'Crypto Taxes in 2026: What the IRS Knows and What You Owe',
     excerpt: 'Every crypto trade, swap, and NFT sale is a taxable event in 2026. Exchanges now send 1099s directly to the IRS. Here is exactly what you owe and 5 legal ways to cut the bill.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-07-08', author: 'tooltrio Team',
     tags: ['crypto tax 2026','cryptocurrency taxes USA','crypto capital gains','IRS crypto reporting 2026'],
     relatedCalc: { name: 'Crypto Tax Calculator', href: '/calculators/finance/crypto-tax-calculator' },
@@ -16,7 +16,7 @@ export const viralFinanceBlogPosts3: BlogPost[] = [
     ],
     seoTitle: 'Crypto Taxes 2026: What You Owe the IRS on Bitcoin and Ethereum',
     seoDescription: 'Every crypto trade is taxable in 2026. Exchanges send 1099s to the IRS. Calculate exactly what you owe and 5 legal ways to cut your crypto tax bill.',
-    keywords: ['crypto tax 2026','cryptocurrency taxes USA 2026','bitcoin tax calculator','crypto capital gains IRS','how to report crypto taxes 2026'],
+    keywords: ['crypto tax 2026', 'cryptocurrency taxes USA 2026', 'bitcoin tax calculator', 'crypto capital gains IRS', 'how to report crypto taxes 2026'],
     trendingKeywords: ['crypto tax 2026','bitcoin taxes','IRS crypto 2026'],
     content: `# Crypto Taxes in 2026: What the IRS Knows and What You Owe
 
@@ -77,7 +77,7 @@ The 1-year rule matters enormously. Selling Bitcoin held 11 months at 24% vs wai
     slug: 'rmd-required-minimum-distribution-2026-guide',
     title: 'Required Minimum Distributions in 2026: How Much You Must Withdraw at Age 73',
     excerpt: 'At age 73 you must start withdrawing from your traditional IRA and 401k whether you need the money or not. Miss the deadline and the IRS takes 25% of what you should have withdrawn. Here is the complete RMD guide.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '7 min read', publishedAt: '2026-07-12', author: 'tooltrio Team',
     tags: ['RMD 2026','required minimum distribution','RMD calculator','IRA withdrawal rules age 73'],
     relatedCalc: { name: 'Required Minimum Distribution Calculator', href: '/calculators/finance/required-minimum-distribution-calculator' },
@@ -88,7 +88,7 @@ The 1-year rule matters enormously. Selling Bitcoin held 11 months at 24% vs wai
     ],
     seoTitle: 'Required Minimum Distribution 2026: How Much Must You Withdraw at 73?',
     seoDescription: 'RMDs start at 73 under SECURE 2.0. Miss the deadline and the IRS takes 25%. Calculate your exact 2026 RMD and strategies to reduce the tax hit.',
-    keywords: ['required minimum distribution 2026','RMD calculator 2026','RMD age 73','how to calculate RMD','reduce RMD tax impact'],
+    keywords: ['required minimum distribution 2026', 'RMD calculator 2026', 'RMD age 73', 'how to calculate RMD', 'reduce RMD tax impact'],
     trendingKeywords: ['RMD 2026','required minimum distribution','IRA withdrawal 2026'],
     content: `# Required Minimum Distributions in 2026: What You Must Withdraw
 
@@ -140,7 +140,7 @@ Large RMDs push income up, potentially triggering Medicare IRMAA surcharges. The
     slug: '401k-early-withdrawal-penalty-2026',
     title: '401(k) Early Withdrawal vs Loan in 2026: The True Cost Comparison',
     excerpt: 'Withdrawing $20,000 from your 401k at 40 costs $7,400 in taxes and penalties. But the real cost is $137,000 in lost compound growth by retirement. A 401k loan costs far less. Here is the full comparison.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '7 min read', publishedAt: '2026-07-14', author: 'tooltrio Team',
     tags: ['401k early withdrawal 2026','401k loan vs withdrawal','401k penalty','retirement account emergency'],
     relatedCalc: { name: '401k Early Withdrawal vs Loan Calculator', href: '/calculators/finance/401k-early-withdrawal-vs-loan-calculator' },
@@ -151,7 +151,7 @@ Large RMDs push income up, potentially triggering Medicare IRMAA surcharges. The
     ],
     seoTitle: '401k Early Withdrawal vs Loan 2026: Which Hurts Your Retirement Less?',
     seoDescription: 'Withdrawing $20k from 401k at 40 = $7,400 in taxes and penalties + $137k in lost growth. A 401k loan costs far less. See the real comparison for 2026.',
-    keywords: ['401k early withdrawal 2026','401k loan vs withdrawal','401k penalty calculator 2026','tap 401k emergency 2026'],
+    keywords: ['401k early withdrawal 2026', '401k loan vs withdrawal', '401k penalty calculator 2026', 'tap 401k emergency 2026'],
     trendingKeywords: ['401k withdrawal 2026','401k loan','early retirement account access'],
     content: `# 401(k) Early Withdrawal vs Loan in 2026: The Real Cost
 
@@ -218,22 +218,22 @@ The best way to never face this decision: keep 3-12 months of expenses in a HYSA
     slug: 'startup-runway-burn-rate-calculator-2026',
     title: 'Startup Runway in 2026: How Long Until You Run Out of Money?',
     excerpt: 'Most startups run out of money 5-8 months before founders realize it is coming. Runway is the most important number in early-stage startups. Here is how to calculate it and 7 ways to extend it.',
-    category: 'Business Finance', categorySlug: 'business-finance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-07-16', author: 'tooltrio Team',
     tags: ['startup runway 2026','burn rate calculator','startup cash flow','how long startup money lasts'],
-    relatedCalc: { name: 'Startup Runway Calculator', href: '/calculators/finance/startup-runway-calculator' },
+    relatedCalc: { name: 'Startup Runway Calculator', href: '/calculators/finance/business-startup-calculator' },
     relatedCalcs: [
-      { name: 'Startup Runway Calculator', href: '/calculators/finance/startup-runway-calculator', icon: '🚀', desc: 'Months until cash runs out' },
-      { name: 'Burn Rate Calculator', href: '/calculators/finance/burn-rate-calculator', icon: '🔥', desc: 'Monthly cash consumption' },
+      { name: 'Startup Runway Calculator', href: '/calculators/finance/business-startup-calculator', icon: '🚀', desc: 'Months until cash runs out' },
+      { name: 'Burn Rate Calculator', href: '/calculators/finance/business-startup-calculator', icon: '🔥', desc: 'Monthly cash consumption' },
       { name: 'Break-Even Calculator', href: '/calculators/finance/break-even-calculator', icon: '⚖️', desc: 'When revenue covers costs' },
     ],
     seoTitle: 'Startup Runway Calculator 2026: How Long Until You Run Out of Money?',
     seoDescription: 'Most startups fail 5-8 months before founders realize it. Calculate your runway and learn 7 ways to extend it before reaching the danger zone.',
-    keywords: ['startup runway calculator 2026','how to calculate startup runway','burn rate 2026','extend startup runway','startup cash management'],
+    keywords: ['startup runway calculator 2026', 'how to calculate startup runway', 'burn rate 2026', 'extend startup runway', 'startup cash management'],
     trendingKeywords: ['startup runway 2026','burn rate 2026','startup funding'],
     content: `# Startup Runway in 2026: How Long Until You Run Out of Money?
 
-Calculate your exact runway with our **[Startup Runway Calculator](/calculators/finance/startup-runway-calculator)**.
+Calculate your exact runway with our **[Startup Runway Calculator](/calculators/finance/business-startup-calculator)**.
 
 ## The Two Core Metrics
 
@@ -247,7 +247,7 @@ Calculate your exact runway with our **[Startup Runway Calculator](/calculators/
 - Net burn: $80,000/month
 - **Runway: $600,000 / $80,000 = 7.5 months**
 
-Calculate burn rate with our **[Burn Rate Calculator](/calculators/finance/burn-rate-calculator)**.
+Calculate burn rate with our **[Burn Rate Calculator](/calculators/finance/business-startup-calculator)**.
 
 ## The Danger Zone: Start Fundraising at 12 Months
 
@@ -271,7 +271,7 @@ Raising a funding round takes 3-6 months minimum. If you have 6 months when you 
 4. **Apply for SBIR/STTR grants** — non-dilutive government funding for tech
 5. **Revenue-based financing** — borrow against future revenue
 6. **Find a revenue-generating consulting arm** — buys months of runway
-7. **Cut software subscriptions** — audit with our **[Subscription Audit Calculator](/calculators/finance/subscription-audit-calculator)**
+7. **Cut software subscriptions** — audit with our **[Subscription Audit Calculator](/calculators/finance/budget-calculator)**
 
 ## Key Metrics Investors Ask About
 
@@ -283,7 +283,7 @@ Raising a funding round takes 3-6 months minimum. If you have 6 months when you 
 
 ## Related Tools
 
-- **[Burn Rate Calculator](/calculators/finance/burn-rate-calculator)** — Monthly cash consumption
+- **[Burn Rate Calculator](/calculators/finance/business-startup-calculator)** — Monthly cash consumption
 - **[Break-Even Calculator](/calculators/finance/break-even-calculator)** — When you reach profitability
 `
   },
@@ -291,7 +291,7 @@ Raising a funding round takes 3-6 months minimum. If you have 6 months when you 
     slug: 'rent-vs-buy-real-math-2026',
     title: 'Rent vs Buy in 2026: The Real Math Most Articles Get Wrong',
     excerpt: 'At 7% mortgage rates buying the same property costs 52% more per month than renting. But renting builds zero equity. Here is the complete 5-year and 10-year comparison including every hidden cost.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '8 min read', publishedAt: '2026-07-20', author: 'tooltrio Team',
     tags: ['rent vs buy 2026','should I buy a house 2026','rent vs buy calculator USA','is renting better than buying'],
     relatedCalc: { name: 'Rent vs Buy Calculator', href: '/calculators/finance/rent-vs-buy-calculator' },
@@ -302,7 +302,7 @@ Raising a funding round takes 3-6 months minimum. If you have 6 months when you 
     ],
     seoTitle: 'Rent vs Buy 2026: The Real Math With All Hidden Costs',
     seoDescription: 'Buying costs 52% more per month than renting at 7% mortgage rates. But equity building changes the picture. The full 5 and 10 year comparison for 2026.',
-    keywords: ['rent vs buy 2026','should I buy a house 2026','rent vs buy calculator','is renting better 2026','home buying break even'],
+    keywords: ['rent vs buy 2026', 'should I buy a house 2026', 'rent vs buy calculator', 'is renting better 2026', 'home buying break even'],
     trendingKeywords: ['rent vs buy 2026','should I rent or buy','housing market 2026'],
     content: `# Rent vs Buy in 2026: The Real Math
 
@@ -373,18 +373,18 @@ Most US major cities in 2026 sit at 25-40. Many suburban and smaller markets are
     slug: 'cash-out-refi-vs-heloc-2026',
     title: 'Cash-Out Refinance vs HELOC in 2026: Which Is Better for Your Home Equity?',
     excerpt: 'You have $150,000 in home equity. A cash-out refi gives a lump sum but resets your mortgage. A HELOC gives flexible access but at variable rates now averaging 9%+. Here is the full 2026 comparison.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '7 min read', publishedAt: '2026-07-22', author: 'tooltrio Team',
     tags: ['cash out refinance vs HELOC 2026','home equity 2026','HELOC rates 2026','tap home equity'],
     relatedCalc: { name: 'Cash Out Refinance vs HELOC Calculator', href: '/calculators/finance/cash-out-refinance-vs-heloc-calculator' },
     relatedCalcs: [
       { name: 'Cash Out Refinance vs HELOC Calculator', href: '/calculators/finance/cash-out-refinance-vs-heloc-calculator', icon: '🏠', desc: 'Compare both options' },
       { name: 'Mortgage Refinance Calculator', href: '/calculators/finance/mortgage-refinance-calculator', icon: '🔄', desc: 'Refi break-even analysis' },
-      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/home-renovation-roi-calculator', icon: '🔨', desc: 'Best use of home equity' },
+      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/real-estate-roi-calculator', icon: '🔨', desc: 'Best use of home equity' },
     ],
-    seoTitle: 'Cash-Out Refinance vs HELOC 2026: Which Is Better for Your Home Equity?',
+    seoTitle: 'Cash-Out Refinance vs HELOC 2026',
     seoDescription: '$150k in equity. Cash-out refi resets your mortgage. HELOC is flexible but variable at 9%+. Full 2026 comparison with the rate lock-in warning.',
-    keywords: ['cash out refinance vs HELOC 2026','home equity loan vs HELOC','HELOC rates 2026','home equity cash out USA'],
+    keywords: ['cash out refinance vs HELOC 2026', 'home equity loan vs HELOC', 'HELOC rates 2026', 'home equity cash out USA'],
     trendingKeywords: ['HELOC 2026','cash out refinance 2026','home equity'],
     content: `# Cash-Out Refinance vs HELOC in 2026
 
@@ -426,7 +426,7 @@ A HELOC at 9.5% on only the $100,000 costs $9,500/year — still $4,000 less tha
 
 ## Best Uses for Home Equity (Ranked)
 
-1. Home improvements that increase value — use our **[Home Renovation ROI Calculator](/calculators/finance/home-renovation-roi-calculator)**
+1. Home improvements that increase value — use our **[Home Renovation ROI Calculator](/calculators/finance/real-estate-roi-calculator)**
 2. Eliminating high-interest debt (credit cards at 24% vs HELOC at 9.5%)
 3. Emergency reserve (keep HELOC open unused)
 4. Lifestyle spending — the worst use of home equity
@@ -434,14 +434,14 @@ A HELOC at 9.5% on only the $100,000 costs $9,500/year — still $4,000 less tha
 ## Related Tools
 
 - **[Mortgage Refinance Calculator](/calculators/finance/mortgage-refinance-calculator)** — Full refi break-even
-- **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** — Check LTV after drawing equity
+- **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** — Check LTV after drawing equity
 `
   },
   {
     slug: 'cd-ladder-strategy-best-rates-2026',
     title: 'CD Ladder Strategy in 2026: Earn 5%+ Without Locking Up All Your Cash',
     excerpt: 'A CD ladder splits money across multiple CDs with staggered maturities giving you 5%+ APY with rolling access every 3-12 months. Here is how to build one and whether CDs still beat HYSA accounts in 2026.',
-    category: 'Saving', categorySlug: 'saving',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-07-24', author: 'tooltrio Team',
     tags: ['CD ladder 2026','best CD rates 2026','CD vs HYSA','certificate of deposit strategy'],
     relatedCalc: { name: 'CD Ladder Calculator', href: '/calculators/finance/cd-ladder-calculator' },
@@ -452,7 +452,7 @@ A HELOC at 9.5% on only the $100,000 costs $9,500/year — still $4,000 less tha
     ],
     seoTitle: 'CD Ladder Strategy 2026: Earn 5%+ Without Locking Up Your Cash',
     seoDescription: 'CD ladder = 5%+ APY with cash available every 3 months. How to build one in 2026 and when CDs beat HYSAs. Complete step-by-step guide.',
-    keywords: ['CD ladder 2026','best CD rates 2026','how to build CD ladder','CD vs HYSA 2026','certificate of deposit 2026'],
+    keywords: ['CD ladder 2026', 'best CD rates 2026', 'how to build CD ladder', 'CD vs HYSA 2026', 'certificate of deposit 2026'],
     trendingKeywords: ['CD rates 2026','CD ladder strategy','best savings rate 2026'],
     content: `# CD Ladder Strategy in 2026: Earn 5%+ With Rolling Liquidity
 
@@ -510,7 +510,7 @@ Always verify current rates before opening — they change frequently.
     slug: 'pay-off-mortgage-vs-invest-2026',
     title: 'Pay Off Mortgage Early vs Invest in 2026: The Math That Settles the Debate',
     excerpt: 'You have $1,000 extra per month. Pay extra on your 6.5% mortgage or invest at historical 10% stock returns? The numbers favor investing by $310,000 over 25 years — but the psychological case for payoff is real.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '7 min read', publishedAt: '2026-07-26', author: 'tooltrio Team',
     tags: ['pay off mortgage vs invest 2026','mortgage payoff vs stock market','extra mortgage payment vs investing','should I pay off mortgage early'],
     relatedCalc: { name: 'Pay Off Mortgage vs Invest Calculator', href: '/calculators/finance/pay-off-mortgage-vs-invest-calculator' },
@@ -521,7 +521,7 @@ Always verify current rates before opening — they change frequently.
     ],
     seoTitle: 'Pay Off Mortgage Early vs Invest in 2026: Which Strategy Wins?',
     seoDescription: '$1,000/month extra on 6.5% mortgage vs invest at 10% — investing wins by $310,000 over 25 years. But the psychological case for payoff is real.',
-    keywords: ['pay off mortgage vs invest 2026','mortgage payoff vs investing','should I pay off mortgage early 2026','extra payment vs stock market'],
+    keywords: ['pay off mortgage vs invest 2026', 'mortgage payoff vs investing', 'should I pay off mortgage early 2026', 'extra payment vs stock market'],
     trendingKeywords: ['pay off mortgage 2026','mortgage vs investing','extra mortgage payment'],
     content: `# Pay Off Mortgage Early vs Invest in 2026: Which Wins?
 
@@ -579,18 +579,18 @@ Numbers favor investing, but payoff wins on:
     slug: 'debt-snowball-vs-avalanche-2026',
     title: 'Debt Snowball vs Avalanche in 2026: Which Pays Off Debt Faster?',
     excerpt: 'The avalanche method saves the most money. The snowball method gets more people debt-free. Research shows snowball users are more likely to complete their debt payoff even at slightly higher total interest cost.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '7 min read', publishedAt: '2026-08-01', author: 'tooltrio Team',
     tags: ['debt snowball vs avalanche 2026','debt payoff calculator','best way to pay off debt','avalanche vs snowball'],
     relatedCalc: { name: 'Debt Payoff Calculator', href: '/calculators/finance/debt-payoff-calculator' },
     relatedCalcs: [
       { name: 'Debt Payoff Calculator', href: '/calculators/finance/debt-payoff-calculator', icon: '💳', desc: 'Snowball vs avalanche comparison' },
       { name: 'Credit Card Payoff Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '📉', desc: 'Credit card payoff plan' },
-      { name: 'Balance Transfer Calculator', href: '/calculators/finance/balance-transfer-calculator', icon: '🔄', desc: 'Accelerate with 0% transfer' },
+      { name: 'Balance Transfer Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '🔄', desc: 'Accelerate with 0% transfer' },
     ],
     seoTitle: 'Debt Snowball vs Avalanche 2026: Which Method Pays Off Debt Faster?',
     seoDescription: 'Avalanche saves the most interest. Snowball gets more people debt-free. Exact comparison on 4 debts with $500/month extra — and the hybrid approach that wins.',
-    keywords: ['debt snowball vs avalanche 2026','best debt payoff strategy','debt avalanche method','debt snowball method','how to pay off debt fast'],
+    keywords: ['debt snowball vs avalanche 2026', 'best debt payoff strategy', 'debt avalanche method', 'debt snowball method', 'how to pay off debt fast'],
     trendingKeywords: ['debt payoff 2026','snowball vs avalanche','pay off debt fast'],
     content: `# Debt Snowball vs Avalanche in 2026: Which Wins?
 
@@ -640,15 +640,15 @@ Captures psychological benefit of snowball and math efficiency of avalanche.
 ## Related Debt Tools
 
 - **[Credit Card Payoff Calculator](/calculators/finance/credit-card-payoff-calculator)** — Card-specific payoff plan
-- **[Balance Transfer Calculator](/calculators/finance/balance-transfer-calculator)** — Accelerate with 0% transfer
-- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)** — How debt affects loans
+- **[Balance Transfer Calculator](/calculators/finance/credit-card-payoff-calculator)** — Accelerate with 0% transfer
+- **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)** — How debt affects loans
 `
   },
   {
     slug: 'reit-vs-rental-property-comparison-2026',
     title: 'REIT vs Rental Property in 2026: Which Real Estate Investment Wins?',
     excerpt: 'REITs returned 11.6% annually over 25 years with zero management. Direct rental property averages 8-12% but requires active involvement. Here is the honest comparison for the 2026 rate environment.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '7 min read', publishedAt: '2026-08-05', author: 'tooltrio Team',
     tags: ['REIT vs rental property 2026','real estate investment comparison','REITs 2026','passive real estate investing'],
     relatedCalc: { name: 'REIT vs Direct Property Calculator', href: '/calculators/finance/reit-vs-direct-property-usa-calculator' },
@@ -659,7 +659,7 @@ Captures psychological benefit of snowball and math efficiency of avalanche.
     ],
     seoTitle: 'REIT vs Rental Property 2026: Which Real Estate Investment Wins?',
     seoDescription: 'REITs: 11.6% historical returns with zero management. Rental property: 8-12% with active work. Complete 2026 comparison for real estate investors.',
-    keywords: ['REIT vs rental property 2026','should I buy REITs or rental property','passive real estate 2026','REITs vs direct property'],
+    keywords: ['REIT vs rental property 2026', 'should I buy REITs or rental property', 'passive real estate 2026', 'REITs vs direct property'],
     trendingKeywords: ['REITs 2026','rental property vs REIT','real estate investing 2026'],
     content: `# REIT vs Rental Property in 2026: Which Wins?
 
@@ -710,18 +710,18 @@ Own both:
     slug: 'annuity-vs-lump-sum-pension-decision-2026',
     title: 'Pension: Annuity vs Lump Sum in 2026 — Which Option Pays More?',
     excerpt: 'Your employer offers $450,000 lump sum or $2,200 per month for life. The break-even age is 82-85 depending on your investment returns. Here is every factor that determines which option wins for you.',
-    category: 'Retirement', categorySlug: 'retirement',
+    category: 'Retirement Planning', categorySlug: 'retirement',
     readTime: '7 min read', publishedAt: '2026-08-07', author: 'tooltrio Team',
     tags: ['pension annuity vs lump sum 2026','pension buyout offer','should I take pension lump sum','pension decision'],
     relatedCalc: { name: 'Annuity vs Lump Sum Calculator', href: '/calculators/finance/annuity-vs-lumpsum-calculator' },
     relatedCalcs: [
       { name: 'Annuity vs Lump Sum Calculator', href: '/calculators/finance/annuity-vs-lumpsum-calculator', icon: '⚖️', desc: 'Break-even age calculator' },
-      { name: 'Pension Lump Sum vs Monthly Calculator', href: '/calculators/finance/pension-lump-sum-vs-monthly-calculator', icon: '🏛️', desc: 'Pension-specific analysis' },
+      { name: 'Pension Lump Sum vs Monthly Calculator', href: '/calculators/finance/pension-vs-lump-sum-calculator', icon: '🏛️', desc: 'Pension-specific analysis' },
       { name: 'Retirement Withdrawal Calculator', href: '/calculators/finance/retirement-withdrawal-calculator', icon: '💰', desc: 'Drawdown from lump sum' },
     ],
     seoTitle: 'Pension Annuity vs Lump Sum 2026: Which Option Pays More?',
     seoDescription: '$450,000 lump sum or $2,200/month for life? Break-even age is 82-85. The full analysis including investment return assumptions and survivor benefits.',
-    keywords: ['pension annuity vs lump sum 2026','pension buyout 2026','should I take lump sum pension','pension lump sum vs monthly USA'],
+    keywords: ['pension annuity vs lump sum 2026', 'pension buyout 2026', 'should I take lump sum pension', 'pension lump sum vs monthly USA'],
     trendingKeywords: ['pension lump sum 2026','annuity vs lump sum','pension buyout'],
     content: `# Pension: Annuity vs Lump Sum in 2026
 
@@ -771,19 +771,19 @@ Live beyond break-even → annuity wins. Die before break-even → lump sum wins
 
 ## The Survivor Benefit Factor
 
-Joint-and-survivor annuity pays a reduced amount ($1,700/month) but continues for your spouse. This dramatically changes the calculation for married couples — use our **[Pension Lump Sum vs Monthly Calculator](/calculators/finance/pension-lump-sum-vs-monthly-calculator)** for married analysis.
+Joint-and-survivor annuity pays a reduced amount ($1,700/month) but continues for your spouse. This dramatically changes the calculation for married couples — use our **[Pension Lump Sum vs Monthly Calculator](/calculators/finance/pension-vs-lump-sum-calculator)** for married analysis.
 
 ## Related Tools
 
 - **[Retirement Withdrawal Calculator](/calculators/finance/retirement-withdrawal-calculator)** — Sustainable drawdown from lump sum
-- **[Social Security Optimization Calculator](/calculators/finance/social-security-optimization-calculator)** — Coordinate with SS timing
+- **[Social Security Optimization Calculator](/calculators/finance/social-security-timing-optimizer)** — Coordinate with SS timing
 `
   },
   {
     slug: 'estate-planning-documents-checklist-2026',
     title: 'Estate Planning in 2026: The 5 Documents Every American Needs (Most Have Zero)',
     excerpt: 'Only 33% of Americans have a will. Dying without one means the state decides who gets your assets — and it often is not who you would choose. Here is every document you need and what each one does.',
-    category: 'Insurance & Risk', categorySlug: 'insurance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-07-28', author: 'tooltrio Team',
     tags: ['estate planning 2026','do I need a will USA','estate planning documents','estate tax 2026'],
     relatedCalc: { name: 'Estate Tax Calculator', href: '/calculators/finance/estate-tax-calculator' },
@@ -793,8 +793,8 @@ Joint-and-survivor annuity pays a reduced amount ($1,700/month) but continues fo
       { name: 'Term vs Whole Life Calculator', href: '/calculators/finance/term-vs-whole-life-calculator', icon: '🛡️', desc: 'Life insurance in estate plan' },
     ],
     seoTitle: 'Estate Planning 2026: The 5 Documents Every American Needs',
-    seoDescription: 'Only 33% of Americans have a will. Without one the state decides who gets your assets. Every estate planning document explained for 2026 including the TCJA sunset risk.',
-    keywords: ['estate planning 2026','do I need a will USA 2026','estate planning checklist','estate tax exemption 2026','probate vs trust USA'],
+    seoDescription: 'Only 33% of Americans have a will. Without one the state decides who gets your assets.',
+    keywords: ['estate planning 2026', 'do I need a will USA 2026', 'estate planning checklist', 'estate tax exemption 2026', 'probate vs trust USA'],
     trendingKeywords: ['estate planning 2026','do I need a will','estate tax 2026'],
     content: `# Estate Planning in 2026: The 5 Documents You Need
 
@@ -856,7 +856,7 @@ An ex-spouse still named on a $500,000 IRA overrides your current spouse in most
     slug: 'w4-withholding-stop-overpaying-2026',
     title: 'W-4 Withholding in 2026: Stop Giving the IRS a $3,100 Interest-Free Loan',
     excerpt: 'The average 2026 tax refund is $3,100. That means you overpaid the IRS $258 per month all year at zero interest. Here is how to adjust your W-4 and put that money to work for you without owing at tax time.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '6 min read', publishedAt: '2026-07-30', author: 'tooltrio Team',
     tags: ['W4 calculator 2026','tax withholding adjustment','stop big tax refund','optimize W4'],
     relatedCalc: { name: 'Tax Withholding W4 Calculator', href: '/calculators/finance/tax-withholding-w4-calculator' },
@@ -867,7 +867,7 @@ An ex-spouse still named on a $500,000 IRA overrides your current spouse in most
     ],
     seoTitle: 'W-4 Tax Withholding 2026: Stop Giving the IRS a Free Loan',
     seoDescription: 'Average 2026 refund: $3,100. That means $258/month overpaid all year. Adjust your W-4 and put that money to work without owing at tax time.',
-    keywords: ['W4 calculator 2026','tax withholding adjustment 2026','how to fill out W4','optimal tax withholding USA 2026'],
+    keywords: ['W4 calculator 2026', 'tax withholding adjustment 2026', 'how to fill out W4', 'optimal tax withholding USA 2026'],
     trendingKeywords: ['W4 2026','tax refund 2026','tax withholding'],
     content: `# W-4 Tax Withholding in 2026: Stop Overpaying
 
@@ -919,7 +919,7 @@ To increase withholding (if you usually owe):
     slug: 'sep-ira-vs-solo-401k-self-employed-2026',
     title: 'SEP IRA vs Solo 401(k) in 2026: Which Saves the Self-Employed More?',
     excerpt: 'At $80,000 net income a Solo 401k lets you contribute $38,036 while a SEP IRA caps you at $20,000. The Solo 401k wins at lower incomes due to the $23,500 employee deferral. Here is when each account wins.',
-    category: 'Self-Employed', categorySlug: 'self-employed',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-08-09', author: 'tooltrio Team',
     tags: ['SEP IRA vs Solo 401k 2026','self-employed retirement 2026','solo 401k contribution limits 2026','SEP IRA limits 2026'],
     relatedCalc: { name: 'SEP IRA vs Solo 401k Calculator', href: '/calculators/finance/sep-ira-vs-solo-401k-calculator' },
@@ -930,7 +930,7 @@ To increase withholding (if you usually owe):
     ],
     seoTitle: 'SEP IRA vs Solo 401(k) 2026: Which Is Better for the Self-Employed?',
     seoDescription: 'At $80k income: Solo 401k allows $38,036 vs SEP IRA $20,000. The employee deferral is the key. Complete 2026 comparison for freelancers and business owners.',
-    keywords: ['SEP IRA vs Solo 401k 2026','self-employed retirement account 2026','solo 401k contribution 2026','SEP IRA contribution 2026'],
+    keywords: ['SEP IRA vs Solo 401k 2026', 'self-employed retirement account 2026', 'solo 401k contribution 2026', 'SEP IRA contribution 2026'],
     trendingKeywords: ['SEP IRA 2026','solo 401k 2026','self-employed retirement'],
     content: `# SEP IRA vs Solo 401(k) in 2026: Which Saves More?
 
@@ -989,7 +989,7 @@ Solo 401k allows **$18,036 more** on the same income. The employee deferral ($23
     slug: 'qbi-deduction-self-employed-guide-2026',
     title: 'QBI Deduction in 2026: The 20% Business Tax Break Most Self-Employed People Miss',
     excerpt: 'The Qualified Business Income deduction lets eligible self-employed people deduct up to 20% of business income — saving $3,000-$12,000+ per year. But income limits and business type restrictions apply.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-08-17', author: 'tooltrio Team',
     tags: ['QBI deduction 2026','qualified business income deduction','pass through business tax','Section 199A 2026'],
     relatedCalc: { name: 'QBI Deduction Calculator', href: '/calculators/finance/qbi-deduction-calculator' },
@@ -1000,7 +1000,7 @@ Solo 401k allows **$18,036 more** on the same income. The employee deferral ($23
     ],
     seoTitle: 'QBI Deduction 2026: The 20% Business Tax Break Most Self-Employed Miss',
     seoDescription: 'QBI deduction saves $3,000-$12,000+ annually for eligible self-employed. Income limits, service business restrictions, and how to maximize it in 2026.',
-    keywords: ['QBI deduction 2026','qualified business income 2026','Section 199A deduction','self-employed tax deduction 2026','how to maximize QBI'],
+    keywords: ['QBI deduction 2026', 'qualified business income 2026', 'Section 199A deduction', 'self-employed tax deduction 2026', 'how to maximize QBI'],
     trendingKeywords: ['QBI deduction 2026','Section 199A','business tax deduction 2026'],
     content: `# QBI Deduction in 2026: The 20% Business Tax Break
 
@@ -1050,18 +1050,18 @@ The QBI deduction was a TCJA provision set to expire December 31, 2025. Congress
     slug: 'down-payment-3-percent-vs-20-percent-2026',
     title: 'Down Payment in 2026: Is 3% Down Ever Smart, or Should You Wait for 20%?',
     excerpt: 'FHA loans allow 3.5% down and conventional loans allow 3% down. But putting down less means PMI costs and higher monthly payments. On a $350,000 home the difference is $679 per month. Here is the exact comparison.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '6 min read', publishedAt: '2026-08-21', author: 'tooltrio Team',
     tags: ['down payment calculator 2026','how much down payment','3% vs 20% down payment','FHA vs conventional 2026'],
     relatedCalc: { name: 'Down Payment Calculator', href: '/calculators/finance/down-payment-calculator' },
     relatedCalcs: [
       { name: 'Down Payment Calculator', href: '/calculators/finance/down-payment-calculator', icon: '💵', desc: 'Down payment savings target' },
       { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', icon: '🏠', desc: 'Monthly payment comparison' },
-      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-removal-calculator', icon: '✅', desc: 'When PMI goes away' },
+      { name: 'PMI Removal Calculator', href: '/calculators/finance/pmi-calculator', icon: '✅', desc: 'When PMI goes away' },
     ],
     seoTitle: 'Down Payment 2026: Is 3% Down Smart or Should You Wait for 20%?',
     seoDescription: '3% down vs 20% down on a $350,000 home: $679/month more with 3% down. But waiting years while home prices rise can cost more. The complete 2026 comparison.',
-    keywords: ['down payment calculator 2026','how much down payment USA 2026','3% vs 20% down payment','minimum down payment home 2026','FHA loan down payment'],
+    keywords: ['down payment calculator 2026', 'how much down payment USA 2026', '3% vs 20% down payment', 'minimum down payment home 2026', 'FHA loan down payment'],
     trendingKeywords: ['down payment 2026','how much to put down on house','FHA loan 2026'],
     content: `# Down Payment in 2026: 3% vs 20% — Which Is Right for You?
 
@@ -1115,14 +1115,14 @@ Waiting to save 20% avoids PMI and gets you better loan terms. The math clearly 
 ## Related Tools
 
 - **[Mortgage Calculator](/calculators/finance/mortgage-calculator)** — Payment at any down payment
-- **[PMI Removal Calculator](/calculators/finance/pmi-removal-calculator)** — When PMI goes away at 3-10% down
+- **[PMI Removal Calculator](/calculators/finance/pmi-calculator)** — When PMI goes away at 3-10% down
 `
   },
   {
     slug: 'state-tax-relocation-no-income-tax-states-2026',
     title: 'Move to Save Taxes in 2026: How Much You Save Moving to a No-Income-Tax State',
     excerpt: 'Moving from California at 13.3% income tax to Nevada at 0% saves a $200,000 earner $19,000 per year — or $190,000 over 10 years. But cost of living differences and the domicile test change the real numbers.',
-    category: 'Tax Strategy', categorySlug: 'tax-strategy',
+    category: 'Tax Guides', categorySlug: 'tax',
     readTime: '7 min read', publishedAt: '2026-08-19', author: 'tooltrio Team',
     tags: ['state tax relocation 2026','move to no income tax state','save taxes by moving','California vs Texas taxes 2026'],
     relatedCalc: { name: 'State Tax Relocation Calculator', href: '/calculators/finance/state-tax-relocation-calculator' },
@@ -1133,7 +1133,7 @@ Waiting to save 20% avoids PMI and gets you better loan terms. The math clearly 
     ],
     seoTitle: 'State Tax Relocation 2026: How Much You Save Moving to a No-Tax State',
     seoDescription: '$200k earner saves $19,000/year moving from California to Nevada. But cost of living and the domicile test change the real picture. Full 2026 analysis.',
-    keywords: ['state tax relocation 2026','move to no income tax state USA','California to Texas tax savings','best states for taxes 2026'],
+    keywords: ['state tax relocation 2026', 'move to no income tax state USA', 'California to Texas tax savings', 'best states for taxes 2026'],
     trendingKeywords: ['move to save taxes 2026','no income tax state','best state taxes 2026'],
     content: `# Move to Save Taxes in 2026: State-by-State Analysis
 
@@ -1187,22 +1187,22 @@ California taxes capital gains as ordinary income at up to 13.3%. Moving to Neva
     slug: 'energy-savings-solar-heat-pump-2026',
     title: 'Home Energy Savings in 2026: Solar, Heat Pumps, and Insulation ROI with Tax Credits',
     excerpt: 'Solar panels save $1,200-$2,000 per year and pay back in 6-9 years after the 30% federal tax credit. Heat pumps save $1,300 per year on HVAC. Here is the full ROI for every major home energy upgrade in 2026.',
-    category: 'Real Estate', categorySlug: 'real-estate',
+    category: 'Property Guides', categorySlug: 'property',
     readTime: '6 min read', publishedAt: '2026-08-15', author: 'tooltrio Team',
     tags: ['energy savings 2026','solar panel ROI 2026','home energy savings','federal energy tax credits 2026'],
-    relatedCalc: { name: 'Energy Savings Calculator', href: '/calculators/finance/energy-savings-calculator' },
+    relatedCalc: { name: 'Energy Savings Calculator', href: '/calculators/finance/real-estate-roi-calculator' },
     relatedCalcs: [
-      { name: 'Energy Savings Calculator', href: '/calculators/finance/energy-savings-calculator', icon: '⚡', desc: 'Calculate energy upgrade ROI' },
-      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/home-renovation-roi-calculator', icon: '🔨', desc: 'All home improvement returns' },
-      { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/ev-vs-gas-car-calculator', icon: '🚗', desc: 'EV fuel savings' },
+      { name: 'Energy Savings Calculator', href: '/calculators/finance/real-estate-roi-calculator', icon: '⚡', desc: 'Calculate energy upgrade ROI' },
+      { name: 'Home Renovation ROI Calculator', href: '/calculators/finance/real-estate-roi-calculator', icon: '🔨', desc: 'All home improvement returns' },
+      { name: 'EV vs Gas Car Calculator', href: '/calculators/finance/car-affordability-calculator', icon: '🚗', desc: 'EV fuel savings' },
     ],
     seoTitle: 'Home Energy Savings 2026: Solar, Heat Pump, and Insulation ROI',
     seoDescription: 'Solar saves $1,200-$2,000/year. Heat pump saves $1,300/year. 30% federal tax credit through 2032. Full ROI for every major home energy upgrade in 2026.',
-    keywords: ['solar panel ROI 2026','home energy savings calculator','federal energy tax credit 2026','heat pump savings','insulation ROI house 2026'],
+    keywords: ['solar panel ROI 2026', 'home energy savings calculator', 'federal energy tax credit 2026', 'heat pump savings', 'insulation ROI house 2026'],
     trendingKeywords: ['solar panels 2026','energy savings 2026','federal tax credit solar'],
     content: `# Home Energy Savings in 2026: Solar, Heat Pumps, and Insulation ROI
 
-Calculate your savings with our **[Energy Savings Calculator](/calculators/finance/energy-savings-calculator)**.
+Calculate your savings with our **Energy Savings Calculator**.
 
 ## 2026 Federal Energy Tax Credits (IRA Extended)
 
@@ -1248,30 +1248,30 @@ The least glamorous upgrade often has the best return.
 
 ## Related Tools
 
-- **[Home Renovation ROI Calculator](/calculators/finance/home-renovation-roi-calculator)** — All home improvements ranked
-- **[EV vs Gas Car Calculator](/calculators/finance/ev-vs-gas-car-calculator)** — Add EV fuel savings to your analysis
+- **[Home Renovation ROI Calculator](/calculators/finance/real-estate-roi-calculator)** — All home improvements ranked
+- **[EV vs Gas Car Calculator](/calculators/finance/car-affordability-calculator)** — Add EV fuel savings to your analysis
 `
   },
   {
     slug: 'vacation-budget-cost-by-destination-2026',
     title: 'How Much Does a Vacation Cost in 2026? Real Numbers by Destination',
     excerpt: 'A 7-day Europe trip costs $2,800-$5,500 per person in 2026. The Caribbean runs $1,500-$3,200. Japan is $2,500-$5,200. Here is the complete breakdown by destination and 8 ways to cut costs by 40%.',
-    category: 'Budgeting', categorySlug: 'budgeting',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-08-13', author: 'tooltrio Team',
     tags: ['vacation budget 2026','how much does a trip cost','travel budget calculator 2026','vacation cost by destination'],
-    relatedCalc: { name: 'Vacation Cost Calculator', href: '/calculators/finance/vacation-cost-calculator' },
+    relatedCalc: { name: 'Vacation Cost Calculator', href: '/calculators/finance/budget-calculator' },
     relatedCalcs: [
-      { name: 'Vacation Cost Calculator', href: '/calculators/finance/vacation-cost-calculator', icon: '✈️', desc: 'Budget any trip' },
+      { name: 'Vacation Cost Calculator', href: '/calculators/finance/budget-calculator', icon: '✈️', desc: 'Budget any trip' },
       { name: 'Savings Goal Calculator', href: '/calculators/finance/savings-goal-calculator', icon: '🎯', desc: 'Save for your vacation' },
       { name: 'Budget Planner Calculator', href: '/calculators/finance/budget-planner-calculator', icon: '📊', desc: 'Add vacation to annual budget' },
     ],
     seoTitle: 'Vacation Cost Calculator 2026: Real Costs for Every Destination',
     seoDescription: 'Europe: $2,800-$5,500/person. Caribbean: $1,500-$3,200. Japan: $2,500-$5,200. Real 2026 vacation costs by destination with 8 ways to cut 40%.',
-    keywords: ['vacation cost 2026','how much trip cost USA 2026','vacation budget calculator','travel cost by destination 2026'],
+    keywords: ['vacation cost 2026', 'how much trip cost USA 2026', 'vacation budget calculator', 'travel cost by destination 2026'],
     trendingKeywords: ['vacation cost 2026','travel budget 2026','how much to save for vacation'],
     content: `# How Much Does a Vacation Cost in 2026?
 
-Budget your trip with our **[Vacation Cost Calculator](/calculators/finance/vacation-cost-calculator)**.
+Budget your trip with our **[Vacation Cost Calculator](/calculators/finance/budget-calculator)**.
 
 ## 7-Day Trip Cost Per Person From USA (2026)
 
@@ -1322,29 +1322,29 @@ Set a vacation line item in your **[Budget Planner Calculator](/calculators/fina
 ## Related Tools
 
 - **[Savings Goal Calculator](/calculators/finance/savings-goal-calculator)** — Vacation savings timeline
-- **[Subscription Audit Calculator](/calculators/finance/subscription-audit-calculator)** — Find funds in your current budget
+- **[Subscription Audit Calculator](/calculators/finance/budget-calculator)** — Find funds in your current budget
 `
   },
   {
     slug: 'student-loans-vs-working-through-college-2026',
     title: 'Student Loans vs Working Through College in 2026: The Honest Financial Comparison',
     excerpt: 'Borrowing $40,000 to avoid working in college costs $54,476 after interest. Working 20 hours per week earns $14,000 per year net. But heavy work hours reduce graduation rates. Here is the real trade-off.',
-    category: 'Education', categorySlug: 'education',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-08-11', author: 'tooltrio Team',
     tags: ['college loan vs working 2026','student loan vs working through college','paying for college without loans'],
-    relatedCalc: { name: 'College Loan vs Work Calculator', href: '/calculators/finance/college-loan-vs-work-calculator' },
+    relatedCalc: { name: 'College Loan vs Work Calculator', href: '/calculators/finance/college-debt-burden-calculator' },
     relatedCalcs: [
-      { name: 'College Loan vs Work Calculator', href: '/calculators/finance/college-loan-vs-work-calculator', icon: '🎓', desc: 'Loans vs earning comparison' },
+      { name: 'College Loan vs Work Calculator', href: '/calculators/finance/college-debt-burden-calculator', icon: '🎓', desc: 'Loans vs earning comparison' },
       { name: 'Student Loan Calculator', href: '/calculators/finance/student-loan-calculator', icon: '💳', desc: 'True cost of any student loan' },
       { name: 'College ROI Calculator', href: '/calculators/finance/college-roi-calculator', icon: '📊', desc: 'Is the degree worth the cost?' },
     ],
     seoTitle: 'Student Loans vs Working Through College 2026: The Real Comparison',
-    seoDescription: '$40,000 in loans costs $54,476 after interest. Working 20 hours/week earns $14,000/year net. But heavy work hours reduce graduation rates. The honest 2026 trade-off.',
-    keywords: ['student loan vs working college 2026','how to pay for college without debt','work study vs loans','paying for college 2026'],
+    seoDescription: '$40,000 in loans costs $54,476 after interest. Working 20 hours/week earns $14,000/year net. But heavy work hours reduce graduation rates.',
+    keywords: ['student loan vs working college 2026', 'how to pay for college without debt', 'work study vs loans', 'paying for college 2026'],
     trendingKeywords: ['paying for college 2026','student loan alternative','work through college'],
     content: `# Student Loans vs Working Through College in 2026
 
-Compare both paths with our **[College Loan vs Work Calculator](/calculators/finance/college-loan-vs-work-calculator)**.
+Compare both paths with our **[College Loan vs Work Calculator](/calculators/finance/college-debt-burden-calculator)**.
 
 ## The Financial Math ($10,000/Year Gap After Aid)
 
@@ -1401,18 +1401,18 @@ Result: $227/month payment instead of $454. Interest cost: $7,238 instead of $14
     slug: 'break-even-analysis-2026-business-guide',
     title: 'Break-Even Analysis in 2026: How Many Sales Until You Make a Profit?',
     excerpt: 'Before launching any product you need to know the exact number of sales where revenue equals costs. A SaaS startup at $15,000 per month needs 159 users at $99 per month to break even. Here is how to calculate yours.',
-    category: 'Business Finance', categorySlug: 'business-finance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-07-18', author: 'tooltrio Team',
     tags: ['break even calculator 2026','break even analysis','how many sales to profit','business break even point'],
     relatedCalc: { name: 'Break-Even Calculator', href: '/calculators/finance/break-even-calculator' },
     relatedCalcs: [
       { name: 'Break-Even Calculator', href: '/calculators/finance/break-even-calculator', icon: '⚖️', desc: 'Find your break-even point' },
-      { name: 'Profit Margin Calculator', href: '/calculators/finance/profit-margin-calculator', icon: '📊', desc: 'Margin on each sale' },
-      { name: 'Startup Runway Calculator', href: '/calculators/finance/startup-runway-calculator', icon: '🚀', desc: 'Cash until you are profitable' },
+      { name: 'Profit Margin Calculator', href: '/calculators/finance/break-even-calculator', icon: '📊', desc: 'Margin on each sale' },
+      { name: 'Startup Runway Calculator', href: '/calculators/finance/business-startup-calculator', icon: '🚀', desc: 'Cash until you are profitable' },
     ],
     seoTitle: 'Break-Even Calculator 2026: How Many Sales Until You Make a Profit?',
     seoDescription: 'Break-even = Fixed Costs / Contribution Margin. SaaS at $15k/month needs 159 users at $99. Your exact break-even by business type in 2026.',
-    keywords: ['break even calculator 2026','break even analysis business','how to calculate break even point','small business break even 2026'],
+    keywords: ['break even calculator 2026', 'break even analysis business', 'how to calculate break even point', 'small business break even 2026'],
     trendingKeywords: ['break even analysis 2026','business profitability','how many sales to profit'],
     content: `# Break-Even Analysis in 2026: How Many Sales Until You Profit?
 
@@ -1457,11 +1457,11 @@ E-commerce at $65 price, $38 variable cost, $8,000 fixed:
 
 A 20%+ margin of safety is healthy. Below 10% means the business is fragile to any revenue dip.
 
-Calculate your margins with our **[Profit Margin Calculator](/calculators/finance/profit-margin-calculator)**.
+Calculate your margins with our **[Profit Margin Calculator](/calculators/finance/break-even-calculator)**.
 
 ## Related Tools
 
-- **[Startup Runway Calculator](/calculators/finance/startup-runway-calculator)** — Cash runway to profitability
+- **[Startup Runway Calculator](/calculators/finance/business-startup-calculator)** — Cash runway to profitability
 - **[ROI Calculator](/calculators/finance/roi-calculator)** — Return on business investment
 `
   },
@@ -1469,7 +1469,7 @@ Calculate your margins with our **[Profit Margin Calculator](/calculators/financ
     slug: 'crypto-dca-bitcoin-strategy-2026',
     title: 'Crypto DCA in 2026: Does Dollar-Cost Averaging Into Bitcoin Actually Work?',
     excerpt: '$100 per week into Bitcoin for the past 4 years turned $20,800 into over $67,000 — a 222% return despite two major bear markets. Here is the data on crypto DCA vs lump sum and how to execute it safely.',
-    category: 'Investing', categorySlug: 'investing',
+    category: 'Investment Guides', categorySlug: 'investment',
     readTime: '6 min read', publishedAt: '2026-07-10', author: 'tooltrio Team',
     tags: ['crypto DCA 2026','bitcoin dollar cost averaging','crypto investing strategy','DCA bitcoin returns'],
     relatedCalc: { name: 'Crypto DCA Calculator', href: '/calculators/finance/crypto-dca-calculator' },
@@ -1480,7 +1480,7 @@ Calculate your margins with our **[Profit Margin Calculator](/calculators/financ
     ],
     seoTitle: 'Crypto DCA 2026: Does Dollar-Cost Averaging Into Bitcoin Work?',
     seoDescription: '$100/week into Bitcoin for 4 years = $67,000+ from $20,800 invested. DCA outperforms lump sum for crypto due to extreme volatility. The complete 2026 guide.',
-    keywords: ['crypto DCA 2026','bitcoin dollar cost averaging','how to invest bitcoin safely 2026','crypto DCA strategy','bitcoin DCA calculator'],
+    keywords: ['crypto DCA 2026', 'bitcoin dollar cost averaging', 'how to invest bitcoin safely 2026', 'crypto DCA strategy', 'bitcoin DCA calculator'],
     trendingKeywords: ['crypto DCA 2026','bitcoin investing 2026','how to buy bitcoin'],
     content: `# Crypto DCA in 2026: Does Dollar-Cost Averaging Into Bitcoin Work?
 
@@ -1530,7 +1530,7 @@ Every weekly $100 purchase creates a separate tax lot. Selling any lot under 1 y
 
 ## Related Tools
 
-- **[Risk Tolerance Calculator](/calculators/finance/risk-tolerance-calculator)** — Right allocation for your risk level
+- **Risk Tolerance Calculator** — Right allocation for your risk level
 - **[Portfolio Rebalancing Calculator](/calculators/finance/portfolio-rebalancing-calculator)** — Keep crypto at target allocation
 `
   },
@@ -1538,18 +1538,18 @@ Every weekly $100 purchase creates a separate tax lot. Selling any lot under 1 y
     slug: 'personal-loan-vs-credit-card-comparison-2026',
     title: 'Personal Loan vs Credit Card in 2026: Which Costs Less for Large Purchases?',
     excerpt: 'A personal loan at 12% APR vs a credit card at 24% APR on $10,000 you cannot pay off immediately — the personal loan saves $3,688 in interest and pays off 25 months faster. Here is the complete comparison.',
-    category: 'Debt & Credit', categorySlug: 'debt-credit',
+    category: 'Loan & EMI Tips', categorySlug: 'loans',
     readTime: '6 min read', publishedAt: '2026-08-03', author: 'tooltrio Team',
     tags: ['personal loan vs credit card 2026','personal loan rate 2026','when to use personal loan','best way to finance large purchase'],
     relatedCalc: { name: 'Personal Loan Calculator', href: '/calculators/finance/personal-loan-calculator' },
     relatedCalcs: [
       { name: 'Personal Loan Calculator', href: '/calculators/finance/personal-loan-calculator', icon: '💰', desc: 'Personal loan payment and total cost' },
       { name: 'Credit Card Payoff Calculator', href: '/calculators/finance/credit-card-payoff-calculator', icon: '💳', desc: 'Credit card payoff timeline' },
-      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-calculator', icon: '📊', desc: 'Loan qualification check' },
+      { name: 'Debt-to-Income Calculator', href: '/calculators/finance/debt-to-income-optimizer', icon: '📊', desc: 'Loan qualification check' },
     ],
-    seoTitle: 'Personal Loan vs Credit Card 2026: Which Costs Less for Large Purchases?',
+    seoTitle: 'Personal Loan vs Credit Card 2026',
     seoDescription: 'Personal loan at 12% vs credit card at 24% on $10,000: personal loan saves $3,688 and pays off 25 months faster. When to use each in 2026.',
-    keywords: ['personal loan vs credit card 2026','personal loan rate 2026','consolidate credit card debt personal loan','when to use personal loan USA'],
+    keywords: ['personal loan vs credit card 2026', 'personal loan rate 2026', 'consolidate credit card debt personal loan', 'when to use personal loan USA'],
     trendingKeywords: ['personal loan 2026','personal loan rates','credit card vs personal loan'],
     content: `# Personal Loan vs Credit Card in 2026: Which Costs Less?
 
@@ -1598,7 +1598,7 @@ Calculate personal loan cost with our **[Personal Loan Calculator](/calculators/
 
 - Credit score 640+ (700+ for best rates)
 - Proof of income
-- DTI under 40% — check with our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-calculator)**
+- DTI under 40% — check with our **[Debt-to-Income Calculator](/calculators/finance/debt-to-income-optimizer)**
 - 2+ years of credit history
 
 ## Related Tools
@@ -1609,24 +1609,24 @@ Calculate personal loan cost with our **[Personal Loan Calculator](/calculators/
   },
   {
     slug: 'profit-margin-business-pricing-2026',
-    title: 'Profit Margin Calculator in 2026: Are You Actually Making Money on Every Sale?',
+    title: 'Profit Margin Calculator 2026: Pricing, Markup & Break-Even Guide',
     excerpt: 'A product selling for $100 with $60 in costs has a 40% gross margin. But after overhead and taxes the net margin might be only 8%. Here is how to calculate every margin metric and price your products correctly.',
-    category: 'Business Finance', categorySlug: 'business-finance',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '6 min read', publishedAt: '2026-07-06', author: 'tooltrio Team',
     tags: ['profit margin calculator 2026','gross vs net margin','business pricing 2026','markup vs margin'],
-    relatedCalc: { name: 'Profit Margin Calculator', href: '/calculators/finance/profit-margin-calculator' },
+    relatedCalc: { name: 'Profit Margin Calculator', href: '/calculators/finance/break-even-calculator' },
     relatedCalcs: [
-      { name: 'Profit Margin Calculator', href: '/calculators/finance/profit-margin-calculator', icon: '📊', desc: 'Calculate all margin metrics' },
+      { name: 'Profit Margin Calculator', href: '/calculators/finance/break-even-calculator', icon: '📊', desc: 'Calculate all margin metrics' },
       { name: 'Break-Even Calculator', href: '/calculators/finance/break-even-calculator', icon: '⚖️', desc: 'When do you break even?' },
       { name: 'ROI Calculator', href: '/calculators/finance/roi-calculator', icon: '💰', desc: 'Return on business investment' },
     ],
-    seoTitle: 'Profit Margin Calculator 2026: Are You Actually Making Money on Every Sale?',
+    seoTitle: 'Profit Margin Calculator 2026: Pricing, Markup & Break-Even Guide',
     seoDescription: '$100 product, $60 cost = 40% gross margin. But net margin after overhead may be only 8%. How to calculate every margin and price correctly in 2026.',
-    keywords: ['profit margin calculator 2026','gross vs net profit margin','business pricing strategy 2026','markup vs margin','how to calculate profit margin'],
+    keywords: ['profit margin calculator 2026', 'gross vs net profit margin', 'business pricing strategy 2026', 'markup vs margin', 'how to calculate profit margin'],
     trendingKeywords: ['profit margin 2026','business pricing','gross margin calculator'],
     content: `# Profit Margin Calculator 2026: Are You Making Money on Every Sale?
 
-Calculate all your margin metrics with our **[Profit Margin Calculator](/calculators/finance/profit-margin-calculator)**.
+Calculate all your margin metrics with our **[Profit Margin Calculator](/calculators/finance/break-even-calculator)**.
 
 ## The 4 Margin Metrics Every Business Owner Needs
 
@@ -1680,7 +1680,7 @@ Adding 40% markup does NOT give you 40% margin — it gives you 28.6% margin. To
 ## Related Business Tools
 
 - **[Break-Even Calculator](/calculators/finance/break-even-calculator)** — Revenue needed to cover costs
-- **[Startup Runway Calculator](/calculators/finance/startup-runway-calculator)** — Cash until you reach profitability
+- **[Startup Runway Calculator](/calculators/finance/business-startup-calculator)** — Cash until you reach profitability
 - **[ROI Calculator](/calculators/finance/roi-calculator)** — Return on business investment
 `
   },
@@ -1688,7 +1688,7 @@ Adding 40% markup does NOT give you 40% margin — it gives you 28.6% margin. To
     slug: '529-college-savings-plan-2026-guide',
     title: '529 College Savings Plan in 2026: How Much to Save and When to Start',
     excerpt: 'A 4-year college costs $112,000-$328,000 in 2026. Starting a 529 at birth vs age 10 means the difference between $290 per month and $1,020 per month to cover the same costs. Here is the exact plan by child age.',
-    category: 'Education', categorySlug: 'education',
+    category: 'Personal Finance 101', categorySlug: 'personal-finance',
     readTime: '7 min read', publishedAt: '2026-06-28', author: 'tooltrio Team',
     tags: ['529 plan 2026','college savings calculator','how much to save for college','529 contribution limits 2026'],
     relatedCalc: { name: 'College Savings 529 Calculator', href: '/calculators/finance/college-savings-529-calculator' },
@@ -1699,7 +1699,7 @@ Adding 40% markup does NOT give you 40% margin — it gives you 28.6% margin. To
     ],
     seoTitle: '529 College Savings Plan 2026: How Much to Save by Child Age',
     seoDescription: 'College costs $112,000-$328,000 in 2026. Starting a 529 at birth = $290/month. Starting at age 10 = $1,020/month. Exact savings plan by child age.',
-    keywords: ['529 plan 2026','college savings calculator 2026','how much save for college USA','529 contribution limits 2026','when to start 529'],
+    keywords: ['529 plan 2026', 'college savings calculator 2026', 'how much save for college USA', '529 contribution limits 2026', 'when to start 529'],
     trendingKeywords: ['529 plan 2026','college savings 2026','save for college'],
     content: `# 529 College Savings Plan in 2026: How Much to Save
 

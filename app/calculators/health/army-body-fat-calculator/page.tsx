@@ -91,7 +91,7 @@ This calculator applies the exact AR 600-9 formulas: for men, it uses neck and w
 
 Whether you're preparing for a physical fitness assessment, tracking progress in a body composition program, or just curious how the Army's method compares to other body fat estimates, this gives you an accurate result using the official methodology.
 
-**Long-tail searches answered here:** army body fat calculator free online usa, us army tape test calculator 2026 free, army pft body fat percentage calculator, military body fat standard calculator by age gender, army body fat measurement tape method calculator free, does i pass army body fat test calculator, army body fat allowance by age category calculator free, female army body fat standard calculator free usa, how to take army tape test measurements free guide, army body fat waist neck hip measurement calculator, 2026 army body fat regulations by age free calculator, army medical standards body fat calculator online free, national guard body fat standard calculator usa free, army body fat calculator for promotion eligibility free, marine corps vs army body fat standard comparison free`,
+`,
   howItWorks: `The US Army tape test uses circumference measurements to estimate body fat percentage per Army Regulation 600-9. For men: %BF = 86.010 × log₁₀(waist − neck) − 70.041 × log₁₀(height) + 36.76. For women: %BF = 163.205 × log₁₀(waist + hip − neck) − 97.684 × log₁₀(height) − 78.387. All measurements in inches. Waist for men is measured at the navel; for women at the narrowest point. This method was validated against hydrostatic weighing in military populations.`,
   benefits: [
   ],

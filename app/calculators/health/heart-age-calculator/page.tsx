@@ -61,7 +61,7 @@ Heart disease remains the leading cause of death in the United States, responsib
 
 This calculator estimates your heart age using the Framingham equations based on your blood pressure, cholesterol levels, blood glucose, smoking status, and BMI — and shows you how each risk factor is contributing to the gap between your heart age and chronological age.
 
-**Long-tail searches answered here:** heart age calculator free online usa 2026, what is my heart age vs actual age calculator, cardiovascular age calculator free no account, am i aging my heart prematurely calculator, heart disease risk by heart age calculator usa, biological heart age calculator free online no signup, american heart association heart age test free usa, framingham heart age versus chronological age calculator, modifiable risk factors heart age reduction calculator, how smoking affects your heart age calculator free usa, heart age improvement from exercise calculator free, diabetes impact on heart age calculator usa free, stress heart age acceleration calculator free online, heart healthy lifestyle heart age reversal calculator free, 10 year cardiovascular event risk from heart age calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate heart age from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

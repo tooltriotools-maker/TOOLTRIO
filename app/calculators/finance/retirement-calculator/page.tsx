@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free retirement calculator',
     'retirement calculator online',
     'best retirement calculator 2026',
-    'retirement calculator no signup',
+    'retirement calculator ',
     'accurate retirement calculator',
     'how to calculate retirement',
     'tooltrio.com',

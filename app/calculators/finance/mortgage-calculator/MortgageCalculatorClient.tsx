@@ -264,7 +264,7 @@ export default function MortgageCalculatorClient({ faqs, relatedCalculators, blo
           A $350,000 mortgage at 6.5% over 30 years results in a monthly payment of approximately <strong>$2,212</strong> with total interest paid of $446,320.
         </p>
         <p className="text-sm text-gray-600">
-          Use this Mortgage USA 2026 tool to compare different loan amounts, interest rates, and terms to find your best option.
+          Use this Mortgage USA 2026 tool to compare different loan amounts, interest rates, and terms to find your one option.
         </p>
       </Card>
       <SEOContent {...mortgageSEOContent} category="finance" />

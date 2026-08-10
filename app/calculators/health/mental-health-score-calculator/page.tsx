@@ -9,8 +9,8 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 })
 
 export const metadata: Metadata = generateCalculatorMetadata({
-  title: 'Mental Health Score Calculator 2026 | ToolTrio',
-  description: 'Free Mental Health Score Calculator 2026 — Assess and track your mental health score with evidence-based scoring. Actionable insights and improvement.',
+  title: 'Mental Wellness Lifestyle Score 2026 | ToolTrio',
+  description: 'Educational wellbeing score from selected lifestyle inputs. It is not a validated mental-health screening test or diagnosis.',
   slug: 'mental-health-score-calculator',
   category: 'health',
   region: 'usa',
@@ -62,7 +62,7 @@ Mental health and physical health are deeply interconnected. Depression is assoc
 
 This calculator integrates validated screening instruments with lifestyle factor assessment to give you a comprehensive mental health picture across mood, anxiety, stress resilience, sleep quality, and social connection.
 
-**Long-tail searches answered here:** mental health score calculator free online usa, am i depressed or anxious calculator free tool, mental wellness assessment calculator no account, mental health check score calculator free usa, phq 9 gad 7 style mental health calculator free online, how is my mental health calculator no signup, daily mental health habits impact calculator usa free, work stress to mental health score calculator free, sleep and mental health correlation score calculator, lifestyle factors mental health impact calculator usa free, when to seek professional help mental health score, trauma informed mental health screening calculator free usa, social anxiety severity self assessment calculator free, burnout vs depression symptom overlap calculator usa, resilience mental health protective factors score calculator`,
+`,
   howItWorks: `This calculator uses the method described for this specific tool to estimate mental health score from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

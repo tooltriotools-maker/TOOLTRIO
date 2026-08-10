@@ -112,7 +112,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           benefits={[
             {title:"Methodology-specific results",text:"Outputs follow the formulas and assumptions described on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Decision support",text:"Use your own inputs to evaluate the specific calculation shown here."},

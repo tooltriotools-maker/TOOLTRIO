@@ -62,7 +62,7 @@ Weight gain distribution by trimester matters as much as the total. Minimal weig
 
 This calculator shows where your total gain should be for each trimester based on your pre-pregnancy BMI, flags if you're gaining significantly faster or slower than guideline pace, and clarifies where the weight goes (fetus, placenta, blood volume, fluid, breast tissue, fat stores).
 
-**Long-tail searches answered here:** pregnancy weight gain calculator free online usa, how much weight should i gain during pregnancy calculator, healthy pregnancy weight gain by bmi calculator free, gestational weight gain chart calculator no signup, am i gaining too much weight in pregnancy calculator, pregnancy weight gain by week calculator usa free, underweight starting bmi pregnancy weight gain goal, overweight pregnancy recommended weight gain calculator usa, twin pregnancy weight gain guidelines calculator free, third trimester weight gain acceleration calculator usa free, pregnancy weight gain tracking by week calculator free, how to stay in healthy weight gain range during pregnancy, postpartum weight retention predictor from gain calculator, gestational diabetes and weight gain limits calculator usa, breastfeeding weight loss after pregnancy calculator free`,
+`,
   howItWorks: `This guide explains the specific calculation used by this tool, its inputs, and the population or guideline context for interpreting the result. It is not a blanket claim that the calculator is clinically validated.` ,
   benefits: [
   ],

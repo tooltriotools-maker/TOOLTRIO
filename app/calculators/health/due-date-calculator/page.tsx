@@ -62,7 +62,7 @@ This calculator gives you your estimated due date using multiple methods: Naegel
 
 The weeks of pregnancy count from your last menstrual period, not from conception — so at 4 weeks pregnant, conception typically happened 2 weeks prior.
 
-**Long-tail searches answered here:** pregnancy due date calculator free online usa, when will my baby be born calculator, due date calculator by last menstrual period free, pregnancy week calculator from conception date, ivf due date calculator free no signup, how to calculate my due date online free usa 2026, due date calculator using cycle length and lmp free, frozen embryo transfer due date calculator usa free, natural conception due date calculator free online, how accurate is due date from lmp calculator free, due date adjustment for irregular cycles calculator, due date calculator with 28 vs 30 day cycle free, c section scheduled date from due date calculator free, how many weeks until my due date counter free usa, first ultrasound due date accuracy calculator free`,
+`,
   howItWorks: `The standard estimated due date (EDD) calculation uses Naegele's Rule: EDD = first day of LMP + 280 days (40 weeks). This assumes a 28-day cycle with ovulation at day 14 — the rule adds 7 days to LMP then counts forward 9 months. For cycles different from 28 days, the EDD is adjusted: add (cycle length - 28) days.
 
 For IVF pregnancies: fresh day-5 blastocyst transfer: EDD = transfer date + 261 days (37 weeks); day-3 transfer: EDD = transfer date + 263 days; frozen-thawed blastocyst: EDD = transfer date + 261 days (adjusted to calendar date of natural cycle ovulation for non-synchronized FET).

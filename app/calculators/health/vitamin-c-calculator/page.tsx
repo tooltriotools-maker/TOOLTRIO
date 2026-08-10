@@ -62,7 +62,7 @@ What is unambiguous is vitamin C's role as an essential cofactor in collagen syn
 
 This calculator estimates your current vitamin C intake from food, assesses whether you're meeting the RDA and functional saturation levels, and identifies high-risk periods where additional intake may warrant increased supplementation.
 
-**Long-tail searches answered here:** vitamin c daily needs calculator free online usa, how much vitamin c should i take calculator, vitamin c deficiency risk calculator free no account, optimal vitamin c intake calculator by lifestyle free, am i getting enough vitamin c calculator usa, vitamin c supplement dose calculator free online, vitamin c for immune support dosage calculator usa free, vitamin c loading dose for illness calculator free, vitamin c from food vs supplement calculator comparison, daily vitamin c from citrus fruits only calculator usa, vitamin c and iron absorption timing calculator free, upper tolerable limit vitamin c calculator usa free, vitamin c and collagen production dose calculator free, high dose vitamin c therapy risk calculator usa, vitamin c and kidney stone risk calculator free online`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate vitamin c from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

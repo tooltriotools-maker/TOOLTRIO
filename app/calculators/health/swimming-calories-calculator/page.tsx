@@ -62,7 +62,7 @@ Stroke choice also matters significantly. Butterfly and breaststroke are the mos
 
 This calculator estimates calorie expenditure based on your weight, swim distance or duration, stroke type, estimated pace, and skill level — with adjustments that account for the drag-reducing effect of better swimming efficiency at higher skill levels.
 
-**Long-tail searches answered here:** swimming calorie burn calculator free online usa, calories burned swimming calculator by stroke and speed, how many calories do i burn swimming 30 minutes free, swimming vs running calorie burn calculator no signup, lap swimming calorie calculator by weight and distance usa, calories burned freestyle swimming calculator free, backstroke vs breaststroke vs butterfly calorie burn calculator, open water swimming calorie burn calculator usa free, swimming calories per lap calculator by pool length free, how pool temperature affects swim calorie burn calculator, swimming calorie burn compared to walking calculator usa, water aerobics vs lap swimming calorie burn calculator, swim duration needed to burn 500 calories calculator free usa, competitive vs recreational swimming calorie comparison, triathlon swim portion calorie estimator free usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate swimming calories from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

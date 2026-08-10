@@ -13,7 +13,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   { question: 'How are extra payments applied in this calculator?', answer: 'The monthly extra is added to every scheduled payment, while the annual extra is applied every twelfth month. Both reduce principal in the accelerated schedule.' },
   { question: 'Why do extra principal payments reduce interest?', answer: 'Mortgage interest is calculated from the outstanding balance. Reducing principal earlier lowers the balance on which later interest is calculated.' },
-  { question: 'Is paying extra equivalent to earning the mortgage rate?', answer: 'Not exactly. It avoids future interest at the loan rate, but liquidity, taxes, mortgage deductions and alternative investments make the economic comparison different from a guaranteed investment return.' },
+  { question: 'Is paying extra equivalent to earning the mortgage rate?', answer: 'Not exactly. It avoids future interest at the loan rate, but liquidity, taxes, mortgage deductions and alternative investments make the economic comparison different from an investment-return equivalent.' },
   { question: 'Does the model include prepayment penalties?', answer: 'No. Check your loan documents and servicer rules for any restrictions and confirm extra payments are applied to principal.' },
   { question: 'Does this work for adjustable-rate mortgages?', answer: 'The calculation assumes the entered rate remains fixed for the remaining term, so it does not model future ARM rate resets.' },
 ]

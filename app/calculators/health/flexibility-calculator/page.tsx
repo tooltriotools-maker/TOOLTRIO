@@ -62,7 +62,7 @@ Sit-and-reach tests, shoulder flexibility assessments, hip mobility screens, and
 
 This calculator scores your flexibility across major movement domains and provides a prioritized mobility training plan based on your assessment results, training goals, and time available for flexibility work.
 
-**Long-tail searches answered here:** flexibility score calculator free online usa, how flexible am i calculator free tool, sit and reach flexibility assessment calculator, range of motion score calculator no signup free, am i above average flexibility calculator usa, yoga flexibility baseline calculator free online, hamstring flexibility score by age calculator free usa, hip flexor tightness risk score calculator free, flexibility vs age comparison calculator usa free, upper body vs lower body flexibility balance calculator, flexibility improvement rate calculator by training type, injury risk from inflexibility score calculator usa free, how many weeks to improve flexibility calculator free, foam rolling benefit on flexibility calculator usa free, daily stretching duration for flexibility gain calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate flexibility from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

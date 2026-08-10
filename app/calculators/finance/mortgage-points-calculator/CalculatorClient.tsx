@@ -96,9 +96,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Enter the actual rate reduction quoted for the exact number of points—there is no universal rate reduction per point. Compare alternatives with the same lock date and loan terms, and consider how likely you are to sell or refinance before break even."
           conclusion="Points are economically favorable in this model only when you keep the reduced-rate loan long enough for cumulative payment savings to exceed the upfront cost. Taxes and other closing-cost differences are outside the calculation."
           benefits={[
-            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
+            {title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},

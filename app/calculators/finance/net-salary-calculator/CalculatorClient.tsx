@@ -87,9 +87,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Use gross annual salary and annual employee contributions. Treat the result as a planning estimate; an actual paycheck can differ because payroll withholding is based on pay frequency, Form W-4 elections, benefit treatment, bonuses, and state/local rules."
           conclusion="This calculator is best for rough California take-home comparisons, not filing a tax return or predicting an exact paycheck."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
+            {title:"Calculator results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},

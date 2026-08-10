@@ -121,9 +121,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Use net price after grants rather than sticker price. Test lower starting salaries and incomplete-degree scenarios. The model holds the salary gap constant, so it does not capture different raise rates, unemployment, career switching or graduate school."
           conclusion="A positive modeled NPV or ROI means the salary assumptions outweigh the modeled cost—not that enrollment is guaranteed to pay off. Program completion, debt burden and actual career outcomes remain central."
           benefits={[
-            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
+            {title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},

@@ -130,9 +130,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Use the annual conversion input as a scenario variable, not a recommended amount. A conversion can raise taxable income and affect other tax items, so compare the calculator with an actual tax projection before executing a conversion."
           conclusion="The output is a simplified tax-rate comparison, not a prediction of lifetime tax savings. Roth conversions are taxable events and the best conversion schedule depends on your full return and retirement-income picture."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results follow the calculation methodology and assumptions explained on this page."},
+            {title:"Calculator results",text:"Results follow the calculation methodology and assumptions explained on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use the calculator inputs to test a concrete planning scenario."},

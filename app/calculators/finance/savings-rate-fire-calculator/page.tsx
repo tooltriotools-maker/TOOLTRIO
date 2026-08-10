@@ -17,7 +17,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'How does savings rate affect years to retirement?',
-    answer: 'Savings rate is the single most powerful lever in FIRE planning — more than investment returns. At 10% savings rate: ~40 years to FIRE. At 25%: ~32 years. At 50%: ~17 years. At 70%: ~8.5 years. The math: higher savings rate both increases the money going in AND reduces the amount needed at retirement (since you live on less). This double effect makes savings rate exponentially powerful.',
+    answer: 'Savings rate is the single most useful lever in FIRE planning — more than investment returns. At 10% savings rate: ~40 years to FIRE. At 25%: ~32 years. At 50%: ~17 years. At 70%: ~8.5 years. The math: higher savings rate both increases the money going in AND reduces the amount needed at retirement (since you live on less). This double effect makes savings rate exponentially useful.',
   },
   {
     question: 'What savings rate do I need to retire in 10 years?',
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: 'How do I increase my savings rate?',
-    answer: "Two levers: earn more and spend less — but the math heavily favors the spend side for most people. Reducing spending by $10,000/year both adds $10,000 to savings AND reduces your FIRE number by $250,000 (at 4% SWR). Earning $10,000 more adds $10,000 to savings but doesn't reduce the FIRE target. The most powerful FIRE strategy combines income growth with lifestyle optimization, not lifestyle inflation.",
+    answer: "Two levers: earn more and spend less — but the math heavily favors the spend side for most people. Reducing spending by $10,000/year both adds $10,000 to savings AND reduces your FIRE number by $250,000 (at 4% SWR). Earning $10,000 more adds $10,000 to savings but doesn't reduce the FIRE target. The most useful FIRE strategy combines income growth with lifestyle optimization, not lifestyle inflation.",
   }
 ]
 const relatedCalculators = [

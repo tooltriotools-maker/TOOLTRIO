@@ -62,7 +62,7 @@ Lifestyle factors matter more than most people account for in their skincare app
 
 This calculator assesses your skin health across UV damage risk, acne susceptibility, barrier health, aging factors, and skin cancer risk — giving you a prioritized action plan based on your specific skin type, history, and habits.
 
-**Long-tail searches answered here:** skin health score calculator free online usa, how healthy is my skin calculator free tool, skin aging risk calculator by habits free no signup, uv damage skin risk calculator usa free, skin health assessment calculator online free 2026, skin care habit health impact calculator no account, lifetime uv exposure skin cancer risk calculator free, oxidative stress skin aging score calculator usa free, diet and skin health correlation calculator free online, sleep deprivation visible skin aging calculator usa free, skin hydration adequacy calculator by water intake free, collagen production decline rate calculator usa free, retinol vs spf priority for skin health calculator free, how pollution affects skin health score calculator usa, skin care routine effectiveness score calculator free`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

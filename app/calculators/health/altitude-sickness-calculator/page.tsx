@@ -61,7 +61,7 @@ This calculator uses the Lake Louise AMS scoring criteria and established altitu
 
 For travel involving significant altitude changes — Kilimanjaro, the Andes, Colorado 14ers, high-altitude trekking in Nepal — the planning guidance here can help you build a safer itinerary.
 
-**Long-tail searches answered here:** altitude sickness risk calculator free online usa, am i at risk for altitude sickness calculator, high altitude acclimatization calculator free tool, altitude adjustment calculator for exercise, how high is too high for altitude sickness, elevation sickness risk calculator no signup, altitude sickness risk for denver colorado calculator free, symptoms of altitude sickness at 8000 feet calculator, how long to acclimatize to 10000 feet elevation free, altitude sickness prevention calculator by ascent rate, ams acute mountain sickness risk score calculator free, how altitude affects exercise performance calculator usa, safe ascent rate above 8000 feet calculator free online, altitude sickness medication need calculator usa free, high altitude camping safety calculator by elevation free`,
+`,
   howItWorks: `Acclimatization risk is calculated using the Lake Louise Acute Mountain Sickness (AMS) scoring system combined with ascent rate and destination altitude. The critical thresholds: above 2,500 meters (8,200 ft), AMS symptoms can occur; above 3,500 meters risk increases substantially; above 5,500 meters all unacclimatized individuals experience some degree of altitude effect. The 'climb high, sleep low' principle reflects that nighttime low-altitude sleep allows physiological adjustment to occur with lower hypoxic stress.`,
   benefits: [
   ],

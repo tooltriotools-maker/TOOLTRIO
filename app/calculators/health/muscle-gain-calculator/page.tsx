@@ -62,7 +62,7 @@ Sleep is often the overlooked fourth variable. Human growth hormone secretion pe
 
 This calculator estimates your realistic muscle gain potential based on your training experience, and sets calorie, protein, and training volume targets calibrated to your goals.
 
-**Long-tail searches answered here:** muscle gain calculator free online usa, how much muscle can i gain per month calculator, realistic muscle building timeline calculator free, muscle building calorie surplus calculator no signup, natural muscle gain potential calculator free tool, how fast can i build muscle calculator by age weight, beginner gains muscle building rate calculator usa free, muscle gain calculator for women vs men difference, newbie gains duration estimator free calculator usa, muscle gain rate after first year plateau calculator, calorie surplus for lean bulking muscle gain calculator usa, muscle gain timeline for 10 20 30 pounds calculator free, how age affects muscle building rate calculator usa, muscle gain calculator by body fat percentage starting point, expected muscle gain from progressive overload calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate muscle gain from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

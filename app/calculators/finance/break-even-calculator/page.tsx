@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free break even calculator',
     'break even calculator online',
     'best break even calculator 2026',
-    'break even calculator no signup',
+    'break even calculator ',
     'accurate break even calculator',
     'how to calculate break even',
     'tooltrio.com',

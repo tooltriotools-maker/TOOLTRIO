@@ -119,7 +119,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏥 HSA Investment Calculator USA 2026 — Triple Tax Advantage — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The HSA is arguably the most powerful tax-advantaged account in the US tax code — contributions reduce taxable income, growth is tax-free, and qualified medical withdrawals are never taxed. Investing your HSA rather than spending it immediately creates a powerful medical expense reserve that grows tax-free for decades.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The HSA is arguably the most useful tax-advantaged account in the US tax code — contributions reduce taxable income, growth is tax-free, and qualified medical withdrawals are never taxed. Investing your HSA rather than spending it immediately creates a useful medical expense reserve that grows tax-free for decades.</p>
               </Card>
             </>
           ) : (
@@ -141,7 +141,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           benefits={[
             { title: "Methodology-specific results", text: "Outputs follow the formulas and assumptions described on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Decision support", text: "Use your own inputs to evaluate the specific calculation shown here." },

@@ -108,9 +108,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         <SEOContent title="Early Mortgage Payoff Calculator USA 2026 — Extra Payment Savings" category="finance"
           intro="This calculator compares your remaining mortgage schedule with a schedule that adds an extra monthly amount plus an annual extra payment. It reports the modeled payoff date and interest difference."
           howItWorks="The base payment uses current balance, rate and remaining term. Each month interest is charged on outstanding principal. The accelerated schedule adds the monthly extra and applies the annual extra every twelfth month until the balance reaches zero."
-          tipsSection="Extra principal avoids future mortgage interest, but describing it as a guaranteed investment return is misleading because taxes, liquidity and alternative uses of cash differ. Confirm extra payments are applied to principal."
+          tipsSection="Extra principal avoids future mortgage interest, but describing it as a interest saving from reducing the loan balance is misleading because taxes, liquidity and alternative uses of cash differ. Confirm extra payments are applied to principal."
           conclusion="The model assumes a fixed-rate loan and unchanged scheduled payment; it does not value tax deductions, investment alternatives, refinancing or escrow."
-          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Methodology-specific results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Decision support",text:"Model your situation with real numbers."},{title:"Assumption testing",text:"Change inputs to see the impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

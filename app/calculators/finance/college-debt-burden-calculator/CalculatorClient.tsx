@@ -85,7 +85,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="The page amortizes the entered balance over the selected term and calculates annual payment ÷ expected salary. It also compares debt with one year of salary. The 10% affordability line is a ToolTrio planning heuristic, not a federal eligibility rule."
           tipsSection="Worked example: For $40,000 at 6.5% over 10 years, the calculator estimates the fixed payment and then measures twelve payments against the salary you enter."
           conclusion="Important assumptions and limitations: The IDR and forgiveness fields are simplified scenarios and do not implement current Department of Education plan eligibility, discretionary-income definitions or forgiveness rules. Results are educational estimates, not individualized financial, tax, legal or investment advice."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

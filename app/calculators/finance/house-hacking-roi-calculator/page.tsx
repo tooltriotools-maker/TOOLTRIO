@@ -8,12 +8,12 @@ export const metadata: Metadata = generateCalculatorMetadata({
   slug: 'house-hacking-roi-calculator',
   category: 'finance',
   region: 'usa',
-  keywords: ['house hacking calculator USA 2026', 'house hacking ROI', 'duplex triplex house hack', 'FHA house hacking calculator', 'live for free calculator real estate'],
+  keywords: ['house hacking calculator USA 2026', 'house hacking ROI', 'duplex triplex house hack', 'FHA house hacking calculator', 'live for calculator real estate'],
 })
 const faqs = [
   {
     question: 'What is house hacking?',
-    answer: 'House hacking means buying a multi-unit property (duplex, triplex, fourplex), living in one unit, and renting the others. The rental income reduces or eliminates your mortgage payment. FHA loans allow 3.5% down on 1-4 unit properties if you owner-occupy — making this one of the most powerful wealth-building strategies for first-time buyers.',
+    answer: 'House hacking means buying a multi-unit property (duplex, triplex, fourplex), living in one unit, and renting the others. The rental income reduces or eliminates your mortgage payment. FHA loans allow 3.5% down on 1-4 unit properties if you owner-occupy — making this one of the most useful wealth-building strategies for first-time buyers.',
   },
   {
     question: 'How much can house hacking save?',

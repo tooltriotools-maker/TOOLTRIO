@@ -62,7 +62,7 @@ Visceral fat — the fat stored inside the abdominal cavity around the liver, in
 
 Waist measurement technique matters: measured at the midpoint between the lowest rib and the top of the hip bone, relaxed (not sucked in), at the end of a normal exhale, with a non-stretchy tape measure.
 
-**Long-tail searches answered here:** waist to height ratio calculator free online usa, is my waist size healthy for my height calculator, waist height ratio risk calculator free no account, abdominal obesity calculator usa free online, waist measurement health risk calculator free tool, belly fat risk calculator by waist and height usa, whr waist to height compared to bmi calculator, central obesity risk from waist to height ratio free, cardiovascular risk predictor waist height ratio calculator, waist to height ratio 0.5 benchmark meaning calculator usa, visceral fat estimation from waist to height calculator free, waist to height ratio for men vs women standards free, how accurate is waist to height vs bmi calculator usa, ethnic specific waist to height cutoffs calculator free, waist to height vs waist to hip ratio comparison calculator`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate waist to height ratio from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

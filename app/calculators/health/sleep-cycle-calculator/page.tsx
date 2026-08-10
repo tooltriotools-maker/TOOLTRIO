@@ -60,7 +60,7 @@ This calculator finds the optimal wake-up times based on 90-minute cycle interva
 
 Combine this with [our Sleep Need Calculator](/calculators/health/sleep-need-calculator) to ensure you are getting enough total sleep, not just optimally timed sleep.
 
-**Long-tail searches answered here:** sleep cycle calculator free online usa, best time to wake up calculator by bedtime free, sleep cycle alarm calculator no signup free tool, how many sleep cycles per night calculator usa, rem sleep schedule calculator free online, optimal bedtime calculator by wake time free no account, best time to go to bed for 6 am wake up free, how many sleep cycles in 7 hours of sleep calculator, sleep quality score calculator by cycle completions free, how long is one complete sleep cycle calculator usa, best wake time to avoid sleep inertia calculator free, sleep cycle stages nrem rem timing calculator usa, how to time alarm for sleep cycles calculator free, sleep efficiency calculator by cycle and duration free, light sleep vs deep sleep cycle calculator free usa`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
     {title:"Wake-up time calculator",text:"Enter your required wake time and instantly see the best times to go to sleep — calculated backwards from your alarm so you plan to wake up naturally between cycles rather than in the middle of deep sleep."},

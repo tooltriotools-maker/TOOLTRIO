@@ -14,7 +14,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 const faqs = [
   {
     question: 'What is the Black-Scholes model?',
-    answer: "Black-Scholes (1973) is the standard formula for pricing European-style options. It takes five inputs: current stock price, strike price, time to expiry, risk-free rate, and implied volatility. The formula outputs a theoretical 'fair value' for calls and puts. Real market prices deviate from B-S due to volatility skew, liquidity, and dividend adjustments, but it remains the industry standard pricing foundation.",
+    answer: "Black-Scholes (1973) is the standard formula for pricing European-style options. It takes five inputs: current stock price, strike price, time to expiry, lower-risk reference rate, and implied volatility. The formula outputs a theoretical 'fair value' for calls and puts. Real market prices deviate from B-S due to volatility skew, liquidity, and dividend adjustments, but it remains the industry standard pricing foundation.",
   },
   {
     question: 'What does delta mean in options?',

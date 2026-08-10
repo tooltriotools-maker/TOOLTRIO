@@ -62,7 +62,7 @@ Below parallel (hip crease below the top of the knee) ensures full hamstring and
 
 This calculator estimates your 1RM from submaximal performance, generates a complete percentage chart for programming, assesses your strength relative to bodyweight benchmarks, and identifies common form issues.
 
-**Long-tail searches answered here:** squat strength calculator free online usa, how much should i be able to squat for my weight calculator, squat max calculator by reps and weight free tool, squat strength standards by age and gender calculator, is my squat weight good calculator usa free, squat one rep max calculator from reps no signup, beginner squat standards for first year lifter calculator, squat to deadlift ratio strength balance calculator free, front squat vs back squat equivalence calculator usa, how much weight to add per week squat progress calculator, squat depth effect on muscle activation calculator free, pause squat benefit vs regular squat calculator usa free, squat mobility requirement assessment calculator free, how long to reach 2x bodyweight squat calculator free, squat belt use threshold by weight calculator usa free`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

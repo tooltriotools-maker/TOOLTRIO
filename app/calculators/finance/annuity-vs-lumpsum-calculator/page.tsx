@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free annuity vs lumpsum calculator',
     'annuity vs lumpsum calculator online',
     'best annuity vs lumpsum calculator 2026',
-    'annuity vs lumpsum calculator no signup',
+    'annuity vs lumpsum calculator ',
     'accurate annuity vs lumpsum calculator',
     'how to calculate annuity vs lumpsum',
     'tooltrio.com',

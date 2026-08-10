@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free sip calculator',
     'sip calculator online',
     'best sip calculator 2026',
-    'sip calculator no signup',
+    'sip calculator ',
     'accurate sip calculator',
     'how to calculate sip',
     'tooltrio.com',

@@ -56,13 +56,13 @@ const seoContent = {
   category: 'health' as const,
   intro: `Your immune system doesn't operate in isolation from the rest of your lifestyle — it's deeply integrated with your sleep, nutrition, stress, and physical activity patterns in ways that produce real, measurable differences in immune function. The immune system isn't something you boost with supplements (a marketing term without meaningful biological definition); it's something you maintain through consistent foundational habits or undermine through chronic deprivation.
 
-Sleep is the most powerful single variable. A landmark study published in JAMA Internal Medicine found that people who slept fewer than 6 hours per night were 4.2 times more likely to catch a cold when directly exposed to rhinovirus compared to those who slept 7 or more hours. You cannot supplement your way around inadequate sleep.
+Sleep is the most useful single variable. A landmark study published in JAMA Internal Medicine found that people who slept fewer than 6 hours per night were 4.2 times more likely to catch a cold when directly exposed to rhinovirus compared to those who slept 7 or more hours. You cannot supplement your way around inadequate sleep.
 
 Chronic stress chronically elevates cortisol, which suppresses immune response — particularly adaptive immunity. This is why people often get sick immediately after a period of sustained stress ends. Moderate acute stress (exercise, cold exposure) actually briefly stimulates immunity; it's the chronic unremitting variety that does damage.
 
 This calculator evaluates your immune health across its main lifestyle drivers — sleep quality and quantity, nutritional status, stress load, physical activity, and environmental exposures — and gives you a prioritized list of the factors most likely to be compromising your immune resilience.
 
-**Long-tail searches answered here:** immune system health calculator free online usa, how strong is my immune system calculator free tool, immune health score calculator no signup, immunity risk calculator by lifestyle habits free, how to boost immune system score calculator usa, immune health assessment calculator free online, lifestyle factors immune function calculator usa free, sleep impact on immune strength calculator free online, chronic stress immune suppression score calculator, nutritional deficiency immune function impact calculator usa, immune health score for cancer prevention calculator free, gut microbiome connection to immunity calculator usa free, exercise frequency immune benefit score calculator free, age related immune decline calculator usa free online, autoimmune risk score from lifestyle calculator free`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate immune health from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free lumpsum calculator',
     'lumpsum calculator online',
     'best lumpsum calculator 2026',
-    'lumpsum calculator no signup',
+    'lumpsum calculator ',
     'accurate lumpsum calculator',
     'how to calculate lumpsum',
     'tooltrio.com',

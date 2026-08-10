@@ -76,7 +76,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="This tool estimates the health-insurance gap between an early retirement age and Medicare eligibility. COBRA months are priced at 202% of the entered current premium; remaining bridge months use age-based ACA premium assumptions built into the calculator."
           tipsSection="If retirement begins at 60 and Medicare begins at 65, the bridge is 60 months. Entering 18 COBRA months assigns the other 42 months to the calculator’s ACA scenario."
           conclusion="Actual COBRA premiums, Marketplace premiums, premium tax credits and Medicare costs depend on plan, household income, location and eligibility. The calculator now uses the 2026 standard Part B premium of $202.90 in its long-range scenario, but future premiums will change."
-          benefits={[{title:"Real-Time USA Results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Calculator-specific scenario outputs."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

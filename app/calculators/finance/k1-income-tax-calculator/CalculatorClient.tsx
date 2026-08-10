@@ -98,7 +98,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="The current model applies passive losses against modeled ordinary/self-rental income, estimates self-employment tax on guaranteed payments, applies a simplified 20% QBI deduction and taxes capital gains at a flat 15%."
           tipsSection="Worked example: Enter ordinary income, guaranteed payments and passive losses separately: their tax treatment is not interchangeable, which is why this calculator keeps the components distinct."
           conclusion="Important assumptions and limitations: This is not a Form 1065/Schedule K-1 tax engine. Basis, at-risk rules, SSTB/wage limits, NIIT, state tax and actual capital-gain brackets can materially change the result. Results are educational estimates, not individualized financial, tax, legal or investment advice."
-          benefits={[{title:"Real-Time",text:"Instant 2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No signup."}]}
+          benefits={[{title:"Real-Time",text:"Instant 2026 calculations."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact of changes."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

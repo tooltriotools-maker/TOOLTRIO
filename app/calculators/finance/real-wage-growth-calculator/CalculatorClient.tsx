@@ -101,7 +101,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="Nominal CAGR is derived from starting salary, current salary and years worked. The calculator then discounts current salary by (1 + average inflation)^years to express it in starting-year purchasing power."
           tipsSection="Worked example: A salary rising from $60,000 to $80,000 can still produce modest real growth if inflation compounded strongly over the same period."
           conclusion="Important assumptions and limitations: A single average inflation input cannot reproduce the exact CPI path or your personal spending basket. Results are purchasing-power estimates, not a compensation benchmark. Results are educational estimates, not individualized financial, tax, legal or investment advice."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

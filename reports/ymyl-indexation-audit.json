@@ -1,0 +1,36 @@
+{
+  "finance": {
+    "total": 389,
+    "counts": {
+      "tax_rule_review": 107,
+      "custom_estimate": 161,
+      "reviewed": 39,
+      "formula_review": 21,
+      "needs_manual_review": 61
+    },
+    "indexable": 389,
+    "redirectOnly": 0,
+    "noindex": 0
+  },
+  "health": {
+    "total": 173,
+    "counts": {
+      "redirect_only": 1,
+      "reviewed": 51,
+      "needs_manual_review": 8,
+      "verified_formula": 4,
+      "needs_formula_review": 21,
+      "custom_estimate": 88
+    },
+    "indexable": 172,
+    "redirectOnly": 1,
+    "noindex": 0
+  },
+  "pass": true,
+  "failures": [],
+  "healthStrictGate": {
+    "total": 11,
+    "ready": 11,
+    "failures": []
+  }
+}

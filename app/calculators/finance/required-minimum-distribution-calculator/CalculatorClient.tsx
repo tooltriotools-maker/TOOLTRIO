@@ -103,9 +103,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="The projection is only a scenario: it assumes the account balance declines 5% per year before applying later age factors. That is not an IRS forecast and is not an investment-return assumption you should rely on."
           conclusion="This implementation supports Uniform Lifetime factors from ages 73–100 and is not suitable for every inherited-account or spouse-more-than-10-years-younger situation. Verify the applicable IRS table and beginning age for your circumstances."
           benefits={[
-            { title: "Real-Time USA Results", text: "Calculator-specific scenario outputs based on the inputs and assumptions described above." },
+            { title: "Calculator results", text: "Calculator-specific scenario outputs based on the inputs and assumptions described above." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

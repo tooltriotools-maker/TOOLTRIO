@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free paycheck calculator',
     'paycheck calculator online',
     'best paycheck calculator 2026',
-    'paycheck calculator no signup',
+    'paycheck calculator ',
     'accurate paycheck calculator',
     'how to calculate paycheck',
     'tooltrio.com',

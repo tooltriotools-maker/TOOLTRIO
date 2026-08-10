@@ -93,7 +93,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           howItWorks="The existing function caps modeled purchases at $10,000 per year, applies its embedded fixed/inflation-rate assumptions, compounds semiannually, and removes three months of modeled interest for holdings under five years. TreasuryDirect states I bonds cannot be redeemed during the first year and lose the last three months of interest if redeemed before five years."
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
-          benefits={[{title:"Real-Time USA Results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup or paywall."}]}
+          benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Model your situation with real numbers."},{title:"Scenario Comparison",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

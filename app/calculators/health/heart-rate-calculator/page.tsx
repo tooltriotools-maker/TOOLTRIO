@@ -60,7 +60,7 @@ Whether you are training for endurance, trying to improve metabolic health, buil
 
 Combine your zones with [our VO2 Max Calculator](/calculators/health/vo2-max-calculator) for a complete cardiovascular fitness picture.
 
-**Long-tail searches answered here:** target heart rate calculator free online usa, max heart rate calculator by age formula free, heart rate zones calculator for cardio training, what heart rate is too high during exercise calculator, resting heart rate healthy range calculator usa free, heart rate zone calculator for fat burning no signup, maximum heart rate formula 220 minus age calculator free, heart rate for zone 2 training calculator usa free, fat burning heart rate zone for 45 year old free, dangerous heart rate during exercise calculator usa, heart rate zone 4 vs zone 5 cardio calculator free, how long in each heart rate zone calculator free online, heart rate zones for 50 year old woman calculator free, recovery heart rate after exercise calculator usa free, heart rate zone calculator for weight loss cardio free`,
+`,
   howItWorks: `Max HR calculation uses the Tanaka formula (most accurate for most adults): Max HR = 208 − (0.7 × age). Heart Rate Reserve (HRR) = Max HR − Resting HR.
 
 Karvonen zones: Target HR = Resting HR + (HRR × zone percentage). Zone 1 (50-60% HRR), Zone 2 (60-70% HRR), Zone 3 (70-80% HRR), Zone 4 (80-90% HRR), Zone 5 (90-100% HRR).

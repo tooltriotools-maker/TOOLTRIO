@@ -62,7 +62,7 @@ Protein quality matters alongside quantity. Animal proteins (whey, casein, eggs,
 
 This calculator sets your per-meal protein targets based on your body weight, goal, number of meals, and training schedule — with food-source recommendations that meet your leucine threshold at each meal.
 
-**Long-tail searches answered here:** protein per meal calculator free online usa, how much protein should i eat per meal calculator free, optimal protein distribution per meal calculator, maximum protein absorption per sitting calculator free, protein timing calculator for muscle building no signup, how to spread protein throughout the day calculator usa, protein synthesis window per meal calculator free online, 20g vs 40g protein per meal muscle response calculator, protein meal frequency for fat loss calculator usa free, equal vs front loaded protein timing calculator free, protein at breakfast importance calculator usa free, how to hit protein goals in 3 vs 6 meals calculator, protein meal planning calculator by total daily goal free, late night protein shake benefit calculator usa free, plant protein per meal vs animal protein calculator free`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

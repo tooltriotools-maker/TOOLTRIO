@@ -62,7 +62,7 @@ The wall is a real physiological event. At marathon effort, your body burns thro
 
 This calculator generates your personalized marathon training plan including weekly mileage progression, long run schedule, goal finish time based on current fitness, and race-day pacing strategy.
 
-**Long-tail searches answered here:** marathon training pace calculator free online usa, how long to train for a marathon calculator, marathon finish time predictor free tool, marathon training plan calculator by current fitness, first marathon training time calculator free no signup, marathon prep weekly mileage calculator usa free, marathon pace predictor from half marathon time free, beginner marathon weekly mileage build calculator, marathon training volume calculator by experience level usa, predicted marathon time from 5k or 10k free calculator, marathon race strategy pace split calculator free, boston marathon qualifying time calculator by age free, how many miles per week for marathon training calculator, long run pace vs race pace calculator for marathon free, marathon training fatigue and recovery calculator usa`,
+`,
   howItWorks: `This calculator uses the method documented for this specific calculator to estimate marathon training from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

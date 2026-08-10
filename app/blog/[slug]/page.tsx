@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { allBlogPosts } from '@/lib/blog/posts'
+import { publishedBlogPosts } from '@/lib/blog/posts'
+import { MarkdownContent } from '@/lib/blog/markdown'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -15,12 +16,12 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return allBlogPosts.map(post => ({ slug: post.slug }))
+  return publishedBlogPosts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = allBlogPosts.find(p => p.slug === slug)
+  const post = publishedBlogPosts.find(p => p.slug === slug)
   if (!post) return { title: 'Post Not Found | ToolTrio' }
   return {
     title: post.seoTitle ,
@@ -33,53 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://tooltrio.com/blog/${slug}`,
       siteName: 'ToolTrio',
       type: 'article',
-      images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio Blog' }],
+      images: [{ url: `https://tooltrio.com/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.seoTitle }],
     },
   }
 }
 
-function renderMarkdown(content: string) {
-  const lines = content.split('\n')
-  const result: React.JSX.Element[] = []
-  let i = 0
-  while (i < lines.length) {
-    const line = lines[i]
-    if (line.startsWith('# ')) {
-      result.push(<h1 key={i} className="text-3xl font-black text-gray-900 mt-8 mb-4" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{line.slice(2)}</h1>)
-    } else if (line.startsWith('## ')) {
-      result.push(<h2 key={i} className="text-2xl font-bold text-gray-900 mt-6 mb-3">{line.slice(3)}</h2>)
-    } else if (line.startsWith('### ')) {
-      result.push(<h3 key={i} className="text-xl font-bold text-gray-800 mt-4 mb-2">{line.slice(4)}</h3>)
-    } else if (line.startsWith('- ') || line.startsWith('* ')) {
-      const items: string[] = []
-      while (i < lines.length && (lines[i].startsWith('- ') || lines[i].startsWith('* '))) {
-        items.push(lines[i].slice(2))
-        i++
-      }
-      result.push(
-        <ul key={i} className="list-disc pl-6 mb-4 space-y-1">
-          {items.map((item, j) => (
-            <li key={j} className="text-gray-700" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-          ))}
-        </ul>
-      )
-      continue
-    } else if (line.trim() === '') {
-      result.push(<div key={i} className="mb-2" />)
-    } else {
-      result.push(
-        <p key={i} className="text-gray-700 leading-relaxed mb-4"
-          dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-      )
-    }
-    i++
-  }
-  return result
-}
-
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params
-  const post = allBlogPosts.find(p => p.slug === slug)
+  const post = publishedBlogPosts.find(p => p.slug === slug)
   if (!post) notFound()
 
   const articleSchema = {
@@ -89,13 +51,13 @@ export default async function BlogPost({ params }: Props) {
     description: post.seoDescription,
     image: {
       '@type': 'ImageObject',
-      url: 'https://tooltrio.com/og-image.png',
+      url: `https://tooltrio.com/blog/${post.slug}/opengraph-image`,
       width: 1200,
       height: 630,
     },
     author: {
       '@type': 'Person',
-      name: 'ToolTrio Editorial Team',
+      name: post.author,
       url: 'https://tooltrio.com/about',
       worksFor: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
     },
@@ -169,7 +131,7 @@ export default async function BlogPost({ params }: Props) {
 
           {/* Article Content */}
           <article className="prose-green max-w-none">
-            {renderMarkdown(post.content)}
+            <MarkdownContent content={post.content} />
           </article>
 
           {/* Tags */}

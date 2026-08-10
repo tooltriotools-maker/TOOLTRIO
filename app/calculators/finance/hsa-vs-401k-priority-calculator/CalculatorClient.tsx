@@ -75,7 +75,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 It's built for anyone contributing to a 401k who is also enrolled in an HSA-eligible high-deductible health plan (HDHP), and who wants a clear answer to "HSA or 401k first?" instead of general advice.`}
           howItWorks={`The calculator applies a widely used contribution-priority framework, then converts each step into a dollar amount based on your inputs:
 
-Step 1 — Capture the full employer 401k match: Match Value = Salary × min(Match %, 6%). This is treated as priority #1 because it's an immediate, guaranteed return — typically 50-100% — that nothing else can match.
+Step 1 — Capture the full employer 401k match: Match Value = Salary × min(Match %, 6%). This is treated as priority #1 because it's an immediate, stated return under the applicable terms — typically 50-100% — that nothing else can match.
 
 Step 2 — Max the HSA (if HDHP-eligible): the HSA is prioritized above further 401k contributions because it's the only account offering all three tax benefits — a deduction going in, tax-free growth, and tax-free withdrawals for qualified medical expenses. Your estimated tax savings are calculated as HSA Limit × (Marginal Tax Rate + 7.65% payroll tax).
 

@@ -114,9 +114,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Build expenses from realistic property tax, insurance, maintenance, management, HOA and reserve estimates. Closing costs, rehab, selling costs, income taxes and depreciation recapture are not included, so the total-return output can overstate net proceeds."
           conclusion="Use cap rate to evaluate the property independent of financing and cash-on-cash return to evaluate the modeled equity investment. Stress-test vacancy, expenses and rent before relying on the result."
           benefits={[
-            {title:"Real-Time USA Results",text:"Uses the calculator-specific assumptions shown on this page."},
+            {title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},

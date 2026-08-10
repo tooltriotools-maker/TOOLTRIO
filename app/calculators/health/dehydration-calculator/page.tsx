@@ -62,7 +62,7 @@ Signs of dehydration beyond thirst include dark yellow or amber urine, headache,
 
 This calculator estimates your baseline daily fluid needs based on body weight, activity level, climate, and health status, plus your estimated sweat rate during exercise to give you targeted hydration targets for both rest and exercise.
 
-**Long-tail searches answered here:** dehydration risk calculator free online usa, am i dehydrated calculator free tool, how to tell if you are dehydrated calculator, dehydration severity calculator by symptoms free, daily water loss calculator free no account, how much fluid do i need to rehydrate calculator, dehydration percentage body weight loss calculator free, signs of mild vs moderate dehydration calculator usa, urine color dehydration level interpreter free online, exercise dehydration rate calculator by sweat volume, daily dehydration prevention intake calculator usa free, dehydration risk for elderly adults calculator free, hot weather dehydration risk calculator usa free, athlete rehydration volume calculator after exercise free, dehydration headache risk score calculator usa free`,
+`,
   howItWorks: `Fluid deficit is estimated using body weight change or clinical signs. Weight method: each kilogram of body weight lost during activity represents approximately 1 liter of fluid loss (1kg water = 1L). Fluid deficit = (pre-activity weight - post-activity weight) in kg × 1000 mL.
 
 Clinical severity estimation without weight data uses urine color and symptoms: pale yellow = euhydrated; yellow = mild dehydration (~1-2% body weight); dark yellow = moderate dehydration (3-4%); amber/orange = severe (5%+). Rehydration volume = estimated fluid deficit × 1.5 (replace 150% to account for ongoing losses and urination).`,

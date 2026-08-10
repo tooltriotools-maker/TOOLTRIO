@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free home loan calculator',
     'home loan calculator online',
     'best home loan calculator 2026',
-    'home loan calculator no signup',
+    'home loan calculator ',
     'accurate home loan calculator',
     'how to calculate home loan',
     'tooltrio.com',
@@ -45,7 +45,7 @@ const faqs = [
  { question: 'What is PMI and when can I remove it?', answer: 'PMI (Private Mortgage Insurance) is required when your down payment is under 20%. It costs 0.5-1.5% of loan annually ($125-$375/month on a $300,000 loan). Under the Homeowners Protection Act, you can request PMI removal when your loan reaches 80% LTV (20% equity). Lenders must auto-cancel at 78% LTV. Refinancing when your home has appreciated to 80% LTV also eliminates PMI.' },
  { question: 'How much down payment do I need in 2026?', answer: 'Minimum down payments in 2026: Conventional loan -- 3% (first-time buyers) or 5% (repeat buyers). FHA loan -- 3.5% (credit 580+). VA loan -- 0% (eligible veterans). USDA loan -- 0% (eligible rural areas). However, putting 20% down eliminates PMI, saving $100-$500/month on most loans. Our calculator lets you model any down payment amount.' },
  { question: 'What is included in a mortgage payment (PITI)?', answer: 'A complete mortgage payment includes: Principal (loan repayment), Interest (lender fee -- the largest portion early on), Taxes (property taxes collected monthly into escrow -- typically 0.5-2.5% of home value annually depending on state), and Insurance (homeowner\'s insurance ~$1,400/year nationally). If down payment was under 20%, PMI is also included. Together these are called PITI.' },
- { question: 'Should I pay off my mortgage early or invest the extra money?', answer: 'If your mortgage rate is above 7%, paying off is a guaranteed return that\'s hard to beat. If below 5% (many pre-2022 mortgages), investing in index funds historically beats paying down the mortgage. At 6-7%, it\'s a close call that depends on your risk tolerance. Our pay-off-vs-invest calculator models your exact scenario with real numbers.' },
+ { question: 'Should I pay off my mortgage early or invest the extra money?', answer: 'If your mortgage rate is above 7%, paying off is a stated return under the applicable terms that\'s hard to beat. If below 5% (many pre-2022 mortgages), investing in index funds historically beats paying down the mortgage. At 6-7%, it\'s a close call that depends on your risk tolerance. Our pay-off-vs-invest calculator models your exact scenario with real numbers.' },
 ]
 
 export default function Page() {

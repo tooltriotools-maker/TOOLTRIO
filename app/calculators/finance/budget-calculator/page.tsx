@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free budget calculator',
     'budget calculator online',
     'best budget calculator 2026',
-    'budget calculator no signup',
+    'budget calculator ',
     'accurate budget calculator',
     'how to calculate budget',
     'tooltrio.com',

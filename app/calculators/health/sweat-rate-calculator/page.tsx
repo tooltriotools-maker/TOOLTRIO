@@ -62,7 +62,7 @@ Sweat sodium concentration is also individually variable — salty sweaters (ide
 
 This calculator guides you through a simple pre/post-exercise weight measurement protocol to determine your personal sweat rate, then calculates your specific fluid and electrolyte replacement targets.
 
-**Long-tail searches answered here:** sweat rate calculator free online usa, how much do i sweat during exercise calculator, hydration needs from sweat calculator free tool, sweat loss calculator by exercise duration weight free, electrolyte replacement from sweating calculator no signup, hourly sweat rate calculator usa free online, pre vs post exercise weight to sweat rate calculator free, sweat rate by temperature and humidity calculator usa, sodium loss from sweat electrolyte calculator free, sweat rate for endurance race hydration plan calculator, heavy sweater vs light sweater classification calculator usa, sweat rate test at home protocol calculator free, how to calculate your sweat rate simple guide usa, intra exercise fluid intake calculator from sweat rate free, sweat evaporation vs drip sweat efficiency calculator usa`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate sweat rate from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

@@ -61,7 +61,7 @@ Interval structure variables — work interval duration, rest interval duration,
 
 This calculator designs your HIIT protocol based on your training goal (cardio improvement, fat loss, performance, time efficiency), current fitness level, and available equipment — with rest intervals, intensity targets, and total session parameters calibrated to produce the target adaptation.
 
-**Long-tail searches answered here:** hiit workout calculator free online usa, hiit interval timing calculator free tool, how many calories does hiit burn calculator, hiit heart rate zone calculator no signup, best hiit work rest ratio calculator free online, calories burned hiit 20 minutes calculator usa, hiit frequency per week calculator free online, hiit calorie burn vs steady state cardio calculator, beginner hiit protocol calculator free usa online, hiit session design calculator by fitness level free, tabata protocol calorie burn calculator usa free, hiit recovery time between sessions calculator free, hiit for weight loss effectiveness calculator usa free, high intensity intervals calories burned by weight free, how to scale hiit intensity for beginners calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate hiit from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

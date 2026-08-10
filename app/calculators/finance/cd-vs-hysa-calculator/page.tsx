@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free cd vs hysa calculator',
     'cd vs hysa calculator online',
     'best cd vs hysa calculator 2026',
-    'cd vs hysa calculator no signup',
+    'cd vs hysa calculator ',
     'accurate cd vs hysa calculator',
     'how to calculate cd vs hysa',
     'tooltrio.com',

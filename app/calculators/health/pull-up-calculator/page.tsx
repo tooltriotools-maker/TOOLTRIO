@@ -62,7 +62,7 @@ The primary muscles trained are the latissimus dorsi, biceps, brachialis, rear d
 
 This calculator assesses your pull-up performance against age and sex norms, estimates your relative upper body pulling strength, identifies common form breakdowns, and generates a progression plan whether you're working toward your first pull-up or toward 20+.
 
-**Long-tail searches answered here:** pull up strength calculator free online usa, how many pull ups is good for my age calculator, pull up fitness standard calculator free no signup, pull up max rep calculator for men and women free, pull ups fitness level assessment calculator usa, weighted pull up equivalent calculator free tool, how to go from 0 to 10 pull ups calculator usa free, relative strength pull up bodyweight ratio calculator, pullup progressions from negatives to full calculator usa, how many pull ups to pass military fitness test calculator, pullup bar use for lat and bicep strength calculator free, grip width effect on pull up difficulty calculator usa, assisted pull up resistance equivalence calculator free, kipping vs strict pull up strength comparison free usa, pull up progression timeline calculator by starting point`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

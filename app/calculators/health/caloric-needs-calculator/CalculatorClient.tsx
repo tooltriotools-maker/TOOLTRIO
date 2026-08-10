@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   ]
 
   return (
-    <CalculatorLayout title="Caloric Needs Calculator" description="Find your exact daily calorie target for weight loss, maintenance, or muscle gain using Mifflin-St Jeor." icon="🍽️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="caloric-needs-calculator">
+    <CalculatorLayout title="Caloric Needs Calculator" description="Find your estimated daily energy needs for weight loss, maintenance, or muscle gain using Mifflin-St Jeor." icon="🍽️" category="Health" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="caloric-needs-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-4">Your Details</h2>

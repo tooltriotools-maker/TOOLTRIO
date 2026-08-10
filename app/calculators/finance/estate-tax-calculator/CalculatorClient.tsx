@@ -101,9 +101,9 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           tipsSection="Use date-of-death values and do not treat every liability or transfer as automatically deductible. Adjusted taxable gifts, valuation rules, portability elections and state estate/inheritance taxes are outside this simplified input set."
           conclusion="Federal estate tax is highly fact-specific. This calculator provides a rough federal estimate and does not prepare Form 706, value assets or determine state death taxes."
           benefits={[
-            { title: "Real-Time USA Results", text: "Instant calculations from the inputs and assumptions shown on this page." },
+            { title: "Calculator results", text: "Instant calculations from the inputs and assumptions shown on this page." },
             { title: "100% Private", text: "Everything runs in your browser. No data stored or transmitted." },
-            { title: "Free Forever", text: "No signup, no paywall, no hidden costs." },
+            { title: "Available without a paid plan", text: "No account is required to run the calculation." },
           ]}
           useCases={[
             { title: "Personal Planning", text: "Model your specific situation with real numbers before making decisions." },

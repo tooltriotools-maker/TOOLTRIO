@@ -103,7 +103,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           howItWorks="Effective revenue = potential revenue × occupancy × (1 − platform fee). NOI subtracts operating expenses; cash flow then subtracts 12 mortgage payments. Cash-on-cash assumes cash invested equals 25% of property value. The 10-year scenario assumes 4% annual appreciation."
           tipsSection="The 25% down-payment basis and 4% appreciation are assumptions. STR licensing, lodging taxes, seasonality, cleaning, furnishing replacement, vacancy and management can materially change results."
           conclusion="This is an investment-screening model, not a forecast or a determination that a property is legally eligible for short-term rental use."
-          benefits={[{title:"Methodology-specific results",text:"Instant 2026 IRS calculations."},{title:"100% Private",text:"Everything runs locally."},{title:"Free Forever",text:"No signup."}]}
+          benefits={[{title:"Methodology-specific results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Decision support",text:"Model your situation."},{title:"Assumption testing",text:"Change inputs to see impact."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

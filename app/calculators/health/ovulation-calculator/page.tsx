@@ -62,7 +62,7 @@ Ovulation prediction methods vary in accuracy. Calendar prediction is the least 
 
 This calculator predicts your likely ovulation window and fertile days based on your cycle history, improving accuracy with more logged cycles.
 
-**Long-tail searches answered here:** ovulation calculator free online usa 2026, when am i most fertile calculator free tool, ovulation date calculator by last period free, best days to conceive calculator no signup, ovulation prediction calculator by cycle length free, fertility window calculator usa free online, how to calculate ovulation without a kit free usa, fertile days calculator by luteal phase length free, ovulation timing calculator for irregular cycles free, signs of ovulation and fertile window calculator usa, natural family planning ovulation calculator free online, luteal phase length ovulation date calculator free, how many days after period does ovulation occur calculator, trying to conceive best timing calculator usa free, basal body temperature ovulation tracker calculator free`,
+`,
   howItWorks: `This calculator uses the published estimation method described for this tool to estimate ovulation from your inputs. Where multiple validated methods exist, the approach with the strongest evidence base for the general adult population is used as the primary result.
 
 

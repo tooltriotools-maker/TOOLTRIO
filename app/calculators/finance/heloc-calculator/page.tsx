@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free heloc calculator',
     'heloc calculator online',
     'best heloc calculator 2026',
-    'heloc calculator no signup',
+    'heloc calculator ',
     'accurate heloc calculator',
     'how to calculate heloc',
     'tooltrio.com',

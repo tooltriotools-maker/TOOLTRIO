@@ -21,7 +21,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free rd calculator',
     'rd calculator online',
     'best rd calculator 2026',
-    'rd calculator no signup',
+    'rd calculator ',
     'accurate rd calculator',
     'how to calculate rd',
     'tooltrio.com',

@@ -96,9 +96,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="Only the portion of losses up to entered gains creates the modeled immediate savings here. The tool does not implement capital-loss ordering, the $3,000 ordinary-income deduction, carryforwards, short- versus long-term rates, or wash-sale tracking."
           conclusion="Tax-loss harvesting can defer tax rather than permanently eliminate it. Security replacement choices, wash-sale rules and future capital-gain rates can materially change the real outcome."
           benefits={[
-            {title:"Real-Time USA Results",text:"Results update from the calculator inputs and stated assumptions."},
+            {title:"Calculator results",text:"Results update from the calculator inputs and stated assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

@@ -81,9 +81,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           tipsSection="The 2026 Social Security wage base in the calculation is now $184,500; the employee Social Security rate is 6.2% and Medicare is 1.45%. The federal bracket and standard-deduction constants have also been updated for 2026."
           conclusion="This is not a substitute for IRS Publication 15-T payroll withholding. The allowances input is a custom simplification rather than the current Form W-4 methodology, and state withholding is represented by rough flat rates rather than each state’s payroll rules."
           benefits={[
-            {title:"Real-Time USA Results",text:"Calculator-specific payroll estimates using the documented 2026 constants and simplified assumptions."},
+            {title:"Calculator results",text:"Calculator-specific payroll estimates using the documented 2026 constants and simplified assumptions."},
             {title:"100% Private",text:"Everything runs in your browser. No data stored or transmitted."},
-            {title:"Free Forever",text:"No signup, no paywall, no hidden costs."},
+            {title:"Available without a paid plan",text:"No account is required to run the calculation."},
           ]}
           useCases={[
             {title:"Personal Planning",text:"Model your specific situation with real numbers before making decisions."},

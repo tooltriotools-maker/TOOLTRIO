@@ -20,7 +20,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
     'free social security calculator',
     'social security calculator online',
     'best social security calculator 2026',
-    'social security calculator no signup',
+    'social security calculator ',
     'accurate social security calculator',
     'how to calculate social security',
     'tooltrio.com',

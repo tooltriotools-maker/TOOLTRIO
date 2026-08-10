@@ -2,18 +2,31 @@
 // FINANCE CALCULATION LIBRARY
 // ============================================================
 
+function annuityFutureValue(payment: number, monthlyRate: number, months: number, due = true) {
+  if (months <= 0) return 0
+  if (Math.abs(monthlyRate) < 1e-12) return payment * months
+  const base = payment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate)
+  return due ? base * (1 + monthlyRate) : base
+}
+
+function annuityPresentValue(payment: number, monthlyRate: number, months: number) {
+  if (months <= 0) return 0
+  if (Math.abs(monthlyRate) < 1e-12) return payment * months
+  return payment * (1 - Math.pow(1 + monthlyRate, -months)) / monthlyRate
+}
+
 /** SIP Calculator */
 export function calculateSIP(monthlyAmount: number, annualRate: number, years: number) {
   const r = annualRate / 100 / 12
   const n = years * 12
   const totalInvested = monthlyAmount * n
-  const maturityAmount = monthlyAmount * ((Math.pow(1 + r, n) - 1) / r) * (1 + r)
+  const maturityAmount = annuityFutureValue(monthlyAmount, r, n, true)
   const totalReturns = maturityAmount - totalInvested
 
   const yearlyData = []
   for (let y = 1; y <= years; y++) {
     const months = y * 12
-    const val = monthlyAmount * ((Math.pow(1 + r, months) - 1) / r) * (1 + r)
+    const val = annuityFutureValue(monthlyAmount, r, months, true)
     yearlyData.push({ year: y, invested: monthlyAmount * months, returns: val - monthlyAmount * months, total: Math.round(val) })
   }
   return { totalInvested: Math.round(totalInvested), estimatedReturns: Math.round(totalReturns), totalValue: Math.round(maturityAmount), yearlyData }
@@ -21,8 +34,9 @@ export function calculateSIP(monthlyAmount: number, annualRate: number, years: n
 
 /** EMI Calculator */
 export function calculateEMI(principal: number, annualRate: number, tenureMonths: number) {
+  if (tenureMonths <= 0) return { emi: 0, totalPayment: 0, totalInterest: 0, schedule: [] }
   const r = annualRate / 100 / 12
-  const emi = principal * r * Math.pow(1 + r, tenureMonths) / (Math.pow(1 + r, tenureMonths) - 1)
+  const emi = Math.abs(r) < 1e-12 ? principal / tenureMonths : principal * r * Math.pow(1 + r, tenureMonths) / (Math.pow(1 + r, tenureMonths) - 1)
   const totalPayment = emi * tenureMonths
   const totalInterest = totalPayment - principal
 
@@ -39,6 +53,7 @@ export function calculateEMI(principal: number, annualRate: number, tenureMonths
 
 /** Compound Interest Calculator */
 export function calculateCompoundInterest(principal: number, annualRate: number, years: number, frequency: number) {
+  if (frequency <= 0 || years < 0) return { principal, maturityAmount: Math.round(principal), totalInterest: 0, yearlyData: [] }
   const r = annualRate / 100
   const maturityAmount = principal * Math.pow(1 + r / frequency, frequency * years)
   const totalInterest = maturityAmount - principal
@@ -53,6 +68,7 @@ export function calculateCompoundInterest(principal: number, annualRate: number,
 
 /** FD Calculator */
 export function calculateFD(principal: number, annualRate: number, years: number, compoundFreq: number = 4) {
+  if (compoundFreq <= 0 || years < 0) return { invested: principal, maturityAmount: Math.round(principal), totalInterest: 0, yearlyData: [] }
   const r = annualRate / 100
   const maturityAmount = principal * Math.pow(1 + r / compoundFreq, compoundFreq * years)
   const totalInterest = maturityAmount - principal
@@ -113,12 +129,12 @@ export function calculateRetirement(currentAge: number, retirementAge: number, m
   const inflationAdjustedExpense = monthlyExpense * Math.pow(1 + inflationRate / 100, yearsToRetirement)
   const annualExpenseAtRetirement = inflationAdjustedExpense * 12
   const realReturn = (expectedReturn - inflationRate) / 100
-  const corpusRequired = annualExpenseAtRetirement * ((1 - Math.pow(1 + realReturn, -retirementDuration)) / realReturn)
+  const corpusRequired = Math.abs(realReturn) < 1e-12 ? annualExpenseAtRetirement * retirementDuration : annualExpenseAtRetirement * ((1 - Math.pow(1 + realReturn, -retirementDuration)) / realReturn)
   const currentSavingsGrown = currentSavings * Math.pow(1 + expectedReturn / 100, yearsToRetirement)
   const additionalRequired = Math.max(0, corpusRequired - currentSavingsGrown)
   const monthlyRate = expectedReturn / 100 / 12
   const months = yearsToRetirement * 12
-  const monthlySIPRequired = additionalRequired * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1)
+  const monthlySIPRequired = months <= 0 ? 0 : Math.abs(monthlyRate) < 1e-12 ? additionalRequired / months : additionalRequired * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1)
 
   const yearlyData = []
   for (let y = 1; y <= yearsToRetirement; y++) {
@@ -143,8 +159,8 @@ export function calculateLumpsum(principal: number, annualRate: number, years: n
 
 /** CAGR Calculator */
 export function calculateCAGR(initialValue: number, finalValue: number, years: number) {
-  const cagr = (Math.pow(finalValue / initialValue, 1 / years) - 1) * 100
-  const absoluteReturn = ((finalValue - initialValue) / initialValue) * 100
+  const cagr = initialValue > 0 && finalValue >= 0 && years > 0 ? (Math.pow(finalValue / initialValue, 1 / years) - 1) * 100 : 0
+  const absoluteReturn = initialValue !== 0 ? ((finalValue - initialValue) / initialValue) * 100 : 0
 
   const yearlyData = []
   for (let y = 0; y <= years; y++) {
@@ -156,6 +172,7 @@ export function calculateCAGR(initialValue: number, finalValue: number, years: n
 
 /** XIRR (approximation using Newton-Raphson) */
 export function calculateXIRR(cashflows: { date: Date; amount: number }[]) {
+  if (cashflows.length < 2 || cashflows.every(cf => cf.amount >= 0) || cashflows.every(cf => cf.amount <= 0)) return { xirr: null }
   let rate = 0.1
   for (let i = 0; i < 100; i++) {
     let npv = 0
@@ -166,17 +183,18 @@ export function calculateXIRR(cashflows: { date: Date; amount: number }[]) {
       npv += cf.amount / Math.pow(1 + rate, t)
       dnpv -= t * cf.amount / Math.pow(1 + rate, t + 1)
     }
+    if (!Number.isFinite(dnpv) || Math.abs(dnpv) < 1e-14) return { xirr: null }
     const newRate = rate - npv / dnpv
     if (Math.abs(newRate - rate) < 1e-10) break
     rate = newRate
   }
-  return { xirr: parseFloat((rate * 100).toFixed(2)) }
+  return { xirr: Number.isFinite(rate) && rate > -1 ? parseFloat((rate * 100).toFixed(2)) : null }
 }
 
 /** Loan Prepayment Calculator */
 export function calculateLoanPrepayment(principal: number, annualRate: number, tenureMonths: number, prepaymentAmount: number, prepaymentAfterMonth: number) {
   const r = annualRate / 100 / 12
-  const emi = principal * r * Math.pow(1 + r, tenureMonths) / (Math.pow(1 + r, tenureMonths) - 1)
+  const emi = Math.abs(r) < 1e-12 ? principal / tenureMonths : principal * r * Math.pow(1 + r, tenureMonths) / (Math.pow(1 + r, tenureMonths) - 1)
 
   let balance = principal
   let totalInterest = 0
@@ -1442,6 +1460,7 @@ export function calculateRentVsBuy(
   annualHomeAppreciation: number, propertyTaxPct: number = 1.2,
   maintenancePct: number = 1, years: number = 10
 ) {
+  if (years <= 0 || mortgageYears <= 0) return { monthlyMortgage: 0, monthlyPropertyTax: 0, monthlyMaintenance: 0, totalMonthlyBuy: 0, downPayment: Math.round(homePrice * (downPaymentPct / 100)), loanAmount: Math.round(homePrice * (1 - downPaymentPct / 100)), buyBetter: false, yearData: [] }
   const downPayment = homePrice * (downPaymentPct / 100)
   const loanAmount = homePrice - downPayment
   const r = mortgageRate / 100 / 12
@@ -2042,13 +2061,14 @@ export function calculateI_Bonds(purchaseAmount: number, months: number, fixedRa
   const annualRate = compositeRate / 100
   const penaltyMonths = months < 60 ? 3 : 0
   const effectiveMonths = Math.max(0, months - penaltyMonths)
-  const value = purchaseAmount * Math.pow(1 + annualRate / 2, effectiveMonths / 6)
+  const value = purchaseAmount <= 0 ? 0 : purchaseAmount * Math.pow(1 + annualRate / 2, effectiveMonths / 6)
   const interest = value - purchaseAmount
   const annualLimit = 10000
   const yearData = Array.from({ length: Math.min(Math.ceil(months / 12) + 1, 31) }, (_, i) => ({
     year: i, value: Math.round(purchaseAmount * Math.pow(1 + annualRate / 2, i * 2))
   }))
-  return { compositeRate: compositeRate.toFixed(2), value: Math.round(value), interest: Math.round(interest), effectiveYield: ((value / purchaseAmount - 1) / (months / 12) * 100).toFixed(2), penaltyMonths, annualLimit, yearData }
+  const effectiveYield = purchaseAmount > 0 && months > 0 ? ((value / purchaseAmount - 1) / (months / 12) * 100) : 0
+  return { compositeRate: compositeRate.toFixed(2), value: Math.round(value), interest: Math.round(interest), effectiveYield: effectiveYield.toFixed(2), penaltyMonths, annualLimit, yearData }
 }
 
 export function calculateHSAGrowth(annualContrib: number, age: number, retirementAge: number, currentBalance: number, growthRate: number, taxRate: number, familyCoverage: boolean) {
@@ -2910,7 +2930,7 @@ export function calculateSocialSecurityTaxability(ssBenefit: number, otherIncome
 
 export function calculateHomeOfficeDeduction(officeSquareFt: number, homeTotalSqFt: number, annualRent: number, utilities: number, internet: number, businessType: 'self-employed' | 'employee') {
   if (businessType === 'employee') return { deduction: 0, note: 'W-2 employees cannot deduct home office expenses under current law (TCJA suspended this through 2025+). Only self-employed and independent contractors qualify.', simplified: 0, actual: 0 }
-  const percentage = officeSquareFt / homeTotalSqFt
+  const percentage = homeTotalSqFt > 0 ? officeSquareFt / homeTotalSqFt : 0
   const actualDeduction = (annualRent + utilities) * percentage + internet * 0.5
   const simplifiedDeduction = Math.min(officeSquareFt, 300) * 5
   const betterMethod = actualDeduction > simplifiedDeduction ? 'actual' : 'simplified'
@@ -4537,8 +4557,8 @@ export function calculateStockOptionTax(optionType: 'iso' | 'nso', grantPrice: n
 export function calculateTBill(faceValue: number, discountRate: number, termDays: number) {
   const purchasePrice = faceValue - (faceValue * discountRate / 100 * termDays / 360)
   const interestEarned = faceValue - purchasePrice
-  const bondEquivalentYield = (interestEarned / purchasePrice) * (365 / termDays) * 100
-  const annualizedReturn = ((faceValue / purchasePrice) ** (365 / termDays) - 1) * 100
+  const bondEquivalentYield = purchasePrice > 0 && termDays > 0 ? (interestEarned / purchasePrice) * (365 / termDays) * 100 : 0
+  const annualizedReturn = purchasePrice > 0 && termDays > 0 ? ((faceValue / purchasePrice) ** (365 / termDays) - 1) * 100 : 0
   const taxableInterest = interestEarned // federal only, state/local exempt
   return {
     faceValue, termDays, discountRate,

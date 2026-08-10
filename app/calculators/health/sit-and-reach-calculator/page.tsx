@@ -62,7 +62,7 @@ The sit-and-reach specifically measures hamstring length (the most limiting fact
 
 Despite its limitations, the test is useful as a baseline and tracking measure during a flexibility program. Improving your sit-and-reach by 5-10 cm over 12 weeks of consistent hamstring stretching is a reliable outcome indicator that training is working.
 
-**Long-tail searches answered here:** sit and reach flexibility test calculator free online usa, flexibility percentile calculator by age and gender free, sit and reach score interpretation calculator no signup, hamstring flexibility score calculator usa free, how flexible are my hamstrings calculator free tool, sit and reach fitness rating calculator online, sit and reach result vs age norm calculator usa free, how to improve sit and reach score calculator, poor flexibility injury risk correlation calculator free, how yoga affects sit and reach score calculator usa, pes assessment flexibility component calculator free, sit and reach improvement timeline calculator usa free, hip flexor contribution to sit and reach score calculator, male vs female sit and reach standard calculator usa, classroom fitness testing sit reach percentile calculator`,
+`,
   howItWorks: `This calculator uses a planning or educational estimate based on the inputs described on the page. The result should not be interpreted as a diagnosis or as a validated clinical prediction model.` ,
   benefits: [
   ],

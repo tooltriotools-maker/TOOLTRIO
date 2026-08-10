@@ -61,7 +61,7 @@ This calculator uses MET values calibrated for cycling intensity and your specif
 
 The result here is honest about a 10-15% margin of error inherent in MET-based calculations. If you want precise measurements, a power meter combined with efficiency data is the only route to real accuracy.
 
-**Long-tail searches answered here:** cycling calorie burn calculator free online usa, calories burned biking calculator by weight and speed, how many calories burned cycling 10 miles free calculator, stationary bike calorie calculator no signup, road cycling calorie burn estimator by watts, calories burned cycling 30 minutes free tool usa, calories burned spinning class 45 minutes calculator free, cycling uphill vs flat calorie burn calculator usa, mountain biking calorie burn calculator free online, calories burned commuting by bike daily calculator free, indoor cycling calorie burn vs outdoor calculator free, heart rate based cycling calorie calculator usa free, e bike vs regular bike calorie burn difference free, cycling calorie burn at different speeds calculator free, weight loss from cycling 30 days calculator usa free`,
+`,
   howItWorks: `Cycling calorie burn is calculated from MET values: road cycling at 10-12 mph = MET 8.0; 12-14 mph = MET 10.0; 14-16 mph = MET 12.0; 16-19 mph = MET 14.0; >19 mph = MET 16.0. Mountain biking = MET 10.0-14.0 depending on terrain. Stationary cycling, moderate = MET 5.5; vigorous = MET 8.5; spinning class = MET 8.5-12.0.
 
 For cyclists with power meters, a more accurate calculation uses: calories = (power output in watts × duration in seconds) / 4.18 × 0.24 (accounting for ~24% mechanical efficiency of human cycling). A 60-minute ride at 200W = (200 × 3600) / 4.18 × 0.24 = approximately 825 kcal.`,
