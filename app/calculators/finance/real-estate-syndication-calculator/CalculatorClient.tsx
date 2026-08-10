@@ -100,7 +100,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title={"Real Estate Syndication ROI Calculator"}
+          title='Real Estate Syndication Calculator'
           category="finance"
           intro={'This calculator models a simplified real-estate syndication waterfall using investment amount, preferred return, sponsor promote, hold period, projected IRR input and annual cash yield. It separates recurring cash distributions from modeled exit proceeds.'}
           howItWorks={'Annual cash flow = investment × cash yield. Preferred amount = investment × preferred return × hold years. Cash flow above the preferred amount is split after the entered sponsor promote. Exit value compounds the investment at the entered projected IRR, and appreciation above original capital is also reduced by the promote. The displayed “actual IRR” is then derived from total modeled proceeds.'}

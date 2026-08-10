@@ -213,7 +213,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <SEOContent
         title="PPF vs NPS Calculator India – Guaranteed PPF or Market-Linked NPS for Retirement in 2026?"
         category="finance"
-        intro={`Both PPF and NPS offer Section 80C tax benefits and long-term wealth accumulation, but they serve different philosophies: PPF is guaranteed, risk-free, and fully flexible at maturity. NPS is market-linked, potentially higher-returning, but has the constraint of mandatory annuity purchase at retirement.
+        intro={`Both PPF and NPS offer Section 80C tax benefits and long-term wealth accumulation, but they serve different philosophies: PPF has a government-set interest rate and defined maturity/withdrawal rules; it is designed for lower-volatility long-term savings. NPS is market-linked, potentially higher-returning, but has the constraint of mandatory annuity purchase at retirement.
 
 The additional Section 80CCD(1B) deduction of ₹50,000 for NPS contributions beyond the 80C limit is the most compelling argument for NPS over PPF for high-income earners. This effectively allows ₹2 lakh of total tax-deductible retirement savings (₹1.5 lakh under 80C plus ₹50,000 under 80CCD(1B)) — if you're filling both buckets, the comparison isn't either/or but how to allocate between them.
 
@@ -236,7 +236,7 @@ PPF at maturity: 100% of accumulated corpus is tax-free, with no portion mandato
           { title: "Tracking Progress Over Time", text: "Save your baseline calculation and rerun it quarterly to measure progress. Are you on track against your original projection? Has the market return or interest rate environment changed enough to require adjusting your plan? Regular recalculation turns this from a one-time tool into an ongoing financial management system. Track your net worth progress with the [Net Worth Calculator](/calculators/finance/net-worth-calculator)." },
           { title: "Teaching Financial Concepts", text: "The best way to understand compound interest, investment returns, or debt amortization is to see the math with real numbers. This calculator makes abstract financial concepts concrete \u2014 especially valuable for teaching younger family members about money. The [FIRE Calculator](/calculators/finance/fire-calculator) is particularly useful for demonstrating how savings rate connects to retirement age." },
         ]}
-        tipsSection={`The optimal approach for most investors: maximize PPF contribution (₹1.5 lakh) for the guaranteed, risk-free, 100%-tax-free corpus — this is the bedrock of retirement savings. Separately, contribute ₹50,000 annually to NPS Tier I specifically to capture the unique 80CCD(1B) deduction that's unavailable in PPF.
+        tipsSection={`The optimal approach for most investors: maximize PPF contribution (₹1.5 lakh) for the stated-rate, tax-exempt corpus under the applicable PPF rules — this is the bedrock of retirement savings. Separately, contribute ₹50,000 annually to NPS Tier I specifically to capture the unique 80CCD(1B) deduction that's unavailable in PPF.
 
 For aggressive equity-linked retirement savings beyond these amounts, direct equity mutual funds (particularly index funds) offer similar market exposure to NPS equity with better liquidity, no annuity requirement, and no lock-in. NPS's advantage over direct equity mutual funds is primarily the additional tax deduction.
 

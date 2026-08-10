@@ -180,7 +180,7 @@ export default function FDCalculatorClient({ faqs, relatedCalculators, blogSlug 
             <SEOContent
         title="CD Fixed Deposit Calculator USA – How Much Will Your Deposit Earn in 2026?"
         category="finance"
-        intro={`Fixed deposits (called CDs in the US, term deposits in Australia, and FDs in India) are the original risk-free savings instrument — and in a high-interest-rate environment, they become genuinely competitive with investment alternatives for capital preservation. The mathematics of FD compounding is simple, but the details of interest crediting (simple vs compound), interest payout frequency, and TDS (in India) or early withdrawal penalties significantly affect actual returns.
+        intro={`Fixed deposits (called CDs in the US, term deposits in Australia, and FDs in India) are a deposit product designed primarily for capital preservation, subject to the applicable bank and deposit-insurance rules — and in a high-interest-rate environment, they become genuinely competitive with investment alternatives for capital preservation. The mathematics of FD compounding is simple, but the details of interest crediting (simple vs compound), interest payout frequency, and TDS (in India) or early withdrawal penalties significantly affect actual returns.
 
 In India, FD rates in 2024-2026 ranged from 6.5% to 7.5% for major banks, and small finance banks offered 8-9% for similar terms. This is a meaningfully different environment than the near-zero FD rates of 2020-2021. For senior citizens, most banks offer an additional 0.25-0.50% over standard rates — one of the few direct financial benefits of age.
 

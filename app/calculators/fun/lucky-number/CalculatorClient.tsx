@@ -131,11 +131,13 @@ export default function CalculatorClient({ faqs }: Props) {
     if (isNaN(d.getTime())) return null
     const lifePath = reduce((d.getFullYear()) + (d.getMonth() + 1) + d.getDate())
     const letterVal = (c: string) => ((c.toUpperCase().charCodeAt(0) - 64) % 9) || 9
-    const exprNum = name.trim() ? reduce(Array.from(name.replace(/[^a-z]/gi, '')).reduce((s, c) => s + letterVal(c), 0)) : 0
-    const soulNum = name.trim() ? reduce(Array.from(name.replace(/[^aeiou]/gi, '')).reduce((s, c) => s + letterVal(c), 0) || 1) : 0
+    const letters: string[] = Array.from(name.replace(/[^a-z]/gi, ''))
+    const vowels: string[] = Array.from(name.replace(/[^aeiou]/gi, ''))
+    const exprNum = name.trim() ? reduce(letters.reduce((s: number, c: string) => s + letterVal(c), 0)) : 0
+    const soulNum = name.trim() ? reduce(vowels.reduce((s: number, c: string) => s + letterVal(c), 0) || 1) : 0
     const today = new Date()
     const todayNum = reduce(today.getFullYear() + today.getMonth() + 1 + today.getDate())
-    const lucky = Array.from(new Set([lifePath, (lifePath * 3) % 9 || 9, (lifePath + todayNum) % 9 || 9, (lifePath * 2 + d.getDate()) % 9 || 9])).slice(0, 4)
+    const lucky: number[] = Array.from(new Set<number>([lifePath, (lifePath * 3) % 9 || 9, (lifePath + todayNum) % 9 || 9, (lifePath * 2 + d.getDate()) % 9 || 9])).slice(0, 4)
     return { lifePath, exprNum, soulNum, lucky, data: LIFE_PATH_DATA[lifePath] || LIFE_PATH_DATA[1] }
   }, [name, dob])
 

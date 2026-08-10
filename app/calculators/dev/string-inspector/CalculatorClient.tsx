@@ -13,7 +13,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
   const analysis = useMemo(() => {
     if (!text) return null
-    const chars = Array.from(text)
+    const chars: string[] = Array.from(text)
     const bytes8 = new TextEncoder().encode(text).length
     const bytes16 = text.length * 2
     const words = text.trim().split(/\s+/).filter(Boolean).length
@@ -22,7 +22,7 @@ export default function CalculatorClient({ faqs }: Props) {
     const nonAscii = chars.filter(c => c.charCodeAt(0) > 127).length
     const freq: Record<string,number> = {}
     chars.forEach(c => { freq[c] = (freq[c]||0) + 1 })
-    const topChars = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,10)
+    const topChars = (Object.entries(freq) as Array<[string, number]>).sort((a,b)=>b[1]-a[1]).slice(0,10)
     const codepoints = chars.slice(0,30).map(c => ({ char:c, cp:`U+${c.codePointAt(0)?.toString(16).toUpperCase().padStart(4,'0')}`, name: c.charCodeAt(0) < 128 ? 'ASCII' : 'Unicode' }))
     const rot13 = text.replace(/[a-zA-Z]/g, c => String.fromCharCode(c.charCodeAt(0) + (c.toLowerCase() < 'n' ? 13 : -13)))
     return { chars:chars.length, jsLen:text.length, bytes8, bytes16, words, lines, unique, nonAscii, topChars, codepoints, rot13 }
