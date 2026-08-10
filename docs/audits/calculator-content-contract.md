@@ -1,6 +1,6 @@
 # Calculator Content Contract
 
-- SEOContent pages scanned: **577**
+- SEOContent pages scanned: **582**
 - Generic marketing blocks suppressed by SEOContent: **0**
 - Health pages missing healthSourceProfile: **0**
 - Short guide fields detected: **0**
