@@ -154,7 +154,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
           {children}
         </div>
 
-        <YMYLTrustPanel category={category} slug={slug} title={title} description={description} pageUrl={pageUrl} />
+        {(category === 'Finance' || category === 'Health') && <YMYLTrustPanel category={category} slug={slug} title={title} description={description} pageUrl={pageUrl} />}
 
         {/* Blog Guide Card */}
         {blogSlug && (

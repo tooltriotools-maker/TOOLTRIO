@@ -85,7 +85,8 @@ for (const entry of fs.readdirSync(financeDir, { withFileTypes: true })) {
   for (const [fn, props] of unionOnly) {
     for (const prop of props) {
       if (!resultProps.has(prop)) continue
-      if (new RegExp(`[\"']${prop}[\"']\\s+in\\s+result`).test(source)) continue
+      const hasNullishFallback = new RegExp(`result\\.${prop}\\s*\\?\\?`).test(source) || new RegExp(`[\"']${prop}[\"']\\s+in\\s+result[\s\S]{0,160}result\\.${prop}\\s*\\?\\?`).test(source)
+      if (hasNullishFallback) continue
       issues.push(`${path.relative(root, file)}: result.${prop} is not present on every return shape of ${fn}; narrow with \'${prop}\' in result or normalize the function return type.`)
     }
   }

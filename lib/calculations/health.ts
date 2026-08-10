@@ -446,7 +446,7 @@ export function calculateGeneticHeightPotential(fatherHeightCm: number, motherHe
   const remainingGrowth = growthComplete ? 0 : Math.max(0, Math.round(targetHeight - currentHeightCm))
   const modifiers = [!nutritionAdequate ? '⚠️ Poor nutrition may reduce growth potential by 2-5 cm' : '', chronicIllness ? '⚠️ Chronic illness can impair growth velocity' : ''].filter(Boolean)
   const heightPercentileEst = Math.min(99, Math.max(1, Math.round(50 + (currentHeightCm - (gender === 'male' ? 175 : 162)) * 3)))
-  return { targetHeight: Math.round(targetHeight), rangeMin: range.min, rangeMax: range.max, currentHeightCm, remainingGrowthCm: remainingGrowth, growthComplete, modifiers, note: 'Mid-parental height calculation (Tanner method) — an estimate of familial target height, not a prediction of exact adult height.' }
+  return { targetHeight: Math.round(targetHeight), rangeMin: range.min, rangeMax: range.max, currentHeightCm, remainingGrowthCm: remainingGrowth, growthComplete, heightPercentileEst, modifiers, note: 'Mid-parental height calculation (Tanner method) — an estimate of familial target height, not a prediction of exact adult height.' }
 }
 
 export function calculateGlomerularFiltrationRate(creatinine: number, age: number, gender: 'male' | 'female', unit: 'mg/dL' | 'μmol/L' = 'mg/dL') {
@@ -515,7 +515,8 @@ export function calculateHydrationForExercise(bodyWeightKg: number, exerciseDura
   const sodiumMg = electrolytesNeeded ? Math.round(sweatRateLH * exerciseDurationMin / 60 * 900) : 0 // ~900mg/L sweat
   const drinkIntervalMinutes = sweatRateLH > 0 ? Math.max(1, Math.round(15 / sweatRateLH)) : 15
   const perBottleMinutes = exerciseDurationMin > 0 ? Math.max(1, exerciseDurationMin / 15) : 1
-  return { sweatRateLH, totalFluidNeedL, preDrinkMl, duringDrinkMl, afterDrinkMl, electrolytesNeeded, sodiumMg, drinkInterval: `Every ${drinkIntervalMinutes} minutes`, perBottle: `${Math.round(duringDrinkMl / perBottleMinutes)} mL per 15 min`, color: totalFluidNeedL > 2 ? '#f97316' : totalFluidNeedL > 1 ? '#eab308' : '#22c55e' }
+  const sportsDrinkTip = electrolytesNeeded ? 'Consider an electrolyte-containing drink when appropriate; individual sodium needs vary with sweat loss and medical conditions.' : 'Water may be sufficient for shorter or cooler sessions; individual needs vary.'
+  return { sweatRateLH, totalFluidNeedL, preDrinkMl, duringDrinkMl, afterDrinkMl, electrolytesNeeded, sodiumMg, drinkInterval: `Every ${drinkIntervalMinutes} minutes`, perBottle: `${Math.round(duringDrinkMl / perBottleMinutes)} mL per 15 min`, sportsDrinkTip, color: totalFluidNeedL > 2 ? '#f97316' : totalFluidNeedL > 1 ? '#eab308' : '#22c55e' }
 }
 
 export function calculateImmuneStrengthScore(sleepHours: number, stressLevel: number, exerciseMinPerWeek: number, fruitVegServings: number, alcoholPerWeek: number, smokingStatus: boolean, bmi: number, age: number, chronicConditions: number, supplementsScore: number) {
