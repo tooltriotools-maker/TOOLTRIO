@@ -107,7 +107,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='Crypto DCA Calculator'
+          title={"Crypto DCA vs Lump Sum Calculator"}
           category="finance"
           intro={'This crypto calculator compares investing the full amount at the starting price with spreading the same amount across equal monthly purchases along a simulated price path from the entered start price to end price.'}
           howItWorks={'Monthly DCA purchase = total amount ÷ DCA months. Each simulated monthly price follows a linear start-to-end path plus a sine-wave volatility adjustment based on the entered volatility percentage. DCA shares accumulate at each simulated price; lump sum shares = total amount ÷ starting price. Both are valued at the entered ending price.'}

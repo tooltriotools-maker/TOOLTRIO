@@ -40,7 +40,6 @@ export default function CalculatorClient({ faqs }: Props) {
       case 'css': return minifyCSS(input)
       case 'html': return minifyHTML(input)
       case 'json': return minifyJSON(input)
-      default: return input
     }
   }
   const output = minify()

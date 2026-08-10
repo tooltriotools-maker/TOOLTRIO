@@ -220,7 +220,7 @@ export default function CalculatorClient({ faqs }: Props) {
       alert('Please answer all questions to get your score.')
       return
     }
-    const total = (Object.values(answers) as number[]).reduce((s, v) => s + v, 0)
+    const total = Object.values(answers).reduce((s, v) => s + v, 0)
     const score = Math.round((total / (questions.length * 4)) * 100)
     const profile = PROFILES.find(p => score >= p.range[0] && score <= p.range[1]) || PROFILES[2]
     setResult({ score, profile })

@@ -54,7 +54,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Social Security claiming age has more impact on retirement income than almost any other decision. Delaying Social Security increases the monthly benefit under the statutory delayed-retirement-credit rules; this is a benefit-formula adjustment, not an investment return. This optimizer shows exactly what each claiming age pays, which maximizes lifetime benefits at different life expectancies, and the true ROI of delaying.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Social Security claiming age has more impact on retirement income than almost any other decision. Delaying from 62 to 70 increases monthly benefits by 76% — a guaranteed 8% annual return from the US government. This optimizer shows exactly what each claiming age pays, which maximizes lifetime benefits at different life expectancies, and the true ROI of delaying.</p>
               </Card>
             </>
           ):(

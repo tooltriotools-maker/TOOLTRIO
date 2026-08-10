@@ -177,7 +177,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                   </tr>
                 </thead>
                 <tbody>
-                  {(Object.entries(rates) as Array<[string, number]>)
+                  {Object.entries(rates)
                     .filter(([c]) => ['USD','EUR','GBP','AED','SGD','CAD','AUD','CHF','JPY','CNY','MYR','QAR','SAR','KWD'].includes(c))
                     .map(([code, rate]) => {
                       const inrRate = (rates['INR'] ?? 83.92) / rate

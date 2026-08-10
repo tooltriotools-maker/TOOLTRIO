@@ -109,7 +109,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent
-          title='Net Worth Tracker'
+          title={"Net Worth Calculator"}
           category="finance"
           intro={'This calculator creates a balance-sheet snapshot by adding the asset categories in the model and subtracting mortgage, student-loan and credit-card balances. It also shows liquidity and debt-to-asset indicators.'}
           howItWorks={'Net worth = total assets − total liabilities. Liquid assets are cash plus taxable investments. Debt-to-asset ratio = liabilities ÷ assets. The current client also includes fixed $15,000 of vehicle value and $5,000 of other assets, while car-loan and other-debt values are fixed at zero.'}
