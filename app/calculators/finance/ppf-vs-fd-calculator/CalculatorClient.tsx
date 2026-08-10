@@ -204,7 +204,7 @@ Liquidity adjustment: If you need the money in year 7, PPF allows partial withdr
         ]}
         tipsSection={`PPF is unambiguously better than FD for long-term savings for taxpayers in 20%+ bracket — the after-tax return comparison is not close. Use PPF for money you're sure you don't need for 15 years; FD for medium-term goals with specific timelines.
 
-For short-term liquidity (under 3 years), liquid mutual funds may beat both PPF and FD: near-FD returns with same-day liquidity and no early withdrawal penalty. For the strictly risk-free portion of short-term savings, FD wins on predictability.
+For short-term liquidity (under 3 years), liquid mutual funds may beat both PPF and FD: near-FD returns with same-day liquidity and no early withdrawal penalty. For the lower-volatility portion of short-term savings, FD wins on predictability.
 
 Senior citizens: PPF is closed to new accounts for those above 60 (you can continue existing accounts). Senior citizen FD rates (typically +0.25-0.50% over standard rates) and SCSS (Senior Citizen Savings Scheme, currently 8.2%) provide alternatives with competitive rates.`}
         conclusion={`Many investors unnecessarily choose FD over PPF for medium-to-long-term savings because PPF's lock-in feels constraining. But 15 years is the right time horizon for retirement savings, children's education, and major life goals. The lock-in is a feature, not a bug — it forces the discipline that makes wealth accumulation actually happen.

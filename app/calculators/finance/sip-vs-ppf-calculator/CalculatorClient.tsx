@@ -254,12 +254,12 @@ Tax-equivalent comparison: PPF at 7.1% fully tax-free. ELSS at 14% CAGR with 10%
         ]}
         tipsSection={`Hold both instruments for different purposes rather than choosing one exclusively. PPF provides the guaranteed, government-backed foundation of your Section 80C investments — money you can depend on regardless of market conditions. ELSS SIP provides the growth engine that beats inflation and builds real long-term wealth.
 
-For investors with limited 80C space: prioritize EPF (mandatory) + life insurance (if needed) + PPF (guaranteed foundation up to your risk-free target), then use ELSS for the remainder of your 80C allocation and any additional savings above the ₹1.5 lakh limit.
+For investors with limited 80C space: prioritize EPF (mandatory) + life insurance (if needed) + PPF (stated-rate savings allocation), then use ELSS for the remainder of your 80C allocation and any additional savings above the ₹1.5 lakh limit.
 
 ELSS 3-year lock-in is the shortest of all Section 80C instruments (PPF: 15 years, NSC: 5 years, tax-saving FD: 5 years). This makes ELSS the right choice for investors who might need access to the invested amount more quickly, while PPF is more appropriate for long-term retirement savings.`}
         conclusion={`The PPF vs ELSS decision ultimately reflects your personal risk tolerance as much as mathematical optimization. An investor who would panic-sell ELSS during a market crash (losing the long-term return advantage) may be better served by PPF's stated return under the applicable termss. An investor with genuine long-term conviction in Indian equity growth and the discipline to hold through volatility can capture the historical equity premium that significantly outperforms PPF.
 
-For new investors just starting to build savings habits: PPF provides a risk-free foundation that builds confidence and wealth simultaneously. Adding ELSS gradually as you become comfortable with market volatility is a reasonable progression strategy.`}
+For new investors just starting to build savings habits: PPF provides a lower-volatility savings component under its applicable rules that builds confidence and wealth simultaneously. Adding ELSS gradually as you become comfortable with market volatility is a reasonable progression strategy.`}
       />
       <InternalLinks
         title="Related Finance Calculators"

@@ -3,7 +3,7 @@ import path from 'node:path'
 import vm from 'node:vm'
 import { createRequire } from 'node:module'
 const require = createRequire(import.meta.url)
-const ts = require('/opt/nvm/versions/node/v22.16.0/lib/node_modules/typescript/lib/typescript.js')
+const ts = require('typescript')
 
 const ROOT = process.cwd()
 const files = ['lib/calculations/finance.ts','lib/calculations/health.ts']
