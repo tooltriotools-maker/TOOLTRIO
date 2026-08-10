@@ -105,7 +105,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
       <div className="mt-8">
         <SEOContent
-          title={"RSU Equity Compensation Calculator"}
+          title='Equity Compensation Calculator'
           category="finance"
           intro={'This equity compensation page currently models an RSU grant: share count × fair market value, annual vesting, and ordinary-income tax at vest. The strike-price field is retained by the shared calculator but does not create an exercise cost for RSUs.'}
           howItWorks={'The client calls calculateEquityCompensation with type “rsu”. Total value = shares × FMV. Ordinary income equals that value, modeled tax = ordinary income × entered tax rate, annual vest = shares ÷ vesting years, and net value = total value − modeled tax. It does not currently switch between ISO, NSO and RSU tax rules.'}

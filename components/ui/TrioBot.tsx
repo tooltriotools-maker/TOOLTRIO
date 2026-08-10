@@ -7,6 +7,20 @@ type Tool = { n: string; p: string; c: string; k: string; d: string }
 type Tab = 'chat' | 'search' | 'related'
 interface Message { role: 'user' | 'assistant'; content: string; widget?: CalcWidget }
 interface CalcWidget { type: string; title: string }
+interface SpeechRecognitionEventLike { results: ArrayLike<ArrayLike<{ transcript: string }>> }
+interface SpeechRecognitionLike {
+  lang: string
+  interimResults: boolean
+  maxAlternatives: number
+  continuous: boolean
+  onstart: (() => void) | null
+  onresult: ((event: SpeechRecognitionEventLike) => void) | null
+  onerror: ((event: { error: string }) => void) | null
+  onend: (() => void) | null
+  start: () => void
+  stop: () => void
+}
+type SpeechRecognitionConstructorLike = new () => SpeechRecognitionLike
 
 // ─── Category config (FIXED: correct hrefs for zip/commodities) ───────────────
 const CAT: Record<string, { emoji: string; label: string; color: string; href: string }> = {
@@ -237,7 +251,7 @@ function speakText(text: string) {
 }
 
 function useSpeechRecognition(onResult: (text: string) => void, onError?: (msg: string) => void) {
-  const recRef = useRef<SpeechRecognition | null>(null)
+  const recRef = useRef<SpeechRecognitionLike | null>(null)
   const [listening, setListening] = useState(false)
   const onResultRef = useRef(onResult)
   const onErrorRef = useRef(onError)
@@ -247,8 +261,8 @@ function useSpeechRecognition(onResult: (text: string) => void, onError?: (msg: 
   const start = useCallback(() => {
     if (typeof window === 'undefined') return
     // Check for API support
-    const SR = (window as unknown as { SpeechRecognition?: typeof SpeechRecognition; webkitSpeechRecognition?: typeof SpeechRecognition }).SpeechRecognition
-      || (window as unknown as { webkitSpeechRecognition?: typeof SpeechRecognition }).webkitSpeechRecognition
+    const SR = (window as unknown as { SpeechRecognition?: SpeechRecognitionConstructorLike; webkitSpeechRecognition?: SpeechRecognitionConstructorLike }).SpeechRecognition
+      || (window as unknown as { webkitSpeechRecognition?: SpeechRecognitionConstructorLike }).webkitSpeechRecognition
     if (!SR) {
       onErrorRef.current?.('Voice not supported — use Chrome or Edge')
       return
@@ -354,7 +368,7 @@ function MiniCalc({ type, onClose }: MiniCalcProps) {
 }
 
 // ─── Tool row: shows name + short description + category badge ────────────────
-function ToolRow({ tool, onClick }: { tool: Tool; onClick: () => void }) {
+function ToolRow({ tool, onClick }: { tool: Tool; onClick: () => void; key?: React.Key }) {
   const meta = CAT[tool.c] || { emoji: '🔧', label: tool.c, color: '#64748b', href: '/' }
   return (
     <Link href={tool.p} onClick={onClick}

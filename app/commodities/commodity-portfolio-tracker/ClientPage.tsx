@@ -87,7 +87,7 @@ export default function CommodityPortfolioTrackerPage() {
   useEffect(() => { setAddBuy(Math.round(data[addMetal].price)) }, [addMetal, data])
 
   const rows = useMemo(() => holdings.map((h: any) => {
-    const livePrice  = data[h.metal as keyof CommodityData].price
+    const livePrice  = data[h.metal].price
     const currentVal = livePrice * h.qty
     const costBasis  = h.buyPrice * h.qty
     const pnl        = currentVal - costBasis
@@ -366,7 +366,7 @@ export default function CommodityPortfolioTrackerPage() {
               </span>
             </div>
             {METAL_OPTS.map((m: any) => {
-              const c = data[m.key as keyof CommodityData]
+              const c = data[m.key]
               const up = c.changePct >= 0
               return (
                 <Link key={m.key} href={COMMODITY_META[m.key as keyof typeof COMMODITY_META].href}

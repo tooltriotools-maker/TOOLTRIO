@@ -15,7 +15,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
   const [cycleLength, setCycleLength] = useState(28)
 
   const result = useMemo(() => {
-    try { return calculateOvulation(new Date(lastPeriod), cycleLength) as any }
+    try { return calculateOvulation(new Date(lastPeriod), cycleLength) }
     catch { return null }
   }, [lastPeriod, cycleLength])
 
@@ -46,8 +46,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <ResultCard label="Ovulation Date" value={fmt(result.ovulationDate)} highlight icon={<Heart className="w-4 h-4" />} />
-                <ResultCard label="Fertile Window Start" value={fmt(result.fertileWindowStart)} icon={<Calendar className="w-4 h-4" />} />
-                <ResultCard label="Fertile Window End" value={fmt(result.fertileWindowEnd)} icon={<Calendar className="w-4 h-4" />} />
+                <ResultCard label="Fertile Window Start" value={fmt(result.fertileStart)} icon={<Calendar className="w-4 h-4" />} />
+                <ResultCard label="Fertile Window End" value={fmt(result.fertileEnd)} icon={<Calendar className="w-4 h-4" />} />
               </div>
 
               <Card>
@@ -55,10 +55,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
                 <div className="space-y-2">
                   {[
                     { label: 'Period Starts', date: new Date(lastPeriod), emoji: '🔴', color: 'bg-red-50 border-red-200', text: 'text-red-700' },
-                    { label: 'Fertile Window Begins', date: result.fertileWindowStart, emoji: '💚', color: 'bg-green-50 border-green-200', text: 'text-green-700' },
+                    { label: 'Fertile Window Begins', date: result.fertileStart, emoji: '💚', color: 'bg-green-50 border-green-200', text: 'text-green-700' },
                     { label: '⭐ Peak Ovulation Day', date: result.ovulationDate, emoji: '🌟', color: 'bg-yellow-50 border-yellow-200', text: 'text-yellow-700' },
-                    { label: 'Fertile Window Ends', date: result.fertileWindowEnd, emoji: '💛', color: 'bg-amber-50 border-amber-200', text: 'text-amber-700' },
-                    { label: 'Next Period (est.)', date: result.nextPeriodDate, emoji: '📅', color: 'bg-gray-50 border-gray-200', text: 'text-gray-700' },
+                    { label: 'Fertile Window Ends', date: result.fertileEnd, emoji: '💛', color: 'bg-amber-50 border-amber-200', text: 'text-amber-700' },
+                    { label: 'Next Period (est.)', date: result.nextPeriod, emoji: '📅', color: 'bg-gray-50 border-gray-200', text: 'text-gray-700' },
                   ].map(item => (
                     <div key={item.label} className={`flex items-center gap-3 p-3 rounded-xl border ${item.color}`}>
                       <span className="text-lg">{item.emoji}</span>

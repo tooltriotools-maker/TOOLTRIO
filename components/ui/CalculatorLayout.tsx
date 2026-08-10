@@ -10,7 +10,7 @@ import { getYMYLQuality, getYMYLStatusLabel, getYMYLDisclaimer, generateYMYLWebP
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
 
-function YMYLTrustPanel({ category, slug, title, description, pageUrl }: { category: 'Finance' | 'Health' | 'Dev' | 'Fun'; slug?: string; title: string; description: string; pageUrl: string }) {
+function YMYLTrustPanel({ category, slug, title, description, pageUrl }: { category: 'Finance' | 'Health'; slug?: string; title: string; description: string; pageUrl: string }) {
   if (!slug || (category !== 'Finance' && category !== 'Health')) return null
   const ymylCategory = category.toLowerCase() as YMYLCategory
   const quality = getYMYLQuality(ymylCategory, slug)
@@ -154,7 +154,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
           {children}
         </div>
 
-        <YMYLTrustPanel category={category} slug={slug} title={title} description={description} pageUrl={pageUrl} />
+        {(category === 'Finance' || category === 'Health') && <YMYLTrustPanel category={category} slug={slug} title={title} description={description} pageUrl={pageUrl} />}
 
         {/* Blog Guide Card */}
         {blogSlug && (

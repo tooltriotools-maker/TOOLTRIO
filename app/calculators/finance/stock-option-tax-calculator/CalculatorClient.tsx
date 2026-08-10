@@ -65,7 +65,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <div className="flex justify-between"><span className="text-gray-500">Total Spread ({shares} shares)</span><span className="font-bold">{fmt(result.spread)}</span></div>
               {optionType === 'nso' ? <>
                 <div className="flex justify-between text-red-500"><span>Ordinary Income Tax ({ordinaryTaxRate}%)</span><span className="font-semibold">-{fmt(result.ordinaryIncomeTax)}</span></div>
-                <div className="flex justify-between text-orange-500"><span>FICA Tax (7.65%)</span><span className="font-semibold">-{fmt((result as any).ficaTax ?? 0)}</span></div>
+                <div className="flex justify-between text-orange-500"><span>FICA Tax (7.65%)</span><span className="font-semibold">-{fmt('ficaTax' in result ? (result.ficaTax ?? 0) : 0)}</span></div>
               </> : <>
                 {'amtExposure' in result && <div className="flex justify-between text-red-500"><span>AMT Exposure (28%)</span><span className="font-semibold">-{fmt((result as any).amtExposure)}</span></div>}
                 {heldOver1Year && <div className="flex justify-between text-green-600"><span>LTCG Rate ({capitalGainsTaxRate}%)</span><span className="font-semibold">-{fmt(result.capitalGainsTax)}</span></div>}

@@ -63,7 +63,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
 
       <div className="space-y-3">
-        {Object.entries(hashes).map(([algo, hash]) => (
+        {(Object.entries(hashes) as Array<[string, string]>).map(([algo, hash]) => (
           <div key={algo} className="rounded-2xl border p-5 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm font-black text-gray-900">{algo}</span>

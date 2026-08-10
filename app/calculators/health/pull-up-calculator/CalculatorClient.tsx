@@ -43,7 +43,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug, s
           <Card>
             <h3 className="font-semibold text-gray-700 mb-3">Strength Standards ({gender})</h3>
             <div className="space-y-2">
-              {Object.entries(std).map(([l,r])=>(
+              {(Object.entries(std) as Array<[string, number]>).map(([l,r])=>(
                 <div key={l} className={`flex justify-between items-center text-sm p-2 rounded-lg ${reps>=r&&reps<(std[Object.keys(std)[Object.keys(std).indexOf(l)+1] as keyof typeof std]||999)?'bg-rose-50 font-bold':''}`}>
                   <span className="capitalize">{l}</span><span>{r}+ reps</span>
                 </div>

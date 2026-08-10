@@ -57,11 +57,11 @@ export default function ZipToolClient() {
   const states = [...new Set(results.map(r => r.stateCode))]
 
   // Top cities by population for chart
-  const cityPop = Object.entries(
+  const cityPop = (Object.entries(
     results.reduce((acc: Record<string,number>, r) => {
       acc[r.city] = (acc[r.city] || 0) + (r.population || 0); return acc
     }, {})
-  ).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([city, pop]) => ({ city, pop }))
+  ) as Array<[string, number]>).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([city, pop]) => ({ city, pop }))
 
   return (
     <div>

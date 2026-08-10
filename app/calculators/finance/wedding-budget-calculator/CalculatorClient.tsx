@@ -16,7 +16,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [regionNum, setRegionNum] = useState(1)
 
   const result = useMemo(()=>{
-    try{return calculateWeddingBudget(totalBudget,guestCount,'ballroom',(['northeast','west','south','midwest'][regionNum-1]||'northeast') as 'northeast'|'west'|'south'|'midwest')}catch(e){return null}
+    try{const regions = ['northeast','west','south','midwest'] as const; return calculateWeddingBudget(totalBudget,guestCount,'ballroom',regions[regionNum-1] ?? 'northeast')}catch(e){return null}
   },[totalBudget, guestCount, regionNum])
 
   return (
