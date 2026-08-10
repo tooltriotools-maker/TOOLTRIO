@@ -8,22 +8,26 @@ const root = process.cwd()
 const calcPath = path.join(root, 'lib', 'calculations', 'finance.ts')
 const calcSource = fs.readFileSync(calcPath, 'utf8')
 const calcFile = ts.createSourceFile(calcPath, calcSource, ts.ScriptTarget.Latest, true)
-const returnKeys = new Map()
+const returnKeySets = new Map()
 
 function collectReturns(node) {
   if (ts.isFunctionDeclaration(node) && node.name?.text?.startsWith('calculate')) {
-    const keys = new Set()
-    function collectReturn(n) {
+    const keySets = []
+    function collectDirectReturns(n) {
+      if (n !== node && (ts.isFunctionLike(n) || ts.isArrowFunction(n))) return
       if (ts.isReturnStatement(n) && n.expression && ts.isObjectLiteralExpression(n.expression)) {
+        const keys = new Set()
         for (const property of n.expression.properties) {
           if (ts.isPropertyAssignment(property) && property.name) keys.add(property.name.getText(calcFile))
           else if (ts.isShorthandPropertyAssignment(property)) keys.add(property.name.text)
         }
+        keySets.push(keys)
+        return
       }
-      ts.forEachChild(n, collectReturn)
+      ts.forEachChild(n, collectDirectReturns)
     }
-    collectReturn(node.body)
-    if (keys.size) returnKeys.set(node.name.text, keys)
+    collectDirectReturns(node.body)
+    if (keySets.length) returnKeySets.set(node.name.text, keySets)
   }
   ts.forEachChild(node, collectReturns)
 }
@@ -44,7 +48,7 @@ for (const entry of fs.readdirSync(financeDir, { withFileTypes: true })) {
       const bindings = node.importClause?.namedBindings
       if (bindings && ts.isNamedImports(bindings)) {
         for (const element of bindings.elements) {
-          if (returnKeys.has(element.name.text)) importedCalculators.add(element.name.text)
+          if (returnKeySets.has(element.name.text)) importedCalculators.add(element.name.text)
         }
       }
     }
@@ -54,7 +58,17 @@ for (const entry of fs.readdirSync(financeDir, { withFileTypes: true })) {
   if (!importedCalculators.size) continue
 
   const expected = new Set()
-  for (const fn of importedCalculators) for (const key of returnKeys.get(fn) || []) expected.add(key)
+  const unionOnly = new Map()
+  for (const fn of importedCalculators) {
+    const sets = returnKeySets.get(fn) || []
+    for (const key of new Set(sets.flatMap(set => [...set]))) expected.add(key)
+    if (sets.length > 1) {
+      const common = new Set(sets[0])
+      for (const set of sets.slice(1)) for (const key of [...common]) if (!set.has(key)) common.delete(key)
+      const all = new Set(sets.flatMap(set => [...set]))
+      unionOnly.set(fn, new Set([...all].filter(key => !common.has(key))))
+    }
+  }
   const resultProps = new Set()
 
   function findResultProps(node) {
@@ -68,6 +82,13 @@ for (const entry of fs.readdirSync(financeDir, { withFileTypes: true })) {
   for (const prop of resultProps) {
     if (!expected.has(prop)) issues.push(`${path.relative(root, file)}: result.${prop}`)
   }
+  for (const [fn, props] of unionOnly) {
+    for (const prop of props) {
+      if (!resultProps.has(prop)) continue
+      if (new RegExp(`[\"']${prop}[\"']\\s+in\\s+result`).test(source)) continue
+      issues.push(`${path.relative(root, file)}: result.${prop} is not present on every return shape of ${fn}; narrow with \'${prop}\' in result or normalize the function return type.`)
+    }
+  }
 }
 
 if (issues.length) {
@@ -76,4 +97,4 @@ if (issues.length) {
   process.exit(1)
 }
 
-console.log('Calculator result-property audit passed: no result.* properties are missing from their calculation return objects.')
+console.log('Calculator result-property audit passed: result.* properties exist on their calculation return shapes and union-only properties are safely narrowed or normalized.')
