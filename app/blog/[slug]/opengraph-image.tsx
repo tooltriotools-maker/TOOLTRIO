@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { publishedBlogPosts } from '@/lib/blog/posts'
+import { blogOgData } from '@/lib/blog/blogOgData'
 
 export const runtime = 'edge'
 export const alt = 'ToolTrio article'
@@ -7,7 +7,7 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  const post = publishedBlogPosts.find(item => item.slug === params.slug)
+  const post = blogOgData[params.slug]
   const title = post?.title ?? 'ToolTrio Blog'
   const category = post?.category ?? 'Guides'
 
