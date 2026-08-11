@@ -77,7 +77,7 @@ It's built for anyone contributing to a 401k who is also enrolled in an HSA-elig
 
 Step 1 — Capture the full employer 401k match: Match Value = Salary × min(Match %, 6%). This is treated as priority #1 because it's an immediate, stated return under the applicable terms — typically 50-100% — that nothing else can match.
 
-Step 2 — Max the HSA (if HDHP-eligible): the HSA is prioritized above further 401k contributions because it's the only account offering all three tax benefits — a deduction going in, tax-free growth, and tax-free withdrawals for qualified medical expenses. Your estimated tax savings are calculated as HSA Limit × (Marginal Tax Rate + 7.65% payroll tax).
+Step 2 — Max the HSA (if HDHP-eligible): the HSA is prioritized above further 401k contributions because it's the only account offering all three tax benefits — a deduction going in, tax-free growth, and tax-free withdrawals for qualified medical expenses. Your estimated tax savings are calculated as HSA limit × the entered marginal income-tax rate. Payroll-tax savings depend on payroll arrangement and are not assumed here.
 
 Step 3 — Return to the 401k up to the full 2026 IRS limit of $24,500.
 
@@ -109,7 +109,7 @@ Step 5 — Additional savings go to a taxable brokerage account, which has no co
           caseStudy={{
             title:'A $95,000 salary with a 4% match',
             scenario:'Someone earning $95,000/year gets a 4% 401k match and is in the 24% federal tax bracket, enrolled in an HDHP.',
-            result:'Step 1 captures $3,800 in guaranteed match money. Step 2 directs the next $4,400 to a maxed-out HSA, saving roughly $1,393 in combined income and payroll tax. Step 3 returns to the 401k for the remaining $20,700 to reach the $24,500 IRS cap, and Step 4 allows up to $7,500 more in an IRA — a total of $36,400 in tax-advantaged contribution room for the year.',
+            result:'In the sample inputs, the model shows a $3,800 employer-match assumption, a $4,400 self-only HSA limit, a $24,500 401(k) employee-deferral limit, and a $7,500 IRA limit. Actual employer-match formulas, HSA eligibility and IRA eligibility can change the result.',
             takeaway:'The HSA step is small in dollar terms compared to the 401k, but it carries the highest tax-efficiency per dollar contributed.'
           }}
           conclusion={`This priority order is a common financial-planning framework, not a personalized recommendation — your own priorities may shift if you have high-interest debt to pay down first, need to build an emergency fund, or have irregular income that makes maxing every account impractical in a given year. If you're weighing this alongside other goals, a fee-only financial planner can help sequence it against your full financial picture.`}

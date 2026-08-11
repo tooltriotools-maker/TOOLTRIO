@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next'
-import { publishedBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { publicBlogPosts, blogCategories } from '@/lib/blog/posts'
 import { MASTER_TOOL_REGISTRY } from '@/lib/catalog'
-import { getYMYLQuality } from '@/lib/seo/ymyl'
 
 const BASE = 'https://tooltrio.com'
 
@@ -14,7 +13,7 @@ const BASE = 'https://tooltrio.com'
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const seenBlogSlugs = new Set<string>()
-  const uniqueBlogPosts = publishedBlogPosts.filter(post => {
+  const uniqueBlogPosts = publicBlogPosts.filter(post => {
     if (seenBlogSlugs.has(post.slug)) return false
     seenBlogSlugs.add(post.slug)
     return true
@@ -22,9 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const toolUrls = MASTER_TOOL_REGISTRY
     .filter(tool => {
-      if (tool.cat !== 'finance' && tool.cat !== 'health') return true
-      const slug = tool.href.split('/').filter(Boolean).at(-1) ?? ''
-      return getYMYLQuality(tool.cat, slug).indexable
+      return tool.cat !== 'finance' && tool.cat !== 'health'
+
     })
     .map(tool => ({
       url: `${BASE}${tool.href}`,
@@ -32,8 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
 
   const categoryRoutes = [
-    '/calculators/finance',
-    '/calculators/health',
     '/calculators/dev',
     '/calculators/fun',
     '/zip',
@@ -54,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt ?? post.publishedAt).toISOString(),
     })),
-    ...blogCategories.map(category => ({
+    ...blogCategories.filter(category => !['investment','retirement','loans','personal-finance','tax','health','property','commodity'].includes(category.slug)).map(category => ({
       url: `${BASE}/blog/category/${category.slug}`,
     })),
   ]

@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="France PEA vs Assurance-Vie Calculator 2026" description="Compare Plan Epargne en Actions vs Assurance-Vie on tax efficiency and long-term wealth building." icon="🇫🇷" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="france-pea-vs-assurance-vie-calculator">
+    <CalculatorLayout title="France PEA vs Assurance-Vie Calculator 2026" description="Compare modeled pre-tax growth for a French PEA versus Assurance-Vie using your own return assumptions." icon="🇫🇷" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="france-pea-vs-assurance-vie-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled Value</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'PEA' : 'Assurance-Vie'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
@@ -120,24 +120,24 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is France Pea?</h3>
-              <p>France Pea is a Europe investment or financial product that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
+              <p>A PEA is a French investment wrapper with specific eligibility and withdrawal rules. This calculator does not verify whether a security is PEA-eligible.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">What is Assurance Vie?</h3>
-              <p>Assurance Vie takes a different approach to growing or protecting your wealth. Each has its own risk profile, liquidity characteristics, and tax treatment that makes it suited to specific financial situations.</p>
+              <p>Assurance-Vie is an insurance wrapper whose tax treatment depends on contribution dates, contract age, withdrawals, premiums and other facts.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Key Differences</h3>
               <p>The most important distinction between France Pea and Assurance Vie is how returns are generated and taxed. France Pea typically suits growth-oriented investors while Assurance Vie may appeal to those prioritizing stability or specific tax advantages.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in Europe</h3>
-              <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains tax or income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
+              <p>The chart above is a pre-tax growth scenario. It does not calculate French income tax or social levies at withdrawal, because those amounts depend on the account history and withdrawal facts.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for European Long-Term Investing?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (7-9% historical) generally beat lower-return stable options (3-4%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. Do not interpret the higher assumed return as a forecast. Change both return assumptions to stress-test the comparison.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>
             <h3 className="font-bold text-green-800 mb-2">💡 Expert Tip</h3>
-            <p className="text-sm text-green-700 leading-relaxed">Most financial advisors recommend not putting all your money in one option. A diversified approach - splitting between France Pea and Assurance Vie based on your specific goals - often provides better risk-adjusted returns than going all-in on either. Use this calculator to find your optimal split.</p>
+            <p className="text-sm text-green-700 leading-relaxed">The calculator does not determine an optimal allocation. Compare scenarios using assumptions that reflect your own risk, liquidity and tax circumstances.</p>
           </div>
         </div>
       </div>
@@ -179,9 +179,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         category="finance"
         intro={`The PEA (Plan d'Épargne en Actions) and Assurance-Vie are the two primary tax-advantaged investment vehicles available to French residents, and they serve different purposes with complementary strengths. Understanding which vehicle is right for each of your financial goals is a genuine optimization opportunity — the tax advantages are substantial compared to unshielded brokerage accounts.
 
-The PEA is specifically designed for equity investment: you can hold European stocks and equity funds within the wrapper, and after 5 years, all gains and dividends are completely exempt from income tax (though still subject to social charges at 17.2%). The annual contribution limit is €150,000 for a regular PEA. Once you hold a PEA for 5 years, partial withdrawals are possible without closing the account — a significant flexibility improvement from earlier rules.
+For a French tax resident, PEA withdrawals after five years are exempt from income tax on gains but remain subject to social levies at the rate applicable at withdrawal. The annual contribution limit is €150,000 for a regular PEA. Once you hold a PEA for 5 years, partial withdrawals are possible without closing the account — a significant flexibility improvement from earlier rules.
 
-Assurance-Vie is more flexible in investment options (you can hold a mix of fonds en euros providing stated return under the applicable termss and unités de compte for equity/bond exposure) and has more favorable inheritance tax treatment. After 8 years, withdrawals of gains are taxed at a reduced 7.5% flat rate (for contracts up to €150,000 total) versus the standard 30% prélèvement forfaitaire unique.`}
+Assurance-Vie is more flexible in investment options (you can hold a mix of fonds en euros providing stated return under the applicable termss and unités de compte for equity/bond exposure) and has more favorable inheritance tax treatment. Assurance-Vie taxation depends on the age of the contract, the date and amount of premiums, the amount of gains withdrawn and the taxpayer’s circumstances; the official tax authority describes the €4,600/€9,200 annual allowance after eight years.`}
         howItWorks={`PEA return after tax: Gains within PEA after 5 years are tax-free (income tax exempt). Remaining cost: social charges (prélèvements sociaux) at 17.2% on gains. On €100,000 of gains, PEA net = €82,800 vs unshielded account at 30% flat tax = €70,000 net.
 
 Assurance-Vie return: After 8 years, gains up to €4,600/year (€9,200 for couples) are completely exempt. Above this, taxed at 7.5% + 17.2% social charges = 24.7% effective rate for contracts below €150,000. For long-term investors making regular partial withdrawals in retirement, the combination of annual exempt threshold and lower rate is highly advantageous.
@@ -205,7 +205,7 @@ Fonds en euros within Assurance-Vie: Capital-guaranteed funds currently yielding
 For PEA investment selection: prioritize broad index funds tracking MSCI Europe or MSCI World (with at least 75% European equities to meet PEA eligibility requirements). Lyxor and iShares offer PEA-eligible ETFs at low expense ratios. Check that any fund you're considering is explicitly listed as PEA-eligible before purchasing.
 
 The PEA-PME (small and mid-cap variant) offers additional €75,000 contribution space with similar tax treatment, for investors interested in smaller European companies.`}
-        conclusion={`The combination of maximizing PEA first (for equity investments held long-term) and Assurance-Vie for both medium-term savings and inheritance planning is the standard optimal strategy for French investors. Using both vehicles captures the PEA's superior long-term equity tax treatment and the Assurance-Vie's greater flexibility and estate planning advantages.
+        conclusion={`There is no universal optimal strategy. PEA and Assurance-Vie have different legal, investment, withdrawal and tax characteristics, so the appropriate choice depends on the investor. Using both vehicles captures the PEA's superior long-term equity tax treatment and the Assurance-Vie's greater flexibility and estate planning advantages.
 
 For inheritance planning specifically, Assurance-Vie is one of the most useful tools in France: amounts up to €152,500 per beneficiary can be passed outside of the normal inheritance tax regime, making it central to estate planning for many French families.`}
       />

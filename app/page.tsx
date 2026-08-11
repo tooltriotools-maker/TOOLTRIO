@@ -2,31 +2,31 @@ import Link from 'next/link'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 import type { Metadata } from 'next'
 
-function Heart({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> }
-function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> }
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio (35+ ZIP Tools)',
+    absolute: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
   },
   description:
-    'Free US ZIP code tools: instant ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder. 35+ ZIP code tools covering every US ZIP, plus 560+ free finance, health, dev and commodity calculators. No signup, instant results.',
+    'Free US ZIP code tools for ZIP lookup, ZIP-to-ZIP distance, timezone lookup, ZIP coordinates and ZIP+4. Use 35+ practical ZIP tools for location, mailing and geographic lookups with instant results and no signup.',
   keywords: [
     'zip code lookup',
     'zip code finder',
+    'zip code distance',
+    'zip code timezone',
+    'zip code coordinates',
     'zip+4 lookup',
     'zip plus 4 lookup',
     'zip code distance calculator',
     'zip to timezone',
     'zip code to city',
+    'zip code to coordinates',
     'city to zip code',
     'us zip code database',
     'free zip code tool',
     'zip code validator',
-    'mortgage calculator',
-    '401k calculator',
-    'compound interest calculator',
-    'BMI calculator',
+    'us zip code tools',
+    'free zip code tools',
     'developer tools online',
     'gold price calculator',
     'tooltrio',
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio',
+    title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
     description:
-      'Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone tools covering every US ZIP code — plus 560+ free finance, health and commodity calculators. No signup. Instant results.',
+      'ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools for US ZIP codes. Free, fast and easy to use with no signup.',
     url: 'https://tooltrio.com',
     siteName: 'ToolTrio',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools' }],
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools — ToolTrio',
-    description: 'Instant ZIP code lookup, ZIP+4, ZIP distance and ZIP to timezone tools — plus 560+ free calculators. No signup required.',
+    title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
+    description: 'Free ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools — plus developer, commodity and other practical tools. No signup required.',
     images: ['/og-image.png'],
   },
 }
@@ -61,7 +61,7 @@ const homepageFAQSchema = {
       name: 'What is ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio is a free ZIP code tools and calculators website. It offers 35+ US ZIP code tools — ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — plus 560+ tools across finance, health, developer tools, commodities and fun. No signup required.',
+        text: 'ToolTrio is a free ZIP code tools and calculators website. It offers 35+ US ZIP code tools plus developer utilities, commodity calculators and fun tools. No signup required.',
       },
     },
     {
@@ -90,26 +90,18 @@ const homepageFAQSchema = {
     },
     {
       '@type': 'Question',
+      name: 'How can I find coordinates for a ZIP code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use ToolTrio ZIP to Coordinates to find the latitude and longitude centroid associated with a US ZIP Code Tabulation Area. For an exact street address, use a full address geocoding service.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'Are ToolTrio tools and calculators free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Every tool and calculator on ToolTrio — ZIP code, finance, health, developer, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What finance calculators does ToolTrio offer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio offers 270+ finance calculators including mortgage calculator, 401k calculator, compound interest calculator, Roth IRA calculator, auto loan calculator, budget planner, FIRE calculator and debt payoff calculator.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What health calculators does ToolTrio offer?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'ToolTrio offers 120+ health calculators including BMI calculator, calorie calculator, TDEE calculator, BMR calculator, macro calculator, body fat calculator, ideal weight calculator and water intake calculator.',
+        text: 'Yes. ToolTrio\'s public tools are completely free to use with no registration, no subscription and no hidden fees.',
       },
     },
     {
@@ -117,47 +109,11 @@ const homepageFAQSchema = {
       name: 'Does ToolTrio have developer tools, ZIP code tools and commodity calculators?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ToolTrio includes 90+ developer tools (JSON formatter, regex tester, Base64 encoder, UUID generator, hash generator), 35+ US ZIP code tools (ZIP lookup, ZIP distance, ZIP to city), and 10+ commodity calculators (gold price, silver price, crude oil) — in addition to finance, health and fun calculators.',
+        text: 'Yes. ToolTrio includes 90+ developer tools, 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
       },
     },
   ],
 }
-
-const financeCalcs = [
-  { name: 'Mortgage Calculator', desc: 'Full PITI payment', href: '/calculators/finance/mortgage-calculator', icon: '🏡', badge: 'Popular' },
-  { name: '401k Calculator', desc: 'US retirement + match', href: '/calculators/finance/401k-calculator', icon: '🏛️', badge: 'USA' },
-  { name: 'Compound Interest', desc: 'Power of compounding', href: '/calculators/finance/compound-interest-calculator', icon: '💰', badge: null },
-  { name: 'Auto Loan Calculator', desc: 'Car loan with tax & fees', href: '/calculators/finance/auto-loan-calculator', icon: '🚗', badge: 'NEW' },
-  { name: 'Roth IRA Calculator', desc: 'Tax-free retirement', href: '/calculators/finance/roth-ira-calculator', icon: '🛡️', badge: 'USA' },
-  { name: 'Budget Planner', desc: '50/30/20 rule', href: '/calculators/finance/budget-planner-calculator', icon: '📊', badge: 'NEW' },
-  { name: 'FIRE Calculator', desc: 'Financial independence', href: '/calculators/finance/fire-calculator', icon: '🔥', badge: null },
-  { name: 'Wealth Calculator', desc: 'Net worth + projection', href: '/calculators/finance/wealth-calculator', icon: '💎', badge: 'NEW' },
-  { name: 'Down Payment Calc', desc: 'Compare 5–20% down', href: '/calculators/finance/down-payment-calculator', icon: '💵', badge: 'NEW' },
-  { name: 'Savings Rate Calc', desc: 'Years to FIRE', href: '/calculators/finance/savings-rate-calculator', icon: '📈', badge: 'NEW' },
-  { name: 'Payoff Date Calc', desc: 'When debt-free?', href: '/calculators/finance/payoff-date-calculator', icon: '📅', badge: 'NEW' },
-  { name: 'UK Income Tax', desc: 'PAYE & take-home pay', href: '/calculators/finance/uk-income-tax-calculator', icon: '🏴', badge: 'UK' },
-  { name: 'SIP Calculator', desc: 'Monthly SIP returns', href: '/calculators/finance/sip-calculator', icon: '📈', badge: 'India' },
-  { name: 'Debt Payoff', desc: 'Avalanche & snowball', href: '/calculators/finance/debt-payoff-calculator', icon: '🔓', badge: null },
-  { name: 'Annual Income Calc', desc: 'Hourly → annual salary', href: '/calculators/finance/annual-income-calculator', icon: '💵', badge: 'NEW' },
-]
-
-const healthCalcs = [
-  { name: 'BMI Calculator', desc: 'Body mass index', href: '/calculators/health/bmi-calculator', icon: '⚖️', badge: 'Popular' },
-  { name: 'Calorie Calculator', desc: 'Daily TDEE & macros', href: '/calculators/health/calorie-calculator', icon: '🔥', badge: 'Popular' },
-  { name: 'BMR Calculator', desc: 'Basal metabolic rate', href: '/calculators/health/bmr-calculator', icon: '❤️', badge: null },
-  { name: 'Body Fat Calculator', desc: 'US Navy method', href: '/calculators/health/body-fat-calculator', icon: '💪', badge: null },
-  { name: 'Ideal Weight', desc: '4 formula comparison', href: '/calculators/health/ideal-weight-calculator', icon: '🏋️', badge: null },
-  { name: 'Water Intake', desc: 'Daily hydration needs', href: '/calculators/health/water-intake-calculator', icon: '💧', badge: null },
-  { name: 'Sleep Cycle', desc: 'Best wake up times', href: '/calculators/health/sleep-cycle-calculator', icon: '😴', badge: null },
-  { name: 'Pregnancy Calculator', desc: 'Due date & trimesters', href: '/calculators/health/pregnancy-calculator', icon: '🤰', badge: null },
-  { name: 'Macro Calculator', desc: 'Protein, carbs & fat', href: '/calculators/health/macro-calculator', icon: '🥗', badge: null },
-  { name: 'TDEE Calculator', desc: 'Total daily energy', href: '/calculators/health/tdee-calculator', icon: '📊', badge: null },
-  { name: 'Heart Rate Zones', desc: 'Training HR zones', href: '/calculators/health/heart-rate-calculator', icon: '💓', badge: null },
-  { name: 'Calories Burned', desc: 'Exercise calorie burn', href: '/calculators/health/calories-burned-calculator', icon: '🏃', badge: null },
-  { name: 'Protein Intake', desc: 'Daily protein needs', href: '/calculators/health/protein-intake-calculator', icon: '🥩', badge: null },
-  { name: 'Blood Pressure', desc: 'BP vs AHA categories', href: '/calculators/health/blood-pressure-calculator', icon: '🩺', badge: null },
-  { name: 'Intermittent Fasting', desc: '16:8 eating windows', href: '/calculators/health/intermittent-fasting-calculator', icon: '⏰', badge: null },
-]
 
 const devTools = [
   { name: 'JSON Formatter', desc: 'Format & validate JSON', href: '/calculators/dev/json-formatter', icon: '🧩', badge: 'Popular' },
@@ -177,6 +133,7 @@ const zipTools = [
   { name: 'ZIP Code Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
   { name: 'ZIP+4 Lookup', desc: 'Find ZIP+4 extension', href: '/zip/zip-plus-4-lookup', icon: '➕', badge: 'Popular' },
   { name: 'ZIP to Timezone', desc: 'Find timezone by ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: 'Popular' },
+  { name: 'ZIP to Coordinates', desc: 'Find latitude & longitude by ZIP', href: '/zip/zip-to-coordinates', icon: '🌐', badge: 'Popular' },
   { name: 'ZIP to City', desc: 'Reverse ZIP lookup', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
   { name: 'City to ZIP', desc: 'Find ZIP codes by city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
   { name: 'ZIPs in Radius', desc: 'All ZIPs within miles', href: '/zip/zips-within-radius', icon: '🎯', badge: 'NEW' },
@@ -185,12 +142,13 @@ const zipTools = [
   { name: 'USPS Address Format', desc: 'Format addresses correctly', href: '/zip/usps-address-format', icon: '✉️', badge: null },
 ]
 
-// The 4 hero ZIP tools — highest-impression products, featured prominently on homepage
+// The 5 hero ZIP tools — proven search-demand products, featured prominently on homepage
 const heroZipTools = [
   { name: 'ZIP Code Lookup', desc: 'City, state, county & timezone for any US ZIP', href: '/zip/zip-code-lookup', icon: '📮' },
   { name: 'ZIP Code Distance', desc: 'Miles & km between any two ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
   { name: 'ZIP+4 Lookup', desc: 'Find your ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
   { name: 'ZIP to Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
+  { name: 'ZIP to Coordinates', desc: 'Find latitude & longitude by ZIP', href: '/zip/zip-to-coordinates', icon: '🌐' },
 ]
 
 const commodityTools = [
@@ -239,10 +197,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
             <span>📮 ZIP Code Tools</span>
-            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>💰 Finance</span>
-            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>❤️ Health</span>
+
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>⚡ Dev Tools</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
@@ -252,16 +207,16 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-            Free ZIP Code Lookup, ZIP+4 &{' '}
+            Free US ZIP Code Lookup, Distance, Timezone & ZIP+4{' '}
             <span style={{ color: '#16a34a' }}>ZIP Distance Tools</span>
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone tools covering every US ZIP code cluster — plus 560+ free finance, health, dev and commodity calculators. No signup, instant results.
+            Find a US ZIP code, measure distance between ZIP codes, identify a ZIP code's timezone, get ZIP coordinates, or look up ZIP+4 information. These five ZIP tools are the core of ToolTrio's location toolkit — free, fast and available without signup.
           </p>
 
           <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
-            Look up any US ZIP code for city, state, county and timezone, find your ZIP+4 delivery extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — all free, all instant.
+            Look up city, state, county and timezone; calculate ZIP-to-ZIP distance; find ZIP+4 information; get latitude and longitude coordinates; or identify the timezone for a ZIP code. All five tools are free to use.
             <br />
             <span>Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.</span>
           </p>
@@ -276,8 +231,7 @@ export default function HomePage() {
               { label: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
               { label: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { label: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
-              { label: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
-              { label: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
+              { label: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
               { label: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
             ].map(t => (
               <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
@@ -289,8 +243,6 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { val: '35+', label: 'ZIP Code Tools' },
-              { val: '270+', label: 'Finance Calculators' },
-              { val: '120+', label: 'Health Calculators' },
               { val: '90+', label: 'Developer Tools' },
               { val: '10+', label: 'Commodity Calculators' },
               { val: '30+', label: 'Fun Tools' },
@@ -316,10 +268,7 @@ export default function HomePage() {
               { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
               { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
-              { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
-              { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
-              { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
-              { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
+              { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
               { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
               { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
             ].map(c => (
@@ -371,8 +320,6 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
-              { name: 'Finance', count: '270+ tools', href: '/calculators/finance', icon: '💰', color: '#16a34a' },
-              { name: 'Health', count: '120+ tools', href: '/calculators/health', icon: '❤️', color: '#e11d48' },
               { name: 'Dev Tools', count: '90+ tools', href: '/calculators/dev', icon: '⚡', color: '#2563eb' },
               { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
               { name: 'Commodities', count: '10+ tools', href: '/commodities', icon: '🥇', color: '#d97706' },
@@ -409,68 +356,6 @@ export default function HomePage() {
                   )}
                 </span>
                 <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Finance Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <TrendingUp size={24} className="text-green-600" />
-              Finance Calculators
-            </h2>
-            <Link href="/calculators/finance" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all finance calculators →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {financeCalcs.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Health Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <Heart size={24} className="text-rose-500" />
-              Health Calculators
-            </h2>
-            <Link href="/calculators/health" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all health calculators →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {healthCalcs.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-rose-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-rose-600 transition-all leading-tight">
                   {c.name}
                 </span>
                 <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
@@ -632,120 +517,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          <h2 className="text-2xl font-black text-gray-900 mb-6" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-            Free Finance & Health Calculators — Built for Real Decisions
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-600 leading-relaxed">
-            <div className="space-y-5">
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🏠</span> Mortgage & Home Loan Calculators
-                </h3>
-                <p>
-                  Buying a home is one of the biggest financial decisions you will make. Our free{' '}
-                  <Link href="/calculators/finance/mortgage-calculator" className="text-green-600 hover:underline font-medium">
-                    mortgage calculator
-                  </Link>{' '}
-                  breaks down your monthly payment into principal, interest, taxes and insurance (PITI) so you know exactly what to expect before you sign.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🏛️</span> Retirement Calculators — 401k, Roth IRA, FIRE
-                </h3>
-                <p>
-                  Whether you are just starting out or closing in on retirement, our free{' '}
-                  <Link href="/calculators/finance/401k-calculator" className="text-green-600 hover:underline font-medium">
-                    401k calculator
-                  </Link>
-                  ,{' '}
-                  <Link href="/calculators/finance/roth-ira-calculator" className="text-green-600 hover:underline">
-                    Roth IRA calculator
-                  </Link>
-                  {' '}and{' '}
-                  <Link href="/calculators/finance/fire-calculator" className="text-green-600 hover:underline">
-                    FIRE calculator
-                  </Link>{' '}
-                  help you model your retirement savings and reach financial independence faster.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>💰</span> Compound Interest & Investment Calculators
-                </h3>
-                <p>
-                  Time in the market beats timing the market. See exactly how your money grows with our{' '}
-                  <Link href="/calculators/finance/compound-interest-calculator" className="text-green-600 hover:underline font-medium">
-                    compound interest calculator
-                  </Link>
-                  , which supports monthly contributions, variable rates and both annual and monthly compounding.
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-5">
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>⚖️</span> BMI & Body Composition Calculators
-                </h3>
-                <p>
-                  Know your numbers with our free{' '}
-                  <Link href="/calculators/health/bmi-calculator" className="text-green-600 hover:underline font-medium">
-                    BMI calculator
-                  </Link>
-                  ,{' '}
-                  <Link href="/calculators/health/body-fat-calculator" className="text-green-600 hover:underline">
-                    body fat calculator
-                  </Link>
-                  {' '}and{' '}
-                  <Link href="/calculators/health/ideal-weight-calculator" className="text-green-600 hover:underline">
-                    ideal weight calculator
-                  </Link>
-                  . Each uses clinically referenced formulas so you get results you can actually trust.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>🔥</span> Calorie, TDEE & Macro Calculators
-                </h3>
-                <p>
-                  Reach your weight goals with a plan built around your body. Our{' '}
-                  <Link href="/calculators/health/calorie-calculator" className="text-green-600 hover:underline font-medium">
-                    calorie calculator
-                  </Link>
-                  ,{' '}
-                  <Link href="/calculators/health/tdee-calculator" className="text-green-600 hover:underline">
-                    TDEE calculator
-                  </Link>
-                  {' '}and{' '}
-                  <Link href="/calculators/health/macro-calculator" className="text-green-600 hover:underline">
-                    macro calculator
-                  </Link>{' '}
-                  give you a personalised daily target for calories, protein, carbs and fat.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>📊</span> Popular Finance Comparisons
-                </h3>
-                <p>
-                  <Link href="/calculators/finance/roth-ira-vs-traditional-ira-calculator" className="text-green-600 hover:underline">Roth IRA vs Traditional IRA</Link>
-                  {' · '}
-                  <Link href="/calculators/finance/rent-vs-buy-calculator" className="text-green-600 hover:underline">Rent vs Buy</Link>
-                  {' · '}
-                  <Link href="/calculators/finance/pay-off-mortgage-vs-invest-calculator" className="text-green-600 hover:underline">Pay Off Mortgage vs Invest</Link>
-                  {' · '}
-                  <Link href="/calculators/finance/cd-vs-hysa-calculator" className="text-green-600 hover:underline">CD vs HYSA</Link>
-                </p>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* Trust badges */}
@@ -774,7 +545,7 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free ZIP code tools and calculators website with 35+ US ZIP code tools — ZIP code lookup, ZIP+4 lookup, ZIP code distance and ZIP to timezone — plus 560+ tools across finance, health, developer tools, commodities and fun. No signup required.',
+                a: 'ToolTrio is a free online tools website with 35+ US ZIP code tools, developer utilities, commodity calculators and fun tools. No signup required.',
               },
               {
                 q: 'How do I find the city and state for a ZIP code?',
@@ -793,32 +564,8 @@ export default function HomePage() {
                 a: 'Enter a ZIP code into the ZIP to Timezone tool to instantly see its US timezone — Eastern, Central, Mountain, Pacific, Alaska or Hawaii — useful for scheduling calls and deliveries across states.',
               },
               {
-                q: 'What is the best free mortgage calculator?',
-                a: 'Our free mortgage calculator shows your full monthly payment including principal, interest, property taxes and homeowner insurance. No signup, instant results.',
-              },
-              {
-                q: 'How do I use the 401k calculator?',
-                a: 'Enter your current age, retirement age, current balance, monthly contribution and employer match. The calculator projects your balance at retirement using compound growth.',
-              },
-              {
-                q: 'How accurate is the BMI calculator?',
-                a: 'Our BMI calculator uses the standard formula: BMI = (weight in lbs × 703) ÷ (height in inches)². It gives a quick reference for adults and is consistent with CDC guidelines.',
-              },
-              {
-                q: 'What is TDEE and why does it matter?',
-                a: 'TDEE (Total Daily Energy Expenditure) is the total number of calories your body burns in a day. Knowing your TDEE helps you set accurate calorie targets for weight loss, maintenance or muscle gain.',
-              },
-              {
-                q: 'What is compound interest and how is it calculated?',
-                a: 'Compound interest is interest earned on both your principal and previously accumulated interest. The formula is A = P(1 + r/n)^(nt). Over time, compounding turns small regular investments into significant wealth.',
-              },
-              {
-                q: 'Are ToolTrio calculators really free?',
-                a: 'Yes. Every tool and calculator on ToolTrio — finance, health, developer, ZIP code, commodity and fun — is completely free to use with no registration, no subscription and no hidden fees.',
-              },
-              {
-                q: 'Does ToolTrio have anything besides finance and health calculators?',
-                a: 'Yes. ToolTrio also includes 90+ developer tools (JSON formatter, regex tester, UUID generator), 35+ US ZIP code tools (ZIP lookup, ZIP distance, ZIP to city) and 10+ commodity calculators (gold, silver, crude oil price) — plus a Fun category with 30+ tools.',
+                q: 'What public tool categories does ToolTrio offer?',
+                a: 'Yes. ToolTrio includes 90+ developer tools, 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

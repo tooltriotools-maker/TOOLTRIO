@@ -9,21 +9,21 @@ import { SEOContent } from '@/components/ui/SEOContent'
 import { calculateWageGarnishment } from '@/lib/calculations/finance'
 interface Props { faqs:{question:string;answer:string}[];structuredData:object[];relatedCalculators?:{name:string;href:string;icon:string;desc:string}[] }
 export default function CalculatorClient({faqs,structuredData,relatedCalculators}:Props) {
-  const [grossWeeklyPay, setGrossWeeklyPay] = useState(1200)
-  const result = useMemo(()=>{try{return calculateWageGarnishment(grossWeeklyPay,'creditCard','TX')}catch(e){return null}},[grossWeeklyPay])
+  const [disposableWeeklyPay, setDisposableWeeklyPay] = useState(936)
+  const result = useMemo(()=>{try{return calculateWageGarnishment(disposableWeeklyPay,'creditCard')}catch(e){return null}},[disposableWeeklyPay])
   return (
-    <CalculatorLayout title="Wage Garnishment Calculator USA 2026" description="See the maximum weekly amount a creditor can legally take from your paycheck under the federal Consumer Credit Protection Act (CCPA), plus how child support, student loan, and IRS levy limits compare." icon="📋" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="wage-garnishment-calculator">
+    <CalculatorLayout title="Wage Garnishment Calculator USA 2026" description="Estimate the federal CCPA ceiling for an ordinary consumer-debt wage garnishment from disposable weekly earnings." icon="📋" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="wage-garnishment-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Gross Weekly Pay</label>
+            <label className="text-xs font-medium text-gray-600">Disposable Weekly Earnings</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
-              <input type="number" value={grossWeeklyPay} onChange={e=>setGrossWeeklyPay(Number(e.target.value))} step={50} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+              <input type="number" value={disposableWeeklyPay} onChange={e=>setDisposableWeeklyPay(Number(e.target.value))} step={50} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">/wk</span>
             </div>
-            <p className="text-[11px] text-gray-400">This estimate models the federal cap for credit-card/consumer-debt garnishment under a Texas paycheck. Child support, student loan, and tax levy limits differ — see the comparison table below.</p>
+            <p className="text-[11px] text-gray-400">Enter the disposable earnings used for the federal garnishment calculation. This page models the federal baseline for ordinary consumer debt; state law and other debt types can change the result.</p>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
@@ -43,14 +43,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <SEOContent title="Wage Garnishment Calculator USA 2026" category="finance"
           intro={`When a creditor wins a court judgment against you — or the IRS, a student loan servicer, or a family court issues a garnishment order — your employer can be legally required to hold back part of every paycheck. This calculator shows the maximum a creditor can take under the federal Consumer Credit Protection Act (CCPA), the baseline that applies in every state.
 
-It's built for anyone who's received (or is worried about receiving) a garnishment notice and wants to know how much of their paycheck is actually protected before talking to a creditor, a credit counselor, or an attorney. The single input that drives the result is your gross weekly pay — everything else follows from the federal formula below.`}
+It's built for anyone who's received (or is worried about receiving) a garnishment notice and wants to know how much of their paycheck is actually protected before talking to a creditor, a credit counselor, or an attorney. The key input is disposable weekly earnings. Gross pay is not the same as disposable earnings for CCPA purposes.`}
           howItWorks={`The CCPA protects wage earners with a two-part test, and the garnishment is capped at whichever amount is *lower*:
 
 Test 1 — 25% of disposable earnings: Weekly Garnishment ≤ Disposable Income × 0.25
 
 Test 2 — Income above 30× minimum wage: Weekly Garnishment ≤ Disposable Income − (30 × Federal Minimum Wage)
 
-"Disposable income" isn't your gross pay — it's what's left after legally required deductions (federal/state/local tax, Social Security, Medicare, and mandatory retirement contributions in some states). This calculator approximates disposable income at 78% of gross pay, a reasonable planning estimate for a typical single filer with standard payroll withholding. Your actual disposable income depends on your specific withholding elections and benefit deductions.
+"Disposable income" isn't your gross pay — it's what's left after legally required deductions (federal/state/local tax, Social Security, Medicare, and mandatory retirement contributions in some states). The calculator does not invent disposable income from gross pay. Enter the disposable earnings figure applicable to the pay period; required deductions and legal definitions determine that amount.
 
 At the 2026 federal minimum wage of $7.25/hour, 30 times that is $217.50 — the amount of weekly income that's fully shielded from creditor garnishment no matter how high your disposable income climbs.`}
           keyStats={[

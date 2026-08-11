@@ -18,24 +18,25 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [termPremium, setTermPremium] = useState(400)
   const [coverAmount, setCoverAmount] = useState(500000)
   const [investReturn, setInvestReturn] = useState(10)
+  const [wholeLifeCashValuePct, setWholeLifeCashValuePct] = useState(65)
   const [years, setYears] = useState(20)
 
   const result = useMemo(() => {
     const months = years * 12
     const mr = investReturn / 100 / 12
-    const monthlySavings = (wholeLifePremium - termPremium) / 12
-    const termSipFV = monthlySavings * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
+    const monthlySavings = Math.max(0, (wholeLifePremium - termPremium) / 12)
+    const termSipFV = mr === 0 ? monthlySavings * months : monthlySavings * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
     const totalTermCost = termPremium * years
     const totalWholeCost = wholeLifePremium * years
-    // Whole life cash value: typically grows at ~3-4% and equals ~60-70% of premiums paid after 20 years
-    const wholeLifeCashValue = totalWholeCost * 0.65
+    // User-entered planning assumption; actual whole-life cash value comes from the policy illustration.
+    const wholeLifeCashValue = totalWholeCost * Math.max(0, wholeLifeCashValuePct) / 100
     const sipBetter = termSipFV > wholeLifeCashValue
     const barData = [
       { name: 'Total Premiums', whole: Math.round(totalWholeCost), termSip: Math.round(totalTermCost) },
       { name: 'Final Value', whole: Math.round(wholeLifeCashValue), termSip: Math.round(termSipFV) },
     ]
     return { termSipFV: Math.round(termSipFV), wholeLifeCashValue: Math.round(wholeLifeCashValue), totalWholeCost: Math.round(totalWholeCost), totalTermCost: Math.round(totalTermCost), monthlySavings: Math.round(monthlySavings), sipBetter, difference: Math.round(Math.abs(termSipFV - wholeLifeCashValue)), barData }
-  }, [wholeLifePremium, termPremium, coverAmount, investReturn, years])
+  }, [wholeLifePremium, termPremium, coverAmount, investReturn, wholeLifeCashValuePct, years])
 
   return (
     <CalculatorLayout title="Term vs Whole Life Insurance Calculator 2026" description="Compare term life plus investing the difference vs whole life insurance on wealth building." icon="🛡️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="term-vs-whole-life-calculator">
@@ -46,11 +47,12 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Whole Life Annual Premium" value={wholeLifePremium} onChange={setWholeLifePremium} min={500} max={50000} step={100} prefix="$" />
             <InputField label="Equivalent Term Premium" value={termPremium} onChange={setTermPremium} min={100} max={5000} step={50} prefix="$" />
             <InputField label="Death Benefit / Cover" value={coverAmount} onChange={setCoverAmount} min={100000} max={5000000} step={100000} prefix="$" />
-            <InputField label="Investment Return (S&P 500)" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="Investment Return Assumption" value={investReturn} onChange={setInvestReturn} min={5} max={15} step={0.5} suffix="%" />
+            <InputField label="Whole-Life Cash Value (% of premiums)" value={wholeLifeCashValuePct} onChange={setWholeLifeCashValuePct} min={0} max={200} step={5} suffix="%" />
             <InputField label="Policy Period" value={years} onChange={setYears} min={10} max={30} step={5} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.sipBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Strategy</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled value</p>
             <p className="text-xl font-black" style={{ color: result.sipBetter ? '#10b981' : '#3b82f6' }}>{result.sipBetter ? 'Term + Invest' : 'Whole Life'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.difference)}</p>
           </div>
@@ -58,7 +60,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Term+Invest Value" value={fmtC(result.termSipFV)} subValue="Investment portfolio" highlight={result.sipBetter} icon={<TrendingUp className="w-4 h-4" />} />
-            <ResultCard label="Whole Life Cash Value" value={fmtC(result.wholeLifeCashValue)} subValue="~65% of premiums" highlight={!result.sipBetter} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="Whole Life Cash Value" value={fmtC(result.wholeLifeCashValue)} subValue={`${wholeLifeCashValuePct}% planning assumption`} highlight={!result.sipBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Monthly Savings" value={fmtC(result.monthlySavings)} subValue="Invested instead" />
             <ResultCard label="Premium Difference" value={fmtC(result.totalWholeCost - result.totalTermCost)} subValue={`Over ${years} years`} />
           </div>

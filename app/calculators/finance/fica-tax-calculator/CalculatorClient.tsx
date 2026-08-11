@@ -11,8 +11,9 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const [grossWages, setGrossWages] = useState(120000)
   const [ytdWages, setYtdWages] = useState(0)
   const [selfEmployed, setSelfEmployed] = useState(false)
+  const [filingStatus, setFilingStatus] = useState<'single' | 'married'>('single')
 
-  const result = useMemo(() => calculateFICA(grossWages, ytdWages, selfEmployed), [grossWages, ytdWages, selfEmployed])
+  const result = useMemo(() => calculateFICA(grossWages, ytdWages, selfEmployed, filingStatus), [grossWages, ytdWages, selfEmployed, filingStatus])
   const fmt = (v: number) => '$' + v.toLocaleString()
 
   return (
@@ -37,9 +38,17 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               ))}
             </div>
           </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Filing Status (for Additional Medicare when self-employed)</label>
+            <div className="grid grid-cols-2 gap-2">
+              {([{label:'Single',val:'single'},{label:'Married filing jointly',val:'married'}] as const).map(({label,val}) => (
+                <button key={val} onClick={() => setFilingStatus(val)} className={`py-2 rounded-xl text-xs font-semibold ${filingStatus===val?'bg-green-500 text-white':'bg-gray-100 text-gray-600'}`}>{label}</button>
+              ))}
+            </div>
+          </div>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-700">
-            <p className="font-bold">2026 SS Wage Base: $176,100</p>
-            <p className="mt-1">Additional Medicare kicks in at $200,000</p>
+            <p className="font-bold">2026 Social Security wage base: $184,500</p>
+            <p className="mt-1">Additional Medicare withholding starts at $200,000 for employees; self-employed thresholds depend on filing status.</p>
           </div>
         </Card>
 
@@ -79,7 +88,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           {result.additionalMedicare > 0 && (
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
               <p className="font-bold mb-1">⚠️ Additional Medicare Tax Applies</p>
-              <p>Your wages exceed $200,000 — the additional 0.9% Medicare surtax applies to the excess. Note: this is not matched by your employer.</p>
+              <p>The modeled wages or self-employment earnings exceed the applicable Additional Medicare threshold. The 0.9% tax has no employer match.</p>
             </div>
           )}
         </div>

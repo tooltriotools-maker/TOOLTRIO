@@ -15,11 +15,12 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [strikePrice, setStrikePrice] = useState(155)
   const [daysToExpiry, setDaysToExpiry] = useState(30)
   const [impliedVolatility, setImpliedVolatility] = useState(30)
-  const [riskFreeRate, setRiskFreeRate] = useState(5.25)
+  const [riskFreeRate, setRiskFreeRate] = useState(4.5)
+  const [optionType, setOptionType] = useState<'call'|'put'>('call')
 
   const result = useMemo(()=>{
-    try{return calculateOptionsPremium(stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate, 'call')}catch(e){return null}
-  },[stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate])
+    try{return calculateOptionsPremium(stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate, optionType)}catch(e){return null}
+  },[stockPrice, strikePrice, daysToExpiry, impliedVolatility, riskFreeRate, optionType])
 
   return (
     <CalculatorLayout title="Options Pricing Calculator USA 2026 — Black-Scholes" description="Estimate a European-style call option value with the Black-Scholes model, plus delta, time value, break-even and implied move." icon="📈" category="Finance" relatedCalculators={relatedCalculators} slug="options-pricing-calculator">
@@ -59,6 +60,13 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             </div>
           </div>
           <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Option Type</label>
+            <select value={optionType} onChange={e=>setOptionType(e.target.value as 'call'|'put')} className="w-full border rounded-xl px-3 py-2 text-sm">
+              <option value="call">Call</option>
+              <option value="put">Put</option>
+            </select>
+          </div>
+          <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Risk-Free Rate (%)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
@@ -71,7 +79,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Call Price" value={result ? `${Number(result.price).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
+                <ResultCard label={`${optionType === 'call' ? 'Call' : 'Put'} Price`} value={result ? `${Number(result.price).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="Intrinsic Value" value={result ? `${Number(result.intrinsicValue).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Time Value" value={result ? `${Number(result.timeValue).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Delta" value={result ? String(result.delta) : "—"} />
@@ -92,7 +100,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Options Pricing Calculator USA 2026 — Black-Scholes" category="finance"
           intro="This calculator prices a European-style call option with the Black-Scholes model using stock price, strike, time to expiration, implied volatility and a lower-risk reference rate. It also reports intrinsic value, time value, delta, a simple implied move and the expiration break-even."
-          howItWorks="The function converts days to years, volatility and interest to decimals, calculates d1 and d2, and uses the Black-Scholes call equation C = S·N(d1) − K·e^(−rT)·N(d2). Break-even is strike + theoretical premium. The current UI always prices a call; despite older copy, it does not let the user select a put."
+          howItWorks="The function converts days to years, volatility and interest to decimals, calculates d1 and d2, and uses the Black-Scholes call equation C = S·N(d1) − K·e^(−rT)·N(d2). Break-even is strike + theoretical premium. The UI lets you select a call or put. The model assumes European exercise, no dividends, constant volatility and a constant reference rate."
           tipsSection="Implied volatility usually has a large effect on theoretical value. Compare the model price with the market quote, but remember Black-Scholes assumes constant volatility/rates and continuous trading and this implementation does not include dividends."
           conclusion="A theoretical option value is not a prediction of the market price or future profit. American exercise features, dividends, volatility skew, liquidity and transaction costs can make traded prices differ from this simplified model."
           benefits={[

@@ -31,7 +31,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const sipFV = monthly * ((Math.pow(1 + sipMR, months) - 1) / sipMR) * (1 + sipMR)
     const sipInvested = monthly * months
     const sipGain = sipFV - sipInvested
-    const sipTax = Math.max(0, sipGain - 100000) * 0.10
+    const sipTax = Math.max(0, sipGain - 125000) * 0.125
     const sipPostTax = sipFV - sipTax
 
     const npsFV = monthly * ((Math.pow(1 + npsMR, months) - 1) / npsMR) * (1 + npsMR)
@@ -76,7 +76,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Annuity Rate" value={annuityRate} onChange={setAnnuityRate} min={4} max={10} step={0.25} suffix="%" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.sipBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Better for Retirement</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Higher Modeled Retirement Value</p>
             <p className="text-xl font-black" style={{ color: result.sipBetter ? '#10b981' : '#3b82f6' }}>{result.sipBetter ? 'SIP' : 'NPS'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtCompact(result.difference)}</p>
           </div>
@@ -148,7 +148,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           </div>
         </div>
       </div>
-            <div className="mt-8">
+            <Card className="mt-6 bg-amber-50 border border-amber-200"><p className="text-sm text-amber-900"><b>Planning note:</b> This is a scenario model, not an NPS eligibility, tax-return, annuity quote, or investment recommendation. The SIP tax assumption uses the current ₹1.25 lakh equity LTCG threshold and 12.5% rate; actual tax depends on the asset, transaction date and applicable Indian tax rules. NPS tax benefits depend on eligibility and tax regime.</p></Card>
+      <div className="mt-8">
         <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
           <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Sip vs Nps: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">

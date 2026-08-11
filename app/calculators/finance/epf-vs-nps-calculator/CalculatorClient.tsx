@@ -25,9 +25,11 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const years = Math.max(1, retirementAge - currentAge)
     const months = years * 12
 
-    // EPF: 12% of basic from employee + 12% employer (3.67% to EPF, 8.33% to EPS capped at ₹1250)
-    const employeeEPF = basicSalary * 0.12
-    const employerEPF = Math.min(basicSalary * 0.0367, basicSalary * 0.0367) // simplified: 3.67% to EPF
+    // Simplified statutory-ceiling scenario: EPF contribution is modeled on the ₹15,000
+    // monthly wage ceiling. Higher-wage voluntary contributions require employer/EPFO rules.
+    const epfWage = Math.min(Math.max(0, basicSalary), 15000)
+    const employeeEPF = epfWage * 0.12
+    const employerEPF = Math.min(epfWage * 0.12, Math.max(0, epfWage * 0.12 - Math.min(1250, epfWage * 0.0833)))
     const totalMonthlyEPF = employeeEPF + employerEPF
     const epfMR = epfRate / 100 / 12
     const epfFV = totalMonthlyEPF * ((Math.pow(1 + epfMR, months) - 1) / epfMR) * (1 + epfMR)
@@ -66,7 +68,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [basicSalary, currentAge, retirementAge, epfRate, npsRate, voluntaryNps])
 
   return (
-    <CalculatorLayout title="EPF vs NPS Calculator India 2026" description="Compare EPF stated interest rate for the applicable period vs NPS market-linked 10–12% for retirement planning." icon="💼" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="epf-vs-nps-calculator">
+    <CalculatorLayout title="EPF vs NPS Calculator India 2026" description="Compare an EPF statutory-ceiling scenario with an NPS market-linked return assumption for retirement planning." icon="💼" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="epf-vs-nps-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">
@@ -98,7 +100,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="EPF Corpus" value={fmtCompact(result.epfFV)} subValue={`Fully tax-free`} highlight={result.epfBetter} icon={<Briefcase className="w-4 h-4" />} />
+            <ResultCard label="EPF Corpus" value={fmtCompact(result.epfFV)} subValue={`Tax treatment depends on applicable EPF rules`} highlight={result.epfBetter} icon={<Briefcase className="w-4 h-4" />} />
             <ResultCard label="NPS Corpus" value={fmtCompact(result.npsFV)} subValue={`60% tax-free`} highlight={!result.epfBetter} icon={<Target className="w-4 h-4" />} />
             <ResultCard label="NPS Lumpsum" value={fmtCompact(result.npsLumpsum)} subValue="Tax-free 60%" />
             <ResultCard label="Monthly Pension" value={fmtCompact(result.monthlyPension)} subValue="From NPS annuity" />
@@ -134,8 +136,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <Card>
               <h3 className="text-sm font-semibold text-blue-400 mb-2">🏦 EPF Facts</h3>
               <ul className="text-xs text-gray-400 space-y-1.5">
-                <li>v Guaranteed 8.15% interest (FY24)</li>
-                <li>v Fully tax-free at retirement (EEE)</li>
+                <li>v EPF interest is declared for the applicable period</li>
+                <li>v Tax treatment depends on applicable EPF rules</li>
                 <li>v Partial withdrawal for emergencies</li>
                 <li>v Insurance (EDLI) benefit included</li>
                 <li>✗ No choice of investment mix</li>
@@ -197,10 +199,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          EPF Vs NPS Calculator Example (USA 2026)
+          EPF vs NPS Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          Use this EPF Vs NPS USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
+          Use this EPF vs NPS India 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
         </p>
         <p className="text-sm text-gray-600">
           Adjust inputs to see Epf Vs Nps Calculator output — compare scenarios to find the strategy that best fits your financial goals and timeline.
@@ -212,18 +214,18 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           EPF vs NPS Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600">
-          For example, with INR 15,000/month to invest for 25 years, your EPF vs NPS calculator India 2026 shows the wealth gap between guaranteed EPF and market-linked NPS returns.
+          For example, with INR 15,000/month to invest for 25 years, your EPF vs NPS calculator India 2026 shows the wealth gap between an EPF scenario and market-linked NPS returns.
         </p>
       </Card>
 
             <SEOContent
         title="EPF vs NPS Calculator India – Which Retirement Account Builds More Wealth in 2026?"
         category="finance"
-        intro={`Both EPF (Employees Provident Fund) and NPS (National Pension System) are mandatory or semi-mandatory retirement savings vehicles in India, but they work very differently. EPF offers a fixed, government-declared interest rate (currently 8.15%) with complete capital safety. NPS offers market-linked returns based on your allocation between equity (E), corporate bonds (C), and government securities (G), with historically higher long-term returns but meaningful market risk.
+        intro={`Both EPF (Employees Provident Fund) and NPS (National Pension System) are mandatory or semi-mandatory retirement savings vehicles in India, but they work very differently. EPF interest is declared for applicable periods and contributions/employer rules depend on the EPFO framework and the employee's wage/contribution setup. NPS offers market-linked returns based on your allocation between equity (E), corporate bonds (C), and government securities (G), with historically higher long-term returns but meaningful market risk.
 
 For most salaried employees, EPF is mandatory and automatic. The question is whether to make voluntary contributions beyond the mandatory amount (VPF — Voluntary Provident Fund) or to direct additional retirement savings toward NPS. EPF VPF contributions are subject to the same Section 80C limit, while NPS contributions qualify for both the Section 80C limit and the additional ₹50,000 under Section 80CCD(1B).
 
-EPF interest is completely tax-free for contributions up to ₹2.5 lakh per year (higher threshold for non-government employees). This tax-free compounding at 8%+ makes EPF an exceptionally strong retirement vehicle that is often underappreciated compared to market-linked products.`}
+EPF tax treatment depends on the applicable employee/employer contribution rules; the calculator does not determine the tax-free interest threshold or tax liability. This tax-free compounding at 8%+ makes EPF an exceptionally strong retirement vehicle that is often underappreciated compared to market-linked products.`}
         howItWorks={`EPF projection: Annual contribution × compounding at current EPF rate, with the understanding that the rate is declared annually and has historically ranged from 8.1-8.65% over the past decade. The calculator uses the current rate as a steady-state estimate.
 
 NPS Tier I comparison: Asset allocation between E (equity), C (corporate bonds), G (government securities) at user-specified percentages, compounded at historical or expected rates for each asset class. Typical blended return for aggressive allocation (75% E, 25% C) has been approximately 10-12% CAGR historically.
@@ -249,7 +251,7 @@ For NPS, the asset allocation decision matters significantly. The default auto c
 The NPS ₹50,000 additional deduction under 80CCD(1B) is most valuable for those in the 30% tax bracket (saves ₹15,000 in taxes annually). Even if EPF meets your 80C limit, NPS contributions up to ₹50,000 in the 80CCD(1B) bucket provide additional tax savings.`}
         conclusion={`EPF's stated return under the applicable terms and tax-free status make it one of the best-risk-adjusted investment options available to salaried employees. The mandatory nature of EPF contributions ensures retirement savings discipline that voluntary schemes don't.
 
-The optimal strategy for most salaried employees is not EPF vs NPS but EPF and NPS: maximize EPF (including VPF if desired for the guaranteed tax-free rate), plus contribute ₹50,000/year to NPS to capture the additional tax deduction, plus invest additional retirement savings in equity mutual funds via SIP for long-term growth potential.`}
+A common planning approach is to evaluate EPF and NPS together: maximize EPF (including VPF if desired for the guaranteed tax-free rate), plus contribute ₹50,000/year to NPS to capture the additional tax deduction, plus invest additional retirement savings in equity mutual funds via SIP for long-term growth potential.`}
       />
       <InternalLinks
         title="Related Finance Calculators"

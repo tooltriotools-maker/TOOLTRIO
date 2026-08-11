@@ -80,17 +80,17 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Optimal 401k/Check" value={result ? `${Number(result.opt401k).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} highlight />
-                <ResultCard label="Optimal HSA/Check" value={result ? `${Number(result.optHSA).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} />
-                <ResultCard label="Optimal FSA/Check" value={result ? `${Number(result.optFSA).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} />
+                <ResultCard label="Modeled 401k/Check" value={result ? `${Number(result.opt401k).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} highlight />
+                <ResultCard label="Modeled HSA/Check" value={result ? `${Number(result.optHSA).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} />
+                <ResultCard label="Modeled FSA/Check" value={result ? `${Number(result.optFSA).toLocaleString(undefined,{maximumFractionDigits:0})} /check` : "—"} />
                 <ResultCard label="Current Tax Savings" value={result ? `${Number(result.currentTaxSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Optimal Tax Savings" value={result ? `${Number(result.optimalTaxSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Modeled Tax Savings" value={result ? `${Number(result.optimalTaxSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Additional Annual Savings" value={result ? `${Number(result.additionalSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
               </div>
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💵 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Most Americans under-contribute to tax-advantaged accounts, leaving thousands in tax savings on the table each year. Maxing 401k, HSA, and FSA in 2026 can save $7,200-$12,000+ in taxes annually — but the take-home reduction is far smaller than the contribution amount because each pre-tax dollar saves you its tax cost. This optimizer finds the exact numbers for your paycheck.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Most Americans under-contribute to tax-advantaged accounts, leaving thousands in tax savings on the table each year. The model shows the tax effect of contribution assumptions you enter. It is not a payroll withholding engine and does not determine the contribution level that is best for you.</p>
               </Card>
             </>
           ):(

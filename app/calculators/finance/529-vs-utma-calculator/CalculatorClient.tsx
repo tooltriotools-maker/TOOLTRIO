@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled Value</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? '529 Plan' : 'UTMA Account'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>

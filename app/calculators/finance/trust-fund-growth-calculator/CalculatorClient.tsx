@@ -22,7 +22,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Initialfunding</label>
+            <label className="text-xs font-medium text-gray-600">Initial funding ($)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={initialFunding} onChange={e=>setInitialFunding(Number(e.target.value))} step={10000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -30,7 +30,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Annualcontrib</label>
+            <label className="text-xs font-medium text-gray-600">Annual contribution ($)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={annualContrib} onChange={e=>setAnnualContrib(Number(e.target.value))} step={1000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -38,7 +38,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Beneficiaryage</label>
+            <label className="text-xs font-medium text-gray-600">Beneficiary age</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={beneficiaryAge} onChange={e=>setBeneficiaryAge(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -46,7 +46,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Distributionage</label>
+            <label className="text-xs font-medium text-gray-600">Distribution age</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={distributionAge} onChange={e=>setDistributionAge(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -54,7 +54,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Growthrate</label>
+            <label className="text-xs font-medium text-gray-600">Growth rate assumption</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={growthRate} onChange={e=>setGrowthRate(Number(e.target.value))} step={0.5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -62,7 +62,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Trusteeannualfee</label>
+            <label className="text-xs font-medium text-gray-600">Trustee annual fee assumption</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={trusteeAnnualFee} onChange={e=>setTrusteeAnnualFee(Number(e.target.value))} step={0.1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />

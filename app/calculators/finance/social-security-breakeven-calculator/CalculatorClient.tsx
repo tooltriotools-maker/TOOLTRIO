@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Social Security Breakeven Calculator USA 2026"
-      description="Find the exact age to claim Social Security for maximum lifetime benefit. Compare claiming at 62, 67, or 70."
+      description="Compare a Social Security claiming age with age 62 using a user-entered FRA benefit and an explicit pairwise break-even calculation."
       icon="🏛️"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -86,8 +86,8 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
       <div className="mt-8">
         <SEOContent
           title="Social Security Breakeven Calculator" category="finance"
-          intro="This calculator estimates how claiming before or after a full retirement age of 67 changes a user-entered monthly benefit and compares cumulative benefits through age 90."
-          howItWorks="For claims before 67, the code applies the Social Security early-claim monthly reduction formula; after 67 it applies delayed credits at 8% per year. Lifetime benefits are then modeled through age 90. The displayed break-even age is a simplified heuristic, not a pairwise crossover solved from two claiming strategies."
+          intro="This calculator uses a user-entered benefit at FRA 67, applies statutory early-claim reductions and delayed credits, and solves the crossover between the selected claim age and claiming at 62."
+          howItWorks="For claims before 67, the code applies the Social Security early-claim monthly reduction formula; after 67 it applies delayed credits at 8% per year. Lifetime benefits are then modeled through age 90. The break-even age is solved from the foregone age-62 payments divided by the monthly benefit increase from the selected later claim age. It is a simple undiscounted comparison and excludes COLAs, taxes, survivor benefits, earnings-test effects and investment returns."
           tipsSection="Worked example: Example: a $2,200 FRA benefit claimed at 62 is reduced under the early-claim formula, while delaying beyond FRA increases the monthly amount. Compare the higher monthly check against the years of payments forgone."
           conclusion="Important assumptions and limitations: This is not an SSA benefit estimate. It assumes FRA 67, ignores COLAs, taxes, survivor/spousal benefits and uses age 90 as a fixed longevity endpoint. Use your SSA statement for the underlying benefit estimate."
           benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}

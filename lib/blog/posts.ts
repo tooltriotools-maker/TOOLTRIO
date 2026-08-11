@@ -1,3 +1,5 @@
+import { isPublicBlogPost } from '@/lib/visibility'
+
 export interface BlogPost {
   slug: string
   title: string
@@ -5533,6 +5535,8 @@ export const isBlogPostPublished = (post: BlogPost, now = new Date()): boolean =
 export const publishedBlogPosts = allBlogPosts.filter(post => isBlogPostPublished(post))
 
 export const scheduledBlogPosts = allBlogPosts.filter(post => !isBlogPostPublished(post))
+
+export const publicBlogPosts = publishedBlogPosts.filter(post => isPublicBlogPost(post))
 
 export function getBlogCategoryCount(categorySlug: string, posts = publishedBlogPosts): number {
   return posts.filter(post => post.categorySlug === categorySlug).length

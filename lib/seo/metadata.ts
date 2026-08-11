@@ -112,10 +112,10 @@ export function generateCalculatorMetadata(params: {
     creator: SITE_NAME,
     publisher: SITE_NAME,
     robots: {
-      index: ymyl ? ymyl.indexable : true,
+      index: (category === 'finance' || category === 'health') ? false : (ymyl ? ymyl.indexable : true),
       follow: true,
       googleBot: {
-        index: ymyl ? ymyl.indexable : true,
+        index: (category === 'finance' || category === 'health') ? false : (ymyl ? ymyl.indexable : true),
         follow: true,
         'max-snippet': -1,
         'max-image-preview': 'large',

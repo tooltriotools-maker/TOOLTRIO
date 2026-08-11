@@ -19,8 +19,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [hra, setHra] = useState(20000)
   const [rentPaid, setRentPaid] = useState(18000)
   const [isMetro, setIsMetro] = useState(true)
+  const [regime, setRegime] = useState<'old'|'new'>('old')
 
-  const r = useMemo(() => calculateHRA(basicSalary, hra, rentPaid, isMetro), [basicSalary, hra, rentPaid, isMetro])
+  const r = useMemo(() => calculateHRA(basicSalary, hra, rentPaid, isMetro, regime), [basicSalary, hra, rentPaid, isMetro, regime])
 
   const conditions = [
     { name: 'Actual HRA Received', value: r.condition1, color: '#3b82f6' },
@@ -29,7 +30,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   ]
 
   return (
-    <CalculatorLayout title="HRA Housing Allowance Calculator 2026" description="Calculate tax exemption on house rent allowance and tax savings on rent paid." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hra-calculator">
+    <CalculatorLayout title="HRA Housing Allowance Calculator 2026" description="Calculate India House Rent Allowance (HRA) exemption under the old tax regime using the statutory three-condition method." icon="🏠" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="hra-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-base font-bold text-gray-900 mb-5">HRA Details</h2>
@@ -37,6 +38,16 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Basic Monthly Salary" value={basicSalary} onChange={setBasicSalary} min={1000} max={500000} step={1000} prefix={currency.symbol} />
             <InputField label="HRA Received (Monthly)" value={hra} onChange={setHra} min={0} max={300000} step={500} prefix={currency.symbol} />
             <InputField label="Actual Rent Paid (Monthly)" value={rentPaid} onChange={setRentPaid} min={0} max={300000} step={500} prefix={currency.symbol} />
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-2">Tax Regime</label>
+              <div className="grid grid-cols-2 gap-2">
+                {(['old','new'] as const).map(rg => (
+                  <button key={rg} onClick={() => setRegime(rg)} className={`py-2.5 rounded-xl text-sm font-bold border-2 transition-all ${regime === rg ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'}`}>
+                    {rg === 'old' ? 'Old Regime' : 'New Regime'}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">City Type</label>
               <div className="grid grid-cols-2 gap-2">
@@ -121,13 +132,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">How housing allowance Exemption Saves Tax - Step by Step</h3>
-              <p>housing allowance (House Rent Allowance) is a salary component provided to cover rental expenses. The housing allowance exemption reduces your taxable income under the old tax regime. Exemption = Minimum of these three conditions: (1) Actual housing allowance received from employer. (2) Actual rent paid minus 10% of base salary. (3) 50% of base salary for metro cities (New York, Los Angeles, Chicago, Houston) or 40% for smaller city / suburb cities. The minimum of all three is your tax-free housing allowance. Any housing allowance above this minimum is taxable. Example: Basic = $40,000, housing allowance = $20,000, rent = $18,000, major US city. Condition 1: $20,000. Condition 2: $18,000 - $4,000 = $14,000. Condition 3: $20,000. housing allowance exemption = $14,000. Taxable housing allowance = $6,000.</p>
+              <p>housing allowance (House Rent Allowance) is a salary component provided to cover rental expenses. The housing allowance exemption reduces your taxable income under the old tax regime. Exemption = Minimum of these three conditions: (1) Actual housing allowance received from employer. (2) Actual rent paid minus 10% of base salary. (3) 50% of base salary for metro cities (Delhi, Mumbai, Kolkata, Chennai) or 40% for smaller city / suburb cities. The minimum of all three is your tax-free housing allowance. Any housing allowance above this minimum is taxable. Example: Basic = $40,000, housing allowance = $20,000, rent = $18,000, metro city. Condition 1: $20,000. Condition 2: $18,000 - $4,000 = $14,000. Condition 3: $20,000. housing allowance exemption = $14,000. Taxable housing allowance = $6,000.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">housing allowance Exemption - Common Mistakes to Avoid</h3>
               <p>Top housing allowance claim mistakes that trigger scrutiny: (1) Claiming housing allowance without submitting rent receipts - rental receipts required if annual rent exceeds $1 thousand. (2) Paying rent in cash without receipts. (3) Paying rent to spouse - tax authorities routinely disallow this. Paying rent to parents is acceptable if they own the property and declare rental income. (4) Not deducting 10% of base salary correctly - many people forget this deduction from rent paid when calculating Condition 2. (5) Using ex-showroom salary as 'basic' - only the base salary component (not gross) is used in housing allowance calculation. (6) Claiming old regime housing allowance benefits while opting for new tax regime (not allowed).</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Rent Receipt Requirements and Documentation</h3>
-              <p>Mandatory documentation for housing allowance claims: Rent receipts (monthly or quarterly) signed by landlord. Landlord's PAN mandatory if monthly rent exceeds $8,333 (annual $1 thousand). Rental agreement (not mandatory but strongly recommended). Bank transfer proof of rent payment (preferred over cash). Form 12BB submitted to employer annually. Digital rent receipts are acceptable (email, SMS). Best practice: Pay rent via bank transfer and get receipts via email - creates clean audit trail. If you\'re paying rent to parents, ensure they file Form 1040 showing rental income, and have proper rental agreement in place.</p>
+              <p>Typical documentation for HRA claims: Rent receipts (monthly or quarterly) signed by landlord. Landlord PAN requirements can apply when annual rent exceeds ₹1,00,000. Rental agreement (not mandatory but strongly recommended). Bank transfer proof of rent payment (preferred over cash). Form 12BB submitted to employer annually. Digital rent receipts are acceptable (email, SMS). Best practice: Pay rent via bank transfer and get receipts via email - creates clean audit trail. If you\'re paying rent to parents, ensure they file Indian income-tax return showing rental income, and have proper rental agreement in place.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">housing allowance in Metro vs Non-Metro Cities - Impact on Exemption</h3>
               <p>The metro/smaller city / suburb classification directly impacts housing allowance exemption through Condition 3 (50% vs 40% of basic). Metro cities (50% of basic): Delhi, Mumbai (including Navi Mumbai and Thane), Kolkata, Chennai. Non-metro cities (40% of basic): Bengaluru, Hyderabad, Pune, Ahmedabad, Surat, Jaipur, and all other cities. Note: Despite being major metropolises, Bengaluru and Hyderabad are classified as smaller city / suburb for housing allowance purposes. This means an employee with $80,000 basic in Bengaluru gets Condition 3 = $32,000 vs $40,000 in Mumbai - a $8,000/month difference in potential exemption. If relocating, factor this in your salary negotiation to request higher housing allowance component.</p>
             </div>

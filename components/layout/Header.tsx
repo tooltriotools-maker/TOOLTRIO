@@ -9,38 +9,6 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
   {
-    key: 'finance', label: '💰 Finance', color: 'green',
-    href: '/calculators/finance', viewAll: 'All 272 Finance Tools →',
-    items: [
-      { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator' },
-      { name: '401k Calculator', href: '/calculators/finance/401k-calculator' },
-      { name: 'Compound Interest', href: '/calculators/finance/compound-interest-calculator' },
-      { name: 'Budget Planner', href: '/calculators/finance/budget-planner-calculator' },
-      { name: 'Roth IRA Calculator', href: '/calculators/finance/roth-ira-calculator' },
-      { name: 'Tax Bracket 2026', href: '/calculators/finance/tax-bracket-calculator' },
-      { name: 'Wealth Calculator', href: '/calculators/finance/wealth-calculator' },
-      { name: 'Roth Conversion', href: '/calculators/finance/roth-conversion-calculator' },
-      { name: 'FIRE Calculator', href: '/calculators/finance/fire-calculator' },
-      { name: 'UK Income Tax', href: '/calculators/finance/uk-income-tax-calculator' },
-    ],
-  },
-  {
-    key: 'health', label: '❤️ Health', color: 'red',
-    href: '/calculators/health', viewAll: 'All 124 Health Tools →',
-    items: [
-      { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator' },
-      { name: 'Calorie Calculator', href: '/calculators/health/calorie-calculator' },
-      { name: 'Calories Burned Walking', href: '/calculators/health/calorie-burned-walking-calculator' },
-      { name: 'Steps Calculator', href: '/calculators/health/steps-calculator' },
-      { name: 'Pace Calculator', href: '/calculators/health/pace-calculator' },
-      { name: 'Body Fat Calculator', href: '/calculators/health/body-fat-calculator' },
-      { name: 'TDEE Calculator', href: '/calculators/health/tdee-calculator' },
-      { name: 'Macro Calculator', href: '/calculators/health/macro-calculator' },
-      { name: 'Sleep Cycle', href: '/calculators/health/sleep-cycle-calculator' },
-      { name: 'Pregnancy Calculator', href: '/calculators/health/pregnancy-calculator' },
-    ],
-  },
-  {
     key: 'dev', label: '⚡ Dev Tools', color: 'blue',
     href: '/calculators/dev', viewAll: 'All 90 Dev Tools →',
     items: [
@@ -106,11 +74,6 @@ const NAV = [
     key: 'blog', label: '📚 Blog', color: 'green',
     href: '/blog', viewAll: 'All Blog Posts ->',
     items: [
-      { name: 'Investment Guides', href: '/blog/category/investment' },
-      { name: 'Loan and EMI Tips', href: '/blog/category/loans' },
-      { name: 'Retirement Planning', href: '/blog/category/retirement' },
-      { name: 'Health and Fitness', href: '/blog/category/health' },
-      { name: 'Personal Finance 101', href: '/blog/category/personal-finance' },
     ],
   },
 ]

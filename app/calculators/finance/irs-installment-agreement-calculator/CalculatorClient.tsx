@@ -13,7 +13,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [canPayMonthly, setCanPayMonthly] = useState(400)
   const result=useMemo(()=>{try{return calculateIRSInstallmentAgreement(taxOwed,canPayMonthly,true)}catch(e){return null}},[taxOwed, canPayMonthly])
   return(
-    <CalculatorLayout title="IRS Installment Agreement Calculator USA 2026" description="Calculate IRS installment agreement payments, penalty and interest costs, and total amount owed under a payment plan." icon="📋" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="irs-installment-agreement-calculator">
+    <CalculatorLayout title="IRS Installment Agreement Calculator USA 2026" description="Estimate an IRS payment-plan scenario using an assumed current interest rate, payment amount and penalty setting. Not an IRS eligibility or fee determination." icon="📋" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="irs-installment-agreement-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -33,12 +33,12 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <div className="lg:col-span-2 space-y-4">
           {result?(<>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Total Owed (w/ penalty & interest)" value={result?`${Number(result.totalOwed).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} highlight/>
+                <ResultCard label="Modeled Balance + Interest/Penalty" value={result?`${Number(result.totalOwed).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} highlight/>
                 <ResultCard label="Monthly Payment" value={result?`${Number(result.monthlyPayment).toLocaleString(undefined,{maximumFractionDigits:0})}/mo`:"-"}/>
                 <ResultCard label="Months to Pay Off" value={result?`${Number(result.monthsToPayoff)} months`:"-"}/>
                 <ResultCard label="Setup Fee" value={result?`${Number(result.setupFee).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"}/>
                 <ResultCard label="Extra Cost vs Pay Now" value={result?`${Number(result.extraCostVsPayNow).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"}/>
-                <ResultCard label="Min Payment for 72-Mo Plan" value={result?`${Number(result.threshold72Month).toLocaleString(undefined,{maximumFractionDigits:0})}/mo`:"-"}/>
+                <ResultCard label="Modeled 72-Month Benchmark" value={result?`${Number(result.threshold72Month).toLocaleString(undefined,{maximumFractionDigits:0})}/mo`:"-"}/>
             </div>
 
             <Card><h2 className="text-lg font-black text-gray-900 mb-2">📋 What a Payment Plan Actually Costs</h2><p className="text-sm text-gray-600">Spreading ${taxOwed.toLocaleString()} over {result?Number(result.monthsToPayoff):'-'} months adds an estimated ${result?Number(result.extraCostVsPayNow).toLocaleString():'-'} in interest, penalties, and fees versus paying the balance today.</p></Card>
@@ -49,7 +49,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <SEOContent
           title="IRS Installment Agreement Calculator USA 2026"
           category="finance"
-          intro={`This calculator estimates the true cost of paying back federal tax debt through an IRS installment agreement (Form 9465) — including the interest and reduced penalty that keep accruing while you pay, plus the setup fee.\n\nIt's for anyone who owes the IRS more than they can pay in full right now and is deciding between an installment agreement, other financing (like a personal loan or 0% credit card offer), or an Offer in Compromise for severe hardship cases.\n\nThe two inputs are what you owe and what you can realistically afford to pay each month — the calculator uses those to estimate your total payoff timeline, the extra cost of stretching payments out, and the minimum payment that would qualify you for the IRS's streamlined 72-month plan.`}
+          intro={`This calculator estimates the true cost of paying back federal tax debt through an IRS installment agreement (Form 9465) — including the interest and reduced penalty that keep accruing while you pay, plus the setup fee.\n\nIt's for anyone who owes the IRS more than they can pay in full right now and is deciding between an installment agreement, other financing (like a personal loan or 0% credit card offer), or an OIC is not estimated by this calculator for severe hardship cases.\n\nThe two inputs are what you owe and what you can realistically afford to pay each month — the calculator uses those to estimate your total payoff timeline, the extra cost of stretching payments out, and the minimum payment that would qualify you for the IRS's streamlined 72-month plan.`}
           howItWorks={`Once an installment agreement is in place, the IRS keeps charging interest at the federal short-term rate plus 3 percentage points (adjusted quarterly, roughly 6-8% annually as of 2026) on the unpaid balance, plus a reduced failure-to-pay penalty of 0.25% per month (half the standard 0.5% rate that applies before an agreement is approved).\n\nTotal Owed = Tax Owed + Interest + Penalty\n\nMonths to Payoff = ceil(Total Owed / Monthly Payment)\n\nThe calculator also estimates your setup fee based on whether your proposed monthly payment meets the IRS's streamlined benchmark — roughly your balance divided by 72 months. Meeting that benchmark typically qualifies you for the IRS's lower online, direct-debit setup fee; falling short of it usually means a higher fee and, for larger balances, may require submitting a financial disclosure statement (Form 433-F) so the IRS can verify what you can actually afford.\n\nExtra Cost vs. Pay Now compares what you'll pay in total under the installment plan against simply paying the original balance today — this is the real price of spreading payments out, separate from the tax itself.`}
           benefits={[
             {title:"Total Cost With Interest & Penalty", text:"See your full projected balance including the interest and reduced failure-to-pay penalty that accrue during the plan."},

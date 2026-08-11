@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Bond Details</h2>
 
           <div className="space-y-2">
-            <label className="text-xs font-medium text-gray-600">Quick Presets</label>
+            <label className="text-xs font-medium text-gray-600">Illustrative Bond Presets</label>
             <div className="space-y-1.5">
               {BOND_PRESETS.map((p, i) => (
                 <button key={p.name} onClick={() => handlePreset(i)}
@@ -198,7 +198,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         category="finance"
         intro={`Government bonds are the bedrock of conservative portfolio construction and cash management — and they're also among the most misunderstood asset classes for retail investors. The relationship between price and yield moves in opposite directions: when interest rates rise, existing bond prices fall; when rates fall, prices rise. Understanding why this happens — and how to calculate the impact — is essential for anyone holding bonds outside of a fund.
 
-For US investors, Treasury bonds offer the additional advantage of being exempt from state and local income taxes. For an investor in California (13.3% state tax) or New York (10.9%), a 4.5% Treasury yield is equivalent to roughly 5.1-5.0% taxable yield — making Treasuries more competitive than they appear at face value compared to CDs and corporate bonds.
+U.S. Treasury interest is generally exempt from state and local income taxes, but the tax result depends on the investor and instrument; this calculator does not model taxes. taxable yield — making Treasuries more competitive than they appear at face value compared to CDs and corporate bonds.
 
 Duration is the key risk metric for bonds: it measures the sensitivity of price to interest rate changes. A bond with duration of 7 years will fall approximately 7% in price for each 1% rise in interest rates. Short-duration bonds (T-bills, 2-year notes) have much lower price sensitivity than long-duration bonds (30-year Treasuries), which helps explain why many investors in 2022-2023 who held long-term bonds saw dramatic unrealized losses.`}
         howItWorks={`Yield to Maturity (YTM): The discount rate that makes the present value of all future cash flows (coupon payments + face value) equal to the current price. For a bond selling at par, YTM = coupon rate. For a discount bond (price < par), YTM > coupon rate; for a premium bond, YTM < coupon rate.
@@ -209,7 +209,7 @@ Duration calculation: Modified duration = Macaulay duration / (1 + YTM/frequency
         benefits={[
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most useful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },
-          { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Investment returns face capital gains tax (0%, 15%, or 20% for long-term gains). Retirement account withdrawals face ordinary income tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
+          { title: "Tax-Aware Planning Context", text: "Most financial calculations have tax implications. Tax treatment varies by jurisdiction and instrument; this calculator reports pre-tax bond cash flows only. tax. This calculator provides pre-tax results \u2014 use the [Income Tax Calculator](/calculators/finance/income-tax-calculator) and the [Paycheck Calculator](/calculators/finance/paycheck-calculator) to estimate after-tax outcomes for your specific situation." },
         ]}
         useCases={[
           { title: "Annual Financial Planning", text: "Run this calculator as part of your annual financial review \u2014 updating inputs with current balances, rates, and goals. Connecting results to the [Net Worth Calculator](/calculators/finance/net-worth-calculator) gives you a complete annual snapshot. Financial clarity once per year prevents the drift that leads to retirement shortfalls and unnecessary debt." },

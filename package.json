@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node -e \"const fs=require('fs');try{fs.rmSync('.next',{recursive:true,force:true})}catch(e){}\" && next dev --turbo",
+    "dev": "node scripts/clean-next-cache.mjs && next dev",
     "build": "node -e \"const fs=require('fs');try{fs.rmSync('.next',{recursive:true,force:true})}catch(e){}\" && next build",
     "start": "next start",
     "lint": "next lint",
@@ -79,7 +79,12 @@
     "seo:shape:audit": "node scripts/audit-seo-content-shapes.mjs",
     "seo:content-props:audit": "node scripts/audit-seo-content-props.mjs",
     "index:type:audit": "node scripts/audit-dynamic-index-types.mjs",
-    "blog:og-data": "node scripts/generate-blog-og-data.mjs"
+    "blog:og-data": "node scripts/generate-blog-og-data.mjs",
+    "ymyl:finance:review:batch-02": "node scripts/audit-ymyl-finance-review-batch-02.mjs",
+    "ymyl:finance:review:batch-05": "node scripts/audit-ymyl-finance-review-batch-05.mjs",
+    "ymyl:finance:review:batch-08": "node scripts/audit-ymyl-finance-review-batch-08.mjs",
+    "ymyl:finance:review:batch-15": "node scripts/audit-ymyl-finance-review-batch-15.mjs",
+    "dev:turbo": "node scripts/clean-next-cache.mjs && next dev --turbo"
   },
   "dependencies": {
     "clsx": "2.1.1",

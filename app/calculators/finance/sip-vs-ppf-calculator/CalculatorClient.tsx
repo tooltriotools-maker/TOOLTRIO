@@ -28,9 +28,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const sipFV = monthly * ((Math.pow(1 + sipMonthlyRate, months) - 1) / sipMonthlyRate) * (1 + sipMonthlyRate)
     const sipInvested = monthly * months
     const sipGain = sipFV - sipInvested
-    // LTCG tax: gains above 1L at 10%
-    const sipTaxableGain = Math.max(0, sipGain - 100000)
-    const sipTax = sipTaxableGain * 0.10
+    // Simplified equity LTCG scenario: gains above ₹1.25 lakh at 12.5%; actual tax depends on asset and transactions.
+    const sipTaxableGain = Math.max(0, sipGain - 125000)
+    const sipTax = sipTaxableGain * 0.125
     const sipPostTaxFV = sipFV - sipTax
 
     // PPF calculation (annual, compounded annually)
@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const ppfInvested = effectiveAnnual * years
     const ppfGain = ppfFV - ppfInvested
 
-    // Tax savings from PPF (80C deduction)
+    // Illustrative PPF 80C tax saving; eligibility depends on tax regime and circumstances
     const annualTaxSaving = effectiveAnnual * (taxSlab / 100)
     const totalTaxSaving = annualTaxSaving * years
 
@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const taxSlabs = [0, 5, 20, 30]
 
   return (
-    <CalculatorLayout title="SIP vs PPF Calculator India 2026" description="Compare SIP equity mutual fund returns vs PPF guaranteed 7.1% tax-free returns." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-ppf-calculator">
+    <CalculatorLayout title="SIP vs PPF Calculator India 2026" description="Compare an SIP return scenario with PPF using an entered rate; PPF rates and tax eligibility are rule-dependent." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="sip-vs-ppf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">
@@ -166,7 +166,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           </div>
         </div>
       </div>
-            <div className="mt-8">
+            <Card className="mt-6 bg-amber-50 border border-amber-200"><p className="text-sm text-amber-900"><b>Planning note:</b> PPF interest and qualified maturity are generally tax-exempt under current rules, but the 80C deduction is not available under the new tax regime. SIP returns are not guaranteed. Tax calculations here are simplified scenarios.</p></Card>
+      <div className="mt-8">
         <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
           <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Sip vs Ppf: Complete Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">

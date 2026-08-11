@@ -17,7 +17,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [mortgageBalance,setMortgageBalance]=useState(280000)
   const result=useMemo(()=>{try{return calculateHomeEquityVsPersonalLoan(borrowAmount,homeEquityRate,personalLoanRate,termMonths,taxRate,homeValue,mortgageBalance)}catch(e){return null}},[borrowAmount, homeEquityRate, personalLoanRate, termMonths, taxRate, homeValue, mortgageBalance])
   return(
-    <CalculatorLayout title="Home Equity Loan vs Personal Loan Calculator USA 2026" description="Compare home equity loan vs personal loan — monthly payment, total interest, tax deductibility, and the risk trade-off of secured vs unsecured borrowing." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="home-equity-vs-personal-loan">
+    <CalculatorLayout title="Home Equity Loan vs Personal Loan Calculator USA 2026" description="Compare home equity loan vs personal loan — monthly payment, total interest, CLTV, and the risk trade-off of secured vs unsecured borrowing." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="home-equity-vs-personal-loan">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -74,7 +74,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="CLTV Ratio" value={result?`${Number(result.cltv).toFixed(1)}%`:"-"}/>
                 <ResultCard label="Better Option" value={result?String(result.betterOption):"-"}/>
             </div>
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">⚖️ Home Equity Loan vs Personal Loan Calculator USA 2026</h2><p className="text-sm text-gray-600">Compare home equity loan vs personal loan — monthly payment, total interest, tax deductibility, and the risk trade-off of secured vs unsecured borrowing.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">⚖️ Home Equity Loan vs Personal Loan Calculator USA 2026</h2><p className="text-sm text-gray-600">Compare home equity loan vs personal loan — monthly payment, total interest, CLTV, and the risk trade-off of secured vs unsecured borrowing.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         <SEOContent
           title="Home Equity Loan vs Personal Loan Calculator USA 2026"
           category="finance"
-          intro="This calculator compares the same borrowing amount under two amortizing loans: a home-equity loan and an unsecured personal loan. It focuses on monthly payment, total interest, a simplified potential tax benefit for qualifying home-equity interest, and combined loan-to-value (CLTV). The trade-off is not just rate: home-equity debt puts the home behind the loan."
+          intro="This calculator compares the same borrowing amount under two amortizing loans: a home-equity loan and an unsecured personal loan. It focuses on monthly payment, total interest, a combined loan-to-value (CLTV). Tax deductibility is not assumed in the headline comparison. The trade-off is not just rate: home-equity debt puts the home behind the loan."
           howItWorks="For each loan, the code uses the standard fixed-payment amortization formula with monthly rate r = APR ÷ 12 and n = term months. It then compares total interest. The home-equity after-tax figure reduces modeled interest by the entered tax rate, but only as a scenario; federal deductibility depends on how proceeds are used and whether other deduction requirements are met. CLTV = (existing mortgage + new borrowing) ÷ home value."
           tipsSection="Enter rates from actual offers with the same term and compare fees separately because this model does not include origination, appraisal or closing costs. Do not count a tax deduction automatically: IRS rules generally require home-equity proceeds to be used to buy, build or substantially improve the home securing the debt for the interest to qualify as home-mortgage interest."
           conclusion="A lower home-equity APR can reduce interest, but the calculator cannot price foreclosure risk, lender fees or your eligibility. Compare disclosures and repayment risk before choosing secured debt."

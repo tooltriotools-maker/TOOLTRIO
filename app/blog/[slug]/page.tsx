@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { publishedBlogPosts } from '@/lib/blog/posts'
+import { isRestrictedBlogPost } from '@/lib/visibility'
 import { MarkdownContent } from '@/lib/blog/markdown'
 
 // Inline SVG icons — no external package needed in server components
@@ -23,10 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = publishedBlogPosts.find(p => p.slug === slug)
   if (!post) return { title: 'Post Not Found | ToolTrio' }
+  const restricted = isRestrictedBlogPost(post)
   return {
     title: post.seoTitle ,
     description: post.seoDescription,
     keywords: post.keywords,
+    robots: restricted ? { index: false, follow: true, googleBot: { index: false, follow: true } } : { index: true, follow: true },
     alternates: { canonical: `https://tooltrio.com/blog/${slug}` },
     openGraph: {
       title: post.seoTitle,

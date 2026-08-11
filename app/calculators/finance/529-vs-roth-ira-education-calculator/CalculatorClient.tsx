@@ -28,21 +28,25 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
     // 529: contributions not federally deductible, state deduction available, growth tax-free for education
     const stateTaxSaving = monthly * 12 * (stateTaxRate / 100) * years
-    const plan529FV = monthly * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
+    const plan529FV = mr === 0 ? monthly * months : monthly * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
     const plan529PostTax = plan529FV // fully tax-free for qualified education
 
     // Roth IRA: after-tax contributions, tax-free for education (penalty-free but earnings taxed if not retirement)
     // Contributions = always accessible; earnings for education = taxable but no 10% penalty
-    const rothContrib = monthly * months
-    const rothFV = monthly * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
+    const rothAnnual = Math.min(monthly * 12, 7500)
+    const rothMonthly = rothAnnual / 12
+    const rothContrib = rothMonthly * months
+    const rothFV = mr === 0 ? rothContrib : rothMonthly * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
     const rothEarnings = rothFV - rothContrib
-    const rothTaxOnEarnings = rothEarnings * (fedTaxRate / 100) * 0.5 // ~50% of earnings needed for education
+    const rothTaxOnEarnings = rothEarnings * (fedTaxRate / 100) // simplified education-withdrawal earnings tax assumption
     const rothPostTax = rothFV - rothTaxOnEarnings
 
     const yearlyData = Array.from({ length: years }, (_, i) => {
       const y = i + 1; const m = y * 12
-      const fv = monthly * ((Math.pow(1 + mr, m) - 1) / mr) * (1 + mr)
-      return { year: childAge + y, plan529: Math.round(fv), roth: Math.round(fv * 0.92), invested: monthly * m }
+      const fv = mr === 0 ? monthly * m : monthly * ((Math.pow(1 + mr, m) - 1) / mr) * (1 + mr)
+      const rothM = rothAnnual / 12
+      const rothYearFV = mr === 0 ? rothM * m : rothM * ((Math.pow(1 + mr, m) - 1) / mr) * (1 + mr)
+      return { year: childAge + y, plan529: Math.round(fv), roth: Math.round(rothYearFV), invested: monthly * m }
     })
 
     return {
@@ -73,7 +77,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Federal Tax Rate" value={fedTaxRate} onChange={setFedTaxRate} min={10} max={37} step={1} suffix="%" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.plan529Better ? 'bg-green-50 border-green-300' : 'bg-purple-50 border-purple-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better for College</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled College Value</p>
             <p className="text-xl font-black" style={{ color: result.plan529Better ? '#10b981' : '#8b5cf6' }}>{result.plan529Better ? '529 Plan' : 'Roth IRA'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.difference)} over {result.years} yrs</p>
           </div>

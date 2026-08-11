@@ -11,7 +11,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
  title: 'I Bonds vs TIPS Calculator USA 2026 | ToolTrio',
- description: 'Free I Bonds vs TIPS calculator USA 2026. Compare Series I Savings Bonds vs Treasury Inflation-Protected Securities on after-tax real return, liquidity.',
+ description: 'Free I Bonds vs TIPS calculator USA 2026. Compare an I Bond current-rate scenario with a TIPS real-yield scenario after an entered inflation adjustment.',
  slug: 'i-bonds-vs-tips-calculator',
  category: 'finance',
  region: 'usa',
@@ -29,7 +29,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 
 const faqs = [
- { question: 'How accurate are the calculations?', answer: 'This I Bonds vs TIPS Calculator uses standard financial formulas recognized by certified financial planners (CFPs), CPAs, and investment advisors across the United States. Results assume consistent inputs and standard market conditions. Actual investment returns, taxes, and financial outcomes will vary based on market performance, tax law changes, and individual circumstances. Use results for planning purposes, not as guarantees.' },
+ { question: 'How accurate are the calculations?', answer: 'This calculator uses transparent scenario math rather than reproducing a brokerage or Treasury pricing engine. It does not model every tax, liquidity, market-price, auction or future-rate factor; use the output for scenario planning only.' },
  { question: 'Should I consult a financial advisor?', answer: 'For major financial decisions (retirement planning, large investments, tax strategy, estate planning), considering advice from a qualified financial professional (CFP) or CPA is strongly recommended. This I Bonds vs TIPS Calculator provides a calculation based on the inputs and assumptions shown, but a licensed professional can account for your complete financial picture, tax situation, and long-term goals in ways a calculator cannot.' },
  { question: 'Does this account for inflation?', answer: 'Where applicable, this I Bonds vs TIPS Calculator uses nominal values (current dollars) by default. For long-term projections, always consider that inflation historically averages 2-3% annually in the United States. To get inflation-adjusted (real) returns, account for inflation only when an inflation assumption is explicitly provided from the nominal return rate. For example, if your investment earns 8% and inflation is 3%, your real return is approximately 5%.' },
  { question: 'Are the calculations based on US tax law?', answer: 'This I Bonds vs TIPS Calculator uses US financial conventions and, where applicable, current US tax brackets and contribution limits. Tax law changes annually - verify current IRS limits (401k, IRA, HSA, etc.) at IRS.gov. For non-US users, contribution limits and tax treatment will differ significantly. Always verify current figures with your tax professional.' },

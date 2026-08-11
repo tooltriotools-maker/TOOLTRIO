@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP+4 Code Lookup — Find Full 9-Digit ZIP Code Free | ToolTrio',
-  description: 'Find the ZIP+4 code for any US address free. Look up the full 9-digit ZIP code for precise mail delivery, address standardization, and USPS compliance.',
+  title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
+  description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
   keywords: [
     'zip plus 4 lookup',
     'zip+4 code finder',
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-plus-4-lookup',
     siteName: 'ToolTrio',
-    title: 'ZIP+4 Code Lookup — Find Full 9-Digit ZIP Code Free | ToolTrio',
-    description: 'Find the ZIP+4 code for any US address free. Look up the full 9-digit ZIP code for precise mail delivery, address standardization, and USPS compliance.',
+    title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
+    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP+4 Code Lookup — Find Full 9-Digit ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP+4 Code Lookup — Find Full 9-Digit ZIP Code Free | ToolTrio',
-    description: 'Find the ZIP+4 code for any US address free. Look up the full 9-digit ZIP code for precise mail delivery, address standardization, and USPS compliance.',
+    title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
+    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -78,6 +78,8 @@ const relatedTools = [
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'City to ZIP Code',href:'/zip/city-to-zip',icon:'🏙️'},
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
+  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
 ]
 
 const tips = [
@@ -94,7 +96,7 @@ const seoContent = {
     { icon: '✅', title: `DPV Validation`, desc: `Delivery Point Validation — confirms address is deliverable, not just validly formatted.`, bullets: [] },
   ],
 
-  heading: `ZIP+4 Code Lookup — What the ZIP+4 Extension Means and How to Use It`,
+  heading: `ZIP+4 Lookup — Find and Understand the Full 9-Digit US ZIP Code`,
   populationChart: {
     title: 'Postage Savings from ZIP+4 and Delivery Point Barcode (DPB)',
     subtitle: 'Bulk mailers can save 10–20¢ per piece by using full ZIP+4 / DPB barcoding',

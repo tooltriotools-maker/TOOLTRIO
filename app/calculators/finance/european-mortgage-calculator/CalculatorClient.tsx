@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   })
 
   return (
-    <CalculatorLayout title="European Mortgage Calculator 2026" description="Calculate monthly mortgage payments for UK, Germany, France, and Netherlands with local rates." icon="🏡" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="european-mortgage-calculator">
+    <CalculatorLayout title="European Mortgage Calculator 2026" description="Model monthly mortgage payments across selected European markets using editable interest-rate and term assumptions." icon="🏡" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="european-mortgage-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-4">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Mortgage Details</h2>
@@ -58,7 +58,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <label className="text-xs font-medium text-gray-600">Country</label>
             <select value={countryIdx} onChange={e => handleCountry(Number(e.target.value))}
               className="w-full border rounded-xl px-3 py-2.5 text-sm text-gray-800 outline-none" style={{background:'rgba(255,255,255,0.85)',borderColor:'#e2e8f0'}}>
-              {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name} - {c.rate}% avg</option>)}
+              {COUNTRIES.map((c, i) => <option key={c.name} value={i}>{c.name} - {c.rate}% scenario</option>)}
             </select>
           </div>
 
@@ -106,7 +106,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className={`rounded-xl p-3 text-center ${result.ltv <= 80 ? 'bg-green-50 border border-green-200' : result.ltv <= 90 ? 'bg-amber-50 border border-amber-200' : 'bg-red-50 border border-red-200'}`}>
             <p className="text-xs text-gray-500">Loan to Value (LTV)</p>
             <p className={`text-2xl font-black ${result.ltv <= 80 ? 'text-green-700' : result.ltv <= 90 ? 'text-amber-600' : 'text-red-600'}`}>{result.ltv}%</p>
-            <p className="text-xs text-gray-500 mt-0.5">{result.ltv <= 75 ? 'Excellent - best rates' : result.ltv <= 80 ? 'Good - standard rates' : result.ltv <= 90 ? 'Higher rate tier' : 'Maximum LTV'}</p>
+            <p className="text-xs text-gray-500 mt-0.5">{result.ltv <= 75 ? 'Lower modeled LTV' : result.ltv <= 80 ? 'Moderate modeled LTV' : result.ltv <= 90 ? 'Higher modeled LTV' : 'High modeled LTV'}</p>
           </div>
         </Card>
 

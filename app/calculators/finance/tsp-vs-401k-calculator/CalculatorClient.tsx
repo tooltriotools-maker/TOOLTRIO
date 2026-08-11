@@ -62,7 +62,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Annual TSP Match" value={result ? `${Number(result.annualMatch).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
+                <ResultCard label="Modeled annual TSP agency contribution" value={result ? `${Number(result.annualMatch).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="Total Annual Contribution" value={result ? `${Number(result.totalAnnualContrib).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="TSP Growth (30yr)" value={result ? `${Number(result.tspGrowth30yr).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Annual FERS Pension" value={result ? `${Number(result.annualPension).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />

@@ -12,12 +12,12 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const result = useMemo(() => calculateSocialSecurityWEP(regularBenefit, nonCoveredPension, yearsSubstantial), [regularBenefit, nonCoveredPension, yearsSubstantial])
   const fmt = (v: number) => '$' + Math.round(v).toLocaleString()
   return (
-    <CalculatorLayout title="Social Security WEP Calculator USA 2026" description="Calculate the Windfall Elimination Provision (WEP) reduction to your Social Security benefit." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="social-security-wep-calculator">
+    <CalculatorLayout title="Social Security WEP Calculator USA 2026" description="Historical WEP/GPO screen. For benefits payable January 2024 and later, WEP and GPO reductions no longer apply." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="social-security-wep-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your Benefits</h2>
           {[
-            { label: 'Regular SS Benefit (before WEP)', value: regularBenefit, set: setRegularBenefit, step: 50, prefix: '$', suffix: '/mo' },
+            { label: 'Regular Social Security Benefit', value: regularBenefit, set: setRegularBenefit, step: 50, prefix: '$', suffix: '/mo' },
             { label: 'Non-Covered Pension (monthly)', value: nonCoveredPension, set: setNonCoveredPension, step: 50, prefix: '$', suffix: '/mo' },
             { label: 'Years of Substantial SS Earnings', value: yearsSubstantial, set: setYearsSubstantial, step: 1, suffix: 'yrs' },
           ].map(({ label, value, set, step, prefix, suffix }) => (
@@ -31,17 +31,15 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           ))}
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-700">
-            <p className="font-bold">WEP Factor: {result.wepFactor}%</p>
-            <p className="mt-1">Max 2026 Reduction: ${result.maxReduction}/mo</p>
-            <p className="mt-1">30+ substantial earning years = no WEP</p>
+            <p className="font-bold">Current WEP reduction: $0/mo</p><p className="mt-1">WEP/GPO repealed for benefits payable January 2024 and later.</p>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="Without WEP" value={fmt(result.regularBenefit) + '/mo'} />
-            <ResultCard label="WEP Reduction" value={'-' + fmt(result.wepReduction) + '/mo'} subValue="monthly cut" />
+            <ResultCard label="Current Benefit" value={fmt(result.regularBenefit) + '/mo'} />
+            <ResultCard label="Current WEP Reduction" value={fmt(result.wepReduction) + '/mo'} subValue="January 2024+" />
             <ResultCard label="Your SS Benefit" value={fmt(result.reducedBenefit) + '/mo'} highlight />
-            <ResultCard label="Lifetime Impact" value={'-' + fmt(result.lifetimeImpact)} subValue="age 67–85" />
+            <ResultCard label="Current Lifetime WEP Impact" value={fmt(result.lifetimeImpact)} subValue="January 2024+" />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Benefit Impact</h3>
@@ -57,7 +55,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
               <div>
                 <div className="flex justify-between text-sm mb-1">
-                  <span className="text-gray-500">After WEP Reduction</span>
+                  <span className="text-gray-500">Current Benefit</span>
                   <span className="font-bold text-green-600">{fmt(result.reducedBenefit)}/mo</span>
                 </div>
                 <div className="bg-gray-100 rounded-full h-4 overflow-hidden">
@@ -66,14 +64,14 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               </div>
             </div>
             <div className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-gray-500">WEP Monthly Reduction</span><span className="font-bold text-red-500">-{fmt(result.wepReduction)}/mo</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">GPO Reduction (spousal)</span><span className="font-bold text-orange-500">-{fmt(result.gpoReduction)}/mo</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Current WEP Reduction</span><span className="font-bold text-red-500">-{fmt(result.wepReduction)}/mo</span></div>
+              <div className="flex justify-between"><span className="text-gray-500">Current GPO Reduction (spousal)</span><span className="font-bold text-orange-500">-{fmt(result.gpoReduction)}/mo</span></div>
               <div className="flex justify-between"><span className="text-gray-500">Years of Substantial Earnings</span><span className="font-bold">{result.yearsSubstantialEarnings} / 30</span></div>
             </div>
           </Card>
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800">
-            <p className="font-bold mb-1">💡 How to Reduce WEP Impact</p>
-            <p>Each additional year of substantial Social Security earnings (wages above ~$31,275 in 2026) reduces the WEP factor. At 30+ years, WEP is eliminated entirely. Consider this when planning your final working years.</p>
+            <p className="font-bold mb-1">ℹ️ Current rule</p>
+            <p>Do not use the old WEP formula to plan current benefits. The Social Security Fairness Act repealed WEP and GPO for benefits payable January 2024 and later. This page is retained for historical education.</p>
           </div>
         </div>
       </div>
@@ -82,7 +80,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         <Card>
           <h2 className="text-lg font-bold text-gray-900 mb-3">How to use and interpret this social security wep calculator</h2>
           <div className="space-y-3 text-sm leading-6 text-gray-600">
-            <p>This calculator uses Without WEP, WEP Reduction, Your SS Benefit, Lifetime Impact to produce the results displayed above. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
+            <p>This calculator shows the current post-repeal result and retains the historical input fields only to explain why older WEP calculators can now be misleading. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
             <p>The result is an estimate produced from the calculator&apos;s implemented formula and the values you enter. Review the units, time period, and assumptions before using the output for a decision; a calculated result does not add information that is not represented by the inputs.</p>
             <p>Use the worked output as a planning or comparison aid. Real-world results can differ when taxes, fees, eligibility rules, measurement error, market conditions, or other factors not represented by this calculator apply.</p>
           </div>

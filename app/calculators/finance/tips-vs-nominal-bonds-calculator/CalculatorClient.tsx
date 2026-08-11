@@ -17,7 +17,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [taxRate,setTaxRate]=useState(32)
   const result=useMemo(()=>{try{return calculateTIPSvsBonds(tipsFaceValue,tipsRealYield,nominalBondYield,expectedInflation,years,taxRate)}catch(e){return null}},[tipsFaceValue, tipsRealYield, nominalBondYield, expectedInflation, years, taxRate])
   return(
-    <CalculatorLayout title="TIPS vs Nominal Bonds Calculator USA 2026" description="Compare TIPS (inflation-protected) vs nominal bonds after tax — find the break-even inflation rate where TIPS becomes the better choice." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="tips-vs-nominal-bonds-calculator">
+    <CalculatorLayout title="TIPS vs Nominal Bonds Calculator USA 2026" description="Compare TIPS (inflation-protected) vs nominal bonds after tax — compare user-entered yield and inflation scenarios; the result is not a market forecast." icon="📊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="tips-vs-nominal-bonds-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -65,10 +65,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Nominal Bond Final Value" value={result?`${Number(result.nominalBondValue).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"}/>
                 <ResultCard label="TIPS Better" value={result?String(result.tipsBetter ? 'Yes' : 'No — nominal wins'):"-"}/>
                 <ResultCard label="Difference" value={result?`${Number(result.difference).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"}/>
-                <ResultCard label="Break-Even Inflation" value={result?`${Number(result.breakEvenInflation).toFixed(1)}%`:"-"}/>
+                <ResultCard label="Simplified Yield Spread" value={result?`${Number(result.breakEvenInflation).toFixed(1)}%`:"-"}/>
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">📊 TIPS vs Nominal Bonds Calculator USA 2026</h2><p className="text-sm text-gray-600">Compare TIPS (inflation-protected) vs nominal bonds after tax — find the break-even inflation rate where TIPS becomes the better choice.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">📊 TIPS vs Nominal Bonds Calculator USA 2026</h2><p className="text-sm text-gray-600">Compare TIPS (inflation-protected) vs nominal bonds after tax — compare user-entered yield and inflation scenarios; the result is not a market forecast.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>

@@ -16,13 +16,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [termYears, setTermYears] = useState(10)
   const [annualRevenue, setAnnualRevenue] = useState(950000)
   const [netProfit, setNetProfit] = useState(85000)
+  const [existingDebt, setExistingDebt] = useState(0)
 
   const result = useMemo(()=>{
-    try{return calculateSBALoanAffordability(loanAmount,sbaRate,termYears,annualRevenue,netProfit,0)}catch(e){return null}
-  },[loanAmount, sbaRate, termYears, annualRevenue, netProfit])
+    try{return calculateSBALoanAffordability(loanAmount,sbaRate,termYears,annualRevenue,netProfit,existingDebt)}catch(e){return null}
+  },[loanAmount, sbaRate, termYears, annualRevenue, netProfit, existingDebt])
 
   return (
-    <CalculatorLayout title="SBA Loan Calculator USA 2026 — 7(a) and 504 Loans" description="Calculate SBA loan monthly payment, DSCR eligibility, total interest cost, and maximum loan amount based on your business financials." icon="🏢" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="sba-loan-calculator">
+    <CalculatorLayout title="SBA 7(a) Loan Calculator USA 2026" description="Model SBA 7(a) loan payments, interest, a planning DSCR and modeled debt-service capacity using your business assumptions." icon="🏢" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="sba-loan-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -91,9 +92,9 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="SBA Loan Calculator USA 2026 — 7(a) and 504 Loans" category="finance" intro="This page estimates payment burden and a simplified debt-service coverage ratio for a proposed business loan. It can help test whether a requested amount is supportable by the net profit you enter, but it does not perform SBA or lender underwriting."
-          howItWorks="The loan is amortized at the entered rate and term. Annual debt service is 12 monthly payments. DSCR = annual net profit ÷ annual modeled payment. The code flags 1.25 or greater as adequate and applies additional internal heuristics for qualification and program labels; existing debt is currently passed as zero."
-          tipsSection="Use cash flow available for debt service rather than assuming accounting net profit always equals repayment capacity. Verify current SBA program limits, guaranty fees, permitted uses of proceeds and lender requirements; SBA fees are not modeled because applicable fees vary by program, loan size, guarantee and current rules."
-          conclusion="Use the payment and DSCR outputs for scenario planning, not as an approval prediction. SBA eligibility and credit decisions require current program rules and lender review."
+          howItWorks="The loan is amortized at the entered rate and term. DSCR is modeled as annual net profit divided by annual payment. A 1.25 DSCR is shown as a planning threshold only. The modeled maximum loan uses the amount of annual debt service available after existing annual debt service and caps the result at SBA’s $5 million 7(a) program maximum; this is not an SBA approval calculation."
+          tipsSection="SBA 7(a) loans can have terms up to 25 years in qualifying cases, while the exact term depends on the use and useful life of the financed asset. Interest rates are negotiated with the lender and subject to SBA maximums. Guaranty fees and lender underwriting are not modeled here."
+          conclusion="Use the payment, DSCR and modeled debt-service capacity for scenario planning only. SBA eligibility, guaranty, fees, permitted uses, collateral and credit decisions require current SBA rules and lender review."
           benefits={[{title:"Calculator results",text:"Uses the calculator-specific assumptions shown on this page."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Personal Planning",text:"Use your own inputs to test this specific calculation."},{title:"Scenario Comparison",text:"Change one relevant input at a time and compare the modeled output."}]}
         />

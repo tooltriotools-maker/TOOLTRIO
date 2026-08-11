@@ -15,10 +15,10 @@ const fmtU = (n: number) => (n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M' :
 const fmtAuto = (n: number, isUSD: boolean) => isUSD ? fmtU(n) : fmt(n)
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
-  const isUSD = true
-  const [val1, setVal1] = useState(isUSD ? 500 : 10000)
-  const [rate1, setRate1] = useState(isUSD ? 10 : 12)
-  const [rate2, setRate2] = useState(isUSD ? 5 : 7)
+  const isUSD = false
+  const [val1, setVal1] = useState(10000)
+  const [rate1, setRate1] = useState(10)
+  const [rate2, setRate2] = useState(8)
   const [years, setYears] = useState(10)
 
   const result = useMemo(() => {
@@ -41,13 +41,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
-            <InputField label="Monthly Investment" value={val1} onChange={setVal1} min={100} max={100000} step={100} prefix={isUSD ? '$' : '₹'} />
+            <InputField label="Monthly Investment" value={val1} onChange={setVal1} min={100} max={100000} step={100} prefix={'₹'} />
             <InputField label="Option A Return (p.a.)" value={rate1} onChange={setRate1} min={1} max={20} step={0.5} suffix="%" />
             <InputField label="Option B Return (p.a.)" value={rate2} onChange={setRate2} min={1} max={15} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={30} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled Corpus</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Option A' : 'Option B'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtAuto(result.diff, isUSD)}</p>
           </div>
@@ -92,14 +92,14 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in India</h3>
               <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to LTCG (10%) or income tax slab. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Long-Term Wealth Creation?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (12-15% historical) generally beat lower-return stable options (6-7.5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (historical returns are not guaranteed) generally beat lower-return stable options (6-7.5%). For goals under 3 years, capital preservation takes priority.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>
             <h3 className="font-bold text-green-800 mb-2">💡 Expert Tip</h3>
-            <p className="text-sm text-green-700 leading-relaxed">Most financial advisors recommend not putting all your money in one option. A diversified approach - splitting between Elss and Nps based on your specific goals - often provides better risk-adjusted returns than going all-in on either. Use this calculator to find your optimal split.</p>
+            <p className="text-sm text-green-700 leading-relaxed">Most financial advisors recommend not putting all your money in one option. A diversified approach - splitting between Elss and Nps based on your specific goals - often provides better risk-adjusted returns than going all-in on either. Use this calculator to compare the growth assumptions you enter; it does not determine an optimal allocation.</p>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Elss Vs NPS Calculator Example (USA 2026)
+          ELSS vs NPS Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           Use this Elss Vs NPS USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.

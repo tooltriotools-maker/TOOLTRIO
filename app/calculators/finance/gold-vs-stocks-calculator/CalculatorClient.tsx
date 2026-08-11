@@ -13,12 +13,14 @@ interface Props { faqs:{question:string;answer:string}[];relatedCalculators?:{na
 export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [goldAmount, setGoldAmount] = useState(100000)
   const [spyAllocation, setSpyAllocation] = useState(80)
-  const [btcAllocation, setBtcAllocation] = useState(10)
+  const [goldAllocation, setGoldAllocation] = useState(20)
   const [years, setYears] = useState(20)
+  const [goldReturn, setGoldReturn] = useState(6)
+  const [stockReturn, setStockReturn] = useState(10)
 
   const result = useMemo(()=>{
-    try{return calculateGoldVsStocks(goldAmount, 0, spyAllocation, years)}catch(e){return null}
-  },[goldAmount, spyAllocation, btcAllocation, years])
+    try{return calculateGoldVsStocks(goldAmount, 0, spyAllocation, years, goldReturn, stockReturn)}catch(e){return null}
+  },[goldAmount, spyAllocation, goldAllocation, years, goldReturn, stockReturn])
 
   return (
     <CalculatorLayout title="Gold vs Stocks Portfolio Calculator USA 2026" description="Compare a blended gold and stock portfolio against all-stock and all-gold strategies. Calculate diversification benefit and crash protection value." icon="🥇" category="Finance" relatedCalculators={relatedCalculators} slug="gold-vs-stocks-calculator">
@@ -45,9 +47,13 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             <label className="text-xs font-medium text-gray-600">Gold Allocation (%)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
-              <input type="number" value={btcAllocation} onChange={e=>setBtcAllocation(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+              <input type="number" value={goldAllocation} onChange={e=>setGoldAllocation(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>
             </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-1"><label className="text-xs font-medium text-gray-600">Gold Return Assumption (%)</label><input type="number" value={goldReturn} onChange={e=>setGoldReturn(Number(e.target.value))} step={0.5} className="w-full border rounded-xl px-3 py-2 text-right" /></div>
+            <div className="space-y-1"><label className="text-xs font-medium text-gray-600">Stock Return Assumption (%)</label><input type="number" value={stockReturn} onChange={e=>setStockReturn(Number(e.target.value))} step={0.5} className="w-full border rounded-xl px-3 py-2 text-right" /></div>
           </div>
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Years</label>
@@ -66,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 <ResultCard label="All Stocks" value={result ? `${Number(result.allStockFinal).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="All Gold" value={result ? `${Number(result.allGoldFinal).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Portfolio CAGR" value={result ? `${Number(result.annualizedReturn).toFixed(1)}%` : "—"} />
-                <ResultCard label="Crash-Protected Value" value={result ? `${Number(result.hedgeValue).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Hedge Value" value="Not modeled" />
                 <ResultCard label="Diversification Benefit" value={result ? `${Number(result.diversificationBenefit).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
               </div>
               {result?.yearData && result.yearData.length > 0 && (
@@ -88,7 +94,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🥇 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Gold's role in a portfolio is diversification and crisis protection rather than growth. A 10% gold allocation in an 80/10/10 stocks-gold-cash portfolio reduces crash severity while giving up only modest long-term returns vs all-stocks. This calculator shows the exact trade-off between portfolio protection and return optimization at any gold allocation.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Gold and stocks have different historical risk and return characteristics, but future returns are uncertain. Use the calculator to test assumptions and allocations rather than treating any return or protection result as a forecast.</p>
               </Card>
             </>
           ):(
@@ -99,7 +105,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Gold vs Stocks Portfolio Calculator USA 2026" category="finance"
           intro="Model a hypothetical portfolio split between gold and stocks over a chosen horizon. This calculator is useful for understanding how allocation and assumed returns affect projected value, not for forecasting either asset class."
-          howItWorks="The code assumes 6% annual growth for gold and 10% for stocks, compounds each allocation separately, and adds the ending values. It also shows an artificial 'hedge value' based on a 15% adjustment; that figure is a ToolTrio scenario assumption, not a measured or guaranteed crash-protection benefit."
+          howItWorks="The calculator uses the return assumptions you enter, compounds each allocation separately, and compares the blended scenario with 100% stock and 100% gold scenarios. It does not claim a measurable or guaranteed crash-protection value."
           tipsSection="Change one assumption at a time and compare the result with the underlying contract, tax rule, lender terms, or official source before making a decision."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor."
           benefits={[{title:"Calculator results",text:"Results update from the values you enter."},{title:"100% Private",text:"Everything runs locally."},{title:"Available without a paid plan",text:"No account is required to run the calculation."}]}

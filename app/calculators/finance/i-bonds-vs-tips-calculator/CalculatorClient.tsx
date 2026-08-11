@@ -16,35 +16,34 @@ const fmtC = (n: number) => n >= 1000000 ? FMT_PREFIX + (n/1000000).toFixed(2) +
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
   const [monthly, setMonthly] = useState(500)
-  const [rateA, setRateA] = useState(4.5)
-  const [rateB, setRateB] = useState(4.2)
+  const [iBondComposite, setIBondComposite] = useState(4.26)
+  const [expectedInflation, setExpectedInflation] = useState(2.5)
+  const [tipsRealYield, setTipsRealYield] = useState(1.7)
   const [years, setYears] = useState(20)
 
   const result = useMemo(() => {
     const months = years * 12
-    const mrA = rateA / 100 / 12
-    const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
-    const invested = monthly * months
-    const yearlyData = Array.from({ length: years }, (_, i) => {
-      const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
-      return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
-    })
-    return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA-invested), gainB: Math.round(fvB-invested), aBetter: fvA>fvB, diff: Math.round(Math.abs(fvA-fvB)), yearlyData }
-  }, [monthly, rateA, rateB, years])
+    const safeMonthly = Math.max(0, monthly)
+    const safeInflation = Math.max(-99, expectedInflation) / 100
+    const ibondNominal = Math.max(-99, iBondComposite) / 100
+    const ibondReal = ((1 + ibondNominal) / (1 + safeInflation) - 1)
+    const tipsReal = Math.max(-99, tipsRealYield) / 100
+    const fv = (r:number) => { const m = r / 12; return Math.abs(m) < 1e-12 ? safeMonthly * months : safeMonthly * ((Math.pow(1 + m, months) - 1) / m) * (1 + m) }
+    const fvA = fv(ibondReal), fvB = fv(tipsReal), invested = safeMonthly * months
+    const yearlyData = Array.from({ length: years }, (_, i) => { const y=i+1, m=y*12; const fa=(Math.abs(ibondReal/12)<1e-12?safeMonthly*m:safeMonthly*((Math.pow(1+ibondReal/12,m)-1)/(ibondReal/12))*(1+ibondReal/12)); const fb=(Math.abs(tipsReal/12)<1e-12?safeMonthly*m:safeMonthly*((Math.pow(1+tipsReal/12,m)-1)/(tipsReal/12))*(1+tipsReal/12)); return {year:y,optA:Math.round(fa),optB:Math.round(fb),invested:safeMonthly*m} })
+    return { fvA:Math.round(fvA), fvB:Math.round(fvB), invested:Math.round(invested), gainA:Math.round(fvA-invested), gainB:Math.round(fvB-invested), aBetter:fvA>fvB, diff:Math.round(Math.abs(fvA-fvB)), yearlyData, ibondReal:ibondReal*100 }
+  }, [monthly, iBondComposite, expectedInflation, tipsRealYield, years])
 
   return (
-    <CalculatorLayout title="I Bonds vs TIPS Calculator USA 2026" description="Compare Series I Savings Bonds vs Treasury Inflation-Protected Securities on real after-tax return." icon="🛡️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="i-bonds-vs-tips-calculator">
+    <CalculatorLayout title="I Bonds vs TIPS Calculator USA 2026" description="Compare an I Bond current-rate scenario with a TIPS real-yield scenario after adjusting the I Bond nominal rate for an entered inflation assumption." icon="🛡️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="i-bonds-vs-tips-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
             <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="$" />
-            <InputField label="I Bonds Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
-            <InputField label="TIPS Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="I Bond Composite Rate (p.a.)" value={iBondComposite} onChange={setIBondComposite} min={0} max={20} step={0.01} suffix="%" />
+            <InputField label="Expected Inflation (p.a.)" value={expectedInflation} onChange={setExpectedInflation} min={-5} max={15} step={0.1} suffix="%" />
+            <InputField label="TIPS Real Yield (p.a.)" value={tipsRealYield} onChange={setTipsRealYield} min={-5} max={15} step={0.1} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
@@ -116,21 +115,21 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       </div>
             <div className="mt-8">
         <div className="rounded-3xl border p-6 md:p-8" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(12px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.06)'}}>
-          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>I Bonds vs Tips: Complete Guide</h2>
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-6" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>I Bonds vs TIPS: Scenario Guide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is I Bonds?</h3>
-              <p>I Bonds is a USA investment or financial product that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
+              <p>Series I savings bonds use a composite rate with a fixed component and inflation component; rates reset every six months and purchase/redemption rules apply.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">What is Tips?</h3>
-              <p>Tips takes a different approach to growing or protecting your wealth. Each has its own risk profile, liquidity characteristics, and tax treatment that makes it suited to specific financial situations.</p>
+              <p>TIPS are marketable Treasury securities whose principal adjusts with inflation and whose market price can move when real interest rates change.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Key Differences</h3>
-              <p>The most important distinction between I Bonds and Tips is how returns are generated and taxed. I Bonds typically suits growth-oriented investors while Tips may appeal to those prioritizing stability or specific tax advantages.</p>
+              <p>The calculator compares real-rate scenarios. It does not model market-price volatility, tax differences, auction prices, inflation-indexation details, or future I Bond rate resets.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in USA</h3>
-              <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains (0-20%) or ordinary income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
+              <p>This version is a pre-tax real-return scenario. I Bonds and TIPS have different federal-tax timing and treatment, so do not interpret the output as an after-tax tax-return calculation.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Retirement Planning?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (10-12% historical) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. Do not treat the modeled winner as a recommendation. Liquidity, account type, inflation expectations, real yields and market-price risk can change which security is appropriate.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>

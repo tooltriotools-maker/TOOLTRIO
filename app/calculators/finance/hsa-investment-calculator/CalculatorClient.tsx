@@ -17,12 +17,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [currentBalance, setCurrentBalance] = useState(8000)
   const [growthRate, setGrowthRate] = useState(7)
   const [taxRate, setTaxRate] = useState(24)
+  const [familyCoverage, setFamilyCoverage] = useState(false)
 
   const result = useMemo(() => {
     try {
-      return calculateHSAGrowth(annualContrib, age, retirementAge, currentBalance, growthRate, taxRate, false)
+      return calculateHSAGrowth(annualContrib, age, retirementAge, currentBalance, growthRate, taxRate, familyCoverage)
     } catch(e) { return null }
-  }, [annualContrib, age, retirementAge, currentBalance, growthRate, taxRate])
+  }, [annualContrib, age, retirementAge, currentBalance, growthRate, taxRate, familyCoverage])
 
   return (
     <CalculatorLayout
@@ -75,6 +76,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               
               <input type="number" value={growthRate} onChange={e => setGrowthRate(Number(e.target.value))} step={0.5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>
+            </div>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Coverage Type</label>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => setFamilyCoverage(false)} className={`py-2 rounded-xl text-xs font-bold border-2 ${!familyCoverage ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600'}`}>Self-only</button>
+              <button onClick={() => setFamilyCoverage(true)} className={`py-2 rounded-xl text-xs font-bold border-2 ${familyCoverage ? 'border-green-500 bg-green-50 text-green-700' : 'border-gray-200 text-gray-600'}`}>Family</button>
             </div>
           </div>
           <div className="space-y-1">
@@ -136,7 +144,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           category="finance"
           intro="This calculator projects an HSA balance from current balance, annual contribution, age, retirement age and assumed return. It also estimates a tax-equivalent value and a simple medical-spending coverage metric."
           howItWorks="The function caps annual contributions at the applicable 2026 HSA limit plus a $1,000 age-55 catch-up when eligible, compounds annually and adds contributions until retirement. Tax-equivalent value = projected balance ÷ (1 − entered tax rate)."
-          tipsSection="For 2026 the federal HSA contribution limits are $4,400 self-only and $8,750 family. This UI models self-only coverage. Eligibility depends on qualifying coverage and other rules; returns and medical costs can differ."
+          tipsSection="For 2026 the federal HSA contribution limits are $4,400 self-only and $8,750 family. The coverage selector models the 2026 self-only or family contribution limit. Eligibility depends on qualifying coverage and other rules; returns and medical costs can differ."
           conclusion="The projection assumes no HSA withdrawals before retirement and a constant return. It is not a forecast of investment performance or future healthcare costs."
           benefits={[
             { title: "Methodology-specific results", text: "Outputs follow the formulas and assumptions described on this page." },

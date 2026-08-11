@@ -190,8 +190,6 @@ export default function AboutPage() {
           <p className="text-gray-500 mb-5 text-sm">We respond to all emails and take every calculator request seriously.</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/contact" className="px-5 py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-all">Contact Us</Link>
-            <Link href="/calculators/finance" className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-xl font-bold text-sm hover:border-green-400 transition-all">Browse Finance Tools</Link>
-            <Link href="/calculators/health" className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-xl font-bold text-sm hover:border-green-400 transition-all">Browse Health Tools</Link>
           </div>
         </div>
       </div>

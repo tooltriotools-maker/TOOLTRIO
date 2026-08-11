@@ -9,9 +9,9 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+  title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
   description:
-  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
+  'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
 
   keywords: [
   'zip code timezone',
@@ -83,17 +83,17 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-timezone',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+    title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
     description:
-  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
+  'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-   title: 'ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code | ToolTrio',
+   title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
     description:
-  'Find the time zone for any US ZIP code. Get the current local time, UTC offset, DST status and IANA timezone for ZIP codes across the United States.',
+  'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -112,6 +112,7 @@ const relatedTools = [
   {name:'ZIP to Timezone Map',href:'/zip/zip-to-timezone-map',icon:'🗺️'},
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
+  {name:'ZIP+4 Lookup',href:'/zip/zip-plus-4-lookup',icon:'➕'},
   {name:'ZIP to Area Code',href:'/zip/zip-to-area-code',icon:'📞'},
   {name:'ZIP Code Validator',href:'/zip/zip-code-validator',icon:'✅'},
   {name:'State ZIP Codes',href:'/zip/state-zip-codes',icon:'🗺️'},

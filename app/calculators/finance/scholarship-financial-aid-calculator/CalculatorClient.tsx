@@ -13,23 +13,28 @@ interface Props { faqs:{question:string;answer:string}[];relatedCalculators?:{na
 export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [efc, setEfc] = useState(15000)
   const [merit, setMerit] = useState(10000)
+  const [federalGrant, setFederalGrant] = useState(7395)
 
   const result = useMemo(()=>{
-    try{return calculateScholarship('public', true, 2026, efc, merit)}catch(e){return null}
-  },[efc, merit])
+    try{return calculateScholarship('public', true, 2026, efc, merit, federalGrant)}catch(e){return null}
+  },[efc, merit, federalGrant])
 
   return (
-    <CalculatorLayout title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" description="Estimate Pell Grant eligibility, need-based aid, net college cost, and loan requirements based on Expected Family Contribution." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="scholarship-financial-aid-calculator">
+    <CalculatorLayout title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" description="Estimate a college-cost scenario using entered Student Aid Index/family-contribution, federal-grant and merit-aid assumptions. It does not determine FAFSA or Pell eligibility." icon="🎓" category="Finance" relatedCalculators={relatedCalculators} slug="scholarship-financial-aid-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Expected Family Contribution ($)</label>
+            <label className="text-xs font-medium text-gray-600">Student Aid Index / family contribution planning input ($)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm">$</span>
-              <input type="number" value={efc} onChange={e=>setEfc(Number(e.target.value))} step={500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+              <input type="number" value={efc} min={0} onChange={e=>setEfc(Number(e.target.value))} step={500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               
             </div>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Federal Grant Amount (entered for planning) ($)</label>
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2"><span className="text-green-600 text-sm">$</span><input type="number" min={0} value={federalGrant} onChange={e=>setFederalGrant(Number(e.target.value))} step={100} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" /></div>
           </div>
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Merit Scholarship ($)</label>
@@ -45,7 +50,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <ResultCard label="Annual College Cost (Public)" value={result ? `${Number(result.baseCost).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
-                <ResultCard label="Pell Grant" value={result ? `${Number(result.pellGrant).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Federal Grant (entered)" value={result ? `${Number(result.pellGrant).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Need-Based Aid" value={result ? `${Number(result.needBasedAid).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Net Cost After Aid" value={result ? `${Number(result.netCost).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Loans Needed Per Year" value={result ? `${Number(result.loanNeeded).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
@@ -54,7 +59,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🎓 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">College affordability starts with FAFSA and the Expected Family Contribution. A public university averaging $22,000/year can cost families anywhere from $0 (with full aid) to $22,000 (no aid) depending on EFC. This calculator estimates your Pell Grant, need-based aid package, and true out-of-pocket cost so you can plan realistically.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">College affordability depends on school cost of attendance, FAFSA-derived Student Aid Index, grants, scholarships and the school's aid offer. This page deliberately does not claim to reproduce the federal Pell or FAFSA formula; the federal-grant amount is entered by the user for scenario planning.</p>
               </Card>
             </>
           ):(
@@ -64,11 +69,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Scholarship & Financial Aid Calculator USA 2026 — College Aid" category="finance"
-          intro="Model a simplified college-aid package from school type, residency, your entered family-contribution figure and merit aid. It estimates a planning cost, Pell amount, need-based aid, net cost and a simplified loan split."
-          howItWorks="The calculator starts with fixed planning costs of $22,000 public, $55,000 private or $4,000 community college, with a 35% uplift when out-of-state is selected. Its Pell formula is max(0, $7,395 − 30% of the entered contribution), capped at $7,395; need-based aid is modeled as 60% of positive cost minus contribution. These are ToolTrio scenario formulas, not the FAFSA methodology."
-          tipsSection="The 2026–27 maximum Pell Grant is $7,395, but actual Pell eligibility and federal aid are determined from FAFSA data and federal formulas, not this page’s simplified EFC-style input. School cost of attendance and institutional grants also vary widely."
+          intro="Model a simplified college-aid package from school type, residency, your entered family-contribution figure and merit aid. It estimates a planning cost, entered federal grant, planning aid, net cost and a simplified loan split."
+          howItWorks="The calculator uses fixed planning costs and user-entered federal and merit grant amounts. Need-based institutional aid is a clearly labeled planning assumption, not an official FAFSA or Pell calculation."
+          tipsSection="The federal-grant field is deliberately user-entered. Actual Pell eligibility and federal aid are determined from FAFSA data and federal formulas, not this calculator. School cost of attendance and institutional grants also vary widely."
           conclusion="Use this page for rough scenario planning only; rely on FAFSA and each college’s official aid offer for eligibility and award amounts."
-          benefits={[{title:"Aid components",text:"Separates modeled Pell, need-based and merit aid."},{title:"Net-cost view",text:"Shows the remaining modeled cost after aid."},{title:"Private",text:"Inputs are calculated locally in your browser."}]}
+          benefits={[{title:"Aid components",text:"Separates entered federal grant, modeled need-based aid and merit aid."},{title:"Net-cost view",text:"Shows the remaining modeled cost after aid."},{title:"Private",text:"Inputs are calculated locally in your browser."}]}
           useCases={[{title:"College comparison",text:"Test the page’s public, private and community-college planning costs."},{title:"Aid scenario",text:"See how entered merit aid and family contribution change modeled net cost."}]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid"

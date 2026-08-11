@@ -14,7 +14,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [taxRate,setTaxRate]=useState(37)
   const result=useMemo(()=>{try{return calculateCostSegregation(buildingCost,landCost,'commercial',taxRate)}catch(e){return null}},[buildingCost, landCost, taxRate])
   return(
-    <CalculatorLayout title="Cost Segregation Study Calculator USA 2026" description="Calculate the first-year tax savings from a cost segregation study — accelerating depreciation on 5/7/15-year components of commercial or residential property." icon="🏗️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="cost-segregation-study-calculator">
+    <CalculatorLayout title="Cost Segregation Study Calculator USA 2026" description="Model an illustrative first-year depreciation difference using assumed 5/7/15-year component allocations. A real cost-segregation study is required for property-specific tax reporting." icon="🏗️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="cost-segregation-study-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -48,7 +48,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="NPV Benefit" value={result?`${Number(result.npvBenefit).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"}/>
             </div>
 
-            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🏗️ Cost Segregation Study Calculator USA 2026</h2><p className="text-sm text-gray-600">Calculate the first-year tax savings from a cost segregation study — accelerating depreciation on 5/7/15-year components of commercial or residential property.</p></Card>
+            <Card><h2 className="text-lg font-black text-gray-900 mb-2">🏗️ Cost Segregation Study Calculator USA 2026</h2><p className="text-sm text-gray-600">Model an illustrative first-year depreciation difference using assumed 5/7/15-year component allocations. A real cost-segregation study is required for property-specific tax reporting.</p></Card>
           </>):(<Card><p className="text-gray-500 text-center py-8">Fill in your details to see results →</p></Card>)}
         </div>
       </div>

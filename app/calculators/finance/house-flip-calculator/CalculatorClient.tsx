@@ -90,7 +90,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏗️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">House flipping profitability comes down to the purchase price, rehab estimate, and how fast you can execute. The 70% rule is a quick filter — anything you pay more than 70% of ARV minus repairs will likely not profit. This calculator models every cost layer including financing, holding, and selling to show your true net profit and annualized return.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">House flipping profitability comes down to the purchase price, rehab estimate, and how fast you can execute. The 70% rule is a quick filter — the 70% rule is only a commonly cited acquisition heuristic and does not predict profitability. This calculator models every cost layer including financing, holding, and selling to show your true net profit and annualized return.</p>
               </Card>
             </>
           ):(
@@ -103,7 +103,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           title='House Flip Calculator'
           category="finance"
           intro={'This fix-and-flip calculator combines purchase price, rehab, financing, holding and selling costs to estimate gross profit, cash-on-cash ROI and annualized ROI. It also shows a 70%-rule screening price.'}
-          howItWorks={'Loan amount = purchase price − down payment. Holding costs include interest-only financing plus a built-in 1.5% annual property-cost allowance. Selling costs use a fixed 6% agent commission plus 2% other selling costs. Gross profit = ARV sale price − total modeled cost. The 70% rule output = 70% of ARV − rehab cost.'}
+          howItWorks={'Loan amount = purchase price − down payment. Holding costs include interest-only financing plus a built-in 1.5% annual property-cost allowance. Selling costs use a fixed 6% agent commission plus 2% other selling costs. Gross profit = ARV sale price − total modeled cost. The 70% rule output is a screening figure of 70% of ARV minus rehab cost; it is not a market rule or guarantee.'}
           tipsSection={'The 6% commission is currently hard-coded in the client call, so it is not a market quote. A longer holding period raises modeled interest/property costs and reduces annualized ROI. Taxes, permits, utilities, lender points and rehab overruns can materially change a real project.'}
           conclusion={'The 70% rule is only a screening heuristic. Base an acquisition decision on property-specific bids, financing terms, local transaction costs and a contingency budget.'}
           benefits={[

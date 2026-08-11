@@ -11,7 +11,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'Social Security Breakeven Calculator USA 2026 | ToolTrio',
-  description: 'Find the exact age to claim Social Security for maximum lifetime benefit. Compare claiming at 62, 67, or 70.',
+  description: 'Compare a Social Security claiming age with age 62 using a user-entered FRA benefit and an explicit pairwise break-even calculation.',
   slug: 'social-security-breakeven-calculator',
   category: 'finance',
   region: 'usa',

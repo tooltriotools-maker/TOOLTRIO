@@ -1,36 +1,8 @@
 'use client'
 import Link from 'next/link'
-import { TrendingUp, Heart, Mail, Shield, FileText, Info, BookOpen } from 'lucide-react'
+import { Mail, Shield, FileText, Info, BookOpen } from 'lucide-react'
 
 const contactEmail = 'tooltrio.tools@gmail.com'
-
-const financeLinks = [
-  ['SIP Calculator', '/calculators/finance/sip-calculator'],
-  ['EMI Calculator', '/calculators/finance/emi-calculator'],
-  ['FD Calculator', '/calculators/finance/fd-calculator'],
-  ['RD Calculator', '/calculators/finance/rd-calculator'],
-  ['Compound Interest', '/calculators/finance/compound-interest-calculator'],
-  ['CAGR Calculator', '/calculators/finance/cagr-calculator'],
-  ['Retirement Calculator', '/calculators/finance/retirement-calculator'],
-  ['Mortgage Calculator', '/calculators/finance/mortgage-calculator'],
-  ['401k Calculator', '/calculators/finance/401k-calculator'],
-  ['Budget Planner', '/calculators/finance/budget-planner-calculator'],
-  ['View All Finance →', '/calculators/finance'],
-]
-
-const healthLinks = [
-  ['BMI Calculator', '/calculators/health/bmi-calculator'],
-  ['Calorie Calculator', '/calculators/health/calorie-calculator'],
-  ['BMR Calculator', '/calculators/health/bmr-calculator'],
-  ['TDEE Calculator', '/calculators/health/tdee-calculator'],
-  ['Body Fat Calculator', '/calculators/health/body-fat-calculator'],
-  ['Ideal Weight', '/calculators/health/ideal-weight-calculator'],
-  ['Water Intake', '/calculators/health/water-intake-calculator'],
-  ['Protein Intake', '/calculators/health/protein-intake-calculator'],
-  ['Sleep Cycle', '/calculators/health/sleep-cycle-calculator'],
-  ['Pregnancy Calculator', '/calculators/health/pregnancy-calculator'],
-  ['View All Health →', '/calculators/health'],
-]
 
 const zipLinks = [
   ['ZIP Code Lookup', '/zip/zip-code-lookup'],
@@ -60,11 +32,6 @@ const commodityLinks = [
 
 const blogLinks = [
   ['Blog Home', '/blog'],
-  ['Investment Guides', '/blog/category/investment'],
-  ['Loan & EMI Tips', '/blog/category/loans'],
-  ['Retirement Planning', '/blog/category/retirement'],
-  ['Health & Fitness', '/blog/category/health'],
-  ['Personal Finance', '/blog/category/personal-finance'],
 ]
 
 const companyLinks = [
@@ -93,8 +60,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              Free online calculators and tools for finance, health, ZIP codes,
-              commodities and developers. No signup. No ads. Instant results.
+              Free online calculators and tools for ZIP codes, commodities and developers. No signup. No ads. Instant results.
               Also known as Tool Trio, Trio Tools and Toolstrio.
             </p>
             <a
@@ -109,34 +75,6 @@ export function Footer() {
                 <span key={c} className="text-xs px-2 py-1 rounded-full bg-gray-800 text-gray-400 font-semibold">{c}</span>
               ))}
             </div>
-          </div>
-
-          {/* Finance */}
-          <div>
-            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">
-              <TrendingUp className="w-4 h-4 text-green-500" /> Finance
-            </h2>
-            <ul className="space-y-2.5 text-sm">
-              {financeLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-green-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Health */}
-          <div>
-            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">
-              <Heart className="w-4 h-4 text-rose-500" /> Health
-            </h2>
-            <ul className="space-y-2.5 text-sm">
-              {healthLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-rose-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* ZIP Tools */}
@@ -190,12 +128,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
             <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
-            finance, health, ZIP codes, commodities and developer tools. Popular tools include{' '}
-            <Link href="/calculators/finance/sip-calculator" className="text-gray-500 hover:text-gray-400">SIP calculator</Link>,{' '}
-            <Link href="/calculators/finance/emi-calculator" className="text-gray-500 hover:text-gray-400">EMI calculator</Link>,{' '}
-            <Link href="/calculators/finance/compound-interest-calculator" className="text-gray-500 hover:text-gray-400">compound interest calculator</Link>,{' '}
-            <Link href="/calculators/health/bmi-calculator" className="text-gray-500 hover:text-gray-400">BMI calculator</Link>,{' '}
-            <Link href="/calculators/health/calorie-calculator" className="text-gray-500 hover:text-gray-400">calorie calculator</Link>,{' '}
+            ZIP codes, commodities and developer tools. Popular public tools include{' '}
             <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
             <Link href="/commodities/gold-price-calculator" className="text-gray-500 hover:text-gray-400">gold price calculator</Link>.
             All tools are free, private, and require no account.

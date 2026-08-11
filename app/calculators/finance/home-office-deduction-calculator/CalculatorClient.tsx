@@ -59,11 +59,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Monthly Internet ($)</label>
+            <label className="text-xs font-medium text-gray-600">Annual Business-use Internet ($)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
-              <input type="number" value={internet} onChange={e=>setInternet(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
-              <span className="text-gray-400 text-sm">months</span>
+              <input type="number" value={internet} onChange={e=>setInternet(Number(e.target.value))} step={50} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+              <span className="text-gray-400 text-sm">/yr</span>
             </div>
           </div>
         </Card>
@@ -76,7 +76,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 <ResultCard label="Simplified Method ($5/sqft)" value={result ? `${Number(result.simplifiedDeduction).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Better Method" value={result ? String(result.betterMethod) : "—"} />
                 <ResultCard label="Optimal Deduction" value={result ? `${Number(result.optimalDeduction).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Tax Savings" value={result ? `${Number(result.taxSavings).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Tax Savings" value="Not estimated" />
               </div>
 
               <Card>
@@ -91,8 +91,8 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Home Office Deduction Calculator USA 2026 — Actual vs Simplified" category="finance"
-          intro={'This calculator compares the IRS simplified home-office method with a limited actual-expense model for a self-employed person. The simplified method uses business square footage, while the modeled actual method allocates rent or mortgage and utilities by the office share of the home and treats 50% of entered internet cost as business use.'}
-          howItWorks={'Business-use percentage = office square feet ÷ total home square feet. Modeled actual deduction = (annual rent/mortgage + utilities) × business-use percentage + 50% of entered internet cost. Simplified deduction = $5 × allowable office square feet, capped at 300 square feet. The calculator displays the larger modeled amount. IRS eligibility rules still apply, including regular/exclusive business-use requirements in most cases, and the real regular method can include expense categories this model does not ask for.'}
+          intro={'This calculator compares the IRS simplified home-office method with a limited actual-expense model for a self-employed person. The simplified method uses business square footage, while the modeled actual method allocates rent or mortgage and utilities by the office share of the home and uses the entered annual business-use internet amount as an already-allocated business expense.'}
+          howItWorks={'Business-use percentage = office square feet ÷ total home square feet. Modeled actual deduction = (annual rent/mortgage + utilities) × business-use percentage + entered annual business-use internet amount. Simplified deduction = $5 × allowable office square feet, capped at 300 square feet. The calculator displays the larger modeled amount. IRS eligibility rules still apply, including regular/exclusive business-use requirements in most cases, and the real regular method can include expense categories this model does not ask for.'}
           tipsSection={'Enter only space that actually qualifies as business use. Do not interpret the larger modeled deduction as automatically allowable: gross-income limits, depreciation, direct expenses and the exact treatment of mortgage-related costs can change the tax result.'}
           conclusion={'This is a comparison aid, not Form 8829. The code uses a fixed 32% rate only to illustrate possible tax impact; your actual marginal rate and allowable deduction may differ.'}
           benefits={[{title:'Simplified-method amount',text:'$5 per qualifying square foot up to the 300-square-foot cap.'},{title:'Modeled actual amount',text:'Allocates the expense categories entered on this page by business-use percentage.'},{title:'Method comparison',text:'Shows which of the two modeled amounts is larger before tax-return limitations.'}]}

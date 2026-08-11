@@ -14,13 +14,14 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [householdIncome, setHouseholdIncome] = useState(55000)
   const [householdSize, setHouseholdSize] = useState(2)
   const [age, setAge] = useState(45)
+  const [benchmarkPremium, setBenchmarkPremium] = useState(650)
 
   const result = useMemo(()=>{
-    try{return calculateHealthInsuranceSubsidy(householdIncome,householdSize,'CA',age,false)}catch(e){return null}
-  },[householdIncome, householdSize, age])
+    try{return calculateHealthInsuranceSubsidy(householdIncome,householdSize,'CA',age,false,benchmarkPremium)}catch(e){return null}
+  },[householdIncome, householdSize, age, benchmarkPremium])
 
   return (
-    <CalculatorLayout title="ACA Health Insurance Subsidy Calculator USA 2026 — Marketplace Tax Credit" description="Calculate your Affordable Care Act (ACA) premium tax credit subsidy based on household income, size, age, and state. Find your net monthly premium after subsidy." icon="💊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="health-insurance-subsidy-calculator">
+    <CalculatorLayout title="ACA Health Insurance Subsidy Calculator USA 2026 — Marketplace Tax Credit" description="Estimate an ACA Marketplace premium tax credit using household income, size, an entered benchmark Silver premium and the 2026 federal applicable-percentage table." icon="💊" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="health-insurance-subsidy-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -48,6 +49,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
               <span className="text-gray-400 text-sm">yrs</span>
             </div>
           </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Benchmark Silver Premium ($/month)</label>
+            <input type="number" value={benchmarkPremium} onChange={e=>setBenchmarkPremium(Number(e.target.value))} step={25} className="w-full border rounded-xl px-3 py-2 text-right" />
+            <p className="text-[11px] text-gray-400">Use the applicable second-lowest-cost Silver premium for the household/location; this value is not guessed by the calculator.</p>
+          </div>
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           {result ? (<>
@@ -57,10 +63,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Annual Subsidy" value={result ? `${Number(result.annualSubsidy).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Monthly Subsidy" value={result ? `${Number(result.monthlySubsidy).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
                 <ResultCard label="Your Net Monthly Premium" value={result ? `${Number(result.netMonthlyPremium).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
-                <ResultCard label="Cost-Sharing Reduction" value={result ? String(result.costSharingReduction ? 'Yes — enhanced benefits' : 'Standard plan') : "—"} />
+                <ResultCard label="Cost-Sharing Reduction" value="Not modeled" />
               </div>
 
-              <Card><h2 className="text-lg font-black text-gray-900 mb-3">💊 About</h2><p className="text-sm text-gray-600">ACA marketplace subsidies can dramatically reduce health insurance costs for households earning 100-400% of the Federal Poverty Level. A family of 2 at $55,000 income (269% FPL) can receive $400-$600/month in subsidies. This calculator estimates your exact subsidy amount and net monthly premium before you visit healthcare.gov to enroll.</p></Card>
+              <Card><h2 className="text-lg font-black text-gray-900 mb-3">💊 About</h2><p className="text-sm text-gray-600">The premium tax credit depends on household income, household size and the applicable benchmark Silver premium; age and state-specific factors can affect the actual Marketplace offer, but are not used to calculate the federal PTC amount in this simplified model. This calculator is a planning estimate; actual eligibility and credit amounts are determined through the Marketplace application and tax reconciliation process.</p></Card>
             </>):(
             <Card><p className="text-gray-500 text-center py-8">Fill in your details →</p></Card>
           )}
@@ -68,10 +74,10 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
       </div>
       <div className="mt-8">
         <SEOContent title="ACA Marketplace Subsidy Calculator" category="finance"
-          intro="Provides a rough Marketplace premium-tax-credit scenario from household income, household size and age using an internally estimated benchmark premium."
-          howItWorks="The model calculates an income-to-poverty-guideline percentage, assigns a simplified expected premium percentage, estimates an annual benchmark premium from age, and subtracts the modeled household contribution to estimate a subsidy."
-          tipsSection="Worked example — Example: for the default $55,000 household income, size 2 and age 45, the displayed subsidy is driven by both the model’s poverty percentage and its internally generated benchmark premium—not an actual local second-lowest-cost Silver premium."
-          conclusion="Important assumptions and limitations — Do not use this result as an enrollment quote. Actual PTC eligibility uses Marketplace rules and the benchmark premium for the household’s location. For 2026, the temporary expansion above 400% FPL ended; IRS guidance again generally limits PTC eligibility to 100%–400% FPL. The current ToolTrio model is intentionally approximate."
+          intro="Provides a rough Marketplace premium-tax-credit scenario from household income, household size and age using an entered benchmark Silver premium and the 2026 applicable-percentage table."
+          howItWorks="The model calculates an income-to-poverty-guideline percentage, uses the 2026 IRS applicable-percentage table and the 2025 federal poverty guideline for the 2026 Marketplace calculation, applies the 2026 applicable-percentage table, and subtracts the resulting expected contribution from the entered benchmark premium."
+          tipsSection="Worked example — Example: for the default $55,000 household income, size 2 and age 45, the displayed subsidy is driven by both the model’s poverty percentage and the entered benchmark premium—not an actual local second-lowest-cost Silver premium unless you enter the applicable figure."
+          conclusion="Important assumptions and limitations — Do not use this result as an enrollment quote. Actual PTC eligibility uses Marketplace rules and the benchmark premium for the household’s location. For 2026, the temporary expansion above 400% FPL ended; IRS guidance again generally limits PTC eligibility to 100%–400% FPL. The model does not determine eligibility for Medicaid/CHIP, employer-affordability rules, or the exact Marketplace premium tax credit."
           benefits={[
             {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
             {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},

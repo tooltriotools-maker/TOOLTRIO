@@ -79,7 +79,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💼 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The Solo 401k is the most useful retirement account for self-employed Americans. Unlike SEP-IRA, you contribute as both employer (25% of net income) and employee ($23,500 flat), reaching $70,000 at much lower income levels. Ages 60-63 get a SECURE 2.0 super catch-up taking the limit to $81,250.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The Solo 401k is the most useful retirement account for self-employed Americans. Unlike SEP-IRA, you contribute as both employer (25% of net income) and employee deferrals subject to the 2026 $24,500 limit, plus eligible catch-up contributions. The overall 2026 defined-contribution limit is $72,000 before catch-up contributions; ages 60-63 can have a higher catch-up under SECURE 2.0.</p>
               </Card>
             </>
           ):(

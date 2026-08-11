@@ -9,7 +9,7 @@ export function Footer() {
       style={{ background: "#030712", borderColor: "rgba(34,197,94,0.1)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto",filter:"brightness(0) invert(1)"}} />
@@ -18,48 +18,6 @@ export function Footer() {
               Free, accurate calculators for financial planning and health goals.
               Trusted by millions.
             </p>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold mb-3" style={{ color: "#94a3b8" }}>
-              Finance Tools
-            </h3>
-            <ul className="space-y-2">
-              {["SIP Calculator", "EMI Calculator", "FD Calculator", "Retirement Calculator", "CAGR Calculator"].map(
-                (name) => (
-                  <li key={name}>
-                    <Link
-                      href={`/calculators/finance/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm hover:text-green-400 transition-all"
-                      style={{ color: "#64748b" }}
-                    >
-                      {name}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-semibold mb-3" style={{ color: "#94a3b8" }}>
-              Health Tools
-            </h3>
-            <ul className="space-y-2">
-              {["BMI Calculator", "Calorie Calculator", "BMR Calculator", "Body Fat Calculator", "Sleep Cycle Calculator"].map(
-                (name) => (
-                  <li key={name}>
-                    <Link
-                      href={`/calculators/health/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="text-sm hover:text-green-400 transition-all"
-                      style={{ color: "#64748b" }}
-                    >
-                      {name}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
           </div>
 
           <div>

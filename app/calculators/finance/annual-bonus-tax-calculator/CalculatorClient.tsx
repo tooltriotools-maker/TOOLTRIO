@@ -23,8 +23,8 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
   return (
     <CalculatorLayout
-      title="Annual Bonus Tax Calculator USA 2026 — State by State"
-      description="Calculate take-home pay after federal, state, and FICA taxes on your work bonus. Covers all 50 states with specific withholding rates."
+      title="Annual Bonus Tax Calculator USA 2026 — Selected State Scenario"
+      description="Calculate take-home pay after federal, state, and FICA taxes on your work bonus. Includes a limited set of state withholding assumptions; unsupported states are not estimated."
       icon="💵"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               </div>
 
               <Card>
-                <h2 className="text-lg font-black text-gray-900 mb-3">💵 Annual Bonus Tax Calculator USA 2026 — State by State — How to Use This Calculator</h2>
+                <h2 className="text-lg font-black text-gray-900 mb-3">💵 Annual Bonus Tax Calculator USA 2026 — Selected State Scenario — How to Use This Calculator</h2>
                 <p className="text-sm text-gray-600 leading-relaxed">Estimate take-home bonus using the page’s supplemental-wage withholding model for its current single-filer, California scenario. The UI currently hard-codes single filing status and California. Withholding can differ from final tax, and Medicare Additional Tax, payroll history and employer withholding method can affect actual pay.</p>
               </Card>
             </>
@@ -87,7 +87,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
       <div className="mt-8">
         <SEOContent
-          title="Annual Bonus Tax Calculator USA 2026 — State by State"
+          title="Annual Bonus Tax Calculator USA 2026 — Selected State Scenario"
           category="finance"
           intro="Estimate take-home bonus using the page’s supplemental-wage withholding model for its current single-filer, California scenario."
           howItWorks="Bonus = salary × bonus percentage. Federal supplemental withholding is 22% up to $1 million of supplemental wages and 37% above that. The model also applies California’s embedded rate and FICA, with the 2026 Social Security wage base set to $184,500."

@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
-  description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+  title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
+  description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
   keywords: [
     'zip code to coordinates',
     'zip code latitude longitude',
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-coordinates',
     siteName: 'ToolTrio',
-    title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
-    description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+    title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
+    description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP | ToolTrio',
-    description: 'Get latitude and longitude coordinates for any US ZIP code free. Find ZIP code centroid lat/lng for geocoding, mapping, and distance calculations.',
+    title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
+    description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -50,6 +50,9 @@ const relatedTools = [
   {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
+  {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
+  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP+4 Lookup',href:'/zip/zip-plus-4-lookup',icon:'➕'},
   {name:'ZIPs Within Radius',href:'/zip/zips-within-radius',icon:'🎯'},
   {name:'Nearest ZIP Code',href:'/zip/nearest-zip-code',icon:'📌'},
   {name:'ZIP Boundary Info',href:'/zip/zip-boundary-info',icon:'🔲'},
@@ -75,7 +78,7 @@ const seoContent = {
     { icon: '🎯', title: `Centroid Accuracy`, desc: `Coordinates are Census ZCTA centroids — accurate to ~11 meters for proximity analysis.`, bullets: [] },
   ],
 
-  heading: 'ZIP to Coordinates — Getting Latitude and Longitude from US ZIP Codes',
+  heading: 'ZIP Code to Coordinates — Find Latitude & Longitude by US ZIP',
   populationChart: {
     title: 'US Geographic Extent by Latitude/Longitude',
     subtitle: 'ZIP code centroids range across the full geographic span of the US',

@@ -15,7 +15,7 @@ const fmt = (n: number) => '$' + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? `$${(n/1000000).toFixed(2)}M` : n >= 1000 ? `$${(n/1000).toFixed(0)}K` : `$${Math.round(n)}`
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
-  const [annualContrib, setAnnualContrib] = useState(23000)
+  const [annualContrib, setAnnualContrib] = useState(24500)
   const [currentAge, setCurrentAge] = useState(30)
   const [retirementAge, setRetirementAge] = useState(65)
   const [returnRate, setReturnRate] = useState(8)
@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
     // Roth IRA: after-tax contributions, tax-free withdrawal
     // Effective monthly contribution is less (already paid tax)
-    const rothAfterTaxContrib = annualContrib * (1 - taxRateNow / 100)
+    const rothAfterTaxContrib = Math.min(annualContrib * (1 - taxRateNow / 100), 7500)
     const rothFV = rothAfterTaxContrib / 12 * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
     const rothPostTax = rothFV // fully tax-free
 
@@ -60,14 +60,14 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [annualContrib, currentAge, retirementAge, returnRate, taxRateNow, taxRateRetirement])
 
   return (
-    <CalculatorLayout title="401k vs Roth IRA Calculator USA 2026" description="Compare after-tax retirement wealth from Traditional 401k vs Roth IRA with 2026 contribution limits." icon="🇺🇸" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-vs-roth-ira-calculator">
+    <CalculatorLayout title="401k vs Roth IRA Calculator USA 2026" description="Compare a modeled Traditional 401(k) contribution with a Roth IRA contribution subject to the 2026 IRA limit. This is not a contribution-eligibility determination." icon="🇺🇸" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-vs-roth-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4 flex items-center gap-2">
             <TrendingUp className="w-4 h-4" /> Retirement Details
           </h2>
           <div className="space-y-4">
-            <InputField label="Annual Contribution" value={annualContrib} onChange={setAnnualContrib} min={1000} max={69000} step={500} prefix="$" />
+            <InputField label="Annual Contribution" value={annualContrib} onChange={setAnnualContrib} min={1000} max={24500} step={500} prefix="$" />
             <InputField label="Current Age" value={currentAge} onChange={setCurrentAge} min={18} max={60} step={1} suffix="Yrs" />
             <InputField label="Retirement Age" value={retirementAge} onChange={setRetirementAge} min={50} max={75} step={1} suffix="Yrs" />
             <InputField label="Expected Annual Return" value={returnRate} onChange={setReturnRate} min={4} max={15} step={0.5} suffix="%" />
@@ -75,7 +75,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Retirement Tax Rate" value={taxRateRetirement} onChange={setTaxRateRetirement} min={0} max={37} step={1} suffix="%" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.rothBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Post-Tax Winner</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled After-Tax Value</p>
             <p className="text-xl font-black" style={{ color: result.rothBetter ? '#10b981' : '#3b82f6' }}>{result.rothBetter ? 'Roth IRA' : '401(k)'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.difference)}</p>
             <p className="text-xs text-gray-400 mt-1">Break-even tax rate: {result.breakEvenTax}%</p>

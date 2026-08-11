@@ -79,7 +79,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
               )}
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">I-Bonds offer guaranteed inflation protection through their composite rate formula — fixed rate plus twice the semiannual CPI rate. The $10,000 annual limit makes systematic monthly purchasing ($833/month) the optimal strategy for most investors. This calculator models your exact I-Bond ladder value at any redemption point.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">I-Bonds offer inflation-linked savings-bond exposure through their composite rate formula — fixed rate plus twice the semiannual CPI rate. The $10,000 annual limit makes systematic monthly purchasing is one scenario for spreading purchases across the annual limit. The calculator is a current-rate scenario and does not predict future Treasury rates.</p>
               </Card>
             </>
           ):(

@@ -90,6 +90,12 @@ for (const file of files) {
           calculateSideHustleBreakeven:[5000,1000,100,10,10,20],
           calculateWageGarnishment:[1000,'creditCard','CA'],
           calculateBodyFat:['male',80,175,90,40,95],
+          calculateSSBenefit:[55,67,2200],
+          calculateSocialSecuritySpouse:[2500,900,60,58,67,65],
+          calculateSeriesEEBond:[10000,2026,2026,true,22],
+          calculateReverseMortgage:[450000,72,0,7.5,'lumpsum'],
+          calculateSBALoanAffordability:[350000,11,10,950000,85000,0],
+          calculateSocialSecurityMaximization:[2800,1400,60,58,88],
         }
         if(safeVectors[fn]) args=safeVectors[fn]
       }

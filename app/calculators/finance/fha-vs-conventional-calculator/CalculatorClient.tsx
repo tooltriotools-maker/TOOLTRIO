@@ -74,7 +74,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </Card>
           </div>
           <div className={`rounded-xl p-4 text-sm font-semibold text-center border-2 ${result.totalSavings > 0 ? 'bg-green-50 text-green-800 border-green-200' : 'bg-blue-50 text-blue-800 border-blue-200'}`}>
-            💡 {result.recommendation} {result.totalSavings > 0 ? `— Conventional saves ${fmt(result.totalSavings)} over ${loanTerm} years` : `— FHA may be better for your credit profile`}
+            💡 {result.recommendation} {result.totalSavings > 0 ? `— Conventional saves ${fmt(result.totalSavings)} over ${loanTerm} years` : `— Compare actual FHA and conventional Loan Estimates`}
           </div>
           {downPaymentPct < 20 && <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800"><p className="font-bold">💡 Tip: 20% Down Avoids PMI</p><p className="mt-1">A 20% down payment ({fmt(purchasePrice * 0.20)}) eliminates conventional PMI entirely. FHA MIP lasts the life of the loan if you put less than 10% down.</p></div>}
         </div>

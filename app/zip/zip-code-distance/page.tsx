@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
-  description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
+  title: 'ZIP Code Distance Calculator — Distance Between Two US ZIP Codes | ToolTrio',
+  description: 'Calculate the distance between two US ZIP codes in miles and kilometers. Compare straight-line ZIP distance with an estimated driving distance and travel time.',
  
  keywords: [
   'zip code distance calculator',
@@ -67,15 +67,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-distance',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
-    description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
+    title: 'ZIP Code Distance Calculator — Distance Between Two US ZIP Codes | ToolTrio',
+    description: 'Calculate the distance between two US ZIP codes in miles and kilometers. Compare straight-line ZIP distance with an estimated driving distance and travel time.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Distance Calculator — Miles Between Two ZIP Codes USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Distance Calculator USA — Miles Between ZIP Codes | ToolTrio',
-    description: 'Calculate distance between any two US ZIP codes. Find driving miles, straight-line distance, kilometers and travel time with our free USA ZIP distance calculator.',
+    title: 'ZIP Code Distance Calculator — Distance Between Two US ZIP Codes | ToolTrio',
+    description: 'Calculate the distance between two US ZIP codes in miles and kilometers. Compare straight-line ZIP distance with an estimated driving distance and travel time.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -93,6 +93,8 @@ const relatedTools = [
   {name:'ZIP to ZIP Route',href:'/zip/zip-to-zip-route',icon:'🛣️'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
+  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP+4 Lookup',href:'/zip/zip-plus-4-lookup',icon:'➕'},
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Boundary Info',href:'/zip/zip-boundary-info',icon:'🔲'},
   {name:'Same Timezone ZIPs',href:'/zip/same-timezone-zips',icon:'🕐'},
@@ -108,7 +110,7 @@ const tips = [
 
 const seoContent = {
   verifiedDate: 'JAN 2026',
-  tagline: `Calculate the **air distance and estimated driving distance** between any two US ZIP codes. Supports **41,000+ USPS ZIP Codes** with instant results in **miles and kilometers**.`,
+  tagline: `Find the distance between any two US ZIP codes in **miles and kilometers**. Compare **straight-line distance** with an **estimated driving distance** for shipping, travel, service areas and geographic planning.`,
   proTip: `✓ Free • ✓ No Signup • ✓ USPS ZIP Database • ✓ Updated for 2026 • Need exact road mileage? Use our Drive Time by ZIP tool.`,
   howToSteps: [
     { num: 1, title: `Enter Origin ZIP:`, desc: `Type the 5-digit ZIP code of your starting location (e.g., 90210).` },
@@ -149,7 +151,7 @@ const seoContent = {
     { icon: '🗺️', name: `OpenStreetMap Road Data`, desc: `Real-world road network data for driving distance and time estimates.` },
   ],
 
-  heading: `ZIP Code Distance Calculator — How Distance Between ZIP Codes Is Calculated`,
+  heading: `ZIP Code Distance Between Two US ZIP Codes Calculator — How Distance Between ZIP Codes Is Calculated`,
   populationChart: {
     title: 'Average Driving Distance vs. Straight-Line Distance Multiplier',
     subtitle: 'Road networks add 20–60% to straight-line distances depending on geography',

@@ -14,10 +14,14 @@ function calculateHospitalCosts(
   coinsurance: number,
   premium: number,
 ) {
-  const deductiblePaid   = Math.min(uninsuredCost, deductible)
-  const afterDeductible  = Math.max(0, uninsuredCost - deductible)
-  const coinsurancePaid  = Math.min(afterDeductible * (coinsurance / 100), oopMax - deductiblePaid)
-  const totalOOP         = deductiblePaid + coinsurancePaid
+  const allowed = Math.max(0, Number(uninsuredCost) || 0)
+  const planDeductible = Math.max(0, Number(deductible) || 0)
+  const planOopMax = Math.max(planDeductible, Number(oopMax) || 0)
+  const rate = Math.min(100, Math.max(0, Number(coinsurance) || 0))
+  const deductiblePaid = Math.min(allowed, planDeductible, planOopMax)
+  const afterDeductible = Math.max(0, allowed - deductiblePaid)
+  const coinsurancePaid = Math.min(afterDeductible * (rate / 100), Math.max(0, planOopMax - deductiblePaid))
+  const totalOOP = Math.min(planOopMax, deductiblePaid + coinsurancePaid)
   const annualPremium    = premium * 12
   const totalCostWithInsurance = totalOOP + annualPremium
   const savings          = uninsuredCost - totalCostWithInsurance
@@ -63,7 +67,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
 
           {[
-            { label: 'Procedure Cost (Uninsured) ($)', value: uninsuredCost, set: setUninsuredCost, step: 500,  prefix: '$' },
+            { label: 'Allowed/negotiated medical charges in scenario ($)', value: uninsuredCost, set: setUninsuredCost, step: 500,  prefix: '$' },
             { label: 'Annual Deductible ($)',           value: deductible,    set: setDeductible,    step: 100,  prefix: '$' },
             { label: 'Out-of-Pocket Maximum ($)',       value: oopMax,        set: setOopMax,        step: 100,  prefix: '$' },
             { label: 'Monthly Premium ($)',             value: premium,        set: setPremium,       step: 25,   prefix: '$' },
@@ -119,7 +123,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           intro="Understanding your true out-of-pocket exposure requires calculating all three layers: deductible, coinsurance, and out-of-pocket maximum."
           howItWorks="This tool models one medical-cost scenario. It applies the deductible first, then the entered coinsurance percentage to remaining charges, while capping modeled cost sharing at the out-of-pocket maximum. Annual premiums are added separately."
           tipsSection="Example: on $25,000 of modeled allowed charges, a $3,000 deductible, 20% coinsurance and $8,000 out-of-pocket maximum produce $3,000 deductible plus $4,400 coinsurance, or $7,400 in modeled cost sharing. A $450 monthly premium adds $5,400 annually."
-          conclusion="Real plans use negotiated allowed amounts, copays, networks, covered-service rules, separate prescription benefits and exclusions. Premiums generally do not count toward the plan out-of-pocket maximum. Treat the result as a scenario, not an insurer claim estimate."
+          conclusion="Real plans use negotiated allowed amounts, not an uninsured sticker price, copays, networks, covered-service rules, separate prescription benefits and exclusions. Premiums generally do not count toward the plan out-of-pocket maximum. Treat the result as a scenario, not an insurer claim estimate."
           benefits={[
             { title: 'Calculator results', text: 'Calculator-specific scenario outputs based on the inputs and assumptions described above.' },
             { title: '100% Private',          text: 'Everything runs in your browser. No data stored or transmitted.' },

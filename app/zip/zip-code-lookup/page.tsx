@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Lookup USA— City, County, Timezone & More Free USA | ToolTrio',
-  description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+  title: 'ZIP Code Lookup — City, State, County & Timezone | ToolTrio',
+  description: 'Look up any US ZIP code to find its city, state, county, timezone, coordinates, area code and other location details. Free ZIP code lookup with instant results.',
   keywords: [
     'zip code lookup',
     'look up zip code',
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     url: 'https://tooltrio.com/zip/zip-code-lookup',
     siteName: 'ToolTrio',
     title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
-    description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+    description: 'Look up any US ZIP code to find its city, state, county, timezone, coordinates, area code and other location details. Free ZIP code lookup with instant results.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Lookup — City, County, Timezone & More USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZIP Code Lookup — City, County, Timezone & More Free USA | ToolTrio',
-    description: 'Look up any US ZIP code free: city, state, county, timezone, coordinates, area code, and population instantly. The most complete free ZIP lookup.',
+    description: 'Look up any US ZIP code to find its city, state, county, timezone, coordinates, area code and other location details. Free ZIP code lookup with instant results.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -64,6 +64,8 @@ const relatedTools = [
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Code Validator',href:'/zip/zip-code-validator',icon:'✅'},
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
+  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'ZIP Code Population',href:'/zip/zip-code-population',icon:'👥'},
   {name:'City to ZIP Code',href:'/zip/city-to-zip',icon:'🏙️'},
@@ -72,8 +74,8 @@ const relatedTools = [
 ]
 
 const seoContent = {
-  heading: 'ZIP Code Lookup — The Complete US Postal Data Reference',
-  tagline: 'Instantly convert any 5-digit US ZIP Code to **City, State, County**, Timezone, Coordinates & more.',
+  heading: 'ZIP Code Lookup — City, State, County, Timezone & Location Details',
+  tagline: 'Enter a 5-digit US ZIP code to find **city, state, county, timezone, coordinates** and other useful location details in one place.',
   verifiedDate: 'JAN 2026',
   proTip: 'After looking up a ZIP code, click "View on Google Maps" to visually confirm the location and see street-level detail for the ZIP boundary area.',
 

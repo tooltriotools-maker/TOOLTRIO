@@ -56,8 +56,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Gratuity Amount" value={fmt(r.gratuity)} highlight icon={<DollarSign className="w-4 h-4" />} />
-            <ResultCard label="Tax-Free Amount" value={fmt(r.taxFreeAmount)} icon={<Shield className="w-4 h-4" />} />
-            <ResultCard label="Taxable Gratuity" value={fmt(r.taxableGratuity)} icon={<Briefcase className="w-4 h-4" />} />
+            <ResultCard label="Notified Ceiling Applied" value={fmt(r.taxFreeAmount)} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="Amount Above Ceiling" value={fmt(r.taxableGratuity)} icon={<Briefcase className="w-4 h-4" />} />
             <ResultCard label="Per Year Earned" value={fmt(r.perYearGratuity)} icon={<Calendar className="w-4 h-4" />} />
           </div>
 
@@ -110,7 +110,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
 The Payment of Gratuity Act, 1972 applies to establishments with 10 or more employees. For employees covered under the Act: Gratuity = (Last drawn basic salary + dearness allowance) × 15/26 × completed years of service. The 15/26 represents 15 days' wages per year, calculated based on a 26-day working month.
 
-Gratuity is tax-free up to ₹20 lakh for private sector employees covered under the Act (under the applicable rules; verify the current exemption before filing), and completely tax-free for government employees regardless of amount. This tax exemption makes gratuity a valuable component of total compensation that's often underappreciated in job comparison calculations.`}
+Gratuity is tax-free up to ₹₹20 lakh for private sector employees covered under the Act (under the applicable rules; verify the current exemption before filing), and completely tax-free for government employees regardless of amount. This tax exemption makes gratuity a valuable component of total compensation that's often underappreciated in job comparison calculations.`}
         howItWorks={`For employees covered under the Payment of Gratuity Act:
 Gratuity = (Last Basic + DA) × 15/26 × Number of Completed Years
 
@@ -119,7 +119,7 @@ Gratuity = (Last Basic + DA) × 15/30 × Number of Completed Years (using a 30-d
 
 Service rounding: Periods above 6 months in the last year are rounded up. If you have 5 years and 7 months of service, the gratuity is calculated for 6 years. If 5 years and 5 months, it's calculated for 5 years.
 
-Maximum: As of 2024, the maximum tax-exempt gratuity is ₹20 lakh. Amounts above this are taxable as income. Many PSU and government employees receive amounts well above the private sector taxable threshold.`}
+Maximum: As of 2024, the maximum tax-exempt gratuity is ₹₹20 lakh. Amounts above this are taxable as income. Many PSU and government employees receive amounts well above the private sector taxable threshold.`}
         benefits={[
           { title: "Connects to Your Complete Financial Picture", text: "No single calculator tells the whole story. This tool is most useful when used alongside related calculators. The [Net Worth Calculator](/calculators/finance/net-worth-calculator) shows your total position. The [Savings Rate Calculator](/calculators/finance/savings-rate-calculator) shows whether you're saving enough. The [FIRE Calculator](/calculators/finance/fire-calculator) connects everything to your retirement timeline." },
           { title: "Scenario Comparison for Better Decisions", text: "The most valuable feature is rapid scenario comparison: what if the rate changes by 1%? What if you extend the time period by 5 years? What if you increase the monthly amount by $200? These small changes, compounded over time, often produce dramatically different outcomes. Use alongside the [Savings Goal Calculator](/calculators/finance/savings-goal-calculator) to find the inputs needed to hit specific targets." },

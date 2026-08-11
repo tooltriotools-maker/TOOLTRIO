@@ -83,7 +83,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">₿ Crypto Tax Calculator USA 2026 — Bitcoin, Ethereum & Altcoins — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Cryptocurrency is taxed as property by the IRS, making every trade, sale, and swap a taxable event. Bitcoin held 366 days and sold is a long-term capital gain (0–20%); held 364 days and sold is a short-term ordinary income tax (up to 37%). The difference can be tens of thousands of dollars on large gains — timing matters enormously.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Cryptocurrency is taxed as property by the IRS, making sales, exchanges and other dispositions can create taxable events; the exact treatment depends on the transaction. Bitcoin held 366 days and sold is a long-term capital gain (0–20%); held 364 days and sold is a short-term ordinary income tax (up to 37%). The difference can be tens of thousands of dollars on large gains — timing matters enormously.</p>
               </Card>
             </>
           ) : (
@@ -100,7 +100,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           category="finance"
           intro="This calculator estimates federal tax on one digital-asset sale using sale proceeds, cost basis, holding period and other income. It first calculates gain = sale amount − basis, classifies the gain as short- or long-term using the entered years held, then applies a simplified federal rate table. It is a single-sale estimator, not a Form 8949 or Schedule D engine."
           howItWorks="Gain = sale amount − cost basis. Holdings of at least one entered year are routed to the calculator's long-term capital-gain rate bands; shorter holdings use a simplified ordinary-income rate table. The model may also add 3.8% NIIT when total modeled income exceeds $200,000 for its single-filer scenario. It does not stack gains through the full federal tax worksheet, handle capital-loss netting, state tax, transaction fees, collectibles treatment or multiple lots."
-          tipsSection="Enter adjusted basis, including transaction costs that properly belong in basis under applicable rules. A crypto-for-crypto exchange can also be a taxable disposition; the calculator only accepts a dollar sale amount. The displayed tax rate is an approximation because capital-gain brackets interact with the rest of taxable income."
+          tipsSection="Enter adjusted basis, including transaction costs that properly belong in basis under applicable rules. A crypto-for-crypto exchange can also be a taxable disposition; the calculator only accepts a dollar sale amount. The displayed tax rate is a simplified federal estimate. Actual tax depends on taxable income, filing status, deductions, capital-loss netting, lot-level basis and other transactions."
           conclusion="Use this estimate to understand the effect of basis and holding period, then calculate reportable gain/loss from complete transaction records under current IRS digital-asset guidance."
           benefits={[
             { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
@@ -117,7 +117,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
             result: "The rate then depends on the calculator's income thresholds after adding the gain to other income; NIIT is tested separately.",
             takeaway: "Real tax can differ because taxable income, deductions, loss carryovers and lot identification are outside this simplified function."
           }}
-          commonMistakes="Enter adjusted basis, including transaction costs that properly belong in basis under applicable rules. A crypto-for-crypto exchange can also be a taxable disposition; the calculator only accepts a dollar sale amount. The displayed tax rate is an approximation because capital-gain brackets interact with the rest of taxable income."
+          commonMistakes="Enter adjusted basis, including transaction costs that properly belong in basis under applicable rules. A crypto-for-crypto exchange can also be a taxable disposition; the calculator only accepts a dollar sale amount. The displayed tax rate is a simplified federal estimate. Actual tax depends on taxable income, filing status, deductions, capital-loss netting, lot-level basis and other transactions."
           inlineLinks={[{ text: "IRS states that digital assets are property and explains federal reporting obligations.", href: "https://www.irs.gov/filing/digital-assets", label: "IRS digital assets" }]}
         />
         <InternalLinks

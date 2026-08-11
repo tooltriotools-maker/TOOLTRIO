@@ -28,7 +28,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={monthlyBenefit} onChange={e=>setMonthlyBenefit(Number(e.target.value))} step={50} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
-              <span className="text-gray-400 text-sm">months</span>
+              <span className="text-gray-400 text-sm">/mo</span>
             </div>
           </div>
           <div className="space-y-1">
@@ -54,7 +54,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏛️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Social Security claiming age has more impact on retirement income than almost any other decision. Delaying Social Security increases the monthly benefit under the statutory delayed-retirement-credit rules; this is a benefit-formula adjustment, not an investment return. This optimizer shows exactly what each claiming age pays, which maximizes lifetime benefits at different life expectancies, and the true ROI of delaying.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Social Security claiming age has more impact on retirement income than almost any other decision. Delaying Social Security increases the monthly benefit under the statutory delayed-retirement-credit rules; this is a benefit-formula adjustment, not an investment return. This optimizer shows exactly what each claiming age pays, which maximizes lifetime benefits at different life expectancies, and the increase in the statutory Social Security benefit amount from delaying.</p>
               </Card>
             </>
           ):(
@@ -68,7 +68,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           category="finance"
           intro="This calculator compares claiming ages 62 through 70 using a monthly benefit entered at full retirement age (FRA), with FRA fixed at 67. It applies Social Security's monthly early-claim reductions and delayed-retirement credits, then compares simple cumulative benefits through ages 85 and 90. It does not predict lifespan or choose a universally 'best' claiming age."
           howItWorks="For FRA 67, months claimed early are reduced by 5/9 of 1% for each of the first 36 months and 5/12 of 1% for additional months. After FRA, the model adds delayed credits at 8% per year through age 70. Lifetime totals equal adjusted monthly benefit × 12 × years from claim age to age 85 or 90. Taxes, COLAs, survivor benefits, earnings-test withholding and investment returns are excluded."
-          tipsSection="Use the FRA benefit from your Social Security statement rather than today's benefit. The two 'optimal' outputs only maximize undiscounted dollars through age 85 or 90; family benefits, health, cash-flow needs and continued work can change the decision. Delaying is an increase in the Social Security benefit formula, not an investment with a guaranteed market 'ROI'."
+          tipsSection="Use the FRA benefit from your Social Security statement rather than today's benefit. The two 'optimal' outputs only maximize undiscounted dollars through age 85 or 90; family benefits, health, cash-flow needs and continued work can change the decision. Delaying increases the Social Security benefit formula; the result should not be interpreted as a guaranteed market investment return."
           conclusion="Use the age comparison to understand the benefit trade-off, then review your personal SSA estimate and claiming rules before filing."
           benefits={[
             { title: "Methodology", text: "See the exact assumptions and calculation sequence used by this ToolTrio model." },
@@ -85,7 +85,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             result: "The model produces about $1,680/month at 62, $2,400 at 67 and $2,976 at 70, then compares cumulative dollars through 85 and 90.",
             takeaway: "Later claiming raises the monthly amount, but fewer payment years means the lifetime crossover depends on how long benefits are received."
           }}
-          commonMistakes="Use the FRA benefit from your Social Security statement rather than today's benefit. The two 'optimal' outputs only maximize undiscounted dollars through age 85 or 90; family benefits, health, cash-flow needs and continued work can change the decision. Delaying is an increase in the Social Security benefit formula, not an investment with a guaranteed market 'ROI'."
+          commonMistakes="Use the FRA benefit from your Social Security statement rather than today's benefit. The two 'optimal' outputs only maximize undiscounted dollars through age 85 or 90; family benefits, health, cash-flow needs and continued work can change the decision. Delaying increases the Social Security benefit formula; the result should not be interpreted as a guaranteed market investment return."
           inlineLinks={[{ text: "SSA explains the monthly early-retirement reductions and delayed-retirement credits.", href: "https://www.ssa.gov/OACT/quickcalc/early_late.html", label: "SSA early or late retirement" }]}
         />
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

@@ -19,22 +19,29 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [rateA, setRateA] = useState(8)
   const [rateB, setRateB] = useState(7)
   const [years, setYears] = useState(20)
+  const [currentTaxRate, setCurrentTaxRate] = useState(24)
+  const [retirementTaxRate, setRetirementTaxRate] = useState(22)
+  const [taxableTaxDrag, setTaxableTaxDrag] = useState(1.0)
 
   const result = useMemo(() => {
     const months = years * 12
     const mrA = rateA / 100 / 12
     const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
-    const invested = monthly * months
+    const grossMonthly = monthly
+    const taxableMonthly = grossMonthly * (1 - currentTaxRate / 100)
+    const taxableRate = Math.max(0, rateB - taxableTaxDrag) / 100 / 12
+    const iraFV = mrA === 0 ? grossMonthly * months : grossMonthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
+    const taxableFV = taxableRate === 0 ? taxableMonthly * months : taxableMonthly * ((Math.pow(1 + taxableRate, months) - 1) / taxableRate) * (1 + taxableRate)
+    const iraAfterTax = iraFV * (1 - retirementTaxRate / 100)
+    const invested = grossMonthly * months
     const yearlyData = Array.from({ length: years }, (_, i) => {
-      const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
-      return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
+      const m = (i + 1) * 12
+      const ira = mrA === 0 ? grossMonthly * m : grossMonthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
+      const tx = taxableRate === 0 ? taxableMonthly * m : taxableMonthly * ((Math.pow(1 + taxableRate, m) - 1) / taxableRate) * (1 + taxableRate)
+      return { year: i + 1, optA: Math.round(ira * (1 - retirementTaxRate / 100)), optB: Math.round(tx), invested: Math.round(grossMonthly * m) }
     })
-    return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA - invested), gainB: Math.round(fvB - invested), aBetter: fvA > fvB, diff: Math.round(Math.abs(fvA - fvB)), yearlyData }
-  }, [monthly, rateA, rateB, years])
+    return { fvA: Math.round(iraAfterTax), fvB: Math.round(taxableFV), invested: Math.round(invested), gainA: Math.round(iraAfterTax - invested), gainB: Math.round(taxableFV - taxableMonthly * months), aBetter: iraAfterTax > taxableFV, diff: Math.round(Math.abs(iraAfterTax - taxableFV)), yearlyData }
+  }, [monthly, rateA, rateB, years, currentTaxRate, retirementTaxRate, taxableTaxDrag])
 
   return (
     <CalculatorLayout title="Traditional IRA vs Taxable Account Calculator USA 2026" description="Compare Traditional IRA tax deduction plus deferred growth vs taxable brokerage investing." icon="📉" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="traditional-ira-vs-taxable-account-calculator">
@@ -45,10 +52,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="$" />
             <InputField label="Traditional IRA Return (p.a.)" value={rateA} onChange={setRateA} min={1} max={20} step={0.25} suffix="%" />
             <InputField label="Taxable Account Return (p.a.)" value={rateB} onChange={setRateB} min={1} max={15} step={0.25} suffix="%" />
+            <InputField label="Current Marginal Tax Rate" value={currentTaxRate} onChange={setCurrentTaxRate} min={0} max={50} step={1} suffix="%" />
+            <InputField label="Retirement Tax Rate" value={retirementTaxRate} onChange={setRetirementTaxRate} min={0} max={50} step={1} suffix="%" />
+            <InputField label="Taxable Account Annual Tax Drag" value={taxableTaxDrag} onChange={setTaxableTaxDrag} min={0} max={10} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled after-tax value</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Traditional IRA' : 'Taxable Account'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>

@@ -21,7 +21,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[worker1Benefit, worker2Benefit, worker1ClaimAge, worker2ClaimAge])
 
   return (
-    <CalculatorLayout title="Social Security Spousal Benefits Calculator USA 2026" description="Calculate spousal Social Security benefits, optimal claiming ages for couples, survivor benefits, and combined lifetime income." icon="👫" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-spousal-calculator">
+    <CalculatorLayout title="Social Security Spousal Benefits Calculator USA 2026" description="Model a simplified Social Security spousal top-up using FRA benefits and selected claiming ages; compare own, spousal and survivor amounts." icon="👫" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-spousal-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -72,7 +72,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">👫 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">For married couples, Social Security claiming strategy can be worth $100,000+ in additional lifetime benefits compared to suboptimal choices. The spousal benefit (up to 50% of the higher earner's PIA), survivor benefit rules, and the 8%/year delayed retirement credit all interact to create a complex optimization problem. This calculator shows the optimal approach for your specific situation.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Spousal benefits can depend on the worker’s FRA benefit, the spouse’s own retirement benefit, filing age and deemed-filing rules. This calculator provides a simplified planning scenario and does not determine an SSA award or a universally optimal strategy.</p>
               </Card>
             </>
           ):(
@@ -83,9 +83,9 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Social Security Spousal Benefits Calculator" category="finance"
           intro="Compares two FRA benefit amounts and claim ages, then estimates adjusted worker benefits, a simplified spousal top-up, combined monthly income and a survivor amount."
-          howItWorks="The code assumes FRA 67. Worker benefits are reduced for claiming before FRA and increased after FRA. It then compares Worker 2’s adjusted own benefit with 50% of Worker 1’s adjusted benefit. This is a simplification: SSA bases the maximum spouse benefit on the worker’s PIA, and spouse-specific early-claim reductions differ from worker reductions."
+          howItWorks="The model assumes FRA 67, calculates each worker’s own benefit from the entered FRA PIA, and then estimates a spousal top-up for the lower earner using 50% of the higher earner’s FRA PIA with an explicit early-claim reduction on the spousal portion. SSA rules also include deemed filing, eligibility and other facts that this model does not reproduce."
           tipsSection="Worked example — Example: if Worker 1 has a $2,500 FRA benefit and Worker 2 has $900, the calculator tests whether its modeled spouse amount exceeds Worker 2’s adjusted own benefit and displays the difference as a spousal boost."
-          conclusion="Important assumptions and limitations — This is a planning model, not an SSA benefit determination. It hard-codes FRA 67, fixed ages 60 and 58 internally, a 30-year lifetime horizon, and simplifies deemed filing, family maximums, survivor rules and spouse-specific reductions."
+          conclusion="Important assumptions and limitations — This is a planning model, not an SSA benefit determination. It hard-codes FRA 67, a 30-year lifetime horizon, and simplifies deemed filing, family maximums, survivor rules and spouse-specific reductions."
           benefits={[
             {title:"What the inputs mean",text:"Use the fields above to model the specific amounts, rates, ages or time horizon described for this calculator."},
             {title:"How to read the results",text:"Treat the outputs as scenario estimates and focus on which assumptions drive the result most strongly."},

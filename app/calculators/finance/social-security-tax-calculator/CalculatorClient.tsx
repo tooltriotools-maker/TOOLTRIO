@@ -19,7 +19,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[ssBenefit, otherIncome])
 
   return (
-    <CalculatorLayout title="Social Security Benefits Tax Calculator USA 2026" description="Calculate how much of your Social Security is taxable based on combined income. Find the income thresholds and strategies to reduce SS taxation." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-tax-calculator">
+    <CalculatorLayout title="Social Security Benefits Tax Calculator USA 2026" description="Calculate how much of your Social Security is taxable based on combined income. Find the income thresholds and understand federal Social Security taxation thresholds." icon="🏛️" category="Finance" relatedCalculators={relatedCalculators} slug="social-security-tax-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -47,7 +47,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 <ResultCard label="Combined Income" value={result ? `${Number(result.combinedIncome).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="Taxable SS Percentage" value={result ? `${Number(result.taxablePercent).toFixed(1)}%` : "—"} />
                 <ResultCard label="Taxable SS Amount" value={result ? `${Number(result.taxableSSIncome).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Estimated Tax on SS" value={result ? `${Number(result.estimatedTaxOnSS).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Illustrative Tax on SS" value={result ? `${Number(result.estimatedTaxOnSS).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Net SS After Tax" value={result ? `${Number(result.netSSBenefit).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
               </div>
 

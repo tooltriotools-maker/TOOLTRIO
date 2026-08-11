@@ -68,7 +68,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
                 <ResultCard label="Recommended Coverage" value={result?`${Number(result.recommendedCoverage).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
                 <ResultCard label="Coverage Gap" value={result?`${Number(result.coverageGap).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
                 <ResultCard label="Cost Per $1M" value={result?`${Number(result.costPerMillion).toLocaleString(undefined,{maximumFractionDigits:0})}`:"-"} />
-                <ResultCard label="Worth It" value={result?String(result.worthIt ? 'Yes — strongly recommended' : 'Lower priority'):"-"} />
+                <ResultCard label="Worth It" value={result?String(result.worthIt ? 'Review coverage needs' : 'Review coverage needs'):"-"} />
             </div>
 
             <Card><h2 className="text-lg font-black text-gray-900 mb-2">Understanding these results</h2><p className="text-sm text-gray-600">Compare your net worth with the liability limits on your auto and homeowners policies and a proposed umbrella limit. The calculator highlights a simple asset-at-risk estimate, a rounded coverage target, any modeled gap and annual premium per $1 million of umbrella coverage.</p></Card>

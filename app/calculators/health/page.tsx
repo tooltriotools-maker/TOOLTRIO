@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'Health Calculators 2026',
     description: 'Health calculators with transparent methodology, limitations, evidence-status disclosures and source references.',
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
+  robots: { index: false, follow: true, googleBot: { index: false, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
 }
 
 // ─── Data ───────────────────────────────────────────────────────────────────

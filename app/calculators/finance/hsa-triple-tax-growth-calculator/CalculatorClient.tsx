@@ -47,8 +47,8 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="Final Balance" value={fmt(result.finalBalance)} highlight />
             <ResultCard label="Tax-Free Growth" value={fmt(result.taxFreeGrowth)} subValue="earnings" />
-            <ResultCard label="Annual Tax Saved" value={fmt(result.taxDeductionAnnual)} subValue="each year" />
-            <ResultCard label="Triple Tax Value" value={fmt(result.tripleTaxBenefit)} subValue="total benefit" />
+            <ResultCard label="Annual Contribution Tax Value" value={fmt(result.taxDeductionAnnual)} subValue="each year" />
+            <ResultCard label="Modeled Tax Value" value={fmt(result.tripleTaxBenefit)} subValue="illustrative tax value" />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-3">HSA Growth Over Time</h3>
@@ -67,7 +67,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           </Card>
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800">
             <p className="font-bold mb-1">💡 Stealth IRA Strategy</p>
-            <p>After age 65, HSA funds can be used for ANY expense (not just medical) and taxed like a traditional IRA — making it an extra IRA with no contribution limits beyond the annual HSA max. Pay all medical bills out-of-pocket now and let your HSA compound tax-free for decades.</p>
+            <p>After age 65, non-medical HSA distributions generally become taxable income. Qualified medical withdrawals retain the tax-free treatment. This calculator does not determine eligibility or qualified expenses.</p>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
         <Card>
           <h2 className="text-lg font-bold text-gray-900 mb-3">How to use and interpret this hsa triple tax growth calculator</h2>
           <div className="space-y-3 text-sm leading-6 text-gray-600">
-            <p>This calculator uses Final Balance, Tax-Free Growth, Annual Tax Saved, Triple Tax Value to produce the results displayed above. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
+            <p>This calculator uses Final Balance, Tax-Free Growth, Annual Contribution Tax Value, Modeled Tax Value to produce the results displayed above. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
             <p>The result is an estimate produced from the calculator&apos;s implemented formula and the values you enter. Review the units, time period, and assumptions before using the output for a decision; a calculated result does not add information that is not represented by the inputs.</p>
             <p>Use the worked output as a planning or comparison aid. Real-world results can differ when taxes, fees, eligibility rules, measurement error, market conditions, or other factors not represented by this calculator apply.</p>
           </div>

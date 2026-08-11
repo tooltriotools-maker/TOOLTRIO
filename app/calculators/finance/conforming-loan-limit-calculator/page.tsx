@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: 'VA vs FHA vs Conventional — which is best?',
-    answer: 'VA loan (eligible veterans/service members): 0% down, no PMI, competitive rates, VA funding fee (waived for disabled veterans). Best for eligible veterans — no better deal exists in mortgage lending. FHA loan: 3.5% down with 580+ credit, MIP for life of loan (usually). Best for buyers with lower credit scores (580-659). Conventional: 3-20%+ down, lower total cost for strong credit, PMI removable. Best for buyers with 620+ credit who can put 20% down.',
+    answer: 'VA loans may offer favorable terms for eligible borrowers, but eligibility, funding fees and lender pricing vary. FHA loan: 3.5% down with 580+ credit, MIP for life of loan (usually). Best for buyers with lower credit scores (580-659). Conventional: 3-20%+ down, lower total cost for strong credit, PMI removable. Best for buyers with 620+ credit who can put 20% down.',
   }
 ]
 const relatedCalculators = [

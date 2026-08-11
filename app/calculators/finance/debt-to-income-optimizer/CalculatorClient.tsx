@@ -18,7 +18,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [otherDebtPayment, setOtherDebtPayment] = useState(0)
 
   const result = useMemo(()=>{
-    try{return calculateDebtToIncomeOptimizer(monthlyGrossIncome,[{name:'Car',payment:carPayment,balance:carPayment*48,rate:7.5},{name:'Student',payment:studentLoanPayment,balance:studentLoanPayment*120,rate:6.5},{name:'Credit Card',payment:creditCardPayment,balance:creditCardPayment*20,rate:22}])}catch(e){return null}
+    try{return calculateDebtToIncomeOptimizer(monthlyGrossIncome,[{name:'Car',payment:carPayment,balance:carPayment*48,rate:7.5},{name:'Student',payment:studentLoanPayment,balance:studentLoanPayment*120,rate:6.5},{name:'Credit Card',payment:creditCardPayment,balance:creditCardPayment*20,rate:22},{name:'Other Debt',payment:otherDebtPayment,balance:otherDebtPayment*24,rate:10}])}catch(e){return null}
   },[monthlyGrossIncome, carPayment, studentLoanPayment, creditCardPayment, otherDebtPayment])
 
   return (

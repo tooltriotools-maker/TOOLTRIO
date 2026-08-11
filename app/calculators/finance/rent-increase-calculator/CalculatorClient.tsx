@@ -75,8 +75,8 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 <ResultCard label="Monthly Increase" value={result ? `${Number(result.increaseAmount).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
                 <ResultCard label="Annual Extra Cost" value={result ? `${Number(result.annualExtra).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="vs Market Rate" value={result ? `${Number(result.vsMarket).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
-                <ResultCard label="Months to Break Even if Moving" value={result ? `${Number(result.monthsToBreakEven).toLocaleString()} months` : "—"} />
-                <ResultCard label="Better Option" value={result ? String(result.betterOption) : "—"} />
+                <ResultCard label="Break-Even Months" value={result ? `${Number(result.monthsToBreakEven).toLocaleString()} months` : "—"} />
+                <ResultCard label="Lower Modeled Cash Cost" value={result ? String(result.betterOption) : "—"} />
               </div>
 
               <Card>
@@ -92,7 +92,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       <div className="mt-8">
         <SEOContent title="Rent Increase Calculator USA 2026 — Stay or Move?" category="finance"
           intro="This calculator compares the next 12 months of staying at an increased rent with moving to a specified alternative after one-time moving costs. It also shows how the increased rent compares with the market-rent estimate you enter."
-          howItWorks="New rent = current rent × (1 + increase%). Staying cost = new rent × 12. Moving cost = alternative rent × 12 + moving costs. Break-even months = moving costs ÷ absolute monthly rent difference. The current function receives lease months but still performs a 12-month cost comparison."
+          howItWorks="New rent = current rent × (1 + increase%). Staying cost = new rent × 12. Moving cost = alternative rent × 12 + moving costs. Break-even months = moving costs ÷ absolute monthly rent difference. The calculator uses the next 12 months for the stay-versus-move comparison; lease months are retained as a documented input but do not change that one-year scenario."
           tipsSection="Include deposits or fees only when they are true economic costs rather than refundable transfers. Also consider commute, utilities, concessions and likely future increases. This calculator does not determine whether a rent increase complies with local law."
           conclusion="The output identifies the cash-cost crossover under your assumptions. A small annual difference may not justify moving once nonfinancial costs and uncertainty are considered."
           benefits={[

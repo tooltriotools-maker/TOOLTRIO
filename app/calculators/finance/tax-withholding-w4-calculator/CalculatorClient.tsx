@@ -17,9 +17,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   const [retirement401k, setRetirement401k] = useState(8500)
   const [itemizedDeductions, setItemizedDeductions] = useState(0)
   const [taxCredits, setTaxCredits] = useState(2000)
+  const [currentAnnualWithholding, setCurrentAnnualWithholding] = useState(14500)
 
   const result = useMemo(()=>{
-    try{return calculateW4Withholding(annualSalary, spouseIncome, otherIncome, retirement401k, itemizedDeductions, taxCredits)}catch(e){return null}
+    try{return calculateW4Withholding(annualSalary, spouseIncome, otherIncome, retirement401k, itemizedDeductions, taxCredits, currentAnnualWithholding)}catch(e){return null}
   },[annualSalary, spouseIncome, otherIncome, retirement401k, itemizedDeductions, taxCredits])
 
   return (
@@ -68,6 +69,10 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             </div>
           </div>
           <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Federal Income Tax Withheld / Expected ($)</label>
+            <div className="flex items-center gap-2 border rounded-xl px-3 py-2"><span className="text-green-600 text-sm">$</span><input type="number" value={currentAnnualWithholding} onChange={e=>setCurrentAnnualWithholding(Number(e.target.value))} step={500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" /></div>
+          </div>
+          <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Tax Credits ($)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               <span className="text-green-600 text-sm">$</span>
@@ -80,11 +85,11 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Estimated Tax Liability" value={result ? `${Number(result.taxLiability).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
-                <ResultCard label="Current Withholding (est.)" value={result ? `${Number(result.currentWithholding).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
+                <ResultCard label="Estimated Federal Tax Liability" value={result ? `${Number(result.taxLiability).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
+                <ResultCard label="Entered/Expected Withholding" value={result ? `${Number(result.currentWithholding).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Refund or Owe" value={result ? `${Number(result.refundOrOwe).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Suggested W-4 Step 4b" value={result ? `${Number(result.suggestedDeduction).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Monthly Adjustment Needed" value={result ? `${Number(result.monthlyAdjustment).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
+                <ResultCard label="Modeled Monthly Withholding Change" value={result ? `${Number(result.monthlyAdjustment).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
                 <ResultCard label="Status" value={result ? String(result.status) : "—"} />
               </div>
 

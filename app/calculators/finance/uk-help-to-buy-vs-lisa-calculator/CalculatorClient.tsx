@@ -24,13 +24,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const months = years * 12
     const mrA = rateA / 100 / 12
     const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
+    const fvA = monthly * (mrA === 0 ? months : ((Math.pow(1 + mrA, months) - 1) / mrA)) * (1 + mrA)
+    const fvB = monthly * (mrB === 0 ? months : ((Math.pow(1 + mrB, months) - 1) / mrB)) * (1 + mrB)
     const invested = monthly * months
     const yearlyData = Array.from({ length: years }, (_, i) => {
       const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
+      const a = monthly * (mrA === 0 ? m : ((Math.pow(1 + mrA, m) - 1) / mrA)) * (1 + mrA)
+      const b = monthly * (mrB === 0 ? m : ((Math.pow(1 + mrB, m) - 1) / mrB)) * (1 + mrB)
       return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
     })
     return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA-invested), gainB: Math.round(fvB-invested), aBetter: fvA>fvB, diff: Math.round(Math.abs(fvA-fvB)), yearlyData }
@@ -38,6 +38,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
   return (
     <CalculatorLayout title="UK Help to Buy vs Lifetime ISA Calculator 2026" description="Compare government bonuses for first-time buyers under Help to Buy ISA vs Lifetime ISA." icon="🏡" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-help-to-buy-vs-lisa-calculator">
+      <div className="mb-4 p-3 rounded-xl border bg-amber-50 text-amber-900 text-sm">This is a scenario model using your entered returns. It does not calculate a provider quote, eligibility decision, provider-guaranteed terms, or personalised financial recommendation. Product-specific tax rules, fees, limits and withdrawal conditions can materially change the outcome.</div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
@@ -48,8 +49,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Lifetime ISA' : 'Help to Buy'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled value</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Scenario A' : 'Scenario B'}</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
@@ -70,7 +71,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <ResultCard label="Lifetime ISA" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="Help to Buy" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Invested" value={fmtC(result.invested)} subValue={`${years}yr x £${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Lifetime ISA wins' : 'Legacy Help to Buy wins'} highlight />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Higher modeled value' : 'Higher modeled value'} highlight />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-4">Lifetime ISA vs Help to Buy - Wealth Growth Over {years} Years</h3>
@@ -128,9 +129,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in UK</h3>
-              <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to CGT (18%/28%) or income tax (20-45%). Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
+              <p>Help to Buy ISA accounts are closed to new savers; this page is for historical/legacy-account comparison. The model does not calculate the government bonus, property-price eligibility, or withdrawal rules, so its growth comparison should not be treated as a current product recommendation.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Retirement And Isa Planning?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (7-9% historical) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. Do not interpret the assumed return inputs as forecasts. The two accounts have different eligibility, bonus and withdrawal rules, and the legacy Help to Buy ISA is no longer open to new accounts.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>

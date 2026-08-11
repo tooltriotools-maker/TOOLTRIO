@@ -144,9 +144,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-800 mb-2">New Tax Regime vs Old Tax Regime - Key Differences</h3>
-              <p>India has two income tax regimes since 2020. New Regime (default from FY 2023-24): Lower tax rates, higher standard deduction ($75,000 from FY 2024-25), but most deductions and exemptions are not available. Cannot claim: 80C, 80D, housing allowance, LTA, home loan interest (24b), state payroll tax, etc. Old Regime: Higher tax rates, but allows all deductions and exemptions. Can claim: 80C ($1.5L), 80D ($25-50K), housing allowance exemption, LTA, home loan interest (up to $2L under 24b), standard deduction ($50,000), 401(k) pension under 80CCD(1B) ($50K). The regime that saves more tax depends on your total eligible deductions.</p>
+              <p>India has two income tax regimes since 2020. New Regime (default from FY 2023-24): Lower tax rates, higher standard deduction (₹75,000 for FY 2026-27), but most deductions and exemptions are not available. Cannot claim: 80C, 80D, housing allowance, LTA, home loan interest (24b), state payroll tax, etc. Old Regime: Higher tax rates, but allows all deductions and exemptions. Can claim: 80C (up to ₹1.5L), 80D (subject to applicable limits), housing allowance exemption, LTA, home-loan interest where eligible under section 24(b), standard deduction ($50,000), additional NPS contribution under section 80CCD(1B), where eligible. The regime that saves more tax depends on your total eligible deductions.</p>
               <h3 className="font-bold text-gray-800 mb-2 mt-4">New Regime Tax Slabs FY 2026-27 (Tax Year 2026)</h3>
-              <p>New regime slabs (post-Budget 2026-26): 0% tax up to $4 thousand. 5% on $4-8 thousand. 10% on $8-12 thousand. 15% on $12-16 thousand. 20% on $16-20 thousand. 25% on $20-24 thousand. 30% above $24 thousand. Tax rebate under standard deduction: Up to $60,000 rebate if total income {'<'}= $12 thousand (new regime), making income effectively tax-free up to $12 thousand. Standard deduction: $75,000 for salaried. So income up to $12.75 thousand faces zero tax under new regime (after $75K standard deduction + $12L rebate limit). This is a significant benefit for salaried middle class.</p>
+              <p>For FY 2026-27, the new-regime slabs are: nil up to ₹4 lakh; 5% on ₹4–8 lakh; 10% on ₹8–12 lakh; 15% on ₹12–16 lakh; 20% on ₹16–20 lakh; 25% on ₹20–24 lakh; and 30% above ₹24 lakh. For resident individuals, section 87A provides a rebate up to ₹60,000 when taxable income does not exceed ₹12 lakh. With the ₹75,000 new-regime standard deduction, eligible salary income can therefore reach ₹12.75 lakh before taxable income reaches the ₹12 lakh rebate threshold. A 4% health and education cess applies after rebate and surcharge.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-800 mb-2">Who Benefits From Old Regime?</h3>
@@ -164,7 +164,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           Income Tax Calculator Example (India FY 2026-27)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
-          On a $75,000 salary, the 50/30/20 rule suggests: <strong>$37,500</strong> for needs, $22,500 for wants, and $15,000 for savings and debt repayment.
+          On a ₹7.5 lakh salary, the 50/30/20 rule suggests: <strong>₹3.75 lakh</strong> for needs, ₹2.25 lakh for wants, and ₹1.5 lakh for savings and debt repayment.
         </p>
         <p className="text-sm text-gray-600">
           This Income Tax India FY 2026-27 planner helps you allocate your income optimally and track progress toward your financial goals.

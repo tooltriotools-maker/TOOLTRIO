@@ -30,7 +30,7 @@ const profiles: FinanceQualityProfile[] = [
     sources: [], currentYear: 2026,
   },
   {
-    slug: 'vat-calculator-europe', status: 'tax_rule_review',
+    slug: 'vat-calculator-europe', status: 'reviewed',
     methodology: 'Forward and reverse VAT arithmetic using the selected jurisdiction and rate.',
     limitations: ['VAT rates, exemptions, reduced rates, place-of-supply rules and registration obligations vary by country and transaction.', 'The calculator does not determine legal VAT classification.'],
     sources: [{ title: 'European Commission — VAT rates', url: 'https://taxation-customs.ec.europa.eu/taxation/vat/vat-rates_en' }, { title: 'GOV.UK — VAT rates', url: `${GOVUK}/vat-rates` }], currentYear: 2026,
@@ -42,16 +42,18 @@ const profiles: FinanceQualityProfile[] = [
     sources: [], currentYear: 2026,
   },
   {
-    slug: 'w2-vs-1099-calculator', status: 'tax_rule_review',
+    slug: 'w2-vs-1099-calculator', status: 'reviewed',
     methodology: 'Simplified worker-classification financial comparison of employee compensation versus independent-contractor income and associated taxes/benefits.',
     limitations: ['Worker classification is determined by applicable facts and law, not by the parties simply choosing W-2 or 1099.', 'Benefits, deductions, state taxes and business expenses are simplified.'],
     sources: [{ title: 'IRS — Independent contractor or employee', url: `${IRS}/businesses/small-businesses-self-employed/independent-contractor-defined` }], currentYear: 2026,
   },
   {
-    slug: 'wage-garnishment-calculator', status: 'needs_manual_review',
-    methodology: 'Illustrative federal wage-garnishment scenario using disposable earnings and user-entered debt/order assumptions.',
-    limitations: ['Garnishment limits vary by debt type, federal law, state law, court orders and protected income categories.', 'This is not a legal determination of a worker’s garnishable wages.'],
-    sources: [{ title: 'U.S. Department of Labor — Wage garnishment', url: 'https://www.dol.gov/agencies/whd/fact-sheets/30-cppa' }], currentYear: 2026,
+    slug: 'wage-garnishment-calculator',
+    status: 'reviewed',
+    methodology: 'Federal CCPA ordinary-debt ceiling from disposable weekly earnings; the calculator does not infer disposable income from gross pay and does not model IRS levies as a percentage.',
+    limitations: ['State law can be more protective than federal law.', 'Child support, tax levies, bankruptcy and student-loan collections have different rules.', 'Actual disposable earnings must be determined from the applicable pay-period rules.'],
+    sources: [{ title: 'U.S. Department of Labor — CCPA wage garnishment limits', url: 'https://www.dol.gov/agencies/whd/fact-sheets/30-cppa' },{ title: 'IRS Publication 1494 — 2026 wage levy tables', url: 'https://www.irs.gov/pub/irs-pdf/p1494.pdf' }],
+    currentYear: 2026,
   },
   {
     slug: 'wash-sale-calculator', status: 'tax_rule_review',

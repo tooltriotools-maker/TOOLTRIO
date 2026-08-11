@@ -19,19 +19,23 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [taxRate, setTaxRate] = useState(24)
   const [returnRate, setReturnRate] = useState(7)
   const [years, setYears] = useState(20)
+  const hsaLimit2026 = 4400
+  const fsaLimit2026 = 3400
 
   const result = useMemo(() => {
     // HSA: triple tax advantage - contribute pre-tax, grow tax-free, withdraw tax-free for medical
-    const hsaTaxSavingNow = annualContrib * (taxRate / 100)
-    const hsaInvested = annualContrib - medicalExpenses // excess invested
+    const hsaContribution = Math.min(Math.max(0, annualContrib), hsaLimit2026)
+    const fsaContribution = Math.min(Math.max(0, annualContrib), fsaLimit2026)
+    const hsaTaxSavingNow = hsaContribution * (taxRate / 100)
+    const hsaInvested = Math.max(0, hsaContribution - medicalExpenses) // excess invested
     const mr = returnRate / 100 / 12
     const months = years * 12
     const hsaFV = Math.max(0, hsaInvested) / 12 * ((Math.pow(1 + mr, months) - 1) / mr) * (1 + mr)
-    const hsaTotalTaxSave = annualContrib * (taxRate / 100) * years
+    const hsaTotalTaxSave = hsaContribution * (taxRate / 100) * years
     const hsaTotalValue = hsaFV + medicalExpenses * years // total value (medical + invested growth)
 
     // FSA: use-it-or-lose-it, pre-tax, no investment growth
-    const fsaAnnualBenefit = Math.min(annualContrib, medicalExpenses) * (taxRate / 100)
+    const fsaAnnualBenefit = Math.min(fsaContribution, medicalExpenses) * (taxRate / 100)
     const fsaTotalBenefit = fsaAnnualBenefit * years
 
     const barData = [
@@ -66,7 +70,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <ResultCard label="HSA Investment" value={fmtC(result.hsaFV)} subValue={`${years}yr growth`} highlight icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="HSA Tax Savings" value={fmtC(result.hsaTotalTaxSave)} subValue={`Over ${years} years`} highlight />
-            <ResultCard label="FSA Tax Savings" value={fmtC(result.fsaTotalBenefit)} subValue="Use-it-or-lose-it" />
+            <ResultCard label="FSA Tax Savings" value={fmtC(result.fsaTotalBenefit)} subValue="Plan rules determine carryover/forfeiture" />
             <ResultCard label="HSA vs FSA Advantage" value={fmtC(result.hsaFV + result.hsaTotalTaxSave - result.fsaTotalBenefit)} subValue="Extra wealth from HSA" highlight />
           </div>
           <Card>
@@ -125,7 +129,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in USA</h3>
               <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains (0-20%) or ordinary income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Retirement Planning?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (10-12% historical) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (user-entered) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>

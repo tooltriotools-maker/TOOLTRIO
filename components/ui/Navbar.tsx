@@ -1,62 +1,13 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, TrendingUp, Heart, Code2, Smile, ChevronDown, ArrowRight, BookOpen } from 'lucide-react'
+import { Menu, X, Code2, Smile, ChevronDown, ArrowRight, BookOpen } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { GlobalSearch } from './GlobalSearch'
 
-const NAV = {
-  finance: {
-    label: 'Finance', icon: TrendingUp, color: '#22c55e', accent: 'rgba(34,197,94,0.15)',
-    items: [
-      { name:'SIP Calculator', slug:'sip-calculator', icon:'📈' },
-      { name:'EMI Calculator', slug:'emi-calculator', icon:'🏦' },
-      { name:'Compound Interest', slug:'compound-interest-calculator', icon:'💰' },
-      { name:'Retirement Calculator', slug:'retirement-calculator', icon:'🌅' },
-      { name:'Home Loan', slug:'home-loan-calculator', icon:'🏠' },
-      { name:'401k Calculator', slug:'401k-calculator', icon:'🇺🇸' },
-      { name:'Roth IRA Calculator', slug:'roth-ira-calculator', icon:'🛡️' },
-      { name:'UK Income Tax', slug:'uk-income-tax-calculator', icon:'🇬🇧' },
-      { name:'ISA Calculator', slug:'isa-calculator', icon:'💷' },
-      { name:'FIRE Calculator', slug:'fire-calculator', icon:'🔥' },
-      { name:'Debt Payoff', slug:'debt-payoff-calculator', icon:'🔓' },
-      { name:'Inflation Calculator', slug:'inflation-calculator', icon:'📊' },
-      { name:'Net Worth', slug:'net-worth-calculator', icon:'⚖️' },
-      { name:'Car Loan', slug:'car-loan-calculator', icon:'🚗' },
-      { name:'Budget Calculator', slug:'budget-calculator', icon:'📋' },
-      { name:'Credit Card Payoff', slug:'credit-card-payoff-calculator', icon:'💳' },
-      { name:'CAGR Calculator', slug:'cagr-calculator', icon:'📈' },
-      { name:'Savings Goal', slug:'savings-goal-calculator', icon:'🎯' },
-      { name:'FD Calculator', slug:'fd-calculator', icon:'🏛️' },
-      { name:'Dividend Calculator', slug:'dividend-calculator', icon:'💵' },
-    ],
-    allHref: '/calculators/finance',
-  },
-  health: {
-    label: 'Health', icon: Heart, color: '#f43f5e', accent: 'rgba(244,63,94,0.15)',
-    items: [
-      { name:'BMI Calculator', slug:'bmi-calculator', icon:'⚖️' },
-      { name:'Calorie Calculator', slug:'calorie-calculator', icon:'🔥' },
-      { name:'BMR Calculator', slug:'bmr-calculator', icon:'❤️' },
-      { name:'TDEE Calculator', slug:'tdee-calculator', icon:'🌡️' },
-      { name:'Body Fat Calculator', slug:'body-fat-calculator', icon:'💪' },
-      { name:'Ideal Weight', slug:'ideal-weight-calculator', icon:'🏋️' },
-      { name:'Macro Calculator', slug:'macro-calculator', icon:'🍽️' },
-      { name:'Protein Intake', slug:'protein-intake-calculator', icon:'🥩' },
-      { name:'Water Intake', slug:'water-intake-calculator', icon:'💧' },
-      { name:'Sleep Cycle', slug:'sleep-cycle-calculator', icon:'😴' },
-      { name:'Heart Attack Risk', slug:'heart-attack-risk-calculator', icon:'❤️' },
-      { name:'Blood Pressure', slug:'blood-pressure-calculator', icon:'🩺' },
-      { name:'HIIT Calculator', slug:'hiit-calculator', icon:'⚡' },
-      { name:'Running Pace', slug:'running-pace-calculator', icon:'🏃' },
-      { name:'Swimming Calories', slug:'swimming-calories-calculator', icon:'🏊' },
-      { name:'Sugar Intake', slug:'sugar-intake-calculator', icon:'🍬' },
-      { name:'Sodium Intake', slug:'sodium-intake-calculator', icon:'🧂' },
-      { name:'Cholesterol', slug:'cholesterol-calculator', icon:'🩺' },
-      { name:'1 Rep Max', slug:'one-rep-max-calculator', icon:'🏋️' },
-      { name:'Pregnancy Calculator', slug:'pregnancy-calculator', icon:'🤰' },
-    ],
-    allHref: '/calculators/health',
-  },
+type NavGroup = { label: string; icon: LucideIcon; color: string; accent: string; items: NavItem[]; allHref: string }
+
+const NAV: Record<string, NavGroup> = {
   dev: {
     label: 'Dev Tools', icon: Code2, color: '#3b82f6', accent: 'rgba(59,130,246,0.15)',
     items: [
@@ -113,8 +64,10 @@ const NAV = {
 
 const PREVIEW_COUNT = 10
 
-function DropdownMenu({ items, allHref, color, accent, type }: { items: typeof NAV.finance.items, allHref: string, color: string, accent: string, type: string }) {
-  const base = type === 'finance' ? '/calculators/finance' : type === 'health' ? '/calculators/health' : type === 'dev' ? '/calculators/dev' : '/calculators/fun'
+type NavItem = { name: string; slug: string; icon: string }
+
+function DropdownMenu({ items, allHref, color, accent, type }: { items: NavItem[], allHref: string, color: string, accent: string, type: string }) {
+  const base = type === 'dev' ? '/calculators/dev' : '/calculators/fun'
   return (
     <div className="absolute top-full left-0 w-64 rounded-2xl py-2 shadow-2xl z-50"
       style={{ background:'#0d1425', border:`1px solid rgba(255,255,255,0.08)`, boxShadow:'0 24px 60px rgba(0,0,0,0.6)' }}>
@@ -175,7 +128,7 @@ export function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1 flex-shrink-0">
-            {(Object.entries(NAV) as [string, typeof NAV.finance][]).map(([key, cfg]) => {
+            {(Object.entries(NAV) as [string, NavGroup][]).map(([key, cfg]) => {
               const Icon = cfg.icon
               const isOpen = activeDropdown === key
               return (
@@ -218,10 +171,10 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden border-t" style={{ background:'#080d1a', borderColor:'rgba(34,197,94,0.1)' }}>
           <div className="px-4 py-4 space-y-1 max-h-[80vh] overflow-y-auto">
-            {(Object.entries(NAV) as [string, typeof NAV.finance][]).map(([key, cfg]) => {
+            {(Object.entries(NAV) as [string, NavGroup][]).map(([key, cfg]) => {
               const Icon = cfg.icon
               const isExpanded = expandedMobile === key
-              const base = key === 'finance' ? '/calculators/finance' : key === 'health' ? '/calculators/health' : key === 'dev' ? '/calculators/dev' : '/calculators/fun'
+              const base = key === 'dev' ? '/calculators/dev' : '/calculators/fun'
               return (
                 <div key={key}>
                   <button onClick={() => setExpandedMobile(isExpanded ? null : key)}

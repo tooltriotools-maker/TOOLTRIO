@@ -37,18 +37,18 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="UK Buy-to-Let vs Stocks Calculator 2026" description="Compare UK rental property returns vs FTSE All-Share index investing on after-tax total return." icon="🏘️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-buy-to-let-vs-stocks-calculator">
+    <CalculatorLayout title="UK Buy-to-Let vs Stocks Calculator 2026" description="Compare UK rental property returns vs FTSE All-Share index investing using user-entered annual return assumptions; this is not a property cash-flow or tax-return model." icon="🏘️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-buy-to-let-vs-stocks-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
             <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="£" />
-            <InputField label="Buy-to-Let Return (p.a.)" value={rateA} onChange={setRateA} min={1} max={20} step={0.25} suffix="%" />
-            <InputField label="FTSE Index Fund Return (p.a.)" value={rateB} onChange={setRateB} min={1} max={15} step={0.25} suffix="%" />
+            <InputField label="Buy-to-Let Total Return Assumption (p.a.)" value={rateA} onChange={setRateA} min={1} max={20} step={0.25} suffix="%" />
+            <InputField label="Equity Return Assumption (p.a.)" value={rateB} onChange={setRateB} min={1} max={15} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled value</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Buy-to-Let' : 'FTSE Index Fund'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>

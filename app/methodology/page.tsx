@@ -187,9 +187,6 @@ export default function MethodologyPage() {
             <h2 className="text-2xl font-black text-gray-900 mb-3" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Ready to Calculate?</h2>
             <p className="text-gray-600 mb-6">560+ tools and calculators built on this methodology. Free, instant, no signup.</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/calculators/finance/home-loan-calculator" className="px-5 py-2.5 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-all">Mortgage Calculator</Link>
-              <Link href="/calculators/finance/401k-calculator" className="px-5 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-gray-800 transition-all">401k Calculator</Link>
-              <Link href="/calculators/health/bmi-calculator" className="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-xl font-bold text-sm hover:bg-gray-50 transition-all">BMI Calculator</Link>
             </div>
           </section>
         </div>

@@ -15,65 +15,57 @@ const fmt = (n: number) => FMT_PREFIX + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? FMT_PREFIX + (n/1000000).toFixed(2) + 'M' : FMT_PREFIX + (n/1000).toFixed(0) + 'K'
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
-  const [monthly, setMonthly] = useState(500)
-  const [rateA, setRateA] = useState(7)
-  const [rateB, setRateB] = useState(4)
+  const [aowMonthly, setAowMonthly] = useState(1662.16)
+  const [privateMonthly, setPrivateMonthly] = useState(1500)
   const [years, setYears] = useState(20)
 
   const result = useMemo(() => {
-    const months = years * 12
-    const mrA = rateA / 100 / 12
-    const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
-    const invested = monthly * months
-    const yearlyData = Array.from({ length: years }, (_, i) => {
-      const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
-      return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
-    })
-    return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA-invested), gainB: Math.round(fvB-invested), aBetter: fvA>fvB, diff: Math.round(Math.abs(fvA-fvB)), yearlyData }
-  }, [monthly, rateA, rateB, years])
+    const aowAnnual = aowMonthly * 12
+    const privateAnnual = privateMonthly * 12
+    const aowTotal = aowAnnual * years
+    const privateTotal = privateAnnual * years
+    const diff = Math.abs(aowTotal-privateTotal)
+    const yearlyData = Array.from({length:years},(_,i)=>{const y=i+1; return {year:y,optA:Math.round(privateAnnual*y),optB:Math.round(aowAnnual*y),invested:0}})
+    return {aowAnnual,privateAnnual,aowTotal,privateTotal,diff,aBetter:privateTotal>aowTotal,yearlyData}
+  }, [aowMonthly, privateMonthly, years])
 
   return (
-    <CalculatorLayout title="Netherlands AOW vs Private Pension Calculator 2026" description="Compare Dutch AOW state pension vs private pension for retirement income planning." icon="🇳🇱" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="netherlands-aow-vs-private-pension-calculator">
+    <CalculatorLayout title="Netherlands AOW vs Private Pension Calculator 2026" description="Compare a user-entered Dutch AOW gross monthly amount with a user-entered private-pension gross monthly amount over a chosen retirement horizon." icon="🇳🇱" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="netherlands-aow-vs-private-pension-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
-          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
+          <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Income Details</h2>
           <div className="space-y-4">
-            <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="€" />
-            <InputField label="Private Pension Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
-            <InputField label="AOW State Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="Full AOW Monthly Gross (from SVB)" value={aowMonthly} onChange={setAowMonthly} min={0} max={10000} step={10} prefix="€" />
+            <InputField label="Private Pension Monthly Gross" value={privateMonthly} onChange={setPrivateMonthly} min={0} max={20000} step={10} prefix="€" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Private Pension' : 'AOW State'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled gross income</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Private Pension' : 'AOW'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
             <div className="p-2 bg-green-900/20 rounded-lg text-center border border-green-800/30">
               <p className="text-green-400 font-bold">Private Pension</p>
-              <p className="text-white font-bold text-base">{fmtC(result.fvA)}</p>
-              <p className="text-gray-400">Gain: {fmtC(result.gainA)}</p>
+              <p className="text-white font-bold text-base">{fmtC(result.privateTotal)}</p>
+              <p className="text-gray-400">Cumulative: {fmtC(result.privateTotal)}</p>
             </div>
             <div className="p-2 bg-blue-900/20 rounded-lg text-center border border-blue-800/30">
-              <p className="text-blue-400 font-bold">AOW State</p>
-              <p className="text-white font-bold text-base">{fmtC(result.fvB)}</p>
-              <p className="text-gray-400">Gain: {fmtC(result.gainB)}</p>
+              <p className="text-blue-400 font-bold">AOW</p>
+              <p className="text-white font-bold text-base">{fmtC(result.aowTotal)}</p>
+              <p className="text-gray-400">Cumulative: {fmtC(result.aowTotal)}</p>
             </div>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="Private Pension" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
-            <ResultCard label="AOW State" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
-            <ResultCard label="Invested" value={fmtC(result.invested)} subValue={`${years}yr x €${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Private Pension wins' : 'AOW State wins'} highlight />
+            <ResultCard label="Private Pension" value={fmtC(result.privateTotal)} subValue={`Cumulative: ${fmtC(result.privateTotal)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="AOW" value={fmtC(result.aowTotal)} subValue={`Cumulative: ${fmtC(result.aowTotal)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="Invested" value={fmtC(0)} subValue={`${years}-year gross-income comparison`} />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Private Pension wins' : 'AOW wins'} highlight />
           </div>
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-4">Private Pension vs AOW State - Wealth Growth Over {years} Years</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">Private Pension vs AOW - Wealth Growth Over {years} Years</h3>
             <div style={{ height: 250 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={result.yearlyData} margin={{ top: 5, right: 10, left: 0, bottom: 0 }}>
@@ -87,7 +79,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                   <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8, fontSize: 12 }} formatter={(v: number, n) => [fmt(v), n]} labelFormatter={y => `Year ${y}`} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <Area type="monotone" dataKey="invested" name="Contributed" stroke="#94a3b8" fill="none" strokeDasharray="4 2" strokeWidth={1.5} />
-                  <Area type="monotone" dataKey="optB" name="AOW State" stroke="#3b82f6" fill={`url(#gBnetherland)`} strokeWidth={2} />
+                  <Area type="monotone" dataKey="optB" name="AOW" stroke="#3b82f6" fill={`url(#gBnetherland)`} strokeWidth={2} />
                   <Area type="monotone" dataKey="optA" name="Private Pension" stroke="#10b981" fill={`url(#gAnetherland)`} strokeWidth={2.5} />
                 </AreaChart>
               </ResponsiveContainer>
@@ -97,7 +89,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Year-by-Year Comparison</h3>
             <div className="overflow-y-auto max-h-52">
               <table className="calc-table">
-                <thead><tr><th>Year</th><th>Invested</th><th>Private Pension</th><th>AOW State</th><th>Advantage</th></tr></thead>
+                <thead><tr><th>Year</th><th>Invested</th><th>Private Pension</th><th>AOW</th><th>Advantage</th></tr></thead>
                 <tbody>
                   {result.yearlyData.filter((_, i) => i % 2 === 0 || i === result.yearlyData.length - 1).map(r => (
                     <tr key={r.year}>
@@ -120,19 +112,19 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is Netherlands Aow?</h3>
-              <p>Netherlands Aow is a Europe investment or financial product that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
+              <p>Dutch AOW is a state pension benefit administered by SVB. The applicable rate depends in part on living situation and whether the full AOW pension has been built up.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">What is Private Pension?</h3>
-              <p>Private Pension takes a different approach to growing or protecting your wealth. Each has its own risk profile, liquidity characteristics, and tax treatment that makes it suited to specific financial situations.</p>
+              <p>Private pension income depends on the specific pension contract, provider and retirement terms.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Key Differences</h3>
-              <p>The most important distinction between Netherlands Aow and Private Pension is how returns are generated and taxed. Netherlands Aow typically suits growth-oriented investors while Private Pension may appeal to those prioritizing stability or specific tax advantages.</p>
+              <p>AOW is a state pension benefit, not an investment return. Private pension income depends on the pension product and contract.rs while Private Pension may appeal to those prioritizing stability or specific tax advantages.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in Europe</h3>
-              <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains tax or income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
+              <p>This page compares gross income only. Dutch tax, health-insurance contributions, tax credits and pension-specific rules are not modeled.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for European Long-Term Investing?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (7-9% historical) generally beat lower-return stable options (3-4%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>There is no investment-return ranking here: AOW and private pension are income streams with different eligibility, contract and tax characteristics.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
-              <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
+              <p>Enter the gross monthly AOW and private-pension amounts and the comparison horizon. The calculator shows cumulative gross income under each entered assumption.</p>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { MASTER_TOOL_REGISTRY, TOOL_COUNTS, TOOL_TOTAL } from '@/lib/catalog'
+import { PUBLIC_TOOL_REGISTRY, TOOL_COUNTS } from '@/lib/catalog'
 
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
@@ -112,7 +112,7 @@ const KB: Record<string, { answer: string; tools: { n: string; p: string; d: str
     ]
   },
   about: {
-    answer: `ToolTrio has ${TOOL_TOTAL}+ tools across Finance (${TOOL_COUNTS.finance}), Health (${TOOL_COUNTS.health}), Developer (${TOOL_COUNTS.dev}), Fun (${TOOL_COUNTS.fun}), ZIP (${TOOL_COUNTS.zip}) and Commodities (${TOOL_COUNTS.commodities}).\n\nThe catalog is shared across the site, so counts and searchable tools stay synchronized. All tools are free to use without signup.`,
+    answer: `ToolTrio has public tools across Developer (${TOOL_COUNTS.dev}), Fun (${TOOL_COUNTS.fun}), ZIP (${TOOL_COUNTS.zip}) and Commodities (${TOOL_COUNTS.commodities}).\n\nThe catalog is shared across the site, so counts and searchable tools stay synchronized. All tools are free to use without signup.`,
     tools: []
   }
 }
@@ -121,7 +121,7 @@ type ToolEntry = { n: string; p: string; c: string; d: string }
 
 // Searchable tool catalog comes from the shared registry. This prevents TrioBot
 // from drifting away from GlobalSearch, sitemap and category counts.
-const ALL_TOOLS: ToolEntry[] = MASTER_TOOL_REGISTRY.map(tool => ({
+const ALL_TOOLS: ToolEntry[] = PUBLIC_TOOL_REGISTRY.map(tool => ({
   n: tool.name,
   p: tool.href,
   c: tool.cat,
@@ -186,9 +186,9 @@ function respond(message: string): { reply: string; widget?: string } {
 
   if (intent.type === 'greeting') {
     const g = [
-      "Hey there! 👋 I'm TrioBot. Ask me about any calculator — 401k, mortgage, BMI, calories — and I'll explain it and link you directly!",
-      "Hi! 😊 Type a calculator name like '401k' or 'BMI' and I'll give you a quick explanation plus a direct link.",
-      "Hello! 🤖 I can explain any finance or health calculator and give you the link. What do you need help with?",
+      "Hey there! 👋 I'm TrioBot. Ask me about any public ToolTrio tool and I'll explain it and link you directly!",
+      "Hi! 😊 Type a public tool name like 'JSON' or 'ZIP' and I'll give you a quick explanation plus a direct link.",
+      "Hello! 🤖 I can explain the public ToolTrio tools and give you the link. What do you need help with?",
     ]
     return { reply: g[Math.floor(Math.random() * g.length)] }
   }
@@ -205,9 +205,10 @@ function respond(message: string): { reply: string; widget?: string } {
       if (widget) {
         reply += '\n\n👇 Try it right here — enter your values below!'
       }
-      if (kb.tools.length > 0) {
-        reply += '\n\n🔗 Open the full calculator:'
-        for (const t of kb.tools) {
+      const publicTools = kb.tools.filter(t => !t.p.startsWith('/calculators/finance/') && !t.p.startsWith('/calculators/health/'))
+      if (publicTools.length > 0) {
+        reply += '\n\n🔗 Open the public tool:'
+        for (const t of publicTools) {
           reply += `\n→ [${t.n}](${t.p}) — ${t.d}`
         }
       }
@@ -225,7 +226,7 @@ function respond(message: string): { reply: string; widget?: string } {
   }
 
   return {
-    reply: `I couldn't find that, but here's what I can help with:\n\n💰 Finance — Mortgage, 401k, SIP, FIRE...\n❤️ Health — BMI, Calories, TDEE, Age...\n📮 ZIP Tools — Lookup, Distance, Timezone...\n📈 Commodities — Gold, Silver, Crude Oil...\n\nTry: *"401k calculator"* or *"what is TDEE"*`
+    reply: `I couldn't find that, but here's what I can help with:\n\n⚡ Dev Tools — JSON, Regex, Base64, UUID...\n📮 ZIP Tools — Lookup, Distance, Timezone...\n📈 Commodities — Gold, Silver, Crude Oil...\n\nTry: *"JSON formatter"* or *"ZIP code lookup"*`
   }
 }
 

@@ -48,8 +48,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Treasury Bonds' : 'CDs'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled Value</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Treasury Bonds' : 'CDs'}</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
@@ -70,7 +70,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <ResultCard label="Treasury Bonds Value" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
             <ResultCard label="CDs Value" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Total Invested" value={fmtC(result.invested)} subValue={`${years}yr x $${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Treasury Bonds wins' : 'CDs wins'} highlight />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Higher modeled value' : 'Higher modeled value'} highlight />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-4">Treasury Bonds vs CDs - Wealth Growth Over {years} Years</h3>

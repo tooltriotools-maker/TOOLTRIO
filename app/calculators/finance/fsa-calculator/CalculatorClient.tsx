@@ -14,12 +14,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [annualContrib, setAnnualContrib] = useState(2600)
   const [marginalRate, setMarginalRate] = useState(24)
   const [expectedMedical, setExpectedMedical] = useState(2000)
+  const [hasCarryover, setHasCarryover] = useState(true)
 
   const result = useMemo(() => {
     try {
-      return calculateFSA(annualContrib, marginalRate, 7.65, expectedMedical, true)
+      return calculateFSA(annualContrib, marginalRate, 7.65, expectedMedical, hasCarryover)
     } catch(e) { return null }
-  }, [annualContrib, marginalRate, expectedMedical])
+  }, [annualContrib, marginalRate, expectedMedical, hasCarryover])
 
   return (
     <CalculatorLayout
@@ -58,6 +59,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               
             </div>
           </div>
+          <div className="space-y-2">
+            <label className="text-xs font-medium text-gray-600">Does your plan allow the federal carryover?</label>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => setHasCarryover(true)} className={`py-2 rounded-xl text-xs font-semibold ${hasCarryover?'bg-green-500 text-white':'bg-gray-100 text-gray-600'}`}>Yes</button>
+              <button onClick={() => setHasCarryover(false)} className={`py-2 rounded-xl text-xs font-semibold ${!hasCarryover?'bg-green-500 text-white':'bg-gray-100 text-gray-600'}`}>No</button>
+            </div>
+          </div>
         </Card>
 
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
@@ -73,7 +81,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🏥 FSA Calculator USA 2026 — Flexible Spending Account — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses a $680 carryover assumption when estimating potential forfeiture.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses the 2026 federal maximum $680 carryover only when you select that your plan permits carryover when estimating potential forfeiture.</p>
               </Card>
             </>
           ) : (
@@ -88,8 +96,8 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="FSA Calculator USA 2026 — Flexible Spending Account"
           category="finance"
-          intro="Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses a $680 carryover assumption when estimating potential forfeiture."
-          howItWorks="The tool caps your election at $3,400, then estimates tax savings as contribution × (your marginal rate + 7.65% FICA). Net cost equals the capped election minus estimated tax savings. Forfeiture risk is the amount remaining after expected medical spending and the modeled $680 carryover."
+          intro="Use this Health FSA calculator to balance payroll tax savings against the risk of electing more than you expect to spend on eligible medical expenses. For 2026, the calculator caps the modeled salary-reduction election at $3,400 and uses the 2026 federal maximum $680 carryover only when you select that your plan permits carryover when estimating potential forfeiture."
+          howItWorks="The tool caps your election at $3,400, then estimates tax savings as contribution × (your marginal rate + 7.65% FICA). Net cost equals the capped election minus estimated tax savings. Forfeiture risk is the amount remaining after expected medical spending and the modeled carryover, if enabled."
           tipsSection="Base the election on expenses you can reasonably predict, such as recurring prescriptions, copays, dental work and vision costs. Employer plans may offer either a carryover or grace period under plan rules; verify your own plan instead of assuming every unused dollar can roll forward."
           conclusion="The result estimates tax savings and spending risk; it does not determine whether a particular purchase is FSA-eligible or override your employer plan document."
           benefits={[

@@ -14,12 +14,14 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [dependentCareCost, setDependentCareCost] = useState(18000)
   const [annualContrib, setAnnualContrib] = useState(5000)
   const [marginalRate, setMarginalRate] = useState(28)
+  const [agi, setAgi] = useState(75000)
+  const [qualifyingCarePersons, setQualifyingCarePersons] = useState(1)
 
   const result = useMemo(() => {
     try {
-      return calculateDCFSA(annualContrib, marginalRate, 7.65, dependentCareCost, 'single')
+      return calculateDCFSA(annualContrib, marginalRate, 7.65, dependentCareCost, 'single', agi, qualifyingCarePersons)
     } catch(e) { return null }
-  }, [dependentCareCost, annualContrib, marginalRate])
+  }, [dependentCareCost, annualContrib, marginalRate, agi, qualifyingCarePersons])
 
   return (
     <CalculatorLayout
@@ -58,6 +60,16 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               <span className="text-gray-400 text-sm">%</span>
             </div>
           </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Adjusted Gross Income ($)</label>
+            <input type="number" value={agi} onChange={e => setAgi(Number(e.target.value))} step={1000} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right border rounded-xl px-3 py-2" />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Qualifying Care Persons</label>
+            <select value={qualifyingCarePersons} onChange={e => setQualifyingCarePersons(Number(e.target.value))} className="w-full border rounded-xl px-3 py-2">
+              <option value={1}>1</option><option value={2}>2 or more</option>
+            </select>
+          </div>
         </Card>
 
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
@@ -87,7 +99,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Dependent Care FSA Calculator" category="finance"
           intro="This calculator compares the payroll-tax and marginal-income-tax savings from a Dependent Care FSA with a simplified Child and Dependent Care Credit estimate."
-          howItWorks="The FSA side caps the entered contribution at $7,500 for 2026 and multiplies it by the entered marginal rate plus 7.65% FICA. The credit side is intentionally simplified: it models one qualifying person and a 20% rate. Actual credit calculations can use up to $3,000 of expenses for one qualifying person or $6,000 for two or more, with the percentage determined by income and other rules."
+          howItWorks="The FSA side caps the entered contribution at $7,500 for 2026 and multiplies it by the entered marginal rate plus 7.65% FICA. The credit side is intentionally simplified: it models one qualifying person and a 20% rate. The credit side now uses the entered AGI, filing status and number of qualifying persons for the 2026 rate/cap scenario, but it still does not reproduce every Form 2441 eligibility and earned-income rule."
           tipsSection="Worked example: Example: a $7,500 contribution at a 28% marginal rate plus 7.65% FICA produces a simplified $2,673.75 tax-saving estimate. Actual payroll-tax treatment and credit interaction can differ."
           conclusion="Important assumptions and limitations: The 2026 dependent-care assistance exclusion is $7,500 ($3,750 married filing separately). The actual Child and Dependent Care Credit can use up to $3,000 of expenses for one qualifying person or $6,000 for two or more, with a percentage based on income. This calculator does not ask number of dependents, filing status or earned income, so its credit comparison is intentionally simplified."
           benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}

@@ -16,7 +16,8 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
   const [age,setAge]=useState(38)
   const [retirementAge,setRetirementAge]=useState(65)
   const [taxRate,setTaxRate]=useState(24)
-  const result=useMemo(()=>{try{return calculateHealthSavingsAccountProjection(annualContrib,currentBalance,investmentReturn,annualMedicalExpenses,age,retirementAge,taxRate)}catch(e){return null}},[annualContrib, currentBalance, investmentReturn, annualMedicalExpenses, age, retirementAge, taxRate])
+  const [familyCoverage,setFamilyCoverage]=useState(false)
+  const result=useMemo(()=>{try{return calculateHealthSavingsAccountProjection(annualContrib,currentBalance,investmentReturn,annualMedicalExpenses,age,retirementAge,taxRate,familyCoverage)}catch(e){return null}},[annualContrib, currentBalance, investmentReturn, annualMedicalExpenses, age, retirementAge, taxRate, familyCoverage])
   return(
     <CalculatorLayout title="HSA Investment Projection Calculator USA 2026" description="Project your HSA balance to retirement — investing rather than spending creates a useful medical savings reserve that grows completely tax-free." icon="🏥" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="hsa-projection-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -58,6 +59,11 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
               <input type="number" value={retirementAge} onChange={e=>setRetirementAge(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right"/>
               <span className="text-gray-400 text-sm">yrs</span>
             </div></div>
+          <div className="space-y-1"><label className="text-xs font-medium text-gray-600">Coverage Type</label>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={()=>setFamilyCoverage(false)} className={`py-2 rounded-xl text-xs font-bold border-2 ${!familyCoverage?'border-green-500 bg-green-50 text-green-700':'border-gray-200 text-gray-600'}`}>Self-only</button>
+              <button onClick={()=>setFamilyCoverage(true)} className={`py-2 rounded-xl text-xs font-bold border-2 ${familyCoverage?'border-green-500 bg-green-50 text-green-700':'border-gray-200 text-gray-600'}`}>Family</button>
+            </div></div>
           <div className="space-y-1"><label className="text-xs font-medium text-gray-600">Tax Rate (%)</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
@@ -90,7 +96,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
         </div>
       </div>
       <div className="mt-8">
-        <SEOContent title="HSA Investment Projection Calculator USA 2026" category="finance" intro="Project your HSA balance to retirement — investing rather than spending creates a useful medical savings reserve that grows completely tax-free." howItWorks="The projection grows the current HSA balance by the entered annual return, adds the annual contribution, and subtracts modeled medical spending each year until retirement. It also estimates tax savings from contributions using the entered income-tax rate plus a 7.65% payroll-tax assumption." tipsSection="A 38-year-old projecting to age 65 has 27 modeled years. Results are highly sensitive to investment return, annual medical withdrawals and whether contributions remain within the user’s applicable HSA limit." conclusion="For 2026, the IRS HSA contribution limit is $4,400 for self-only HDHP coverage and $8,750 for family coverage. This page does not determine HSA eligibility, catch-up contributions, employer contributions, payroll-tax treatment in every contribution method, or future limits."
+        <SEOContent title="HSA Investment Projection Calculator USA 2026" category="finance" intro="Project your HSA balance to retirement — investing rather than spending creates a useful medical savings reserve that grows completely tax-free." howItWorks="The projection grows the current HSA balance by the entered annual return, adds the annual contribution, and subtracts modeled medical spending each year until retirement. It estimates federal income-tax savings from modeled contributions using the entered tax rate; payroll-tax treatment is not assumed because it depends on contribution method and circumstances." tipsSection="A 38-year-old projecting to age 65 has 27 modeled years. Results are highly sensitive to investment return, annual medical withdrawals and whether contributions remain within the user’s applicable HSA limit." conclusion="For 2026, the IRS HSA contribution limit is $4,400 for self-only HDHP coverage and $8,750 for family coverage. This page does not determine HSA eligibility, catch-up contributions, employer contributions, payroll-tax treatment in every contribution method, or future limits."
           benefits={[{title:"Real-Time",text:"Scenario calculations based on the methodology described above."},{title:"Private",text:"Runs locally."},{title:"Free",text:"No account is required to run the calculation."}]}
           useCases={[{title:"Planning",text:"Model your situation."},{title:"Comparison",text:"See impact."}]}/>
         <InternalLinks title="Related Finance Calculators" variant="grid" links={relatedCalculators?.map(r=>({name:r.name,href:r.href,icon:r.icon,desc:r.desc}))||[]}/>

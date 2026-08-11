@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   return (
     <CalculatorLayout
       title="Alternative Minimum Tax (AMT) Calculator USA 2026"
-      description="Calculate your AMT exposure from ISO stock options, preference items, and high income. Find strategies to minimize AMT liability."
+      description="Calculate your AMT exposure from ISO stock options, preference items, and high income. Estimate potential AMT exposure; this is not a Form 6251 filing calculation."
       icon="⚠️"
       category="Finance"
       relatedCalculators={relatedCalculators}
@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">⚠️ Alternative Minimum Tax (AMT) Calculator USA 2026 — How to Use This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">The Alternative Minimum Tax is a parallel tax system designed to ensure high-income earners pay a minimum rate. For most people, AMT is invisible — but for those exercising ISO stock options or in specific high-income situations, it can trigger unexpected tax bills of tens of thousands of dollars. Knowing your AMT threshold before exercising ISOs is essential.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">The Alternative Minimum Tax is a separate tax system that can apply when certain deductions or preference items reduce regular tax. This calculator is a simplified planning model. For most people, AMT is invisible — but for those exercising ISO stock options or in specific high-income situations, it can trigger unexpected tax bills of tens of thousands of dollars. Knowing your AMT threshold before exercising ISOs is essential.</p>
               </Card>
             </>
           ) : (
@@ -88,8 +88,8 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
         <SEOContent
           title="Alternative Minimum Tax (AMT) Calculator USA 2026"
           category="finance"
-          intro="The Alternative Minimum Tax is a parallel tax system designed to ensure high-income earners pay a minimum rate. For most people, AMT is invisible — but for those exercising ISO stock options or in specific high-income situations, it can trigger unexpected tax bills of tens of thousands of dollars. Knowing your AMT threshold before exercising ISOs is essential."
-          howItWorks="The AMT model adds entered ISO preference income and other preference items to regular-tax income, subtracts the applicable modeled exemption after phaseout, then applies the AMT rates before comparing tentative minimum tax with a simplified regular-tax estimate. For 2026 the calculator uses a $90,100 single exemption, $140,200 joint exemption, phaseout starting at $500,000 single/$1,000,000 joint, and the 28% rate threshold of $244,500 for taxpayers other than married filing separately. The page UI currently calculates single filing status and approximates regular tax as 24% of entered regular-tax income, so Form 6251 can differ materially."
+          intro="The Alternative Minimum Tax is a separate tax system that can apply when certain deductions or preference items reduce regular tax. This calculator is a simplified planning model. For most people, AMT is invisible — but for those exercising ISO stock options or in specific high-income situations, it can trigger unexpected tax bills of tens of thousands of dollars. Knowing your AMT threshold before exercising ISOs is essential."
+          howItWorks="The model adds entered ISO and preference-item amounts to the entered regular-taxable-income proxy, applies the 2026 AMT exemption/phaseout and 26%/28% rates, then compares tentative minimum tax with a progressive federal-tax estimate. It does not reproduce Form 6251. For 2026 the calculator uses a $90,100 single exemption, $140,200 joint exemption, phaseout starting at $500,000 single/$1,000,000 joint, and the 28% rate threshold of $244,500 for taxpayers other than married filing separately. The page UI currently calculates single filing status and approximates regular tax as 24% of entered regular-tax income, so Form 6251 can differ materially."
           tipsSection="Compare multiple scenarios by adjusting individual inputs. Small changes in rate or time period often produce dramatically different outcomes due to compounding."
           conclusion="Use these results as a starting point for conversations with a qualified financial advisor about your specific situation."
           benefits={[{title:"ISO preference exposure",text:"Add the bargain element entered for exercised incentive stock options to modeled AMTI."},{title:"2026 exemption phaseout",text:"Apply the 2026 AMT exemption and 25%-of-excess phaseout before computing tentative minimum tax."},{title:"AMT estimate",text:"Compare tentative minimum tax with the calculator's simplified regular-tax estimate; use Form 6251 for filing."}]}

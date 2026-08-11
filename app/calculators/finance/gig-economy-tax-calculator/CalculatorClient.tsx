@@ -13,13 +13,16 @@ interface Props { faqs:{question:string;answer:string}[];structuredData:object[]
 export default function CalculatorClient({faqs,structuredData,relatedCalculators}:Props) {
   const [gigIncome, setGigIncome] = useState(42000)
   const [businessExpenses, setBusinessExpenses] = useState(3500)
-  const [milesDriven, setMilesDriven] = useState(18000)
+  const [milesJanJun, setMilesJanJun] = useState(9000)
+  const [milesJulDec, setMilesJulDec] = useState(9000)
+  const [homeOfficeExpenses, setHomeOfficeExpenses] = useState(18000)
   const [homeOfficePercent, setHomeOfficePercent] = useState(10)
+  const [phonePercent, setPhonePercent] = useState(45)
   const [monthlyPhone, setMonthlyPhone] = useState(85)
 
   const result = useMemo(()=>{
-    try{return calculateGigEconomyTax([{name:'Platform',income:gigIncome}],businessExpenses,milesDriven,homeOfficePercent,45,monthlyPhone)}catch(e){return null}
-  },[gigIncome, businessExpenses, milesDriven, homeOfficePercent, monthlyPhone])
+    try{return calculateGigEconomyTax([{name:'Platform',income:gigIncome}],businessExpenses,milesJanJun,milesJulDec,homeOfficeExpenses,homeOfficePercent,phonePercent,monthlyPhone)}catch(e){return null}
+  },[gigIncome, businessExpenses, milesJanJun, milesJulDec, homeOfficeExpenses, homeOfficePercent, phonePercent, monthlyPhone])
 
   return (
     <CalculatorLayout title="Gig Economy Tax Calculator USA 2026 — Uber Lyft DoorDash" description="Calculate net take-home pay from gig work after SE tax, federal income tax, mileage deduction, and quarterly estimated payments for rideshare and delivery drivers." icon="🚗" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="gig-economy-tax-calculator">
@@ -43,20 +46,32 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Miles Driven (business)</label>
+            <label className="text-xs font-medium text-gray-600">Business Miles Jan–Jun 2026</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
-              <input type="number" value={milesDriven} onChange={e=>setMilesDriven(Number(e.target.value))} step={500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+              <input type="number" value={milesJanJun} onChange={e=>setMilesJanJun(Number(e.target.value))} step={500} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Home Office %</label>
+            <label className="text-xs font-medium text-gray-600">Business Miles Jul–Dec 2026</label>
+            <input type="number" value={milesJulDec} onChange={e=>setMilesJulDec(Number(e.target.value))} step={500} className="w-full border rounded-xl px-3 py-2 text-right font-semibold" />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Annual Home Expenses ($)</label>
+            <input type="number" value={homeOfficeExpenses} onChange={e=>setHomeOfficeExpenses(Number(e.target.value))} step={500} className="w-full border rounded-xl px-3 py-2 text-right font-semibold" />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Home Office Business-Use %</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
               
               <input type="number" value={homeOfficePercent} onChange={e=>setHomeOfficePercent(Number(e.target.value))} step={5} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
               <span className="text-gray-400 text-sm">%</span>
             </div>
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs font-medium text-gray-600">Phone Business-Use %</label>
+            <input type="number" value={phonePercent} onChange={e=>setPhonePercent(Number(e.target.value))} min={0} max={100} step={5} className="w-full border rounded-xl px-3 py-2 text-right font-semibold" />
           </div>
           <div className="space-y-1">
             <label className="text-xs font-medium text-gray-600">Monthly Phone Bill ($)</label>
@@ -81,7 +96,7 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">🚗 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Gig workers face a double tax burden — self-employment tax (15.3%) on top of federal income tax. But strategic deductions dramatically reduce the bill. 18,000 business miles at $0.76/mile (Jul–Dec 2026; $0.725 Jan–Jun) = $12,060 in deductions alone. This calculator shows your exact net take-home from any gig income after all deductions and taxes.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Gig workers face a double tax burden — self-employment tax (15.3%) on top of federal income tax. But strategic deductions dramatically reduce the bill. Mileage is split between Jan–Jun and Jul–Dec because the IRS 2026 business mileage rates differ by half-year. Home-office and phone deductions use your entered business-use assumptions.</p>
               </Card>
             </>
           ):(
@@ -94,8 +109,8 @@ export default function CalculatorClient({faqs,structuredData,relatedCalculators
           title="Gig Economy Tax Calculator" category="finance"
           intro="This calculator estimates net self-employment income after entered expenses, business mileage, a modeled home-office amount and business-use phone costs, then applies simplified SE and federal income taxes."
           howItWorks="Net SE income starts with platform income minus deductions. SE tax is modeled as 15.3% of 92.35% of net SE income. Half the SE tax is deducted before a simplified 20% QBI amount and the 2026 single standard deduction are used for a flat 22% federal-tax estimate."
-          tipsSection="Worked example: Example: business mileage directly reduces modeled net income. For mileage incurred July–December 2026, the IRS business rate is 76¢ per mile; January–June 2026 uses 72.5¢. The calculator currently applies 76¢ to every mile entered."
-          conclusion="Important assumptions and limitations: This is not a Schedule C or quarterly-payment engine. The home-office calculation assumes $18,000 of annual housing cost, phone business use is fixed at 45% by the UI call, and federal income tax is a flat approximation. Keep date-specific mileage records because 2026 has two business mileage rates."
+          tipsSection="Worked example: Example: business mileage directly reduces modeled net income. For mileage incurred July–December 2026, the IRS business rate is 76¢ per mile; January–June 2026 uses 72.5¢. The calculator applies 72.5¢ to Jan–Jun miles and 76¢ to Jul–Dec miles."
+          conclusion="Important assumptions and limitations: This is not a Schedule C or quarterly-payment engine. Home-office and phone deductions are based on the annual home expense and business-use percentages you enter, and federal income tax is a flat approximation. Keep date-specific mileage records because 2026 has two business mileage rates."
           benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}
           useCases={[{title:"Decision support",text:"Compare the calculator-specific trade-offs before taking the next step."},{title:"Scenario testing",text:"Change one relevant input at a time and observe which output is most sensitive."}]}
         />

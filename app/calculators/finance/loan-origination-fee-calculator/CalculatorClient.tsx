@@ -75,7 +75,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
                 <ResultCard label="Monthly Payment" value={result ? `${Number(result.monthlyPayment).toLocaleString(undefined,{maximumFractionDigits:0})} /mo` : "—"} />
                 <ResultCard label="Total Cost (with fee)" value={result ? `${Number(result.totalCostWithFee).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Total Cost (no fee)" value={result ? `${Number(result.totalCostNoFee).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
-                <ResultCard label="Effective APR" value={result ? `${Number(result.effectiveAPR).toFixed(1)}%` : "—"} />
+                <ResultCard label="Fee-adjusted annual cost" value={result ? `${Number(result.effectiveAPR).toFixed(1)}%` : "—"} />
                 <ResultCard label="Break-Even Months" value={result ? `${Number(result.breakEvenMonths).toLocaleString()} months` : "—"} />
               </div>
 

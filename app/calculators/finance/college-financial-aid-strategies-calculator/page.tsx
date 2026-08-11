@@ -4,7 +4,7 @@ import { generateCalculatorMetadata, generateFAQStructuredData } from '@/lib/seo
 import CalculatorClient from './CalculatorClient'
 export const metadata: Metadata = generateCalculatorMetadata({
   title: 'College Financial Aid Strategy Calculator USA 2026 | ToolTrio',
-  description: 'Calculate your FAFSA Student Aid Index and strategies to legally reduce it — maximizing need-based financial aid for college.',
+  description: 'Explore a simplified college-aid planning model. It is not an official FAFSA Student Aid Index calculator and does not determine aid eligibility.',
   slug: 'college-financial-aid-strategies-calculator',
   category: 'finance',
   region: 'usa',
@@ -12,7 +12,7 @@ export const metadata: Metadata = generateCalculatorMetadata({
 })
 const faqs: {question:string;answer:string}[] = [
   { question: 'What is the Student Aid Index (SAI)?', answer: 'The SAI replaced the old Expected Family Contribution (EFC) starting with the 2024-25 FAFSA cycle. It\'s a number (which can even be negative) used by colleges to determine need-based aid eligibility, calculated from parent and student income, assets, family size, and number in college.' },
-  { question: 'How can I legally reduce my Student Aid Index?', answer: 'Common strategies include: shifting savings into retirement accounts (not counted on FAFSA), spending down student-owned assets before applying (student assets are assessed at a much higher rate than parent assets), timing capital gains realization to avoid the base income year, and maximizing pre-tax retirement contributions to reduce reportable income.' },
+  { question: 'How can I plan for college aid without misrepresenting information?', answer: 'Use accurate information and review the current FAFSA instructions. Asset treatment varies by category, and institutional methodologies can differ. Do not move assets or change income solely to chase a modeled SAI result without checking tax and financial consequences.' },
   { question: 'Does home equity count against financial aid?', answer: 'For the federal FAFSA, primary home equity is not counted at all. However, many private colleges use the CSS Profile, which does count home equity — so strategies differ depending on whether a school uses FAFSA-only or also requires the CSS Profile.' },
   { question: "Is this my official FAFSA Student Aid Index?", answer: "No. It is a simplified ToolTrio scenario formula and omits many inputs and allowances used in the statutory federal SAI calculation." },
   { question: "Does FAFSA count primary-home equity as a parent investment asset?", answer: "Primary-home equity is not reported as an investment asset on the FAFSA. Some institutions using other aid methodologies can ask for additional asset information." },

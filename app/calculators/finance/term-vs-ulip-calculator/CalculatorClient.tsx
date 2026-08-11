@@ -26,16 +26,16 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const months = years * 12
 
     // ULIP: annual premium with charges deducted
-    const ulipNetRate = ulipRate - ulipCharge // net return after charges
+    const ulipNetRate = ulipRate - ulipCharge
     const ulipMR = ulipNetRate / 100 / 12
-    const ulipFV = annualPremium / 12 * ((Math.pow(1 + ulipMR, months) - 1) / ulipMR) * (1 + ulipMR)
+    const ulipFV = ulipMR === 0 ? annualPremium / 12 * months : annualPremium / 12 * ((Math.pow(1 + ulipMR, months) - 1) / ulipMR) * (1 + ulipMR)
     const ulipInvested = annualPremium * years
 
     // Term + SIP: pay term premium for cover, invest remaining in SIP
     const monthlyTerm = termPremium / 12
-    const monthlyRemaining = annualPremium / 12 - monthlyTerm
+    const monthlyRemaining = Math.max(0, annualPremium / 12 - monthlyTerm)
     const sipMR = sipRate / 100 / 12
-    const termSipFV = monthlyRemaining * ((Math.pow(1 + sipMR, months) - 1) / sipMR) * (1 + sipMR)
+    const termSipFV = sipMR === 0 ? monthlyRemaining * months : monthlyRemaining * ((Math.pow(1 + sipMR, months) - 1) / sipMR) * (1 + sipMR)
     const termSipInvested = monthlyRemaining * months
     const totalTermCost = termPremium * years
 
@@ -79,7 +79,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Policy Period" value={years} onChange={setYears} min={10} max={30} step={5} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.termSipBetter ? 'bg-green-50 border-green-300' : 'bg-purple-50 border-purple-300'}`}>
-            <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Better Strategy</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold mb-1">Higher modeled corpus</p>
             <p className="text-xl font-black" style={{ color: result.termSipBetter ? '#10b981' : '#8b5cf6' }}>{result.termSipBetter ? 'Term + SIP' : 'ULIP'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtCompact(result.difference)}</p>
           </div>

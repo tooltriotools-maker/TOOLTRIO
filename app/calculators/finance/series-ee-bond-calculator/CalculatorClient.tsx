@@ -7,13 +7,13 @@ import { FAQSection } from '@/components/ui/FAQSection'
 interface Props { faqs: { question: string; answer: string }[]; structuredData: object[]; relatedCalculators?: { name: string; href: string; icon: string; desc: string }[] }
 export default function CalculatorClient({ faqs, structuredData, relatedCalculators }: Props) {
   const [faceValue, setFaceValue] = useState(10000)
-  const [purchaseYear, setPurchaseYear] = useState(2010)
+  const [purchaseYear, setPurchaseYear] = useState(2026)
   const [currentYear] = useState(2026)
   const [holdToMaturity, setHoldToMaturity] = useState(true)
   const result = useMemo(() => calculateSeriesEEBond(faceValue, purchaseYear, currentYear, holdToMaturity), [faceValue, purchaseYear, currentYear, holdToMaturity])
   const fmt = (v: number) => '$' + Math.round(v).toLocaleString()
   return (
-    <CalculatorLayout title="Series EE Savings Bond Calculator USA 2026" description="Calculate Series EE bond current value, scheduled doubling at 20 years under the applicable Treasury terms, and effective annual return." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="series-ee-bond-calculator">
+    <CalculatorLayout title="Series EE Savings Bond Calculator USA 2026" description="Model a new Series EE savings bond using the current Treasury fixed rate and 20-year doubling guarantee." icon="🏛️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="series-ee-bond-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Bond Details</h2>
@@ -25,7 +25,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
               <label className="text-xs font-medium text-gray-600">{label}</label>
               <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)'}}>
                 {prefix && <span className="text-green-600 text-sm">{prefix}</span>}
-                <input type="number" value={value} onChange={e => set(Number(e.target.value))} step={step} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
+                <input type="number" min={2026} max={2026} value={value} onChange={e => set(Number(e.target.value))} step={step} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
                 {suffix !== undefined && <span className="text-gray-400 text-sm">{suffix}</span>}
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
           <h2 className="text-lg font-bold text-gray-900 mb-3">How to use and interpret this series ee bond calculator</h2>
           <div className="space-y-3 text-sm leading-6 text-gray-600">
             <p>This calculator uses Current Value, Interest Earned, Effective Annual Rate, Federal Tax Due to produce the results displayed above. Change one input at a time when comparing scenarios so you can see which assumption is responsible for the difference.</p>
-            <p>The result is an estimate produced from the calculator&apos;s implemented formula and the values you enter. Review the units, time period, and assumptions before using the output for a decision; a calculated result does not add information that is not represented by the inputs.</p>
+            <p>The result is an estimate produced from the calculator&apos;s new-issue formula and the values you enter. Review the units, time period, and assumptions before using the output for a decision; a calculated result does not add information that is not represented by the inputs.</p>
             <p>Use the worked output as a planning or comparison aid. Real-world results can differ when taxes, fees, eligibility rules, measurement error, market conditions, or other factors not represented by this calculator apply.</p>
           </div>
           <p className="mt-3 text-xs text-gray-500">Full-site audit interpretation: this section describes the calculator implementation on this page and does not change its underlying formula.</p>

@@ -24,8 +24,6 @@ type SpeechRecognitionConstructorLike = new () => SpeechRecognitionLike
 
 // ─── Category config (FIXED: correct hrefs for zip/commodities) ───────────────
 const CAT: Record<string, { emoji: string; label: string; color: string; href: string }> = {
-  finance:     { emoji: '💰', label: 'Finance',     color: '#16a34a', href: '/calculators/finance' },
-  health:      { emoji: '❤️', label: 'Health',      color: '#dc2626', href: '/calculators/health' },
   dev:         { emoji: '⚙️', label: 'Dev Tools',   color: '#7c3aed', href: '/calculators/dev' },
   fun:         { emoji: '🎉', label: 'Fun',          color: '#ea580c', href: '/calculators/fun' },
   zip:         { emoji: '📮', label: 'ZIP Tools',    color: '#0284c7', href: '/zip' },
@@ -168,9 +166,11 @@ const TOOLS: Tool[] = [
   {n:"Social Media Addiction",p:"/calculators/fun/social-media-addiction",c:"fun",k:"social media addiction score",d:"Find your social media addiction score with a quick quiz."},
 ]
 
+const PUBLIC_TOOLS = TOOLS.filter(t => t.c !== 'finance' && t.c !== 'health')
+
 function searchTools(q: string, limit = 5) {
   const words = q.toLowerCase().split(/\s+/).filter(w => w.length > 1)
-  return TOOLS.map(t => {
+  return PUBLIC_TOOLS.map(t => {
     let s = 0; const tl = t.n.toLowerCase(), kl = t.k
     for (const w of words) {
       if (tl === w) s += 12; else if (tl.startsWith(w)) s += 8; else if (tl.includes(w)) s += 6
@@ -189,19 +189,19 @@ function getRelated(pathname: string) {
   }) || null
   if (!cat) return { cat: null, tools: [] }
   const cur = pathname.replace(/\/$/, '')
-  return { cat, tools: TOOLS.filter(t => t.c === cat && t.p !== cur).slice(0, 8) }
+  return { cat, tools: PUBLIC_TOOLS.filter(t => t.c === cat && t.p !== cur).slice(0, 8) }
 }
 
 function getPersonalized() {
-  if (typeof window === 'undefined') return TOOLS.slice(0, 6)
+  if (typeof window === 'undefined') return PUBLIC_TOOLS.slice(0, 6)
   try {
     const h = JSON.parse(localStorage.getItem('trio_history') || '[]') as string[]
-    if (!h.length) return TOOLS.slice(0, 6)
+    if (!h.length) return PUBLIC_TOOLS.slice(0, 6)
     const cc: Record<string, number> = {}
     for (const c of h) cc[c] = (cc[c] || 0) + 1
     const top = Object.entries(cc).sort((a, b) => b[1] - a[1])[0]?.[0]
-    return top ? TOOLS.filter(t => t.c === top).slice(0, 6) : TOOLS.slice(0, 6)
-  } catch { return TOOLS.slice(0, 6) }
+    return top ? PUBLIC_TOOLS.filter(t => t.c === top).slice(0, 6) : PUBLIC_TOOLS.slice(0, 6)
+  } catch { return PUBLIC_TOOLS.slice(0, 6) }
 }
 
 function trackVisit(pathname: string) {
@@ -386,91 +386,32 @@ function ToolRow({ tool, onClick }: { tool: Tool; onClick: () => void; key?: Rea
 }
 
 // ─── Related tab with back button and finance sub-drill ───────────────────────
-type RelatedView = 'home' | 'category' | 'sub'
+type RelatedView = 'home' | 'category'
 function RelatedPanel({ pathname, onClose }: { pathname: string; onClose: () => void }) {
   const { cat, tools } = useMemo(() => getRelated(pathname), [pathname])
-  const [view, setView] = useState<RelatedView>(cat ? 'category' : 'home')
-  const [activeSub, setActiveSub] = useState<string | null>(null)
-
   const catMeta = cat ? CAT[cat] : null
 
-  // Home view: all categories
-  if (view === 'home') {
+  if (!cat) {
     return (
       <div style={{ padding: '12px', maxHeight: '360px', overflowY: 'auto' }}>
-        <p style={{ fontSize: '11px', color: '#64748b', margin: '0 0 8px', fontWeight: 600 }}>Browse all categories:</p>
+        <p style={{ fontSize: '11px', color: '#64748b', margin: '0 0 8px', fontWeight: 600 }}>Browse public categories:</p>
         {Object.entries(CAT).map(([catKey, meta]) => (
-          <button key={catKey}
-            onClick={() => { setView('category'); }}
-            style={{ display: 'flex', width: '100%', alignItems: 'center', gap: '8px', padding: '9px 10px', borderRadius: '10px', textDecoration: 'none', color: '#1e293b', background: '#f8fafc', marginBottom: '4px', fontSize: '13px', fontWeight: 600, border: '1px solid #f1f5f9', cursor: 'pointer', textAlign: 'left' }}>
-            <span>{meta.emoji}</span>
-            <span style={{ flex: 1 }}>{meta.label} Calculators</span>
-            <Link href={meta.href} onClick={onClose} style={{ fontSize: '10px', color: meta.color, fontWeight: 700, textDecoration: 'none', padding: '2px 6px', background: `${meta.color}15`, borderRadius: '6px' }}>
-              View all →
-            </Link>
-          </button>
+          <Link key={catKey} href={meta.href} onClick={onClose}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '9px 10px', borderRadius: '10px', textDecoration: 'none', color: '#1e293b', background: '#f8fafc', marginBottom: '4px', fontSize: '13px', fontWeight: 600, border: '1px solid #f1f5f9' }}>
+            <span>{meta.emoji}</span><span style={{ flex: 1 }}>{meta.label}</span><span style={{ fontSize: '10px', color: meta.color, fontWeight: 700 }}>View all →</span>
+          </Link>
         ))}
       </div>
     )
   }
 
-  // Finance sub-category drill-down
-  if (view === 'sub' && activeSub) {
-    const subTools = TOOLS.filter(t => t.c === 'finance' && FINANCE_SUBS.find(s => s.label === activeSub)?.keywords.some(kw => t.k.includes(kw) || t.n.toLowerCase().includes(kw)))
-    return (
-      <div style={{ padding: '12px', maxHeight: '360px', overflowY: 'auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px' }}>
-          <button onClick={() => setView('category')} style={{ background: '#f1f5f9', border: 'none', borderRadius: '8px', padding: '4px 10px', fontSize: '11px', fontWeight: 700, color: '#475569', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}>
-            ← Back
-          </button>
-          <span style={{ fontSize: '12px', fontWeight: 700, color: '#1e293b' }}>{activeSub}</span>
-        </div>
-        {subTools.length === 0
-          ? <p style={{ fontSize: '12px', color: '#94a3b8', textAlign: 'center' }}>No tools found</p>
-          : subTools.map(t => <ToolRow key={t.p} tool={t} onClick={onClose} />)
-        }
-        <Link href="/calculators/finance" onClick={onClose} style={{ display: 'block', textAlign: 'center', fontSize: '11px', color: '#16a34a', marginTop: '8px', textDecoration: 'underline', fontWeight: 600 }}>
-          View all finance calculators →
-        </Link>
-      </div>
-    )
-  }
-
-  // Category view: related tools for current page's category
   return (
     <div style={{ padding: '12px', maxHeight: '360px', overflowY: 'auto' }}>
-      {/* Back button (only shown if we navigated here from home) */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-        <button onClick={() => setView('home')} style={{ background: '#f1f5f9', border: 'none', borderRadius: '8px', padding: '4px 10px', fontSize: '11px', fontWeight: 700, color: '#475569', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}>
-          ← All categories
-        </button>
-        {catMeta && (
-          <Link href={catMeta.href} onClick={onClose} style={{ fontSize: '11px', color: catMeta.color, fontWeight: 700, textDecoration: 'none' }}>
-            View all {catMeta.label} →
-          </Link>
-        )}
+        <button onClick={() => window.location.reload()} style={{ background: '#f1f5f9', border: 'none', borderRadius: '8px', padding: '4px 10px', fontSize: '11px', fontWeight: 700, color: '#475569', cursor: 'pointer' }}>← All categories</button>
+        {catMeta && <Link href={catMeta.href} onClick={onClose} style={{ fontSize: '11px', color: catMeta.color, fontWeight: 700, textDecoration: 'none' }}>View all {catMeta.label} →</Link>}
       </div>
-
-      {/* Finance sub-categories */}
-      {cat === 'finance' && (
-        <>
-          <p style={{ fontSize: '11px', color: '#64748b', margin: '0 0 6px', fontWeight: 600 }}>Browse by topic:</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '10px' }}>
-            {FINANCE_SUBS.map(sub => (
-              <button key={sub.label} onClick={() => { setActiveSub(sub.label); setView('sub') }}
-                style={{ fontSize: '11px', padding: '4px 8px', borderRadius: '8px', border: '1px solid #d1fae5', background: '#f0fdf4', color: '#16a34a', cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '3px' }}>
-                {sub.emoji} {sub.label}
-              </button>
-            ))}
-          </div>
-          <p style={{ fontSize: '11px', color: '#64748b', margin: '0 0 6px', fontWeight: 600 }}>Related tools on this page:</p>
-        </>
-      )}
-
-      {tools.length > 0
-        ? tools.map(t => <ToolRow key={t.p} tool={t} onClick={onClose} />)
-        : <p style={{ fontSize: '12px', color: '#94a3b8', textAlign: 'center', marginTop: '16px' }}>Browse a category above</p>
-      }
+      {tools.length > 0 ? tools.map(t => <ToolRow key={t.p} tool={t} onClick={onClose} />) : <p style={{ fontSize: '12px', color: '#94a3b8', textAlign: 'center', marginTop: '16px' }}>No public related tools.</p>}
     </div>
   )
 }

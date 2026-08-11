@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { publishedBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
+import { publicBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
+import { isRestrictedBlogCategory } from '@/lib/visibility'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -15,22 +16,18 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 const CURRENT_YEAR = new Date().getFullYear()
 
 export const metadata: Metadata = {
-  title: `Free Finance & Health Guides ${CURRENT_YEAR} | ToolTrio`,
-  description: `${blogPosts.length} in-depth finance, health, tax, retirement and ZIP guides for India, USA, UK and Europe.`,
+  title: `Free Guides & Articles ${CURRENT_YEAR} | ToolTrio`,
+  description: `${blogPosts.length} free guides and articles on ZIP codes and developer tools.`,
   keywords: [
-    'finance guides 2026',
-    'investment guides india usa uk',
-    'SIP investing guide',
-    '401k vs Roth IRA guide',
-    'UK income tax guide 2026',
-    'compound interest guide',
-    'retirement planning guide',
-    'FIRE financial independence guide',
+    'ZIP code guides',
+    'developer tools guides',
+    'JSON formatter guide',
+    'ZIP+4 guide',
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
   openGraph: {
-    title: `${blogPosts.length} Expert Finance & Health Guides ${CURRENT_YEAR}`,
-    description: `${blogPosts.length} expert guides on investing, tax, retirement, loans, health, property and ZIP codes.`,
+    title: `${blogPosts.length} Expert Guides & Articles ${CURRENT_YEAR}`, 
+    description: `${blogPosts.length} expert guides on ZIP codes and developer tools.`,
     url: 'https://tooltrio.com/blog',
     siteName: 'ToolTrio',
     type: 'website',
@@ -64,7 +61,7 @@ const blogListingSchema = {
   '@type': 'Blog',
   name: 'tooltrio.com Blog',
   url: 'https://tooltrio.com/blog',
-  description: `${blogPosts.length} expert finance, health, tax and ZIP guides for India, USA, UK and Europe investors.`,
+  description: `${blogPosts.length} expert guides on ZIP codes and developer tools.`,
   blogPost: blogPosts.map(p => ({
     '@type': 'BlogPosting',
     headline: p.seoTitle,
@@ -75,26 +72,8 @@ const blogListingSchema = {
   })),
 }
 
-const TRENDING_KEYWORDS = [
-  `SIP Calculator ${CURRENT_YEAR}`, 'Gold Price Today', 'Brent Crude $112', 'USD to INR Live',
-  'Home Loan EMI', 'Income Tax New Regime', 'FIRE Calculator India', `Roth IRA ${CURRENT_YEAR}`,
-  '401k vs Pension', 'UK ISA Guide', 'Retirement Planning', 'Mutual Fund Returns',
-  'NPS vs PPF', 'SIP vs Real Estate', 'Bitcoin Tax India', 'Compound Interest',
-  'Credit Score Tips', 'Salary Hike Guide', `Rent vs Buy ${CURRENT_YEAR}`, 'ELSS vs PPF',
-]
-
-const POPULAR_KEYWORDS = [
-  { label: 'SIP Investment',    href: '/blog/sip-calculator-guide-how-to-grow-wealth-with-systematic-investment' },
-  { label: 'Gold Price Guide',  href: '/commodities/gold-price-calculator' },
-  { label: 'Home Loan EMI',     href: '/blog/emi-calculator-complete-guide-understand-home-car-personal-loans' },
-  { label: 'Retirement Planning', href: '/blog/retirement-planning-guide-how-much-do-you-need-to-retire' },
-  { label: 'UK Tax Guide',      href: '/blog/uk-income-tax-guide-paye-national-insurance-take-home-pay-2026' },
-  { label: '401k vs Roth IRA',  href: '/blog/401k-vs-roth-ira-complete-guide-2026' },
-  { label: 'FIRE Movement India', href: '/blog/fire-movement-india-guide-2026' },
-  { label: 'Compound Interest', href: '/blog/compound-interest-guide-eighth-wonder-of-the-world' },
-  { label: 'Income Tax Regime', href: '/blog/income-tax-new-vs-old-regime-india-2026' },
-  { label: 'Currency Exchange', href: '/blog/currency-exchange-guide-india-2026' },
-]
+const TRENDING_KEYWORDS: string[] = []
+const POPULAR_KEYWORDS: { label: string; href: string }[] = []
 
 export default function BlogPage() {
   const featured = blogPosts[0]
@@ -121,15 +100,15 @@ export default function BlogPage() {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Finance & Health Guides</h1>
+              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Guides & Articles</h1>
               <p className="text-green-600 font-semibold text-sm mt-0.5">{blogPosts.length} Expert Guides - Free - No Signup</p>
             </div>
           </div>
           <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-            In-depth financial guides covering <strong>SIP investing</strong>, <strong>401k & Roth IRA</strong>, <strong>UK income tax</strong>, <strong>retirement planning</strong>, <strong>FIRE</strong>, <strong>BMI & health</strong>, and more - written for investors in India, USA, UK and Europe.
+            Practical guides covering ZIP code lookups, ZIP+4, developer utilities and other public ToolTrio resources.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
-            {Object.entries(CAT_CONFIG).map(([slug, cfg]) => {
+            {Object.entries(CAT_CONFIG).filter(([slug]) => !isRestrictedBlogCategory(slug)).map(([slug, cfg]) => {
               const count = byCategory[slug]?.length ?? 0
               if (!count) return null
               return (
@@ -181,7 +160,7 @@ export default function BlogPage() {
         )}
 
         {/* By Category */}
-        {Object.entries(CAT_CONFIG).map(([catSlug, cfg]) => {
+        {Object.entries(CAT_CONFIG).filter(([catSlug]) => !isRestrictedBlogCategory(catSlug)).map(([catSlug, cfg]) => {
           const posts = byCategory[catSlug] ?? []
           if (!posts.length) return null
           const SHOW = 6
@@ -237,14 +216,7 @@ export default function BlogPage() {
         <div className="mt-8 p-8 rounded-3xl bg-gradient-to-br from-green-600 to-emerald-700 text-white text-center shadow-lg">
           <h2 className="text-2xl font-black mb-2">Ready to Put Theory Into Practice?</h2>
           <p className="text-green-100 mb-5 max-w-xl mx-auto">Use our free calculators to model the exact scenarios covered in these guides - with your own numbers.</p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-green-700 rounded-xl font-bold text-sm hover:bg-green-50 transition-all">
-              Browse Finance Calculators →
-            </Link>
-            <Link href="/calculators/health" className="px-5 py-2.5 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-400 transition-all border border-green-400">
-              Browse Health Calculators →
-            </Link>
-          </div>
+
         </div>
       </div>
     </>

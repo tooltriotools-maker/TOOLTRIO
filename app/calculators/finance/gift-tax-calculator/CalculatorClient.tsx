@@ -14,12 +14,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
   const [giftAmount, setGiftAmount] = useState(50000)
   const [gifteeCount, setGifteeCount] = useState(2)
   const [priorTaxableGifts, setPriorTaxableGifts] = useState(0)
+  const [filingStatus, setFilingStatus] = useState<'single' | 'married'>('single')
 
   const result = useMemo(() => {
     try {
-      return calculateGiftTax(giftAmount, gifteeCount, priorTaxableGifts, 'single')
+      return calculateGiftTax(giftAmount, gifteeCount, priorTaxableGifts, filingStatus)
     } catch(e) { return null }
-  }, [giftAmount, gifteeCount, priorTaxableGifts])
+  }, [giftAmount, gifteeCount, priorTaxableGifts, filingStatus])
 
   return (
     <CalculatorLayout
@@ -58,6 +59,13 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
               
             </div>
           </div>
+          <div className="space-y-2">
+            <label className="text-xs font-medium text-gray-600">Donor Filing Status</label>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => setFilingStatus('single')} className={`py-2 rounded-xl text-xs font-semibold ${filingStatus==='single'?'bg-green-500 text-white':'bg-gray-100 text-gray-600'}`}>Single donor</button>
+              <button onClick={() => setFilingStatus('married')} className={`py-2 rounded-xl text-xs font-semibold ${filingStatus==='married'?'bg-green-500 text-white':'bg-gray-100 text-gray-600'}`}>Married / gift-splitting scenario</button>
+            </div>
+          </div>
         </Card>
 
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
@@ -89,7 +97,7 @@ export default function CalculatorClient({ faqs, relatedCalculators }: Props) {
           category="finance"
           intro="Estimate how 2026 annual exclusions reduce a gift and how taxable gifts use the federal lifetime basic exclusion."
           howItWorks="For 2026 the model applies $19,000 per recipient and a $15 million lifetime basic exclusion. Taxable gift = total gifts − available annual exclusions. Tax is modeled at 40% only after remaining lifetime exclusion is exhausted."
-          tipsSection="Worked example: A donor giving $50,000 split equally between two recipients has $38,000 of annual exclusions in the single-donor scenario, leaving $12,000 to use against the lifetime exclusion."
+          tipsSection="The model assumes the total gift is distributed equally among the entered number of recipients and that each gift qualifies for the present-interest annual exclusion, leaving $12,000 to use against the lifetime exclusion."
           conclusion="Important assumptions and limitations: Form 709 rules have exceptions and special elections. Gift splitting, future interests, direct tuition/medical payments, marital deductions, valuation discounts and GST tax require separate analysis. Results are educational estimates, not individualized financial, tax, legal or investment advice."
           benefits={[
             { title: "Calculator results", text: "Results update immediately from the inputs and methodology described on this page." },

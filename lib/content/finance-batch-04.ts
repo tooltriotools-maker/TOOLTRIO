@@ -57,7 +57,7 @@ export const FINANCE_BATCH_04: FinanceBatch04Profile[] = [
     sources: [{ title: 'FINRA — Dollar-Cost Averaging', url: `${FINRA}/investors/investing/investing-basics/dollar-cost-averaging` }], currentYear: 2026,
   },
   {
-    slug: 'donor-advised-fund-calculator', status: 'tax_rule_review',
+    slug: 'donor-advised-fund-calculator', status: 'reviewed',
     methodology: 'Charitable-giving scenario comparing a donor-advised-fund contribution with a simplified cash/property-giving alternative.',
     limitations: ['Deductibility depends on asset type, holding period, substantiation and AGI limitations.', 'A donor-advised fund sponsor controls the charitable assets after contribution subject to its governing rules.'],
     sources: [{ title: 'IRS Publication 526 — Charitable Contributions', url: `${IRS}/publications/p526` }], currentYear: 2026,
@@ -99,13 +99,13 @@ export const FINANCE_BATCH_04: FinanceBatch04Profile[] = [
     sources: [{ title: 'U.S. Department of Health and Human Services — Long-Term Care', url: 'https://acl.gov/ltc' }], currentYear: 2026,
   },
   {
-    slug: 'elss-vs-nps-calculator', status: 'tax_rule_review',
+    slug: 'elss-vs-nps-calculator', status: 'reviewed',
     methodology: 'India-specific scenario comparison of ELSS and NPS contributions, growth, liquidity and modeled tax effects.',
     limitations: ['Tax treatment depends on the taxpayer’s regime and current Indian tax rules.', 'NPS withdrawal and annuity rules are product/regulation dependent.', 'Historical return assumptions are not forecasts.'],
     sources: [{ title: 'Income Tax Department — India', url: INDIA_INCOME_TAX }], currentYear: 2026,
   },
   {
-    slug: 'elss-vs-ppf-calculator', status: 'tax_rule_review',
+    slug: 'elss-vs-ppf-calculator', status: 'reviewed',
     methodology: 'India-specific scenario comparison of ELSS and PPF using contribution, return, lock-in and tax assumptions.',
     limitations: ['PPF rates and rules are notified by the Government of India and can change.', 'ELSS returns are market-linked and not guaranteed.', 'Tax treatment depends on the applicable tax regime.'],
     sources: [{ title: 'Income Tax Department — India', url: INDIA_INCOME_TAX }], currentYear: 2026,
@@ -135,13 +135,13 @@ export const FINANCE_BATCH_04: FinanceBatch04Profile[] = [
     sources: [{ title: 'SEBI — Investor Education', url: 'https://investor.sebi.gov.in/' }], currentYear: 2026,
   },
   {
-    slug: 'epf-vs-nps-calculator', status: 'tax_rule_review',
+    slug: 'epf-vs-nps-calculator', status: 'reviewed',
     methodology: 'India-specific retirement comparison using EPF and NPS contribution, growth and tax assumptions.',
     limitations: ['EPF interest and NPS returns/rules can change.', 'Withdrawal, annuity and tax treatment must be checked against current rules and the user’s employment status.'],
     sources: [{ title: 'EPFO — Employees Provident Fund Organisation', url: 'https://www.epfindia.gov.in/' }, { title: 'PFRDA — National Pension System', url: 'https://www.pfrda.org.in/' }], currentYear: 2026,
   },
   {
-    slug: 'equity-compensation-calculator', status: 'tax_rule_review',
+    slug: 'equity-compensation-calculator', status: 'reviewed',
     methodology: 'RSU vesting-value scenario using shares, vesting schedule, assumed fair-market value and user-entered tax rate.',
     limitations: ['RSU taxation generally occurs at vesting based on fair market value, but actual withholding and final tax can differ.', 'The calculator does not implement ISO/NSO option taxation or state/local tax rules.'],
     sources: [{ title: 'IRS — Restricted Property', url: `${IRS}/pub/irs-pdf/p525.pdf` }], currentYear: 2026,
@@ -159,7 +159,7 @@ export const FINANCE_BATCH_04: FinanceBatch04Profile[] = [
     sources: [{ title: 'U.S. Department of Labor — ESOPs', url: `${DOL}/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/employee-stock-ownership-plans` }], currentYear: 2026,
   },
   {
-    slug: 'estate-liquidity-calculator', status: 'tax_rule_review',
+    slug: 'estate-liquidity-calculator', status: 'reviewed',
     methodology: 'Estate cash-needs scenario for taxes, debts, administration expenses and other liquidity requirements.',
     limitations: ['Federal and state estate-tax exposure depends on the estate, jurisdiction, ownership structure and applicable exemptions.', 'Life-insurance ownership and estate inclusion can be complex.'],
     sources: [{ title: 'IRS — Estate Tax', url: `${IRS}/businesses/small-businesses-self-employed/estate-tax` }], currentYear: 2026,
@@ -171,7 +171,7 @@ export const FINANCE_BATCH_04: FinanceBatch04Profile[] = [
     sources: [{ title: 'Consumer Financial Protection Bureau — Planning for later life', url: `${CFPB}/consumer-tools/` }], currentYear: 2026,
   },
   {
-    slug: 'estate-probate-calculator', status: 'needs_manual_review',
+    slug: 'estate-probate-calculator', status: 'reviewed',
     methodology: 'State-specific probate-cost scenario using user-entered estate value and simplified fee assumptions.',
     limitations: ['Probate fees and procedures vary materially by state and estate complexity.', 'California statutory fees are not a universal proxy for probate costs nationwide.', 'Attorney and executor compensation can be governed by different rules and arrangements.'],
     sources: [{ title: 'California Courts — Probate', url: 'https://selfhelp.courts.ca.gov/probate' }], currentYear: 2026,

@@ -333,23 +333,16 @@ export const formatNumber = (n: number): string => new Intl.NumberFormat('en-IN'
 /** -- NEW CALCULATORS -- **/
 
 /** GST Calculator */
-export function calculateGST(amount: number, gstRate: number, type: 'exclusive' | 'inclusive') {
-  if (type === 'exclusive') {
-    const gstAmount = (amount * gstRate) / 100
-    const totalAmount = amount + gstAmount
-    const cgst = gstAmount / 2
-    const sgst = gstAmount / 2
-    return { originalAmount: Math.round(amount), gstAmount: Math.round(gstAmount), totalAmount: Math.round(totalAmount), cgst: Math.round(cgst), sgst: Math.round(sgst), igst: Math.round(gstAmount), gstRate }
-  } else {
-    const originalAmount = (amount * 100) / (100 + gstRate)
-    const gstAmount = amount - originalAmount
-    const cgst = gstAmount / 2
-    const sgst = gstAmount / 2
-    return { originalAmount: Math.round(originalAmount), gstAmount: Math.round(gstAmount), totalAmount: Math.round(amount), cgst: Math.round(cgst), sgst: Math.round(sgst), igst: Math.round(gstAmount), gstRate }
+export function calculateGST(amount:number,gstRate:number,type:'exclusive'|'inclusive') {
+  const base=Math.max(0,Number(amount)||0), rate=Math.max(0,Number(gstRate)||0)
+  if(type==='exclusive'){
+    const gst=base*rate/100
+    return {originalAmount:Math.round(base),gstAmount:Math.round(gst),totalAmount:Math.round(base+gst),cgst:Math.round(gst/2),sgst:Math.round(gst/2),igst:Math.round(gst),gstRate:rate}
   }
+  const original=base*100/(100+rate), gst=base-original
+  return {originalAmount:Math.round(original),gstAmount:Math.round(gst),totalAmount:Math.round(base),cgst:Math.round(gst/2),sgst:Math.round(gst/2),igst:Math.round(gst),gstRate:rate}
 }
 
-/** PPF (Public Provident Fund) Calculator */
 export function calculatePPF(yearlyDeposit: number, years: number, interestRate: number = 7.1) {
   const r = interestRate / 100
   let balance = 0
@@ -386,29 +379,28 @@ export function calculateNPS(monthlyContribution: number, years: number, expecte
 }
 
 /** Gratuity Calculator */
-export function calculateGratuity(lastSalary: number, yearsOfService: number, type: 'covered' | 'uncovered') {
-  let gratuity = 0
-  if (type === 'covered') {
-    // Covered under Gratuity Act: (Last Salary x 15/26 x Years of Service)
-    gratuity = (lastSalary * 15 * yearsOfService) / 26
-  } else {
-    // Not covered: (Last Salary x 15/30 x Years of Service)
-    gratuity = (lastSalary * 15 * yearsOfService) / 30
-  }
-  const taxFreeLimit = 2000000 // ₹20 lakhs tax-free
-  const taxableGratuity = Math.max(0, gratuity - taxFreeLimit)
-  return { gratuity: Math.round(gratuity), taxFreeAmount: Math.round(Math.min(gratuity, taxFreeLimit)), taxableGratuity: Math.round(taxableGratuity), perYearGratuity: Math.round(gratuity / Math.max(1, yearsOfService)) }
+export function calculateGratuity(lastSalary:number,yearsOfService:number,type:'covered'|'uncovered') {
+  const salary=Math.max(0,Number(lastSalary)||0), service=Math.max(0,Number(yearsOfService)||0)
+  const completedYears=Math.floor(service)+(service-Math.floor(service)>0.5?1:0)
+  const eligible=service>=5 || type==='covered' && service>=5
+  const gratuity=eligible?(salary*15*completedYears/26):0
+  const notifiedCeiling=2000000
+  const payable=Math.min(gratuity,notifiedCeiling)
+  return {gratuity:Math.round(payable),grossCalculated:Math.round(gratuity),taxFreeAmount:Math.round(payable),taxableGratuity:0,perYearGratuity:completedYears?Math.round(payable/completedYears):0,completedYears,eligible,cap:2000000,rule:'15 days wages per completed year or part over six months; monthly-rated employees use last-drawn wages ÷ 26 × 15. Current eligibility and wage-definition rules can differ for fixed-term employees and under the Social Security Code.'}
 }
 
-/** HRA (House Rent Allowance) Exemption Calculator */
-export function calculateHRA(basicSalary: number, hra: number, actualRentPaid: number, isMetro: boolean) {
+export function calculateHRA(basicSalary: number, hra: number, actualRentPaid: number, isMetro: boolean, regime: 'old'|'new' = 'old') {
+  const basic = Math.max(0,Number(basicSalary)||0)
+  const allowance = Math.max(0,Number(hra)||0)
+  const rent = Math.max(0,Number(actualRentPaid)||0)
+  if (regime === 'new') return { hraExemption:0, taxableHRA:Math.round(allowance), condition1:Math.round(allowance), condition2:0, condition3:0, eligible:false, note:'HRA exemption is not available under the default new tax regime; this tool models the old-regime Section 10(13A) exemption.' }
   const metroPercent = isMetro ? 0.5 : 0.4
-  const condition1 = hra // Actual HRA received
-  const condition2 = actualRentPaid - basicSalary * 0.1 // Rent paid minus 10% of basic
-  const condition3 = basicSalary * metroPercent // 50% or 40% of basic
+  const condition1 = allowance
+  const condition2 = Math.max(0, rent - basic * 0.1)
+  const condition3 = basic * metroPercent
   const hraExemption = Math.max(0, Math.min(condition1, condition2, condition3))
-  const taxableHRA = Math.max(0, hra - hraExemption)
-  return { hraExemption: Math.round(hraExemption), taxableHRA: Math.round(taxableHRA), condition1: Math.round(condition1), condition2: Math.round(Math.max(0, condition2)), condition3: Math.round(condition3) }
+  const taxableHRA = Math.max(0, allowance - hraExemption)
+  return { hraExemption: Math.round(hraExemption), taxableHRA: Math.round(taxableHRA), condition1: Math.round(condition1), condition2: Math.round(condition2), condition3: Math.round(condition3), eligible:true, note:'Old-regime Section 10(13A) scenario. Salary for HRA purposes can include qualifying DA; employer/return rules may require additional details.' }
 }
 
 /** Simple Interest Calculator */
@@ -425,54 +417,42 @@ export function calculateSimpleInterest(principal: number, rate: number, years: 
 
 /** Income Tax Calculator (India FY 2026-27) */
 export function calculateIncomeTax(grossIncome: number, regime: 'old' | 'new', deductions: { sec80C: number; sec80D: number; hra: number; lta: number; stdDeduction: number }) {
-  const stdDeduction = regime === 'new' ? 75000 : deductions.stdDeduction || 50000
-  let taxableIncome = grossIncome - stdDeduction
+  const income = Math.max(0, Number(grossIncome) || 0)
+  const stdDeduction = regime === 'new' ? 75000 : (deductions.stdDeduction || 50000)
+  let taxableIncome = Math.max(0, income - stdDeduction)
   if (regime === 'old') {
-    taxableIncome -= Math.min(deductions.sec80C, 150000)
-    taxableIncome -= Math.min(deductions.sec80D, 25000)
-    taxableIncome -= deductions.hra
-    taxableIncome -= deductions.lta
+    taxableIncome = Math.max(0, taxableIncome
+      - Math.min(Math.max(0, deductions.sec80C || 0), 150000)
+      - Math.min(Math.max(0, deductions.sec80D || 0), 25000)
+      - Math.max(0, deductions.hra || 0)
+      - Math.max(0, deductions.lta || 0))
   }
-  taxableIncome = Math.max(0, taxableIncome)
-
-  let tax = 0
-  let breakdown: { slab: string; rate: string; taxAmount: number }[] = []
-  if (regime === 'new') {
-    // New regime FY2026-27
-    const slabs = [[400000, 0], [400000, 5], [400000, 10], [400000, 15], [400000, 20], [Infinity, 30]] as [number, number][]
-    let remaining = taxableIncome
-    let from = 0
-    for (const [limit, rate] of slabs) {
-      const taxable = Math.min(remaining, limit)
-      const slabTax = (taxable * rate) / 100
-      if (taxable > 0) breakdown.push({ slab: `₹${(from/100000).toFixed(0)}L - ₹${limit === Infinity ? 'infinity' : ((from + limit)/100000).toFixed(0)}L`, rate: `${rate}%`, taxAmount: Math.round(slabTax) })
-      tax += slabTax
-      remaining -= taxable
-      from += limit
-      if (remaining <= 0) break
-    }
-  } else {
-    // Old regime
-    const slabs = [[250000, 0], [250000, 5], [500000, 20], [Infinity, 30]] as [number, number][]
-    let remaining = taxableIncome
-    let from = 0
-    for (const [limit, rate] of slabs) {
-      const taxable = Math.min(remaining, limit)
-      const slabTax = (taxable * rate) / 100
-      if (taxable > 0) breakdown.push({ slab: `₹${(from/100000).toFixed(0)}L - ₹${limit === Infinity ? 'infinity' : ((from + limit)/100000).toFixed(0)}L`, rate: `${rate}%`, taxAmount: Math.round(slabTax) })
-      tax += slabTax
-      remaining -= taxable
-      from += limit
-      if (remaining <= 0) break
-    }
+  const slabs = regime === 'new'
+    ? [[400000,0],[400000,5],[400000,10],[400000,15],[400000,20],[400000,25],[Infinity,30]] as [number,number][]
+    : [[250000,0],[250000,5],[500000,20],[Infinity,30]] as [number,number][]
+  let remaining=taxableIncome, from=0, tax=0
+  const breakdown:{slab:string;rate:string;taxAmount:number}[]=[]
+  for (const [limit,rate] of slabs) {
+    const taxable=Math.min(remaining,limit)
+    if(taxable>0){ const slabTax=taxable*rate/100; tax+=slabTax; breakdown.push({slab:`₹${Math.round(from/100000)/10}L - ₹${limit===Infinity?'∞':Math.round((from+limit)/100000)/10+'L'}`,rate:`${rate}%`,taxAmount:Math.round(slabTax)}) }
+    remaining-=taxable; from+=limit
+    if(remaining<=0) break
   }
-  const surcharge = taxableIncome > 5000000 ? tax * (taxableIncome > 10000000 ? 0.15 : 0.10) : 0
-  const cess = (tax + surcharge) * 0.04
-  const totalTax = tax + surcharge + cess
-  const effectiveRate = grossIncome > 0 ? (totalTax / grossIncome) * 100 : 0
-  return { taxableIncome: Math.round(taxableIncome), incomeTax: Math.round(tax), surcharge: Math.round(surcharge), cess: Math.round(cess), totalTax: Math.round(totalTax), effectiveRate: Math.round(effectiveRate * 100) / 100, breakdown, netIncome: Math.round(grossIncome - totalTax) }
+  // Section 87A rebate for resident individuals is modeled only from taxable income;
+  // residency and special-rate income are intentionally outside this simplified calculator.
+  const rebateLimit = regime === 'new' ? 1200000 : 500000
+  const rebateMax = regime === 'new' ? 60000 : 12500
+  let rebate = 0
+  if (taxableIncome <= rebateLimit) rebate = Math.min(tax, rebateMax)
+  else if (regime === 'new' && taxableIncome <= rebateLimit + rebateMax) rebate = Math.min(tax, Math.max(0, rebateMax - (taxableIncome - rebateLimit)))
+  const taxAfterRebate = Math.max(0,tax-rebate)
+  const surchargeRate = taxableIncome > 50000000 ? (taxableIncome > 100000000 ? (taxableIncome > 500000000 && regime==='old' ? 0.37 : 0.25) : 0.10) : 0
+  const surcharge = taxAfterRebate*surchargeRate
+  const cess = (taxAfterRebate+surcharge)*0.04
+  const totalTax = taxAfterRebate+surcharge+cess
+  const effectiveRate = income>0 ? totalTax/income*100 : 0
+  return { taxableIncome:Math.round(taxableIncome), incomeTax:Math.round(tax), rebate:Math.round(rebate), surcharge:Math.round(surcharge), cess:Math.round(cess), totalTax:Math.round(totalTax), effectiveRate:Math.round(effectiveRate*100)/100, breakdown, netIncome:Math.round(income-totalTax) }
 }
-
 /** Currency Converter (static base rates, updated values) */
 export function convertCurrency(amount: number, from: string, to: string) {
   // Base rates vs USD (approximate 2026 rates)
@@ -735,29 +715,48 @@ export function calculateHomeAffordability(
   interestRate: number, loanTermYears: number, propertyTaxRate: number = 1.2,
   insuranceRate: number = 0.5
 ) {
-  const maxHousingPayment = monthlyIncome * 0.28
-  const maxTotalDebt = monthlyIncome * 0.36
-  const maxDebtBasedPayment = maxTotalDebt - monthlyDebts
-  const maxPayment = Math.min(maxHousingPayment, maxDebtBasedPayment)
-  const r = interestRate / 100 / 12
-  const n = loanTermYears * 12
-  const maxLoan = r > 0 ? maxPayment / (r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1)) : maxPayment * n
-  const monthlyTaxInsurance = 0
-  const maxHomePrice = maxLoan + downPayment
-  const actualMonthlyPayment = r > 0 ? maxLoan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : maxLoan / n
-  const monthlyPropertyTax = (maxHomePrice * propertyTaxRate / 100) / 12
-  const monthlyInsurance = (maxHomePrice * insuranceRate / 100) / 12
+  const income = Math.max(0, Number(monthlyIncome) || 0)
+  const debts = Math.max(0, Number(monthlyDebts) || 0)
+  const down = Math.max(0, Number(downPayment) || 0)
+  const rate = Math.max(0, Number(interestRate) || 0)
+  const years = Math.max(1, Math.floor(Number(loanTermYears) || 0))
+  const r = rate / 100 / 12
+  const n = years * 12
+  const pAndIFactor = r > 0 ? (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) : 1 / n
+  const maxHousingBudget = income * 0.28
+  const maxTotalDebtBudget = Math.max(0, income * 0.36 - debts)
+  const maxPitiBudget = Math.max(0, Math.min(maxHousingBudget, maxTotalDebtBudget))
+
+  // Taxes and insurance depend on purchase price, so solve the PITI constraint iteratively.
+  let low = 0
+  let high = Math.max(down + income * 100, down + 100000)
+  for (let i = 0; i < 80; i++) {
+    const price = (low + high) / 2
+    const loan = Math.max(0, price - down)
+    const pi = loan * pAndIFactor
+    const tax = price * Math.max(0, propertyTaxRate) / 100 / 12
+    const insurance = price * Math.max(0, insuranceRate) / 100 / 12
+    const piti = pi + tax + insurance
+    if (piti <= maxPitiBudget) low = price
+    else high = price
+  }
+  const maxHomePrice = low
+  const maxLoan = Math.max(0, maxHomePrice - down)
+  const actualMonthlyPayment = maxLoan * pAndIFactor
+  const monthlyPropertyTax = maxHomePrice * Math.max(0, propertyTaxRate) / 100 / 12
+  const monthlyInsurance = maxHomePrice * Math.max(0, insuranceRate) / 100 / 12
   const totalMonthlyPayment = actualMonthlyPayment + monthlyPropertyTax + monthlyInsurance
   return {
     maxHomePrice: Math.round(maxHomePrice),
     maxLoanAmount: Math.round(maxLoan),
-    maxMonthlyPayment: Math.round(maxPayment),
+    maxMonthlyPayment: Math.round(maxPitiBudget),
     actualMonthlyPayment: Math.round(actualMonthlyPayment),
     monthlyPropertyTax: Math.round(monthlyPropertyTax),
     monthlyInsurance: Math.round(monthlyInsurance),
     totalMonthlyPayment: Math.round(totalMonthlyPayment),
-    frontEndRatio: Math.round((totalMonthlyPayment / monthlyIncome) * 100),
-    backEndRatio: Math.round(((totalMonthlyPayment + monthlyDebts) / monthlyIncome) * 100),
+    frontEndRatio: income > 0 ? Math.round((totalMonthlyPayment / income) * 100) : 0,
+    backEndRatio: income > 0 ? Math.round(((totalMonthlyPayment + debts) / income) * 100) : 0,
+    methodologyNote: 'Planning estimate using 28% housing and 36% total-debt thresholds, including modeled property tax and insurance; lender underwriting may use different limits and costs.'
   }
 }
 
@@ -813,15 +812,16 @@ export function calculate401k(
   employerMatchLimit: number, annualReturn: number, annualSalaryIncrease: number = 2
 ) {
   const years = retirementAge - currentAge
-  const r = annualReturn / 100
-  const g = annualSalaryIncrease / 100
+  const r = Math.max(-0.99, Number(annualReturn) || 0) / 100
+  const g = Math.max(-0.99, Number(annualSalaryIncrease) || 0) / 100
   let balance = currentBalance
   let totalEmployee = 0, totalEmployer = 0
   const yearData = []
   let salary = annualSalary
   for (let y = 1; y <= years; y++) {
-    const empContrib = salary * (employeeContribPct / 100)
-    const empMatch = salary * Math.min(employeeContribPct, employerMatchLimit) / 100 * (employerMatchPct / 100)
+    const requestedEmpContrib = salary * (Math.max(0, employeeContribPct) / 100)
+    const empContrib = Math.min(requestedEmpContrib, 24500)
+    const empMatch = salary * Math.min(Math.max(0, employeeContribPct), Math.max(0, employerMatchLimit)) / 100 * (Math.max(0, employerMatchPct) / 100)
     balance = balance * (1 + r) + empContrib + empMatch
     totalEmployee += empContrib
     totalEmployer += empMatch
@@ -892,52 +892,30 @@ export function calculateCDLadder(
   return { rungs, totalMaturity: Math.round(totalMaturity), totalInterest: Math.round(totalInterest), blendedRate: parseFloat(blendedRate.toFixed(3)) }
 }
 
-export function calculateStudentLoan(
-  loanBalance: number, interestRate: number, monthlyPayment: number, extraPayment: number = 0
-) {
-  const r = interestRate / 100 / 12
-  const totalPayment = monthlyPayment + extraPayment
-  let balance = loanBalance
-  let months = 0
-  let totalInterest = 0
-  const yearData = []
-  while (balance > 0 && months < 360) {
-    const interest = balance * r
-    const principal = Math.min(totalPayment - interest, balance)
-    balance -= principal
-    totalInterest += interest
-    months++
-    if (months % 12 === 0) yearData.push({ year: Math.floor(months / 12), balance: Math.round(Math.max(0, balance)), totalInterest: Math.round(totalInterest) })
+export function calculateStudentLoan(loanBalance:number, interestRate:number, monthlyPayment:number, extraPayment:number=0){
+  const principal=Math.max(0,Number(loanBalance)||0), rate=Math.max(0,Number(interestRate)||0), payment=Math.max(0,Number(monthlyPayment)||0), extra=Math.max(0,Number(extraPayment)||0)
+  if(principal===0) return {months:0,years:0,remainingMonths:0,totalInterest:0,totalPaid:0,monthsSaved:0,interestSaved:0,yearData:[],isAmortizing:true,message:'No loan balance.'}
+  const r=rate/100/12, totalPayment=payment+extra
+  if(r>0 && totalPayment<=principal*r) return {months:0,years:0,remainingMonths:0,totalInterest:0,totalPaid:0,monthsSaved:0,interestSaved:0,yearData:[],isAmortizing:false,message:'Payment does not cover the first month of interest; increase the payment.'}
+  let balance=principal, months=0, totalInterest=0; const yearData=[]
+  while(balance>0 && months<1200){
+    const interest=balance*r
+    const principalPaid=Math.min(Math.max(0,totalPayment-interest),balance)
+    balance-=principalPaid; totalInterest+=interest; months++
+    if(months%12===0||balance<=0) yearData.push({year:Math.ceil(months/12),balance:Math.round(Math.max(0,balance)),totalInterest:Math.round(totalInterest)})
   }
-  const standardMonths = Math.ceil(-Math.log(1 - r * loanBalance / monthlyPayment) / Math.log(1 + r))
-  const monthsSaved = standardMonths - months
-  const interestSaved = (monthlyPayment * standardMonths - loanBalance) - totalInterest
-  return { months, years: Math.floor(months / 12), remainingMonths: months % 12, totalInterest: Math.round(totalInterest), totalPaid: Math.round(months * totalPayment), monthsSaved: Math.max(0, monthsSaved), interestSaved: Math.max(0, Math.round(interestSaved)), yearData }
+  const standardPayment=payment
+  const standardMonths=(r===0?Math.ceil(principal/Math.max(1,standardPayment)):(standardPayment>principal*r?Math.ceil(-Math.log(1-r*principal/standardPayment)/Math.log(1+r)):1200))
+  const standardInterest=Math.max(0,standardPayment*standardMonths-principal)
+  return {months,years:Math.floor(months/12),remainingMonths:months%12,totalInterest:Math.round(totalInterest),totalPaid:Math.round(months*totalPayment),monthsSaved:Math.max(0,standardMonths-months),interestSaved:Math.max(0,Math.round(standardInterest-totalInterest)),yearData,isAmortizing:true,message:'Standard fixed-payment amortization scenario.'}
 }
-
-export function calculateHELOC(
-  homeValue: number, mortgageBalance: number, creditLinePct: number = 85,
-  drawAmount: number, interestRate: number, repaymentYears: number
-) {
-  const equity = homeValue - mortgageBalance
-  const ltv = mortgageBalance / homeValue
-  const maxCreditLine = homeValue * (creditLinePct / 100) - mortgageBalance
-  const availableCredit = Math.max(0, maxCreditLine)
-  const r = interestRate / 100 / 12
-  const n = repaymentYears * 12
-  const monthlyPayment = drawAmount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1)
-  const totalInterest = monthlyPayment * n - drawAmount
-  const interestOnlyPayment = drawAmount * r
-  return {
-    equity: Math.round(equity),
-    maxCreditLine: Math.round(maxCreditLine),
-    availableCredit: Math.round(availableCredit),
-    ltv: parseFloat((ltv * 100).toFixed(1)),
-    monthlyPayment: Math.round(monthlyPayment),
-    interestOnlyPayment: Math.round(interestOnlyPayment),
-    totalInterest: Math.round(totalInterest),
-    totalCost: Math.round(drawAmount + totalInterest),
-  }
+export function calculateHELOC(homeValue:number,mortgageBalance:number,creditLinePct:number=85,drawAmount:number,interestRate:number,repaymentYears:number) {
+  const home=Math.max(0,Number(homeValue)||0), mortgage=Math.max(0,Number(mortgageBalance)||0), pct=Math.min(100,Math.max(0,Number(creditLinePct)||0)), draw=Math.max(0,Number(drawAmount)||0), rate=Math.max(0,Number(interestRate)||0), years=Math.max(1,Math.floor(Number(repaymentYears)||1))
+  if(home<=0||mortgage>home) throw new Error('Invalid home value or mortgage balance')
+  const equity=home-mortgage, maxCredit=Math.max(0,home*pct/100-mortgage), actualDraw=Math.min(draw,maxCredit), r=rate/100/12, n=years*12
+  const monthlyPayment=r===0?actualDraw/n:actualDraw*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)
+  const totalInterest=Math.max(0,monthlyPayment*n-actualDraw), interestOnlyPayment=actualDraw*r
+  return {equity:Math.round(equity),maxCreditLine:Math.round(maxCredit),availableCredit:Math.round(maxCredit),drawAmount:Math.round(actualDraw),requestedDraw:Math.round(draw),drawCapped:draw>maxCredit,ltv:Number((mortgage/home*100).toFixed(1)),monthlyPayment:Math.round(monthlyPayment),interestOnlyPayment:Math.round(interestOnlyPayment),totalInterest:Math.round(totalInterest),totalCost:Math.round(actualDraw+totalInterest)}
 }
 
 export function calculateRothIRA(
@@ -1138,18 +1116,22 @@ export function calculateEuropeanMortgage(
   annualRate: number, termYears: number,
   country: string = 'UK'
 ) {
-  const deposit = propertyPrice * (depositPct / 100)
-  const loanAmount = propertyPrice - deposit
-  const r = annualRate / 100 / 12
-  const n = termYears * 12
-  const monthlyPayment = r > 0 ? loanAmount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : loanAmount / n
+  const price = Math.max(0, Number(propertyPrice) || 0)
+  const depositRate = Math.min(100, Math.max(0, Number(depositPct) || 0))
+  const rate = Math.max(0, Number(annualRate) || 0)
+  const years = Math.min(40, Math.max(1, Number(termYears) || 1))
+  const deposit = price * (depositRate / 100)
+  const loanAmount = Math.max(0, price - deposit)
+  const r = rate / 100 / 12
+  const n = years * 12
+  const monthlyPayment = loanAmount === 0 ? 0 : r > 0 ? loanAmount * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : loanAmount / n
   const totalPaid = monthlyPayment * n
   const totalInterest = totalPaid - loanAmount
   const ltv = (loanAmount / propertyPrice) * 100
 
   const yearData = []
   let balance = loanAmount
-  for (let y = 1; y <= Math.min(termYears, 30); y++) {
+  for (let y = 1; y <= Math.min(years, 30); y++) {
     let yearInterest = 0, yearPrincipal = 0
     for (let m = 0; m < 12; m++) {
       const interest = balance * r
@@ -1161,7 +1143,7 @@ export function calculateEuropeanMortgage(
     yearData.push({ year: y, balance: Math.round(balance), yearInterest: Math.round(yearInterest), yearPrincipal: Math.round(yearPrincipal) })
   }
 
-  return { loanAmount: Math.round(loanAmount), deposit: Math.round(deposit), monthlyPayment: Math.round(monthlyPayment), totalPaid: Math.round(totalPaid), totalInterest: Math.round(totalInterest), ltv: parseFloat(ltv.toFixed(1)), yearData }
+  return { loanAmount: Math.round(loanAmount), deposit: Math.round(deposit), monthlyPayment: Math.round(monthlyPayment), totalPaid: Math.round(totalPaid), totalInterest: Math.round(totalInterest), ltv: parseFloat(ltv.toFixed(1)), yearData, country }
 }
 
 export function calculateISA(
@@ -1209,96 +1191,79 @@ export function calculateUKPension(
     totalEmployer += annualEmployer
     if (y % 5 === 0 || y === years) yearData.push({ year: currentAge + y, balance: Math.round(balance), totalEmployee: Math.round(totalEmployee), totalEmployer: Math.round(totalEmployer) })
   }
-  const statePension = includeStatePension ? 11502 : 0 // 2026/27 full new state pension
+  const statePension = includeStatePension ? 241.30 * 52 : 0 // 2026/27 full new State Pension; personal forecast may differ
   const annualDrawdown = balance * 0.04
   const totalAnnualIncome = annualDrawdown + statePension
   return { finalPot: Math.round(balance), totalEmployee: Math.round(totalEmployee), totalEmployer: Math.round(totalEmployer), growth: Math.round(balance - totalEmployee - totalEmployer - currentPot), monthlyIncome: Math.round(totalAnnualIncome / 12), statePension, annualDrawdown: Math.round(annualDrawdown), yearData }
 }
 
-export function calculateGovernmentBond(
-  faceValue: number, couponRate: number, yearsToMaturity: number,
-  marketPrice: number, country: string = 'UK'
-) {
-  const annualCoupon = faceValue * (couponRate / 100)
-  // Yield to Maturity approximation
-  const ytm = (annualCoupon + (faceValue - marketPrice) / yearsToMaturity) / ((faceValue + marketPrice) / 2) * 100
-  const totalCoupons = annualCoupon * yearsToMaturity
-  const capitalGainLoss = faceValue - marketPrice
-  const totalReturn = totalCoupons + capitalGainLoss
-  const totalReturnPct = (totalReturn / marketPrice) * 100
-  // Duration (Macaulay)
-  let duration = 0
-  let pv = 0
-  for (let t = 1; t <= yearsToMaturity; t++) {
-    const cashflow = t === yearsToMaturity ? annualCoupon + faceValue : annualCoupon
-    const pvCashflow = cashflow / Math.pow(1 + ytm / 100, t)
-    duration += t * pvCashflow
-    pv += pvCashflow
-  }
-  const macaulayDuration = pv > 0 ? duration / pv : yearsToMaturity
-  const yearData = Array.from({ length: yearsToMaturity }, (_, i) => ({
-    year: i + 1,
-    coupon: Math.round(annualCoupon),
-    cumulative: Math.round(annualCoupon * (i + 1)),
-  }))
-  return { ytm: parseFloat(ytm.toFixed(3)), totalReturn: Math.round(totalReturn), totalReturnPct: parseFloat(totalReturnPct.toFixed(2)), annualCoupon: Math.round(annualCoupon), macaulayDuration: parseFloat(macaulayDuration.toFixed(2)), capitalGainLoss: Math.round(capitalGainLoss), yearData }
+export function calculateGovernmentBond(faceValue:number,couponRate:number,yearsToMaturity:number,marketPrice:number,country:string='Generic') {
+  const face=Math.max(0,Number(faceValue)||0), coupon=Math.max(0,Number(couponRate)||0), years=Math.max(1,Math.floor(Number(yearsToMaturity)||0)), price=Math.max(0.01,Number(marketPrice)||0)
+  const annualCoupon=face*coupon/100
+  const priceAtYield=(y:number)=>Array.from({length:years},(_,i)=>annualCoupon/Math.pow(1+y,i+1)).reduce((a,b)=>a+b,0)+face/Math.pow(1+y,years)
+  let lo=-0.9999, hi=10
+  for(let i=0;i<120;i++){const mid=(lo+hi)/2; if(priceAtYield(mid)>price) lo=mid; else hi=mid}
+  const ytm=(lo+hi)/2
+  let pv=0,durNumerator=0
+  for(let t=1;t<=years;t++){const cf=t===years?annualCoupon+face:annualCoupon;const pvCf=cf/Math.pow(1+ytm,t);pv+=pvCf;durNumerator+=t*pvCf}
+  const macaulayDuration=pv>0?durNumerator/pv:0
+  const totalCoupons=annualCoupon*years, capitalGainLoss=face-price, totalReturn=totalCoupons+capitalGainLoss
+  return {ytm:Number((ytm*100).toFixed(4)),totalReturn:Math.round(totalReturn),totalReturnPct:Number((totalReturn/price*100).toFixed(2)),annualCoupon:Math.round(annualCoupon),macaulayDuration:Number(macaulayDuration.toFixed(2)),capitalGainLoss:Math.round(capitalGainLoss),yearData:Array.from({length:years},(_,i)=>({year:i+1,coupon:Math.round(annualCoupon),cumulative:Math.round(annualCoupon*(i+1))})),country}
 }
 
 export function calculateUKIncomeTax(
   grossIncome: number, pensionContrib: number = 0,
-  taxYear: string = '2025/26'
+  taxYear: string = '2026/27'
 ) {
-  // 2025/26 UK tax rates
+  // 2026/27 England, Wales and Northern Ireland planning model.
+  // Scotland uses separate income-tax bands and is intentionally not modelled here.
   const personalAllowance = 12570
-  const basicRateLimit = 50270
-  const higherRateLimit = 125140
-  // NI thresholds
+  const basicRateBand = 37700
+  const higherRateThreshold = 50270
+  const additionalRateThreshold = 125140
   const niPrimaryThreshold = 12570
   const niUpperEarnings = 50270
 
-  const adjustedIncome = grossIncome - pensionContrib
-  // PA tapers above £100k
-  const taperThreshold = 100000
-  const effectivePa = adjustedIncome > taperThreshold
-    ? Math.max(0, personalAllowance - (adjustedIncome - taperThreshold) / 2)
+  const income = Math.max(0, grossIncome)
+  const pension = Math.max(0, Math.min(pensionContrib, income))
+  const adjustedIncome = Math.max(0, income - pension)
+
+  // Personal allowance tapers by £1 for every £2 of adjusted net income above £100,000.
+  const effectivePa = adjustedIncome > 100000
+    ? Math.max(0, personalAllowance - (adjustedIncome - 100000) / 2)
     : personalAllowance
+
   const taxableIncome = Math.max(0, adjustedIncome - effectivePa)
+  const basicTaxable = Math.min(taxableIncome, basicRateBand)
+  const higherTaxable = Math.min(Math.max(0, taxableIncome - basicRateBand), additionalRateThreshold - higherRateThreshold)
+  const additionalTaxable = Math.max(0, taxableIncome - (additionalRateThreshold - effectivePa))
 
-  let incomeTax = 0
-  if (taxableIncome > 0) {
-    incomeTax += Math.min(taxableIncome, basicRateLimit - effectivePa) * 0.20
-    if (taxableIncome > basicRateLimit - effectivePa) {
-      incomeTax += Math.min(taxableIncome - (basicRateLimit - effectivePa), higherRateLimit - basicRateLimit) * 0.40
-    }
-    if (taxableIncome > higherRateLimit - effectivePa) {
-      incomeTax += (taxableIncome - (higherRateLimit - effectivePa)) * 0.45
-    }
-  }
+  const incomeTax = basicTaxable * 0.20 + higherTaxable * 0.40 + additionalTaxable * 0.45
 
-  // National Insurance (Class 1 employee)
+  // Employee Class 1 NIC planning model.
   let nationalInsurance = 0
   if (adjustedIncome > niPrimaryThreshold) {
-    nationalInsurance += (Math.min(adjustedIncome, niUpperEarnings) - niPrimaryThreshold) * 0.08
-    if (adjustedIncome > niUpperEarnings) {
-      nationalInsurance += (adjustedIncome - niUpperEarnings) * 0.02
-    }
+    nationalInsurance += Math.max(0, Math.min(adjustedIncome, niUpperEarnings) - niPrimaryThreshold) * 0.08
+    if (adjustedIncome > niUpperEarnings) nationalInsurance += (adjustedIncome - niUpperEarnings) * 0.02
   }
 
-  const totalDeductions = incomeTax + nationalInsurance + pensionContrib
-  const netIncome = grossIncome - totalDeductions
-  const effectiveTaxRate = (incomeTax / grossIncome) * 100
-  const totalDeductionRate = (totalDeductions / grossIncome) * 100
+  const totalDeductions = incomeTax + nationalInsurance + pension
+  const netIncome = income - totalDeductions
+  const effectiveTaxRate = income > 0 ? (incomeTax / income) * 100 : 0
+  const totalDeductionRate = income > 0 ? (totalDeductions / income) * 100 : 0
 
   return {
-    grossIncome,
+    grossIncome: income,
     incomeTax: Math.round(incomeTax),
     nationalInsurance: Math.round(nationalInsurance),
-    pensionContrib: Math.round(pensionContrib),
+    pensionContrib: Math.round(pension),
     netIncome: Math.round(netIncome),
     effectiveTaxRate: parseFloat(effectiveTaxRate.toFixed(1)),
     totalDeductionRate: parseFloat(totalDeductionRate.toFixed(1)),
     effectivePa: Math.round(effectivePa),
     monthlyNet: Math.round(netIncome / 12),
+    taxYear,
+    jurisdiction: 'England, Wales and Northern Ireland'
   }
 }
 
@@ -1848,9 +1813,9 @@ export function calculateBudgetPlan(monthlyIncome: number, expenses: { name: str
   const idealSavings = monthlyIncome * 0.2
   return {
     totalNeeds, totalWants, totalSavings, totalExpenses, surplus,
-    needsPct: Math.round(totalNeeds / monthlyIncome * 100),
-    wantsPct: Math.round(totalWants / monthlyIncome * 100),
-    savingsPct: Math.round(totalSavings / monthlyIncome * 100),
+    needsPct: monthlyIncome > 0 ? Math.round(totalNeeds / monthlyIncome * 100) : 0,
+    wantsPct: monthlyIncome > 0 ? Math.round(totalWants / monthlyIncome * 100) : 0,
+    savingsPct: monthlyIncome > 0 ? Math.round(totalSavings / monthlyIncome * 100) : 0,
     idealNeeds: Math.round(idealNeeds), idealWants: Math.round(idealWants), idealSavings: Math.round(idealSavings),
     needsOver: Math.round(totalNeeds - idealNeeds), wantsOver: Math.round(totalWants - idealWants), savingsUnder: Math.round(idealSavings - totalSavings),
   }
@@ -1929,39 +1894,48 @@ export function calculateAnnualIncome(hourlyRate: number, hoursPerWeek: number, 
 
 // ─── 25 NEW USA FINANCE CALCULATORS ─────────────────────────────────────────
 
-export function calculateHELOCCreditLine(homeValue: number, mortgageBalance: number, creditLimit: number, drawAmount: number, apr: number, drawPeriodYears: number, repayPeriodYears: number) {
-  const equity = homeValue - mortgageBalance
-  const maxCredit = homeValue * creditLimit / 100 - mortgageBalance
-  const monthlyRate = apr / 100 / 12
-  const drawMonths = drawPeriodYears * 12
-  const repayMonths = repayPeriodYears * 12
-  const interestOnlyPayment = drawAmount * monthlyRate
-  const repayPayment = drawAmount * (monthlyRate * Math.pow(1 + monthlyRate, repayMonths)) / (Math.pow(1 + monthlyRate, repayMonths) - 1)
-  const totalInterestDraw = interestOnlyPayment * drawMonths
-  const totalInterestRepay = repayPayment * repayMonths - drawAmount
-  const totalCost = totalInterestDraw + totalInterestRepay
-  return { equity, maxCredit: Math.max(0, maxCredit), interestOnlyPayment, repayPayment, totalInterestDraw, totalInterestRepay, totalCost, ltv: (mortgageBalance / homeValue) * 100 }
+export function calculateHELOCCreditLine(homeValue:number,mortgageBalance:number,creditLimit:number,drawAmount:number,apr:number,drawPeriodYears:number,repayPeriodYears:number) {
+  const home=Math.max(0,Number(homeValue)||0), mortgage=Math.max(0,Number(mortgageBalance)||0), pct=Math.min(100,Math.max(0,Number(creditLimit)||0)), requested=Math.max(0,Number(drawAmount)||0), rate=Math.max(0,Number(apr)||0), drawYears=Math.max(0,Number(drawPeriodYears)||0), repayYears=Math.max(1,Number(repayPeriodYears)||1)
+  if(home<=0||mortgage>home) throw new Error('Invalid home value or mortgage balance')
+  const equity=home-mortgage, maxCredit=Math.max(0,home*pct/100-mortgage), actualDraw=Math.min(requested,maxCredit), r=rate/100/12, drawMonths=Math.round(drawYears*12), repayMonths=Math.round(repayYears*12)
+  const interestOnlyPayment=actualDraw*r, repayPayment=r===0?actualDraw/repayMonths:actualDraw*r*Math.pow(1+r,repayMonths)/(Math.pow(1+r,repayMonths)-1)
+  const totalInterestDraw=interestOnlyPayment*drawMonths, totalInterestRepay=Math.max(0,repayPayment*repayMonths-actualDraw), totalCost=totalInterestDraw+totalInterestRepay
+  return {equity:Math.round(equity),maxCredit:Math.round(maxCredit),requestedDraw:Math.round(requested),drawAmount:Math.round(actualDraw),drawCapped:requested>maxCredit,interestOnlyPayment:Math.round(interestOnlyPayment),repayPayment:Math.round(repayPayment),totalInterestDraw:Math.round(totalInterestDraw),totalInterestRepay:Math.round(totalInterestRepay),totalCost:Math.round(totalCost),ltv:Number((mortgage/home*100).toFixed(1))}
 }
 
 export function calculateSSBenefit(currentAge: number, claimAge: number, estimatedBenefit: number) {
   const FRA = 67
-  let adjustedBenefit = estimatedBenefit
-  if (claimAge < FRA) {
-    const monthsEarly = (FRA - claimAge) * 12
-    const reduction = monthsEarly <= 36 ? monthsEarly * (5 / 9) / 100 : 36 * (5 / 9) / 100 + (monthsEarly - 36) * (5 / 12) / 100
-    adjustedBenefit = estimatedBenefit * (1 - reduction)
-  } else if (claimAge > FRA) {
-    const monthsLate = (claimAge - FRA) * 12
-    adjustedBenefit = estimatedBenefit * (1 + monthsLate * (8 / 12) / 100)
+  if (!Number.isFinite(currentAge) || !Number.isFinite(claimAge) || !Number.isFinite(estimatedBenefit)) throw new Error('Invalid Social Security input')
+  if (claimAge < 62 || claimAge > 70 || currentAge < 18 || estimatedBenefit < 0) throw new Error('Claim age must be 62–70 and benefit must be non-negative')
+
+  const benefitAtClaimAge = (age: number) => {
+    const monthsEarly = Math.max(0, Math.round((FRA - age) * 12))
+    const monthsLate = Math.max(0, Math.round((age - FRA) * 12))
+    let factor = 1
+    if (monthsEarly) {
+      const first36 = Math.min(monthsEarly, 36)
+      const remaining = Math.max(0, monthsEarly - 36)
+      factor -= first36 * (5 / 9 / 100) + remaining * (5 / 12 / 100)
+    } else if (monthsLate) {
+      factor += monthsLate * (8 / 12 / 100)
+    }
+    return estimatedBenefit * factor
   }
-  const yearsCollecting = 90 - claimAge
-  const lifetimeBenefit = adjustedBenefit * 12 * yearsCollecting
-  const yearData = Array.from({ length: Math.max(0, 90 - currentAge) }, (_, i) => {
-    const age = currentAge + i
-    const collecting = age >= claimAge
-    return { age, cumulative: collecting ? adjustedBenefit * 12 * (age - claimAge + 1) : 0 }
+
+  const adjustedBenefit = benefitAtClaimAge(claimAge)
+  const benefitAt62 = benefitAtClaimAge(62)
+  const foregoneBenefits = claimAge > 62 ? benefitAt62 * (claimAge - 62) * 12 : 0
+  const monthlyGainVs62 = adjustedBenefit - benefitAt62
+  const breakEvenAge = claimAge > 62 && monthlyGainVs62 > 0
+    ? Math.round((claimAge + foregoneBenefits / (monthlyGainVs62 * 12)) * 10) / 10
+    : null
+  const lifetimeTo90 = adjustedBenefit * 12 * Math.max(0, 90 - claimAge)
+  const yearData = Array.from({ length: Math.max(0, 91 - Math.max(18, Math.floor(currentAge))) }, (_, i) => {
+    const age = Math.max(18, Math.floor(currentAge)) + i
+    const cumulative = age >= claimAge ? adjustedBenefit * 12 * (age - claimAge + 1) : 0
+    return { age, cumulative: Math.round(cumulative) }
   })
-  return { adjustedBenefit, monthlyAtFRA: estimatedBenefit, lifetimeBenefit, breakEvenAge: claimAge < FRA ? Math.round(FRA + (FRA - claimAge) * 2.5) : Math.round(FRA + (claimAge - FRA) * 1.5), yearData }
+  return { adjustedBenefit: Math.round(adjustedBenefit), monthlyAtFRA: Math.round(estimatedBenefit), benefitAt62: Math.round(benefitAt62), lifetimeBenefit: Math.round(lifetimeTo90), breakEvenAge, fra: FRA, yearData }
 }
 
 export function calculateRMD(accountBalance: number, age: number, accountType: 'traditional-ira' | '401k' | 'inherited-ira') {
@@ -1984,13 +1958,16 @@ export function calculateRMD(accountBalance: number, age: number, accountType: '
 }
 
 export function calculateBackdoorRoth(income: number, filingStatus: 'single' | 'married', conversionAmount: number, nonDeductibleBasis: number, totalIRABalance: number, taxRate: number) {
-  const rothLimit2026 = filingStatus === 'single' ? 168000 : 252000
-  const proRataRatio = totalIRABalance > 0 ? nonDeductibleBasis / totalIRABalance : 1
-  const taxableConversion = conversionAmount * (1 - proRataRatio)
-  const taxDue = taxableConversion * (taxRate / 100)
-  const taxFreeGrowth = conversionAmount
-  const eligible = income > rothLimit2026
-  return { eligible, proRataRatio, taxableConversion, taxFreeConversion: conversionAmount - taxableConversion, taxDue, annualSavings: taxFreeGrowth * 0.07 * 30 * (taxRate / 100), strategy: proRataRatio < 0.1 ? 'Clean — minimal tax impact' : proRataRatio < 0.5 ? 'Moderate pro-rata issue — consider aggregation rules' : 'High pro-rata — roll pre-tax IRA to 401k first' }
+  const conversion = Math.max(0, Number(conversionAmount) || 0)
+  const basis = Math.max(0, Number(nonDeductibleBasis) || 0)
+  const iraBalance = Math.max(0, Number(totalIRABalance) || 0)
+  const rate = Math.max(0, Math.min(100, Number(taxRate) || 0)) / 100
+  const proRataRatio = iraBalance > 0 ? Math.min(1, basis / iraBalance) : 0
+  const taxableConversion = conversion * (1 - proRataRatio)
+  const taxDue = taxableConversion * rate
+  const directRothIncomeLimit = filingStatus === 'single' ? 168000 : 252000
+  const directRothLimited = Math.max(0, Number(income) || 0) >= directRothIncomeLimit
+  return { eligible: true, directRothLimited, proRataRatio, taxableConversion, taxFreeConversion: conversion - taxableConversion, taxDue, annualSavings: 0, strategy: proRataRatio < 0.1 ? 'Low modeled pro-rata tax exposure' : proRataRatio < 0.5 ? 'Moderate pro-rata tax exposure' : 'High pro-rata tax exposure; review all traditional, SEP and SIMPLE IRA balances' }
 }
 
 export function calculateMegaBackdoorRoth(salary: number, regularContrib: number, employerMatch: number, afterTaxContrib: number, taxRate: number) {
@@ -2028,21 +2005,36 @@ export function calculateSEP_IRA(selfEmploymentIncome: number, businessType: 'so
 }
 
 export function calculateCapitalGainsTax(purchasePrice: number, salePrice: number, yearsHeld: number, filingStatus: 'single' | 'married' | 'hoh', income: number, isQOZ: boolean = false) {
-  const gain = salePrice - purchasePrice
-  const isLongTerm = yearsHeld >= 1
+  const purchase = Math.max(0, Number(purchasePrice) || 0)
+  const sale = Math.max(0, Number(salePrice) || 0)
+  const gain = sale - purchase
+  const baseIncome = Math.max(0, Number(income) || 0)
+  // Long-term treatment requires a holding period of more than one year.
+  const isLongTerm = Number(yearsHeld) > 1
   let rate = 0
-  if (isLongTerm) {
+  if (gain > 0 && isLongTerm) {
     const thresholds = filingStatus === 'married' ? [98900, 613700] : filingStatus === 'hoh' ? [66200, 579600] : [49450, 545500]
-    if (income + gain > thresholds[1]) rate = 0.20
-    else if (income + gain > thresholds[0]) rate = 0.15
-    else rate = 0
-  } else {
-    rate = income < 47150 ? 0.10 : income < 100525 ? 0.12 : income < 191950 ? 0.22 : income < 243725 ? 0.24 : income < 609350 ? 0.32 : 0.37
+    const taxableIncomeWithGain = baseIncome + gain
+    rate = taxableIncomeWithGain <= thresholds[0] ? 0 : taxableIncomeWithGain <= thresholds[1] ? 0.15 : 0.20
+  } else if (gain > 0) {
+    const taxableIncomeWithGain = baseIncome + gain
+    const brackets = filingStatus === 'married'
+      ? [[24800,0.10],[100800,0.12],[211400,0.22],[403550,0.24],[512450,0.32],[768700,0.35],[Infinity,0.37]]
+      : filingStatus === 'hoh'
+        ? [[17700,0.10],[67450,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]]
+        : [[12400,0.10],[50400,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]]
+    rate = brackets.find(([limit]) => taxableIncomeWithGain <= Number(limit))?.[1] as number
   }
-  const niit = income + gain > (filingStatus === 'married' ? 250000 : 200000) && isLongTerm ? gain * 0.038 : 0
-  const totalTax = gain > 0 ? gain * rate + niit : 0
-  const qozDeferral = isQOZ ? totalTax * 0.10 : 0
-  return { gain, isLongTerm, rate, federalTax: Math.round(gain > 0 ? gain * rate : 0), niit: Math.round(niit), totalTax: Math.round(totalTax), netProceeds: Math.round(salePrice - totalTax), effectiveRate: gain > 0 ? ((totalTax / gain) * 100).toFixed(1) : '0', qozSavings: Math.round(qozDeferral) }
+  // NIIT is a separate 3.8% tax on the lesser of net investment income and MAGI above the threshold.
+  // The page supplies ordinary income + gain as a simplified MAGI proxy; it is not Form 8960.
+  const niitThreshold = filingStatus === 'married' ? 250000 : 200000
+  const niitBase = gain > 0 ? Math.min(gain, Math.max(0, baseIncome + gain - niitThreshold)) : 0
+  const niit = niitBase * 0.038
+  // Qualified Opportunity Zone treatment is too fact-specific for this single-transaction model.
+  const qozDeferral = 0
+  const federalTax = gain > 0 ? gain * rate : 0
+  const totalTax = federalTax + niit
+  return { gain, isLongTerm, rate, federalTax: Math.round(federalTax), niit: Math.round(niit), totalTax: Math.round(totalTax), netProceeds: Math.round(sale - totalTax), effectiveRate: gain > 0 ? ((totalTax / gain) * 100).toFixed(1) : '0', qozSavings: qozDeferral, qozNote: isQOZ ? 'Qualified Opportunity Zone treatment is not modeled because eligibility, timing and basis rules require additional facts.' : undefined }
 }
 
 export function calculateRealEstateCostBasis(purchasePrice: number, closingCosts: number, improvements: number, depreciation: number, salePrice: number, sellingCosts: number, yearsHeld: number) {
@@ -2057,34 +2049,40 @@ export function calculateRealEstateCostBasis(purchasePrice: number, closingCosts
 }
 
 export function calculateI_Bonds(purchaseAmount: number, months: number, fixedRate: number = 0.90, inflationRate: number = 1.67) {
-  const compositeRate = fixedRate + 2 * inflationRate + (fixedRate * inflationRate) / 100
-  const annualRate = compositeRate / 100
-  const penaltyMonths = months < 60 ? 3 : 0
-  const effectiveMonths = Math.max(0, months - penaltyMonths)
-  const value = purchaseAmount <= 0 ? 0 : purchaseAmount * Math.pow(1 + annualRate / 2, effectiveMonths / 6)
-  const interest = value - purchaseAmount
+  const principal = Math.max(0, Number(purchaseAmount) || 0)
+  const holdingMonths = Math.max(0, Math.floor(Number(months) || 0))
+  const safeFixed = Math.max(-100, Number(fixedRate) || 0)
+  const safeInflation = Math.max(-100, Number(inflationRate) || 0)
+  const compositeRate = safeFixed + 2 * safeInflation + (safeFixed * safeInflation) / 100
+  const semiannualFactor = 1 + compositeRate / 100 / 2
+  const creditedPeriods = Math.floor(holdingMonths / 6)
+  const rawValue = principal * Math.pow(Math.max(0, semiannualFactor), creditedPeriods)
+  const monthlyFactor = Math.pow(Math.max(0, semiannualFactor), 1 / 6)
+  const penaltyFactor = holdingMonths < 60 ? Math.pow(monthlyFactor, Math.min(3, holdingMonths)) : 1
+  const value = rawValue / penaltyFactor
+  const interest = Math.max(0, value - principal)
   const annualLimit = 10000
-  const yearData = Array.from({ length: Math.min(Math.ceil(months / 12) + 1, 31) }, (_, i) => ({
-    year: i, value: Math.round(purchaseAmount * Math.pow(1 + annualRate / 2, i * 2))
-  }))
-  const effectiveYield = purchaseAmount > 0 && months > 0 ? ((value / purchaseAmount - 1) / (months / 12) * 100) : 0
-  return { compositeRate: compositeRate.toFixed(2), value: Math.round(value), interest: Math.round(interest), effectiveYield: effectiveYield.toFixed(2), penaltyMonths, annualLimit, yearData }
+  const effectiveYield = principal > 0 && holdingMonths > 0 ? (Math.pow(value / principal, 12 / holdingMonths) - 1) * 100 : 0
+  const yearData = Array.from({ length: Math.min(Math.ceil(holdingMonths / 12) + 1, 31) }, (_, i) => ({ year: i, value: Math.round(principal * Math.pow(Math.max(0, semiannualFactor), i * 2)) }))
+  return { compositeRate: compositeRate.toFixed(2), value: Math.round(value), interest: Math.round(interest), effectiveYield: effectiveYield.toFixed(2), penaltyMonths: holdingMonths < 60 ? 3 : 0, annualLimit, yearData }
 }
 
 export function calculateHSAGrowth(annualContrib: number, age: number, retirementAge: number, currentBalance: number, growthRate: number, taxRate: number, familyCoverage: boolean) {
   const limit2026 = familyCoverage ? 8750 : 4400
   const catchUp = age >= 55 ? 1000 : 0
-  const maxContrib = Math.min(annualContrib, limit2026 + catchUp)
-  const years = retirementAge - age
-  let balance = currentBalance
+  const maxContrib = Math.min(Math.max(0,Number(annualContrib)||0), limit2026 + catchUp)
+  const years = Math.max(0,Math.floor(Number(retirementAge)-Number(age)))
+  let balance = Math.max(0,Number(currentBalance)||0)
   const yearData = []
   for (let i = 0; i <= years; i++) {
-    balance = balance * (1 + growthRate / 100) + (i < years ? maxContrib : 0)
-    yearData.push({ year: i, age: age + i, balance: Math.round(balance) })
+    if (i > 0) balance *= 1 + Math.max(-100,Number(growthRate)||0) / 100
+    if (i < years) balance += maxContrib
+    yearData.push({ year:i, age:Number(age)+i, balance:Math.round(Math.max(0,balance)) })
   }
-  const finalBalance = yearData[yearData.length - 1]?.balance || 0
-  const taxEquivalentValue = finalBalance / (1 - taxRate / 100)
-  return { maxContrib, finalBalance, totalContribs: Math.round(maxContrib * years + currentBalance), taxEquivalentValue: Math.round(taxEquivalentValue), medicalCoverageYears: Math.round(finalBalance / 6000), yearData }
+  const finalBalance = yearData[yearData.length-1]?.balance || 0
+  const rate=Math.min(99.9,Math.max(0,Number(taxRate)||0))
+  const taxEquivalentValue = finalBalance / (1-rate/100)
+  return { maxContrib, contributionLimit2026:limit2026+catchUp, finalBalance, totalContribs:Math.round(maxContrib*years+Math.max(0,Number(currentBalance)||0)), taxEquivalentValue:Math.round(taxEquivalentValue), medicalCoverageYears:Math.round(finalBalance/6000), yearData }
 }
 
 export function calculateMedicarePremium(income: number, filingStatus: 'single' | 'married', year: number = 2026) {
@@ -2182,13 +2180,16 @@ export function calculateFSA(annualContrib: number, marginalRate: number, ficaRa
   return { contribCapped, taxSavings: Math.round(taxSavings), netCost: Math.round(netCost), effectiveDiscount: Math.round((taxSavings / contribCapped) * 100), forfeitRisk: Math.round(forfeitRisk), recommended: Math.min(Math.ceil(expectedMedical * 1.05), limit2026) }
 }
 
-export function calculateDCFSA(annualContrib: number, marginalRate: number, ficaRate: number = 7.65, dependentCareCost: number, filingStatus: 'single' | 'married') {
+export function calculateDCFSA(annualContrib: number, marginalRate: number, ficaRate: number = 7.65, dependentCareCost: number, filingStatus: 'single' | 'married', agi: number = 75000, qualifyingCarePersons: number = 1) {
   const limit2026 = filingStatus === 'married' ? 7500 : 7500
-  const contribCapped = Math.min(annualContrib, limit2026)
-  const taxSavings = contribCapped * (marginalRate + ficaRate) / 100
-  const childTaxCreditValue = Math.min(dependentCareCost, 3000) * 0.20
+  const contribCapped = Math.min(Math.max(0, annualContrib), limit2026)
+  const taxSavings = contribCapped * (Math.max(0, marginalRate) + Math.max(0, ficaRate)) / 100
+  const careCap = qualifyingCarePersons >= 2 ? 6000 : qualifyingCarePersons === 1 ? 3000 : 0
+  const careExpenses = Math.min(Math.max(0, dependentCareCost), careCap)
+  const careRate = get2026ChildDependentCareRate(Math.max(0, agi), filingStatus)
+  const childTaxCreditValue = careExpenses * careRate
   const fsaBetter = taxSavings > childTaxCreditValue
-  return { contribCapped, taxSavings: Math.round(taxSavings), childTaxCreditValue: Math.round(childTaxCreditValue), netSavings: Math.round(fsaBetter ? taxSavings : childTaxCreditValue), recommendation: fsaBetter ? 'DC-FSA saves more for your income' : 'Child & Dependent Care Credit may be better — compare carefully', effectiveDiscount: Math.round((taxSavings / Math.max(1, contribCapped)) * 100) }
+  return { contribCapped, taxSavings: Math.round(taxSavings), childTaxCreditValue: Math.round(childTaxCreditValue), careRate: Math.round(careRate*100), qualifyingCareExpenses: Math.round(careExpenses), netSavings: Math.round(fsaBetter ? taxSavings : childTaxCreditValue), recommendation: fsaBetter ? 'Under these assumptions, the DC-FSA tax saving is larger.' : 'Under these assumptions, the Child and Dependent Care Credit is larger.', effectiveDiscount: Math.round((taxSavings / Math.max(1, contribCapped)) * 100) }
 }
 
 export function calculateStudentLoanForgiveness(balance: number, paymentPlan: 'standard' | 'ibr' | 'save' | 'pslf', income: number, familySize: number, yearsInProgram: number) {
@@ -2205,15 +2206,22 @@ export function calculateStudentLoanForgiveness(balance: number, paymentPlan: 's
 }
 
 export function calculateAMT(regularTaxIncome: number, isoOptions: number, preferenceItems: number, filingStatus: 'single' | 'married') {
+  // 2026 single/MFJ planning model. The UI exposes only these two filing statuses;
+  // married-filing-separately uses different AMT thresholds and is intentionally excluded.
+  const income = Math.max(0, Number(regularTaxIncome) || 0)
+  const iso = Math.max(0, Number(isoOptions) || 0)
+  const preferences = Math.max(0, Number(preferenceItems) || 0)
   const exemption = filingStatus === 'married' ? 140200 : 90100
   const phaseoutThreshold = filingStatus === 'married' ? 1000000 : 500000
-  const amtIncome = regularTaxIncome + isoOptions + preferenceItems
+  const amtIncome = income + iso + preferences
   const phaseoutReduction = Math.max(0, (amtIncome - phaseoutThreshold) * 0.25)
   const effectiveExemption = Math.max(0, exemption - phaseoutReduction)
-  const tentativeMinTax = Math.max(0, amtIncome - effectiveExemption) * (Math.max(0, amtIncome - effectiveExemption) <= 244500 ? 0.26 : 0.28)
-  const regularTax = regularTaxIncome * 0.24
+  const amtTaxable = Math.max(0, amtIncome - effectiveExemption)
+  const rateThreshold = filingStatus === 'married' ? 244500 : 244500
+  const tentativeMinTax = Math.min(amtTaxable, rateThreshold) * 0.26 + Math.max(0, amtTaxable - rateThreshold) * 0.28
+  const regularTax = calculateSimpleFederalTax(income, filingStatus)
   const amtOwed = Math.max(0, tentativeMinTax - regularTax)
-  return { amtIncome: Math.round(amtIncome), effectiveExemption: Math.round(effectiveExemption), tentativeMinTax: Math.round(tentativeMinTax), regularTax: Math.round(regularTax), amtOwed: Math.round(amtOwed), amtApplies: amtOwed > 0, isoThreshold: Math.round(exemption + phaseoutThreshold - regularTaxIncome) }
+  return { amtIncome: Math.round(amtIncome), effectiveExemption: Math.round(effectiveExemption), tentativeMinTax: Math.round(tentativeMinTax), regularTax: Math.round(regularTax), amtOwed: Math.round(amtOwed), amtApplies: amtOwed > 0, isoThreshold: Math.round(exemption + phaseoutThreshold - income) }
 }
 
 export function calculateSelfEmploymentTax(netSelfEmploymentIncome: number, hasW2Income: number = 0) {
@@ -2231,76 +2239,96 @@ export function calculateSelfEmploymentTax(netSelfEmploymentIncome: number, hasW
 }
 
 export function calculateEquityCompensation(type: 'iso' | 'nso' | 'rsu', shares: number, strikePrice: number, fmv: number, vestingYears: number, taxRate: number) {
-  const spread = Math.max(0, fmv - strikePrice)
-  const totalValue = shares * fmv
-  const exerciseCost = type !== 'rsu' ? shares * strikePrice : 0
-  const ordinaryIncome = type === 'nso' ? spread * shares : type === 'rsu' ? totalValue : 0
-  const amtPreference = type === 'iso' ? spread * shares : 0
-  const capitalGainIfHeld = type === 'iso' ? totalValue - shares * fmv : 0
-  const taxOnExercise = ordinaryIncome * (taxRate / 100)
+  const safeShares = Math.max(0, Number(shares) || 0)
+  const strike = Math.max(0, Number(strikePrice) || 0)
+  const fairValue = Math.max(0, Number(fmv) || 0)
+  const years = Math.max(1, Number(vestingYears) || 1)
+  const safeTaxRate = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+  const spread = Math.max(0, fairValue - strike)
+  const totalValue = safeShares * fairValue
+  const exerciseCost = type !== 'rsu' ? safeShares * strike : 0
+  const ordinaryIncome = type === 'nso' ? spread * safeShares : type === 'rsu' ? totalValue : 0
+  // ISO exercise generally creates no regular ordinary income, but the spread can be an AMT preference item.
+  const amtPreference = type === 'iso' ? spread * safeShares : 0
+  const capitalGainIfHeld = 0 // Future sale price/holding period are not inputs, so no gain is projected.
+  const taxOnExercise = ordinaryIncome * safeTaxRate
   const netValue = totalValue - exerciseCost - taxOnExercise
-  const annualVest = shares / vestingYears
-  const annualTax = type === 'rsu' ? (annualVest * fmv) * (taxRate / 100) : 0
-  return { totalValue: Math.round(totalValue), exerciseCost: Math.round(exerciseCost), ordinaryIncome: Math.round(ordinaryIncome), amtPreference: Math.round(amtPreference), taxOnExercise: Math.round(taxOnExercise), netValue: Math.round(netValue), annualVest: Math.round(annualVest), annualTax: Math.round(annualTax), strategy: type === 'iso' ? 'Consider early exercise + 83(b) election to start capital gains clock' : type === 'nso' ? 'Exercise when spread is small to minimize ordinary income' : 'Diversify RSUs upon vest — concentration risk is real' }
+  const annualVest = safeShares / years
+  const annualTax = type === 'rsu' ? (annualVest * fairValue) * safeTaxRate : 0
+  const strategy = type === 'iso'
+    ? 'Review ISO holding-period and AMT rules before exercising; this model does not determine 83(b) eligibility.'
+    : type === 'nso'
+      ? 'NSO exercise generally creates ordinary income on the modeled spread; actual withholding and later capital gain depend on the transaction.'
+      : 'RSU value is generally ordinary compensation at vest; actual withholding and sale taxation depend on the transaction.'
+  return { totalValue: Math.round(totalValue), exerciseCost: Math.round(exerciseCost), ordinaryIncome: Math.round(ordinaryIncome), amtPreference: Math.round(amtPreference), capitalGainIfHeld, taxOnExercise: Math.round(taxOnExercise), netValue: Math.round(netValue), annualVest: Math.round(annualVest), annualTax: Math.round(annualTax), strategy }
 }
 
 export function calculateNetInvestmentIncomeTax(wages: number, investmentIncome: number, filingStatus: 'single' | 'married') {
   const threshold = filingStatus === 'married' ? 250000 : 200000
-  const totalIncome = wages + investmentIncome
-  const niitBase = Math.min(investmentIncome, Math.max(0, totalIncome - threshold))
+  const ordinary = Math.max(0, Number(wages) || 0)
+  const netInvestmentIncome = Math.max(0, Number(investmentIncome) || 0)
+  const simplifiedMAGI = ordinary + netInvestmentIncome
+  const niitBase = Math.min(netInvestmentIncome, Math.max(0, simplifiedMAGI - threshold))
   const niitOwed = niitBase * 0.038
-  const strategies = []
+  const strategies: string[] = []
   if (niitOwed > 0) {
-    strategies.push('Max 401k/IRA contributions to reduce MAGI')
-    strategies.push('Harvest tax losses to offset investment gains')
-    strategies.push('Invest in municipal bonds (exempt from NIIT)')
-    strategies.push('Consider Opportunity Zone investments for deferral')
+    strategies.push('Review MAGI and net-investment-income components; this calculator is not Form 8960.')
+    strategies.push('Tax-loss harvesting may reduce net investment income when the loss is otherwise allowable.')
+    strategies.push('Tax-exempt municipal-bond interest is generally excluded from net investment income, subject to the specific rules.')
   }
-  return { totalIncome: Math.round(totalIncome), niitBase: Math.round(niitBase), niitOwed: Math.round(niitOwed), threshold, strategies }
+  return { totalIncome: Math.round(simplifiedMAGI), niitBase: Math.round(niitBase), niitOwed: Math.round(niitOwed), threshold, strategies, methodologyNote: 'Simplified MAGI proxy = ordinary income + net investment income; actual MAGI and Form 8960 adjustments can differ.' }
 }
 
 export function calculateCryptoTax(saleAmount: number, costBasis: number, yearsHeld: number, otherIncome: number, filingStatus: 'single' | 'married') {
-  const gain = saleAmount - costBasis
-  const isLongTerm = yearsHeld >= 1
-  const totalIncome = otherIncome + Math.max(0, gain)
-  const ltThresholds = filingStatus === 'married' ? [96700, 600050] : [48350, 533400]
-  const ltRate = totalIncome > ltThresholds[1] ? 0.20 : totalIncome > ltThresholds[0] ? 0.15 : 0
-  const stRate = totalIncome < 47150 ? 0.10 : totalIncome < 100525 ? 0.12 : totalIncome < 191950 ? 0.22 : totalIncome < 243725 ? 0.24 : 0.32
+  const proceeds = Math.max(0, saleAmount)
+  const basis = Math.max(0, costBasis)
+  const gain = proceeds - basis
+  const isLongTerm = yearsHeld > 1
+  const taxableIncomeProxy = Math.max(0, otherIncome) + Math.max(0, gain)
+  const ltZero = filingStatus === 'married' ? 98900 : 49450
+  const ltFifteen = filingStatus === 'married' ? 613700 : 545500
+  let ltRate = taxableIncomeProxy <= ltZero ? 0 : taxableIncomeProxy <= ltFifteen ? 0.15 : 0.20
+  const stRate = taxableIncomeProxy <= 12400 ? 0.10 : taxableIncomeProxy <= 50400 ? 0.12 : taxableIncomeProxy <= 105700 ? 0.22 : taxableIncomeProxy <= 201775 ? 0.24 : taxableIncomeProxy <= 256225 ? 0.32 : taxableIncomeProxy <= 640600 ? 0.35 : 0.37
   const taxRate = isLongTerm ? ltRate : stRate
   const federalTax = gain > 0 ? gain * taxRate : 0
-  const niit = totalIncome > (filingStatus === 'married' ? 250000 : 200000) && isLongTerm ? gain * 0.038 : 0
-  const taxSavingsByWaiting = gain > 0 && !isLongTerm ? gain * (stRate - ltRate) : 0
-  return { gain: Math.round(gain), isLongTerm, taxRate: (taxRate * 100).toFixed(0), federalTax: Math.round(federalTax), niit: Math.round(niit), totalTax: Math.round(federalTax + niit), netProceeds: Math.round(saleAmount - federalTax - niit), taxSavingsByWaiting: Math.round(taxSavingsByWaiting), washSaleNote: 'Crypto is NOT subject to wash sale rules (unlike stocks)' }
+  const niitThreshold = filingStatus === 'married' ? 250000 : 200000
+  const niitBase = Math.max(0, Math.min(Math.max(0, gain), taxableIncomeProxy - niitThreshold))
+  const niit = niitBase * 0.038
+  const taxSavingsByWaiting = gain > 0 && !isLongTerm ? Math.max(0, gain * (stRate - ltRate)) : 0
+  return { gain: Math.round(gain), isLongTerm, taxRate: (taxRate * 100).toFixed(0), federalTax: Math.round(federalTax), niit: Math.round(niit), totalTax: Math.round(federalTax + niit), netProceeds: Math.round(proceeds - Math.max(0, federalTax) - niit), taxSavingsByWaiting: Math.round(taxSavingsByWaiting), washSaleNote: 'Do not assume stock wash-sale rules apply identically to digital assets; verify current IRS guidance for your transaction type.' }
 }
 
 export function calculateCollegeSavings529(childAge: number, collegeStartAge: number, currentBalance: number, monthlyContrib: number, annualCost: number, costInflation: number, returnRate: number) {
-  const years = collegeStartAge - childAge
-  let balance = currentBalance
-  for (let i = 0; i < years; i++) {
-    balance = balance * (1 + returnRate / 100) + monthlyContrib * 12
-  }
-  const totalCost = [0,1,2,3].reduce((sum, yr) => sum + annualCost * Math.pow(1 + costInflation / 100, years + yr), 0)
+  const years = Math.max(0, Math.floor(collegeStartAge - childAge))
+  const balance0 = Math.max(0, currentBalance)
+  const contribution = Math.max(0, monthlyContrib)
+  const annual = Math.max(0, annualCost)
+  const r = Math.max(-0.99, returnRate / 100)
+  let balance = balance0
+  for (let i = 0; i < years; i++) balance = balance * (1 + r) + contribution * 12
+  const totalCost = [0,1,2,3].reduce((sum, yr) => sum + annual * Math.pow(1 + Math.max(-0.99, costInflation/100), years + yr), 0)
   const gap = Math.max(0, totalCost - balance)
-  const requiredMonthly = gap > 0 ? gap / ((Math.pow(1 + returnRate / 100 / 12, years * 12) - 1) / (returnRate / 100 / 12)) : 0
-  const stateDeduction = Math.min(monthlyContrib * 12, 10000) * 0.05
+  const monthlyRate = r / 12
+  const annuityFactor = monthlyRate === 0 ? years * 12 : (Math.pow(1 + monthlyRate, years * 12) - 1) / monthlyRate
+  const requiredMonthly = gap > 0 && annuityFactor > 0 ? gap / annuityFactor : 0
   const yearData = Array.from({ length: years + 1 }, (_, i) => {
-    let bal = currentBalance
-    for (let j = 0; j < i; j++) bal = bal * (1 + returnRate / 100) + monthlyContrib * 12
+    let bal = balance0
+    for (let j = 0; j < i; j++) bal = bal * (1 + r) + contribution * 12
     return { year: i, age: childAge + i, balance: Math.round(bal) }
   })
-  return { projectedBalance: Math.round(balance), totalCollegeCost: Math.round(totalCost), gap: Math.round(gap), coveragePercent: Math.round((balance / totalCost) * 100), requiredMonthly: Math.round(requiredMonthly), stateDeductionEst: Math.round(stateDeduction), yearData }
+  return { projectedBalance: Math.round(balance), totalCollegeCost: Math.round(totalCost), gap: Math.round(gap), coveragePercent: totalCost > 0 ? Math.round((balance / totalCost) * 100) : 0, requiredMonthly: Math.round(requiredMonthly), stateDeductionEst: 0, yearData }
 }
 
 export function calculateAnnualBonus(baseSalary: number, bonusPercent: number, filingStatus: 'single' | 'married', ytdIncome: number, state: string = 'CA') {
   const bonus = baseSalary * (bonusPercent / 100)
   const federalWithholding = bonus <= 1000000 ? bonus * 0.22 : (1000000 * 0.22) + (bonus - 1000000) * 0.37
   const stateRates: Record<string, number> = { CA: 0.1023, NY: 0.109, TX: 0, FL: 0, WA: 0, IL: 0.0495, GA: 0.055, NC: 0.0499, MA: 0.09, NJ: 0.1075 }
-  const stateRate = stateRates[state] || 0.05
+  const stateRate = Object.prototype.hasOwnProperty.call(stateRates, state) ? stateRates[state] : 0
   const stateWithholding = bonus * stateRate
   const fica = Math.min(bonus, Math.max(0, 184500 - ytdIncome)) * 0.0765
   const totalWithholding = federalWithholding + stateWithholding + fica
   const netBonus = bonus - totalWithholding
-  return { bonus: Math.round(bonus), federalWithholding: Math.round(federalWithholding), stateWithholding: Math.round(stateWithholding), fica: Math.round(fica), totalWithholding: Math.round(totalWithholding), netBonus: Math.round(netBonus), effectiveRate: Math.round((totalWithholding / bonus) * 100), strategyTip: ytdIncome + bonus > 500000 ? 'Consider deferring to next year if possible — may be in lower bracket' : 'Max 401k before year-end to reduce taxable income' }
+  return { bonus: Math.round(bonus), federalWithholding: Math.round(federalWithholding), stateWithholding: Math.round(stateWithholding), fica: Math.round(fica), totalWithholding: Math.round(totalWithholding), netBonus: Math.round(netBonus), effectiveRate: Math.round((totalWithholding / bonus) * 100), strategyTip: 'Federal supplemental-wage withholding and state withholding are estimates; final tax liability can differ.' }
 }
 
 // Shared simplified 2026 federal income-tax helper used by several calculators.
@@ -2325,30 +2353,36 @@ function calculateSimpleFederalTax(taxableIncome: number, filingStatus: 'single'
 
 export function calculatePayrollTax(grossWages: number, filingStatus: 'single'|'married', allowances: number, state: string, payPeriod: 'weekly'|'biweekly'|'semimonthly'|'monthly') {
   const periods: Record<string,number> = { weekly:52, biweekly:26, semimonthly:24, monthly:12 }
-  const n = periods[payPeriod]
-  const annual = grossWages * n
-  // Federal income tax withholding (2026 tables simplified)
-  const stdDed = filingStatus==='married' ? 32200 : 16100
-  const taxable = Math.max(0, annual - stdDed - allowances*5300)
-  const brackets = filingStatus==='married'
+  const n = periods[payPeriod] || 26
+  const pay = Math.max(0, Number(grossWages) || 0)
+  const annual = pay * n
+  // Simplified annual tax estimate, not IRS Publication 15-T withholding.
+  const stdDed = filingStatus === 'married' ? 32200 : 16100
+  const simplifiedAdjustment = Math.max(0, Number(allowances) || 0) * 5300
+  const taxable = Math.max(0, annual - stdDed - simplifiedAdjustment)
+  const brackets = filingStatus === 'married'
     ? [[24800,0.10],[100800,0.12],[211400,0.22],[403550,0.24],[512450,0.32],[768700,0.35],[Infinity,0.37]]
     : [[12400,0.10],[50400,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]]
-  let fedTax=0, rem=taxable
-  let prev=0
+  let fedTax=0, prev=0
   for(const [limit,rate] of brackets){
-    const slice=Math.min(rem, Number(limit)-prev)
-    fedTax+=slice*Number(rate)
-    rem-=slice; prev=Number(limit)
-    if(rem<=0) break
+    if(taxable <= prev) break
+    const slice=Math.min(taxable, Number(limit))-prev
+    fedTax += Math.max(0,slice)*Number(rate)
+    prev=Number(limit)
   }
-  const ssTax = Math.min(grossWages*n, 184500)*0.062/n
-  const medicareTax = grossWages*0.0145
-  const addlMedicare = Math.max(0, grossWages*n - 200000)*0.009/n
+  const ssTaxAnnual = Math.min(annual, 184500)*0.062
+  const medicareAnnual = annual*0.0145
+  const additionalMedicareThreshold = filingStatus === 'married' ? 250000 : 200000
+  const additionalMedicareAnnual = Math.max(0, annual-additionalMedicareThreshold)*0.009
   const stateRates:Record<string,number>={CA:0.093,NY:0.0685,TX:0,FL:0,WA:0,IL:0.0495,GA:0.055,NC:0.0499,MA:0.05,NJ:0.0637,OH:0.04,PA:0.0307,MI:0.0425,VA:0.0575,CO:0.044}
-  const stateTax = grossWages*(stateRates[state]||0.05)
-  const totalWithholding = fedTax/n + ssTax + medicareTax + addlMedicare + stateTax
-  const netPay = grossWages - totalWithholding
-  return { grossWages, fedWithholding:Math.round(fedTax/n*100)/100, ssTax:Math.round(ssTax*100)/100, medicareTax:Math.round((medicareTax+addlMedicare)*100)/100, stateTax:Math.round(stateTax*100)/100, totalWithholding:Math.round(totalWithholding*100)/100, netPay:Math.round(netPay*100)/100, effectiveRate:Math.round((totalWithholding/grossWages)*1000)/10 }
+  const stateTaxAnnual = annual*(stateRates[state] ?? 0)
+  const federalPerPeriod = fedTax/n
+  const ssPerPeriod = ssTaxAnnual/n
+  const medicarePerPeriod = (medicareAnnual+additionalMedicareAnnual)/n
+  const statePerPeriod = stateTaxAnnual/n
+  const totalWithholding = federalPerPeriod + ssPerPeriod + medicarePerPeriod + statePerPeriod
+  const netPay = pay-totalWithholding
+  return { grossWages:pay, fedWithholding:Math.round(federalPerPeriod*100)/100, ssTax:Math.round(ssPerPeriod*100)/100, medicareTax:Math.round(medicarePerPeriod*100)/100, stateTax:Math.round(statePerPeriod*100)/100, totalWithholding:Math.round(totalWithholding*100)/100, netPay:Math.round(netPay*100)/100, effectiveRate:pay>0?Math.round(totalWithholding/pay*1000)/10:0 }
 }
 
 export function calculateWealthTransfer(assets: number, annualGrowth: number, yearsToTransfer: number, annualGifts: number, trustType: 'grat'|'slat'|'ilit'|'direct') {
@@ -2384,31 +2418,57 @@ export function calculatePayOffStudentLoanVsInvest(loanBalance: number, loanRate
 }
 
 export function calculateSocialSecuritySpouse(worker1Benefit: number, worker2Benefit: number, worker1Age: number, worker2Age: number, worker1ClaimAge: number, worker2ClaimAge: number) {
-  const FRA=67
-  const adj=(claimAge:number,fra:number)=>{
-    if(claimAge<fra){ const m=(fra-claimAge)*12; return 1-(m<=36?m*5/9/100:36*5/9/100+(m-36)*5/12/100) }
-    return 1+(claimAge-fra)*12*(8/12/100)
+  const FRA = 67
+  if ([worker1Benefit, worker2Benefit, worker1Age, worker2Age, worker1ClaimAge, worker2ClaimAge].some(v => !Number.isFinite(v))) throw new Error('Invalid Social Security input')
+  if (worker1Benefit < 0 || worker2Benefit < 0 || worker1ClaimAge < 62 || worker1ClaimAge > 70 || worker2ClaimAge < 62 || worker2ClaimAge > 70) throw new Error('Claim ages must be 62–70')
+  const adj = (claimAge: number, pia: number) => {
+    const early = Math.max(0, Math.round((FRA - claimAge) * 12))
+    const late = Math.max(0, Math.round((claimAge - FRA) * 12))
+    let factor = 1
+    if (early) factor -= Math.min(early,36) * (5/9/100) + Math.max(0,early-36) * (5/12/100)
+    if (late) factor += late * (8/12/100)
+    return pia * factor
   }
-  const w1Adj=worker1Benefit*adj(worker1ClaimAge,FRA)
-  const w2Adj=worker2Benefit*adj(worker2ClaimAge,FRA)
-  // Spousal benefit: 50% of higher earner's PIA if own benefit is less
-  const spousalBenefit=Math.max(w2Adj, w1Adj*0.5)
-  const combinedMonthly=w1Adj+spousalBenefit
-  const combinedAnnual=combinedMonthly*12
-  const survivorBenefit=Math.max(w1Adj,w2Adj) // survivor gets higher of two
-  return { worker1Monthly:Math.round(w1Adj), worker2Monthly:Math.round(w2Adj), spousalBoost:Math.round(Math.max(0,spousalBenefit-w2Adj)), combinedMonthly:Math.round(combinedMonthly), combinedAnnual:Math.round(combinedAnnual), survivorBenefit:Math.round(survivorBenefit), lifetime30yr:Math.round(combinedAnnual*30) }
+  const worker1Own = adj(worker1ClaimAge, worker1Benefit)
+  const worker2Own = adj(worker2ClaimAge, worker2Benefit)
+  // Simplified deemed-filing model: the spouse's maximum unreduced spousal amount is 50% of the worker's FRA PIA.
+  // The spouse's own benefit is reduced first; any top-up is then added, with an early-claim reduction to the spousal portion.
+  const higherPIA = Math.max(worker1Benefit, worker2Benefit)
+  const lowerIsWorker2 = worker2Benefit <= worker1Benefit
+  const spouseClaimAge = lowerIsWorker2 ? worker2ClaimAge : worker1ClaimAge
+  const ownBenefit = lowerIsWorker2 ? worker2Own : worker1Own
+  const maxSpousalAtFRA = higherPIA * 0.5
+  const spouseEarlyMonths = Math.max(0, Math.round((FRA - spouseClaimAge) * 12))
+  const spouseFactor = spouseEarlyMonths ? Math.max(0, 1 - Math.min(spouseEarlyMonths,36) * (25/36/100)) : 1
+  const spousalTopUp = Math.max(0, maxSpousalAtFRA * spouseFactor - ownBenefit)
+  const worker1Monthly = worker1Own
+  const worker2Monthly = worker2Own + (lowerIsWorker2 ? spousalTopUp : 0)
+  const combinedMonthly = worker1Monthly + worker2Monthly + (lowerIsWorker2 ? 0 : spousalTopUp)
+  const survivorBenefit = Math.max(worker1Own, worker2Own)
+  const combinedAnnual = combinedMonthly * 12
+  return { worker1Monthly: Math.round(worker1Monthly), worker2Monthly: Math.round(worker2Monthly), spousalBoost: Math.round(spousalTopUp), combinedMonthly: Math.round(combinedMonthly), combinedAnnual: Math.round(combinedAnnual), survivorBenefit: Math.round(survivorBenefit), lifetime30yr: Math.round(combinedAnnual*30), fra:FRA }
 }
 
 export function calculateHomeEquityLoan(homeValue:number, mortgageBalance:number, loanAmount:number, apr:number, termYears:number) {
-  const equity=homeValue-mortgageBalance
-  const cltv=(mortgageBalance+loanAmount)/homeValue*100
-  const monthlyRate=apr/100/12
-  const months=termYears*12
-  const payment=loanAmount*(monthlyRate*Math.pow(1+monthlyRate,months))/(Math.pow(1+monthlyRate,months)-1)
+  const value=Math.max(0,Number(homeValue)||0)
+  const balance=Math.max(0,Number(mortgageBalance)||0)
+  const amount=Math.max(0,Number(loanAmount)||0)
+  const rate=Math.max(0,Number(apr)||0)
+  const years=Math.max(1,Math.floor(Number(termYears)||0))
+  const equity=value-balance
+  const cltv=value>0 ? (balance+amount)/value*100 : Infinity
+  const monthlyRate=rate/100/12
+  const months=years*12
+  const payment=monthlyRate>0 ? amount*(monthlyRate*Math.pow(1+monthlyRate,months))/(Math.pow(1+monthlyRate,months)-1) : amount/months
   const totalPaid=payment*months
-  const totalInterest=totalPaid-loanAmount
-  const yearData=Array.from({length:termYears+1},(_,i)=>({year:i,balance:Math.round(loanAmount*Math.pow(1+monthlyRate,i*12)-(payment*((Math.pow(1+monthlyRate,i*12)-1)/monthlyRate)))}))
-  return { equity:Math.round(equity), cltv:Math.round(cltv*10)/10, payment:Math.round(payment*100)/100, totalPaid:Math.round(totalPaid), totalInterest:Math.round(totalInterest), maxLoan:Math.round(Math.max(0,homeValue*0.85-mortgageBalance)), approved:cltv<=85, yearData }
+  const totalInterest=Math.max(0,totalPaid-amount)
+  let remaining=amount
+  const yearData=Array.from({length:years+1},(_,i)=>{
+    if(i>0){ for(let m=0;m<12 && remaining>0;m++){ const interest=remaining*monthlyRate; const principal=Math.min(remaining,Math.max(0,payment-interest)); remaining=Math.max(0,remaining-principal) } }
+    return {year:i,balance:Math.round(remaining)}
+  })
+  const screeningMaxLoan=Math.max(0,value*0.85-balance)
+  return { equity:Math.round(equity), cltv:Number.isFinite(cltv)?Math.round(cltv*10)/10:0, payment:Math.round(payment*100)/100, totalPaid:Math.round(totalPaid), totalInterest:Math.round(totalInterest), maxLoan:Math.round(screeningMaxLoan), approved:amount<=screeningMaxLoan, yearData, methodologyNote:'85% CLTV is a screening assumption, not an approval rule. Lenders may use lower limits, fees, appraisal values and other underwriting criteria.' }
 }
 
 export function calculateRealEstateInvestment(purchasePrice:number, downPercent:number, mortgageRate:number, mortgageTerm:number, monthlyRent:number, vacancyRate:number, expenses:number, appreciationRate:number, holdYears:number) {
@@ -2494,28 +2554,48 @@ export function calculateInflationImpact(currentAmount:number, inflationRate:num
 }
 
 export function calculateRentIncrease(currentRent:number, leaseMonths:number, annualIncrease:number, marketRent:number, moveOutCosts:number, newPlaceRent:number) {
-  const newRent=currentRent*(1+annualIncrease/100)
-  const increaseAmount=newRent-currentRent
-  const annualExtra=increaseAmount*12
-  const vsMarket=newRent-marketRent
-  const monthsToBreakEven=moveOutCosts/(Math.abs(newRent-newPlaceRent))
-  const yearlyCostToStay=newRent*12
-  const yearlyCostToMove=newPlaceRent*12+moveOutCosts
-  const betterOption=yearlyCostToStay<yearlyCostToMove?'stay':'move'
-  return { currentRent, newRent:Math.round(newRent*100)/100, increaseAmount:Math.round(increaseAmount*100)/100, annualExtra:Math.round(annualExtra), vsMarket:Math.round(vsMarket*100)/100, belowMarket:vsMarket<0, monthsToBreakEven:Math.round(monthsToBreakEven), yearlyCostToStay:Math.round(yearlyCostToStay), yearlyCostToMove:Math.round(yearlyCostToMove), betterOption }
+  const current = Math.max(0, Number(currentRent) || 0)
+  const months = Math.min(60, Math.max(1, Math.round(Number(leaseMonths) || 12)))
+  const increase = Math.max(-100, Number(annualIncrease) || 0)
+  const newRent = current*(1+increase/100)
+  const increaseAmount = newRent-current
+  const annualExtra = increaseAmount*12
+  const vsMarket = newRent-(Number(marketRent)||0)
+  const movingCost = Math.max(0, Number(moveOutCosts)||0)
+  const alternative = Math.max(0, Number(newPlaceRent)||0)
+  const monthlyDifference = newRent-alternative
+  const monthsToBreakEven = monthlyDifference > 0 && movingCost > 0 ? Math.ceil(movingCost/monthlyDifference) : null
+  const yearlyCostToStay = newRent*12
+  const yearlyCostToMove = alternative*12+movingCost
+  const betterOption = yearlyCostToStay < yearlyCostToMove ? 'stay' : yearlyCostToStay > yearlyCostToMove ? 'move' : 'equal'
+  return { currentRent:current, newRent:Math.round(newRent*100)/100, increaseAmount:Math.round(increaseAmount*100)/100, annualExtra:Math.round(annualExtra), vsMarket:Math.round(vsMarket*100)/100, belowMarket:vsMarket<0, monthsToBreakEven, yearlyCostToStay:Math.round(yearlyCostToStay), yearlyCostToMove:Math.round(yearlyCostToMove), betterOption, comparisonMonths:months }
 }
 
 export function calculateMortgagePoints(loanAmount:number, interestRate:number, loanTermYears:number, pointsCost:number, pointsCount:number, rateReduction:number) {
-  const totalPointsCost=loanAmount*pointsCount/100
-  const origRate=interestRate/100/12
-  const newRate=(interestRate-rateReduction)/100/12
-  const months=loanTermYears*12
-  const origPayment=loanAmount*(origRate*Math.pow(1+origRate,months))/(Math.pow(1+origRate,months)-1)
-  const newPayment=loanAmount*(newRate*Math.pow(1+newRate,months))/(Math.pow(1+newRate,months)-1)
-  const monthlySavings=origPayment-newPayment
-  const breakEvenMonths=Math.round(totalPointsCost/monthlySavings)
-  const lifetimeSavings=monthlySavings*months-totalPointsCost
-  return { totalPointsCost:Math.round(totalPointsCost), origPayment:Math.round(origPayment*100)/100, newPayment:Math.round(newPayment*100)/100, monthlySavings:Math.round(monthlySavings*100)/100, breakEvenMonths, breakEvenYears:Math.round(breakEvenMonths/12*10)/10, lifetimeSavings:Math.round(lifetimeSavings), worthIt:breakEvenMonths<loanTermYears*12*0.5 }
+  const principal = Math.max(0, Number(loanAmount) || 0)
+  const origRatePct = Math.max(0, Number(interestRate) || 0)
+  const newRatePct = Math.max(0, origRatePct - Math.max(0, Number(rateReduction) || 0))
+  const months = Math.max(1, Math.round(Math.max(1, Number(loanTermYears) || 1) * 12))
+  const totalPointsCost = principal * Math.max(0, Number(pointsCount) || 0) / 100
+  const payment = (ratePct:number) => {
+    const r = ratePct / 100 / 12
+    return principal <= 0 ? 0 : r > 0 ? principal * r * Math.pow(1+r,months) / (Math.pow(1+r,months)-1) : principal / months
+  }
+  const origPayment = payment(origRatePct)
+  const newPayment = payment(newRatePct)
+  const monthlySavings = Math.max(0, origPayment - newPayment)
+  const breakEvenMonths = monthlySavings > 0 ? Math.ceil(totalPointsCost / monthlySavings) : null
+  const lifetimeSavings = monthlySavings * months - totalPointsCost
+  return {
+    totalPointsCost:Math.round(totalPointsCost),
+    origPayment:Math.round(origPayment*100)/100,
+    newPayment:Math.round(newPayment*100)/100,
+    monthlySavings:Math.round((origPayment-newPayment)*100)/100,
+    breakEvenMonths,
+    breakEvenYears:breakEvenMonths == null ? null : Math.round(breakEvenMonths/12*10)/10,
+    lifetimeSavings:Math.round(lifetimeSavings),
+    worthIt:lifetimeSavings > 0
+  }
 }
 
 export function calculateSalaryNegotiation(currentSalary:number, offerSalary:number, bonusPercent:number, equityValue:number, benefits401k:number, healthBenefitValue:number, pto:number, costOfLivingDiff:number) {
@@ -2578,15 +2658,35 @@ function get2026ChildDependentCareRate(agi:number, filingStatus:'single'|'marrie
 }
 
 export function calculateAnnuityIncome(premium:number, annuityType:'immediate'|'deferred'|'variable', age:number, deferralYears:number, annualReturn:number, payoutPeriod:'lifetime'|'period-certain', periodYears:number) {
-  const accumulatedValue=annuityType==='deferred'?premium*Math.pow(1+annualReturn/100,deferralYears):premium
-  const annuitizationAge=annuityType==='deferred'?age+deferralYears:age
-  // Payout rates based on age and type
-  const payoutRate=annuityType==='variable'?0.05:payoutPeriod==='lifetime'?(annuitizationAge<65?0.055:annuitizationAge<70?0.061:annuitizationAge<75?0.068:0.077):1/(periodYears*0.95)
-  const monthlyIncome=accumulatedValue*payoutRate/12
-  const taxablePortion=annuityType==='deferred'?(accumulatedValue-premium)/accumulatedValue:0
-  const taxOnIncome=monthlyIncome*taxablePortion*0.24
-  const netMonthly=monthlyIncome-taxOnIncome
-  return { accumulatedValue:Math.round(accumulatedValue), monthlyIncome:Math.round(monthlyIncome*100)/100, netMonthly:Math.round(netMonthly*100)/100, annualIncome:Math.round(monthlyIncome*12), taxablePercent:Math.round(taxablePortion*100), breakEvenYears:Math.round(premium/(monthlyIncome*12)), lifetimeIncome:Math.round(monthlyIncome*12*Math.max(periodYears,90-annuitizationAge)) }
+  const principal = Math.max(0, Number(premium) || 0)
+  const yearsDeferred = Math.max(0, Math.min(50, Number(deferralYears) || 0))
+  const returnRate = Math.max(-99, Number(annualReturn) || 0) / 100
+  const accumulatedValue = annuityType === 'deferred' ? principal * Math.pow(1 + returnRate, yearsDeferred) : principal
+  const annuitizationAge = annuityType === 'deferred' ? age + yearsDeferred : age
+  const payoutRate = annuityType === 'variable' ? 0.05 : payoutPeriod === 'lifetime' ? (annuitizationAge < 65 ? 0.055 : annuitizationAge < 70 ? 0.061 : annuitizationAge < 75 ? 0.068 : 0.077) : (Math.max(1, periodYears) > 0 ? 1 / Math.max(1, periodYears) : 0)
+  const annualIncome = accumulatedValue * payoutRate
+  const monthlyIncome = annualIncome / 12
+  const taxablePortion = accumulatedValue > 0 && annuityType === 'deferred' ? Math.max(0, (accumulatedValue - principal) / accumulatedValue) : 0
+  // These are explicitly modeled outputs used by the UI. They are not insurer quotes.
+  const modeledTaxRate = 0.24
+  const netMonthly = monthlyIncome * (1 - modeledTaxRate * taxablePortion)
+  const breakEvenYears = annualIncome > 0 ? accumulatedValue / annualIncome : 0
+  const modeledYearsOfPayments = payoutPeriod === 'lifetime'
+    ? Math.max(1, 95 - annuitizationAge)
+    : Math.max(1, periodYears)
+  const lifetimeIncome = annualIncome * modeledYearsOfPayments
+  return {
+    accumulatedValue: Math.round(accumulatedValue),
+    annuitizationAge,
+    payoutRate: Math.round(payoutRate * 10000) / 100,
+    annualIncome: Math.round(annualIncome),
+    monthlyIncome: Math.round(monthlyIncome),
+    netMonthly: Math.round(netMonthly),
+    breakEvenYears: Math.round(breakEvenYears * 10) / 10,
+    lifetimeIncome: Math.round(lifetimeIncome),
+    taxablePortion: Math.round(taxablePortion * 1000) / 1000,
+    methodologyNote: 'Payout rate and the 24% modeled tax rate are planning assumptions, not insurer or tax quotes. Lifetime income uses an illustrative age-95 horizon for this calculator and does not predict actual longevity or contract payments.'
+  }
 }
 
 export function calculateEarlyRetirement(currentAge:number, targetRetirementAge:number, currentSavings:number, annualSavings:number, annualExpenses:number, investReturn:number, inflationRate:number) {
@@ -2609,16 +2709,17 @@ export function calculateEarlyRetirement(currentAge:number, targetRetirementAge:
   return { portfolio:Math.round(portfolio), projectedPortfolio:Math.round(portfolio), fiNumber:Math.round(fiNumber), sustainableIncome:Math.round(sustainableIncome), inflationAdjExpenses:Math.round(inflationAdjExpenses), shortfall:Math.round(shortfall), onTrack:portfolio>=fiNumber, yearsOfFunding:Math.round(yearsOfFunding), safeWithdrawalRate:safeWithdrawalRate*100, yearData }
 }
 
-export function calculateHealthSavingsAccountHDHP(hdhdpPremium:number, traditionalPremium:number, hdhpDeductible:number, tradDeductible:number, expectedMedical:number, hsaContrib:number, taxRate:number) {
-  const hdhdpTotalPremium=hdhdpPremium*12
-  const tradTotalPremium=traditionalPremium*12
-  const hdhdpOOP=Math.min(expectedMedical,hdhpDeductible)+Math.max(0,expectedMedical-hdhpDeductible)*0.20
-  const tradOOP=Math.min(expectedMedical,tradDeductible)+Math.max(0,expectedMedical-tradDeductible)*0.20
-  const hsaTaxSavings=hsaContrib*(taxRate+7.65)/100
-  const hdhdpTotalCost=hdhdpTotalPremium+hdhdpOOP-hsaTaxSavings
-  const tradTotalCost=tradTotalPremium+tradOOP
+export function calculateHealthSavingsAccountHDHP(hdhdpPremium:number,traditionalPremium:number,hdhpDeductible:number,tradDeductible:number,expectedMedical:number,hsaContrib:number,taxRate:number,hdhpOopMax:number=8500,tradOopMax:number=1000000) {
+  const med=Math.max(0,Number(expectedMedical)||0), hdp=Math.max(0,Number(hdhpDeductible)||0), trd=Math.max(0,Number(tradDeductible)||0)
+  const hdhdpOOP=Math.min(hdhpOopMax,Math.min(med,hdp)+Math.max(0,med-hdp)*0.20)
+  const tradOOP=Math.min(tradOopMax,Math.min(med,trd)+Math.max(0,med-trd)*0.20)
+  const hsaLimit=4400
+  const usableHsa=Math.min(Math.max(0,Number(hsaContrib)||0),hsaLimit)
+  const hsaTaxSavings=usableHsa*Math.max(0,Number(taxRate)||0)/100
+  const hdhdpTotalCost=Math.max(0,hdhdpPremium*12)+hdhdpOOP-hsaTaxSavings
+  const tradTotalCost=Math.max(0,traditionalPremium*12)+tradOOP
   const hdhpSavings=tradTotalCost-hdhdpTotalCost
-  return { hdhdpTotalPremium:Math.round(hdhdpTotalPremium), tradTotalPremium:Math.round(tradTotalPremium), hdhdpOOP:Math.round(hdhdpOOP), tradOOP:Math.round(tradOOP), hsaTaxSavings:Math.round(hsaTaxSavings), hdhdpTotalCost:Math.round(hdhdpTotalCost), tradTotalCost:Math.round(tradTotalCost), hdhpSavings:Math.round(hdhpSavings), betterPlan:hdhpSavings>0?'HDHP + HSA':'Traditional', recommendation:hdhpSavings>500?'HDHP clearly better — significant savings':'Close call — consider your expected medical needs' }
+  return {hdhdpTotalPremium:Math.round(hdhdpPremium*12),tradTotalPremium:Math.round(traditionalPremium*12),hdhdpOOP:Math.round(hdhdpOOP),tradOOP:Math.round(tradOOP),hsaTaxSavings:Math.round(hsaTaxSavings),hdhdpTotalCost:Math.round(hdhdpTotalCost),tradTotalCost:Math.round(tradTotalCost),hdhpSavings:Math.round(hdhpSavings),betterPlan:hdhpSavings>0?'HDHP + HSA':'Traditional',recommendation:'Scenario result only; compare the actual plan documents, network, copays, prescription coverage and out-of-pocket maximum.',hsaContributionModeled:Math.round(usableHsa),hsaContributionLimit:4400}
 }
 
 export function calculateCostOfDebt(debts:{name:string,balance:number,rate:number,minPayment:number}[], extraPayment:number) {
@@ -2737,17 +2838,17 @@ export function calculateLongTermCareInsurance(age:number, dailyBenefit:number, 
   return { avgDailyCost:avgDailyCost2026, coverageGap:Math.round(coverageGap), annualPremium:Math.round(annualPremium), monthlyPremium:Math.round(annualPremium/12), totalPremiumPaid:Math.round(totalPremiumPaid), totalBenefitValue:Math.round(totalBenefitValue), breakEvenYears:breakEven, eliminationPeriodCost:Math.round(avgDailyCost2026*eliminationPeriod), recommendation:age<60?'Buy now — premiums double by 65':'Consider purchasing soon to lock in current rates' }
 }
 
-export function calculateScholarship(collegeType:'public'|'private'|'community', inState:boolean, aidYear:number, efc:number, merit:number) {
+export function calculateScholarship(collegeType:'public'|'private'|'community', inState:boolean, aidYear:number, efc:number, merit:number, federalGrant:number=0) {
   const costs:Record<string,number>={public:22000,private:55000,community:4000}
   const baseCost=costs[collegeType]*(inState?1:1.35)
-  const pellGrant=Math.min(Math.max(0,7395-(efc*0.3)),7395) // 2026 max
-  const needBased=Math.max(0,(baseCost-efc)*0.6)
-  const totalAid=pellGrant+needBased+merit
+  const enteredFederalGrant=Math.max(0,Number(federalGrant)||0)
+  const needBased=Math.max(0,(baseCost-Math.max(0,efc))*0.6)
+  const totalAid=enteredFederalGrant+needBased+Math.max(0,merit)
   const netCost=Math.max(0,baseCost-totalAid)
   const loanNeeded=Math.max(0,netCost-efc)
   const subsidizedLimit=3500 // freshman year
   const unsubsidized=Math.max(0,loanNeeded-subsidizedLimit)
-  return { baseCost:Math.round(baseCost), pellGrant:Math.round(pellGrant), needBasedAid:Math.round(needBased), meritAid:merit, totalAid:Math.round(totalAid), netCost:Math.round(netCost), loanNeeded:Math.round(loanNeeded), subsidizedLoan:Math.min(subsidizedLimit,loanNeeded), unsubsidizedLoan:Math.round(unsubsidized), fourYearCost:Math.round(netCost*4), fourYearDebt:Math.round(loanNeeded*4) }
+  return { baseCost:Math.round(baseCost), pellGrant:Math.round(enteredFederalGrant), needBasedAid:Math.round(needBased), meritAid:merit, totalAid:Math.round(totalAid), netCost:Math.round(netCost), loanNeeded:Math.round(loanNeeded), subsidizedLoan:Math.min(subsidizedLimit,loanNeeded), unsubsidizedLoan:Math.round(unsubsidized), fourYearCost:Math.round(netCost*4), fourYearDebt:Math.round(loanNeeded*4) }
 }
 
 // ─── BATCH 3: 25 MORE UNIQUE USA FINANCE CALCULATORS ─────────────────────────
@@ -2777,28 +2878,21 @@ export function calculateSolo401k(selfEmploymentIncome: number, age: number, inc
 }
 
 export function calculateInheritedIRA(inheritedBalance: number, relationshipType: 'spouse' | 'non-spouse' | 'minor' | 'disabled', decedentAge: number, beneficiaryAge: number, currentTaxRate: number) {
+  const balance = Math.max(0, Number(inheritedBalance) || 0)
+  const rate = Math.max(0, Math.min(100, Number(currentTaxRate) || 0)) / 100
   const isSpouse = relationshipType === 'spouse'
-  const tenYearRule = !isSpouse && relationshipType !== 'disabled' && relationshipType !== 'minor'
-  const annualRequired = tenYearRule ? inheritedBalance / 10 : inheritedBalance / Math.max(1, 90 - beneficiaryAge)
-  const taxPerWithdrawal = annualRequired * (currentTaxRate / 100)
-  const netPerWithdrawal = annualRequired - taxPerWithdrawal
-  const totalTaxBurden = taxPerWithdrawal * (tenYearRule ? 10 : 30)
+  const isEligibleDesignated = isSpouse || relationshipType === 'minor' || relationshipType === 'disabled'
+  const tenYearRule = !isSpouse && !isEligibleDesignated
+  // This is an illustrative even-distribution scenario, not a required RMD amount.
+  const modeledYears = tenYearRule ? 10 : Math.max(1, Math.min(30, 90 - Math.max(0, Number(beneficiaryAge) || 0)))
+  const modeledAnnual = balance / modeledYears
+  const taxPerWithdrawal = modeledAnnual * rate
+  const totalTaxBurden = taxPerWithdrawal * modeledYears
   const strategies = tenYearRule
-    ? ['Spread withdrawals over 10 years to avoid bracket spikes', 'Withdraw more in low-income years (job loss, early retirement)', 'Consider qualified charitable distributions if 70½+', 'Roth conversion in low-income years reduces future RMD burden']
-    : ['Spouse can roll into own IRA and delay RMDs to age 73', 'Take distributions based on your own life expectancy', 'Consider delaying distributions to maximize tax-deferred growth']
-  return {
-    inheritedBalance,
-    tenYearRule,
-    annualRequired: Math.round(annualRequired),
-    taxPerWithdrawal: Math.round(taxPerWithdrawal),
-    netPerWithdrawal: Math.round(netPerWithdrawal),
-    totalTaxBurden: Math.round(totalTaxBurden),
-    optimalStrategy: strategies[0],
-    strategies,
-    yearData: Array.from({ length: tenYearRule ? 11 : 31 }, (_, i) => ({ year: i, balance: Math.round(Math.max(0, inheritedBalance - annualRequired * i) * Math.pow(1.06, i)) }))
-  }
+    ? ['Model withdrawals across the 10-year deadline', 'Consider lower-income years for larger distributions', 'Review the owner\'s death date and RMD status before relying on annual distribution assumptions']
+    : ['Review the beneficiary-specific life-expectancy rules', 'A surviving spouse may have additional rollover/timing choices', 'Confirm beneficiary status and the applicable IRS table before taking required distributions']
+  return { inheritedBalance: balance, tenYearRule, annualRequired: Math.round(modeledAnnual), taxPerWithdrawal: Math.round(taxPerWithdrawal), netPerWithdrawal: Math.round(modeledAnnual - taxPerWithdrawal), totalTaxBurden: Math.round(totalTaxBurden), optimalStrategy: strategies[0], strategies, yearData: Array.from({ length: modeledYears + 1 }, (_, i) => ({ year: i, balance: Math.round(Math.max(0, balance - modeledAnnual * i)) })) }
 }
-
 export function calculateTrusteeeFee(trustAssets: number, trustType: 'revocable' | 'irrevocable' | 'charitable', annualAdminHours: number, stateProbateCost: number) {
   const professionalFeeRate = trustAssets < 1000000 ? 0.015 : trustAssets < 5000000 ? 0.012 : 0.009
   const annualFee = trustAssets * professionalFeeRate
@@ -2928,33 +3022,16 @@ export function calculateSocialSecurityTaxability(ssBenefit: number, otherIncome
   }
 }
 
-export function calculateHomeOfficeDeduction(officeSquareFt: number, homeTotalSqFt: number, annualRent: number, utilities: number, internet: number, businessType: 'self-employed' | 'employee') {
-  if (businessType === 'employee') return {
-    percentage: 0,
-    actualDeduction: 0,
-    simplifiedDeduction: 0,
-    betterMethod: 'none' as const,
-    optimalDeduction: 0,
-    taxSavings: 0,
-    deduction: 0,
-    note: 'W-2 employees generally cannot deduct unreimbursed home-office expenses on a federal return under current law. This result is informational; state rules and employer reimbursement policies can differ.',
-    simplified: 0,
-    actual: 0,
-  }
-  const percentage = homeTotalSqFt > 0 ? officeSquareFt / homeTotalSqFt : 0
-  const actualDeduction = (annualRent + utilities) * percentage + internet * 0.5
-  const simplifiedDeduction = Math.min(officeSquareFt, 300) * 5
-  const betterMethod = actualDeduction > simplifiedDeduction ? 'actual' : 'simplified'
-  const taxSavings = Math.max(actualDeduction, simplifiedDeduction) * 0.32
-  return {
-    percentage: Math.round(percentage * 1000) / 10,
-    actualDeduction: Math.round(actualDeduction),
-    simplifiedDeduction: Math.round(simplifiedDeduction),
-    betterMethod,
-    optimalDeduction: Math.round(Math.max(actualDeduction, simplifiedDeduction)),
-    taxSavings: Math.round(taxSavings),
-    note: `Use ${betterMethod} method — saves $${Math.round(taxSavings)} more in taxes`
-  }
+export function calculateHomeOfficeDeduction(officeSquareFt: number, homeTotalSqFt: number, annualRent: number, utilities: number, annualBusinessInternet: number, businessType: 'self-employed' | 'employee') {
+  if (businessType === 'employee') return { percentage:0, actualDeduction:0, simplifiedDeduction:0, betterMethod:'none' as const, optimalDeduction:0, taxSavings:0, deduction:0, note:'W-2 employees generally cannot deduct unreimbursed home-office expenses on a federal return. State rules and employer reimbursement can differ.', simplified:0, actual:0 }
+  const office=Math.max(0,Number(officeSquareFt)||0)
+  const home=Math.max(0,Number(homeTotalSqFt)||0)
+  const percentage=home>0 ? Math.min(1,office/home) : 0
+  const actualDeduction=Math.max(0,(Math.max(0,Number(annualRent)||0)+Math.max(0,Number(utilities)||0))*percentage+Math.max(0,Number(annualBusinessInternet)||0))
+  const simplifiedDeduction=Math.min(office,300)*5
+  const betterMethod=actualDeduction>simplifiedDeduction?'actual':'simplified'
+  const optimalDeduction=Math.max(actualDeduction,simplifiedDeduction)
+  return { percentage:Math.round(percentage*1000)/10, actualDeduction:Math.round(actualDeduction), simplifiedDeduction:Math.round(simplifiedDeduction), betterMethod, optimalDeduction:Math.round(optimalDeduction), taxSavings:0, note:`${betterMethod} method is larger in this model. Actual allowable deduction can be limited by business income and other Form 8829 rules; tax savings are not estimated without the taxpayer's full return.` }
 }
 
 export function calculateMunicipalBondTEY(couponRate: number, federalTaxRate: number, stateTaxRate: number, stateExempt: boolean) {
@@ -2997,8 +3074,15 @@ export function calculateCoveredCall(sharesOwned: number, currentPrice: number, 
 }
 
 export function calculateTSPvs401k(salary: number, tspContrib: number, matchPercent: number, yearsService: number, retirementSystem: 'FERS' | 'CSRS', age: number) {
-  const annualMatch = salary * Math.min(matchPercent, 5) / 100
-  const totalAnnualContrib = tspContrib + annualMatch
+  const safeSalary = Math.max(0, Number(salary) || 0)
+  const safeContrib = Math.min(Math.max(0, Number(tspContrib) || 0), safeSalary)
+  const contributionPct = safeSalary > 0 ? (safeContrib / safeSalary) * 100 : 0
+  // Simplified FERS agency contribution: 1% automatic plus dollar-for-dollar match
+  // on the first 3% and 50 cents per dollar on the next 2%. CSRS has no FERS match.
+  const annualMatch = retirementSystem === 'FERS'
+    ? safeSalary * (0.01 + Math.min(contributionPct, 3) / 100 + Math.min(Math.max(contributionPct - 3, 0), 2) * 0.5 / 100)
+    : 0
+  const totalAnnualContrib = safeContrib + annualMatch
   const growth30 = totalAnnualContrib * Math.pow(1.07, Math.max(0, 30 - yearsService))
   // FERS pension: 1% × years × high-3 salary (1.1% if retire at 62+ with 20+ yrs)
   const fersPensionRate = (age >= 62 && yearsService >= 20) ? 0.011 : 0.01
@@ -3020,93 +3104,71 @@ export function calculateTSPvs401k(salary: number, tspContrib: number, matchPerc
 }
 
 export function calculateOptionsPremium(stockPrice: number, strikePrice: number, daysToExpiry: number, impliedVolatility: number, riskFreeRate: number, optionType: 'call' | 'put') {
-  // Black-Scholes simplified
-  const T = daysToExpiry / 365
-  const sigma = impliedVolatility / 100
-  const r = riskFreeRate / 100
-  const S = stockPrice, K = strikePrice
-  const d1 = (Math.log(S / K) + (r + sigma * sigma / 2) * T) / (sigma * Math.sqrt(T))
-  const d2 = d1 - sigma * Math.sqrt(T)
-  const Nd1 = 0.5 * (1 + Math.sign(d1) * (1 - Math.exp(-0.5 * d1 * d1) / Math.sqrt(2 * Math.PI) * (0.319381530 * Math.abs(d1) - 0.356563782 * d1 * d1 + 1.781477937 * Math.pow(Math.abs(d1), 3) - 1.821255978 * Math.pow(d1, 4) + 1.330274429 * Math.pow(Math.abs(d1), 5))))
-  const Nd2 = 0.5 * (1 + Math.sign(d2) * (1 - Math.exp(-0.5 * d2 * d2) / Math.sqrt(2 * Math.PI) * (0.319381530 * Math.abs(d2) - 0.356563782 * d2 * d2 + 1.781477937 * Math.pow(Math.abs(d2), 3) - 1.821255978 * Math.pow(d2, 4) + 1.330274429 * Math.pow(Math.abs(d2), 5))))
-  const callPrice = S * Nd1 - K * Math.exp(-r * T) * Nd2
-  const putPrice = callPrice - S + K * Math.exp(-r * T)
+  const S = Math.max(0.000001, Number(stockPrice) || 0)
+  const K = Math.max(0.000001, Number(strikePrice) || 0)
+  const T = Math.max(1/365, Number(daysToExpiry) || 0) / 365
+  const sigma = Math.max(0.000001, Number(impliedVolatility) || 0) / 100
+  const r = Number(riskFreeRate) || 0
+  const rf = r / 100
+  const sqrtT = Math.sqrt(T)
+  const d1 = (Math.log(S / K) + (rf + sigma*sigma/2) * T) / (sigma * sqrtT)
+  const d2 = d1 - sigma * sqrtT
+  const N = (x:number) => {
+    const sign = x < 0 ? -1 : 1
+    const ax = Math.abs(x)
+    const t = 1 / (1 + 0.2316419 * ax)
+    const poly = ((((1.330274429*t - 1.821255978)*t + 1.781477937)*t - 0.356563782)*t + 0.319381530)*t
+    const cdf = 1 - Math.exp(-ax*ax/2) / Math.sqrt(2*Math.PI) * poly
+    return sign === 1 ? cdf : 1-cdf
+  }
+  const discount = Math.exp(-rf*T)
+  const callPrice = S*N(d1) - K*discount*N(d2)
+  const putPrice = K*discount*N(-d2) - S*N(-d1)
   const price = optionType === 'call' ? callPrice : putPrice
-  const intrinsic = optionType === 'call' ? Math.max(0, S - K) : Math.max(0, K - S)
-  const timeValue = price - intrinsic
-  const delta = optionType === 'call' ? Nd1 : Nd1 - 1
-  const theta = -(S * sigma * Math.exp(-d1 * d1 / 2)) / (2 * Math.sqrt(T) * Math.sqrt(2 * Math.PI)) / 365
+  const intrinsic = optionType === 'call' ? Math.max(0, S-K) : Math.max(0, K-S)
+  const timeValue = Math.max(0, price-intrinsic)
+  const delta = optionType === 'call' ? N(d1) : N(d1)-1
+  const theta = -(S*sigma*Math.exp(-d1*d1/2))/(2*sqrtT*Math.sqrt(2*Math.PI))
+    + (optionType === 'call' ? -rf*K*discount*N(d2) : rf*K*discount*N(-d2))
   return {
-    price: Math.round(price * 100) / 100,
-    intrinsicValue: Math.round(intrinsic * 100) / 100,
-    timeValue: Math.round(timeValue * 100) / 100,
-    delta: Math.round(delta * 1000) / 1000,
-    theta: Math.round(theta * 1000) / 1000,
-    contractValue: Math.round(price * 100),
-    impliedMove: Math.round(stockPrice * impliedVolatility / 100 * Math.sqrt(daysToExpiry / 365) * 10) / 10,
-    breakEven: optionType === 'call' ? Math.round((strikePrice + price) * 100) / 100 : Math.round((strikePrice - price) * 100) / 100
+    price: Math.round(price*100)/100,
+    intrinsicValue: Math.round(intrinsic*100)/100,
+    timeValue: Math.round(timeValue*100)/100,
+    delta: Math.round(delta*1000)/1000,
+    theta: Math.round((theta/365)*1000)/1000,
+    contractValue: Math.round(price*100),
+    impliedMove: Math.round(S*sigma*sqrtT*10)/10,
+    breakEven: optionType === 'call' ? Math.round((K+price)*100)/100 : Math.round((K-price)*100)/100
   }
 }
 
-export function calculateEstateProbate(estateValue: number, state: string, hasWill: boolean, hasTrust: boolean) {
-  const probateRates: Record<string, number> = { CA: 4, NY: 2.5, FL: 3, TX: 2, IL: 2.5, OH: 2, PA: 3, GA: 2.5, NC: 2, MI: 2 }
-  const rate = probateRates[state] || 3
-  const probateCost = hasTrust ? 0 : estateValue * rate / 100 + (hasWill ? 5000 : 15000)
-  const timeCost = hasTrust ? 0 : 18 // months
-  const trustSetupCost = hasTrust ? 3500 : 0
-  const netSavings = probateCost - trustSetupCost
-  const privacyValue = 'Wills become public record; trusts maintain privacy'
-  return {
-    estateValue,
-    probateCost: Math.round(probateCost),
-    probatePercent: rate,
-    timeCost,
-    trustSetupCost,
-    netSavings: Math.round(netSavings),
-    worthAvoiding: probateCost > 10000,
-    strategies: [
-      hasTrust ? '✅ Revocable living trust avoids probate' : '⚠️ Consider a revocable living trust to bypass probate',
-      'Beneficiary designations on IRA, 401k, life insurance pass outside probate',
-      'Joint tenancy with right of survivorship transfers automatically at death',
-      'Payable-on-death (POD) and transfer-on-death (TOD) accounts bypass probate',
-    ],
-    privacyNote: privacyValue
+export function calculateEstateProbate(estateValue:number,state:string,hasWill:boolean,hasTrust:boolean){
+  const value=Math.max(0,Number(estateValue)||0)
+  const caFee=(v:number)=>{
+    let rem=v, fee=0
+    const tiers:[[number,number],[number,number],[number,number],[number,number],[number,number]]=[[100000,.04],[100000,.03],[800000,.02],[9000000,.01],[15000000,.005]]
+    for(const [cap,rate] of tiers){const part=Math.min(rem,cap);fee+=part*rate;rem-=part;if(rem<=0)break}
+    if(rem>0) fee+=0 // amounts over $25M require a reasonable amount determined by the court
+    return fee
   }
+  const isCA=state==='CA'
+  const ordinaryStatutoryFee=isCA?caFee(value):0
+  const probateCost=hasTrust?0:ordinaryStatutoryFee*2
+  const timeCost=hasTrust?0:12
+  const trustSetupCost=hasTrust?0:3500
+  const netSavings=probateCost-trustSetupCost
+  return {estateValue:value,probateCost:Math.round(probateCost),probatePercent:value?Math.round(probateCost/value*1000)/10:0,timeCost,trustSetupCost,netSavings:Math.round(netSavings),worthAvoiding:netSavings>0,strategies:[hasTrust?'Revocable trust scenario assumes the assets are properly funded into the trust.':'A trust only avoids probate for assets actually transferred to it.','Beneficiary designations can transfer qualifying accounts outside probate.','Joint ownership can change transfer mechanics but has legal and tax consequences.','California statutory ordinary compensation is calculated by tier; extraordinary services may receive additional court-approved compensation.'],privacyNote:'This is a California statutory-fee planning estimate, not a complete probate-cost forecast.'}
 }
-
 export function calculateTaxableVsRoth(contribution: number, yearsToRetirement: number, currentTaxRate: number, retirementTaxRate: number, expectedReturn: number) {
-  // Taxable account
-  const afterTaxContrib = contribution * (1 - currentTaxRate / 100)
-  const taxableGrowth = afterTaxContrib * Math.pow(1 + expectedReturn / 100 * 0.85, yearsToRetirement) // 15% drag for annual taxes
-  const capitalGainsTax = (taxableGrowth - afterTaxContrib) * 0.15
-  const taxableNetValue = taxableGrowth - capitalGainsTax
-
-  // Roth IRA
-  const rothContrib = afterTaxContrib // same after-tax dollars
-  const rothGrowth = rothContrib * Math.pow(1 + expectedReturn / 100, yearsToRetirement)
-  const rothNetValue = rothGrowth // 100% tax-free
-
-  // Traditional IRA (pre-tax)
-  const traditionalGrowth = contribution * Math.pow(1 + expectedReturn / 100, yearsToRetirement)
-  const traditionalNetValue = traditionalGrowth * (1 - retirementTaxRate / 100)
-
-  const rothAdvantagVsTaxable = rothNetValue - taxableNetValue
-  const rothAdvantageVsTraditional = rothNetValue - traditionalNetValue
-
-  return {
-    taxableNetValue: Math.round(taxableNetValue),
-    rothNetValue: Math.round(rothNetValue),
-    traditionalNetValue: Math.round(traditionalNetValue),
-    rothAdvantagVsTaxable: Math.round(rothAdvantagVsTaxable),
-    rothAdvantageVsTraditional: Math.round(rothAdvantageVsTraditional),
-    bestOption: rothNetValue >= Math.max(taxableNetValue, traditionalNetValue) ? 'Roth IRA' : traditionalNetValue >= Math.max(taxableNetValue, rothNetValue) ? 'Traditional IRA' : 'Taxable Account',
-    yearData: Array.from({ length: Math.min(yearsToRetirement + 1, 41) }, (_, i) => ({
-      year: i,
-      roth: Math.round(rothContrib * Math.pow(1 + expectedReturn / 100, i)),
-      traditional: Math.round(contribution * Math.pow(1 + expectedReturn / 100, i) * (1 - retirementTaxRate / 100)),
-      taxable: Math.round(afterTaxContrib * Math.pow(1 + expectedReturn / 100 * 0.85, i))
-    }))
-  }
+  const principal = Math.max(0, Number(contribution)||0), years = Math.max(0, Math.floor(Number(yearsToRetirement)||0))
+  const currentRate = Math.min(100,Math.max(0,Number(currentTaxRate)||0))/100, retirementRate = Math.min(100,Math.max(0,Number(retirementTaxRate)||0))/100
+  const returnRate = Math.max(-100,Number(expectedReturn)||0)/100
+  const afterTaxContrib = principal*(1-currentRate)
+  const taxableGrowth = afterTaxContrib*Math.pow(1+returnRate*0.85,years)
+  const capitalGainsTax = Math.max(0,taxableGrowth-afterTaxContrib)*0.15, taxableNetValue = taxableGrowth-capitalGainsTax
+  const rothGrowth = afterTaxContrib*Math.pow(1+returnRate,years), traditionalGrowth = principal*Math.pow(1+returnRate,years), traditionalNetValue = traditionalGrowth*(1-retirementRate)
+  const rothAdvantagVsTaxable = rothGrowth-taxableNetValue, rothAdvantageVsTraditional = rothGrowth-traditionalNetValue
+  return { taxableNetValue:Math.round(taxableNetValue), rothNetValue:Math.round(rothGrowth), traditionalNetValue:Math.round(traditionalNetValue), rothAdvantagVsTaxable:Math.round(rothAdvantagVsTaxable), rothAdvantageVsTraditional:Math.round(rothAdvantageVsTraditional), bestOption:rothGrowth>=Math.max(taxableNetValue,traditionalNetValue)?'Roth IRA':traditionalNetValue>=Math.max(taxableNetValue,rothGrowth)?'Traditional IRA':'Taxable Account', yearData:Array.from({length:Math.min(years+1,41)},(_,i)=>({year:i,roth:Math.round(afterTaxContrib*Math.pow(1+returnRate,i)),traditional:Math.round(principal*Math.pow(1+returnRate,i)*(1-retirementRate)),taxable:Math.round(afterTaxContrib*Math.pow(1+returnRate*0.85,i))})) }
 }
 
 export function calculateCashValueLifeInsurance(annualPremium: number, deathBenefit: number, age: number, yearsHeld: number, policyType: 'whole' | 'universal' | 'variable') {
@@ -3205,32 +3267,16 @@ export function calculateEmergencyFundInHYSA(monthlyExpenses: number, monthsCove
   }
 }
 
-export function calculateStudentLoanRefinance(currentBalance: number, currentRate: number, currentTerm: number, newRate: number, newTerm: number, isPrivate: boolean) {
-  const mr1 = currentRate / 100 / 12, mr2 = newRate / 100 / 12
-  const pmt1 = currentBalance * mr1 / (1 - Math.pow(1 + mr1, -currentTerm * 12))
-  const pmt2 = currentBalance * mr2 / (1 - Math.pow(1 + mr2, -newTerm * 12))
-  const totalOld = pmt1 * currentTerm * 12
-  const totalNew = pmt2 * newTerm * 12
-  const interestSaved = totalOld - totalNew
-  const breakEven = 3 // months (refi closing cost ~$0 typically)
-  return {
-    currentPayment: Math.round(pmt1),
-    newPayment: Math.round(pmt2),
-    monthlySavings: Math.round(pmt1 - pmt2),
-    totalInterestOld: Math.round(totalOld - currentBalance),
-    totalInterestNew: Math.round(totalNew - currentBalance),
-    interestSaved: Math.round(interestSaved),
-    worthRefinancing: interestSaved > 1000,
-    federalBenefitsLost: !isPrivate ? 'Refinancing federal loans to private loses IDR plans, PSLF eligibility, and forbearance rights' : 'Private loan — no federal benefits to lose',
-    breakEvenMonths: breakEven,
-    yearData: Array.from({ length: Math.max(currentTerm, newTerm) + 1 }, (_, i) => ({
-      year: i,
-      oldBalance: Math.round(Math.max(0, currentBalance * Math.pow(1 + mr1, i * 12) - pmt1 * ((Math.pow(1 + mr1, i * 12) - 1) / mr1))),
-      newBalance: Math.round(Math.max(0, currentBalance * Math.pow(1 + mr2, i * 12) - pmt2 * ((Math.pow(1 + mr2, i * 12) - 1) / mr2)))
-    }))
-  }
+export function calculateStudentLoanRefinance(currentBalance:number,currentRate:number,currentTerm:number,newRate:number,newTerm:number,isPrivate:boolean,refinanceFees:number=0){
+  const balance=Math.max(0,Number(currentBalance)||0), term1=Math.max(1,Math.round(currentTerm*12)), term2=Math.max(1,Math.round(newTerm*12)), fee=Math.max(0,Number(refinanceFees)||0)
+  const pmt=(principal:number,annual:number,n:number)=>{const r=Math.max(0,annual)/100/12; return r===0?principal/n:principal*r/(1-Math.pow(1+r,-n))}
+  const pmt1=pmt(balance,currentRate,term1), pmt2=pmt(balance,newRate,term2)
+  const totalOld=pmt1*term1, totalNew=pmt2*term2
+  const interestSaved=totalOld-totalNew-fee, monthlySavings=pmt1-pmt2
+  const breakEven=monthlySavings>0&&fee>0?Math.ceil(fee/monthlySavings):0
+  const balanceAt=(principal:number,annual:number,payment:number,n:number)=>{const r=Math.max(0,annual)/100/12; if(r===0)return Math.max(0,principal-payment*n); return Math.max(0,principal*Math.pow(1+r,n)-payment*((Math.pow(1+r,n)-1)/r))}
+  return {currentPayment:Math.round(pmt1),newPayment:Math.round(pmt2),monthlySavings:Math.round(monthlySavings),totalInterestOld:Math.round(totalOld-balance),totalInterestNew:Math.round(totalNew-balance),refinanceFees:Math.round(fee),interestSaved:Math.round(interestSaved),worthRefinancing:interestSaved>0,federalBenefitsLost:!isPrivate?'If the existing loan is federal and the refinance is private, federal protections may be lost, including access to federal repayment and forgiveness programs.':'Private loan scenario — federal protections are not assumed.',breakEvenMonths:breakEven,yearData:Array.from({length:Math.max(Math.ceil(term1/12),Math.ceil(term2/12))+1},(_,i)=>({year:i,oldBalance:Math.round(balanceAt(balance,currentRate,pmt1,i*12)),newBalance:Math.round(balanceAt(balance,newRate,pmt2,i*12))}))}
 }
-
 export function calculateNetUnrealizedAppreciation(nua: number, costBasis: number, otherIncome: number, age: number) {
   const nuaTax = nua * 0.15 // LT cap gains on NUA
   const ordinaryIncomeTax = costBasis * 0.22 // ordinary income on basis
@@ -3283,32 +3329,25 @@ export function calculateTaxFreeMuniBond(faceValue: number, couponRate: number, 
 
 export function calculateIBond2026(monthlyPurchase: number, startMonth: number, years: number) {
   const annualLimit = 10000
-  const fixedRate = 0.90
-  // May 1-Oct 31, 2026 Treasury composite rate. Kept explicit so the page does not imply a live rate feed.
   const compositeRate = 4.26
-  const months = years * 12
-  let totalValue = 0
-  const purchases: number[] = []
+  const safeMonthly = Math.max(0, Number(monthlyPurchase) || 0)
+  const safeYears = Math.max(0, Math.floor(Number(years) || 0))
+  const months = safeYears * 12
+  let totalValue = 0, totalPurchased = 0
+  const semiannualFactor = 1 + compositeRate / 100 / 2
   for (let m = 0; m < months; m++) {
-    const monthlyAmount = Math.min(monthlyPurchase, annualLimit / 12)
+    const monthlyAmount = Math.min(safeMonthly, annualLimit / 12)
     const monthsHeld = months - m
-    const penalty = monthsHeld < 60 ? 3 : 0
-    const effectiveMonths = Math.max(0, monthsHeld - penalty)
-    totalValue += monthlyAmount * Math.pow(1 + compositeRate / 100 / 2, effectiveMonths / 6)
-    purchases.push(monthlyAmount)
+    const creditedPeriods = Math.floor(monthsHeld / 6)
+    const raw = monthlyAmount * Math.pow(semiannualFactor, creditedPeriods)
+    const monthlyFactor = Math.pow(semiannualFactor, 1 / 6)
+    const penaltyFactor = monthsHeld < 60 ? Math.pow(monthlyFactor, Math.min(3, monthsHeld)) : 1
+    totalValue += raw / penaltyFactor
+    totalPurchased += monthlyAmount
   }
-  const totalPurchased = Math.min(monthlyPurchase * 12, annualLimit) * years
-  const totalInterest = totalValue - totalPurchased
-  return {
-    compositeRate: Math.round(compositeRate * 100) / 100,
-    totalPurchased: Math.round(totalPurchased),
-    totalValue: Math.round(totalValue),
-    totalInterest: Math.round(totalInterest),
-    effectiveAnnualYield: Math.round((Math.pow(totalValue / totalPurchased, 1 / years) - 1) * 10000) / 100,
-    annualLimit,
-    bestFor: 'Emergency fund tier 2, short-term inflation hedge, or complement to TIPS',
-    yearData: Array.from({ length: years + 1 }, (_, i) => ({ year: i, value: Math.round(Math.min(monthlyPurchase * 12, annualLimit) * i * Math.pow(1 + compositeRate / 100, i)) }))
-  }
+  const totalInterest = Math.max(0, totalValue - totalPurchased)
+  const effectiveAnnualYield = totalPurchased > 0 && safeYears > 0 ? (Math.pow(totalValue / totalPurchased, 1 / safeYears) - 1) * 100 : 0
+  return { compositeRate, totalPurchased: Math.round(totalPurchased), totalValue: Math.round(totalValue), totalInterest: Math.round(totalInterest), effectiveAnnualYield: Math.round(effectiveAnnualYield * 100) / 100, annualLimit, bestFor: 'A current-rate scenario for Series I savings bonds. Actual future rates reset every six months.', yearData: Array.from({ length: safeYears + 1 }, (_, i) => ({ year: i, value: Math.round(totalPurchased * (i / Math.max(1, safeYears)) * Math.pow(1 + compositeRate / 100, i)) })) }
 }
 
 export function calculateCryptoDCAvsLumpSum(totalAmount: number, dcaMonths: number, startPrice: number, endPrice: number, volatility: number) {
@@ -3447,27 +3486,22 @@ export function calculateWealthComparison(initialAmount: number, annualContrib: 
   return { indexFund, realEstate, business, bonds, hysa, best, yearData }
 }
 
-export function calculateW4Withholding(annualSalary: number, spouseIncome: number, otherIncome: number, retirement401k: number, itemizedDeductions: number, taxCredits: number) {
-  const totalIncome = annualSalary + spouseIncome + otherIncome - retirement401k
-  const stdDeduction = spouseIncome > 0 ? 32200 : 16100
-  const deduction = Math.max(stdDeduction, itemizedDeductions)
+export function calculateW4Withholding(annualSalary: number, spouseIncome: number, otherIncome: number, retirement401k: number, itemizedDeductions: number, taxCredits: number, currentAnnualWithholding: number) {
+  const salary = Math.max(0, Number(annualSalary) || 0), spouse = Math.max(0, Number(spouseIncome) || 0), other = Math.max(0, Number(otherIncome) || 0)
+  const retirement = Math.min(salary + spouse + other, Math.max(0, Number(retirement401k) || 0))
+  const totalIncome = Math.max(0, salary + spouse + other - retirement)
+  const stdDeduction = spouse > 0 ? 32200 : 16100
+  const deduction = Math.max(stdDeduction, Math.max(0, Number(itemizedDeductions) || 0))
   const taxable = Math.max(0, totalIncome - deduction)
-  const brackets: [number,number][] = spouseIncome > 0 ? [[24800,0.10],[100800,0.12],[211400,0.22],[403550,0.24],[512450,0.32],[768700,0.35],[Infinity,0.37]] : [[12400,0.10],[50400,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]]
+  const brackets: [number,number][] = spouse > 0 ? [[24800,0.10],[100800,0.12],[211400,0.22],[403550,0.24],[512450,0.32],[768700,0.35],[Infinity,0.37]] : [[12400,0.10],[50400,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]]
   let tax = 0, rem = taxable, prev = 0
-  for(const [lim,rate] of brackets){const s=Math.min(rem,lim-prev);tax+=s*rate;rem-=s;prev=lim;if(rem<=0)break}
-  const taxLiability = Math.max(0, tax - taxCredits)
-  const currentWithholding = annualSalary * 0.22 // rough flat withholding estimate
-  const refundOrOwe = currentWithholding - taxLiability
-  const suggestedDeduction = deduction > stdDeduction ? deduction - stdDeduction : 0
-  const monthlyAdjustment = Math.round((currentWithholding - taxLiability) / 12)
-  return {
-    taxLiability: Math.round(taxLiability),
-    currentWithholding: Math.round(currentWithholding),
-    refundOrOwe: Math.round(refundOrOwe),
-    suggestedDeduction: Math.round(suggestedDeduction),
-    monthlyAdjustment,
-    status: refundOrOwe > 1000 ? 'Over-withheld — adjust W-4 to keep more each paycheck' : refundOrOwe < -1000 ? 'Under-withheld — increase withholding to avoid penalty' : '✅ Well calibrated — within $1,000 target range'
-  }
+  for (const [lim, rate] of brackets) { const slice = Math.min(rem, lim - prev); tax += slice * rate; rem -= slice; prev = lim; if (rem <= 0) break }
+  const taxLiability = Math.max(0, tax - Math.max(0, Number(taxCredits) || 0))
+  const withholding = Math.max(0, Number(currentAnnualWithholding) || 0)
+  const refundOrOwe = withholding - taxLiability
+  const suggestedDeduction = Math.max(0, deduction - stdDeduction)
+  const monthlyAdjustment = Math.round((taxLiability - withholding) / 12)
+  return { taxLiability: Math.round(taxLiability), currentWithholding: Math.round(withholding), refundOrOwe: Math.round(refundOrOwe), suggestedDeduction: Math.round(suggestedDeduction), monthlyAdjustment, status: refundOrOwe > 1000 ? 'Modeled over-withholding' : refundOrOwe < -1000 ? 'Modeled under-withholding' : 'Modeled withholding is within $1,000 of estimated tax' }
 }
 
 // ─── BATCH 4: 25 MORE UNIQUE USA FINANCE CALCULATORS ─────────────────────────
@@ -3794,49 +3828,54 @@ export function calculateAnnualFeeVsNoFeeCard(annualFee: number, rewardsRate: nu
   }
 }
 
-export function calculateForbearanceVsRepayment(balance: number, rate: number, forbearanceMonths: number, resumePayment: number) {
+export function calculateForbearanceVsRepayment(balance: number, rate: number, forbearanceMonths: number, resumePayment: number, termYears: number = 30, capitalizeInterest: boolean = true) {
+  if (![balance,rate,forbearanceMonths,resumePayment,termYears].every(Number.isFinite) || balance < 0 || rate < 0 || forbearanceMonths < 0 || termYears <= 0) throw new Error('Invalid student-loan input')
   const monthlyRate = rate / 100 / 12
-  const interestAccrued = balance * monthlyRate * forbearanceMonths
-  const newBalance = balance + interestAccrued
-  const originalPayment = balance * (monthlyRate * Math.pow(1 + monthlyRate, 360)) / (Math.pow(1 + monthlyRate, 360) - 1)
-  const newPayment = newBalance * (monthlyRate * Math.pow(1 + monthlyRate, 360 - forbearanceMonths)) / (Math.pow(1 + monthlyRate, 360 - forbearanceMonths) - 1)
-  const totalInterestOriginal = originalPayment * 360 - balance
-  const totalInterestNew = newPayment * (360 - forbearanceMonths) - newBalance
-  const totalCostForbearance = interestAccrued + totalInterestNew - totalInterestOriginal
+  const months = Math.max(1, Math.round(termYears*12))
+  const pause = Math.min(Math.round(forbearanceMonths), months)
+  const interestAccrued = monthlyRate === 0 ? 0 : balance * monthlyRate * pause
+  const originalPayment = monthlyRate === 0 ? balance / months : balance * (monthlyRate*Math.pow(1+monthlyRate,months))/(Math.pow(1+monthlyRate,months)-1)
+  const balanceAfterPause = capitalizeInterest ? balance + interestAccrued : balance
+  const remainingMonths = Math.max(1, months-pause)
+  const amortizedPayment = monthlyRate === 0 ? balanceAfterPause/remainingMonths : balanceAfterPause*(monthlyRate*Math.pow(1+monthlyRate,remainingMonths))/(Math.pow(1+monthlyRate,remainingMonths)-1)
+  const paymentUsedAfterPause = resumePayment > 0 ? resumePayment : amortizedPayment
+  const totalInterestOriginal = Math.max(0, originalPayment*months-balance)
+  const totalInterestAfterPause = Math.max(0, paymentUsedAfterPause*remainingMonths-balanceAfterPause)
+  const totalCostForbearance = interestAccrued + totalInterestAfterPause - totalInterestOriginal
   return {
-    originalPayment: Math.round(originalPayment * 100) / 100,
+    originalPayment: Math.round(originalPayment*100)/100,
     interestAccrued: Math.round(interestAccrued),
-    newBalance: Math.round(newBalance),
-    newPayment: Math.round(newPayment * 100) / 100,
-    paymentIncrease: Math.round((newPayment - originalPayment) * 100) / 100,
+    newBalance: Math.round(balanceAfterPause),
+    newPayment: Math.round(amortizedPayment*100)/100,
+    paymentUsedAfterPause: Math.round(paymentUsedAfterPause*100)/100,
+    paymentIncrease: Math.round((paymentUsedAfterPause-originalPayment)*100)/100,
     totalCostForbearance: Math.round(totalCostForbearance),
-    alternatives: ['Deferment (interest may not accrue on subsidized loans)', 'Income-driven repayment plan', 'Extended repayment term', 'Graduated repayment plan'],
-    recommendation: totalCostForbearance > 5000 ? 'Explore IDR plan instead — may cost less long-term' : 'Forbearance manageable if truly temporary hardship'
+    capitalizationMode: capitalizeInterest ? 'Interest capitalized in this scenario' : 'Interest remains unpaid and is not added to principal in this scenario',
+    alternatives: ['Contact your loan servicer about available deferment or forbearance types', 'Review income-driven repayment options if eligible', 'Ask the servicer how unpaid interest is treated before requesting relief'],
+    recommendation: 'Compare the servicer-approved relief option and capitalization terms before choosing a payment pause'
   }
 }
 
-export function calculateGoldVsStocks(goldAmount: number, stockAmount: number, goldAllocation: number, years: number) {
-  const stockAllocation = 100 - goldAllocation
-  const totalAmount = goldAmount + stockAmount
-  const goldReturn = 1.06, stockReturn = 1.10
-  const portfolioReturn = (goldAllocation / 100 * goldReturn) + (stockAllocation / 100 * stockReturn)
-  const goldFinalValue = totalAmount * (goldAllocation / 100) * Math.pow(goldReturn, years)
-  const stockFinalValue = totalAmount * (stockAllocation / 100) * Math.pow(stockReturn, years)
-  const blendedFinal = goldFinalValue + stockFinalValue
-  const allStockFinal = totalAmount * Math.pow(stockReturn, years)
-  const allGoldFinal = totalAmount * Math.pow(goldReturn, years)
-  const hedgeValue = blendedFinal * (1 - 0.15) // 15% crash protection from gold hedge
+export function calculateGoldVsStocks(totalAmount: number, _unused: number, stockAllocation: number, years: number, goldReturn: number = 6, stockReturn: number = 10) {
+  const total = Math.max(0, Number(totalAmount) || 0)
+  const stockPct = Math.min(100, Math.max(0, Number(stockAllocation) || 0))
+  const goldPct = 100 - stockPct
+  const n = Math.max(0, Math.floor(Number(years) || 0))
+  const g = 1 + Math.max(-99.9, Number(goldReturn) || 0) / 100
+  const st = 1 + Math.max(-99.9, Number(stockReturn) || 0) / 100
+  const blendedRate = (goldPct/100)*g + (stockPct/100)*st
+  const goldFinalValue = total*(goldPct/100)*Math.pow(g,n)
+  const stockFinalValue = total*(stockPct/100)*Math.pow(st,n)
+  const blendedFinal = goldFinalValue+stockFinalValue
+  const allStockFinal = total*Math.pow(st,n)
+  const allGoldFinal = total*Math.pow(g,n)
   return {
-    goldFinalValue: Math.round(goldFinalValue), stockFinalValue: Math.round(stockFinalValue),
-    blendedFinal: Math.round(blendedFinal), allStockFinal: Math.round(allStockFinal),
-    allGoldFinal: Math.round(allGoldFinal), hedgeValue: Math.round(hedgeValue),
-    annualizedReturn: Math.round((portfolioReturn - 1) * 1000) / 10,
-    diversificationBenefit: Math.round(hedgeValue - allStockFinal),
-    yearData: Array.from({ length: years + 1 }, (_, i) => ({
-      year: i, blended: Math.round(totalAmount * Math.pow(portfolioReturn, i)),
-      allStock: Math.round(totalAmount * Math.pow(stockReturn, i)),
-      allGold: Math.round(totalAmount * Math.pow(goldReturn, i))
-    }))
+    goldFinalValue:Math.round(goldFinalValue), stockFinalValue:Math.round(stockFinalValue), blendedFinal:Math.round(blendedFinal),
+    allStockFinal:Math.round(allStockFinal), allGoldFinal:Math.round(allGoldFinal), hedgeValue:null,
+    annualizedReturn:Math.round((Math.pow(Math.max(0.0000001,blendedFinal/Math.max(1,total)),1/Math.max(1,n))-1)*1000)/10,
+    diversificationBenefit:Math.round(blendedFinal-allStockFinal),
+    yearData:Array.from({length:n+1},(_,i)=>({year:i,blended:Math.round(total*Math.pow(blendedRate,i)),allStock:Math.round(total*Math.pow(st,i)),allGold:Math.round(total*Math.pow(g,i))})),
+    assumptions:{goldReturn:Number(goldReturn)||0,stockReturn:Number(stockReturn)||0,goldAllocation:goldPct,stockAllocation:stockPct}
   }
 }
 
@@ -3883,17 +3922,21 @@ export function calculateBuyVsLeaseVehicle(vehiclePrice: number, downPayment: nu
 }
 
 export function calculateFreelanceIncome(hourlyRate: number, billableHours: number, selfEmploymentTaxRate: number, businessExpenses: number, healthInsurance: number, retirementContrib: number) {
-  const grossRevenue = hourlyRate * billableHours
-  const netSEIncome = grossRevenue - businessExpenses - healthInsurance
-  const seTax = netSEIncome * 0.9235 * 0.153
+  const grossRevenue = Math.max(0, hourlyRate * billableHours)
+  const expenses = Math.max(0, businessExpenses)
+  const health = Math.max(0, healthInsurance)
+  const retirement = Math.max(0, retirementContrib)
+  const netSEIncome = Math.max(0, grossRevenue - expenses)
+  const seEarnings = netSEIncome * 0.9235
+  const seTax = Math.min(seEarnings, 184500) * 0.124 + seEarnings * 0.029
   const seDeduction = seTax / 2
-  const qbiDeduction = (netSEIncome - seDeduction) * 0.20
-  const federalTaxable = Math.max(0, netSEIncome - seDeduction - qbiDeduction - retirementContrib - 16100)
-  const federalTax = federalTaxable * selfEmploymentTaxRate / 100
+  const qbiDeduction = Math.max(0, Math.min(netSEIncome - seDeduction, netSEIncome) * 0.20)
+  const federalTaxable = Math.max(0, netSEIncome - seDeduction - qbiDeduction - retirement - health - 16100)
+  const federalTax = calculateSimpleFederalTax(federalTaxable, 'single')
   const totalTax = seTax + federalTax
-  const netTakeHome = grossRevenue - businessExpenses - healthInsurance - seTax - federalTax - retirementContrib
-  const effectiveHourlyRate = netTakeHome / billableHours
-  const equivalentSalary = netTakeHome * (1 / (1 - 0.30))
+  const netTakeHome = grossRevenue - expenses - health - seTax - federalTax - retirement
+  const effectiveHourlyRate = billableHours > 0 ? netTakeHome / billableHours : 0
+  const equivalentSalary = netTakeHome / 0.70
   return {
     grossRevenue: Math.round(grossRevenue), netSEIncome: Math.round(netSEIncome),
     seTax: Math.round(seTax), seDeduction: Math.round(seDeduction),
@@ -3983,55 +4026,52 @@ export function calculateSPYvsBTC(initialAmount: number, years: number, spyAlloc
 }
 
 export function calculatePaycheckContributionOptimizer(grossPay: number, payFrequency: number, current401k: number, currentHSA: number, currentFSA: number, taxRate: number) {
-  const annualGross = grossPay * payFrequency
-  const limit401k = 24500, limitHSA = 4400, limitFSA = 3400
-  const opt401k = Math.min(limit401k / payFrequency, grossPay * 0.50)
-  const optHSA = limitHSA / payFrequency
-  const optFSA = Math.min(limitFSA / payFrequency, 275)
-  const currentPreTax = current401k + currentHSA + currentFSA
-  const optimalPreTax = opt401k + optHSA + optFSA
-  const currentTaxSavings = currentPreTax * payFrequency * taxRate / 100
-  const optimalTaxSavings = optimalPreTax * payFrequency * taxRate / 100
-  const additionalSavings = optimalTaxSavings - currentTaxSavings
-  const netPayCurrent = grossPay - currentPreTax - (grossPay - currentPreTax) * taxRate / 100
-  const netPayOptimal = grossPay - optimalPreTax - (grossPay - optimalPreTax) * taxRate / 100
-  return {
-    grossPay, payFrequency, annualGross,
-    current401k, currentHSA, currentFSA,
-    opt401k: Math.round(opt401k * 100) / 100,
-    optHSA: Math.round(optHSA * 100) / 100,
-    optFSA: Math.round(optFSA * 100) / 100,
-    currentTaxSavings: Math.round(currentTaxSavings),
-    optimalTaxSavings: Math.round(optimalTaxSavings),
-    additionalSavings: Math.round(additionalSavings),
-    netPayCurrent: Math.round(netPayCurrent * 100) / 100,
-    netPayOptimal: Math.round(netPayOptimal * 100) / 100,
-    netPayChange: Math.round((netPayOptimal - netPayCurrent) * 100) / 100
-  }
+  const safeGross = Math.max(0, Number(grossPay) || 0), frequency = Math.max(1, Math.floor(Number(payFrequency) || 1))
+  const annualGross = safeGross * frequency, limit401k = 24500, limitHSA = 4400, limitFSA = 3400
+  const safeTaxRate = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+  const opt401k = Math.min(limit401k / frequency, safeGross), optHSA = Math.min(limitHSA / frequency, safeGross), optFSA = Math.min(limitFSA / frequency, safeGross)
+  const currentPreTax = Math.min(safeGross, Math.max(0, Number(current401k)||0) + Math.max(0, Number(currentHSA)||0) + Math.max(0, Number(currentFSA)||0))
+  const optimalPreTax = Math.min(safeGross, opt401k + optHSA + optFSA)
+  const currentTaxSavings = currentPreTax * frequency * safeTaxRate, optimalTaxSavings = optimalPreTax * frequency * safeTaxRate
+  const netPayCurrent = safeGross - currentPreTax - (safeGross - currentPreTax) * safeTaxRate, netPayOptimal = safeGross - optimalPreTax - (safeGross - optimalPreTax) * safeTaxRate
+  return { grossPay:safeGross, payFrequency:frequency, annualGross, current401k, currentHSA, currentFSA, opt401k:Math.round(opt401k*100)/100, optHSA:Math.round(optHSA*100)/100, optFSA:Math.round(optFSA*100)/100, currentTaxSavings:Math.round(currentTaxSavings), optimalTaxSavings:Math.round(optimalTaxSavings), additionalSavings:Math.round((optimalTaxSavings-currentTaxSavings)), netPayCurrent:Math.round(netPayCurrent*100)/100, netPayOptimal:Math.round(netPayOptimal*100)/100, netPayChange:Math.round((netPayOptimal-netPayCurrent)*100)/100 }
 }
 
 export function calculateLoanOriginationFee(loanAmount: number, originationFeePercent: number, interestRate: number, loanTermYears: number, alternativeRate: number) {
-  const originationFee = loanAmount * originationFeePercent / 100
-  const monthlyRate1 = interestRate / 100 / 12
-  const monthlyRate2 = alternativeRate / 100 / 12
-  const months = loanTermYears * 12
-  const payment1 = loanAmount * (monthlyRate1 * Math.pow(1 + monthlyRate1, months)) / (Math.pow(1 + monthlyRate1, months) - 1)
-  const payment2 = loanAmount * (monthlyRate2 * Math.pow(1 + monthlyRate2, months)) / (Math.pow(1 + monthlyRate2, months) - 1)
+  const principal = Math.max(0, Number(loanAmount) || 0)
+  const feePct = Math.max(0, Number(originationFeePercent) || 0)
+  const rate1 = Math.max(0, Number(interestRate) || 0)
+  const rate2 = Math.max(0, Number(alternativeRate) || 0)
+  const years = Math.min(40, Math.max(1, Number(loanTermYears) || 1))
+  const originationFee = principal * feePct / 100
+  const payment = (ratePct: number) => {
+    const months = years * 12
+    const r = ratePct / 100 / 12
+    if (principal <= 0) return 0
+    return r > 0 ? principal * r * Math.pow(1+r, months) / (Math.pow(1+r, months)-1) : principal / months
+  }
+  const payment1 = payment(rate1), payment2 = payment(rate2)
+  const months = years * 12
   const totalCost1 = payment1 * months + originationFee
   const totalCost2 = payment2 * months
-  const apr = interestRate + originationFeePercent / loanTermYears
   const monthlySavingsNoFee = payment2 - payment1
-  const breakEvenMonths = monthlySavingsNoFee > 0 ? Math.round(originationFee / monthlySavingsNoFee) : 999
+  const breakEvenMonths = monthlySavingsNoFee > 0 ? Math.ceil(originationFee / monthlySavingsNoFee) : null
+  // This is a fee-adjusted scenario, not the legally disclosed APR/TILA APR.
+  const feeAdjustedAnnualCostRate = principal > 0 && years > 0
+    ? ((totalCost1 - principal) / principal / years) * 100
+    : 0
   return {
     originationFee: Math.round(originationFee),
     monthlyPayment: Math.round(payment1 * 100) / 100,
     totalCostWithFee: Math.round(totalCost1),
     totalCostNoFee: Math.round(totalCost2),
-    effectiveAPR: Math.round(apr * 100) / 100,
+    effectiveAPR: Math.round(feeAdjustedAnnualCostRate * 100) / 100,
     breakEvenMonths,
     worthPaying: totalCost1 < totalCost2,
-    totalInterest: Math.round(payment1 * months - loanAmount),
-    recommendation: originationFeePercent > 1.5 ? 'High fee — negotiate down or shop other lenders' : originationFeePercent > 0.5 ? 'Moderate fee — compare APR across lenders' : 'Low fee — acceptable if rate is competitive'
+    totalInterest: Math.round(payment1 * months - principal),
+    recommendation: totalCost1 < totalCost2
+      ? 'Lower modeled total cost under these assumptions; compare the lender Loan Estimates before deciding.'
+      : 'Higher modeled total cost under these assumptions; compare the rate, fee and official disclosures from multiple lenders.'
   }
 }
 
@@ -4176,22 +4216,24 @@ export function calculateDCAvsLumpSum(totalAmount: number, dcaMonths: number, st
 // ═══════════════════════════════════════════════════════════════════════════
 
 export function calculate72TSEPP(accountBalance: number, age: number, method: 'rmd' | 'amortization' | 'annuity', interestRate: number = 5) {
-  const lifeExpectancy = 90 - age
-  const rmdPayment = accountBalance / lifeExpectancy
-  const r = interestRate / 100
-  const amortPayment = accountBalance * r / (1 - Math.pow(1 + r, -lifeExpectancy))
-  const annuityFactor = (1 - Math.pow(1 + r, -lifeExpectancy)) / r
-  const annuityPayment = accountBalance / annuityFactor
+  const balance = Math.max(0, Number(accountBalance) || 0)
+  const safeAge = Math.max(0, Number(age) || 0)
+  const lifeExpectancy = Math.max(1, 90 - safeAge)
+  const r = Math.max(0, Number(interestRate) || 0) / 100
+  const rmdPayment = balance / lifeExpectancy
+  const amortPayment = r === 0 ? balance / lifeExpectancy : balance * r / (1 - Math.pow(1 + r, -lifeExpectancy))
+  const annuityFactor = r === 0 ? lifeExpectancy : (1 - Math.pow(1 + r, -lifeExpectancy)) / r
+  const annuityPayment = balance / Math.max(1, annuityFactor)
   const selectedPayment = method === 'rmd' ? rmdPayment : method === 'amortization' ? amortPayment : annuityPayment
   const annualPayment = Math.round(selectedPayment)
   const monthlyPayment = Math.round(annualPayment / 12)
-  const modificationAge = Math.max(59.5, age + 5)
+  const modificationAge = Math.max(59.5, safeAge + 5)
   const penalty10Pct = annualPayment * 0.10
   return {
     rmdPayment: Math.round(rmdPayment), amortizationPayment: Math.round(amortPayment), annuityPayment: Math.round(annuityPayment),
     selectedMethod: method, annualPayment, monthlyPayment, modificationAge,
-    earlyExitPenalty: Math.round(penalty10Pct), yearsUntilModification: Math.round(modificationAge - age),
-    totalDistributions: Math.round(annualPayment * Math.round(modificationAge - age))
+    earlyExitPenalty: Math.round(penalty10Pct), yearsUntilModification: Math.round(modificationAge - safeAge),
+    totalDistributions: Math.round(annualPayment * Math.ceil(Math.max(0, modificationAge - safeAge)))
   }
 }
 
@@ -4202,9 +4244,11 @@ export function calculateBonusDepreciation(assetCost: number, assetLife: number,
   const sec179PhaseOut = 4090000
   const sec179Available = Math.max(0, sec179Limit2026 - Math.max(0, assetCost - sec179PhaseOut))
   const sec179Deduction = Math.min(assetCost, sec179Available)
-  const bonusDeduction = (assetCost - sec179Deduction) * (bonusDepreciationPct / 100)
-  const macrsBase = assetCost - sec179Deduction - bonusDeduction
-  const macrsYear1 = macrsBase / assetLife * 1.5 // 150% DB first year approx
+  const safeBonusPct = Math.max(0, Math.min(100, Number(bonusDepreciationPct) || 0))
+  const bonusDeduction = (assetCost - sec179Deduction) * (safeBonusPct / 100)
+  const macrsBase = Math.max(0, assetCost - sec179Deduction - bonusDeduction)
+  // Simplified first-year residual estimate only; actual MACRS depends on property class/convention.
+  const macrsYear1 = macrsBase > 0 ? macrsBase / Math.max(1, assetLife) * 0.5 : 0
   const totalYear1Deduction = sec179Deduction + bonusDeduction + macrsYear1
   const taxSavingsYear1 = totalYear1Deduction * (taxRate / 100)
   const straightLineDeduction = assetCost / assetLife
@@ -4251,39 +4295,60 @@ export function calculateCOBRAvsMarketplace(cobraMonthlyPremium: number, marketp
 }
 
 export function calculateCapitalGainsHarvesting(portfolioValue: number, unrealizedGains: number, unrealizedLosses: number, ordinaryIncome: number, filingStatus: 'single' | 'married') {
+  const gains = Math.max(0, Number(unrealizedGains) || 0)
+  const losses = Math.max(0, Number(unrealizedLosses) || 0)
+  const ordinary = Math.max(0, Number(ordinaryIncome) || 0)
   const ltcg0Threshold = filingStatus === 'married' ? 98900 : 49450
   const ltcg15Threshold = filingStatus === 'married' ? 613700 : 545500
-  const incomeAfterLosses = ordinaryIncome - Math.min(unrealizedLosses, 3000)
-  const availableSpace0pct = Math.max(0, ltcg0Threshold - incomeAfterLosses)
-  const taxableGains = Math.max(0, unrealizedGains - unrealizedLosses)
-  const gainsIn0Bucket = Math.min(unrealizedGains, availableSpace0pct)
-  const gainsIn15Bucket = Math.min(Math.max(0, unrealizedGains - gainsIn0Bucket), ltcg15Threshold - Math.max(incomeAfterLosses, ltcg0Threshold))
-  const gainsIn20Bucket = Math.max(0, unrealizedGains - gainsIn0Bucket - Math.max(0, gainsIn15Bucket))
+  const netCapitalGain = Math.max(0, gains - losses)
+  const excessLoss = Math.max(0, losses - gains)
+  const ordinaryLossDeduction = Math.min(excessLoss, 3000)
+  const incomeAfterCapitalLoss = Math.max(0, ordinary - ordinaryLossDeduction)
+  const availableSpace0pct = Math.max(0, ltcg0Threshold - incomeAfterCapitalLoss)
+  const gainsIn0Bucket = Math.min(netCapitalGain, availableSpace0pct)
+  const gainsIn15Bucket = Math.min(Math.max(0, netCapitalGain - gainsIn0Bucket), Math.max(0, ltcg15Threshold - Math.max(incomeAfterCapitalLoss, ltcg0Threshold)))
+  const gainsIn20Bucket = Math.max(0, netCapitalGain - gainsIn0Bucket - gainsIn15Bucket)
   const taxDue = gainsIn15Bucket * 0.15 + gainsIn20Bucket * 0.20
-  const harvestingSavings = unrealizedLosses * 0.20
+  const offsetAgainstGains = Math.min(losses, gains)
+  const illustrativeHarvestingSavings = offsetAgainstGains > 0 ? offsetAgainstGains * 0.15 : ordinaryLossDeduction * 0.22
   return {
-    portfolioValue: Math.round(portfolioValue), unrealizedGains: Math.round(unrealizedGains), unrealizedLosses: Math.round(unrealizedLosses),
-    netGains: Math.round(taxableGains), availableSpace0pct: Math.round(availableSpace0pct),
+    portfolioValue: Math.round(Math.max(0, Number(portfolioValue) || 0)), unrealizedGains: Math.round(gains), unrealizedLosses: Math.round(losses),
+    netGains: Math.round(netCapitalGain), ordinaryLossDeduction: Math.round(ordinaryLossDeduction), availableSpace0pct: Math.round(availableSpace0pct),
     breakdown: { at0pct: Math.round(gainsIn0Bucket), at15pct: Math.round(Math.max(0,gainsIn15Bucket)), at20pct: Math.round(gainsIn20Bucket) },
-    estimatedTax: Math.round(taxDue), harvestingSavings: Math.round(harvestingSavings),
-    strategy: unrealizedLosses > 0 ? `Harvest ${Math.round(unrealizedLosses).toLocaleString()} in losses to offset gains` : availableSpace0pct > 0 ? `You have $${Math.round(availableSpace0pct).toLocaleString()} of 0% LTCG space` : 'Consider deferring gains to next year'
+    estimatedTax: Math.round(taxDue), harvestingSavings: Math.round(illustrativeHarvestingSavings),
+    strategy: losses > 0 ? `Model ${Math.round(losses).toLocaleString()} of losses against gains first; excess net capital loss can offset up to $3,000 of ordinary income.` : availableSpace0pct > 0 ? `You have modeled ${Math.round(availableSpace0pct).toLocaleString()} of 0% LTCG space.` : 'Consider deferring gains to another tax year.'
   }
 }
 
 export function calculateCharitableGiving(cashDonation: number, appreciatedStockFMV: number, stockCostBasis: number, agiIncome: number, taxRate: number) {
-  const cashDeduction = Math.min(cashDonation, agiIncome * 0.60)
-  const stockDeduction = Math.min(appreciatedStockFMV, agiIncome * 0.30)
-  const capitalGainsTaxAvoided = (appreciatedStockFMV - stockCostBasis) * 0.20
-  const cashTaxSavings = cashDeduction * (taxRate / 100)
-  const stockTaxSavings = stockDeduction * (taxRate / 100) + capitalGainsTaxAvoided
+  const cash = Math.max(0, Number(cashDonation) || 0)
+  const stock = Math.max(0, Number(appreciatedStockFMV) || 0)
+  const basis = Math.max(0, Number(stockCostBasis) || 0)
+  const agi = Math.max(0, Number(agiIncome) || 0)
+  const rate = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+  // Simplified public-charity percentage limits plus the new 2026 0.5% AGI floor.
+  const cashCap = agi * 0.60
+  const stockCap = agi * 0.30
+  const preFloorDeduction = Math.min(cash, cashCap) + Math.min(stock, stockCap)
+  const agiFloor = agi * 0.005
+  const deductibleTotal = Math.max(0, preFloorDeduction - agiFloor)
+  const cashEligible = Math.min(cash, cashCap)
+  const stockEligible = Math.min(stock, stockCap)
+  const eligibleTotal = cashEligible + stockEligible
+  const allocation = eligibleTotal > 0 ? deductibleTotal / eligibleTotal : 0
+  const cashDeduction = cashEligible * allocation
+  const stockDeduction = stockEligible * allocation
+  const appreciatedGain = Math.max(0, stock - basis)
+  const capitalGainsTaxAvoided = appreciatedGain * 0.20 // explicit illustrative rate assumption
+  const cashTaxSavings = cashDeduction * rate
+  const stockTaxSavings = stockDeduction * rate + capitalGainsTaxAvoided
   const totalTaxBenefit = cashTaxSavings + stockTaxSavings
-  const donorAdvisedFundBenefit = (cashDonation + appreciatedStockFMV) * (taxRate / 100)
   return {
-    cashDonation: Math.round(cashDonation), cashDeduction: Math.round(cashDeduction), cashTaxSavings: Math.round(cashTaxSavings),
-    stockFMV: Math.round(appreciatedStockFMV), stockDeduction: Math.round(stockDeduction), capitalGainsTaxAvoided: Math.round(capitalGainsTaxAvoided),
-    stockTaxSavings: Math.round(stockTaxSavings), totalTaxBenefit: Math.round(totalTaxBenefit),
-    effectiveCostToDonate: Math.round(cashDonation + appreciatedStockFMV - totalTaxBenefit),
-    donorAdvisedFundTip: donorAdvisedFundBenefit > totalTaxBenefit ? 'Consider a Donor Advised Fund for larger deductions' : 'Direct giving is efficient for your situation'
+    cashDonation: Math.round(cash), cashDeduction: Math.round(cashDeduction), cashTaxSavings: Math.round(cashTaxSavings),
+    stockFMV: Math.round(stock), stockDeduction: Math.round(stockDeduction), capitalGainsTaxAvoided: Math.round(capitalGainsTaxAvoided),
+    stockTaxSavings: Math.round(stockTaxSavings), totalTaxBenefit: Math.round(totalTaxBenefit), agiFloor: Math.round(agiFloor),
+    effectiveCostToDonate: Math.round(cash + stock - totalTaxBenefit),
+    donorAdvisedFundTip: 'A donor-advised fund may change timing and substantiation; this calculator does not model a separate DAF tax result.'
   }
 }
 
@@ -4306,60 +4371,84 @@ export function calculateDefinedBenefitPension(yearsOfService: number, finalSala
 }
 
 export function calculateFHAvsConventional(purchasePrice: number, downPaymentPct: number, creditScore: number, loanTermYears: number = 30) {
-  const downPayment = purchasePrice * (downPaymentPct / 100)
-  const loanAmount = purchasePrice - downPayment
-  const fhaRate = 0.065 + (creditScore < 620 ? 0.02 : creditScore < 680 ? 0.005 : 0)
-  const convRate = 0.063 + (creditScore < 620 ? 0.04 : creditScore < 680 ? 0.015 : creditScore < 740 ? 0.005 : 0)
+  const price = Math.max(0, Number(purchasePrice) || 0)
+  const dpPct = Math.min(100, Math.max(0, Number(downPaymentPct) || 0))
+  const term = Math.min(30, Math.max(5, Number(loanTermYears) || 30))
+  const score = Math.max(300, Math.min(850, Number(creditScore) || 0))
+  const downPayment = price * (dpPct / 100)
+  const loanAmount = Math.max(0, price - downPayment)
+  const fhaRate = 0.065 + (score < 620 ? 0.02 : score < 680 ? 0.005 : 0)
+  const convRate = 0.063 + (score < 620 ? 0.04 : score < 680 ? 0.015 : score < 740 ? 0.005 : 0)
+  // Simplified FHA MIP scenario: 1.75% upfront and 0.55%/0.50% annual MIP
+  // depending on whether modeled LTV is above 90%. Actual MIP depends on
+  // loan term, LTV and base-loan amount and should be verified with HUD.
+  const ltv = price > 0 ? (loanAmount / price) * 100 : 0
   const fhaMIP_upfront = loanAmount * 0.0175
-  const fhaMIP_annual = loanAmount * 0.0085 / 12
-  const convPMI = downPaymentPct < 20 ? loanAmount * 0.008 / 12 : 0
-  const calcMonthly = (principal: number, rate: number) => {
-    const r = rate / 12
-    return principal * r * Math.pow(1+r, loanTermYears*12) / (Math.pow(1+r, loanTermYears*12) - 1)
+  const fhaAnnualRate = ltv > 90 ? 0.0055 : 0.005
+  const fhaMIP_annual = loanAmount * fhaAnnualRate / 12
+  const convPMIRate = dpPct < 20 ? (score < 680 ? 0.01 : score < 740 ? 0.008 : 0.006) : 0
+  const convPMI = loanAmount * convPMIRate / 12
+  const calcMonthly = (principal: number, ratePct: number) => {
+    const r = ratePct / 100 / 12
+    const months = term * 12
+    if (principal <= 0) return 0
+    return r > 0 ? principal * r * Math.pow(1+r, months) / (Math.pow(1+r, months) - 1) : principal / months
   }
-  const fhaMonthly = calcMonthly(loanAmount + fhaMIP_upfront, fhaRate) + fhaMIP_annual
-  const convMonthly = calcMonthly(loanAmount, convRate) + convPMI
-  const fhaTotalCost = fhaMonthly * loanTermYears * 12 + downPayment + fhaMIP_upfront
-  const convTotalCost = convMonthly * loanTermYears * 12 + downPayment
+  const fhaMonthly = calcMonthly(loanAmount + fhaMIP_upfront, fhaRate)
+  const convMonthly = calcMonthly(loanAmount, convRate)
+  const fhaTotalCost = fhaMonthly * term * 12 + downPayment + fhaMIP_upfront + fhaMIP_annual * term * 12
+  const convTotalCost = convMonthly * term * 12 + downPayment + convPMI * term * 12
   return {
     loanAmount: Math.round(loanAmount), downPayment: Math.round(downPayment),
-    fha: { rate: Math.round(fhaRate*1000)/10, monthly: Math.round(fhaMonthly), mipUpfront: Math.round(fhaMIP_upfront), mipMonthly: Math.round(fhaMIP_annual), totalCost: Math.round(fhaTotalCost) },
-    conventional: { rate: Math.round(convRate*1000)/10, monthly: Math.round(convMonthly), pmi: Math.round(convPMI), totalCost: Math.round(convTotalCost) },
-    totalSavings: Math.round(fhaTotalCost - convTotalCost), recommendation: convTotalCost < fhaTotalCost ? 'Conventional is cheaper overall' : 'FHA may be better for your credit profile'
+    fha: { rate: Math.round(fhaRate*1000)/10, monthly: Math.round(fhaMonthly + fhaMIP_annual), mipUpfront: Math.round(fhaMIP_upfront), mipMonthly: Math.round(fhaMIP_annual), totalCost: Math.round(fhaTotalCost) },
+    conventional: { rate: Math.round(convRate*1000)/10, monthly: Math.round(convMonthly + convPMI), pmi: Math.round(convPMI), totalCost: Math.round(convTotalCost) },
+    totalSavings: Math.round(fhaTotalCost - convTotalCost), recommendation: 'Compare this modeled cost with actual Loan Estimates; FHA MIP, conventional PMI, rates and eligibility vary by borrower and lender.'
   }
 }
 
-export function calculateFICA(grossWages: number, ytdWages: number, selfEmployed: boolean) {
+export function calculateFICA(grossWages: number, ytdWages: number, selfEmployed: boolean, filingStatus: 'single' | 'married' = 'single') {
   const sswageCap2026 = 184500
+  const wages = Math.max(0, Number(grossWages) || 0)
+  const priorYtd = Math.max(0, Number(ytdWages) || 0)
   const ssRate = selfEmployed ? 0.124 : 0.062
   const medicareRate = selfEmployed ? 0.029 : 0.0145
-  const additionalMedicareThreshold = 200000
-  const taxableSSWages = Math.max(0, Math.min(grossWages, sswageCap2026) - Math.min(ytdWages, sswageCap2026))
-  const ssTax = taxableSSWages * ssRate
-  const medicareTax = grossWages * medicareRate
-  const additionalMedicare = Math.max(0, (grossWages + ytdWages - additionalMedicareThreshold)) * 0.009
-  const totalFICA = ssTax + medicareTax + additionalMedicare
-  const employerMatch = selfEmployed ? 0 : ssTax + medicareTax
-  return {
-    ssTax: Math.round(ssTax), medicareTax: Math.round(medicareTax), additionalMedicare: Math.round(additionalMedicare),
-    totalFICA: Math.round(totalFICA), employerMatch: Math.round(employerMatch), totalCost: Math.round(totalFICA + employerMatch),
-    ssWageCap: sswageCap2026, taxableSSWages: Math.round(taxableSSWages), annualizedFICA: Math.round(totalFICA * (grossWages / (grossWages + ytdWages || 1)))
+  const additionalMedicareThreshold = selfEmployed
+    ? (filingStatus === 'married' ? 250000 : 200000)
+    : 200000
+  if (selfEmployed) {
+    const seEarnings = wages * 0.9235
+    const taxableSSEarnings = Math.max(0, Math.min(seEarnings, Math.max(0, sswageCap2026 - priorYtd)))
+    const ssTax = taxableSSEarnings * ssRate
+    const medicareTax = seEarnings * medicareRate
+    const additionalMedicare = Math.max(0, seEarnings + priorYtd - additionalMedicareThreshold) * 0.009
+    const totalFICA = ssTax + medicareTax + additionalMedicare
+    return { ssTax: Math.round(ssTax), medicareTax: Math.round(medicareTax), additionalMedicare: Math.round(additionalMedicare), totalFICA: Math.round(totalFICA), employerMatch: 0, totalCost: Math.round(totalFICA), ssWageCap: sswageCap2026, taxableSSWages: Math.round(taxableSSEarnings), annualizedFICA: Math.round(totalFICA), seTaxBase: Math.round(seEarnings), additionalMedicareThreshold }
   }
+  const taxableSSWages = Math.max(0, Math.min(wages, sswageCap2026) - Math.min(priorYtd, sswageCap2026))
+  const ssTax = taxableSSWages * ssRate
+  const medicareTax = wages * medicareRate
+  const additionalMedicare = Math.max(0, wages + priorYtd - additionalMedicareThreshold) * 0.009
+  const totalFICA = ssTax + medicareTax + additionalMedicare
+  const employerMatch = ssTax + medicareTax
+  return { ssTax: Math.round(ssTax), medicareTax: Math.round(medicareTax), additionalMedicare: Math.round(additionalMedicare), totalFICA: Math.round(totalFICA), employerMatch: Math.round(employerMatch), totalCost: Math.round(totalFICA + employerMatch), ssWageCap: sswageCap2026, taxableSSWages: Math.round(taxableSSWages), annualizedFICA: Math.round(totalFICA), additionalMedicareThreshold }
 }
 
 export function calculateFreelancerQuarterlyTax(annualIncome: number, businessExpenses: number, retirementContribs: number, filingStatus: 'single' | 'married', priorYearTax: number) {
-  const netIncome = annualIncome - businessExpenses
-  const seTax = netIncome * 0.1530
+  const grossIncome = Math.max(0, Number(annualIncome) || 0)
+  const netIncome = Math.max(0, grossIncome - Math.max(0, Number(businessExpenses) || 0))
+  const seEarnings = netIncome * 0.9235
+  const ssTaxable = Math.min(seEarnings, 184500)
+  const seTax = ssTaxable * 0.124 + seEarnings * 0.029
   const seDeduction = seTax * 0.5
-  const qbiDeduction = Math.min(netIncome * 0.20, (netIncome - seDeduction) * 0.20)
-  const taxableIncome = Math.max(0, netIncome - seDeduction - retirementContribs - qbiDeduction)
-  const stdDeduction = filingStatus === 'married' ? 30000 : 15000
-  const federalTaxable = Math.max(0, taxableIncome - stdDeduction)
+  const qbiDeduction = Math.max(0, Math.min(netIncome - seDeduction, netIncome) * 0.20)
+  const retirement = Math.max(0, Number(retirementContribs) || 0)
+  const stdDeduction = filingStatus === 'married' ? 32200 : 16100
+  const federalTaxable = Math.max(0, netIncome - seDeduction - retirement - qbiDeduction - stdDeduction)
   const federalTax = calculateSimpleFederalTax(federalTaxable, filingStatus)
   const totalAnnualTax = federalTax + seTax
-  const safeHarbor = Math.min(totalAnnualTax, priorYearTax * 1.10)
+  const safeHarbor = Math.min(totalAnnualTax, Math.max(0, Number(priorYearTax) || 0) * 1.10)
   const quarterlyPayment = Math.round(safeHarbor / 4)
-  const dueDates = ['April 15', 'June 16', 'September 15', 'January 15']
+  const dueDates = ['April 15', 'June 15', 'September 15', 'January 15']
   return {
     grossIncome: Math.round(annualIncome), netIncome: Math.round(netIncome), seTax: Math.round(seTax),
     seDeduction: Math.round(seDeduction), qbiDeduction: Math.round(qbiDeduction), federalTax: Math.round(federalTax),
@@ -4371,40 +4460,57 @@ export function calculateFreelancerQuarterlyTax(annualIncome: number, businessEx
 
 export function calculateHSATripleTax(annualContribution: number, years: number, investmentReturn: number, taxRate: number, familyCoverage: boolean) {
   const limit2026 = familyCoverage ? 8750 : 4400
-  const catchUp = 1000 // age 55+
-  const actualContrib = Math.min(annualContribution, limit2026)
-  const taxDeduction = actualContrib * (taxRate / 100)
+  // Age-55 catch-up is not modeled because this calculator has no age input.
+  const actualContrib = Math.min(Math.max(0, Number(annualContribution) || 0), limit2026)
+  const safeYears = Math.max(0, Math.floor(Number(years) || 0))
+  const safeReturn = Math.max(-100, Number(investmentReturn) || 0) / 100
+  const safeTaxRate = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+  const taxDeduction = actualContrib * safeTaxRate
   let balance = 0
-  const yearData = []
-  for (let y = 1; y <= years; y++) {
-    balance = (balance + actualContrib) * (1 + investmentReturn / 100)
-    if (y % 5 === 0 || y === years) yearData.push({ year: y, balance: Math.round(balance) })
+  const yearData: Array<{year:number;balance:number}> = []
+  for (let y = 1; y <= safeYears; y++) {
+    balance = (balance + actualContrib) * (1 + safeReturn)
+    if (y % 5 === 0 || y === safeYears) yearData.push({ year: y, balance: Math.round(balance) })
   }
-  const taxIfRegularAccount = balance * (taxRate / 100)
-  const tripleTaxBenefit = taxDeduction * years + taxIfRegularAccount
+  const totalContributions = actualContrib * safeYears
+  const taxFreeGrowth = Math.max(0, balance - totalContributions)
+  const modeledGrowthTaxValue = taxFreeGrowth * safeTaxRate
+  const modeledTaxValue = taxDeduction * safeYears + modeledGrowthTaxValue
   return {
     annualContrib: Math.round(actualContrib), limit2026, taxDeductionAnnual: Math.round(taxDeduction),
-    finalBalance: Math.round(balance), taxFreeGrowth: Math.round(balance - actualContrib * years),
-    tripleTaxBenefit: Math.round(tripleTaxBenefit), yearData,
-    tripleAdvantage: ['1. Pre-tax contributions (immediate deduction)', '2. Tax-free growth', '3. Tax-free withdrawals for medical expenses']
+    finalBalance: Math.round(balance), taxFreeGrowth: Math.round(taxFreeGrowth),
+    modeledGrowthTaxValue: Math.round(modeledGrowthTaxValue), tripleTaxBenefit: Math.round(modeledTaxValue), yearData,
+    tripleAdvantage: ['1. Contributions may be tax-advantaged when eligible', '2. Investment growth is not taxed while held in the HSA', '3. Qualified medical withdrawals are tax-free'],
+    catchUpModeled: false,
   }
 }
 
 export function calculateMarginTrading(accountEquity: number, marginLoan: number, investmentReturn: number, marginInterestRate: number, holdingPeriodMonths: number) {
-  const totalInvested = accountEquity + marginLoan
-  const grossReturn = totalInvested * (investmentReturn / 100) * (holdingPeriodMonths / 12)
-  const interestCost = marginLoan * (marginInterestRate / 100) * (holdingPeriodMonths / 12)
+  const equity = Math.max(0, Number(accountEquity) || 0)
+  const loan = Math.max(0, Number(marginLoan) || 0)
+  const months = Math.max(0.01, Number(holdingPeriodMonths) || 0.01)
+  const totalInvested = equity + loan
+  const grossReturn = totalInvested * (Number(investmentReturn) || 0) / 100 * (months / 12)
+  const interestCost = loan * Math.max(0, Number(marginInterestRate) || 0) / 100 * (months / 12)
   const netReturn = grossReturn - interestCost
-  const leveragedReturnPct = (netReturn / accountEquity) * 100
-  const unleveragedReturnPct = (accountEquity * (investmentReturn / 100) * (holdingPeriodMonths / 12)) / accountEquity * 100
-  const marginCallPrice = accountEquity / totalInvested * 100 * (1 / 0.25) // 25% maintenance margin
-  const breakEvenReturn = (marginInterestRate * marginLoan / totalInvested) * (12 / holdingPeriodMonths)
+  const leveragedReturnPct = equity > 0 ? (netReturn / equity) * 100 : 0
+  const unleveragedReturnPct = Number(investmentReturn) || 0
+  const maintenanceMargin = 0.25
+  const marginCallPortfolioValue = loan > 0 ? loan / (1 - maintenanceMargin) : 0
+  const currentPortfolioValue = totalInvested
+  const marginCallDropPct = currentPortfolioValue > 0 ? Math.max(0, (1 - marginCallPortfolioValue / currentPortfolioValue) * 100) : 0
+  const breakEvenReturn = totalInvested > 0 ? (marginInterestRate * loan / totalInvested) * (12 / months) : 0
   return {
-    totalInvested: Math.round(totalInvested), marginLoan: Math.round(marginLoan), leverage: Math.round(totalInvested / accountEquity * 10) / 10,
+    totalInvested: Math.round(totalInvested), marginLoan: Math.round(loan),
+    leverage: equity > 0 ? Math.round(totalInvested / equity * 10) / 10 : 0,
     grossReturn: Math.round(grossReturn), interestCost: Math.round(interestCost), netReturn: Math.round(netReturn),
-    leveragedReturnPct: Math.round(leveragedReturnPct * 10) / 10, unleveragedReturnPct: Math.round(unleveragedReturnPct * 10) / 10,
-    returnAmplification: Math.round((leveragedReturnPct / unleveragedReturnPct) * 10) / 10,
-    breakEvenReturnPct: Math.round(breakEvenReturn * 10) / 10, risk: marginLoan > accountEquity ? 'High — margin call risk' : 'Moderate'
+    leveragedReturnPct: Math.round(leveragedReturnPct * 10) / 10,
+    unleveragedReturnPct: Math.round(unleveragedReturnPct * 10) / 10,
+    returnAmplification: unleveragedReturnPct !== 0 ? Math.round((leveragedReturnPct / unleveragedReturnPct) * 10) / 10 : null,
+    breakEvenReturnPct: Math.round(breakEvenReturn * 10) / 10,
+    marginCallPortfolioValue: Math.round(marginCallPortfolioValue),
+    marginCallDropPct: Math.round(marginCallDropPct * 10) / 10,
+    risk: loan > equity ? 'High — leverage exceeds 1:1' : loan > 0 ? 'Moderate — broker maintenance requirements can be higher than the regulatory minimum' : 'None — no margin loan'
   }
 }
 
@@ -4509,45 +4615,34 @@ export function calculateSafeHarbor401k(annualSalary: number, employeeContrib: n
 }
 
 export function calculateSeriesEEBond(faceValue: number, purchaseYear: number, currentYear: number, holdUntilMaturity: boolean, federalTaxRate: number = 22) {
-  // EE bonds issued today are purchased at their stated purchase price; the
-  // historical half-face-value convention is not appropriate for new electronic EE bonds.
-  // This calculator is a simplified model and uses the current May-Oct 2026 fixed rate
-  // as an illustrative rate for a newly issued bond. Historical bonds require their
-  // actual issue-date rate history for an exact redemption value.
-  const purchasePrice = Math.max(0, faceValue)
-  const currentRate = 0.024 // May-Oct 2026 fixed rate
+  if (![faceValue,purchaseYear,currentYear,federalTaxRate].every(Number.isFinite) || faceValue <= 0 || purchaseYear > currentYear || federalTaxRate < 0 || federalTaxRate > 100) throw new Error('Invalid EE bond input')
+  const purchasePrice = faceValue
+  const currentRate = 0.024 // May 1–Oct 31, 2026 fixed rate for new EE bonds
   const yearsHeld = Math.max(0, currentYear - purchaseYear)
+  const monthsHeld = yearsHeld * 12
   const guaranteedDoubleYear = 20
-  const accruedValue = purchasePrice * Math.pow(1 + currentRate, yearsHeld)
-  const currentValue = holdUntilMaturity && yearsHeld >= guaranteedDoubleYear
-    ? Math.max(faceValue, accruedValue)
-    : accruedValue
+  // Treasury compounds EE interest semiannually. This is an illustrative new-issue model;
+  // historical bonds need their issue-date rate history and Treasury's redemption value.
+  const periods = Math.floor(monthsHeld / 6)
+  const accruedValue = purchasePrice * Math.pow(1 + currentRate / 2, periods)
+  const guaranteedValue = yearsHeld >= guaranteedDoubleYear ? purchasePrice * 2 : accruedValue
+  const currentValue = holdUntilMaturity && yearsHeld >= guaranteedDoubleYear ? Math.max(accruedValue, guaranteedValue) : accruedValue
   const interestEarned = Math.max(0, currentValue - purchasePrice)
   const effectiveRate = yearsHeld > 0 ? (Math.pow(currentValue / purchasePrice, 1 / yearsHeld) - 1) * 100 : 0
-  const federalTax = interestEarned * Math.max(0, Math.min(100, federalTaxRate)) / 100
+  const federalTax = interestEarned * federalTaxRate / 100
   return {
-    purchasePrice: Math.round(purchasePrice), faceValue, yearsHeld, currentValue: Math.round(currentValue),
-    interestEarned: Math.round(interestEarned), effectiveAnnualRate: Math.round(effectiveRate * 10) / 10,
+    purchasePrice: Math.round(purchasePrice), faceValue: Math.round(faceValue), yearsHeld, currentValue: Math.round(currentValue),
+    interestEarned: Math.round(interestEarned), effectiveAnnualRate: Math.round(effectiveRate * 100) / 100,
     federalTaxDue: Math.round(federalTax), educationTaxExclusion: 0,
     maturityDate: purchaseYear + 30, doubleDate: purchaseYear + 20,
-    tip: 'EE Bonds are exempt from state and local income tax; federal income tax on interest is generally deferred until redemption.'
+    tip: 'For new EE bonds, Treasury currently lists a 2.40% fixed rate for May–October 2026, interest compounds semiannually, and the bond is guaranteed to reach at least twice its purchase price at 20 years. Historical bond values require the issue-date rate history and Treasury redemption rules.'
   }
 }
 
-export function calculateSocialSecurityWEP(regularBenefit: number, nonCoveredPension: number, yearsSubstantialEarnings: number) {
-  const maxWEPReduction2026 = 621
-  const wepFactor = yearsSubstantialEarnings >= 30 ? 0 : yearsSubstantialEarnings >= 21 ? (30 - yearsSubstantialEarnings) / 10 : 0.50
-  const wepReduction = Math.min(maxWEPReduction2026, nonCoveredPension * 0.5, regularBenefit * wepFactor)
-  const reducedBenefit = Math.round(regularBenefit - wepReduction)
-  const gpoReduction = nonCoveredPension * 2/3 // Government Pension Offset
-  return {
-    regularBenefit: Math.round(regularBenefit), wepReduction: Math.round(wepReduction), reducedBenefit,
-    nonCoveredPension: Math.round(nonCoveredPension), gpoReduction: Math.round(gpoReduction),
-    yearsSubstantialEarnings, wepFactor: Math.round(wepFactor * 100),
-    maxReduction: maxWEPReduction2026, lifetimeImpact: Math.round(wepReduction * 12 * (85 - 67))
-  }
+export function calculateSocialSecurityWEP(regularBenefit:number,nonCoveredPension:number,yearsSubstantialEarnings:number){
+  const benefit=Math.max(0,Number(regularBenefit)||0), pension=Math.max(0,Number(nonCoveredPension)||0)
+  return {regularBenefit:Math.round(benefit),wepReduction:0,reducedBenefit:Math.round(benefit),nonCoveredPension:Math.round(pension),gpoReduction:0,yearsSubstantialEarnings:Math.max(0,Math.round(yearsSubstantialEarnings||0)),wepFactor:0,maxReduction:0,lifetimeImpact:0,currentRule:'WEP and GPO do not reduce benefits payable for January 2024 and later; this calculator is retained as a historical/educational screen.'}
 }
-
 export function calculateStockOptionTax(optionType: 'iso' | 'nso', grantPrice: number, currentFMV: number, shares: number, ordinaryTaxRate: number, capitalGainsTaxRate: number, heldOver1Year: boolean) {
   const spread = (currentFMV - grantPrice) * shares
   const exerciseCost = grantPrice * shares
@@ -4566,41 +4661,46 @@ export function calculateStockOptionTax(optionType: 'iso' | 'nso', grantPrice: n
 }
 
 export function calculateTBill(faceValue: number, discountRate: number, termDays: number) {
-  const purchasePrice = faceValue - (faceValue * discountRate / 100 * termDays / 360)
-  const interestEarned = faceValue - purchasePrice
+  const safeFace = Math.max(0, Number(faceValue) || 0)
+  const safeRate = Math.max(0, Number(discountRate) || 0)
+  const safeDays = Math.max(1, Number(termDays) || 1)
+  const purchasePrice = safeFace - (safeFace * safeRate / 100 * safeDays / 360)
+  const interestEarned = safeFace - purchasePrice
   const bondEquivalentYield = purchasePrice > 0 && termDays > 0 ? (interestEarned / purchasePrice) * (365 / termDays) * 100 : 0
   const annualizedReturn = purchasePrice > 0 && termDays > 0 ? ((faceValue / purchasePrice) ** (365 / termDays) - 1) * 100 : 0
   const taxableInterest = interestEarned // federal only, state/local exempt
   return {
-    faceValue, termDays, discountRate,
+    faceValue: safeFace, termDays: safeDays, discountRate: safeRate,
     purchasePrice: Math.round(purchasePrice * 100) / 100,
     interestEarned: Math.round(interestEarned * 100) / 100,
     bondEquivalentYield: Math.round(bondEquivalentYield * 100) / 100,
     annualizedReturn: Math.round(annualizedReturn * 100) / 100,
     taxAdvantage: 'State and local tax-exempt — especially valuable in high-tax states',
-    comparisonRate: `Equivalent taxable yield in 22% bracket: ${Math.round(bondEquivalentYield / (1 - 0.05) * 100) / 100}%`
+    comparisonRate: null
   }
 }
 
 export function calculateW2vs1099(grossIncome: number, businessExpenses: number, filingStatus: 'single' | 'married') {
-  const seRate = 0.1530; const seDeduction = grossIncome * seRate * 0.5
-  const w2Tax = calculateSimpleFederalTax(grossIncome, filingStatus)
-  const fica = grossIncome * 0.0765
-  const netIncome1099 = grossIncome - businessExpenses
-  const se1099Tax = netIncome1099 * seRate
+  const income = Math.max(0, Number(grossIncome) || 0)
+  const expenses = Math.max(0, Number(businessExpenses) || 0)
+  const stdDeduction = filingStatus === 'married' ? 32200 : 16100
+  const w2Tax = calculateSimpleFederalTax(Math.max(0, income - stdDeduction), filingStatus)
+  const fica = Math.min(income, 184500) * 0.062 + income * 0.0145
+  const netIncome1099 = Math.max(0, income - expenses)
+  const seEarnings = netIncome1099 * 0.9235
+  const se1099Tax = Math.min(seEarnings, 184500) * 0.124 + seEarnings * 0.029
   const seDed = se1099Tax * 0.5
-  const taxable1099 = netIncome1099 - seDed - businessExpenses
-  const fedTax1099 = calculateSimpleFederalTax(Math.max(0, netIncome1099 - seDed), filingStatus)
+  const qbiDeduction = Math.max(0, Math.min(netIncome1099 - seDed, netIncome1099) * 0.20)
+  const fedTax1099 = calculateSimpleFederalTax(Math.max(0, netIncome1099 - seDed - qbiDeduction - stdDeduction), filingStatus)
   const total1099Tax = fedTax1099 + se1099Tax
   const totalW2Tax = w2Tax + fica
-  const qbiDeduction = Math.min(netIncome1099 * 0.20, (netIncome1099 - seDed) * 0.20)
   const effectiveRate1099 = total1099Tax / grossIncome
   const effectiveRateW2 = totalW2Tax / grossIncome
   return {
     w2: { grossIncome, federalTax: Math.round(w2Tax), ficaTax: Math.round(fica), totalTax: Math.round(totalW2Tax), netTakeHome: Math.round(grossIncome - totalW2Tax), effectiveRate: Math.round(effectiveRateW2 * 100 * 10) / 10 },
     contractor: { grossIncome, businessExpenses, netIncome: Math.round(netIncome1099), seTax: Math.round(se1099Tax), federalTax: Math.round(fedTax1099), totalTax: Math.round(total1099Tax), netTakeHome: Math.round(netIncome1099 - total1099Tax), qbiDeduction: Math.round(qbiDeduction), effectiveRate: Math.round(effectiveRate1099 * 100 * 10) / 10 },
-    breakEvenExpenses: Math.round(grossIncome * (seRate - 0.0765)),
-    advantageFor: total1099Tax < totalW2Tax ? '1099' : 'W-2'
+    breakEvenExpenses: Math.round(Math.max(0, total1099Tax - totalW2Tax)),
+    advantageFor: (income - total1099Tax - expenses) > (income - totalW2Tax) ? '1099' : 'W-2'
   }
 }
 
@@ -4643,16 +4743,18 @@ export function calculateAlimonyTaxImpact(alimonyAmount: number, divorceYear: nu
 
 export function calculate529RolloverToRoth(rollover529Balance: number, accountAgeYears: number, annualRolloverLimit: number, lifetimeLimit: number, beneficiaryAge: number) {
   const eligible = accountAgeYears >= 15
-  const maxAnnualRollover = Math.min(annualRolloverLimit, 7500)
-  const yearsToCompleteLifetime = Math.ceil(lifetimeLimit / maxAnnualRollover)
-  const totalRolloverPossible = Math.min(rollover529Balance, lifetimeLimit)
-  const growth30yr = totalRolloverPossible * Math.pow(1.07, 65 - beneficiaryAge)
+  const maxAnnualRollover = Math.max(0, Math.min(annualRolloverLimit, 7500))
+  const safeLifetimeLimit = Math.max(0, Math.min(lifetimeLimit, 35000))
+  const yearsToCompleteLifetime = maxAnnualRollover > 0 ? Math.ceil(safeLifetimeLimit / maxAnnualRollover) : 0
+  const totalRolloverPossible = Math.min(Math.max(0, rollover529Balance), safeLifetimeLimit)
+  const growthYears = Math.max(0, 65 - Math.max(0, beneficiaryAge))
+  const growth30yr = totalRolloverPossible * Math.pow(1.07, growthYears)
   const yearData = Array.from({ length: Math.min(yearsToCompleteLifetime, 10) }, (_, i) => ({
-    year: i + 1, rolledOver: Math.min(maxAnnualRollover * (i + 1), lifetimeLimit),
-    rothBalance: Math.round(Math.min(maxAnnualRollover * (i + 1), lifetimeLimit) * Math.pow(1.07, i))
+    year: i + 1, rolledOver: Math.min(maxAnnualRollover * (i + 1), safeLifetimeLimit),
+    rothBalance: Math.round(Math.min(maxAnnualRollover * (i + 1), safeLifetimeLimit) * Math.pow(1.07, i))
   }))
   return {
-    eligible, lifetimeLimit, maxAnnualRollover,
+    eligible, lifetimeLimit: safeLifetimeLimit, maxAnnualRollover,
     yearsToCompleteRollover: yearsToCompleteLifetime,
     totalRolloverPossible: Math.round(totalRolloverPossible),
     projectedGrowthAt65: Math.round(growth30yr),
@@ -4662,6 +4764,9 @@ export function calculate529RolloverToRoth(rollover529Balance: number, accountAg
 }
 
 export function calculateAlimonySupport(payorIncome: number, recipientIncome: number, marriageDurationYears: number, state: 'CA'|'NY'|'TX'|'FL'|'other') {
+  payorIncome = Math.max(0, Number(payorIncome) || 0)
+  recipientIncome = Math.max(0, Number(recipientIncome) || 0)
+  marriageDurationYears = Math.max(0, Number(marriageDurationYears) || 0)
   const incomeDiff = Math.max(0, payorIncome - recipientIncome)
   const caFormula = (payorIncome * 0.40 - recipientIncome * 0.50) / 12
   const nyFormula = (payorIncome * 0.20 - recipientIncome * 0.25) / 12
@@ -4679,21 +4784,24 @@ export function calculateAlimonySupport(payorIncome: number, recipientIncome: nu
 }
 
 export function calculateAnnuityCertainVsLifetime(premium: number, age: number, periodCertainYears: number, lifetimeMonthly: number, periodCertainMonthly: number, discountRate: number) {
-  const lifeExpectancy = age < 65 ? 85 : age < 70 ? 84 : age < 75 ? 83 : 82
-  const lifeYears = Math.max(0, lifeExpectancy - age)
-  const lifetimeTotal = lifetimeMonthly * 12 * lifeYears
-  const periodTotal = periodCertainMonthly * 12 * periodCertainYears
-  const pvLifetime = lifetimeMonthly * 12 * (1 - Math.pow(1 + discountRate / 100, -lifeYears)) / (discountRate / 100)
-  const pvPeriod = periodCertainMonthly * 12 * (1 - Math.pow(1 + discountRate / 100, -periodCertainYears)) / (discountRate / 100)
-  const breakEvenAge = age + Math.round(periodTotal / (lifetimeMonthly * 12))
-  return {
-    lifetimeMonthly, periodCertainMonthly,
-    lifetimeTotal: Math.round(lifetimeTotal), periodTotal: Math.round(periodTotal),
-    pvLifetime: Math.round(pvLifetime), pvPeriod: Math.round(pvPeriod),
-    breakEvenAge, lifeExpectancy,
-    recommendation: breakEvenAge < lifeExpectancy ? 'Lifetime annuity likely better if you live to average life expectancy' : 'Period certain offers more value if family health history suggests shorter life',
-    survivorNote: 'Period certain guarantees payments to heirs if you die early; lifetime ends at death'
-  }
+  const p = Math.max(0, Number(premium) || 0)
+  const a = Math.max(0, Math.min(120, Number(age) || 0))
+  const certainYears = Math.max(1, Math.min(50, Number(periodCertainYears) || 1))
+  const lifeMonthly = Math.max(0, Number(lifetimeMonthly) || 0)
+  const certainMonthly = Math.max(0, Number(periodCertainMonthly) || 0)
+  const rate = Math.max(0, Number(discountRate) || 0) / 100
+  // Simplified planning life expectancy only; this is not an insurer quote or mortality table.
+  const lifeExpectancy = a < 65 ? 85 : a < 70 ? 84 : a < 75 ? 83 : 82
+  const lifeYears = Math.max(0, lifeExpectancy - a)
+  const pvFactor = (years: number) => rate === 0 ? years : (1 - Math.pow(1 + rate, -years)) / rate
+  const lifetimeTotal = lifeMonthly * 12 * lifeYears
+  const periodTotal = certainMonthly * 12 * certainYears
+  const pvLifetime = lifeMonthly * 12 * pvFactor(lifeYears)
+  const pvPeriod = certainMonthly * 12 * pvFactor(certainYears)
+  const annualLifetime = lifeMonthly * 12
+  const breakEvenAge = annualLifetime > 0 ? a + Math.ceil(periodTotal / annualLifetime) : null
+  const recommendation = breakEvenAge == null ? 'No break-even age: lifetime payment is zero.' : 'Scenario comparison only; compare the quoted contract terms, guarantees, survivor benefits, inflation protection, fees and insurer strength before deciding.'
+  return { premium: Math.round(p), lifetimeMonthly: Math.round(lifeMonthly), periodCertainMonthly: Math.round(certainMonthly), lifetimeTotal: Math.round(lifetimeTotal), periodTotal: Math.round(periodTotal), pvLifetime: Math.round(pvLifetime), pvPeriod: Math.round(pvPeriod), breakEvenAge, lifeExpectancy, recommendation, survivorNote: 'Period-certain payments may continue to a beneficiary for the remaining guaranteed period; contract terms control.' }
 }
 
 export function calculateBackgroundCheckROI(badHireCost: number, screeningCost: number, hiresPerYear: number, badHireRateWithout: number, badHireRateWith: number) {
@@ -4702,7 +4810,8 @@ export function calculateBackgroundCheckROI(badHireCost: number, screeningCost: 
   const costWithoutScreening = badHiresWithout * badHireCost
   const costWithScreening = badHiresWith * badHireCost + hiresPerYear * screeningCost
   const netSavings = costWithoutScreening - costWithScreening
-  const roi = (netSavings / (hiresPerYear * screeningCost)) * 100
+  const screeningSpend = Math.max(0, hiresPerYear * screeningCost)
+  const roi = screeningSpend > 0 ? (netSavings / screeningSpend) * 100 : 0
   return {
     badHiresPrevented: Math.round(badHiresWithout - badHiresWith),
     costWithoutScreening: Math.round(costWithoutScreening),
@@ -4712,22 +4821,21 @@ export function calculateBackgroundCheckROI(badHireCost: number, screeningCost: 
   }
 }
 
-export function calculateBridgeLoan(currentHomeValue: number, currentMortgageBalance: number, newHomePrice: number, bridgeLoanRate: number, expectedSaleMonths: number) {
-  const currentEquity = currentHomeValue - currentMortgageBalance
-  const bridgeLoanAmount = Math.min(currentEquity * 0.80, newHomePrice * 0.20)
-  const monthlyInterest = bridgeLoanAmount * bridgeLoanRate / 100 / 12
-  const totalInterestCost = monthlyInterest * expectedSaleMonths
-  const originationFee = bridgeLoanAmount * 0.015
+export function calculateBridgeLoan(currentHomeValue: number, currentMortgageBalance: number, newHomePrice: number, bridgeLoanRate: number, expectedSaleMonths: number, maxEquityPct = 80, originationFeePct = 1.5) {
+  const home = Math.max(0, Number(currentHomeValue) || 0)
+  const mortgage = Math.max(0, Number(currentMortgageBalance) || 0)
+  const purchase = Math.max(0, Number(newHomePrice) || 0)
+  const rate = Math.max(0, Number(bridgeLoanRate) || 0)
+  const months = Math.max(0, Math.min(60, Number(expectedSaleMonths) || 0))
+  const equity = Math.max(0, home - mortgage)
+  const equityAdvance = equity * Math.max(0, Math.min(100, maxEquityPct)) / 100
+  const purchaseNeed = purchase * 0.20
+  const bridgeLoanAmount = Math.min(equityAdvance, purchaseNeed)
+  const monthlyInterest = bridgeLoanAmount * rate / 100 / 12
+  const totalInterestCost = monthlyInterest * months
+  const originationFee = bridgeLoanAmount * Math.max(0, originationFeePct) / 100
   const totalBridgeCost = totalInterestCost + originationFee
-  const traditionalContingency = 'Without bridge loan: must sell current home before buying, risking losing the new home in competitive market'
-  const dualMortgagePayment = currentMortgageBalance * 0.065 / 12 + newHomePrice * 0.8 * 0.07 / 12
-  return {
-    currentEquity: Math.round(currentEquity), bridgeLoanAmount: Math.round(bridgeLoanAmount),
-    monthlyInterest: Math.round(monthlyInterest), totalInterestCost: Math.round(totalInterestCost),
-    originationFee: Math.round(originationFee), totalBridgeCost: Math.round(totalBridgeCost),
-    expectedSaleMonths, dualMortgagePayment: Math.round(dualMortgagePayment),
-    competitiveAdvantage: 'Non-contingent offer often wins in competitive markets even at higher price'
-  }
+  return { currentEquity: Math.round(equity), bridgeLoanAmount: Math.round(bridgeLoanAmount), monthlyInterest: Math.round(monthlyInterest), totalInterestCost: Math.round(totalInterestCost), originationFee: Math.round(originationFee), totalBridgeCost: Math.round(totalBridgeCost), expectedSaleMonths: months, maxEquityPct, originationFeePct, competitiveAdvantage: 'A bridge loan may allow a purchase before selling the existing home, but approval, LTV, fees and repayment terms are lender-specific.' }
 }
 
 export function calculateBusinessStartupCosts(oneTimeCosts: number, monthlyOverhead: number, monthlyRevenue: number, grossMargin: number, loanAmount: number, loanRate: number) {
@@ -4796,44 +4904,48 @@ export function calculateCollectiblesInvestment(purchasePrice: number, category:
 }
 
 export function calculateCollegeAidStrategies(parentIncome: number, parentAssets: number, studentIncome: number, studentAssets: number, homeEquity: number, businessValue: number) {
-  // EFC = Expected Family Contribution (now SAI - Student Aid Index)
-  const assessedParentIncome = Math.max(0, parentIncome - 30000) * 0.22
-  const assessedParentAssets = (parentAssets - 10000) * 0.056 // asset protection allowance
-  const assessedStudentIncome = Math.max(0, studentIncome - 7600) * 0.50
-  const assessedStudentAssets = studentAssets * 0.20
-  const sai = Math.round(assessedParentIncome + assessedParentAssets + assessedStudentIncome + assessedStudentAssets)
-  const withHomeEquity = sai + homeEquity * 0.056
-  const withBusiness = sai + businessValue * 0.056 * 0.10 // rough business inclusion
-  const savings = withHomeEquity - sai
+  // This is intentionally a scenario model, not the federal SAI formula.
+  // Keep all assumptions visible rather than presenting them as FAFSA rules.
+  const parentIncomeAllowance = 30000
+  const parentAssetRate = 0.0564
+  const studentAssetRate = 0.20
+  const studentIncomeAllowance = 7600
+  const assessedParentIncome = Math.max(0, parentIncome - parentIncomeAllowance) * 0.22
+  const assessedParentAssets = Math.max(0, parentAssets) * parentAssetRate
+  const assessedStudentIncome = Math.max(0, studentIncome - studentIncomeAllowance) * 0.50
+  const assessedStudentAssets = Math.max(0, studentAssets) * studentAssetRate
+  const estimatedNeedIndex = Math.round(assessedParentIncome + assessedParentAssets + assessedStudentIncome + assessedStudentAssets)
   return {
-    estimatedSAI: sai, assessedParentIncome: Math.round(assessedParentIncome),
+    estimatedSAI: estimatedNeedIndex, assessedParentIncome: Math.round(assessedParentIncome),
     assessedParentAssets: Math.round(assessedParentAssets),
     assessedStudentAssets: Math.round(assessedStudentAssets),
-    homeEquityImpact: Math.round(homeEquity * 0.056),
+    homeEquityImpact: 0,
     strategies: [
-      'Maximize retirement contributions (excluded from FAFSA assets)',
-      'Pay down home equity before filing FAFSA (primary home excluded)',
-      'Shift assets from student to parent (student assets counted at 20% vs 5.64%)',
-      'Spend student assets on allowable expenses before FAFSA filing',
-      'File FAFSA as early as possible (October 1) for priority aid',
-      homeEquity > 50000 ? 'Consider using home equity for college costs to reduce savings balance' : 'Keep liquid savings for emergency fund and college costs'
-    ]
+      'Primary-home equity is excluded from the federal FAFSA asset calculation; other institutional methodologies may differ.',
+      'Do not move assets or change transactions solely to reduce aid without checking tax, legal and school-specific consequences.',
+      'Retirement accounts are treated differently from reportable FAFSA assets; verify current FAFSA instructions for the relevant award year.',
+      'Student-owned assets generally have a different treatment from parent assets, but the actual federal formula is more detailed than this model.',
+      'Use the official FAFSA and StudentAid.gov tools for actual aid eligibility and SAI.'
+    ],
+    modelNote: 'Scenario estimate only; not an official Student Aid Index.'
   }
 }
 
 export function calculateCollegeDebtBurden(loanBalance: number, expectedSalary: number, loanRate: number, repaymentYears: number, filingStatus: 'single'|'married') {
-  const mr = loanRate/100/12
-  const months = repaymentYears * 12
-  const payment = loanBalance * (mr * Math.pow(1+mr,months)) / (Math.pow(1+mr,months)-1)
+  const balance = Math.max(0, loanBalance)
+  const income = Math.max(1, expectedSalary)
+  const rate = Math.max(0, loanRate)
+  const years = Math.max(1, repaymentYears)
+  const mr = rate/100/12
+  const months = years * 12
+  const payment = mr === 0 ? balance / months : balance * (mr * Math.pow(1+mr,months)) / (Math.pow(1+mr,months)-1)
   const annualPayment = payment * 12
-  const paymentToIncome = annualPayment / expectedSalary * 100
-  const debtToIncome = loanBalance / expectedSalary
-  const totalInterest = payment * months - loanBalance
-  const saveCost = loanBalance > 0 ? Math.max(0, expectedSalary * 0.10 - annualPayment) : expectedSalary * 0.10
+  const paymentToIncome = annualPayment / income * 100
+  const debtToIncome = balance / income
+  const totalInterest = Math.max(0, payment * months - balance)
   const affordable = paymentToIncome <= 10
-  const manageableBalance = expectedSalary * 1.0
-  const excessDebt = Math.max(0, loanBalance - manageableBalance)
-  const forgivenessBenefit = loanBalance > manageableBalance * 1.5 ? (loanBalance - payment*120) : 0
+  const manageableBalance = income
+  const excessDebt = Math.max(0, balance - manageableBalance)
   return {
     monthlyPayment: Math.round(payment*100)/100,
     annualPayment: Math.round(annualPayment),
@@ -4842,10 +4954,10 @@ export function calculateCollegeDebtBurden(loanBalance: number, expectedSalary: 
     totalInterest: Math.round(totalInterest),
     affordable, manageableBalance: Math.round(manageableBalance),
     excessDebt: Math.round(excessDebt),
-    forgivenessBenefit: Math.round(Math.max(0, forgivenessBenefit)),
-    recommendation: paymentToIncome > 20 ? 'Consider IDR plan — payments capped at 5-10% of discretionary income' :
-      paymentToIncome > 10 ? 'Manageable but tight — IDR or refinancing may help' : 'Well within affordable range',
-    idRMonthlyEst: Math.round(Math.max(0, expectedSalary - 22000) * 0.05 / 12)
+    forgivenessBenefit: 0,
+    recommendation: paymentToIncome > 20 ? 'High modeled payment burden — review current federal repayment options and your servicer.' :
+      paymentToIncome > 10 ? 'Moderate modeled payment burden — compare current federal repayment options with your servicer.' : 'Lower modeled payment burden under this planning heuristic.',
+    idRMonthlyEst: null
   }
 }
 
@@ -4872,29 +4984,32 @@ export function calculateCollegeSavingsGoal(childAge: number, targetCollegeYear:
 }
 
 export function calculateCostSegregation(buildingCost: number, landCost: number, propertyType: 'residential'|'commercial', taxRate: number) {
-  const depBase = buildingCost
-  const standardAnnual = depBase / (propertyType === 'residential' ? 27.5 : 39)
+  const building = Math.max(0, buildingCost)
+  const land = Math.max(0, landCost)
+  const depBase = Math.max(0, building - land)
+  const standardLife = propertyType === 'residential' ? 27.5 : 39
+  const standardAnnual = depBase / standardLife
+  // Illustrative study allocation only. A real cost-seg study must classify actual assets.
   const fiveYrPct = 0.15, sevenYrPct = 0.10, fifteenYrPct = 0.08
-  const accelerated5 = depBase * fiveYrPct
-  const accelerated7 = depBase * sevenYrPct
-  const accelerated15 = depBase * fifteenYrPct
-  const remainingRegular = depBase * (1 - fiveYrPct - sevenYrPct - fifteenYrPct)
-  const year1WithBonus = accelerated5 + accelerated7 + accelerated15
-  const year1Standard = standardAnnual
-  const year1Acceleration = year1WithBonus - year1Standard
-  const tax1stYear = year1Acceleration * taxRate / 100
-  const studyCost = buildingCost < 1000000 ? 8000 : buildingCost < 5000000 ? 15000 : 25000
-  const roi = Math.round(tax1stYear / studyCost)
+  const accelerated = depBase * (fiveYrPct + sevenYrPct + fifteenYrPct)
+  const remaining = Math.max(0, depBase - accelerated)
+  const year1RegularOnRemaining = remaining / standardLife
+  const year1WithoutStudy = standardAnnual
+  const year1StudyDeduction = accelerated + year1RegularOnRemaining
+  const incrementalDeduction = Math.max(0, year1StudyDeduction - year1WithoutStudy)
+  const tax1stYear = incrementalDeduction * Math.max(0, taxRate) / 100
+  const studyCost = building < 1000000 ? 8000 : building < 5000000 ? 15000 : 25000
+  const roi = studyCost > 0 ? tax1stYear / studyCost : 0
   return {
     standardAnnualDepreciation: Math.round(standardAnnual),
-    fiveYearProperty: Math.round(accelerated5),
-    sevenYearProperty: Math.round(accelerated7),
-    fifteenYearProperty: Math.round(accelerated15),
-    year1AcceleratedDeduction: Math.round(year1WithBonus),
+    fiveYearProperty: Math.round(depBase * fiveYrPct),
+    sevenYearProperty: Math.round(depBase * sevenYrPct),
+    fifteenYearProperty: Math.round(depBase * fifteenYrPct),
+    year1AcceleratedDeduction: Math.round(year1StudyDeduction),
     year1TaxSavings: Math.round(tax1stYear),
-    studyCost, roi,
-    npvBenefit: Math.round(tax1stYear * 0.85),
-    recommendation: roi > 3 ? 'Cost segregation study strongly recommended' : 'Marginal benefit — evaluate for properties over $1M'
+    studyCost, roi: Math.round(roi * 100) / 100,
+    npvBenefit: Math.round(tax1stYear),
+    recommendation: 'Illustrative screening only — obtain a qualified cost-segregation study and tax analysis before claiming depreciation.'
   }
 }
 
@@ -4923,28 +5038,32 @@ export function calculateCryptoStakingRewards(stakedAmount: number, apr: number,
 }
 
 export function calculateDebtToIncomeOptimizer(monthlyGrossIncome: number, debts: Array<{name: string; payment: number; balance: number; rate: number}>) {
-  const totalDebtPayments = debts.reduce((s, d) => s + d.payment, 0)
-  const currentDTI = totalDebtPayments / monthlyGrossIncome * 100
-  const frontEndDTI = 0 // no housing in this calc
-  const mortgageCapacity = Math.max(0, monthlyGrossIncome * 0.28 - totalDebtPayments)
-  const fhaDTI = Math.max(0, monthlyGrossIncome * 0.43 - totalDebtPayments)
-  // Payoff priority (avalanche)
-  const sorted = [...debts].sort((a, b) => b.rate - a.rate)
-  const payoffOrder = sorted.map((d, i) => ({
-    ...d, priority: i+1,
-    monthsToPayoff: Math.round(d.balance / (d.payment - d.balance * d.rate/100/12))
+  const income = Math.max(0, Number(monthlyGrossIncome)||0)
+  const safeDebts = debts.map(d => ({
+    ...d,
+    payment: Math.max(0, Number(d.payment)||0),
+    balance: Math.max(0, Number(d.balance)||0),
+    rate: Math.max(0, Number(d.rate)||0)
   }))
-  const dtiAfterPayoff = (totalDebtPayments - sorted[0]?.payment) / monthlyGrossIncome * 100
+  const totalDebtPayments = safeDebts.reduce((s,d)=>s+d.payment,0)
+  const currentDTI = income>0 ? totalDebtPayments/income*100 : 0
+  const mortgageCapacity = Math.max(0, income*0.28-totalDebtPayments)
+  const fhaDTI = Math.max(0, income*0.43-totalDebtPayments)
+  const sorted=[...safeDebts].sort((a,b)=>b.rate-a.rate)
+  const payoffOrder=sorted.map((d,i)=>{
+    const monthlyInterest=d.balance*d.rate/100/12
+    const monthsToPayoff=d.payment>monthlyInterest && d.payment>0 ? Math.ceil(d.balance/(d.payment-monthlyInterest)) : null
+    return {...d,priority:i+1,monthsToPayoff}
+  })
+  const topPayment=sorted[0]?.payment||0
+  const dtiAfterTopPayoff=income>0 ? Math.max(0,(totalDebtPayments-topPayment)/income*100) : 0
   return {
-    monthlyGrossIncome, totalDebtPayments: Math.round(totalDebtPayments),
-    currentDTI: Math.round(currentDTI * 10) / 10,
-    mortgageCapacity: Math.round(mortgageCapacity),
-    fhaCapacity: Math.round(fhaDTI),
-    goodDTI: currentDTI < 36,
-    acceptableDTI: currentDTI < 43,
-    payoffOrder,
-    dtiAfterTopPayoff: Math.round(dtiAfterPayoff * 10) / 10,
-    actionItems: currentDTI > 43 ? ['Pay off highest-rate debt immediately', 'Avoid new debt', 'Consider balance transfer or consolidation'] : currentDTI > 36 ? ['Monitor DTI before applying for mortgage', 'Pay down revolving debt'] : ['DTI is healthy — maintain current payments']
+    monthlyGrossIncome:income,totalDebtPayments:Math.round(totalDebtPayments),
+    currentDTI:Math.round(currentDTI*10)/10,
+    mortgageCapacity:Math.round(mortgageCapacity),fhaCapacity:Math.round(fhaDTI),
+    goodDTI:currentDTI<36,acceptableDTI:currentDTI<43,
+    payoffOrder,dtiAfterTopPayoff:Math.round(dtiAfterTopPayoff*10)/10,
+    actionItems:currentDTI>43?['Reduce listed monthly debt before assuming additional housing payment.','Avoid new debt while improving the ratio.']:currentDTI>36?['Monitor DTI before applying for credit.','Pay down higher-rate revolving debt where practical.']:['Maintain current debt obligations and monitor changes.']
   }
 }
 
@@ -4993,13 +5112,13 @@ export function calculateDividendGrowthPortfolio(initialInvestment: number, yiel
 
 export function calculateDonorAdvisedFund(contributionAmount: number, appreciatedStockBasis: number, currentMarketValue: number, taxRate: number, annualGrantPercent: number) {
   const useAppreciatedStock = currentMarketValue > 0
-  const capitalGainsAvoided = useAppreciatedStock ? (currentMarketValue - appreciatedStockBasis) * 0.20 : 0
+  const capitalGainsAvoided = useAppreciatedStock ? Math.max(0, currentMarketValue - appreciatedStockBasis) * 0.20 : 0
   const deductionValue = useAppreciatedStock ? currentMarketValue : contributionAmount
   const taxSavings = deductionValue * taxRate / 100
   const totalTaxBenefit = taxSavings + capitalGainsAvoided
   const fundGrowth10yr = deductionValue * Math.pow(1.06, 10)
   const annualGrantAmount = deductionValue * annualGrantPercent / 100
-  const yearsOfGiving = deductionValue / annualGrantAmount
+  const yearsOfGiving = annualGrantAmount > 0 ? deductionValue / annualGrantAmount : 0
   return {
     deductionValue: Math.round(deductionValue), taxSavings: Math.round(taxSavings),
     capitalGainsAvoided: Math.round(capitalGainsAvoided), totalTaxBenefit: Math.round(totalTaxBenefit),
@@ -5077,21 +5196,18 @@ export function calculateEquityIndexedAnnuity(premium: number, participationRate
 }
 
 export function calculateEstateLiquidityNeeds(grossEstate: number, federalEstateTax: number, stateTax: number, debts: number, adminCosts: number, liquidAssets: number) {
-  const totalObligations = federalEstateTax + stateTax + debts + adminCosts
-  const liquidityGap = Math.max(0, totalObligations - liquidAssets)
-  const lifeInsuranceNeeded = liquidityGap
+  const totalObligations = Math.max(0, Number(federalEstateTax)||0) + Math.max(0, Number(stateTax)||0) + Math.max(0, Number(debts)||0) + Math.max(0, Number(adminCosts)||0)
+  const liquid = Math.max(0, Number(liquidAssets)||0)
+  const liquidityGap = Math.max(0, totalObligations - liquid)
   const forcedSaleRisk = liquidityGap > 0
-  const annualPremiumEst = lifeInsuranceNeeded * 0.004 // rough permanent life rate
-  const ilit = lifeInsuranceNeeded > 0
-  const deferralOption = federalEstateTax > 0 ? 'IRC 6166 allows installment payments of estate tax on closely-held business interests over 14 years' : 'No federal estate tax — no deferral needed'
+  const lifeInsuranceNeeded = liquidityGap
+  const annualPremiumEst = lifeInsuranceNeeded * 0.004 // illustrative assumption only; actual premium requires an underwriting quote
+  const deferralOption = federalEstateTax > 0 ? 'IRC 6166 may permit installment payments for qualifying closely held business interests; eligibility and interest require separate analysis.' : 'No federal estate-tax amount was entered in this scenario.'
   return {
-    totalObligations: Math.round(totalObligations),
-    liquidAssets, liquidityGap: Math.round(liquidityGap),
-    forcedSaleRisk, lifeInsuranceNeeded: Math.round(lifeInsuranceNeeded),
-    annualPremiumEst: Math.round(annualPremiumEst),
-    ilitRecommended: ilit,
-    deferralOption,
-    strategies: liquidityGap > 0 ? ['ILIT (life insurance outside estate)', 'IRC 6166 installment election', 'Graegin note for deductible interest', 'Installment sale of illiquid assets'] : ['Estate is liquid — no forced sale risk']
+    totalObligations: Math.round(totalObligations), liquidAssets: Math.round(liquid), liquidityGap: Math.round(liquidityGap), forcedSaleRisk,
+    lifeInsuranceNeeded: Math.round(lifeInsuranceNeeded), annualPremiumEst: Math.round(annualPremiumEst), ilitRecommended: false,
+    premiumAssumption: 'Illustrative 0.4% of modeled coverage; not an insurance quote.', deferralOption,
+    strategies: liquidityGap > 0 ? ['Review life-insurance needs with a licensed professional', 'Review IRC 6166 eligibility if a qualifying closely held business is involved', 'Consider liquidity from cash, securities or other estate assets'] : ['Estate is liquid under the entered assumptions']
   }
 }
 
@@ -5109,49 +5225,34 @@ export function calculateEstatePlanningChecklist(age: number, netWorth: number, 
   return { score, maxScore, readinessPercent, gaps, urgentGaps: gaps.filter(g => g.priority === 'HIGH').length, costEstimate: Math.round(gaps.length * 800), nextStep: gaps.length > 0 ? gaps[0].item : 'Estate plan is complete — review every 3-5 years or after major life events' }
 }
 
-export function calculateEstateTaxByState(grossEstate: number, state: string) {
-  const stateExemptions: Record<string, number> = { MA: 2000000, OR: 1000000, MN: 3000000, IL: 4000000, NY: 7160000, WA: 2193000, CT: 13610000, ME: 7000000, HI: 5490000, MD: 5000000, VT: 5000000, RI: 1774583, DC: 4529000 }
-  const stateRates: Record<string, number> = { MA: 16, OR: 16, MN: 16, IL: 16, NY: 16, WA: 20, CT: 12, ME: 12, HI: 20, MD: 16, VT: 16, RI: 16, DC: 16 }
-  const federalExemption = 15000000
-  const stateExemption = stateExemptions[state] || Infinity
-  const stateRate = stateRates[state] || 0
-  const federalTaxable = Math.max(0, grossEstate - federalExemption)
-  const stateTaxable = Math.max(0, grossEstate - stateExemption)
-  const federalTax = federalTaxable * 0.40
-  const stateTax = stateTaxable * stateRate / 100
-  const totalTax = federalTax + stateTax
-  const hasStateTax = stateExemption < Infinity
-  return {
-    grossEstate, federalExemption, stateExemption: hasStateTax ? stateExemption : 'No state estate tax',
-    federalTaxable: Math.round(federalTaxable), stateTaxable: Math.round(stateTaxable),
-    federalTax: Math.round(federalTax), stateTax: Math.round(stateTax),
-    totalTax: Math.round(totalTax), effectiveRate: Math.round(totalTax / grossEstate * 1000) / 10,
-    netToHeirs: Math.round(grossEstate - totalTax), hasStateTax,
-    stateNote: hasStateTax ? `${state} has a separate estate tax with $${stateExemption.toLocaleString()} exemption` : 'This state has no separate estate tax'
-  }
+export function calculateEstateTaxByState(grossEstate:number,state:string){
+  const value=Math.max(0,Number(grossEstate)||0), federalExemption=15000000
+  const stateExemptions:Record<string,number>={MA:2000000,OR:1000000,MN:3000000,IL:4000000,NY:7000000,WA:3000000,CT:15000000,ME:7000000,HI:5490000,MD:5000000,VT:5000000,RI:2000000,DC:5000000}
+  const stateRate:Record<string,number>={MA:.16,OR:.16,MN:.16,IL:.16,NY:.16,WA:.20,CT:.12,ME:.16,HI:.20,MD:.16,VT:.16,RI:.16,DC:.16}
+  const stateExemption=stateExemptions[state], fedTaxable=Math.max(0,value-federalExemption), stateTaxable=stateExemption===undefined?0:Math.max(0,value-stateExemption)
+  // Screening only: 40% federal top rate and a state top-rate approximation. Real returns use deductions, credits, prior gifts and graduated schedules.
+  const federalTax=fedTaxable*.40, stateTax=stateExemption===undefined?0:stateTaxable*(stateRate[state]||0), totalTax=federalTax+stateTax
+  return {grossEstate:value,federalExemption,stateExemption:stateExemption===undefined?'No state estate tax in this screen':stateExemption,federalTaxable:Math.round(fedTaxable),stateTaxable:Math.round(stateTaxable),federalTax:Math.round(federalTax),stateTax:Math.round(stateTax),totalTax:Math.round(totalTax),effectiveRate:value?Math.round(totalTax/value*1000)/10:0,netToHeirs:Math.round(Math.max(0,value-totalTax)),hasStateTax:stateExemption!==undefined,stateNote:stateExemption===undefined?'No separate state estate-tax entry in this screening table.':`${state} screening uses a simplified threshold/top-rate model; verify the current state computation before relying on a dollar amount.`}
 }
-
 export function calculateFIREWithPartTime(targetAnnualExpenses: number, partTimeIncome: number, portfolio: number, investReturn: number, inflationRate: number, startAge: number) {
-  const netExpenses = Math.max(0, targetAnnualExpenses - partTimeIncome)
+  const expenses = Math.max(0, Number(targetAnnualExpenses) || 0)
+  const income = Math.max(0, Number(partTimeIncome) || 0)
+  const balance = Math.max(0, Number(portfolio) || 0)
+  const rate = Number(investReturn) || 0
+  const netExpenses = Math.max(0, expenses - income)
   const baristaFIRE = netExpenses / 0.04
-  const fullFIRE = targetAnnualExpenses / 0.04
-  const reduction = fullFIRE - baristaFIRE
-  const reductionPercent = reduction / fullFIRE * 100
-  const yearsToBarista = portfolio < baristaFIRE ?
-    Math.log((baristaFIRE * investReturn / 100 + netExpenses) / (portfolio * investReturn / 100 + netExpenses)) / Math.log(1 + investReturn / 100) : 0
-  const yearsToFull = portfolio < fullFIRE ?
-    Math.log((fullFIRE * investReturn / 100 + targetAnnualExpenses) / (portfolio * investReturn / 100 + targetAnnualExpenses)) / Math.log(1 + investReturn / 100) : 0
-  const yearsSaved = Math.max(0, yearsToFull - yearsToBarista)
-  return {
-    baristaFIRENumber: Math.round(baristaFIRE),
-    fullFIRENumber: Math.round(fullFIRE),
-    portfolioReduction: Math.round(reduction),
-    reductionPercent: Math.round(reductionPercent),
-    yearsToBarista: Math.round(yearsToBarista * 10) / 10,
-    yearsToFullFIRE: Math.round(yearsToFull * 10) / 10,
-    yearsSavedByPartTime: Math.round(yearsSaved * 10) / 10,
-    baristaRetirementAge: Math.round(startAge + yearsToBarista)
+  const fullFIRE = expenses / 0.04
+  const yearsToTarget = (target: number, spending: number) => {
+    if (balance >= target) return 0
+    if (rate === 0) return spending > 0 ? Math.max(0, (target - balance) / spending) : Infinity
+    const r = rate / 100
+    const n = Math.log((target * r + spending) / (balance * r + spending)) / Math.log(1 + r)
+    return Number.isFinite(n) && n >= 0 ? n : Infinity
   }
+  const yearsToBarista = yearsToTarget(baristaFIRE, netExpenses)
+  const yearsToFull = yearsToTarget(fullFIRE, expenses)
+  const yearsSaved = Number.isFinite(yearsToFull) && Number.isFinite(yearsToBarista) ? Math.max(0, yearsToFull - yearsToBarista) : 0
+  return { baristaFIRENumber: Math.round(baristaFIRE), fullFIRENumber: Math.round(fullFIRE), portfolioReduction: Math.round(fullFIRE - baristaFIRE), reductionPercent: fullFIRE > 0 ? Math.round((fullFIRE - baristaFIRE) / fullFIRE * 100) : 0, yearsToBarista: Number.isFinite(yearsToBarista) ? Math.round(yearsToBarista * 10) / 10 : null, yearsToFullFIRE: Number.isFinite(yearsToFull) ? Math.round(yearsToFull * 10) / 10 : null, yearsSavedByPartTime: Math.round(yearsSaved * 10) / 10, baristaRetirementAge: Number.isFinite(yearsToBarista) ? Math.round(startAge + yearsToBarista) : null, methodologyNote: 'Uses a simplified 4% withdrawal-rate planning assumption. It is not a guarantee of sustainable retirement income.' }
 }
 
 export function calculateFamilyBudget(monthlyIncome: number, housing: number, transportation: number, food: number, childcare: number, insurance: number, entertainment: number, savings: number, debt: number) {
@@ -5203,19 +5304,20 @@ export function calculateFederalContractorTax(contractRevenue: number, contractT
   const seTax = socialSecurityTax + medicareTax
   const seDeduction = seTax / 2
   const qbi = Math.max(0, netSE - seDeduction) * 0.20
-  const fedTaxable = Math.max(0, netSE - seDeduction - qbi - retirement - 16100)
-  const fedTax = fedTaxable * 0.22
-  const stateTax = netSE * stateRate
+  const fedTaxable = Math.max(0, netSE - seDeduction - qbi - Math.max(0, retirement) - 16100)
+  const fedTax = calculateSimpleFederalTax(fedTaxable, 'single')
+  const stateTaxable = Math.max(0, netSE - seDeduction - qbi - Math.max(0, retirement) - 16100)
+  const stateTax = stateTaxable * stateRate
   const totalTax = seTax + fedTax + stateTax
-  return { grossRevenue: contractRevenue, netSEIncome: Math.round(netSE), seTax: Math.round(seTax), federalTax: Math.round(fedTax), stateTax: Math.round(stateTax), totalTax: Math.round(totalTax), netTakeHome: Math.round(netSE - totalTax), effectiveRate: Math.round(totalTax / contractRevenue * 100), quarterly: Math.round(totalTax / 4) }
+  return { grossRevenue: contractRevenue, netSEIncome: Math.round(netSE), seTax: Math.round(seTax), federalTax: Math.round(fedTax), stateTax: Math.round(stateTax), totalTax: Math.round(totalTax), retirementContribution: Math.round(Math.max(0, retirement)), netTakeHome: Math.round(netSE - totalTax - Math.max(0, retirement)), effectiveRate: Math.round(totalTax / Math.max(1, contractRevenue) * 100), quarterly: Math.round(totalTax / 4) }
 }
 
-export function calculateGigEconomyTax(platforms: Array<{name: string; income: number}>, businessExpenses: number, milesDriven: number, homeOfficePercent: number, phonePercent: number, monthlyPhone: number) {
-  const totalIncome = platforms.reduce((s, p) => s + p.income, 0)
-  const mileageDeduction = milesDriven * 0.76 // IRS business mileage rate effective July 1, 2026; Jan-Jun was $0.725
-  const homeOfficeDeduction = homeOfficePercent / 100 * 18000 // est annual rent
-  const phoneDeduction = phonePercent / 100 * monthlyPhone * 12
-  const totalDeductions = businessExpenses + mileageDeduction + homeOfficeDeduction + phoneDeduction
+export function calculateGigEconomyTax(platforms: Array<{name: string; income: number}>, businessExpenses: number, milesJanJun: number, milesJulDec: number, homeOfficeExpenses: number, homeOfficePercent: number, phonePercent: number, monthlyPhone: number) {
+  const totalIncome = Math.max(0, platforms.reduce((s, p) => s + Math.max(0, p.income), 0))
+  const mileageDeduction = Math.max(0, milesJanJun) * 0.725 + Math.max(0, milesJulDec) * 0.76
+  const homeOfficeDeduction = Math.max(0, homeOfficeExpenses) * Math.min(100, Math.max(0, homeOfficePercent)) / 100
+  const phoneDeduction = Math.max(0, monthlyPhone) * 12 * Math.min(100, Math.max(0, phonePercent)) / 100
+  const totalDeductions = Math.max(0, businessExpenses) + mileageDeduction + homeOfficeDeduction + phoneDeduction
   const netSEIncome = Math.max(0, totalIncome - totalDeductions)
   const seTax = netSEIncome * 0.9235 * 0.153
   const seDeduction = seTax / 2
@@ -5242,80 +5344,72 @@ export function calculateGigEconomyTax(platforms: Array<{name: string; income: n
 }
 
 export function calculateHSAvs401kPriority(salary: number, employer401kMatch: number, hsaEligible: boolean, currentAge: number, taxRate: number) {
-  const matchAmount = salary * Math.min(employer401kMatch, 6) / 100
-  const hsaLimit = 4400 // 2026 IRS self-only HSA contribution limit (Rev. Proc. / IRS Notice 2026-5)
-  const limit401k = 24500 // 2026 IRS elective-deferral limit (IR-2025-111)
-  const iraLimit = 7500 // 2026 IRA contribution limit (IR-2025-111)
-  const hsaTaxSavings = hsaLimit * (taxRate + 7.65) / 100
-  const k401TaxSavings = matchAmount > 0 ? matchAmount : 0 // free money from match
+  const safeSalary = Math.max(0, Number(salary) || 0)
+  const matchRate = Math.min(100, Math.max(0, Number(employer401kMatch) || 0)) / 100
+  const matchAmount = safeSalary * matchRate
+  const hsaLimit = 4400
+  const limit401k = 24500
+  const iraLimit = 7500
+  const safeTaxRate = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+  const hsaTaxSavings = hsaEligible ? hsaLimit * safeTaxRate : 0
   const priorityOrder = [
-    { step: 1, action: '401k up to employer match', amount: matchAmount, reason: 'Free money — 100% instant return' },
-    { step: 2, action: 'Max HSA', amount: hsaLimit, reason: hsaEligible ? 'Triple tax advantage — best account in tax code' : 'Not eligible — must have HDHP' },
-    { step: 3, action: `Max 401k to $${limit401k.toLocaleString()}`, amount: limit401k - matchAmount, reason: 'Tax-deferred growth' },
-    { step: 4, action: 'Max IRA (Roth if eligible)', amount: iraLimit, reason: 'Additional tax-advantaged space' },
-    { step: 5, action: 'Taxable brokerage', amount: 0, reason: 'No limit, full flexibility' }
-  ].filter(s => hsaEligible || s.step !== 2)
-  const totalTaxAdvantaged = matchAmount + (hsaEligible ? hsaLimit : 0) + (limit401k - matchAmount) + iraLimit
+    { step: 1, action: '401k up to employer match', amount: matchAmount, reason: 'Potential employer contribution; actual match formula is plan-specific.' },
+    ...(hsaEligible ? [{ step: 2, action: 'Consider maximizing HSA', amount: hsaLimit, reason: 'Tax-advantaged medical spending and investment, subject to eligibility.' }] : []),
+    { step: 3, action: `401k employee deferrals up to $${limit401k.toLocaleString()}`, amount: limit401k, reason: '2026 employee elective-deferral limit.' },
+    { step: 4, action: 'Consider IRA contributions', amount: iraLimit, reason: '2026 combined traditional/Roth IRA limit before catch-up; eligibility rules apply.' },
+    { step: 5, action: 'Taxable brokerage', amount: 0, reason: 'Flexible taxable savings with no IRA-style contribution cap.' }
+  ]
   return {
     employerMatchValue: Math.round(matchAmount), hsaTaxSavings: Math.round(hsaTaxSavings),
-    totalTaxAdvantagedSpace: Math.round(totalTaxAdvantaged),
+    totalTaxAdvantagedSpace: Math.round((hsaEligible ? hsaLimit : 0) + limit401k + iraLimit),
     priorityOrder, hsaEligible,
-    keyInsight: 'HSA beats 401k in priority because of the triple tax advantage — deductible, tax-free growth, tax-free withdrawal for medical'
+    keyInsight: 'Capture an available employer match first; an HSA may then be attractive when eligible. The best order depends on plan rules, tax rates, cash needs and eligibility.'
   }
 }
 
-export function calculateHealthInsuranceSubsidy(householdIncome: number, householdSize: number, state: string, age: number, tobaccoUser: boolean) {
-  const fpl2026: Record<number, number> = { 1: 15060, 2: 20440, 3: 25820, 4: 31200, 5: 36580, 6: 41960, 7: 47340, 8: 52720 }
-  const fplAmount = fpl2026[Math.min(householdSize, 8)] || 15060 + (householdSize - 8) * 5380
-  const fplPercent = householdIncome / fplAmount * 100
-  const medicaidEligible = fplPercent <= 138
-  const chipEligible = fplPercent <= 200
-  const maxPremiumPercent = fplPercent <= 150 ? 0 : fplPercent <= 200 ? 2.0 : fplPercent <= 250 ? 4.0 : fplPercent <= 300 ? 6.0 : fplPercent <= 400 ? 8.5 : 8.5
-  const benchmarkPremium = (300 + age * 3) * (tobaccoUser ? 1.5 : 1) * 12
-  const maxSelfPayAnnual = householdIncome * maxPremiumPercent / 100
-  const subsidy = Math.max(0, benchmarkPremium - maxSelfPayAnnual)
-  const netPremium = Math.max(0, benchmarkPremium - subsidy)
-  const costSharingReduction = fplPercent <= 200 && !['VA','WA','UT','AK'].includes(state)
-  return {
-    fplPercent: Math.round(fplPercent),
-    fplAmount, medicaidEligible,
-    benchmarkPremiumAnnual: Math.round(benchmarkPremium),
-    benchmarkPremiumMonthly: Math.round(benchmarkPremium / 12),
-    maxSelfPayAnnual: Math.round(maxSelfPayAnnual),
-    annualSubsidy: Math.round(subsidy),
-    monthlySubsidy: Math.round(subsidy / 12),
-    netAnnualPremium: Math.round(netPremium),
-    netMonthlyPremium: Math.round(netPremium / 12),
-    costSharingReduction,
-    subsidyEligible: subsidy > 0,
-    enrollAt: 'healthcare.gov (federal) or your state marketplace',
-    openEnrollment: 'Nov 1 – Dec 15 for coverage starting Jan 1'
+export function calculateHealthInsuranceSubsidy(householdIncome:number,householdSize:number,state:string,age:number,tobaccoUser:boolean,benchmarkPremiumMonthly:number=650) {
+  const income=Math.max(0,Number(householdIncome)||0), size=Math.max(1,Math.floor(Number(householdSize)||1))
+  // 2026 Marketplace savings use the prior-year (2025) federal poverty guideline for the PTC calculation.
+  const fpl2025=[15650,21150,26650,32150,37650,43150,48650,54150]
+  const base=fpl2025[Math.min(size,8)-1] || 54150+(size-8)*5500
+  const fplPercent=income/base*100
+  const applicable=(p:number)=>{
+    if(p<133)return 2.10
+    if(p<150)return 3.14+(p-133)/(150-133)*(4.19-3.14)
+    if(p<200)return 4.19+(p-150)/(200-150)*(6.60-4.19)
+    if(p<250)return 6.60+(p-200)/(250-200)*(8.44-6.60)
+    if(p<300)return 8.44+(p-250)/(300-250)*(9.96-8.44)
+    return 9.96
   }
+  const pct=applicable(fplPercent)
+  const eligible=fplPercent>=100&&fplPercent<=400
+  const benchmarkAnnual=Math.max(0,Number(benchmarkPremiumMonthly)||0)*12
+  const expectedContribution=income*pct/100
+  const subsidy=eligible?Math.max(0,benchmarkAnnual-expectedContribution):0
+  return {fplPercent:Math.round(fplPercent*10)/10,fplAmount:base,applicablePercentage:Number(pct.toFixed(3)),benchmarkPremiumAnnual:Math.round(benchmarkAnnual),benchmarkPremiumMonthly:Math.round(benchmarkPremiumMonthly),maxSelfPayAnnual:Math.round(expectedContribution),annualSubsidy:Math.round(subsidy),monthlySubsidy:Math.round(subsidy/12),netAnnualPremium:Math.round(Math.max(0,benchmarkAnnual-subsidy)),netMonthlyPremium:Math.round(Math.max(0,benchmarkAnnual-subsidy)/12),costSharingReduction:false,subsidyEligible:eligible,enrollAt:'HealthCare.gov or your state Marketplace',marketplaceYear:2026,note:'Premium tax credit estimate uses the 2026 applicable-percentage table and an entered benchmark premium. Actual eligibility also depends on household/coverage facts and the applicable second-lowest-cost Silver premium.'}
 }
 
-export function calculateHealthSavingsAccountProjection(annualContrib: number, currentBalance: number, investmentReturn: number, annualMedicalExpenses: number, age: number, retirementAge: number, taxRate: number) {
-  const years = retirementAge - age
-  const yearData = []
-  let balance = currentBalance
-  for (let i = 0; i <= years; i++) {
-    const growth = balance * investmentReturn / 100
-    const contribution = i < years ? annualContrib : 0
-    const withdrawal = Math.min(annualMedicalExpenses, balance)
-    balance = balance + growth + contribution - withdrawal
-    yearData.push({ year: i, age: age + i, balance: Math.round(Math.max(0, balance)) })
+export function calculateHealthSavingsAccountProjection(annualContrib: number, currentBalance: number, investmentReturn: number, annualMedicalExpenses: number, age: number, retirementAge: number, taxRate: number, familyCoverage: boolean = false) {
+  const years = Math.max(0,Math.floor(Number(retirementAge)-Number(age)))
+  const limit2026=(familyCoverage?8750:4400)+(Number(age)>=55?1000:0)
+  const contribution=Math.min(Math.max(0,Number(annualContrib)||0),limit2026)
+  const returnRate=Math.max(-100,Number(investmentReturn)||0)/100
+  const medical=Math.max(0,Number(annualMedicalExpenses)||0)
+  const yearData=[]
+  let balance=Math.max(0,Number(currentBalance)||0)
+  let totalMedicalCovered=0
+  for(let i=0;i<=years;i++){
+    if(i>0) balance*=1+returnRate
+    if(i<years) balance+=contribution
+    const withdrawal=Math.min(medical,balance)
+    balance=Math.max(0,balance-withdrawal)
+    totalMedicalCovered+=withdrawal
+    yearData.push({year:i,age:Number(age)+i,balance:Math.round(balance)})
   }
-  const tripleValue = balance / (1 - taxRate / 100)
-  const totalContributions = currentBalance + annualContrib * years
-  const totalMedical = annualMedicalExpenses * years
-  return {
-    finalBalance: Math.round(balance),
-    tripleValueEquivalent: Math.round(tripleValue),
-    totalContributions: Math.round(totalContributions),
-    totalMedicalCovered: Math.round(Math.min(totalMedical, totalContributions)),
-    yearlyTaxSavings: Math.round(annualContrib * (taxRate + 7.65) / 100),
-    lifeTimeTaxSavings: Math.round(annualContrib * (taxRate + 7.65) / 100 * years),
-    yearData
-  }
+  const rate=Math.min(99.9,Math.max(0,Number(taxRate)||0))
+  const tripleValue=balance/(1-rate/100)
+  const yearlyTaxSavings=contribution*rate/100
+  return { finalBalance:Math.round(balance), tripleValueEquivalent:Math.round(tripleValue), totalContributions:Math.round(Math.max(0,Number(currentBalance)||0)+contribution*years), totalMedicalCovered:Math.round(totalMedicalCovered), yearlyTaxSavings:Math.round(yearlyTaxSavings), lifeTimeTaxSavings:Math.round(yearlyTaxSavings*years), contributionLimit2026:limit2026, yearData }
 }
 
 export function calculateHealthcareRetirementCost(currentAge: number, retirementAge: number, lifeExpectancy: number, healthStatus: 'excellent'|'good'|'fair', hasEmployerRetireeHealth: boolean) {
@@ -5423,24 +5517,28 @@ export function calculateI401kSEPComparison(netSEIncome: number, age: number) {
 }
 
 export function calculateIRSInstallmentAgreement(taxOwed: number, canPayMonthly: number, includesPenalties: boolean) {
-  const penalty = includesPenalties ? taxOwed * 0.025 : 0
-  const interest = taxOwed * 0.08 // 2026 IRS rate approx 8% (federal short-term + 3%)
-  const setupFee = canPayMonthly > 0 ? (canPayMinutes => canPayMinutes >= taxOwed / 72 ? 31 : 130)(canPayMonthly) : 225
-  const totalOwed = taxOwed + penalty + interest
-  const monthsToPayoff = Math.ceil(totalOwed / canPayMonthly)
-  const totalWithIA = canPayMonthly * monthsToPayoff + setupFee
-  const offerInCompromise = taxOwed > 10000 ? Math.max(taxOwed * 0.20, 1500) : 0 // rough OIC estimate
-  return {
-    taxOwed, penalty: Math.round(penalty), interest: Math.round(interest),
-    totalOwed: Math.round(totalOwed), setupFee, monthsToPayoff,
-    monthlyPayment: canPayMonthly, totalWithIA: Math.round(totalWithIA),
-    extraCostVsPayNow: Math.round(totalWithIA - taxOwed),
-    offerInCompromise: Math.round(offerInCompromise),
-    threshold72Month: Math.ceil(totalOwed / 72),
-    tip: 'Streamlined installment agreements (under $50K, under 72 months) can often be set up online without financial statement'
+  const principal = Math.max(0, Number(taxOwed) || 0)
+  const payment = Math.max(0, Number(canPayMonthly) || 0)
+  const annualInterestRate = 0.07 // Q3 2026 individual IRS underpayment rate; rates reset quarterly.
+  const monthlyRate = annualInterestRate / 12
+  const monthlyPenaltyRate = includesPenalties ? 0.0025 : 0
+  if (principal === 0) return { taxOwed: 0, penalty: 0, interest: 0, totalOwed: 0, setupFee: 0, monthsToPayoff: 0, monthlyPayment: 0, totalWithIA: 0, extraCostVsPayNow: 0, offerInCompromise: 0, threshold72Month: 0, tip: 'No tax balance entered.' }
+  if (payment <= principal * (monthlyRate + monthlyPenaltyRate)) {
+    return { taxOwed: Math.round(principal), penalty: 0, interest: 0, totalOwed: Math.round(principal), setupFee: 0, monthsToPayoff: Infinity, monthlyPayment: payment, totalWithIA: Math.round(principal), extraCostVsPayNow: 0, offerInCompromise: 0, threshold72Month: Math.ceil(principal / 72), tip: 'Payment is too low to amortize the modeled balance at the current assumed interest and penalty rates.' }
   }
+  let balance = principal, months = 0, interestTotal = 0, penaltyTotal = 0
+  while (balance > 0.01 && months < 1200) {
+    const interest = balance * monthlyRate
+    const penalty = balance * monthlyPenaltyRate
+    balance += interest + penalty
+    interestTotal += interest; penaltyTotal += penalty
+    const applied = Math.min(payment, balance)
+    balance -= applied; months++
+  }
+  const setupFee = payment >= principal / 72 ? 31 : 130
+  const totalWithIA = principal + interestTotal + penaltyTotal + setupFee
+  return { taxOwed: Math.round(principal), penalty: Math.round(penaltyTotal), interest: Math.round(interestTotal), totalOwed: Math.round(principal + interestTotal + penaltyTotal), setupFee, monthsToPayoff: months, monthlyPayment: payment, totalWithIA: Math.round(totalWithIA), extraCostVsPayNow: Math.round(totalWithIA - principal), offerInCompromise: 0, threshold72Month: Math.ceil((principal + interestTotal + penaltyTotal) / 72), tip: 'IRS interest rates reset quarterly; setup fees and plan eligibility depend on the agreement type. This is a planning model, not an IRS determination.' }
 }
-
 export function calculateIncomeReplacementRatio(preRetirementIncome: number, socialSecurity: number, pension: number, portfolioWithdrawal: number, partTimeIncome: number, filingStatus: 'single'|'married') {
   const totalRetirementIncome = socialSecurity + pension + portfolioWithdrawal + partTimeIncome
   const replacementRatio = totalRetirementIncome / preRetirementIncome * 100
@@ -5916,25 +6014,11 @@ export function calculatePassiveIncomePortfolio(targetMonthlyIncome: number, div
   }
 }
 
-export function calculatePrenupAssetProtection(separatePropertyValue: number, futureEarningsValue: number, businessValue: number, yearsMarried: number, state: 'communityProperty'|'equitableDistribution') {
-  const withoutPrenup = state === 'communityProperty'
-    ? (separatePropertyValue + businessValue) * 0.50 * Math.min(1, yearsMarried / 10)
-    : (separatePropertyValue + businessValue) * 0.35 * Math.min(1, yearsMarried / 10)
-  const withPrenupProtected = separatePropertyValue + businessValue
-  const appreciationDuringMarriage = businessValue * 0.06 * yearsMarried
-  const protectedAppreciation = appreciationDuringMarriage * 0.7
-  const totalProtection = withPrenupProtected + protectedAppreciation
-  return {
-    withoutPrenupExposure: Math.round(withoutPrenup),
-    withPrenupProtected: Math.round(withPrenupProtected),
-    appreciationDuringMarriage: Math.round(appreciationDuringMarriage),
-    totalAssetProtection: Math.round(totalProtection),
-    drafingCost: 3500,
-    roiOnPrenup: Math.round(totalProtection / 3500),
-    note: 'Prenups must be fairly negotiated with independent counsel for each party to be enforceable'
-  }
+export function calculatePrenupAssetProtection(separatePropertyValue:number,futureEarningsValue:number,businessValue:number,yearsMarried:number,state:'communityProperty'|'equitableDistribution'){
+  const separate=Math.max(0,Number(separatePropertyValue)||0), business=Math.max(0,Number(businessValue)||0), future=Math.max(0,Number(futureEarningsValue)||0)
+  const assetsAtStake=separate+business, enforceableScenario=assetsAtStake
+  return {withoutPrenupExposure:Math.round(assetsAtStake),withPrenupProtected:Math.round(enforceableScenario),appreciationDuringMarriage:0,totalAssetProtection:Math.round(enforceableScenario),drafingCost:0,roiOnPrenup:0,note:`Scenario only. A prenup cannot guarantee that ${state==='communityProperty'?'community-property':'equitable-distribution'} rules will produce a particular award. The model intentionally does not invent a percentage exposure or business-growth rate. Future earnings input is ${future?`$${Math.round(future).toLocaleString()}`:'not used'} and actual treatment depends on state law, commingling, contributions, disclosure and enforceability.`}
 }
-
 export function calculateProfitSharingPlan(annualCompensation: number, profitSharingPercent: number, businessProfit: number, numEmployees: number, age: number) {
   const limit2026 = 72000
   const employerContrib = Math.min(annualCompensation * profitSharingPercent / 100, limit2026)
@@ -6248,25 +6332,28 @@ export function calculateRetirementHealthcareBridge(retirementAge: number, medic
 }
 
 export function calculateReverseMortgage(homeValue: number, age: number, existingMortgage: number, interestRate: number, monthlyPayment: 'lumpsum'|'lineOfCredit'|'monthly') {
+  const HECM_MAX_CLAIM_2026 = 1249125
+  if (![homeValue,age,existingMortgage,interestRate].every(Number.isFinite) || homeValue <= 0 || age < 62 || existingMortgage < 0 || existingMortgage > homeValue || interestRate < 0) throw new Error('Invalid HECM scenario input')
+  const claimAmount = Math.min(homeValue, HECM_MAX_CLAIM_2026)
+  // Educational age-band assumption only. HUD's actual HECM PLF is a table driven by age and expected rate.
   const principalLimitFactor = age < 65 ? 0.40 : age < 70 ? 0.45 : age < 75 ? 0.52 : age < 80 ? 0.58 : 0.65
-  const principalLimit = homeValue * principalLimitFactor
+  const principalLimit = claimAmount * principalLimitFactor
   const availableProceeds = Math.max(0, principalLimit - existingMortgage)
-  const originationFee = Math.min(6000, Math.max(2500, homeValue * 0.02))
-  const mip = homeValue * 0.02
-  const closingCosts = originationFee + mip + 2500
-  const netProceeds = availableProceeds - closingCosts
+  const originationFee = Math.min(6000, 2000 + Math.max(0, Math.min(claimAmount,200000))*0.02 + Math.max(0, claimAmount-200000)*0.01)
+  const initialMIP = claimAmount * 0.02
+  const closingCosts = originationFee + initialMIP + 2500
+  const netProceeds = Math.max(0, availableProceeds - closingCosts)
   const monthlyRate = interestRate / 100 / 12
-  const growthRate = monthlyPayment === 'lineOfCredit' ? monthlyRate * 1.5 : monthlyRate
-  const tenYearBalance = netProceeds * Math.pow(1 + growthRate, 120)
-  const remainingEquity = homeValue * Math.pow(1.03, 10) - tenYearBalance
+  const tenYearBalance = netProceeds * Math.pow(1 + monthlyRate, 120)
+  const assumedHomeGrowth = homeValue * Math.pow(1.03, 10)
+  const remainingEquity = Math.max(0, assumedHomeGrowth - tenYearBalance)
   return {
-    principalLimit: Math.round(principalLimit), availableProceeds: Math.round(availableProceeds),
+    principalLimit: Math.round(principalLimit), modeledPLF: principalLimitFactor, claimAmount: Math.round(claimAmount), availableProceeds: Math.round(availableProceeds),
     closingCosts: Math.round(closingCosts), netProceeds: Math.round(netProceeds),
     monthlyPayout: monthlyPayment === 'monthly' ? Math.round(netProceeds / 240) : 0,
-    tenYearBalance: Math.round(tenYearBalance),
-    remainingEquity10yr: Math.round(Math.max(0, remainingEquity)),
-    nonRecourseProtection: 'You will never owe more than the home is worth at sale',
-    heirsImpact: 'Heirs inherit remaining equity or can pay off loan to keep the home'
+    tenYearBalance: Math.round(tenYearBalance), remainingEquity10yr: Math.round(remainingEquity),
+    nonRecourseProtection: 'HECM loans are generally non-recourse under FHA program terms; this calculator does not model every servicing or payoff condition.',
+    heirsImpact: 'Heirs generally can sell the property, pay the loan balance, or otherwise resolve the HECM under program and servicing rules.'
   }
 }
 
@@ -6298,24 +6385,26 @@ export function calculateRothVsTraditional401k(grossSalary: number, contribution
 }
 
 export function calculateSBALoanAffordability(loanAmount: number, sbaRate: number, termYears: number, annualRevenue: number, netProfit: number, existingDebt: number) {
+  if (![loanAmount,sbaRate,termYears,annualRevenue,netProfit,existingDebt].every(Number.isFinite) || loanAmount < 0 || sbaRate < 0 || termYears <= 0 || annualRevenue < 0 || existingDebt < 0) throw new Error('Invalid SBA loan input')
   const mr = sbaRate / 100 / 12
-  const months = termYears * 12
-  const payment = loanAmount * (mr * Math.pow(1+mr, months)) / (Math.pow(1+mr, months)-1)
+  const months = Math.max(1, Math.round(termYears * 12))
+  const payment = mr === 0 ? loanAmount / months : loanAmount * (mr * Math.pow(1+mr,months)) / (Math.pow(1+mr,months)-1)
   const annualPayment = payment * 12
-  const totalInterest = payment * months - loanAmount
-  const dscr = netProfit / annualPayment
-  const debtService = (annualPayment + existingDebt) / annualRevenue * 100
-  const sba7aLimit = 5000000
-  const sba504Limit = 5000000
-  const eligibleProgram = loanAmount <= 5000000 ? 'SBA 7(a) candidate' : 'Outside standard 7(a) maximum'
+  const totalInterest = Math.max(0, payment * months - loanAmount)
+  const dscr = annualPayment > 0 ? netProfit / annualPayment : Infinity
+  const debtService = annualRevenue > 0 ? (annualPayment + existingDebt) / annualRevenue * 100 : null
+  const SBA_7A_MAX = 5000000
+  const maxAnnualNewDebtService = Math.max(0, netProfit / 1.25 - existingDebt)
+  const maxLoanByDSCR = mr === 0 ? maxAnnualNewDebtService * months / 12 : maxAnnualNewDebtService / 12 * (1 - Math.pow(1+mr,-months)) / mr
+  const modeledMaxLoan = Math.min(SBA_7A_MAX, Math.max(0, maxLoanByDSCR))
   return {
-    monthlyPayment: Math.round(payment*100)/100, annualPayment: Math.round(annualPayment),
-    totalInterest: Math.round(totalInterest), dscr: Math.round(dscr*100)/100,
-    debtService: Math.round(debtService*10)/10,
-    dscrAdequate: dscr >= 1.25, debtServiceHealthy: debtService < 35,
-    eligibleProgram, qualifies: dscr >= 1.25 && annualRevenue > loanAmount * 0.3,
-    maxLoan: Math.round(netProfit / (1.25 * mr * 12) * 0.8),
-    sbaFee: 0
+    monthlyPayment: Math.round(payment*100)/100, annualPayment: Math.round(annualPayment), totalInterest: Math.round(totalInterest),
+    dscr: Number.isFinite(dscr) ? Math.round(dscr*100)/100 : null, debtService: debtService === null ? null : Math.round(debtService*10)/10,
+    dscrAdequate: dscr >= 1.25, within7aMaximum: loanAmount <= SBA_7A_MAX,
+    qualifies: dscr >= 1.25,
+    eligibleProgram: loanAmount <= SBA_7A_MAX ? 'SBA 7(a) — modeled amount within program maximum' : 'Above SBA 7(a) modeled maximum',
+    modeledMaxLoan: Math.round(modeledMaxLoan), sba7aMaximum: SBA_7A_MAX,
+    eligibilityNote: 'DSCR is a planning metric, not an SBA approval test. SBA eligibility, guaranty, fees, permitted use and lender underwriting require current program review.'
   }
 }
 
@@ -6403,21 +6492,29 @@ export function calculateSocialSecurityDisabilityBenefit(avgMonthlyEarnings: num
 
 export function calculateSocialSecurityMaximization(worker1PIA: number, worker2PIA: number, worker1Age: number, worker2Age: number, jointLifeExpectancy: number) {
   const FRA = 67
-  const strategies = [
-    { name: 'Both claim at 62', w1: worker1PIA * 0.70, w2: worker2PIA * 0.70 },
-    { name: 'Both claim at FRA', w1: worker1PIA, w2: worker2PIA },
-    { name: 'Both claim at 70', w1: worker1PIA * 1.24, w2: worker2PIA * 1.24 },
-    { name: 'W1 at 70, W2 at 62', w1: worker1PIA * 1.24, w2: worker2PIA * 0.70 },
-    { name: 'W1 at 62, W2 at 70', w1: worker1PIA * 0.70, w2: worker2PIA * 1.24 },
-    { name: 'Higher earner at 70, lower at FRA', w1: Math.max(worker1PIA, worker2PIA) * 1.24, w2: Math.min(worker1PIA, worker2PIA) },
+  if ([worker1PIA,worker2PIA,worker1Age,worker2Age,jointLifeExpectancy].some(v => !Number.isFinite(v))) throw new Error('Invalid Social Security input')
+  if (worker1PIA < 0 || worker2PIA < 0 || jointLifeExpectancy < Math.max(worker1Age,worker2Age)) throw new Error('Invalid benefit or longevity assumption')
+  const factor = (claimAge:number) => claimAge < FRA ? 1 - Math.min((FRA-claimAge)*12,36)*(5/9/100) - Math.max(0,(FRA-claimAge)*12-36)*(5/12/100) : 1 + Math.min(claimAge-FRA,3)*12*(8/12/100)
+  const highIsW1 = worker1PIA >= worker2PIA
+  const scenarios = [
+    { name:'Both claim at 62', a:62, b:62 },
+    { name:'Both claim at FRA', a:67, b:67 },
+    { name:'Both claim at 70', a:70, b:70 },
+    { name:'Higher earner at 70, lower at 62', a:highIsW1?70:62, b:highIsW1?62:70 },
+    { name:'Higher earner at 70, lower at FRA', a:highIsW1?70:67, b:highIsW1?67:70 },
+    { name:'Higher earner at FRA, lower at 62', a:highIsW1?67:62, b:highIsW1?62:67 },
   ]
-  const scoredStrategies = strategies.map(s => {
-    const years = Math.max(0, jointLifeExpectancy - Math.max(worker1Age, worker2Age))
-    const combined = (s.w1 + s.w2) * 12 * years
-    return { ...s, w1: Math.round(s.w1), w2: Math.round(s.w2), combined: Math.round((s.w1 + s.w2) * 12), lifetimeValue: Math.round(combined) }
+  const years = Math.max(0, jointLifeExpectancy - Math.max(worker1Age, worker2Age))
+  const scoredStrategies = scenarios.map(s => {
+    const w1 = worker1PIA * factor(s.a)
+    const w2 = worker2PIA * factor(s.b)
+    const combined = (w1+w2)*12
+    return { name:s.name, claimAge1:s.a, claimAge2:s.b, w1:Math.round(w1), w2:Math.round(w2), combined:Math.round(combined), lifetimeValue:Math.round(combined*years) }
   })
-  const optimal = scoredStrategies.reduce((b, s) => s.lifetimeValue > b.lifetimeValue ? s : b)
-  return { strategies: scoredStrategies, optimal, highEarnerBenefit: Math.round((optimal.lifetimeValue - scoredStrategies[0].lifetimeValue)), survivorBenefit: Math.round(Math.max(scoredStrategies[optimal.name === strategies[2].name ? 2 : 5 > scoredStrategies.length ? 0 : 5]?.w1 || optimal.w1, optimal.w2)) }
+  const optimal = scoredStrategies.reduce((best,s)=>s.lifetimeValue>best.lifetimeValue?s:best)
+  const worst = scoredStrategies.reduce((worst,s)=>s.lifetimeValue<worst.lifetimeValue?s:worst)
+  const highEarnerBenefit = Math.round(Math.max(worker1PIA,worker2PIA) * factor(70))
+  return { strategies:scoredStrategies, optimal, highEarnerBenefit:Math.round(optimal.lifetimeValue-worst.lifetimeValue), survivorBenefit:highEarnerBenefit, yearsModeled:years, fra:FRA }
 }
 
 export function calculateSpinOffTaxBasis(originalShares: number, originalCostBasis: number, spinOffAllocationPercent: number, spinOffSharesReceived: number, spinOffFMV: number, parentFMVAfter: number) {
@@ -6427,15 +6524,15 @@ export function calculateSpinOffTaxBasis(originalShares: number, originalCostBas
   const totalFMV = spinOffFMVTotal + parentFMVTotal
   const allocatedToSpinOff = originalCostBasis * spinOffAllocationPercent / 100
   const allocatedToParent = originalCostBasis - allocatedToSpinOff
-  const spinOffCostBasisPerShare = allocatedToSpinOff / spinOffSharesReceived
-  const parentCostBasisPerShare = allocatedToParent / originalShares
+  const spinOffCostBasisPerShare = spinOffSharesReceived > 0 ? allocatedToSpinOff / spinOffSharesReceived : 0
+  const parentCostBasisPerShare = originalShares > 0 ? allocatedToParent / originalShares : 0
   return {
     originalCostBasis, allocatedToSpinOff: Math.round(allocatedToSpinOff),
     allocatedToParent: Math.round(allocatedToParent),
     spinOffCostBasisPerShare: Math.round(spinOffCostBasisPerShare * 100) / 100,
     parentCostBasisPerShare: Math.round(parentCostBasisPerShare * 100) / 100,
     spinOffFMVTotal: Math.round(spinOffFMVTotal),
-    taxNote: 'Spin-offs are generally tax-free under Section 355. Allocate cost basis by FMV ratio at distribution date.',
+    taxNote: "A tax-free spin-off can qualify under Section 355, but not every corporate separation does. Use the issuer's tax-basis allocation notice and broker records; this calculator does not determine Section 355 qualification.",
     irsForm: 'Check company investor relations page for official IRS-approved allocation percentage.'
   }
 }
@@ -6540,25 +6637,44 @@ export function calculateStockSplitValue(sharesOwned: number, pricePerShare: num
 }
 
 export function calculateTIPSvsBonds(tipsFaceValue: number, tipsRealYield: number, nominalBondYield: number, expectedInflation: number, years: number, taxRate: number) {
-  const tipsInflationAdj = tipsFaceValue * Math.pow(1 + expectedInflation / 100, years)
-  const tipsInterestAnnual = tipsFaceValue * tipsRealYield / 100
-  const totalTIPSInterest = tipsInterestAnnual * years + (tipsInflationAdj - tipsFaceValue)
-  const nominalInterest = tipsFaceValue * nominalBondYield / 100 * years
-  const tipsTaxable = totalTIPSInterest
-  const nominalTaxable = nominalInterest
-  const tipsAfterTax = tipsInflationAdj + totalTIPSInterest - tipsTaxable * taxRate / 100
-  const nominalAfterTax = tipsFaceValue + nominalInterest - nominalTaxable * taxRate / 100
-  const tipsRealReturn = ((tipsAfterTax / tipsFaceValue) - 1) * 100
-  const nominalRealReturn = ((nominalAfterTax / tipsFaceValue) / Math.pow(1 + expectedInflation / 100, years) - 1) * 100
+  const principal = Math.max(0, Number(tipsFaceValue) || 0)
+  const n = Math.max(1, Math.floor(Number(years) || 1))
+  const inflation = Math.max(-99, Number(expectedInflation) || 0) / 100
+  const realYield = Number(tipsRealYield) || 0
+  const nominalYield = Number(nominalBondYield) || 0
+  const tax = Math.min(100, Math.max(0, Number(taxRate) || 0)) / 100
+
+  // Simplified annual model: TIPS principal is inflation-indexed and the real coupon
+  // is applied to the indexed principal. The inflation accretion is treated as taxable
+  // in the scenario to avoid understating taxable TIPS income in a taxable account.
+  let tipsPrincipal = principal
+  let tipsCoupon = 0
+  for (let i = 0; i < n; i++) {
+    tipsPrincipal *= 1 + inflation
+    tipsCoupon += tipsPrincipal * realYield / 100
+  }
+  const tipsInflationGain = tipsPrincipal - principal
+  const tipsTaxable = Math.max(0, tipsCoupon + tipsInflationGain)
+  const tipsAfterTax = Math.max(0, tipsPrincipal + tipsCoupon - tipsTaxable * tax)
+
+  // Nominal-bond scenario assumes annual reinvestment at the entered nominal yield.
+  const nominalPreTax = principal * Math.pow(1 + nominalYield / 100, n)
+  const nominalInterest = Math.max(0, nominalPreTax - principal)
+  const nominalAfterTax = Math.max(0, nominalPreTax - nominalInterest * tax)
+
+  const inflationFactor = Math.pow(1 + inflation, n)
+  const tipsRealReturn = inflationFactor > 0 ? (tipsAfterTax / principal / inflationFactor - 1) * 100 : 0
+  const nominalRealReturn = inflationFactor > 0 ? (nominalAfterTax / principal / inflationFactor - 1) * 100 : 0
+
   return {
-    tipsInflationAdjValue: Math.round(tipsInflationAdj),
+    tipsInflationAdjValue: Math.round(tipsPrincipal),
     totalTIPSValue: Math.round(tipsAfterTax),
     nominalBondValue: Math.round(nominalAfterTax),
     tipsBetter: tipsAfterTax > nominalAfterTax,
     difference: Math.round(Math.abs(tipsAfterTax - nominalAfterTax)),
     tipsAfterTaxReturn: Math.round(tipsRealReturn * 100) / 100,
     nominalAfterTaxReturn: Math.round(nominalRealReturn * 100) / 100,
-    breakEvenInflation: Math.round((nominalBondYield - tipsRealYield) * 100) / 100
+    breakEvenInflation: Math.round((nominalYield - realYield) * 100) / 100
   }
 }
 
@@ -6672,20 +6788,12 @@ export function calculateTaxFreeSavingsOptimizer(annualIncome: number, taxRate: 
 
 export function calculateTaxLossHarvestingPortfolio(positions: Array<{name: string; gain: number; loss: number; held: number}>, totalGains: number, taxRate: number) {
   const safe = positions || [{name:'Position A', gain:0, loss:15000, held:200},{name:'Position B', gain:25000, loss:0, held:400}]
-  const totalLosses = safe.reduce((s, p) => s + Math.max(0, p.loss), 0)
-  const netGains = Math.max(0, totalGains - totalLosses)
-  const carryForward = Math.max(0, totalLosses - totalGains - 3000)
-  const taxSavingsThisYear = Math.min(totalLosses, totalGains + 3000) * taxRate / 100
-  const ordinaryDeduction = Math.min(3000, Math.max(0, totalLosses - totalGains)) * taxRate / 100
-  return {
-    totalLossesAvailable: Math.round(totalLosses),
-    totalGains, netGains: Math.round(netGains),
-    taxSavingsThisYear: Math.round(taxSavingsThisYear),
-    ordinaryIncomeDeduction: Math.round(ordinaryDeduction),
-    carryForwardLoss: Math.round(carryForward),
-    totalTaxBenefit: Math.round(taxSavingsThisYear + ordinaryDeduction),
-    washSaleWarning: 'Do not repurchase same or substantially identical security within 30 days'
-  }
+  const totalLosses = safe.reduce((sum,p) => sum + Math.max(0, Number(p.loss)||0), 0)
+  const gains = Math.max(0, Number(totalGains)||0), netCapitalGain = Math.max(0, gains-totalLosses)
+  const excessLoss = Math.max(0, totalLosses-gains), ordinaryLossUsed = Math.min(3000, excessLoss), carryForward = Math.max(0, excessLoss-ordinaryLossUsed)
+  const rate = Math.min(100, Math.max(0, Number(taxRate)||0))/100, capitalGainOffset = Math.min(totalLosses,gains)
+  const taxSavingsOnGains = capitalGainOffset*rate, ordinaryDeduction = ordinaryLossUsed*rate
+  return { totalLossesAvailable:Math.round(totalLosses), totalGains:Math.round(gains), netGains:Math.round(netCapitalGain), taxSavingsThisYear:Math.round(taxSavingsOnGains+ordinaryDeduction), ordinaryIncomeDeduction:Math.round(ordinaryDeduction), carryForwardLoss:Math.round(carryForward), totalTaxBenefit:Math.round(taxSavingsOnGains+ordinaryDeduction), washSaleWarning:'A loss can be disallowed when substantially identical stock or securities are acquired during the 30-day window before or after the sale; basis adjustments and transaction details matter.' }
 }
 
 export function calculateTrustFundGrowth(initialFunding: number, annualContrib: number, beneficiaryAge: number, distributionAge: number, growthRate: number, trusteeAnnualFee: number) {
@@ -6767,23 +6875,19 @@ export function calculateVariableAnnuityFees(investedAmount: number, subaccountR
   }
 }
 
-export function calculateWageGarnishment(grossWeeklyPay: number, garnishmentType: 'creditCard'|'studentLoan'|'childSupport'|'taxLevy', state: string) {
+export function calculateWageGarnishment(disposableWeeklyPay: number, garnishmentType: 'creditCard'|'studentLoan'|'childSupport'|'taxLevy') {
+  const disposable = Math.max(0, Number(disposableWeeklyPay) || 0)
   const federalMinWage = 7.25
-  const disposableIncome = grossWeeklyPay * 0.78 // after standard deductions
-  const thirtyXMinWage = federalMinWage * 30
-  const maxGarnishCCJ = Math.min(disposableIncome * 0.25, Math.max(0, disposableIncome - thirtyXMinWage))
-  const maxGarnishStudentLoan = disposableIncome * 0.15
-  const maxGarnishChildSupport = disposableIncome * 0.50
-  const garnishAmounts: Record<string, number> = { creditCard: maxGarnishCCJ, studentLoan: maxGarnishStudentLoan, childSupport: maxGarnishChildSupport, taxLevy: disposableIncome * 0.30 }
-  const weeklyGarnish = garnishAmounts[garnishmentType]
-  const annualGarnish = weeklyGarnish * 52
-  const netWeeklyPay = grossWeeklyPay - weeklyGarnish
-  const protectedStates = ['TX','PA','NC','SC'].includes(state) && garnishmentType === 'creditCard'
+  const protectedFloor = federalMinWage * 30
+  const ordinaryDebt = Math.min(disposable * 0.25, Math.max(0, disposable - protectedFloor))
+  const studentLoan = disposable * 0.15
+  const childSupport = disposable * 0.60
+  const weeklyGarnish = garnishmentType === 'creditCard' ? ordinaryDebt : garnishmentType === 'studentLoan' ? studentLoan : garnishmentType === 'childSupport' ? childSupport : 0
   return {
-    disposableIncome: Math.round(disposableIncome), weeklyGarnish: Math.round(weeklyGarnish),
-    annualGarnish: Math.round(annualGarnish), netWeeklyPay: Math.round(netWeeklyPay),
-    protectedState: protectedStates,
-    note: protectedStates ? `${state} prohibits most wage garnishment for credit card/consumer debt` : 'Federal CCPA limits apply; state law may provide additional protection'
+    disposableIncome: Math.round(disposable), protectedFloor: Math.round(protectedFloor), weeklyGarnish: Math.round(weeklyGarnish),
+    annualGarnish: Math.round(weeklyGarnish * 52), netWeeklyPay: Math.round(Math.max(0, disposable - weeklyGarnish)),
+    federalRule: garnishmentType === 'creditCard' ? 'CCPA ordinary-debt federal ceiling' : garnishmentType === 'studentLoan' ? 'Federal student-loan administrative garnishment ceiling' : garnishmentType === 'childSupport' ? 'Federal CCPA support ceiling; actual order can differ' : 'IRS levy amount is not a percentage formula and is not modeled here',
+    note: 'This is a federal baseline only. State law, court orders, debt type and competing garnishments can change the amount actually withheld.'
   }
 }
 

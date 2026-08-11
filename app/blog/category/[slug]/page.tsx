@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { publishedBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { publicBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { isRestrictedBlogCategory } from '@/lib/visibility'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -21,9 +22,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cat = blogCategories.find(c => c.slug === slug)
   if (!cat) return { title: 'Category Not Found | ToolTrio' }
+  const restricted = isRestrictedBlogCategory(slug)
+  if (slug === 'zip-codes') {
+    return {
+      title: 'ZIP Code Guides — Lookup, ZIP+4, Distance, Timezone & Coordinates | ToolTrio',
+      description: 'Practical US ZIP code guides covering ZIP lookup, ZIP+4, distance between ZIP codes, time zones, coordinates, counties, formats and related location tools.',
+      robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      alternates: { canonical: 'https://tooltrio.com/blog/category/zip-codes' },
+      openGraph: {
+        title: 'ZIP Code Guides — Lookup, ZIP+4, Distance, Timezone & Coordinates | ToolTrio',
+        description: 'Practical guides for US ZIP code lookup, ZIP+4, distance, time zones, coordinates and related ZIP tools.',
+        url: 'https://tooltrio.com/blog/category/zip-codes',
+        siteName: 'ToolTrio',
+        type: 'website',
+        images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio ZIP Code Guides' }],
+      },
+    }
+  }
   return {
     title: `${cat.name} — Free Guides & Articles | ToolTrio`,
     description: `${cat.desc}. Free guides, tips, and calculators. No signup required.`,
+    robots: restricted ? { index: false, follow: true, googleBot: { index: false, follow: true } } : { index: true, follow: true },
     alternates: { canonical: `https://tooltrio.com/blog/category/${slug}` },
     openGraph: {
       title: `${cat.name} | ToolTrio Blog`,
@@ -41,7 +60,7 @@ export default async function BlogCategory({ params }: Props) {
   const cat = blogCategories.find(c => c.slug === slug)
   if (!cat) notFound()
 
-  const posts = publishedBlogPosts.filter(p => p.categorySlug === slug)
+  const posts = publicBlogPosts.filter(p => p.categorySlug === slug)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20">
@@ -95,7 +114,7 @@ export default async function BlogCategory({ params }: Props) {
         <div className="mt-12 pt-8 border-t border-gray-100">
           <h2 className="font-bold text-gray-700 mb-4">Browse Other Categories</h2>
           <div className="flex flex-wrap gap-3">
-            {blogCategories.filter(c => c.slug !== slug).map(c => (
+            {blogCategories.filter(c => c.slug !== slug && !isRestrictedBlogCategory(c.slug)).map(c => (
               <Link key={c.slug} href={`/blog/category/${c.slug}`}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-all text-sm font-semibold text-gray-700">
                 <span>{c.icon}</span> {c.name}

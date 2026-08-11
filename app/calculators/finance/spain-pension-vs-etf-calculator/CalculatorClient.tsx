@@ -37,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   }, [monthly, rateA, rateB, years])
 
   return (
-    <CalculatorLayout title="Spain Pension vs ETF Calculator 2026" description="Compare Spanish pension plan vs index ETF investing on after-tax returns and flexibility." icon="🇪🇸" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="spain-pension-vs-etf-calculator">
+    <CalculatorLayout title="Spain Pension vs ETF Calculator 2026" description="Compare user-entered ETF and pension-plan return assumptions. This is a scenario model, not a Spanish pension entitlement or tax calculation." icon="🇪🇸" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="spain-pension-vs-etf-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
@@ -130,7 +130,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in Europe</h3>
               <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains tax or income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for European Long-Term Investing?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (7-9% historical) generally beat lower-return stable options (3-4%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>This calculator does not rank the products. It compares only the return assumptions you enter; actual Spanish tax, pension eligibility, fees and market returns require separate review.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
@@ -179,12 +179,12 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         category="finance"
         intro={`Spain's state pension system (Seguridad Social) is one of Europe's most generous but also one of the most financially stressed, with the worker-to-retiree ratio declining significantly. Understanding how much pension you'll receive, when, and what additional private savings are needed to maintain your desired standard of living is essential planning for Spanish workers and residents.
 
-The Spanish state pension is calculated based on your contribution base (base de cotización) over the past 25 years (increasing to 35 years by 2037), your years of contribution, and the pension regulatory base. Full pension (100%) requires 37 years of contributions in 2024, increasing to 38.5 years by 2027. Early retirement is possible at 63 with reduced benefits; delayed retirement past normal age generates a supplement.
+Spain's public pension amount depends on contribution history and the applicable regulatory rules; this calculator does not attempt to reproduce that entitlement calculation. For 2026, Spain's Social Security portal lists a maximum public-pension amount of €3,359.60 per month and €47,034.40 per year. The comparison here remains an assumption-based investment scenario.
 
-Private ETF investing in Spain is gaining traction as awareness grows that state pension income alone may not maintain accustomed living standards, particularly for younger workers who will retire under more strained pension conditions. The tax treatment of investment gains through regular brokerage accounts (taxación sobre ganancias de capital at 19-26%) and the availability of pension plan deductions (planes de pensiones, though contribution limits have been dramatically reduced since 2021 to €1,500/year) shape the comparison.`}
+Spanish pension and investment taxation can materially change outcomes, but this calculator intentionally does not hard-code a tax schedule. Verify current Agencia Tributaria and Seguridad Social rules for the relevant tax year.`}
         howItWorks={`State pension projection: Estimated monthly pension = (Sum of contribution bases over relevant period) / (12 × number of months in reference period) × percentage applied. The percentage depends on years contributed: 50% for 15 years, increasing to 100% for full years required (37+ years in 2024).
 
-ETF return projection: Monthly contribution compounded at expected return. Spanish investors in MSCI World ETFs have historically earned approximately 9-12% CAGR in EUR terms over 20-year periods, though this includes favorable US equity performance. Spanish CGT: gains taxed at 19% up to €6,000, 21% on €6,000-50,000, 23% on €50,000-200,000, 26% above €200,000.
+ETF return projection: monthly contributions are compounded at the user-entered expected return. No historical return is presented as a forecast and no Spanish capital-gains tax is deducted by the model.
 
 Combined retirement income: State pension + private ETF withdrawals = total retirement income. The ETF portfolio provides flexibility and inflation protection that the state pension's partial CPI adjustment may not fully address.`}
         benefits={[

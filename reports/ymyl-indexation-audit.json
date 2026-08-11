@@ -2,11 +2,10 @@
   "finance": {
     "total": 389,
     "counts": {
-      "tax_rule_review": 107,
-      "custom_estimate": 161,
-      "reviewed": 39,
-      "formula_review": 21,
-      "needs_manual_review": 61
+      "reviewed": 147,
+      "custom_estimate": 158,
+      "tax_rule_review": 52,
+      "needs_manual_review": 32
     },
     "indexable": 389,
     "redirectOnly": 0,

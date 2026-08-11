@@ -20,12 +20,16 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [rate1, setRate1] = useState(isUSD ? 10 : 12)
   const [rate2, setRate2] = useState(isUSD ? 5 : 7)
   const [years, setYears] = useState(10)
+  const [currentTax, setCurrentTax] = useState(22)
+  const [retirementTax, setRetirementTax] = useState(15)
+  const [taxableDrag, setTaxableDrag] = useState(0.75)
 
   const result = useMemo(() => {
-    const months = years * 12
-    const mr1 = rate1 / 100 / 12; const mr2 = rate2 / 100 / 12
-    const fv1 = val1 * ((Math.pow(1 + mr1, months) - 1) / mr1) * (1 + mr1)
-    const fv2 = val1 * ((Math.pow(1 + mr2, months) - 1) / mr2) * (1 + mr2)
+    const months = Math.max(1, years * 12)
+    const mr1 = rate1 / 100 / 12; const mr2 = Math.max(0, rate2 - taxableDrag) / 100 / 12
+    const fv1PreTax = mr1 === 0 ? val1 * months : val1 * ((Math.pow(1 + mr1, months) - 1) / mr1) * (1 + mr1)
+    const fv2 = mr2 === 0 ? (val1 * (1 - currentTax / 100)) * months : (val1 * (1 - currentTax / 100)) * ((Math.pow(1 + mr2, months) - 1) / mr2) * (1 + mr2)
+    const fv1 = fv1PreTax * (1 - retirementTax / 100)
     const invested = val1 * months
     const barData = [
       { name: 'Invested', a: Math.round(invested), b: Math.round(invested) },
@@ -33,7 +37,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       { name: 'Gain', a: Math.round(fv1 - invested), b: Math.round(fv2 - invested) },
     ]
     return { fv1: Math.round(fv1), fv2: Math.round(fv2), invested: Math.round(invested), aBetter: fv1 > fv2, diff: Math.round(Math.abs(fv1 - fv2)), barData }
-  }, [val1, rate1, rate2, years])
+  }, [val1, rate1, rate2, years, currentTax, retirementTax, taxableDrag])
 
   return (
     <CalculatorLayout title="401k vs Taxable Account Calculator USA 2026" description="Compare tax-deferred 401k growth vs taxable brokerage account returns over 20–30 years." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="401k-vs-taxable-account-calculator">
@@ -45,17 +49,20 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Option A Return (p.a.)" value={rate1} onChange={setRate1} min={1} max={20} step={0.5} suffix="%" />
             <InputField label="Option B Return (p.a.)" value={rate2} onChange={setRate2} min={1} max={15} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={30} step={1} suffix="Yrs" />
+            <InputField label="Current Marginal Tax Rate" value={currentTax} onChange={setCurrentTax} min={0} max={50} step={1} suffix="%" />
+            <InputField label="Retirement Withdrawal Tax Rate" value={retirementTax} onChange={setRetirementTax} min={0} max={50} step={1} suffix="%" />
+            <InputField label="Taxable Account Annual Tax Drag" value={taxableDrag} onChange={setTaxableDrag} min={0} max={5} step={0.05} suffix="%" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Option A' : 'Option B'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled After-Tax Value</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? '401(k)' : 'Taxable'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtAuto(result.diff, isUSD)}</p>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
-            <ResultCard label="Option A" value={fmtAuto(result.fv1, isUSD)} subValue={`${rate1}% return`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
-            <ResultCard label="Option B" value={fmtAuto(result.fv2, isUSD)} subValue={`${rate2}% return`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="401(k) After Tax" value={fmtAuto(result.fv1, isUSD)} subValue={`${rate1}% return`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="Taxable After Tax" value={fmtAuto(result.fv2, isUSD)} subValue={`${rate2}% return`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
             <ResultCard label="Total Invested" value={fmtAuto(result.invested, isUSD)} subValue={`${years} years`} />
           </div>
           <Card>
@@ -68,8 +75,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                   <YAxis tick={{ fill: '#374151', fontSize: 10 }} axisLine={false} tickLine={false} width={72} tickFormatter={v => fmtAuto(v, isUSD)} />
                   <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8 }} formatter={(v: number, n) => [fmtAuto(v as number, isUSD), n]} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar dataKey="b" name="Option B" fill="#3b82f6" radius={[4,4,0,0]} />
-                  <Bar dataKey="a" name="Option A" fill="#10b981" radius={[4,4,0,0]} />
+                  <Bar dataKey="b" name="Taxable After Tax" fill="#3b82f6" radius={[4,4,0,0]} />
+                  <Bar dataKey="a" name="401(k) After Tax" fill="#10b981" radius={[4,4,0,0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -92,9 +99,9 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in USA</h3>
               <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains (0-20%) or ordinary income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Retirement Planning?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (10-12% historical) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The result is a modeled after-tax comparison. Actual outcomes depend on plan fees, employer matching, investment mix, tax law, withdrawal timing, capital-gains treatment, and your individual tax situation.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
-              <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
+              <p>Enter your monthly contribution, expected return rates, tax assumptions, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>

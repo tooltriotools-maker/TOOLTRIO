@@ -24,7 +24,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
   const fmt = (v: number) => '$' + v.toLocaleString()
 
   return (
-    <CalculatorLayout title="W-2 vs 1099 Calculator USA 2026" description="Compare true take-home pay as a W-2 employee vs 1099 independent contractor after all taxes." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="w2-vs-1099-calculator">
+    <CalculatorLayout title="W-2 vs 1099 Calculator USA 2026" description="Compare a simplified federal-tax scenario for W-2 employment versus 1099 contracting; benefits, state taxes and classification facts are not modeled." icon="⚖️" category="Finance" structuredData={structuredData} relatedCalculators={relatedCalculators} slug="w2-vs-1099-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Your Details</h2>
@@ -53,7 +53,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
             </div>
           </div>
           <div className={`rounded-xl p-3 text-xs font-semibold text-center ${result.advantageFor === 'W-2' ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-green-50 text-green-700 border border-green-200'}`}>
-            {result.advantageFor === 'W-2' ? '🏢 W-2 has lower total tax' : '💼 1099 may have lower net tax with deductions'}
+            {result.advantageFor === 'W-2' ? '🏢 W-2 has higher modeled take-home' : '💼 1099 has higher modeled take-home'}
           </div>
         </Card>
 
@@ -104,7 +104,7 @@ export default function CalculatorClient({ faqs, structuredData, relatedCalculat
 
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm">
             <p className="font-bold text-amber-800 mb-1">💡 Break-Even Point</p>
-            <p className="text-amber-700">As a 1099 contractor, you need to earn at least <strong>${result.breakEvenExpenses.toLocaleString()} more</strong> than your W-2 equivalent to cover the extra SE tax burden (before expenses).</p>
+            <p className="text-amber-700">The displayed difference is a scenario comparison only; it does not establish a legally required contractor premium because benefits, state taxes, employer costs and worker classification are not modeled.</p>
           </div>
         </div>
       </div>

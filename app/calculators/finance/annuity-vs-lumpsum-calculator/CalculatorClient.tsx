@@ -22,44 +22,47 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [years, setYears] = useState(10)
 
   const result = useMemo(() => {
-    const months = years * 12
-    const mr1 = rate1 / 100 / 12; const mr2 = rate2 / 100 / 12
-    const fv1 = val1 * ((Math.pow(1 + mr1, months) - 1) / mr1) * (1 + mr1)
-    const fv2 = val1 * ((Math.pow(1 + mr2, months) - 1) / mr2) * (1 + mr2)
-    const invested = val1 * months
+    const principal = Math.max(0, val1)
+    const horizon = Math.max(1, years)
+    const annuityRate = Math.max(0, rate1) / 100
+    const investmentRate = Math.max(-99, rate2) / 100
+    const annualAnnuityIncome = principal * annuityRate
+    const totalAnnuityIncome = annualAnnuityIncome * horizon
+    const lumpSumValue = principal * Math.pow(1 + investmentRate, horizon)
+    const aBetter = totalAnnuityIncome > lumpSumValue
+    const diff = Math.abs(totalAnnuityIncome - lumpSumValue)
     const barData = [
-      { name: 'Invested', a: Math.round(invested), b: Math.round(invested) },
-      { name: 'Final Value', a: Math.round(fv1), b: Math.round(fv2) },
-      { name: 'Gain', a: Math.round(fv1 - invested), b: Math.round(fv2 - invested) },
+      { name: 'Initial / Principal', a: Math.round(principal), b: Math.round(principal) },
+      { name: 'Modeled Outcome', a: Math.round(totalAnnuityIncome), b: Math.round(lumpSumValue) },
     ]
-    return { fv1: Math.round(fv1), fv2: Math.round(fv2), invested: Math.round(invested), aBetter: fv1 > fv2, diff: Math.round(Math.abs(fv1 - fv2)), barData }
+    return { annuityIncome: Math.round(totalAnnuityIncome), lumpSumValue: Math.round(lumpSumValue), principal: Math.round(principal), aBetter, diff: Math.round(diff), barData }
   }, [val1, rate1, rate2, years])
 
   return (
-    <CalculatorLayout title="Annuity vs Lump Sum Calculator USA 2026" description="Compare guaranteed annuity income vs investing a lump sum payout with break-even age analysis." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="annuity-vs-lumpsum-calculator">
+    <CalculatorLayout title="Annuity vs Lump Sum Calculator USA 2026" description="Compare an illustrative annuity payout stream with a lump-sum investment scenario. Results depend on the assumptions and contract terms entered." icon="📊" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="annuity-vs-lumpsum-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
-            <InputField label="Monthly Investment" value={val1} onChange={setVal1} min={100} max={100000} step={100} prefix={isUSD ? '$' : '₹'} />
-            <InputField label="Option A Return (p.a.)" value={rate1} onChange={setRate1} min={1} max={20} step={0.5} suffix="%" />
-            <InputField label="Option B Return (p.a.)" value={rate2} onChange={setRate2} min={1} max={15} step={0.25} suffix="%" />
+            <InputField label="Lump Sum / Premium" value={val1} onChange={setVal1} min={100} max={100000} step={100} prefix={isUSD ? '$' : '₹'} />
+            <InputField label="Illustrative Annuity Payout Rate (p.a.)" value={rate1} onChange={setRate1} min={1} max={20} step={0.5} suffix="%" />
+            <InputField label="Lump-Sum Investment Return (p.a.)" value={rate2} onChange={setRate2} min={1} max={15} step={0.25} suffix="%" />
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={30} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Option A' : 'Option B'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher Modeled Outcome</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Annuity Scenario' : 'Lump-Sum Scenario'}</p>
             <p className="text-sm text-gray-500">by {fmtAuto(result.diff, isUSD)}</p>
           </div>
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-3 gap-3">
-            <ResultCard label="Option A" value={fmtAuto(result.fv1, isUSD)} subValue={`${rate1}% return`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
-            <ResultCard label="Option B" value={fmtAuto(result.fv2, isUSD)} subValue={`${rate2}% return`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
-            <ResultCard label="Total Invested" value={fmtAuto(result.invested, isUSD)} subValue={`${years} years`} />
+            <ResultCard label="Annuity Income" value={fmtAuto(result.annuityIncome, isUSD)} subValue={`${rate1}% payout assumption`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="Lump-Sum Value" value={fmtAuto(result.lumpSumValue, isUSD)} subValue={`${rate2}% return assumption`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="Initial Principal" value={fmtAuto(result.principal, isUSD)} subValue={`${years} years`} />
           </div>
           <Card>
-            <h3 className="text-sm font-semibold text-gray-700 mb-4">Comparison Calculator Comparison</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">Modeled Outcome Comparison</h3>
             <div style={{ height: 230 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={result.barData}>
@@ -68,8 +71,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                   <YAxis tick={{ fill: '#374151', fontSize: 10 }} axisLine={false} tickLine={false} width={72} tickFormatter={v => fmtAuto(v, isUSD)} />
                   <Tooltip contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 8 }} formatter={(v: number, n) => [fmtAuto(v as number, isUSD), n]} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar dataKey="b" name="Option B" fill="#3b82f6" radius={[4,4,0,0]} />
-                  <Bar dataKey="a" name="Option A" fill="#10b981" radius={[4,4,0,0]} />
+                  <Bar dataKey="b" name="Lump-Sum Scenario" fill="#3b82f6" radius={[4,4,0,0]} />
+                  <Bar dataKey="a" name="Annuity Scenario" fill="#10b981" radius={[4,4,0,0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -92,14 +95,14 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
               <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in USA</h3>
               <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to capital gains (0-20%) or ordinary income tax. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Retirement Planning?</h3>
-              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (10-12% historical) generally beat lower-return stable options (4-5%). For goals under 3 years, capital preservation takes priority.</p>
+              <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, The result is a scenario comparison, not a recommendation. Actual annuity quotes depend on contract terms, age, payout options, fees, inflation protection and insurer pricing.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>
               <p>Enter your monthly contribution, expected return rates for both options, and investment period above. The calculator shows year-by-year growth, total wealth created, and the difference between the two strategies - helping you visualize the long-term impact of your choice.</p>
             </div>
           </div>
           <div className="mt-6 p-4 rounded-2xl border" style={{background:'rgba(240,253,244,0.8)',backdropFilter:'blur(6px)',borderColor:'rgba(187,247,208,0.6)'}}>
             <h3 className="font-bold text-green-800 mb-2">💡 Expert Tip</h3>
-            <p className="text-sm text-green-700 leading-relaxed">Most financial advisors recommend not putting all your money in one option. A diversified approach - splitting between Annuity and Lumpsum based on your specific goals - often provides better risk-adjusted returns than going all-in on either. Use this calculator to find your optimal split.</p>
+            <p className="text-sm text-green-700 leading-relaxed">Do not treat the modeled winner as a recommendation. Compare the actual annuity quote, guarantees, liquidity, inflation protection, beneficiary terms, fees and your other guaranteed income before deciding.</p>
           </div>
         </div>
       </div>

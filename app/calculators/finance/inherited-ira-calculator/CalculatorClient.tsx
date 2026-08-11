@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[inheritedBalance, beneficiaryAge, currentTaxRate])
 
   return (
-    <CalculatorLayout title="Inherited IRA Calculator USA 2026 — 10-Year Rule & RMDs" description="Calculate annual required withdrawals from an inherited IRA, total tax burden under the 10-year rule, and optimal distribution strategy." icon="📋" category="Finance" relatedCalculators={relatedCalculators} slug="inherited-ira-calculator">
+    <CalculatorLayout title="Inherited IRA Calculator USA 2026 — 10-Year Rule & RMDs" description="Model an illustrative inherited-IRA distribution schedule and tax scenario. Actual RMD timing depends on beneficiary category, owner death date and applicable IRS rules." icon="📋" category="Finance" relatedCalculators={relatedCalculators} slug="inherited-ira-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -53,7 +53,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
           {result ? (
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <ResultCard label="Annual Required Withdrawal" value={result ? `${Number(result.annualRequired).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
+                <ResultCard label="Illustrative Annual Distribution" value={result ? `${Number(result.annualRequired).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} highlight />
                 <ResultCard label="Tax Per Withdrawal" value={result ? `${Number(result.taxPerWithdrawal).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Net Per Withdrawal" value={result ? `${Number(result.netPerWithdrawal).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />
                 <ResultCard label="Total 10-Year Tax Burden" value={result ? `${Number(result.totalTaxBurden).toLocaleString(undefined,{maximumFractionDigits:0})}` : "—"} />

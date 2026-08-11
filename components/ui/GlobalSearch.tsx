@@ -1,12 +1,11 @@
 'use client'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { Search, X, TrendingUp, Heart, Zap, Smile, BookOpen, BarChart2 } from 'lucide-react'
-import { MASTER_TOOL_REGISTRY, BLOG_CATALOG, TOOL_COUNTS, TOOL_TOTAL } from '@/lib/catalog'
+import { Search, X, Zap, Smile, BookOpen, BarChart2 } from 'lucide-react'
+import { PUBLIC_TOOL_REGISTRY, BLOG_CATALOG, TOOL_COUNTS } from '@/lib/catalog'
+import { isRestrictedBlogCatalogItem } from '@/lib/visibility'
 
 const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNode }> = {
-  Finance: { color: 'text-green-700', bg: 'bg-green-100', icon: <TrendingUp className="w-3 h-3" /> },
-  Health:  { color: 'text-red-600',   bg: 'bg-red-100',   icon: <Heart className="w-3 h-3" /> },
   Dev:     { color: 'text-blue-600',  bg: 'bg-blue-100',  icon: <Zap className="w-3 h-3" /> },
   Fun:     { color: 'text-purple-600',bg: 'bg-purple-100',icon: <Smile className="w-3 h-3" /> },
   Blog:    { color: 'text-orange-600',bg: 'bg-orange-100',icon: <BookOpen className="w-3 h-3" /> },
@@ -15,23 +14,16 @@ const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNod
 }
 
 const TRENDING: { name: string; href: string; cat: string }[] = [
-  { name: 'Mortgage Calculator', href: '/calculators/finance/mortgage-calculator', cat: 'Finance' },
-  { name: 'Tax Bracket 2026', href: '/calculators/finance/tax-bracket-calculator', cat: 'Finance' },
-  { name: 'Budget Planner', href: '/calculators/finance/budget-planner-calculator', cat: 'Finance' },
-  { name: '401k Calculator', href: '/calculators/finance/401k-calculator', cat: 'Finance' },
-  { name: 'BMI Calculator', href: '/calculators/health/bmi-calculator', cat: 'Health' },
-  { name: 'Roth IRA vs 401k Guide', href: '/blog/roth-ira-vs-401k-which-is-better-2026', cat: 'Blog' },
 ]
 
-const FINANCE_COUNT = TOOL_COUNTS.finance
-const HEALTH_COUNT = TOOL_COUNTS.health
+const PUBLIC_BLOG_CATALOG = BLOG_CATALOG.filter(item => !isRestrictedBlogCatalogItem(item))
+const BLOG_COUNT = PUBLIC_BLOG_CATALOG.length
 const DEV_COUNT = TOOL_COUNTS.dev
 const FUN_COUNT = TOOL_COUNTS.fun
-const BLOG_COUNT = BLOG_CATALOG.length
-const TOTAL = TOOL_TOTAL + BLOG_COUNT
+const TOTAL = PUBLIC_TOOL_REGISTRY.length + BLOG_COUNT
 const ITEMS = [
-  ...MASTER_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.cat === 'dev' ? 'Dev' : item.catLabel })),
-  ...BLOG_CATALOG.map(item => ({ name: item.name, href: item.href, cat: item.cat })),
+  ...PUBLIC_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.cat === 'dev' ? 'Dev' : item.catLabel })),
+  ...PUBLIC_BLOG_CATALOG.map(item => ({ name: item.name, href: item.href, cat: item.cat })),
 ]
 
 export function GlobalSearch({ className }: { className?: string }) {
@@ -97,7 +89,7 @@ export function GlobalSearch({ className }: { className?: string }) {
     return () => document.removeEventListener('keydown', handler)
   }, [open, openSearch, closeSearch])
 
-  const tabs = ['All', 'Finance', 'Health', 'Dev', 'Fun', 'ZIP', 'Commodities', 'Blog']
+  const tabs = ['All', 'Dev', 'Fun', 'ZIP', 'Commodities', 'Blog']
 
   return (
     <div ref={containerRef} className={`relative ${className || ''}`}>
@@ -167,7 +159,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                     {filtered.length} result{filtered.length !== 1 ? 's' : ''}{activeTab !== 'All' ? ` in ${activeTab}` : ''}
                   </p>
                   {filtered.map(item => {
-                    const meta = CAT_META[item.cat] || CAT_META.Finance
+                    const meta = CAT_META[item.cat] || CAT_META.Dev
                     return (
                       <Link
                         key={item.href}
@@ -192,14 +184,14 @@ export function GlobalSearch({ className }: { className?: string }) {
                 <div className="p-8 text-center">
                   <Search className="w-8 h-8 text-gray-300 mx-auto mb-3" />
                   <p className="text-sm font-semibold text-gray-600 mb-1">No results for "{query}"</p>
-                  <p className="text-xs text-gray-400">Try "mortgage", "tax bracket", or "BMI"</p>
+                  <p className="text-xs text-gray-400">Try "JSON", "ZIP", or "developer"</p>
                 </div>
               )
             ) : (
               <div className="p-3">
                 <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2 py-1.5">🔥 Trending</p>
                 {TRENDING.map(item => {
-                  const meta = CAT_META[item.cat] || CAT_META.Finance
+                  const meta = CAT_META[item.cat] || CAT_META.Dev
                   return (
                     <Link
                       key={item.href}
@@ -213,10 +205,8 @@ export function GlobalSearch({ className }: { className?: string }) {
                     </Link>
                   )
                 })}
-                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-5 gap-1 px-2">
+                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-3 gap-1 px-2">
                   {[
-                    ['Finance', FINANCE_COUNT, 'text-green-700 bg-green-50'],
-                    ['Health', HEALTH_COUNT, 'text-red-600 bg-red-50'],
                     ['Dev', DEV_COUNT, 'text-blue-600 bg-blue-50'],
                     ['Fun', FUN_COUNT, 'text-purple-600 bg-purple-50'],
                     ['Blog', BLOG_COUNT, 'text-orange-600 bg-orange-50'],

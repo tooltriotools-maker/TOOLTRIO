@@ -19,21 +19,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: 'ToolTrio — Free Finance & Health Calculators',
+    default: 'ToolTrio — Free Online Tools & Calculators',
     template: '%s | ToolTrio',
   },
 
   description:
-    'ToolTrio offers free finance and health calculators — mortgage, 401k, compound interest, BMI, calorie, TDEE and 200+ more. No signup required. Instant results.',
+    'ToolTrio offers free online tools across developer utilities, ZIP code tools, commodities and more. No signup required. Instant results.',
 
   keywords: [
     'tooltrio', 'tool trio', 'tooltrio.com',
-    'finance calculator', 'financial calculator', 'free financial calculator',
-    'mortgage calculator', '401k calculator', 'compound interest calculator',
-    'retirement calculator', 'Roth IRA calculator', 'auto loan calculator',
-    'BMI calculator', 'calorie calculator', 'TDEE calculator', 'BMR calculator',
-    'macro calculator', 'body fat calculator', 'ideal weight calculator',
-    'free finance and health calculator', 'finance and health calculator',
+    'online tools', 'free online tools', 'developer tools', 'ZIP code tools',
+    'JSON formatter', 'regex tester', 'ZIP code lookup', 'commodity calculators',
   ],
 
   authors: [{ name: 'ToolTrio', url: siteUrl }],
@@ -61,15 +57,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'ToolTrio — Free Finance & Health Calculators',
+    title: 'ToolTrio — Free Online Tools & Calculators',
     description:
-      'Mortgage, 401k, compound interest, BMI, calorie and 200+ free finance and health calculators. No signup required. Instant results.',
+      'Free online tools across developer utilities, ZIP code tools, commodities and more. No signup required. Instant results.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ToolTrio — Free Finance & Health Calculators',
+        alt: 'ToolTrio — Free Online Tools & Calculators',
       },
     ],
   },
@@ -78,9 +74,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@tooltrio',
     creator: '@tooltrio',
-    title: 'ToolTrio — Free Finance & Health Calculators',
+    title: 'ToolTrio — Free Online Tools & Calculators',
     description:
-      'Free mortgage, 401k, BMI, calorie and 200+ finance and health calculators. No signup.',
+      'Free online tools across developer utilities, ZIP code tools, commodities and more. No signup.',
     images: ['/og-image.png'],
   },
 
@@ -95,7 +91,7 @@ export const metadata: Metadata = {
   },
 
   manifest: '/site.webmanifest',
-  category: 'finance, health',
+  category: 'utilities',
 }
 
 // ── Global site-level schemas only (NOT page-level) ──────────────────────────
@@ -104,11 +100,11 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'ToolTrio',
-  alternateName: ['Tool Trio', 'ToolTrio Finance Calculator', 'ToolTrio Health Calculator', 'tooltrio.com'],
+  alternateName: ['Tool Trio',  'tooltrio.com'],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    'ToolTrio is a free finance and health calculator website offering mortgage calculators, 401k planners, BMI calculators, calorie trackers and 200+ more tools.',
+    'ToolTrio is a free online tools website offering developer utilities, ZIP code tools, commodity calculators and other practical tools.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   // Keep one hostname everywhere. www.tooltrio.com permanently redirects to tooltrio.com.
@@ -122,9 +118,7 @@ const organizationSchema = {
     availableLanguage: ['English'],
   },
   knowsAbout: [
-    'Finance Calculators', 'Health Calculators', 'Mortgage Calculator',
-    'BMI Calculator', 'Investment Calculator', 'Retirement Planning',
-    'Calorie Calculator', 'Tax Calculator',
+    'Developer Tools', 'ZIP Code Tools', 'Commodity Calculators', 'Online Utilities',
   ],
 }
 
@@ -134,7 +128,7 @@ const websiteSchema = {
   name: 'ToolTrio',
   url: siteUrl,
   description:
-    'Free calculators and online tools across finance, health, developer utilities, ZIP tools and commodities. No signup required.',
+    'Free online tools across developer utilities, ZIP tools, commodities and other practical categories. No signup required.',
   inLanguage: 'en-US',
 }
 

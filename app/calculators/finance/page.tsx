@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     'mortgage calculator',
   ],
   alternates: { canonical: 'https://tooltrio.com/calculators/finance' },
+  robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
   openGraph: {
     title: 'Finance Calculators — Mortgage, SIP, 401(k), Tax & More | ToolTrio',
     description: 'Finance calculators with route-level methodology, assumptions, limitations and source references where available.',

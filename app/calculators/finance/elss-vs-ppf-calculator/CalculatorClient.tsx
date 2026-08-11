@@ -19,6 +19,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
   const [ppfRate, setPpfRate] = useState(7.1)
   const [years, setYears] = useState(15)
   const [taxSlab, setTaxSlab] = useState(30)
+  const [taxRegime, setTaxRegime] = useState<'old'|'new'>('old')
 
   const result = useMemo(() => {
     const ppfAR = ppfRate / 100
@@ -35,7 +36,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const elssTax = Math.max(0, elssGain - 100000) * 0.10
     const elssPostTax = elssFV - elssTax
 
-    const taxSavedBoth = yearlyAmount * (taxSlab / 100) * years // both qualify 80C
+    const taxSavedBoth = taxRegime === 'old' ? Math.min(yearlyAmount, 150000) * (taxSlab / 100) * years : 0
 
     const yearlyData = Array.from({ length: years }, (_, i) => {
       const y = i + 1
@@ -53,7 +54,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
       difference: Math.round(Math.abs(elssPostTax - ppfFV)),
       yearlyData,
     }
-  }, [yearlyAmount, elssRate, ppfRate, years, taxSlab])
+  }, [yearlyAmount, elssRate, ppfRate, years, taxSlab, taxRegime])
 
   return (
     <CalculatorLayout title="ELSS vs PPF Calculator India 2026" description="Compare ELSS mutual fund vs PPF for Section 80C tax savings, returns, and lock-in period." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="elss-vs-ppf-calculator">
@@ -77,6 +78,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
                   </button>
                 ))}
               </div>
+            </div>
+          </div>
+          <div className="mt-4">
+            <p className="text-xs font-semibold text-gray-600 mb-2">Tax Regime</p>
+            <div className="grid grid-cols-2 gap-2">
+              <button onClick={() => setTaxRegime('old')} className={`py-2 rounded-lg border-2 text-xs font-bold ${taxRegime === 'old' ? 'bg-green-100 border-green-400 text-green-700' : 'bg-gray-50 border-gray-200 text-gray-500'}`}>Old Regime</button>
+              <button onClick={() => setTaxRegime('new')} className={`py-2 rounded-lg border-2 text-xs font-bold ${taxRegime === 'new' ? 'bg-green-100 border-green-400 text-green-700' : 'bg-gray-50 border-gray-200 text-gray-500'}`}>New Regime</button>
             </div>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
@@ -171,7 +179,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             
       <Card className="mt-6">
         <h2 className="text-lg font-black text-gray-900 mb-3">
-          Elss Vs PPF Calculator Example (USA 2026)
+          ELSS vs PPF Calculator Example (India 2026)
         </h2>
         <p className="text-sm text-gray-600 mb-2">
           Use this Elss Vs PPF USA 2026 calculator to model your specific numbers and make confident financial decisions based on accurate projections.
@@ -195,7 +203,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         category="finance"
         intro={`ELSS and PPF serve different investor needs and risk profiles, which is why comparing them is ultimately about your personal risk tolerance and time horizon rather than one being objectively better. PPF offers stated return under the applicable termss (currently 7.1%) with complete capital safety and Section 80C deduction. ELSS offers potentially much higher returns through equity market exposure, with the same Section 80C deduction but with real market risk and a shorter 3-year lock-in versus PPF's 15-year tenure.
 
-The historical return comparison favors ELSS significantly: top-performing ELSS funds have delivered 14-18% CAGR over 10-15 year periods, while PPF's return has ranged from 7-8% over the same periods. At 15% CAGR vs 7.1% compounded over 15 years, ₹1 lakh grows to ₹8.14 lakh in ELSS vs ₹2.82 lakh in PPF — a 3x wealth difference. But those returns are not guaranteed, and a significant market downturn during your investment period could close that gap substantially.
+ELSS returns are market-linked and can be positive or negative; do not treat historical fund performance as a forecast. PPF carries a government-notified interest rate that can change by quarter. Use the entered ELSS return as a scenario assumption and compare it with the entered PPF rate; the calculator does not forecast future market performance. But those returns are not guaranteed, and a significant market downturn during your investment period could close that gap substantially.
 
 PPF's tax treatment is actually superior in one dimension: the interest earned is completely tax-free without any threshold, whereas ELSS LTCG is taxed at 10% above ₹1 lakh. For very large investments, this matters.`}
         howItWorks={`PPF calculation: Annual contribution compounds at current PPF rate (7.1% in 2024). Interest is calculated on the minimum balance between 5th and last day of each month — contributions made before the 5th earn interest for that month. The maturity value after 15 years of ₹1.5 lakh/year at 7.1% = approximately ₹39.8 lakh.
@@ -223,7 +231,7 @@ ELSS is appropriate for the equity portion of your tax-saving portfolio. Over 10
 A common approach: split Section 80C investments between both instruments — PPF for capital safety and stated return under the applicable termss, ELSS for growth potential. The ratio depends on your age (younger = more ELSS) and risk tolerance.`}
         conclusion={`PPF's 15-year lock-in with restricted partial withdrawals makes it most suitable as a retirement savings vehicle rather than a medium-term savings tool. Treating it as untouchable retirement money — not as accessible savings with a lock-in — is the mindset that leads to the best outcomes.
 
-For investors in the 30% tax bracket, both instruments save ₹45,000 in tax per ₹1.5 lakh invested. The tax savings are equal; the difference is entirely in expected returns and risk. Use [our PPF Calculator](/calculators/finance/ppf-calculator) for detailed PPF maturity projections.`}
+For investors in the 30% tax bracket, Under the old regime, eligible 80C investments share a combined ₹1.5 lakh limit; under the new regime, the 80C deduction is generally not available. The tax savings are equal; the difference is entirely in expected returns and risk. Use [our PPF Calculator](/calculators/finance/ppf-calculator) for detailed PPF maturity projections.`}
       />
       <InternalLinks
         title="Related Finance Calculators"

@@ -24,13 +24,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const months = years * 12
     const mrA = rateA / 100 / 12
     const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
+    const fvA = monthly * (mrA === 0 ? months : ((Math.pow(1 + mrA, months) - 1) / mrA)) * (1 + mrA)
+    const fvB = monthly * (mrB === 0 ? months : ((Math.pow(1 + mrB, months) - 1) / mrB)) * (1 + mrB)
     const invested = monthly * months
     const yearlyData = Array.from({ length: years }, (_, i) => {
       const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
+      const a = monthly * (mrA === 0 ? m : ((Math.pow(1 + mrA, m) - 1) / mrA)) * (1 + mrA)
+      const b = monthly * (mrB === 0 ? m : ((Math.pow(1 + mrB, m) - 1) / mrB)) * (1 + mrB)
       return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
     })
     return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA-invested), gainB: Math.round(fvB-invested), aBetter: fvA>fvB, diff: Math.round(Math.abs(fvA-fvB)), yearlyData }
@@ -38,6 +38,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
 
   return (
     <CalculatorLayout title="UK Lifetime ISA vs SIPP Calculator 2026" description="Compare 25% LISA government bonus vs SIPP pension tax relief for UK retirement savings." icon="🇬🇧" category="Finance" relatedCalculators={relatedCalculators} blogSlug={blogSlug} slug="uk-lifetime-isa-vs-sipp-calculator">
+      <div className="mb-4 p-3 rounded-xl border bg-amber-50 text-amber-900 text-sm">This is a scenario model using your entered returns. It does not calculate a provider quote, eligibility decision, provider-guaranteed terms, or personalised financial recommendation. Product-specific tax rules, fees, limits and withdrawal conditions can materially change the outcome.</div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
@@ -48,8 +49,8 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
-            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Lifetime ISA' : 'SIPP'} 🏆</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Higher modeled value</p>
+            <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Scenario A' : 'Scenario B'}</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
@@ -120,15 +121,15 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600 leading-relaxed">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-base">What is Uk Lifetime Isa?</h3>
-              <p>Uk Lifetime Isa is a India investment or financial product that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
+              <p>UK Lifetime ISA is a UK tax-advantaged savings account that offers distinct advantages depending on your goals, tax situation, and time horizon. Understanding how it works is key to making the most of your money.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">What is Sipp?</h3>
               <p>Sipp takes a different approach to growing or protecting your wealth. Each has its own risk profile, liquidity characteristics, and tax treatment that makes it suited to specific financial situations.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Key Differences</h3>
               <p>The most important distinction between Uk Lifetime Isa and Sipp is how returns are generated and taxed. Uk Lifetime Isa typically suits growth-oriented investors while Sipp may appeal to those prioritizing stability or specific tax advantages.</p>
             </div>
             <div>
-              <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in India</h3>
-              <p>Tax efficiency dramatically affects real returns. Gains from each option may be subject to LTCG (10%) or income tax slab. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
+              <h3 className="font-bold text-gray-900 mb-2 text-base">Tax Treatment in the UK</h3>
+              <p>Tax efficiency dramatically affects real returns. The model does not calculate UK pension withdrawal tax or LISA withdrawal charges; actual treatment depends on your circumstances and the account rules. Using the calculator above helps you see the true post-tax outcome based on your specific situation and contribution level.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">Which Is Better for Long-Term Wealth Creation?</h3>
               <p>The right choice depends on your time horizon, risk tolerance, and tax bracket. For goals 5+ years away, higher-return options (12-15% historical) generally beat lower-return stable options (6-7.5%). For goals under 3 years, capital preservation takes priority.</p>
               <h3 className="font-bold text-gray-900 mb-2 mt-4 text-base">How to Use This Calculator</h3>

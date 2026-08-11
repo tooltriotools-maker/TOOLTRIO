@@ -20,7 +20,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
   },[estateValue, hasWill, hasTrust])
 
   return (
-    <CalculatorLayout title="Estate Probate Cost Calculator USA 2026 — Avoid Probate" description="Calculate estimated probate costs by state, time delays, and savings from a revocable living trust. See exactly what your estate would cost to settle." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} slug="estate-probate-calculator">
+    <CalculatorLayout title="Estate Probate Cost Calculator USA 2026 — Avoid Probate" description="Estimate California ordinary statutory probate compensation and compare it with a simplified trust scenario. This is a planning screen, not a complete probate-cost quote." icon="⚖️" category="Finance" relatedCalculators={relatedCalculators} slug="estate-probate-calculator">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-1 h-fit space-y-3">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider">Enter Your Details</h2>
@@ -63,7 +63,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">⚖️ About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Probate is the court-supervised process for distributing assets after death. In California, it can cost 4%+ of the gross estate and take 18+ months. A revocable living trust eliminates probate entirely — and at $3,500 setup cost vs $30,000+ in probate fees on a typical estate, it's one of the clearest financial planning decisions available.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Probate is the court-supervised process for distributing assets after death. California Probate Code §10810 uses a tiered statutory compensation schedule. This calculator models the ordinary statutory attorney fee plus the personal-representative commission; it does not add arbitrary percentages, court costs, taxes, or extraordinary-service fees.</p>
               </Card>
             </>
           ):(
@@ -75,7 +75,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
         <SEOContent
           title="Estate Probate Cost Calculator" category="finance"
           intro="This page estimates probate cost under the calculator’s California scenario and compares that modeled cost with a simple living-trust scenario."
-          howItWorks="The current UI passes California to a lookup that assigns a 4% probate-cost rate. Without a trust, the model adds either $5,000 when a will is selected or $15,000 without a will. With a trust, modeled probate cost is zero and a $3,500 setup cost is used."
+          howItWorks="The UI models California. Ordinary statutory compensation is calculated using 4% of the first $100,000, 3% of the next $100,000, 2% of the next $800,000, 1% of the next $9 million and 0.5% of the next $15 million; above $25 million the court determines a reasonable amount. The result doubles the ordinary fee to show attorney + personal-representative compensation. A trust scenario assumes the relevant assets are properly transferred to the trust."
           tipsSection="Worked example: Example: an $850,000 estate with a will and no trust produces a model cost of 4% of the estate plus $5,000. This is a ToolTrio planning estimate, not California statutory probate-fee computation."
           conclusion="Important assumptions and limitations: Probate fees, court procedures, small-estate thresholds, property passing outside probate and attorney/executor compensation depend on state law and estate facts. A living trust also avoids probate only for assets properly transferred to it."
           benefits={[{title:"Methodology",text:"The explanation above follows the calculation actually performed by this page."},{title:"Interpret the output",text:"Treat the result as a scenario estimate and test the assumptions that matter most."},{title:"Privacy",text:"Calculator inputs are processed in your browser."}]}

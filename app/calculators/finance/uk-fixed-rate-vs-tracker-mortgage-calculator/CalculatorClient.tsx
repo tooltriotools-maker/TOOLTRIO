@@ -15,7 +15,7 @@ const fmt = (n: number) => FMT_PREFIX + Math.round(n).toLocaleString()
 const fmtC = (n: number) => n >= 1000000 ? FMT_PREFIX + (n/1000000).toFixed(2) + 'M' : FMT_PREFIX + (n/1000).toFixed(0) + 'K'
 
 export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }: Props) {
-  const [monthly, setMonthly] = useState(500)
+  const [monthly, setMonthly] = useState(300000)
   const [rateA, setRateA] = useState(4.5)
   const [rateB, setRateB] = useState(4.2)
   const [years, setYears] = useState(20)
@@ -24,16 +24,19 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
     const months = years * 12
     const mrA = rateA / 100 / 12
     const mrB = rateB / 100 / 12
-    const fvA = monthly * ((Math.pow(1 + mrA, months) - 1) / mrA) * (1 + mrA)
-    const fvB = monthly * ((Math.pow(1 + mrB, months) - 1) / mrB) * (1 + mrB)
-    const invested = monthly * months
+    const payment = (r:number) => r === 0 ? monthly / months : monthly * r * Math.pow(1+r, months) / (Math.pow(1+r, months)-1)
+    const paymentA = payment(mrA)
+    const paymentB = payment(mrB)
+    const totalA = paymentA * months
+    const totalB = paymentB * months
+    const invested = monthly
     const yearlyData = Array.from({ length: years }, (_, i) => {
       const y = i + 1; const m = y * 12
-      const a = monthly * ((Math.pow(1 + mrA, m) - 1) / mrA) * (1 + mrA)
-      const b = monthly * ((Math.pow(1 + mrB, m) - 1) / mrB) * (1 + mrB)
-      return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly * m }
+      const a = paymentA * Math.min(m, months)
+      const b = paymentB * Math.min(m, months)
+      return { year: y, optA: Math.round(a), optB: Math.round(b), invested: monthly }
     })
-    return { fvA: Math.round(fvA), fvB: Math.round(fvB), invested: Math.round(invested), gainA: Math.round(fvA-invested), gainB: Math.round(fvB-invested), aBetter: fvA>fvB, diff: Math.round(Math.abs(fvA-fvB)), yearlyData }
+    return { fvA: Math.round(totalA), fvB: Math.round(totalB), invested: Math.round(invested), gainA: Math.round(paymentA), gainB: Math.round(paymentB), aBetter: totalA<totalB, diff: Math.round(Math.abs(totalA-totalB)), paymentA: Math.round(paymentA), paymentB: Math.round(paymentB), yearlyData }
   }, [monthly, rateA, rateB, years])
 
   return (
@@ -42,13 +45,13 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         <Card className="lg:col-span-1 h-fit">
           <h2 className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-4">Investment Details</h2>
           <div className="space-y-4">
-            <InputField label="Monthly Contribution" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="£" />
-            <InputField label="Fixed Rate Return (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
-            <InputField label="Tracker Mortgage Return (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
-            <InputField label="Investment Period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
+            <InputField label="Mortgage Balance" value={monthly} onChange={setMonthly} min={50} max={10000} step={50} prefix="£" />
+            <InputField label="Fixed Mortgage Rate (p.a.)" value={rateA} onChange={setRateA} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="Tracker Mortgage Rate (p.a.)" value={rateB} onChange={setRateB} min={0.5} max={20} step={0.25} suffix="%" />
+            <InputField label="Mortgage Term" value={years} onChange={setYears} min={1} max={40} step={1} suffix="Yrs" />
           </div>
           <div className={`mt-4 p-3 rounded-xl border-2 text-center ${result.aBetter ? 'bg-green-50 border-green-300' : 'bg-blue-50 border-blue-300'}`}>
-            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Better Investment</p>
+            <p className="text-xs text-gray-500 uppercase font-semibold mb-1">Lower modeled mortgage cost</p>
             <p className="text-xl font-black" style={{ color: result.aBetter ? '#10b981' : '#3b82f6' }}>{result.aBetter ? 'Fixed Rate' : 'Tracker Mortgage'} 🏆</p>
             <p className="text-sm text-gray-500">by {fmtC(result.diff)} over {years} yrs</p>
           </div>
@@ -67,10 +70,10 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
         </Card>
         <div className="lg:col-span-2 space-y-4" data-pdf-results>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <ResultCard label="Fixed Rate" value={fmtC(result.fvA)} subValue={`Gain: ${fmtC(result.gainA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
-            <ResultCard label="Tracker Mortgage" value={fmtC(result.fvB)} subValue={`Gain: ${fmtC(result.gainB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
-            <ResultCard label="Invested" value={fmtC(result.invested)} subValue={`${years}yr x £${monthly}/mo`} />
-            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Fixed Rate wins' : 'Tracker Mortgage wins'} highlight />
+            <ResultCard label="Fixed Rate" value={fmtC(result.fvA)} subValue={`Monthly payment: ${fmt(result.paymentA)}`} highlight={result.aBetter} icon={<TrendingUp className="w-4 h-4" />} />
+            <ResultCard label="Tracker Mortgage" value={fmtC(result.fvB)} subValue={`Monthly payment: ${fmt(result.paymentB)}`} highlight={!result.aBetter} icon={<Shield className="w-4 h-4" />} />
+            <ResultCard label="Mortgage balance" value={fmtC(result.invested)} subValue={`${years}yr x £${monthly}/mo`} />
+            <ResultCard label="Advantage" value={fmtC(result.diff)} subValue={result.aBetter ? 'Fixed rate costs less' : 'Tracker costs less'} highlight />
           </div>
           <Card>
             <h3 className="text-sm font-semibold text-gray-700 mb-4">Fixed Rate vs Tracker Mortgage - Wealth Growth Over {years} Years</h3>
@@ -97,7 +100,7 @@ export default function CalculatorClient({ faqs, relatedCalculators, blogSlug }:
             <h3 className="text-sm font-semibold text-gray-700 mb-3">Year-by-Year Comparison</h3>
             <div className="overflow-y-auto max-h-52">
               <table className="calc-table">
-                <thead><tr><th>Year</th><th>Invested</th><th>Fixed Rate</th><th>Tracker Mortgage</th><th>Advantage</th></tr></thead>
+                <thead><tr><th>Year</th><th>Mortgage balance</th><th>Fixed Rate</th><th>Tracker Mortgage</th><th>Advantage</th></tr></thead>
                 <tbody>
                   {result.yearlyData.filter((_, i) => i % 2 === 0 || i === result.yearlyData.length - 1).map(r => (
                     <tr key={r.year}>

@@ -29,7 +29,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               <span className="text-green-600 text-sm">$</span>
               <input type="number" value={grossWages} onChange={e=>setGrossWages(Number(e.target.value))} step={50} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
-              <span className="text-gray-400 text-sm">yrs</span>
+              
             </div>
           </div>
           <div className="space-y-1">
@@ -44,7 +44,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
             </div>
           </div>
           <div className="space-y-1">
-            <label className="text-xs font-medium text-gray-600">Allowances (W-4)</label>
+            <label className="text-xs font-medium text-gray-600">Simplified Annual Adjustment Units</label>
             <div className="flex items-center gap-2 border rounded-xl px-3 py-2" style={{background:'rgba(248,250,248,0.8)',borderColor:'rgba(226,232,240,0.7)',backdropFilter:'blur(6px)'}}>
               
               <input type="number" value={allowances} onChange={e=>setAllowances(Number(e.target.value))} step={1} className="bg-transparent text-gray-900 font-semibold w-full outline-none text-right" />
@@ -66,7 +66,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
 
               <Card>
                 <h2 className="text-lg font-black text-gray-900 mb-3">💵 About This Calculator</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">Payroll taxes include federal income tax withholding (based on your W-4 and 2026 tax brackets), Social Security (6.2% on first $176,100), Medicare (1.45%), and state income tax. This calculator computes every component for any pay period — weekly, biweekly, semimonthly, or monthly.</p>
+                <p className="text-sm text-gray-600 leading-relaxed">Payroll taxes include federal income tax withholding (based on your W-4 and 2026 tax brackets), Social Security (6.2% up to the 2026 wage base), Medicare (1.45%), and state income tax. This calculator computes every component for any pay period — weekly, biweekly, semimonthly, or monthly.</p>
               </Card>
             </>
           ):(
@@ -76,7 +76,7 @@ export default function CalculatorClient({faqs,relatedCalculators}:Props) {
       </div>
       <div className="mt-8">
         <SEOContent title="Payroll Tax Calculator USA 2026 — Federal, State & FICA" category="finance"
-          intro="Payroll taxes include federal income tax withholding (based on your W-4 and 2026 tax brackets), Social Security (6.2% on first $176,100), Medicare (1.45%), and state income tax. This calculator computes every component for any pay period — weekly, biweekly, semimonthly, or monthly."
+          intro="Payroll taxes include federal income tax withholding (based on your W-4 and 2026 tax brackets), Social Security (6.2% up to the 2026 wage base), Medicare (1.45%), and state income tax. This calculator computes every component for any pay period — weekly, biweekly, semimonthly, or monthly."
           howItWorks="This estimator annualizes the entered paycheck, estimates federal income tax using simplified annual brackets, then adds employee Social Security, Medicare and a flat state-rate approximation before converting federal tax back to the selected pay frequency."
           tipsSection="The 2026 Social Security wage base in the calculation is now $184,500; the employee Social Security rate is 6.2% and Medicare is 1.45%. The federal bracket and standard-deduction constants have also been updated for 2026."
           conclusion="This is not a substitute for IRS Publication 15-T payroll withholding. The allowances input is a custom simplification rather than the current Form W-4 methodology, and state withholding is represented by rough flat rates rather than each state’s payroll rules."
