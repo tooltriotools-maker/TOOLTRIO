@@ -175,10 +175,6 @@ const catalogMissing = posts.filter(p => !catalogSet.has(p.slug)).map(p => p.slu
 const catalogExtra = catalogSlugs.filter(slug => !slugSet.has(slug))
 
 const articlePage = fs.readFileSync(path.join(ROOT, 'app/blog/[slug]/page.tsx'), 'utf8')
-const visibilityPage = fs.readFileSync(path.join(ROOT, 'lib/visibility.ts'), 'utf8')
-const publicBlogBlock = visibilityPage.match(/PUBLIC_BLOG_HREFS\s*=\s*new Set\(\[([\s\S]*?)\]\)/m)?.[1] ?? ''
-const publicBlogHrefs = new Set([...publicBlogBlock.matchAll(/['\"](\/blog\/[^'\"]+)['\"]/g)].map(m => m[1]))
-function isPublicBlogPost(post) { return publicBlogHrefs.has(post.href ?? (post.slug ? `/blog/${post.slug}` : '')) }
 const sitemapPage = fs.readFileSync(path.join(ROOT, 'app/sitemap.ts'), 'utf8')
 const blogPage = fs.readFileSync(path.join(ROOT, 'app/blog/page.tsx'), 'utf8')
 const categoryPage = fs.readFileSync(path.join(ROOT, 'app/blog/category/[slug]/page.tsx'), 'utf8')
@@ -188,8 +184,7 @@ const structural = {
   canonical: /alternates:\s*\{\s*canonical:.*\/blog\//s.test(articlePage),
   articleSchema: /'@type': 'Article'/.test(articlePage) && /datePublished: post\.publishedAt/.test(articlePage) && /dateModified: post\.updatedAt/.test(articlePage) && /author:[\s\S]*?name: post\.author/.test(articlePage),
   mainEntityOfPage: /mainEntityOfPage/.test(articlePage),
-  publicBlogAllowlist: /PUBLIC_BLOG_HREFS/.test(visibilityPage) && /isPublicBlogPost/.test(visibilityPage),
-  sitemapPublicOnly: /publicBlogPosts/.test(sitemapPage) && !/publishedBlogPosts/.test(sitemapPage),
+  sitemapPublishedOnly: /publishedBlogPosts/.test(sitemapPage),
   dynamicBlogCount: /blogPosts\.length/.test(blogPage),
   dynamicCategoryCount: /posts\.length/.test(categoryPage),
   categorySourceOfTruth: /blogCategories/.test(blogPage) && !/const CAT_CONFIG:\s*Record/.test(blogPage),
@@ -198,9 +193,6 @@ const structural = {
   dynamicOgImage: ogImage,
   contentHasH1: posts.every(p => /^#\s+.+/m.test(p.content)),
 }
-
-const publicPosts = posts.filter(p => p.published && isPublicBlogPost({ slug: p.slug }))
-if (publicPosts.length !== 22) criticalFailures.push(`Expected 22 public/indexable blog articles, found ${publicPosts.length}`)
 
 const shingles = posts.map(p => ({ slug: p.slug, category: p.categorySlug, title: p.title, set: shingleSet(p.content) }))
 const nearDuplicates = []
@@ -230,8 +222,8 @@ const rows = posts.map(post => ({
   seoDescriptionLength: post.seoDescription?.length ?? 0,
   canonical: post.url,
   canonicalValid: structural.canonical,
-  indexable: post.published && isPublicBlogPost({ slug: post.slug }),
-  sitemapIncluded: post.published && isPublicBlogPost({ slug: post.slug }),
+  indexable: post.published,
+  sitemapIncluded: post.published,
   articleSchema: structural.articleSchema,
   author: post.author,
   internalLinkCount: post.internalLinks.length,
@@ -264,8 +256,8 @@ if (catalogMissing.length || catalogExtra.length || catalogSet.size !== slugSet.
 if (missingFields.title || missingFields.excerpt || missingFields.category || missingFields.categorySlug || missingFields.seoTitle || missingFields.seoDescription || missingFields.content) criticalFailures.push('Required article metadata/content is missing')
 if (!Object.values(structural).every(Boolean)) criticalFailures.push(`Blog structural validation failed: ${Object.entries(structural).filter(([, ok]) => !ok).map(([k]) => k).join(', ')}`)
 if (rows.some(r => r.indexable && r.futureDate)) criticalFailures.push('Future-dated article is indexable')
-if (rows.some(r => r.indexable && !r.sitemapIncluded)) criticalFailures.push('Public article missing from sitemap')
-if (rows.some(r => r.indexable && !r.canonicalValid)) criticalFailures.push('Public article has invalid canonical')
+if (rows.some(r => r.indexable && !r.sitemapIncluded)) criticalFailures.push('Published article missing from sitemap')
+if (rows.some(r => r.indexable && !r.canonicalValid)) criticalFailures.push('Published article has invalid canonical')
 if (rows.some(r => r.indexable && !r.articleSchema)) criticalFailures.push('Published article missing Article schema')
 
 const report = {
