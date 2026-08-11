@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T20:13:22.578Z",
+  "generatedAt": "2026-08-11T20:30:08.981Z",
   "expectedArticles": 286,
   "totalArticles": 286,
   "uniqueSlugs": 286,
@@ -25,7 +25,7 @@
     "investment": 100,
     "retirement": 40,
     "loans": 37,
-    "personal-finance": 47,
+    "personal-finance": 48,
     "tax": 14,
     "health": 8,
     "property": 12,
@@ -53,10 +53,6 @@
     {
       "slug": "vacation-budget-cost-by-destination-2026",
       "publishedAt": "2026-08-13"
-    },
-    {
-      "slug": "student-loans-vs-working-through-college-2026",
-      "publishedAt": "2026-08-11"
     }
   ],
   "brokenInternalLinks": [],
@@ -8144,8 +8140,8 @@
       "seoDescriptionLength": 138,
       "canonical": "https://tooltrio.com/blog/student-loans-vs-working-through-college-2026",
       "canonicalValid": true,
-      "indexable": false,
-      "sitemapIncluded": false,
+      "indexable": true,
+      "sitemapIncluded": true,
       "articleSchema": true,
       "author": "tooltrio Team",
       "internalLinkCount": 3,
@@ -8156,8 +8152,8 @@
       "ogImage": "https://tooltrio.com/blog/student-loans-vs-working-through-college-2026/opengraph-image",
       "duplicateTitle": false,
       "duplicateTopic": false,
-      "futureDate": true,
-      "overallStatus": "SCHEDULED"
+      "futureDate": false,
+      "overallStatus": "PASS"
     },
     {
       "slug": "break-even-analysis-2026-business-guide",

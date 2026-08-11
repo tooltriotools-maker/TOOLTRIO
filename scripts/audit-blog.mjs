@@ -184,7 +184,7 @@ const structural = {
   canonical: /alternates:\s*\{\s*canonical:.*\/blog\//s.test(articlePage),
   articleSchema: /'@type': 'Article'/.test(articlePage) && /datePublished: post\.publishedAt/.test(articlePage) && /dateModified: post\.updatedAt/.test(articlePage) && /author:[\s\S]*?name: post\.author/.test(articlePage),
   mainEntityOfPage: /mainEntityOfPage/.test(articlePage),
-  sitemapPublishedOnly: /publishedBlogPosts/.test(sitemapPage),
+  sitemapPublishedOnly: /publicBlogPosts/.test(sitemapPage) && !/\.filter\(post => isBlogPostPublished/.test(sitemapPage),
   dynamicBlogCount: /blogPosts\.length/.test(blogPage),
   dynamicCategoryCount: /posts\.length/.test(categoryPage),
   categorySourceOfTruth: /blogCategories/.test(blogPage) && !/const CAT_CONFIG:\s*Record/.test(blogPage),
