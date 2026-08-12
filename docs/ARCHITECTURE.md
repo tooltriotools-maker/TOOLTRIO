@@ -2,7 +2,7 @@
 
 ## Core principle
 
-ToolTrio uses a **single canonical tool registry**. A tool should be defined once and consumed by search, sitemap, TrioBot, counts and generated discovery files.
+ToolTrio uses a **single canonical tool registry**. A tool should be defined once and consumed by search, sitemap, counts and generated discovery files.
 
 ```text
                     ┌──────────────────────┐
@@ -13,11 +13,11 @@ ToolTrio uses a **single canonical tool registry**. A tool should be defined onc
               ┌────────────────┼────────────────┐
               │                │                │
               ▼                ▼                ▼
-        Global Search       Sitemap          TrioBot
+        Global Search       Sitemap       llms.txt
               │                │                │
-              └────────────┬───┴────────────┬───┘
-                           ▼                ▼
-                    Site-wide counts    llms.txt
+              └────────────┬───┴────────────┘
+                           ▼
+                    Site-wide counts
 ```
 
 ## Registry files
@@ -46,11 +46,11 @@ npm run build
 2. Run `npm run catalog:generate`.
 3. Review the generated name/keywords.
 4. Run `npm run catalog:check`.
-5. The tool is then automatically available to the sitemap, search, TrioBot and generated `llms.txt`.
+5. The tool is then automatically available to the sitemap, search and generated `llms.txt`.
 
 ## Redirects
 
-Redirect-only URLs are retained as known routes but excluded from the active registry through `REDIRECTED_TOOL_HREFS` in `lib/catalog/index.ts`. This prevents redirect destinations from appearing as canonical tools in search, TrioBot or the sitemap.
+Redirect-only URLs are retained as known routes but excluded from the active registry through `REDIRECTED_TOOL_HREFS` in `lib/catalog/index.ts`. This prevents redirect destinations from appearing as canonical tools in search or the sitemap.
 
 ## Content architecture
 

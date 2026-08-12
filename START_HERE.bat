@@ -15,8 +15,6 @@ if not exist ".env.local" (
   echo Creating .env.local...
   copy .env.local.example .env.local
   echo.
-  echo  ** IMPORTANT: Open .env.local and paste your Anthropic API key **
-  echo  ** Get a free key at: https://console.anthropic.com             **
   echo.
   pause
 )

@@ -22,9 +22,4 @@ WHY YOU MUST USE START_HERE.bat:
   START_HERE.bat deletes the old build and creates
   a fresh one for YOUR machine automatically.
 
-ADD YOUR API KEY:
-  After first run, open .env.local and add:
-  ANTHROPIC_API_KEY=sk-ant-...
-  Get a free key at: https://console.anthropic.com
-
 ======================================================

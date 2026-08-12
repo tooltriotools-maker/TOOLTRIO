@@ -22,13 +22,6 @@ npm run dev
 
 Open http://localhost:3000 in your browser.
 
-## TrioBot AI Chat (Optional)
-TrioBot works without an API key using its built-in knowledge base.
-For full AI responses, add your Anthropic key to `.env.local`:
-```
-ANTHROPIC_API_KEY=sk-ant-your-key-here
-```
-Get a free key at https://console.anthropic.com
 
 ## Why delete .next?
 The `.next` folder is Next.js's build cache. If you move the project, rename it,
@@ -45,8 +38,7 @@ npm run start
 ## Deploy to Vercel
 1. Push to GitHub
 2. Connect repo to Vercel at vercel.com
-3. Add ANTHROPIC_API_KEY in Vercel Environment Variables
-4. Deploy automatically
+3. Deploy automatically
 
 ## Troubleshooting
 

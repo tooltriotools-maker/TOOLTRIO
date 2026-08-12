@@ -74,6 +74,12 @@ const NAV = [
     key: 'blog', label: '📚 Blog', color: 'green',
     href: '/blog', viewAll: 'All Blog Posts ->',
     items: [
+      { name: 'ZIP Code Guides', href: '/blog/category/zip-codes' },
+      { name: 'ZIP Code Lookup Guide', href: '/blog/how-to-find-a-zip-code-from-an-address' },
+      { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes' },
+      { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code' },
+      { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code' },
+      { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code' },
     ],
   },
 ]

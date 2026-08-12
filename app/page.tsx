@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 import type { Metadata } from 'next'
+import { publicBlogPosts } from '@/lib/blog/posts'
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,10 @@ export const metadata: Metadata = {
     'gold price calculator',
     'tooltrio',
     'tool trio',
+    'trio tools',
+    'tools trio',
+    'toolstrio',
+    'tool trio online tools',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
@@ -171,7 +176,8 @@ const funTools = [
   { name: 'Zodiac Calculator', desc: 'Find your star sign', href: '/calculators/fun/zodiac-calculator', icon: '♈', badge: null },
   { name: 'Birthday Countdown', desc: 'Days until your birthday', href: '/calculators/fun/birthday-countdown', icon: '🎂', badge: null },
   { name: 'Fortune Cookie', desc: 'Random fortune generator', href: '/calculators/fun/fortune-cookie', icon: '🥠', badge: null },
-  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/calculators/fun/personality-quiz', icon: '🎭', badge: null },
+  { name: 'Shakespeare Insult Generator', desc: 'Funny Shakespearean roasts', href: '/calculators/fun/shakespeare-insult-generator', icon: '🎭', badge: 'Popular' },
+  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/calculators/fun/personality-quiz', icon: '🧬', badge: 'Popular' },
   { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/calculators/fun/coffee-calculator', icon: '☕', badge: null },
   { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/calculators/fun/how-rich-am-i', icon: '💸', badge: null },
   { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/calculators/fun/would-you-rather', icon: '🤔', badge: null },
@@ -271,6 +277,8 @@ export default function HomePage() {
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
               { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
               { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
+              { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator' },
+              { name: 'Personality Quiz', href: '/calculators/fun/personality-quiz' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
@@ -389,6 +397,33 @@ export default function HomePage() {
                   {c.name}
                 </span>
                 <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ZIP Code Guides — public blog discovery */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+                <span>📚</span> ZIP Code Guides
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">Practical guides for ZIP lookup, ZIP+4, distance, timezones, coordinates and more.</p>
+            </div>
+            <Link href="/blog/category/zip-codes" className="text-sm font-semibold text-green-600 hover:text-green-700">
+              View all ZIP guides →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {publicBlogPosts.filter(post => post.categorySlug === 'zip-codes').slice(0, 6).map(post => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="group p-5 rounded-2xl border bg-white hover:border-green-300 hover:shadow-lg transition-all">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-50 border border-green-200 text-green-700">📮 ZIP Guide</span>
+                  <span className="text-xs text-gray-400">{post.readTime}</span>
+                </div>
+                <h3 className="font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-snug mb-2">{post.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{post.excerpt}</p>
               </Link>
             ))}
           </div>

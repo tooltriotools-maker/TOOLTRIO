@@ -9,8 +9,6 @@ echo ""
 
 if [ ! -f ".env.local" ]; then
   cp .env.local.example .env.local
-  echo " Created .env.local - add your Anthropic API key inside"
-  echo " Get a free key at: https://console.anthropic.com"
   echo ""
 fi
 

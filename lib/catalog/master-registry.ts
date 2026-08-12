@@ -3,7 +3,7 @@
  *
  * This is the single application-facing registry for every canonical ToolTrio
  * tool. The generated route catalog remains the filesystem-backed generator
- * input, while every consumer (search, sitemap, TrioBot, counts and llms.txt)
+ * input, while every consumer (search, sitemap, counts and llms.txt)
  * reads through this stable API.
  *
  * Do not import ./tools directly from application features. If the catalog

@@ -19,15 +19,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: 'ToolTrio — Free Online Tools & Calculators',
+    default: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     template: '%s | ToolTrio',
   },
 
   description:
-    'ToolTrio offers free online tools across developer utilities, ZIP code tools, commodities and more. No signup required. Instant results.',
+    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free online tools across ZIP code tools, developer utilities, fun generators, quizzes, commodities and more. No signup required.',
 
   keywords: [
-    'tooltrio', 'tool trio', 'tooltrio.com',
+    'tooltrio', 'tool trio', 'tooltrio.com', 'trio tools', 'tools trio', 'toolstrio',
     'online tools', 'free online tools', 'developer tools', 'ZIP code tools',
     'JSON formatter', 'regex tester', 'ZIP code lookup', 'commodity calculators',
   ],
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'ToolTrio — Free Online Tools & Calculators',
+    title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
       'Free online tools across developer utilities, ZIP code tools, commodities and more. No signup required. Instant results.',
     images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ToolTrio — Free Online Tools & Calculators',
+        alt: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
       },
     ],
   },
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@tooltrio',
     creator: '@tooltrio',
-    title: 'ToolTrio — Free Online Tools & Calculators',
+    title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
       'Free online tools across developer utilities, ZIP code tools, commodities and more. No signup.',
     images: ['/og-image.png'],
@@ -100,7 +100,7 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'ToolTrio',
-  alternateName: ['Tool Trio',  'tooltrio.com'],
+  alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio', 'tooltrio.com'],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
@@ -126,6 +126,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'ToolTrio',
+  alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
   url: siteUrl,
   description:
     'Free online tools across developer utilities, ZIP tools, commodities and other practical categories. No signup required.',
