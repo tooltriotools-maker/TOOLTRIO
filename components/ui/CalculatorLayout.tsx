@@ -17,7 +17,7 @@ interface CalculatorLayoutProps {
   children: ReactNode
   /** @deprecated schemas now injected server-side in page.tsx — prop accepted but unused */
   structuredData?: object[]
-  relatedCalculators?: RelatedCalc[]
+  relatedCalculators?: RelatedTool[]
   blogSlug?: string
   slug?: string
 }
