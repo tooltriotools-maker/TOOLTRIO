@@ -50,7 +50,6 @@ const nextConfig = {
         headers: [
           { key: 'X-Content-Type-Options',       value: 'nosniff' },
           { key: 'X-Frame-Options',               value: 'DENY' },
-          { key: 'X-XSS-Protection',              value: '1; mode=block' },
           { key: 'Referrer-Policy',               value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy',            value: 'camera=(), microphone=(), geolocation=()' },
           // HSTS — tells browsers to always use HTTPS (Google trust signal)
@@ -58,6 +57,20 @@ const nextConfig = {
           // Prevent MIME sniffing-based XSS (also a Lighthouse/CWV signal)
           { key: 'Cross-Origin-Opener-Policy',    value: 'same-origin' },
           { key: 'Cross-Origin-Resource-Policy',  value: 'same-origin' },
+          // Basic browser-side hardening. Keep the policy compatible with Next.js,
+          // Google Analytics, Google Fonts, Leaflet tiles, and the Census API.
+          { key: 'Content-Security-Policy', value: [
+            "default-src 'self'",
+            "base-uri 'self'",
+            "form-action 'self'",
+            "frame-ancestors 'none'",
+            "object-src 'none'",
+            "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com",
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+            "font-src 'self' https://fonts.gstatic.com data:",
+            "img-src 'self' data: blob: https:",
+            "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://geocoding.geo.census.gov https://tigerweb.geo.census.gov; frame-src 'self' https://maps.google.com https://www.google.com",
+          ].join('; ') },
         ],
       },
       // ── Cache rendered HTML for 60s at CDN edge (improves TTFB / LCP) ──────

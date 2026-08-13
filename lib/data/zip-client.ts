@@ -1,3 +1,5 @@
+import { API_LIMITS, clampPositiveInt, clampPositiveNumber } from '@/lib/api/request-limits'
+
 // Client-side ZIP data layer.
 // Loads /public/zip-data/index.json (real USPS/Census-derived city, state,
 // county, coordinates, timezone, area code data — served as a static file,
@@ -173,7 +175,7 @@ export async function zipFetch(url: string): Promise<MockResponse> {
     }
 
     if (u.pathname === '/api/zip/search') {
-      const limit = parseInt(p.get('limit') || '30')
+      const limit = clampPositiveInt(p.get('limit'), 30, API_LIMITS.searchLimit)
       const areaCode = p.get('areaCode')?.trim()
       const city = p.get('city')?.trim()
       const state = p.get('state')?.trim()
@@ -197,7 +199,7 @@ export async function zipFetch(url: string): Promise<MockResponse> {
     if (u.pathname === '/api/zip/nearby') {
       const zip = p.get('zip')?.trim() || ''
       const radius = parseFloat(p.get('radius') || '25')
-      const limit = parseInt(p.get('limit') || '30')
+      const limit = clampPositiveInt(p.get('limit'), 30, API_LIMITS.searchLimit)
       if (!/^\d{5}$/.test(zip)) return fail('Enter a valid 5-digit ZIP code')
       const origin = await lookupZip(zip)
       if (!origin) return fail(`ZIP ${zip} not found`)

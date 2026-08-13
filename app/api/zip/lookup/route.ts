@@ -14,5 +14,8 @@ export async function GET(req: NextRequest) {
   }
   const nearby = getNearby(zip, 30, 6)
   const tzLabel = TIMEZONE_OFFSETS[rec.timezone] || rec.timezone
-  return NextResponse.json({ ...rec, tzLabel, nearby })
+  return NextResponse.json(
+    { ...rec, tzLabel, nearby },
+    { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } }
+  )
 }

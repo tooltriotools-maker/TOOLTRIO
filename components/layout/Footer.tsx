@@ -49,7 +49,6 @@ export function Footer() {
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
               Free online calculators and tools for ZIP codes and fun tools. No signup. No ads. Instant results.
-              Also known as Tool Trio, Trio Tools and Toolstrio.
             </p>
             <a
               href={`mailto:${contactEmail}`}

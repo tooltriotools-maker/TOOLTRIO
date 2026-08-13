@@ -15,5 +15,8 @@ export async function GET(req: NextRequest) {
   if (!r2) return NextResponse.json({ error: `ZIP ${to} not found` }, { status: 404 })
   const miles = distanceMiles(r1.lat, r1.lng, r2.lat, r2.lng)
   const km = miles * 1.60934
-  return NextResponse.json({ r1, r2, miles: +miles.toFixed(2), km: +km.toFixed(2) })
+  return NextResponse.json(
+    { r1, r2, miles: +miles.toFixed(2), km: +km.toFixed(2) },
+    { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } }
+  )
 }

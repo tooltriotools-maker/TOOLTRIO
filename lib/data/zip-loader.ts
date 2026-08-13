@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import { API_LIMITS, clampPositiveInt, clampPositiveNumber } from '@/lib/api/request-limits'
 
 // Server-side only - reads JSON files from disk
 const DATA_DIR = path.join(process.cwd(), 'lib/data/zips')
@@ -55,24 +56,27 @@ export function lookupMany(zips: string[]): ZipRecord[] {
 }
 
 export function loadState(stateCode: string): ZipRecord[] {
-  if (_stateCache[stateCode]) return _stateCache[stateCode]
-  const filePath = path.join(DATA_DIR, `${stateCode.toUpperCase()}.json`)
+  const normalized = stateCode.trim().toUpperCase()
+  if (!/^[A-Z]{2}$/.test(normalized)) return []
+  if (_stateCache[normalized]) return _stateCache[normalized]
+  const filePath = path.join(DATA_DIR, `${normalized}.json`)
   if (!fs.existsSync(filePath)) return []
   const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-  _stateCache[stateCode] = data
+  _stateCache[normalized] = data
   return data
 }
 
 export function searchByCity(query: string, limit = 30): ZipRecord[] {
   const idx = loadIndex()
-  const q = query.toLowerCase().trim()
+  const q = query.toLowerCase().trim().slice(0, API_LIMITS.queryLength)
+  const safeLimit = clampPositiveInt(String(limit), 30, API_LIMITS.searchLimit)
   const results: ZipRecord[] = []
   for (const [zip, entry] of Object.entries(idx)) {
     if (entry[0].toLowerCase().includes(q) || entry[6].toLowerCase().includes(q)) {
       results.push({ zip, city:entry[0], stateCode:entry[1], lat:entry[2], lng:entry[3],
         timezone:entry[4], areaCode:entry[5], county:entry[6], population:entry[7],
         elevation:entry[8], type:entry[9], state:entry[10] })
-      if (results.length >= limit) break
+      if (results.length >= safeLimit) break
     }
   }
   return results
@@ -89,18 +93,30 @@ export function distanceMiles(lat1: number, lng1: number, lat2: number, lng2: nu
 export function getNearby(zip: string, radiusMiles = 25, limit = 30): (ZipRecord & {distance:number})[] {
   const origin = lookupZip(zip)
   if (!origin) return []
+  const safeRadius = clampPositiveNumber(String(radiusMiles), 25, API_LIMITS.nearbyRadiusMiles)
+  const safeLimit = clampPositiveInt(String(limit), 30, API_LIMITS.nearbyLimit)
   const idx = loadIndex()
+  const latDelta = safeRadius / 69
+  const lngScale = Math.max(Math.cos(origin.lat * Math.PI / 180), 0.2)
+  const lngDelta = safeRadius / (69 * lngScale)
+  const minLat = origin.lat - latDelta
+  const maxLat = origin.lat + latDelta
+  const minLng = origin.lng - lngDelta
+  const maxLng = origin.lng + lngDelta
   const results: (ZipRecord & {distance:number})[] = []
   for (const [z, entry] of Object.entries(idx)) {
     if (z === zip) continue
-    const d = distanceMiles(origin.lat, origin.lng, entry[2], entry[3])
-    if (d <= radiusMiles) {
+    const lat = entry[2]
+    const lng = entry[3]
+    if (lat < minLat || lat > maxLat || lng < minLng || lng > maxLng) continue
+    const d = distanceMiles(origin.lat, origin.lng, lat, lng)
+    if (d <= safeRadius) {
       results.push({ zip:z, city:entry[0], stateCode:entry[1], lat:entry[2], lng:entry[3],
         timezone:entry[4], areaCode:entry[5], county:entry[6], population:entry[7],
         elevation:entry[8], type:entry[9], state:entry[10], distance:d })
     }
   }
-  return results.sort((a,b) => a.distance - b.distance).slice(0, limit)
+  return results.sort((a,b) => a.distance - b.distance).slice(0, safeLimit)
 }
 
 export function getTotalCount(): number {

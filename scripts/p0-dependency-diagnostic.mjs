@@ -12,6 +12,12 @@ const lock = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
 const errors = [];
 const warnings = [];
 
+const nextVersion = String(pkg.dependencies?.next || '');
+const nextMajor = Number(nextVersion.replace(/^[^0-9]*/, '').split('.')[0]);
+if (Number.isFinite(nextMajor) && nextMajor < 15) {
+  errors.push(`Next.js ${nextVersion} is unsupported; upgrade to a supported maintenance release before production.`);
+}
+
 function command(name, args) {
   try { return execFileSync(name, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
   catch { return null; }

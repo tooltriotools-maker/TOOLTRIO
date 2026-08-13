@@ -183,8 +183,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-            US ZIP Code Tools — ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone & ZIP+4 Lookup{' '}
-            <span style={{ color: '#16a34a' }}>ZIP Distance Tools</span>
+            US ZIP Code Tools — Lookup, Distance, Timezone & ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
