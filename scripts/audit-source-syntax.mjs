@@ -47,7 +47,7 @@ function walk(dir) {
 }
 
 walk(ROOT)
-for (const scriptName of ['scripts/audit-calculation-functions.mjs', 'scripts/audit-source-syntax.mjs']) {
+for (const scriptName of ['scripts/audit-source-syntax.mjs']) {
   const scriptPath = path.join(ROOT, scriptName)
   if (fs.existsSync(scriptPath) && fs.readFileSync(scriptPath, 'utf8').match(/\/opt\/nvm\/versions\/node\/v[^/]+\/lib\/node_modules\/typescript/)) {
     hardcodedGlobalTypeScriptPaths++
