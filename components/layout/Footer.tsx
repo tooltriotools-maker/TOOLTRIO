@@ -58,11 +58,6 @@ export function Footer() {
               <Mail className="w-4 h-4 flex-shrink-0" />
               {contactEmail}
             </a>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {['$ USD', '£ GBP', '₹ INR', '€ EUR'].map(c => (
-                <span key={c} className="text-xs px-2 py-1 rounded-full bg-gray-800 text-gray-400 font-semibold">{c}</span>
-              ))}
-            </div>
           </div>
 
           {/* ZIP Tools */}

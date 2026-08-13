@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import { useCurrency, CURRENCIES, type CurrencyCode } from '@/context/CurrencyContext'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 
 // -- Nav data ------------------------------------------------------------------
@@ -93,15 +92,12 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
-  const { currency, setCurrency } = useCurrency()
-  const [currencyOpen, setCurrencyOpen] = useState(false)
 
   // Close dropdown on outside click
   useEffect(() => {
     function handle(e: MouseEvent) {
       if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setOpenKey(null)
-        setCurrencyOpen(false)
       }
     }
     document.addEventListener('mousedown', handle)
@@ -146,39 +142,8 @@ export function Header() {
             <GlobalSearch />
           </div>
 
-          {/* Currency + Mobile toggle */}
+          {/* Mobile toggle */}
           <div className="flex items-center gap-2 ml-auto lg:ml-2">
-            {/* Currency selector */}
-            <div className="relative">
-              <button
-                onClick={() => setCurrencyOpen(o => !o)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-green-50 border border-green-200 hover:bg-green-100 transition-all text-sm font-bold"
-              >
-                <span>{currency.flag}</span>
-                <span className="text-green-700 font-mono">{currency.symbol}</span>
-                <span className="text-gray-600 hidden sm:inline text-xs">{currency.code}</span>
-                <ChevronDown className={`w-3 h-3 text-gray-400 transition-transform ${currencyOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {currencyOpen && (
-                <div className="absolute right-0 top-full mt-2 z-[9999] bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden w-48">
-                  <div className="p-3 border-b border-gray-100 bg-green-50">
-                    <p className="text-xs font-bold text-green-700 uppercase tracking-wider">Currency</p>
-                  </div>
-                  {(Object.values(CURRENCIES) as typeof CURRENCIES[CurrencyCode][]).map(cur => (
-                    <button key={cur.code}
-                      onClick={() => { setCurrency(cur.code as CurrencyCode); setCurrencyOpen(false) }}
-                      className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-green-50 transition-all ${currency.code === cur.code ? 'bg-green-50 text-green-700 font-bold' : 'text-gray-700'}`}
-                    >
-                      <span className="text-xl">{cur.flag}</span>
-                      <span className="font-mono font-bold">{cur.symbol}</span>
-                      <span>{cur.code}</span>
-                      {currency.code === cur.code && <span className="ml-auto w-2 h-2 rounded-full bg-green-500" />}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
             {/* Mobile menu button */}
             <button
               onClick={() => { setMobileOpen(o => !o); setMobileSection(null) }}
