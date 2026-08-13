@@ -7,7 +7,6 @@ const nextConfig = {
   poweredByHeader: false,
   trailingSlash:   false,
   reactStrictMode: true,
-  swcMinify:       true,
 
   // Optimize package imports — reduces module resolution work on large deps
   // This is the main lever for cutting the 4+ second dev compile on first visit
