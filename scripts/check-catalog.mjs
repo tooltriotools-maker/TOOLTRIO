@@ -14,15 +14,14 @@ for (const href of hrefs) {
 const routeDirs = [
   ['fun', path.join(root, 'app/calculators/fun')],
   ['zip', path.join(root, 'app/zip')],
-  ['commodities', path.join(root, 'app/commodities')],
-]
+  ]
 for (const [cat, dir] of routeDirs) {
   if (!fs.existsSync(dir)) continue
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue
     const page = path.join(dir, entry.name, 'page.tsx')
     if (!fs.existsSync(page)) continue
-    const href = cat === 'zip' || cat === 'commodities' ? `/${cat}/${entry.name}` : `/calculators/${cat}/${entry.name}`
+    const href = cat === 'zip' ? `/${cat}/${entry.name}` : `/calculators/${cat}/${entry.name}`
     if (!redirectOnly.has(href) && !seen.has(href)) errors.push(`Route missing from catalog: ${href}`)
   }
 }

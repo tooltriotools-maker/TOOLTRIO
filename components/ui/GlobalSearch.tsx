@@ -8,7 +8,6 @@ const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNod
   Fun:     { color: 'text-purple-600',bg: 'bg-purple-100',icon: <Smile className="w-3 h-3" /> },
   Blog:    { color: 'text-orange-600',bg: 'bg-orange-100',icon: <BookOpen className="w-3 h-3" /> },
   ZIP:     { color: 'text-cyan-600',  bg: 'bg-cyan-100',  icon: <BarChart2 className="w-3 h-3" /> },
-  Commodities: { color: 'text-amber-700', bg: 'bg-amber-100', icon: <BarChart2 className="w-3 h-3" /> },
 }
 
 const TRENDING: { name: string; href: string; cat: string }[] = [
@@ -18,7 +17,6 @@ const PUBLIC_BLOG_CATALOG = BLOG_CATALOG
 const BLOG_COUNT = PUBLIC_BLOG_CATALOG.length
 const FUN_COUNT = TOOL_COUNTS.fun
 const ZIP_COUNT = TOOL_COUNTS.zip
-const COMMODITIES_COUNT = TOOL_COUNTS.commodities
 const TOTAL = PUBLIC_TOOL_REGISTRY.length + BLOG_COUNT
 const ITEMS = [
   ...PUBLIC_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.catLabel })),
@@ -88,7 +86,7 @@ export function GlobalSearch({ className }: { className?: string }) {
     return () => document.removeEventListener('keydown', handler)
   }, [open, openSearch, closeSearch])
 
-  const tabs = ['All', 'Fun', 'ZIP', 'Commodities', 'Blog']
+  const tabs = ['All', 'Fun', 'ZIP', 'Blog']
 
   return (
     <div ref={containerRef} className={`relative ${className || ''}`}>
@@ -208,7 +206,6 @@ export function GlobalSearch({ className }: { className?: string }) {
                   {[
                     ['Fun', FUN_COUNT, 'text-purple-600 bg-purple-50'],
                     ['ZIP', ZIP_COUNT, 'text-cyan-600 bg-cyan-50'],
-                    ['Commodities', COMMODITIES_COUNT, 'text-amber-700 bg-amber-50'],
                     ['Blog', BLOG_COUNT, 'text-orange-600 bg-orange-50'],
                   ].map(([cat, count, cls]) => (
                     <button

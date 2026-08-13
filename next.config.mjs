@@ -73,13 +73,6 @@ const nextConfig = {
           { key: 'Cache-Control', value: 'public, s-maxage=60, stale-while-revalidate=300' },
         ],
       },
-      // Commodity pages serve live prices — short CDN TTL keeps data fresh
-      {
-        source: '/commodities/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'public, s-maxage=30, stale-while-revalidate=120' },
-        ],
-      },
     ]
   },
 
@@ -105,8 +98,6 @@ const nextConfig = {
       { source: '/zip/',                        destination: '/zip',                         permanent: true },
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
       { source: '/blog/',                       destination: '/blog',                        permanent: true },
-      { source: '/commodities/:path*/',         destination: '/commodities/:path*',          permanent: true },
-      { source: '/commodities/',                destination: '/commodities',                 permanent: true },
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
       // ── Insult generator duplicate fix (byte-identical pages, merged into canonical) ──
       { source: '/calculators/fun/insult-generator',  destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },

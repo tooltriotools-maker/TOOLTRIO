@@ -43,18 +43,6 @@ const NAV = [
     ],
   },
   {
-    key: 'commodities', label: '🥇 Commodities', color: 'yellow',
-    href: '/commodities', viewAll: 'All 10 Commodity Tools →',
-    items: [
-      { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
-      { name: 'Silver Price Calculator', href: '/commodities/silver-price-calculator' },
-      { name: 'Crude Oil WTI', href: '/commodities/crude-oil-calculator' },
-      { name: 'Natural Gas', href: '/commodities/natural-gas-calculator' },
-      { name: 'Gold Loan Calculator', href: '/commodities/gold-loan-calculator' },
-      { name: 'Metals Portfolio', href: '/commodities/commodity-portfolio-tracker' },
-    ],
-  },
-  {
     key: 'blog', label: '📚 Blog', color: 'green',
     href: '/blog', viewAll: 'All Blog Posts ->',
     items: [

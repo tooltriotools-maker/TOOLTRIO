@@ -17,18 +17,6 @@ const zipLinks = [
   ['All ZIP Tools →', '/zip'],
 ]
 
-const commodityLinks = [
-  ['Gold Price Calculator', '/commodities/gold-price-calculator'],
-  ['Silver Price Calculator', '/commodities/silver-price-calculator'],
-  ['Platinum Calculator', '/commodities/platinum-price-calculator'],
-  ['Crude Oil Calculator', '/commodities/crude-oil-calculator'],
-  ['Brent Crude Calculator', '/commodities/brent-crude-calculator'],
-  ['Natural Gas Calculator', '/commodities/natural-gas-calculator'],
-  ['Gold Loan Calculator', '/commodities/gold-loan-calculator'],
-  ['Metals P&L Calculator', '/commodities/precious-metals-profit-calculator'],
-  ['Portfolio Tracker', '/commodities/commodity-portfolio-tracker'],
-  ['All Commodities →', '/commodities'],
-]
 
 const blogLinks = [
   ['Blog Home', '/blog'],
@@ -60,7 +48,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              Free online calculators and tools for ZIP codes, commodities and developers. No signup. No ads. Instant results.
+              Free online calculators and tools for ZIP codes and fun tools. No signup. No ads. Instant results.
               Also known as Tool Trio, Trio Tools and Toolstrio.
             </p>
             <a
@@ -89,17 +77,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Commodities + Blog + Company */}
+          {/* Blog + Company */}
           <div>
-            <h2 className="font-bold text-white text-sm mb-4">🏅 Commodities</h2>
-            <ul className="space-y-2.5 text-sm mb-6">
-              {commodityLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-yellow-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
-
             <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-blue-400" /> Blog
             </h2>
@@ -128,9 +107,8 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
             <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
-            ZIP codes, commodities and fun tools. Popular public tools include{' '}
+            ZIP codes and fun tools. Popular public tools include{' '}
             <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
-            <Link href="/commodities/gold-price-calculator" className="text-gray-500 hover:text-gray-400">gold price calculator</Link>.
             All tools are free, private, and require no account.
           </p>
         </div>

@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   },
 
   description:
-    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free online tools across ZIP code tools, fun generators, quizzes, commodities and more. No signup required.',
+    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free online tools across ZIP code tools, fun generators and quizzes. No signup required.',
 
   keywords: [
     'tooltrio', 'tool trio', 'tooltrio.com', 'trio tools', 'tools trio', 'toolstrio',
     'online tools', 'free online tools', 'ZIP code tools',
-    'JSON formatter', 'regex tester', 'ZIP code lookup', 'commodity calculators',
+    'JSON formatter', 'regex tester', 'ZIP code lookup',
   ],
 
   authors: [{ name: 'ToolTrio', url: siteUrl }],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteName,
     title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
-      'Free online tools across ZIP code tools, commodities, fun generators and more. No signup required. Instant results.',
+      'Free online tools across ZIP code tools, fun generators and more. No signup required. Instant results.',
     images: [
       {
         url: '/og-image.png',
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     creator: '@tooltrio',
     title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
-      'Free online tools across ZIP code tools, commodities, fun generators and more. No signup.',
+      'Free online tools across ZIP code tools, fun generators and more. No signup.',
     images: ['/og-image.png'],
   },
 
@@ -104,7 +104,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    'ToolTrio is a free online tools website offering ZIP code tools, commodity calculators, fun generators and other practical tools.',
+    'ToolTrio is a free online tools website offering ZIP code tools, fun generators and other practical tools.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   // Keep one hostname everywhere. www.tooltrio.com permanently redirects to tooltrio.com.
@@ -118,7 +118,7 @@ const organizationSchema = {
     availableLanguage: ['English'],
   },
   knowsAbout: [
-    'ZIP Code Tools', 'Commodity Calculators', 'Fun Generators', 'Online Utilities',
+    'ZIP Code Tools', 'Fun Generators', 'Online Utilities',
   ],
 }
 
@@ -129,7 +129,7 @@ const websiteSchema = {
   alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
   url: siteUrl,
   description:
-    'Free online tools across ZIP tools, commodities, fun generators and other practical categories. No signup required.',
+    'Free online tools across ZIP tools, fun generators and other practical categories. No signup required.',
   inLanguage: 'en-US',
 }
 

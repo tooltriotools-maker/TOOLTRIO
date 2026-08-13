@@ -19,16 +19,16 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 export const metadata: Metadata = {
   title: 'About ToolTrio | Who We Are & What We Build',
   description:
-    'ToolTrio is a free online tools website focused on US ZIP code utilities, commodity calculators and fun tools. No signup, no ads, instant results.',
+    'ToolTrio is a free online tools website focused on US ZIP code utilities and fun tools. No signup, no ads, instant results.',
   keywords: [
     'about tooltrio','tooltrio mission','who built tooltrio','tooltrio team',
-    'free online tools website','zip code tools','commodity calculators','fun tools',
+    'free online tools website','zip code tools','fun tools',
     'tooltrio about us','tool trio about ','tooltrio story',
   ],
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
     title: 'About ToolTrio | Who We Are & What We Build',
-    description: 'ToolTrio offers free ZIP code tools, commodity calculators and fun tools with instant results and no signup.',
+    description: 'ToolTrio offers free ZIP code tools and fun tools with instant results and no signup.',
     url: `${siteUrl}/about`,
     siteName: 'ToolTrio',
     type: 'website',
@@ -48,7 +48,7 @@ const aboutSchema = {
   '@type': 'AboutPage',
   name: 'About ToolTrio',
   url: `${siteUrl}/about`,
-  description: 'ToolTrio is a free online tools platform for US ZIP codes, commodities, fun generators and everyday utilities.',
+  description: 'ToolTrio is a free online tools platform for US ZIP codes, fun generators and everyday utilities.',
   mainEntity: {
     '@type': 'Organization',
     name: 'ToolTrio',
@@ -57,7 +57,7 @@ const aboutSchema = {
     email: contactEmail,
     logo: `${siteUrl}/logo.png`,
     foundingDate: '2026',
-    description: 'ToolTrio provides free online tools — no signup, no ads, instant results — across ZIP code utilities, commodities, fun generators and more.',
+    description: 'ToolTrio provides free online tools — no signup, no ads, instant results — across ZIP code utilities, fun generators and more.',
   },
 }
 
@@ -120,8 +120,7 @@ export default function AboutPage() {
             ToolTrio was built to fix that — a clean, fast, accurate tool platform that respects your time and your privacy.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            Whether you're calculating SIP returns, working out your mortgage payment, checking your BMI,
-            looking up a ZIP code, or formatting JSON — <strong>ToolTrio.com</strong> gives you the answer in seconds.
+            Whether you're looking up a ZIP code or using a fun tool — <strong>ToolTrio.com</strong> gives you the answer in seconds.
             No account. No ads. No noise.
           </p>
         </div>
@@ -146,21 +145,13 @@ export default function AboutPage() {
 
         <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-8 md:p-10 text-white mb-10">
           <h2 className="text-2xl font-black mb-4">What ToolTrio Covers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-bold text-green-200 mb-2">📮 ZIP Code Tools</h3>
               <ul className="text-sm text-green-100 space-y-1">
                 <li>— ZIP Code Lookup &amp; City/State</li>
                 <li>— ZIP Code Distance &amp; Radius</li>
                 <li>— ZIP+4 &amp; Timezone tools</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-green-200 mb-2">🥇 Commodity Tools</h3>
-              <ul className="text-sm text-green-100 space-y-1">
-                <li>— Gold &amp; Silver prices</li>
-                <li>— Platinum &amp; Palladium</li>
-                <li>— Metals P&amp;L &amp; portfolio tools</li>
               </ul>
             </div>
             <div>

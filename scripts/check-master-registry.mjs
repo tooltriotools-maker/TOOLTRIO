@@ -23,8 +23,7 @@ for (const tool of registry) {
 const categories = [
   ['fun', path.join(root, 'app', 'calculators', 'fun')],
   ['zip', path.join(root, 'app', 'zip')],
-  ['commodities', path.join(root, 'app', 'commodities')],
-]
+  ]
 
 const actual = new Set()
 for (const [cat, dir] of categories) {
@@ -33,7 +32,7 @@ for (const [cat, dir] of categories) {
     if (!entry.isDirectory()) continue
     const page = path.join(dir, entry.name, 'page.tsx')
     if (!fs.existsSync(page)) continue
-    const href = cat === 'zip' || cat === 'commodities'
+    const href = cat === 'zip'
       ? `/${cat}/${entry.name}`
       : `/calculators/${cat}/${entry.name}`
     if (!redirects.has(href)) actual.add(href)

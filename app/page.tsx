@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     'zip code validator',
     'us zip code tools',
     'free zip code tools',
-        'gold price calculator',
     'tooltrio',
     'tool trio',
     'trio tools',
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
-    description: 'Free ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools — plus commodity and fun tools. No signup required.',
+    description: 'Free US ZIP code tools for lookup, distance, timezone, coordinates and ZIP+4, plus fun tools. No signup required.',
     images: ['/og-image.png'],
   },
 }
@@ -65,7 +64,7 @@ const homepageFAQSchema = {
       name: 'What is ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio is a free US ZIP code tools website with commodity calculators and fun tools. No signup required.',
+        text: 'ToolTrio is a free US ZIP code tools website with fun tools. No signup required.',
       },
     },
     {
@@ -110,10 +109,10 @@ const homepageFAQSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Does ToolTrio have ZIP code tools, commodity calculators and fun tools?',
+      name: 'Does ToolTrio have ZIP code tools and fun tools?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ToolTrio includes 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
+        text: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 30+ tools.',
       },
     },
   ],
@@ -142,18 +141,6 @@ const heroZipTools = [
   { name: 'ZIP to Coordinates', desc: 'Find latitude & longitude by ZIP', href: '/zip/zip-to-coordinates', icon: '🌐' },
 ]
 
-const commodityTools = [
-  { name: 'Gold Price Calculator', desc: 'Live gold price, all karats', href: '/commodities/gold-price-calculator', icon: '🥇', badge: 'Popular' },
-  { name: 'Silver Price Calculator', desc: 'Live silver price per gram', href: '/commodities/silver-price-calculator', icon: '🥈', badge: 'Popular' },
-  { name: 'Platinum Calculator', desc: 'Live platinum price', href: '/commodities/platinum-price-calculator', icon: '💍', badge: null },
-  { name: 'Crude Oil Calculator', desc: 'WTI crude oil pricing', href: '/commodities/crude-oil-calculator', icon: '🛢️', badge: null },
-  { name: 'Brent Crude Calculator', desc: 'Brent crude oil pricing', href: '/commodities/brent-crude-calculator', icon: '⛽', badge: null },
-  { name: 'Natural Gas Calculator', desc: 'Live natural gas pricing', href: '/commodities/natural-gas-calculator', icon: '🔥', badge: null },
-  { name: 'Gold Loan Calculator', desc: 'Loan-to-value & EMI', href: '/commodities/gold-loan-calculator', icon: '🏦', badge: null },
-  { name: 'Metals P&L Calculator', desc: 'Profit/loss on metals', href: '/commodities/precious-metals-profit-calculator', icon: '📈', badge: null },
-  { name: 'Portfolio Tracker', desc: 'Track commodity holdings', href: '/commodities/commodity-portfolio-tracker', icon: '💼', badge: 'NEW' },
-  { name: 'Palladium Calculator', desc: 'Live palladium price', href: '/commodities/palladium-price-calculator', icon: '⚙️', badge: null },
-]
 
 const funTools = [
   { name: 'Pizza Calculator', desc: 'How many pizzas to order', href: '/calculators/fun/pizza-calculator', icon: '🍕', badge: 'Popular' },
@@ -191,7 +178,6 @@ export default function HomePage() {
             <span>📮 ZIP Code Tools</span>
 
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>🥇 Commodities</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>🔒 Free · No Signup</span>
           </div>
@@ -222,7 +208,6 @@ export default function HomePage() {
               { label: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { label: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
               { label: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-              { label: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
             ].map(t => (
               <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
                 {t.label}
@@ -233,7 +218,6 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { val: '35+', label: 'ZIP Code Tools' },
-              { val: '10+', label: 'Commodity Calculators' },
               { val: '30+', label: 'Fun Tools' },
             ].map(s => (
               <div key={s.label} className="text-center">
@@ -258,7 +242,6 @@ export default function HomePage() {
               { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-              { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
               { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator' },
               { name: 'Personality Quiz', href: '/calculators/fun/personality-quiz' },
             ].map(c => (
@@ -311,7 +294,6 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
-              { name: 'Commodities', count: '10+ tools', href: '/commodities', icon: '🥇', color: '#d97706' },
               { name: 'Fun', count: '30+ tools', href: '/calculators/fun', icon: '😄', color: '#db2777' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="group p-4 border rounded-2xl text-center hover:-translate-y-1 hover:shadow-lg transition-all" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
@@ -375,36 +357,6 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-snug mb-2">{post.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{post.excerpt}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Commodities Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <span>🥇</span> Commodity Calculators
-            </h2>
-            <Link href="/commodities" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all commodity calculators →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {commodityTools.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-amber-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-amber-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
               </Link>
             ))}
           </div>
@@ -531,7 +483,7 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free online tools website with 35+ US ZIP code tools, commodity calculators and fun tools. No signup required.',
+                a: 'ToolTrio is a free online tools website with 35+ US ZIP code tools and fun tools. No signup required.',
               },
               {
                 q: 'How do I find the city and state for a ZIP code?',
@@ -551,7 +503,7 @@ export default function HomePage() {
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
-                a: 'Yes. ToolTrio includes 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
+                a: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 30+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

@@ -1,7 +1,7 @@
 // GENERATED CATALOG SOURCE OF TRUTH
 // Generated from route folders. Preserve names by keeping them in this file before regeneration.
 
-export type ToolCategory = 'fun' | 'zip' | 'commodities'
+export type ToolCategory = 'fun' | 'zip'
 export type ToolRegion = 'usa' | 'uk' | 'europe' | 'india' | 'global'
 
 export type ToolRecord = {
@@ -14,16 +14,6 @@ export type ToolRecord = {
 }
 
 export const TOOL_CATALOG: readonly ToolRecord[] = [
-  { name: 'Brent Crude Calculator', href: '/commodities/brent-crude-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'brent crude calculator', region: 'usa' },
-  { name: 'Commodity Portfolio Tracker', href: '/commodities/commodity-portfolio-tracker', cat: 'commodities', catLabel: 'Commodities', kw: 'commodity portfolio tracker', region: 'usa' },
-  { name: 'Crude Oil Calculator', href: '/commodities/crude-oil-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'crude oil calculator', region: 'usa' },
-  { name: 'Gold Loan Calculator', href: '/commodities/gold-loan-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'gold loan calculator', region: 'usa' },
-  { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'gold price calculator', region: 'global' },
-  { name: 'Natural Gas Calculator', href: '/commodities/natural-gas-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'natural gas calculator', region: 'usa' },
-  { name: 'Palladium Price Calculator', href: '/commodities/palladium-price-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'palladium price calculator', region: 'usa' },
-  { name: 'Platinum Price Calculator', href: '/commodities/platinum-price-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'platinum price calculator', region: 'usa' },
-  { name: 'Precious Metals Profit Calculator', href: '/commodities/precious-metals-profit-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'precious metals profit calculator', region: 'usa' },
-  { name: 'Silver Price Calculator', href: '/commodities/silver-price-calculator', cat: 'commodities', catLabel: 'Commodities', kw: 'silver price calculator', region: 'usa' },
   { name: 'Age in Days', href: '/calculators/fun/age-in-days', cat: 'fun', catLabel: 'Fun', kw: 'age in days', region: 'global' },
   { name: 'Birthday Countdown', href: '/calculators/fun/birthday-countdown', cat: 'fun', catLabel: 'Fun', kw: 'birthday countdown', region: 'global' },
   { name: 'Calories in Beer', href: '/calculators/fun/calories-in-beer', cat: 'fun', catLabel: 'Fun', kw: 'calories in beer', region: 'global' },

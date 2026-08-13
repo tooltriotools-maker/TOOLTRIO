@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
-type ShareCategory = 'Fun' | 'ZIP' | 'Commodities'
+type ShareCategory = 'Fun' | 'ZIP'
 
 interface ShareButtonProps {
   title: string
@@ -16,7 +16,6 @@ interface ShareButtonProps {
 const ACCENTS: Record<ShareCategory, { bg: string; light: string; text: string; border: string }> = {
   Fun:         { bg: '#7c3aed', light: '#f5f3ff', text: '#6d28d9', border: '#ddd6fe' },
   ZIP:         { bg: '#0284c7', light: '#f0f9ff', text: '#0369a1', border: '#bae6fd' },
-  Commodities: { bg: '#ca8a04', light: '#fefce8', text: '#a16207', border: '#fde68a' },
 }
 
 // ─── Share channels ────────────────────────────────────────────────────────────

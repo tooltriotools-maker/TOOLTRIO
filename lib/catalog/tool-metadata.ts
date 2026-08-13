@@ -107,6 +107,5 @@ export function categoryLabel(category: ToolCategory): string {
   switch (category) {
     case 'fun': return 'Fun'
     case 'zip': return 'ZIP Tools'
-    case 'commodities': return 'Commodities'
   }
 }

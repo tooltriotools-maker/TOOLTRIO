@@ -10,167 +10,8 @@ export type GeneratedToolPageMetadata = {
   source: string
 }
 
-export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedToolPageMetadata>> = {  "/commodities/brent-crude-calculator": {
-    "title": "Brent Crude Calculator – Live Oil Price per Barrel | ToolTrio",
-    "description": "Calculate Brent crude oil price per barrel, gallon, and litre at live spot prices. Global oil benchmark calculator. Free, instant, no signup.",
-    "keywords": [
-      "brent crude calculator",
-      "brent oil price",
-      "brent crude price per barrel",
-      "brent oil calculator",
-      "oil price calculator",
-      "brent crude today",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/brent-crude-calculator",
-    "source": "app/commodities/brent-crude-calculator/page.tsx"
-  },  "/commodities/commodity-portfolio-tracker": {
-    "title": "Commodity Portfolio Tracker – Live Gold Silver Prices | ToolTrio",
-    "description": "Track gold, silver, platinum, palladium, oil, and energy holdings at live prices with full P&L breakdown. Free commodity portfolio tracker, no signup.",
-    "keywords": [
-      "commodity portfolio tracker",
-      "gold portfolio tracker",
-      "precious metals portfolio",
-      "commodity tracker",
-      "gold silver portfolio",
-      "commodity investment tracker",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/commodity-portfolio-tracker",
-    "source": "app/commodities/commodity-portfolio-tracker/page.tsx"
-  },  "/commodities/crude-oil-calculator": {
-    "title": "Crude Oil Calculator – WTI Price per Barrel & Gallon | ToolTrio",
-    "description": "Calculate WTI crude oil cost per barrel, gallon, litre, and metric ton at live spot prices. US benchmark oil price calculator. Free, no signup.",
-    "keywords": [
-      "crude oil calculator",
-      "oil price per barrel",
-      "wti crude oil price",
-      "oil price calculator",
-      "barrel price calculator",
-      "crude oil price today",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/crude-oil-calculator",
-    "source": "app/commodities/crude-oil-calculator/page.tsx"
-  },  "/commodities/gold-loan-calculator": {
-    "title": "Gold Loan Calculator – LTV, EMI & Interest | ToolTrio",
-    "description": "Calculate gold loan amount at live spot price with LTV ratios, EMI breakdown, and total interest. India and international gold loan calculator. Free.",
-    "keywords": [
-      "gold loan calculator",
-      "gold loan emi calculator",
-      "gold loan ltv calculator",
-      "loan against gold",
-      "gold loan interest calculator",
-      "gold loan india",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/gold-loan-calculator",
-    "source": "app/commodities/gold-loan-calculator/page.tsx"
-  },  "/commodities/gold-price-calculator": {
-    "title": "Gold Price Calculator – Live 24K/22K/18K per Gram | ToolTrio",
-    "description": "Calculate live gold price in 24K, 22K, 20K, 18K, 14K, 10K per gram, tola and troy oz. USD, INR, GBP and EUR supported. Free, no signup.",
-    "keywords": [
-      "gold price calculator",
-      "gold price per gram",
-      "24k gold price",
-      "22k gold price",
-      "gold price india",
-      "live gold price",
-      "gold price today",
-      "gold karat calculator",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/gold-price-calculator",
-    "source": "app/commodities/gold-price-calculator/page.tsx"
-  },  "/commodities/natural-gas-calculator": {
-    "title": "Natural Gas Calculator – Live Price per MMBtu | ToolTrio",
-    "description": "Calculate natural gas price per MMBtu, therm, cubic foot, and cubic meter at live spot prices. Free natural gas price calculator, no signup.",
-    "keywords": [
-      "natural gas calculator",
-      "natural gas price per mmbtu",
-      "natural gas price",
-      "gas price calculator",
-      "natural gas price today",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/natural-gas-calculator",
-    "source": "app/commodities/natural-gas-calculator/page.tsx"
-  },  "/commodities/palladium-price-calculator": {
-    "title": "Palladium Price Calculator – Live Spot per Gram | ToolTrio",
-    "description": "Calculate live palladium spot price per gram and troy oz. Track auto-catalyst value in USD, INR, EUR and GBP. Free palladium calculator, no signup.",
-    "keywords": [
-      "palladium price calculator",
-      "palladium price per gram",
-      "palladium spot price",
-      "palladium price today",
-      "live palladium price",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/palladium-price-calculator",
-    "source": "app/commodities/palladium-price-calculator/page.tsx"
-  },  "/commodities/platinum-price-calculator": {
-    "title": "Platinum Price Calculator – Live per Gram & Troy Oz | ToolTrio",
-    "description": "Calculate live platinum spot price per gram, pennyweight, and troy oz. Multi-currency: USD, INR, EUR, GBP. Free platinum price calculator, no signup.",
-    "keywords": [
-      "platinum price calculator",
-      "platinum price per gram",
-      "platinum spot price",
-      "platinum price today",
-      "live platinum price",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/platinum-price-calculator",
-    "source": "app/commodities/platinum-price-calculator/page.tsx"
-  },  "/commodities/precious-metals-profit-calculator": {
-    "title": "Precious Metals P&L Calculator – Gold Silver Profit | ToolTrio",
-    "description": "Calculate profit and loss on gold, silver, platinum, and palladium trades. Enter buy price, sell price, fees and get net P&L instantly. Free, no signup.",
-    "keywords": [
-      "precious metals profit calculator",
-      "gold profit calculator",
-      "silver profit calculator",
-      "metals p&l calculator",
-      "gold trade profit",
-      "metal investment calculator",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/precious-metals-profit-calculator",
-    "source": "app/commodities/precious-metals-profit-calculator/page.tsx"
-  },  "/commodities/silver-price-calculator": {
-    "title": "Silver Price Calculator – Live 999/925/800 per Gram | ToolTrio",
-    "description": "Calculate live silver price for 999 Fine, 925 Sterling, 900 Coin, 800 European per gram, troy oz, and kilogram. Free silver price calculator, no signup.",
-    "keywords": [
-      "silver price calculator",
-      "silver price per gram",
-      "999 silver price",
-      "925 silver price",
-      "sterling silver price",
-      "live silver price",
-      "silver price today",
-      "tooltrio",
-      "free calculator",
-      "no signup"
-    ],
-    "canonical": "https://tooltrio.com/commodities/silver-price-calculator",
-    "source": "app/commodities/silver-price-calculator/page.tsx"
-  },  "/calculators/fun/age-in-days": {
+export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedToolPageMetadata>> = {
+  "/calculators/fun/age-in-days": {
     "title": "Age in Days Calculator – How Old Am I? | ToolTrio",
     "description": "Find out exactly how many days, hours, minutes, and seconds you have been alive. Plus heartbeats, breaths taken, and wild life stats. Free, instant, no signup.",
     "keywords": [
@@ -185,7 +26,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/age-in-days/page.tsx"
-  },  "/calculators/fun/birthday-countdown": {
+  },
+  "/calculators/fun/birthday-countdown": {
     "title": "Birthday Countdown Calculator | ToolTrio",
     "description": "See exactly how many days, hours, minutes, and seconds until your next birthday. Live real-time countdown. Free, no login, works on any device.",
     "keywords": [
@@ -200,7 +42,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/birthday-countdown/page.tsx"
-  },  "/calculators/fun/calories-in-beer": {
+  },
+  "/calculators/fun/calories-in-beer": {
     "title": "Calories in Beer Calculator | ToolTrio",
     "description": "Calculate calories in any beer by type, ABV, and serving size. Find out how long it takes to burn off those pints. Free, instant, no login needed.",
     "keywords": [
@@ -215,7 +58,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/calories-in-beer/page.tsx"
-  },  "/calculators/fun/coffee-calculator": {
+  },
+  "/calculators/fun/coffee-calculator": {
     "title": "Lifetime Caffeine Calculator | ToolTrio",
     "description": "Calculate your lifetime coffee consumption, total caffeine intake, money spent on coffee, and how many cups you will drink before retirement. Free and instant.",
     "keywords": [
@@ -230,7 +74,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/coffee-calculator/page.tsx"
-  },  "/calculators/fun/compliment-generator": {
+  },
+  "/calculators/fun/compliment-generator": {
     "title": "Compliment Generator Online | ToolTrio",
     "description": "Generate heartfelt, funny, or creative compliments for anyone — friends, colleagues, partners, or strangers. Free random compliment generator with no login.",
     "keywords": [
@@ -245,7 +90,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/compliment-generator/page.tsx"
-  },  "/calculators/fun/emoji-translator": {
+  },
+  "/calculators/fun/emoji-translator": {
     "title": "Emoji Translator – Text to Emoji | ToolTrio",
     "description": "Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social.",
     "keywords": [
@@ -260,7 +106,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/emoji-translator/page.tsx"
-  },  "/calculators/fun/fantasy-name-generator": {
+  },
+  "/calculators/fun/fantasy-name-generator": {
     "title": "Fantasy Name Generator | ToolTrio",
     "description": "Generate unique fantasy names for elves, dwarves, wizards, dragons, orcs, and more. Perfect for D&D, RPGs, novels, and gaming characters. Free, instant.",
     "keywords": [
@@ -275,7 +122,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/fantasy-name-generator/page.tsx"
-  },  "/calculators/fun/fortune-cookie": {
+  },
+  "/calculators/fun/fortune-cookie": {
     "title": "Fortune Cookie Generator | ToolTrio",
     "description": "Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the.",
     "keywords": [
@@ -290,7 +138,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/fortune-cookie/page.tsx"
-  },  "/calculators/fun/how-rich-am-i": {
+  },
+  "/calculators/fun/how-rich-am-i": {
     "title": "How Rich Am I? Global Wealth Rank | ToolTrio",
     "description": "Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people.",
     "keywords": [
@@ -305,7 +154,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/how-rich-am-i/page.tsx"
-  },  "/calculators/fun/life-expectancy-fun": {
+  },
+  "/calculators/fun/life-expectancy-fun": {
     "title": "Life Expectancy Calculator – Fun | ToolTrio",
     "description": "Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for.",
     "keywords": [
@@ -320,7 +170,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/life-expectancy-fun/page.tsx"
-  },  "/calculators/fun/love-compatibility": {
+  },
+  "/calculators/fun/love-compatibility": {
     "title": "Love Compatibility Calculator | ToolTrio",
     "description": "Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and.",
     "keywords": [
@@ -335,7 +186,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/love-compatibility/page.tsx"
-  },  "/calculators/fun/lucky-number": {
+  },
+  "/calculators/fun/lucky-number": {
     "title": "Lucky Number Calculator | ToolTrio",
     "description": "Calculate your life path number, expression number, and personal lucky numbers from your name and birthday using numerology. Free, instant, no signup needed.",
     "keywords": [
@@ -350,7 +202,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/lucky-number/page.tsx"
-  },  "/calculators/fun/personality-quiz": {
+  },
+  "/calculators/fun/personality-quiz": {
     "title": "Personality Quiz – Myers-Briggs Style | ToolTrio",
     "description": "Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free.",
     "keywords": [
@@ -365,7 +218,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/personality-quiz/page.tsx"
-  },  "/calculators/fun/pig-latin-converter": {
+  },
+  "/calculators/fun/pig-latin-converter": {
     "title": "Pig Latin Translator Online | ToolTrio",
     "description": "Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login.",
     "keywords": [
@@ -380,7 +234,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/pig-latin-converter/page.tsx"
-  },  "/calculators/fun/pizza-calculator": {
+  },
+  "/calculators/fun/pizza-calculator": {
     "title": "Pizza Calculator – How Many Pizzas? | ToolTrio",
     "description": "Calculate exactly how many pizzas to order for any group size, appetite level, and pizza size. Never over- or under-order again. Free pizza party.",
     "keywords": [
@@ -395,7 +250,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/pizza-calculator/page.tsx"
-  },  "/calculators/fun/procrastination-score": {
+  },
+  "/calculators/fun/procrastination-score": {
     "title": "Procrastination Score Calculator | ToolTrio",
     "description": "Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free.",
     "keywords": [
@@ -410,7 +266,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/procrastination-score/page.tsx"
-  },  "/calculators/fun/random-fact-generator": {
+  },
+  "/calculators/fun/random-fact-generator": {
     "title": "Random Fact Generator | ToolTrio",
     "description": "Generate random interesting facts about science, history, animals, space, food, and more. A new mind-blowing fact every click. Free, ad-free, no login needed.",
     "keywords": [
@@ -425,7 +282,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/random-fact-generator/page.tsx"
-  },  "/calculators/fun/random-name-generator": {
+  },
+  "/calculators/fun/random-name-generator": {
     "title": "Random Name Generator | ToolTrio",
     "description": "Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator.",
     "keywords": [
@@ -440,7 +298,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/random-name-generator/page.tsx"
-  },  "/calculators/fun/screen-time-calculator": {
+  },
+  "/calculators/fun/screen-time-calculator": {
     "title": "Screen Time Calculator | ToolTrio",
     "description": "Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free.",
     "keywords": [
@@ -455,7 +314,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/screen-time-calculator/page.tsx"
-  },  "/calculators/fun/shakespeare-insult-generator": {
+  },
+  "/calculators/fun/shakespeare-insult-generator": {
     "title": "Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio",
     "description": "Free Shakespeare Insult Generator. Create funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks instantly. Generate over 468 million unique Shakespeare-style insults.",
     "keywords": [
@@ -482,7 +342,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio"
     ],
     "source": "app/calculators/fun/shakespeare-insult-generator/page.tsx"
-  },  "/calculators/fun/sleep-debt-calculator": {
+  },
+  "/calculators/fun/sleep-debt-calculator": {
     "title": "Sleep Debt Calculator | ToolTrio",
     "description": "Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend.",
     "keywords": [
@@ -497,7 +358,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/sleep-debt-calculator/page.tsx"
-  },  "/calculators/fun/social-media-addiction": {
+  },
+  "/calculators/fun/social-media-addiction": {
     "title": "Social Media Addiction Score | ToolTrio",
     "description": "Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back.",
     "keywords": [
@@ -512,7 +374,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/social-media-addiction/page.tsx"
-  },  "/calculators/fun/superhero-name": {
+  },
+  "/calculators/fun/superhero-name": {
     "title": "Superhero Name Generator | ToolTrio",
     "description": "Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — Superhero Name output.",
     "keywords": [
@@ -527,7 +390,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/superhero-name/page.tsx"
-  },  "/calculators/fun/text-to-morse": {
+  },
+  "/calculators/fun/text-to-morse": {
     "title": "Morse Code Translator Online | ToolTrio",
     "description": "Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code.",
     "keywords": [
@@ -542,7 +406,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/text-to-morse/page.tsx"
-  },  "/calculators/fun/trivia-quiz": {
+  },
+  "/calculators/fun/trivia-quiz": {
     "title": "Trivia Quiz – Random Questions | ToolTrio",
     "description": "Test your knowledge with 10 random trivia questions spanning science, history, pop culture, sports, geography, and more. Free trivia quiz online, instant.",
     "keywords": [
@@ -557,7 +422,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/trivia-quiz/page.tsx"
-  },  "/calculators/fun/uwu-text-generator": {
+  },
+  "/calculators/fun/uwu-text-generator": {
     "title": "UWU Text Generator Online | ToolTrio",
     "description": "Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, Uwu Text Generator output.",
     "keywords": [
@@ -572,7 +438,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/uwu-text-generator/page.tsx"
-  },  "/calculators/fun/villain-name": {
+  },
+  "/calculators/fun/villain-name": {
     "title": "Villain Name Generator | ToolTrio",
     "description": "Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name.",
     "keywords": [
@@ -587,7 +454,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/villain-name/page.tsx"
-  },  "/calculators/fun/workout-excuse-generator": {
+  },
+  "/calculators/fun/workout-excuse-generator": {
     "title": "Workout Excuse Generator | ToolTrio",
     "description": "Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant.",
     "keywords": [
@@ -602,7 +470,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/workout-excuse-generator/page.tsx"
-  },  "/calculators/fun/would-you-rather": {
+  },
+  "/calculators/fun/would-you-rather": {
     "title": "Would You Rather Generator | ToolTrio",
     "description": "Generate wild, funny, and impossible Would You Rather questions. Perfect for parties, road trips, dates, and group chats. Free online Would You Rather.",
     "keywords": [
@@ -617,7 +486,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/would-you-rather/page.tsx"
-  },  "/calculators/fun/zodiac-calculator": {
+  },
+  "/calculators/fun/zodiac-calculator": {
     "title": "Zodiac Sign Calculator | ToolTrio",
     "description": "Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac.",
     "keywords": [
@@ -632,7 +502,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/calculators/fun/zodiac-calculator/page.tsx"
-  },  "/zip/address-to-zip": {
+  },
+  "/zip/address-to-zip": {
     "title": "Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio",
     "description": "Find the ZIP code for any US street address free. Enter a street address, city, and state to get the exact ZIP code instantly. No signup required.",
     "keywords": [
@@ -649,7 +520,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/address-to-zip",
     "source": "app/zip/address-to-zip/page.tsx"
-  },  "/zip/area-code-by-zip": {
+  },
+  "/zip/area-code-by-zip": {
     "title": "Area Code by ZIP Code — Phone Area Code Lookup Free USA | ToolTrio",
     "description": "Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 42,000+ ZIP codes covered.",
     "keywords": [
@@ -666,7 +538,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/area-code-by-zip",
     "source": "app/zip/area-code-by-zip/page.tsx"
-  },  "/zip/city-to-zip": {
+  },
+  "/zip/city-to-zip": {
     "title": "City to ZIP Code — Find All ZIP Codes for Any US City | ToolTrio",
     "description": "Find all ZIP codes for any US city free. Enter a city name and state to get every ZIP code serving that city. All 42,000+ US ZIP codes covered.",
     "keywords": [
@@ -683,7 +556,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/city-to-zip",
     "source": "app/zip/city-to-zip/page.tsx"
-  },  "/zip/county-zip-codes": {
+  },
+  "/zip/county-zip-codes": {
     "title": "County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio",
     "description": "Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.",
     "keywords": [
@@ -700,7 +574,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/county-zip-codes",
     "source": "app/zip/county-zip-codes/page.tsx"
-  },  "/zip/drive-time-by-zip": {
+  },
+  "/zip/drive-time-by-zip": {
     "title": "Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio",
     "description": "Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.",
     "keywords": [
@@ -717,7 +592,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/drive-time-by-zip",
     "source": "app/zip/drive-time-by-zip/page.tsx"
-  },  "/zip/largest-zip-codes": {
+  },
+  "/zip/largest-zip-codes": {
     "title": "Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio",
     "description": "Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.",
     "keywords": [
@@ -734,7 +610,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/largest-zip-codes",
     "source": "app/zip/largest-zip-codes/page.tsx"
-  },  "/zip/multi-zip-distance": {
+  },
+  "/zip/multi-zip-distance": {
     "title": "Multi-ZIP Distance — Total Distance Across Multiple ZIPs | ToolTrio",
     "description": "Calculate total distance across multiple US ZIP codes free. Enter a sequence of ZIPs to get the total route distance in miles. Multi-stop ZIP route planner.",
     "keywords": [
@@ -751,7 +628,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/multi-zip-distance",
     "source": "app/zip/multi-zip-distance/page.tsx"
-  },  "/zip/multiple-cities-in-zip": {
+  },
+  "/zip/multiple-cities-in-zip": {
     "title": "Multiple Cities in a ZIP Code — All Cities by ZIP Free | ToolTrio",
     "description": "Find all cities and communities served by any US ZIP code free. Some ZIP codes deliver to multiple cities — see every city name for any ZIP.",
     "keywords": [
@@ -768,7 +646,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/multiple-cities-in-zip",
     "source": "app/zip/multiple-cities-in-zip/page.tsx"
-  },  "/zip/nearest-zip-code": {
+  },
+  "/zip/nearest-zip-code": {
     "title": "Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio",
     "description": "Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.",
     "keywords": [
@@ -785,7 +664,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/nearest-zip-code",
     "source": "app/zip/nearest-zip-code/page.tsx"
-  },  "/zip/same-timezone-zips": {
+  },
+  "/zip/same-timezone-zips": {
     "title": "Same Timezone ZIP Codes — All ZIPs in Same Time Zone | ToolTrio",
     "description": "Find all US ZIP codes in the same timezone as any ZIP code free. Enter a ZIP and get a complete list of ZIP codes sharing the same time zone.",
     "keywords": [
@@ -802,7 +682,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/same-timezone-zips",
     "source": "app/zip/same-timezone-zips/page.tsx"
-  },  "/zip/state-zip-codes": {
+  },
+  "/zip/state-zip-codes": {
     "title": "State ZIP Codes — Browse All ZIP Codes by US State Free | ToolTrio",
     "description": "Browse all ZIP codes for any US state free. Find every ZIP code in a state with city names, counties, and population data. All 50 states covered.",
     "keywords": [
@@ -819,7 +700,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/state-zip-codes",
     "source": "app/zip/state-zip-codes/page.tsx"
-  },  "/zip/usps-address-format": {
+  },
+  "/zip/usps-address-format": {
     "title": "USPS Address Format Guide — US Mailing Address Rules | ToolTrio",
     "description": "Learn the correct USPS address format for letters, packages, and bulk mail free. Complete guide to US mailing address rules, abbreviations, and USPS standards.",
     "keywords": [
@@ -836,7 +718,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/usps-address-format",
     "source": "app/zip/usps-address-format/page.tsx"
-  },  "/zip/zip-boundary-info": {
+  },
+  "/zip/zip-boundary-info": {
     "title": "ZIP Code Boundary Info — ZIP Area & Border Details USA | ToolTrio",
     "description": "Get boundary details for any US ZIP code free: area in square miles, perimeter, bounding box coordinates, and neighboring ZIP codes.",
     "keywords": [
@@ -853,7 +736,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-boundary-info",
     "source": "app/zip/zip-boundary-info/page.tsx"
-  },  "/zip/zip-by-area-code": {
+  },
+  "/zip/zip-by-area-code": {
     "title": "ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio",
     "description": "Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.",
     "keywords": [
@@ -870,7 +754,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-by-area-code",
     "source": "app/zip/zip-by-area-code/page.tsx"
-  },  "/zip/zip-code-distance": {
+  },
+  "/zip/zip-code-distance": {
     "title": "ZIP Code Distance Calculator — Distance Between Two US ZIP Codes | ToolTrio",
     "description": "Calculate the distance between two US ZIP codes in miles and kilometers. Compare straight-line ZIP distance with an estimated driving distance and travel time.",
     "keywords": [
@@ -914,7 +799,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-distance",
     "source": "app/zip/zip-code-distance/page.tsx"
-  },  "/zip/zip-code-elevation": {
+  },
+  "/zip/zip-code-elevation": {
     "title": "ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio",
     "description": "Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.",
     "keywords": [
@@ -931,7 +817,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-elevation",
     "source": "app/zip/zip-code-elevation/page.tsx"
-  },  "/zip/zip-code-format-guide": {
+  },
+  "/zip/zip-code-format-guide": {
     "title": "ZIP Code Format Guide — US ZIP Code Rules & Structure | ToolTrio",
     "description": "Complete guide to US ZIP code formats: 5-digit, ZIP+4, leading zeros, USPS rules, and best practices for storing ZIP codes in databases. Free.",
     "keywords": [
@@ -948,7 +835,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-format-guide",
     "source": "app/zip/zip-code-format-guide/page.tsx"
-  },  "/zip/zip-code-generator": {
+  },
+  "/zip/zip-code-generator": {
     "title": "ZIP Code Generator — Generate Random Valid ZIP Codes | ToolTrio",
     "description": "Generate random valid US ZIP codes free. Filter by state, ZIP type, or population. Perfect for software testing, QA, demos, and sample data.",
     "keywords": [
@@ -965,7 +853,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-generator",
     "source": "app/zip/zip-code-generator/page.tsx"
-  },  "/zip/zip-code-lookup": {
+  },
+  "/zip/zip-code-lookup": {
     "title": "ZIP Code Lookup — City, State, County & Timezone | ToolTrio",
     "description": "Look up any US ZIP code to find its city, state, county, timezone, coordinates, area code and other location details. Free ZIP code lookup with instant results.",
     "keywords": [
@@ -986,7 +875,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-lookup",
     "source": "app/zip/zip-code-lookup/page.tsx"
-  },  "/zip/zip-code-map": {
+  },
+  "/zip/zip-code-map": {
     "title": "ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio",
     "description": "View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.",
     "keywords": [
@@ -1003,7 +893,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-map",
     "source": "app/zip/zip-code-map/page.tsx"
-  },  "/zip/zip-code-population": {
+  },
+  "/zip/zip-code-population": {
     "title": "ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio",
     "description": "Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.",
     "keywords": [
@@ -1020,7 +911,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-population",
     "source": "app/zip/zip-code-population/page.tsx"
-  },  "/zip/zip-code-type": {
+  },
+  "/zip/zip-code-type": {
     "title": "ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio",
     "description": "Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.",
     "keywords": [
@@ -1037,7 +929,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-type",
     "source": "app/zip/zip-code-type/page.tsx"
-  },  "/zip/zip-code-validator": {
+  },
+  "/zip/zip-code-validator": {
     "title": "ZIP Code Validator — Check if a ZIP Code Is Valid Free | ToolTrio",
     "description": "Validate any US ZIP code free. Check if a ZIP code is real, active, and correctly formatted. Instantly verify ZIP codes for forms and address databases.",
     "keywords": [
@@ -1054,7 +947,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-code-validator",
     "source": "app/zip/zip-code-validator/page.tsx"
-  },  "/zip/zip-plus-4-lookup": {
+  },
+  "/zip/zip-plus-4-lookup": {
     "title": "ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio",
     "description": "Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.",
     "keywords": [
@@ -1082,7 +976,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-plus-4-lookup",
     "source": "app/zip/zip-plus-4-lookup/page.tsx"
-  },  "/zip/zip-time-converter": {
+  },
+  "/zip/zip-time-converter": {
     "title": "ZIP Code Time Converter — Convert Time Between ZIPs USA | ToolTrio",
     "description": "Convert the current time between any two US ZIP codes free. Enter two ZIPs to see the local time in each timezone. Handles daylight saving automatically.",
     "keywords": [
@@ -1099,7 +994,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-time-converter",
     "source": "app/zip/zip-time-converter/page.tsx"
-  },  "/zip/zip-to-area-code": {
+  },
+  "/zip/zip-to-area-code": {
     "title": "ZIP to Area Code — Telephone Area Code by ZIP USA Free | ToolTrio",
     "description": "Find the telephone area code for any US ZIP code free. Instant lookup — enter a ZIP and get the area code and city instantly. No signup required.",
     "keywords": [
@@ -1116,7 +1012,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-area-code",
     "source": "app/zip/zip-to-area-code/page.tsx"
-  },  "/zip/zip-to-city": {
+  },
+  "/zip/zip-to-city": {
     "title": "ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio",
     "description": "Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.",
     "keywords": [
@@ -1133,7 +1030,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-city",
     "source": "app/zip/zip-to-city/page.tsx"
-  },  "/zip/zip-to-coordinates": {
+  },
+  "/zip/zip-to-coordinates": {
     "title": "ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio",
     "description": "Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.",
     "keywords": [
@@ -1150,7 +1048,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-coordinates",
     "source": "app/zip/zip-to-coordinates/page.tsx"
-  },  "/zip/zip-to-county": {
+  },
+  "/zip/zip-to-county": {
     "title": "ZIP Code to County — Find County for Any ZIP Code Free | ToolTrio",
     "description": "Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 42,000+ ZIP codes covered.",
     "keywords": [
@@ -1167,7 +1066,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-county",
     "source": "app/zip/zip-to-county/page.tsx"
-  },  "/zip/zip-to-state": {
+  },
+  "/zip/zip-to-state": {
     "title": "ZIP Code to State — Which State Is Any ZIP Code In | ToolTrio",
     "description": "Find the US state for any ZIP code free. Enter a 5-digit ZIP and instantly see the full state name and two-letter abbreviation. All US ZIPs covered.",
     "keywords": [
@@ -1184,7 +1084,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-state",
     "source": "app/zip/zip-to-state/page.tsx"
-  },  "/zip/zip-to-timezone": {
+  },
+  "/zip/zip-to-timezone": {
     "title": "ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio",
     "description": "Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.",
     "keywords": [
@@ -1234,7 +1135,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-timezone",
     "source": "app/zip/zip-to-timezone/page.tsx"
-  },  "/zip/zip-to-timezone-map": {
+  },
+  "/zip/zip-to-timezone-map": {
     "title": "ZIP Code Timezone Map — Interactive US Timezone by ZIP | ToolTrio",
     "description": "View an interactive map of US timezones by ZIP code free. See which timezone any ZIP falls in — Eastern, Central, Mountain, Pacific, Alaska, Hawaii.",
     "keywords": [
@@ -1251,7 +1153,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-timezone-map",
     "source": "app/zip/zip-to-timezone-map/page.tsx"
-  },  "/zip/zip-to-zip-route": {
+  },
+  "/zip/zip-to-zip-route": {
     "title": "ZIP to ZIP Route — Driving Directions Between ZIP Codes | ToolTrio",
     "description": "Get the driving route between any two US ZIP codes free. View turn-by-turn directions, total distance in miles, and estimated drive time.",
     "keywords": [
@@ -1268,7 +1171,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zip-to-zip-route",
     "source": "app/zip/zip-to-zip-route/page.tsx"
-  },  "/zip/zips-by-city-name": {
+  },
+  "/zip/zips-by-city-name": {
     "title": "ZIP Codes by City Name — Search All ZIPs by City Name | ToolTrio",
     "description": "Search for all US ZIP codes matching any city name. Find every ZIP code serving cities or communities with a given name across all 50 US states.",
     "keywords": [
@@ -1285,7 +1189,8 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zips-by-city-name",
     "source": "app/zip/zips-by-city-name/page.tsx"
-  },  "/zip/zips-within-radius": {
+  },
+  "/zip/zips-within-radius": {
     "title": "ZIP Code Radius — Find All ZIP Codes Within a Radius Free | ToolTrio",
     "description": "Find all ZIP codes within any radius of a center ZIP. Enter miles and get every ZIP code nearby with population, county, and distance. Free radius search tool.",
     "keywords": [
@@ -1301,4 +1206,5 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "canonical": "https://tooltrio.com/zip/zips-within-radius",
     "source": "app/zip/zips-within-radius/page.tsx"
-  }} as const
+  }
+} as const

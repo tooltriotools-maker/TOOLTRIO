@@ -12,7 +12,7 @@ const redirects = new Set([
 const active = records.filter(tool => !redirects.has(tool.href))
 
 const pageFiles = []
-for (const cat of ['fun', 'zip', 'commodities']) {
+for (const cat of ['fun', 'zip']) {
   const dir = cat === 'fun' ? path.join(root, 'app', 'calculators', cat) : path.join(root, 'app', cat)
   if (!fs.existsSync(dir)) continue
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

@@ -27,7 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const categoryRoutes = [
     '/calculators/fun',
     '/zip',
-    '/commodities',
   ]
 
   return [

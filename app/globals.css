@@ -568,14 +568,6 @@ table {
   .grid.grid-cols-2.sm\:grid-cols-3.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* ── COMMODITY PAGES ──────────────────────────────────────────────── */
-@media (max-width: 639px) {
-  /* Commodity price card */
-  .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
-}
-
-/* ── COMMODITY TICKER ─────────────────────────────────────────────── */
-.commodity-ticker-wrap { overflow: hidden; width: 100%; }
 
 /* ── FOOTER ───────────────────────────────────────────────────────── */
 @media (max-width: 639px) {

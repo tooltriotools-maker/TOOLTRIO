@@ -3,25 +3,14 @@
 # Generated from the ToolTrio Master Tool Registry
 
 ## About
-75+ active tools across Fun, ZIP and Commodity tools.
+65+ active tools across Fun and ZIP tools.
 Free to use. No signup required.
 
 ## Categories
 - Fun: https://tooltrio.com/calculators/fun
 - ZIP: https://tooltrio.com/zip
-- Commodities: https://tooltrio.com/commodities
 
 ## Tools
-- Brent Crude Calculator: https://tooltrio.com/commodities/brent-crude-calculator
-- Commodity Portfolio Tracker: https://tooltrio.com/commodities/commodity-portfolio-tracker
-- Crude Oil Calculator: https://tooltrio.com/commodities/crude-oil-calculator
-- Gold Loan Calculator: https://tooltrio.com/commodities/gold-loan-calculator
-- Gold Price Calculator: https://tooltrio.com/commodities/gold-price-calculator
-- Natural Gas Calculator: https://tooltrio.com/commodities/natural-gas-calculator
-- Palladium Price Calculator: https://tooltrio.com/commodities/palladium-price-calculator
-- Platinum Price Calculator: https://tooltrio.com/commodities/platinum-price-calculator
-- Precious Metals Profit Calculator: https://tooltrio.com/commodities/precious-metals-profit-calculator
-- Silver Price Calculator: https://tooltrio.com/commodities/silver-price-calculator
 - Age in Days: https://tooltrio.com/calculators/fun/age-in-days
 - Birthday Countdown: https://tooltrio.com/calculators/fun/birthday-countdown
 - Calories in Beer: https://tooltrio.com/calculators/fun/calories-in-beer

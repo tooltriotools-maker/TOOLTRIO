@@ -14,7 +14,6 @@ export type RelatedTool = {
 const CATEGORY_ICONS: Record<ToolCategory, string> = {
   fun: '🎯',
   zip: '📍',
-  commodities: '📈',
 }
 
 function tokens(value: string): Set<string> {
