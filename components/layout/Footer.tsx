@@ -128,7 +128,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
             <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
-            ZIP codes, commodities and developer tools. Popular public tools include{' '}
+            ZIP codes, commodities and fun tools. Popular public tools include{' '}
             <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
             <Link href="/commodities/gold-price-calculator" className="text-gray-500 hover:text-gray-400">gold price calculator</Link>.
             All tools are free, private, and require no account.

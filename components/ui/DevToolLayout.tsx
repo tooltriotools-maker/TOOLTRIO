@@ -1,7 +1,7 @@
 'use client'
 /**
  * TOOLTRIO — DevToolLayout
- * Shared wrapper for Dev, Fun, and Commodities tool calculators.
+ * Shared wrapper for Fun tool calculators.
  * Provides: breadcrumb, title, both PDF export buttons, and data-results wrapper.
  */
 
@@ -19,7 +19,7 @@ interface DevToolLayoutProps {
   description?: string
   icon?: string
   slug?: string
-  /** Override category for colour theming — defaults to 'Dev' */
+  /** Category label for colour theming — defaults to 'Fun' */
   category?: ExportCategory
   /** Breadcrumb parent path e.g. '/calculators/fun' */
   parentPath?: string
@@ -33,29 +33,16 @@ export function DevToolLayout({
   description,
   icon = '🔧',
   slug,
-  category = 'Dev',
-  parentPath = '/calculators/dev',
-  parentLabel = 'Dev Tools',
+  category = 'Fun',
+  parentPath = '/calculators/fun',
+  parentLabel = 'Fun & Entertainment',
   children,
 }: DevToolLayoutProps) {
 
-  const badgeColor =
-    category === 'Health' ? 'text-rose-700 bg-rose-100 border-rose-200'
-    : category === 'Fun'  ? 'text-purple-700 bg-purple-100 border-purple-200'
-    : category === 'Finance' ? 'text-green-700 bg-green-100 border-green-200'
-    :                          'text-blue-700 bg-blue-100 border-blue-200'
+  const badgeColor = 'text-purple-700 bg-purple-100 border-purple-200'
 
-  const iconBg =
-    category === 'Health' ? 'bg-rose-100 border-rose-200'
-    : category === 'Fun'  ? 'bg-purple-100 border-purple-200'
-    : category === 'Finance' ? 'bg-green-100 border-green-200'
-    :                          'bg-blue-100 border-blue-200'
+  const iconBg = 'bg-purple-100 border-purple-200'
 
-  const accent =
-    category === 'Health' ? 'text-rose-500'
-    : category === 'Fun'  ? 'text-purple-500'
-    : category === 'Finance' ? 'text-green-600'
-    :                          'text-blue-600'
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
@@ -94,7 +81,7 @@ export function DevToolLayout({
         {/* Export + Share pair */}
         <div className="flex-shrink-0">
           <div className="calc-header-buttons flex items-center gap-2 flex-wrap">
-            <ShareButton title={title} description={description} category={category as 'Finance' | 'Health' | 'Dev' | 'Fun'} />
+            <ShareButton title={title} description={description} category="Fun" />
             <ExportButtonPair title={title} category={category} />
           </div>
         </div>

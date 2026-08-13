@@ -219,24 +219,6 @@ export default function FunPage() {
         </div>
       </section>
 
-      {/* Cross-category CTA */}
-      <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-pink-500 to-purple-600 text-white text-center">
-        <p className="text-2xl font-black mb-2">Done playing? Time to get serious. 💼</p>
-        <p className="text-pink-100 mb-4 max-w-lg mx-auto">
-          We also build tools that actually help with money, health, and development — same no-signup, no-ads approach.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Link href="/calculators/finance" className="px-5 py-2.5 bg-white text-pink-600 rounded-xl font-bold text-sm hover:bg-pink-50 transition-all">
-            Finance Calculators →
-          </Link>
-          <Link href="/calculators/health" className="px-5 py-2.5 bg-pink-400 text-white rounded-xl font-bold text-sm hover:bg-pink-300 transition-all border border-pink-300">
-            Health Calculators →
-          </Link>
-          <Link href="/calculators/dev" className="px-5 py-2.5 bg-purple-400 text-white rounded-xl font-bold text-sm hover:bg-purple-300 transition-all border border-purple-300">
-            Dev Tools →
-          </Link>
-        </div>
-      </div>
           <CalculatorBatch53DeepDive slug="fun" />
 </div>
   )

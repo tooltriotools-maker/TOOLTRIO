@@ -6,18 +6,11 @@ const catalog = fs.readFileSync(path.join(root, 'lib/catalog/tools.ts'), 'utf8')
 const tools = [...catalog.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '([^']+)', cat: '([^']+)'/g)]
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
-const active = tools.filter(t =>
-  !['finance', 'health'].includes(t.cat) &&
-  ![
-    '/calculators/health/pregnancy-due-date-calculator',
-    '/calculators/fun/insult-generator',
-  ].includes(t.href)
-)
+const active = tools.filter(t => t.cat === 'fun' || t.cat === 'zip' || t.cat === 'commodities')
 const count = category => active.filter(t => t.cat === category).length
 const base = 'https://tooltrio.com'
 
 const publicCategories = [
-  ['dev', 'Developer', '/calculators/dev'],
   ['fun', 'Fun', '/calculators/fun'],
   ['zip', 'ZIP', '/zip'],
   ['commodities', 'Commodities', '/commodities'],
@@ -30,7 +23,7 @@ const lines = [
   '# Generated from the ToolTrio Master Tool Registry',
   '',
   '## About',
-  `${active.length}+ active tools across Developer, Fun, ZIP and Commodity tools.`,
+  `${active.length}+ active tools across Fun, ZIP and Commodity tools.`,
   'Free to use. No signup required.',
   '',
   '## Categories',

@@ -7,7 +7,6 @@ const records = [...catalogSource.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '(
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
 const redirects = new Set([
-  '/calculators/health/pregnancy-due-date-calculator',
   '/calculators/fun/insult-generator',
 ])
 

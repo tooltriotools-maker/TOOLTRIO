@@ -1,7 +1,7 @@
 {
-  "name": "ToolTrio — Free Finance & Health Calculators",
+  "name": "ToolTrio — US ZIP Code Tools",
   "short_name": "ToolTrio",
-  "description": "Free finance and health calculators — mortgage, 401k, BMI, calorie, TDEE and 200+ more. No signup required.",
+  "description": "Free US ZIP code tools including US ZIP Code Cluster, ZIP Code Lookup, ZIP Code Distance and ZIP Code Timezone tools. No signup required.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#f0faf5",
@@ -37,6 +37,10 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["finance", "health", "utilities"],
+  "categories": [
+    "utilities",
+    "reference",
+    "navigation"
+  ],
   "lang": "en-US"
 }

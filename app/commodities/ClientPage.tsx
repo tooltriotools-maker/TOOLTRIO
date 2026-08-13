@@ -57,7 +57,6 @@ const FAQS = [
   },
   {
     q: 'Is gold a good hedge against inflation and rupee depreciation?',
-    a: `Gold has historically been one of the strongest hedges against both inflation and currency devaluation. The rupee has depreciated roughly 65% against the USD over the last 20 years (from ~45 to ~83), meaning even a flat USD gold price would have delivered a 65% return in rupee terms. In 2020, gold in INR hit an all-time high despite being range-bound in USD terms — because of rupee weakness. For a direct comparison of gold vs. SIP returns in your specific scenario, use our [SIP vs Gold Calculator](/calculators/finance/sip-vs-gold-calculator) and [Lumpsum vs Gold Calculator](/calculators/finance/lumpsum-vs-gold-calculator).`,
   },
   {
     q: 'What is the difference between troy ounce and regular ounce for precious metals?',
@@ -120,11 +119,6 @@ const RELATED_CALCS = [
   { emoji: '💰', name: 'Precious Metals Profit Calculator',    href: '/commodities/precious-metals-profit-calculator',      desc: 'Buy/sell P&L, ROI, annualized return, and break-even for all 4 metals' },
   { emoji: '🏦', name: 'Gold Loan Calculator',                 href: '/commodities/gold-loan-calculator',                   desc: 'Loan amount (75% LTV), EMI, and total interest against your gold holdings' },
   { emoji: '🗂️', name: 'Commodity Portfolio Tracker',          href: '/commodities/commodity-portfolio-tracker',            desc: 'Track your full portfolio — gold, silver, platinum, palladium — at live prices' },
-  { emoji: '⚖️', name: 'SIP vs Gold Calculator',               href: '/calculators/finance/sip-vs-gold-calculator',         desc: 'Mutual fund SIP vs physical gold — which built more wealth over your period?' },
-  { emoji: '📊', name: 'Lumpsum vs Gold Calculator',           href: '/calculators/finance/lumpsum-vs-gold-calculator',     desc: 'One-time stock/fund investment vs gold — historical return comparison' },
-  { emoji: '📈', name: 'Inflation Calculator',                 href: '/calculators/finance/inflation-calculator',           desc: 'How much purchasing power has the rupee lost? See what ₹1 lakh is worth today' },
-  { emoji: '💱', name: 'Currency Converter',                   href: '/calculators/finance/currency-converter',             desc: 'USD ↔ INR ↔ GBP ↔ EUR ↔ AED live exchange rates for cross-border gold trades' },
-  { emoji: '📉', name: 'Crypto Profit Calculator',             href: '/calculators/finance/crypto-profit-calculator',       desc: 'Compare gold returns vs Bitcoin and altcoin trades side by side' },
 ]
 
 function RelatedCalculators() {
@@ -287,7 +281,6 @@ function PreciousMetalsSEO() {
           <p><strong className="text-amber-800">2. Watch the gold-silver ratio.</strong> Historically, the ratio averages around 60:1. At 88:1 (April 2026), silver is historically cheap relative to gold. Many sophisticated investors rotate from gold to silver when the ratio is above 80 and back when below 50.</p>
           <p><strong className="text-amber-800">3. Account for bid-ask spread in profit calculations.</strong> The spot price is theoretical — you buy at the ask (spot + dealer premium, typically 2–4% for coins) and sell at the bid (spot minus dealer discount, typically 1–2%). A coin bought at +3% premium and sold at -1% discount means you need gold to rise 4% just to break even. Our <Link href="/commodities/precious-metals-profit-calculator" className="text-yellow-700 font-semibold">P&L Calculator</Link> includes separate buy and sell fee fields for this reason.</p>
           <p><strong className="text-amber-800">4. Track your portfolio holistically.</strong> Don't track each metal purchase in isolation — use the <Link href="/commodities/commodity-portfolio-tracker" className="text-yellow-700 font-semibold">Commodity Portfolio Tracker</Link> to see your total precious metals exposure, average cost per ounce, and overall gain/loss at live prices.</p>
-          <p><strong className="text-amber-800">5. Compare gold against other inflation hedges.</strong> Gold is not the only inflation hedge — I-Bonds, TIPS, REITs, and equities all protect against inflation differently. Use our <Link href="/calculators/finance/inflation-calculator" className="text-yellow-700 font-semibold">Inflation Calculator</Link> to quantify what you need your investment to return just to maintain purchasing power.</p>
         </div>
       </div>
 

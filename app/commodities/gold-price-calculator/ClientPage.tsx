@@ -270,7 +270,6 @@ export default function GoldPriceCalculatorPage() {
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>The gold price you see quoted on financial news channels is always in USD per troy ounce for 24K (99.9% pure) gold. But almost nobody buys 24K gold by the troy ounce — in India and the Gulf, gold is bought in grams or tolas, in 22K or 18K purity, and the price you actually pay includes import duty, GST, and making charges on top. This calculator converts the live spot price into every unit and karat combination you need, in five currencies.</p>
             <p>The conversion math: 1 troy oz = 31.1035 grams. 22K gold is 91.67% pure, so 22K price per gram = (spot ÷ 31.1035) × 0.9167. In India, add 15% import duty and 3% GST to get the domestic metal base price before making charges. When a jeweller quotes you ₹72,000 for 10 grams of 22K, run those numbers here first — you'll immediately see if the metal value stacks up or if you're being charged a premium.</p>
-            <p>For investment-grade gold (coins, bars), the relevant price is the spot price with no making charges. Use the making charges slider at 0% to get pure metal value. For jewellery with complex craftsmanship, 12–20% making is normal. For machine-made chains, anything above 10% is negotiable. Track your P&L on any gold position with the <Link href="/commodities/precious-metals-profit-calculator" className="text-yellow-700 font-semibold underline underline-offset-2">Precious Metals Profit Calculator</Link> and compare gold vs SIP returns with our <Link href="/calculators/finance/sip-vs-gold-calculator" className="text-yellow-700 font-semibold underline underline-offset-2">SIP vs Gold Calculator</Link>.</p>
           </div>
         </section>
 
@@ -323,7 +322,6 @@ export default function GoldPriceCalculatorPage() {
             <p><strong className="text-amber-800">1.</strong> Always demand a BIS hallmark certificate for gold jewellery — it guarantees the karat is genuine. Unhallmarked gold may be lower purity than stated.</p>
             <p><strong className="text-amber-800">2.</strong> 1 tola = 11.6638 grams (not 10g as some assume). This is a common confusion — our calculator handles the conversion precisely.</p>
             <p><strong className="text-amber-800">3.</strong> Gold ETFs and Sovereign Gold Bonds track 24K prices with no making charges, expense ratios under 0.5%, and zero storage cost — better than physical for pure investment.</p>
-            <p><strong className="text-amber-800">4.</strong> Compare your gold investment against SIP alternatives using our <Link href="/calculators/finance/sip-vs-gold-calculator" className="text-yellow-700 font-semibold">SIP vs Gold Calculator</Link> before deciding allocation.</p>
           </div>
         </div>
 
@@ -331,27 +329,7 @@ export default function GoldPriceCalculatorPage() {
         <GoldFAQ />
 
         {/* Related calculators */}
-        <section>
-          <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              {e:'🏦',n:'Gold Loan Calculator',h:'/commodities/gold-loan-calculator',d:'Borrow against your gold — eligible amount, EMI & total interest'},
-              {e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, annualized return & break-even on any gold trade'},
-              {e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver prices by purity — 999, 925, 900, 800'},
-              {e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Track all your metals at live prices in one dashboard'},
-              {e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Which grew more — your SIP or gold over the same period?'},
-              {e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical return comparison'},
-              {e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR/AED rates for cross-border gold pricing'},
-              {e:'📉',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'How much purchasing power has ₹1 lakh lost over time?'},
-            ].map((c: any) =>(
-              <Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-yellow-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-yellow-700 leading-tight">{c.n}</p></span>
-                <p className="text-[11px] text-gray-500 leading-relaxed flex-1">{c.d}</p>
-                <span className="text-xs font-bold text-yellow-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span>
-              </Link>
-            ))}
-          </div>
-        </section>
+        
       </div>
     </div>
   )

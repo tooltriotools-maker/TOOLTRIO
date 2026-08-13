@@ -1,4 +1,3 @@
-import { FINANCE_QUALITY_BY_SLUG } from '@/lib/content/finance-quality-registry'
 import { GENERATED_TOOL_PAGE_METADATA } from './generated-tool-metadata'
 import type { ToolCategory, ToolRecord } from './tools'
 
@@ -70,20 +69,7 @@ function inferToolType(tool: ToolRecord): ToolType {
   return 'other'
 }
 
-function qualityFor(tool: ToolRecord): Pick<ToolMetadata, 'qualityStatus' | 'methodology' | 'limitations' | 'sources' | 'currentYear'> {
-  if (tool.cat === 'finance') {
-    const profile = FINANCE_QUALITY_BY_SLUG.get(slugFromHref(tool.href))
-    if (profile) {
-      return {
-        qualityStatus: profile.status,
-        methodology: profile.methodology,
-        limitations: profile.limitations,
-        sources: profile.sources,
-        currentYear: profile.currentYear,
-      }
-    }
-  }
-
+function qualityFor(_tool: ToolRecord): Pick<ToolMetadata, 'qualityStatus' | 'methodology' | 'limitations' | 'sources' | 'currentYear'> {
   return {
     qualityStatus: 'unreviewed',
     limitations: [],

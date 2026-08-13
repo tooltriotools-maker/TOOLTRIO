@@ -321,7 +321,6 @@ export default function PreciousMetalsProfitPage() {
               { n:'Gold Price',   e:'🥇', h:'/commodities/gold-price-calculator'      },
               { n:'Gold Loan',    e:'🏦', h:'/commodities/gold-loan-calculator'        },
               { n:'Portfolio',    e:'🗂️', h:'/commodities/commodity-portfolio-tracker' },
-              { n:'Crypto P&L',   e:'₿',  h:'/calculators/finance/crypto-profit-calculator' },
             ].map((l: any) => (
               <Link key={l.h} href={l.h}
                 className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-100 shadow-card hover:border-yellow-200 transition-all text-xs font-bold text-gray-700 group">
@@ -351,7 +350,6 @@ export default function PreciousMetalsProfitPage() {
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals calculators show you the current price. This one shows you what actually matters for an investor: did you make money, how much, and at what annualized rate? The difference between spot price and your actual realized return includes dealer buy premiums (2–4% above spot when you buy), sell discounts (1–2% below spot when you sell), and the time value of your holding period. A 10% gold price gain over 3 years sounds good until you calculate it was a 3.2% annualized return — barely ahead of a fixed deposit.</p>
             <p>This calculator handles all four precious metals — gold, silver, platinum, and palladium — with separate buy fee and sell fee fields so you enter realistic dealer economics rather than theoretical spot-to-spot returns. The break-even price shows exactly what price the metal must reach before your trade becomes profitable (accounting for all fees). The P&L scenario chart shows profit at ±5%, ±10%, ±15%, ±20%, and ±25% from your buy price — essential for setting realistic profit targets and stop-loss levels.</p>
-            <p>For active traders: combine this calculator with live price feeds from our <Link href="/commodities/gold-price-calculator" className="text-green-700 font-semibold underline underline-offset-2">Gold Price Calculator</Link> and <Link href="/commodities/silver-price-calculator" className="text-green-700 font-semibold underline underline-offset-2">Silver Price Calculator</Link>. For portfolio-level view, the <Link href="/commodities/commodity-portfolio-tracker" className="text-green-700 font-semibold underline underline-offset-2">Portfolio Tracker</Link> aggregates all positions. For a gold-vs-SIP comparison, use our <Link href="/calculators/finance/sip-vs-gold-calculator" className="text-green-700 font-semibold underline underline-offset-2">SIP vs Gold Calculator</Link>.</p>
           </div>
         </section>
 
@@ -368,13 +366,7 @@ export default function PreciousMetalsProfitPage() {
 
         <PnlFAQ />
 
-        <section>
-          <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices to get current sell price'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver spot for 999/925/900/800 purity'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'Aggregate all metal positions at live prices'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Compare gold ROI against your mutual fund SIP'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — who won?'},{e:'📈',n:'Stock Profit Calculator',h:'/calculators/finance/stock-profit-calculator',d:'Same P&L analysis for equity trades'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-green-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-green-600 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
-          </div>
-        </section>
+        
       </div>
     </div>
   )

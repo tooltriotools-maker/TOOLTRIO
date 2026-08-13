@@ -20,7 +20,6 @@ export type MasterToolRecord = ToolRecord & {
 }
 
 export const REDIRECTED_TOOL_HREFS = new Set<string>([
-  '/calculators/health/pregnancy-due-date-calculator',
   '/calculators/fun/insult-generator',
 ])
 
@@ -33,13 +32,10 @@ export const TOOL_COUNTS: Record<ToolCategory, number> = MASTER_TOOL_REGISTRY.re
     counts[tool.cat] += 1
     return counts
   },
-  { finance: 0, health: 0, dev: 0, fun: 0, zip: 0, commodities: 0 } as Record<ToolCategory, number>,
+  { fun: 0, zip: 0, commodities: 0 } as Record<ToolCategory, number>,
 )
 
 export const CALCULATOR_COUNTS = {
-  finance: TOOL_COUNTS.finance,
-  health: TOOL_COUNTS.health,
-  dev: TOOL_COUNTS.dev,
   fun: TOOL_COUNTS.fun,
 } as const
 

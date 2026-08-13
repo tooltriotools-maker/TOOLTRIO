@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
-type ShareCategory = 'Finance' | 'Health' | 'Dev' | 'Fun' | 'ZIP' | 'Commodities'
+type ShareCategory = 'Fun' | 'ZIP' | 'Commodities'
 
 interface ShareButtonProps {
   title: string
@@ -14,9 +14,6 @@ interface ShareButtonProps {
 
 // ─── Category accent colours ───────────────────────────────────────────────────
 const ACCENTS: Record<ShareCategory, { bg: string; light: string; text: string; border: string }> = {
-  Finance:     { bg: '#16a34a', light: '#f0fdf4', text: '#15803d', border: '#bbf7d0' },
-  Health:      { bg: '#dc2626', light: '#fef2f2', text: '#b91c1c', border: '#fecaca' },
-  Dev:         { bg: '#2563eb', light: '#eff6ff', text: '#1d4ed8', border: '#bfdbfe' },
   Fun:         { bg: '#7c3aed', light: '#f5f3ff', text: '#6d28d9', border: '#ddd6fe' },
   ZIP:         { bg: '#0284c7', light: '#f0f9ff', text: '#0369a1', border: '#bae6fd' },
   Commodities: { bg: '#ca8a04', light: '#fefce8', text: '#a16207', border: '#fde68a' },
@@ -26,7 +23,7 @@ const ACCENTS: Record<ShareCategory, { bg: string; light: string; text: string; 
 function getChannels(title: string, url: string, description: string) {
   const msg = encodeURIComponent(`${title} — ${description}\nCalculate yours free on ToolTrio 👉 ${url}`)
   const urlEnc = encodeURIComponent(url)
-  const titleEnc = encodeURIComponent(`${title} | ToolTrio — Free Finance & Health Calculators`)
+  const titleEnc = encodeURIComponent(`${title} | ToolTrio — Free US ZIP Code Tools`)
   return [
     {
       id: 'whatsapp',
@@ -109,12 +106,12 @@ function CheckIcon() {
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────
-export function ShareButton({ title, description = '', category = 'Finance', url }: ShareButtonProps) {
+export function ShareButton({ title, description = '', category = 'Fun', url }: ShareButtonProps) {
   const [open, setOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [pageUrl, setPageUrl] = useState(url || '')
   const modalRef = useRef<HTMLDivElement>(null)
-  const accent = ACCENTS[category] ?? ACCENTS.Finance
+  const accent = ACCENTS[category] ?? ACCENTS.Fun
 
   // Resolve URL client-side
   useEffect(() => {
@@ -375,7 +372,7 @@ export function ShareButton({ title, description = '', category = 'Finance', url
                 textAlign: 'center', fontSize: '11px', color: '#cbd5e1',
                 marginTop: '18px', marginBottom: 0,
               }}>
-                🔒 ToolTrio — Free Finance & Health Calculators
+                🔒 ToolTrio — Free US ZIP Code Tools
               </p>
             </div>
           </div>

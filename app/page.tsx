@@ -28,8 +28,7 @@ export const metadata: Metadata = {
     'zip code validator',
     'us zip code tools',
     'free zip code tools',
-    'developer tools online',
-    'gold price calculator',
+        'gold price calculator',
     'tooltrio',
     'tool trio',
     'trio tools',
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
-    description: 'Free ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools — plus developer, commodity and other practical tools. No signup required.',
+    description: 'Free ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools — plus commodity and fun tools. No signup required.',
     images: ['/og-image.png'],
   },
 }
@@ -66,7 +65,7 @@ const homepageFAQSchema = {
       name: 'What is ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'ToolTrio is a free ZIP code tools and calculators website. It offers 35+ US ZIP code tools plus developer utilities, commodity calculators and fun tools. No signup required.',
+        text: 'ToolTrio is a free US ZIP code tools website with commodity calculators and fun tools. No signup required.',
       },
     },
     {
@@ -111,27 +110,14 @@ const homepageFAQSchema = {
     },
     {
       '@type': 'Question',
-      name: 'Does ToolTrio have developer tools, ZIP code tools and commodity calculators?',
+      name: 'Does ToolTrio have ZIP code tools, commodity calculators and fun tools?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ToolTrio includes 90+ developer tools, 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
+        text: 'Yes. ToolTrio includes 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
       },
     },
   ],
 }
-
-const devTools = [
-  { name: 'JSON Formatter', desc: 'Format & validate JSON', href: '/calculators/dev/json-formatter', icon: '🧩', badge: 'Popular' },
-  { name: 'Regex Tester', desc: 'Test regex patterns live', href: '/calculators/dev/regex-tester', icon: '🔍', badge: 'Popular' },
-  { name: 'Base64 Encoder', desc: 'Encode & decode Base64', href: '/calculators/dev/base64-encoder', icon: '🔐', badge: null },
-  { name: 'UUID Generator', desc: 'Generate v4 UUID & ULID', href: '/calculators/dev/uuid-generator', icon: '🆔', badge: null },
-  { name: 'Hash Generator', desc: 'MD5, SHA-256, SHA-512', href: '/calculators/dev/hash-generator', icon: '#️⃣', badge: null },
-  { name: 'JWT Decoder', desc: 'Decode & verify JWT tokens', href: '/calculators/dev/jwt-decoder', icon: '🎫', badge: null },
-  { name: 'CSS Gradient Gen', desc: 'Linear, radial, conic', href: '/calculators/dev/css-gradient-generator', icon: '🌈', badge: 'NEW' },
-  { name: 'Cron Expression', desc: 'Build & explain cron jobs', href: '/calculators/dev/cron-expression', icon: '⏱️', badge: null },
-  { name: 'Diff Checker', desc: 'Compare two texts', href: '/calculators/dev/diff-checker', icon: '📊', badge: null },
-  { name: 'Color Converter', desc: 'HEX, RGB, HSL, CMYK', href: '/calculators/dev/color-converter', icon: '🎨', badge: null },
-]
 
 const zipTools = [
   { name: 'ZIP Code Lookup', desc: 'Find city, state & county', href: '/zip/zip-code-lookup', icon: '📮', badge: 'Popular' },
@@ -205,8 +191,6 @@ export default function HomePage() {
             <span>📮 ZIP Code Tools</span>
 
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>⚡ Dev Tools</span>
-            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>🥇 Commodities</span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
             <span>🔒 Free · No Signup</span>
@@ -249,7 +233,6 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { val: '35+', label: 'ZIP Code Tools' },
-              { val: '90+', label: 'Developer Tools' },
               { val: '10+', label: 'Commodity Calculators' },
               { val: '30+', label: 'Fun Tools' },
             ].map(s => (
@@ -275,7 +258,6 @@ export default function HomePage() {
               { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-              { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
               { name: 'Gold Price Calculator', href: '/commodities/gold-price-calculator' },
               { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator' },
               { name: 'Personality Quiz', href: '/calculators/fun/personality-quiz' },
@@ -328,7 +310,6 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
-              { name: 'Dev Tools', count: '90+ tools', href: '/calculators/dev', icon: '⚡', color: '#2563eb' },
               { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
               { name: 'Commodities', count: '10+ tools', href: '/commodities', icon: '🥇', color: '#d97706' },
               { name: 'Fun', count: '30+ tools', href: '/calculators/fun', icon: '😄', color: '#db2777' },
@@ -364,36 +345,6 @@ export default function HomePage() {
                   )}
                 </span>
                 <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Dev Tools Section */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <span>⚡</span> Developer Tools
-            </h2>
-            <Link href="/calculators/dev" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all developer tools →
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {devTools.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-blue-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-blue-700 transition-all leading-tight">
                   {c.name}
                 </span>
                 <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
@@ -580,7 +531,7 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free online tools website with 35+ US ZIP code tools, developer utilities, commodity calculators and fun tools. No signup required.',
+                a: 'ToolTrio is a free online tools website with 35+ US ZIP code tools, commodity calculators and fun tools. No signup required.',
               },
               {
                 q: 'How do I find the city and state for a ZIP code?',
@@ -600,7 +551,7 @@ export default function HomePage() {
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
-                a: 'Yes. ToolTrio includes 90+ developer tools, 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
+                a: 'Yes. ToolTrio includes 35+ US ZIP code tools, 10+ commodity calculators and a Fun category with 30+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

@@ -7,8 +7,7 @@ const records = [...catalog.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '([^']+)
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
 const redirects = new Set([
-  '/calculators/health/pregnancy-due-date-calculator',
-  '/calculators/fun/insult-generator',
+    '/calculators/fun/insult-generator',
 ])
 const active = records.filter(tool => !redirects.has(tool.href))
 

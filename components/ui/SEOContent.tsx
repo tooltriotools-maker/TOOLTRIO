@@ -1,13 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { cleanHealthGuideText, isGenericHealthBenefit, isGenericHealthUseCase } from '@/lib/content/health-content'
-import { HEALTH_SOURCE_PROFILES } from '@/lib/content/health-sources'
 
 export interface SEOContentProps {
   title: string
   /** Optional jurisdiction label for genuinely regional guides. */
   regionLabel?: string
-  category: 'health' | 'finance' | 'dev' | 'fun'
+  category: 'fun'
   intro: string
   howItWorks: string
   benefits: { title: string; text: string }[]
@@ -28,8 +26,6 @@ export interface SEOContentProps {
   keyStats?: { stat: string; source: string }[]
   mistakesDetailed?: { mistake: string; fix: string }[]
   strategySections?: { title: string; steps: string[] }[]
-  /** Stable calculator slug used to attach claim-level health sources. */
-  healthSourceProfile?: string
 }
 
 
@@ -37,7 +33,6 @@ const GENERIC_MARKETING_TITLES = new Set([
   'Evidence-based clinical formulas',
   'Instant real-time results',
   'Complete data privacy',
-  'Health context included',
   'Works on all devices',
   'Completely free',
   '100% Free - No Signup, No Subscription, No Ads',
@@ -59,7 +54,7 @@ function isGenericMarketingBlock(item: { title: string; text: string }): boolean
 
 // Renders text with [Link Label](/url) patterns as actual clickable links
 function RichText({ content, category }: { content: string; category?: SEOContentProps['category'] }) {
-  const safeContent = category === 'health' ? cleanHealthGuideText(content) : content
+  const safeContent = content
   const parts = safeContent.split(/(\[[^\]]+\]\([^)]+\))/g)
   return (
     <>
@@ -83,7 +78,7 @@ function RichText({ content, category }: { content: string; category?: SEOConten
 function RichParagraphs({ text, category }: { text: string; category: SEOContentProps['category'] }) {
   return (
     <div className="space-y-3">
-      {text.split('\n\n').map(p => category === 'health' ? cleanHealthGuideText(p) : p).filter(p => p.trim()).map((para, i) => (
+      {text.split('\n\n').map(p => p).filter(p => p.trim()).map((para, i) => (
         <p key={i} className="text-gray-600 leading-relaxed text-base">
           <RichText content={para.trim()} />
         </p>
@@ -96,16 +91,10 @@ export function SEOContent({
   title, regionLabel, category, intro, howItWorks, benefits, useCases = [],
   scienceSection, tipsSection = '', commonMistakes, conclusion,
   didYouKnow, comparisonTable, caseStudy, inlineLinks,
-  keyStats, mistakesDetailed, strategySections, healthSourceProfile,
+  keyStats, mistakesDetailed, strategySections,
 }: SEOContentProps) {
-  const healthProfile = category === 'health' && healthSourceProfile ? HEALTH_SOURCE_PROFILES[healthSourceProfile] : undefined
 
-  const c = {
-    health:  { border: 'border-rose-100',   bg: 'bg-rose-50',   text: 'text-rose-700',   badge: 'bg-rose-100 text-rose-700',   head: 'bg-rose-600',   accent: '#e11d48' },
-    finance: { border: 'border-green-100',  bg: 'bg-green-50',  text: 'text-green-700',  badge: 'bg-green-100 text-green-700',  head: 'bg-green-600',  accent: '#16a34a' },
-    dev:     { border: 'border-blue-100',   bg: 'bg-blue-50',   text: 'text-blue-700',   badge: 'bg-blue-100 text-blue-700',   head: 'bg-blue-600',   accent: '#2563eb' },
-    fun:     { border: 'border-purple-100', bg: 'bg-purple-50', text: 'text-purple-700', badge: 'bg-purple-100 text-purple-700', head: 'bg-purple-600', accent: '#7c3aed' },
-  }[category]
+  const c = { border: 'border-purple-100', bg: 'bg-purple-50', text: 'text-purple-700', badge: 'bg-purple-100 text-purple-700', head: 'bg-purple-600', accent: '#7c3aed' }
 
   return (
     <div className="mt-12 space-y-10 max-w-4xl mx-auto">
@@ -189,7 +178,7 @@ export function SEOContent({
       <section aria-labelledby="benefits-heading">
         <h2 id="benefits-heading" className="text-xl font-black text-gray-900 mb-5">✅ What This Calculator Calculates</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {benefits.filter(b => !isGenericMarketingBlock(b) && (category !== 'health' || !isGenericHealthBenefit(b.title))).map((b, i) => (
+          {benefits.filter(b => !isGenericMarketingBlock(b)).map((b, i) => (
             <div key={i} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
               <h3 className={`font-black text-sm mb-2 ${c.text}`}>{b.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -228,7 +217,7 @@ export function SEOContent({
       <section aria-labelledby="use-cases-heading">
         <h2 id="use-cases-heading" className="text-xl font-black text-gray-900 mb-5">🎯 When to Use {title}</h2>
         <div className="space-y-5">
-          {useCases.filter(uc => !isGenericMarketingBlock(uc) && (category !== 'health' || !isGenericHealthUseCase(uc.title))).map((uc, i) => (
+          {useCases.filter(uc => !isGenericMarketingBlock(uc)).map((uc, i) => (
             <div key={i} className="border-l-4 border-gray-200 pl-5">
               <h3 className="font-black text-gray-900 mb-1.5">{uc.title}</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
@@ -287,32 +276,6 @@ export function SEOContent({
       )}
 
       {/* Health methodology, sources and limitations */}
-      {healthProfile && (
-        <section aria-labelledby="health-sources-heading" className={`rounded-2xl p-6 border ${c.border} ${c.bg}`}>
-          <h2 id="health-sources-heading" className={`text-xl font-black mb-4 ${c.text}`}>📚 Methodology, Sources & Limitations</h2>
-          <p className="text-sm text-gray-700 leading-relaxed mb-4">{healthProfile.methodology}</p>
-          <div className="mb-5">
-            <h3 className="font-black text-gray-900 mb-2">Important limitations</h3>
-            <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-700">
-              {healthProfile.limitations.map((item, i) => <li key={i}>{item}</li>)}
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-black text-gray-900 mb-2">Sources</h3>
-            <ul className="space-y-2 text-sm">
-              {healthProfile.sources.length > 0 ? healthProfile.sources.map((source, i) => (
-                <li key={i}>
-                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-rose-700 font-semibold underline underline-offset-2">{source.label}</a>
-                  {source.sourceDate && <span className="text-gray-500"> — {source.sourceDateType === 'updated' ? 'updated' : 'published'} {source.sourceDate}</span>}
-                </li>
-              )) : <li className="text-amber-800">No authoritative source assigned yet; manual review is required before publishing a validation claim.</li>}
-            </ul>
-          </div>
-          {healthProfile.status === 'needs_manual_review' && (
-            <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">This calculator requires formula/claim review before its result is described as clinically validated.</p>
-          )}
-        </section>
-      )}
 
       {/* Did You Know */}
       {didYouKnow && didYouKnow.length > 0 && (

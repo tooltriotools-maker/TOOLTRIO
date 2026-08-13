@@ -15,8 +15,7 @@ export function Footer() {
               <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto",filter:"brightness(0) invert(1)"}} />
             </div>
             <p className="text-sm" style={{ color: "#64748b" }}>
-              Free, accurate calculators for financial planning and health goals.
-              Trusted by millions.
+              Free US ZIP code tools, fun generators and useful everyday utilities.
             </p>
           </div>
 

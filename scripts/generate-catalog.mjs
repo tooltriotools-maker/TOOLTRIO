@@ -13,16 +13,13 @@ const nameByHref = new Map()
 for (const m of old.matchAll(/\{ name: '([^']+)', href: '([^']+)'/g)) nameByHref.set(m[2], m[1])
 
 const categories = [
-  ['finance', path.join(root, 'app', 'calculators', 'finance')],
-  ['health', path.join(root, 'app', 'calculators', 'health')],
-  ['dev', path.join(root, 'app', 'calculators', 'dev')],
   ['fun', path.join(root, 'app', 'calculators', 'fun')],
   ['zip', path.join(root, 'app', 'zip')],
   ['commodities', path.join(root, 'app', 'commodities')],
 ]
-const labels = { finance: 'Finance', health: 'Health', dev: 'Dev Tools', fun: 'Fun', zip: 'ZIP', commodities: 'Commodities' }
+const labels = { fun: 'Fun', zip: 'ZIP', commodities: 'Commodities' }
 const records = new Map()
-const redirectOnly = new Set(['/calculators/fun/insult-generator', '/calculators/health/pregnancy-due-date-calculator', '/calculators/health/pregnancy-due-date-calculator/'])
+const redirectOnly = new Set(['/calculators/fun/insult-generator'])
 const title = slug => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 
 for (const [cat, dir] of categories) {
@@ -49,6 +46,6 @@ const lines = [...records.entries()]
     return `  { name: '${esc(name)}', href: '${href}', cat: '${cat}', catLabel: '${labels[cat]}', kw: '${esc(slug.replaceAll('-', ' '))}', region: '${region}' },`
   })
 
-const output = `// GENERATED CATALOG SOURCE OF TRUTH\n// Generated from route folders. Preserve names by keeping them in this file before regeneration.\n\nexport type ToolCategory = 'finance' | 'health' | 'dev' | 'fun' | 'zip' | 'commodities'\nexport type ToolRegion = 'usa' | 'uk' | 'europe' | 'india' | 'global'\n\nexport type ToolRecord = {\n  name: string\n  href: string\n  cat: ToolCategory\n  catLabel: string\n  kw: string\n  region?: ToolRegion\n}\n\nexport const TOOL_CATALOG: readonly ToolRecord[] = [\n${lines.join('\n')}\n]\n`
+const output = `// GENERATED CATALOG SOURCE OF TRUTH\n// Generated from route folders. Preserve names by keeping them in this file before regeneration.\n\nexport type ToolCategory = 'fun' | 'zip' | 'commodities'\nexport type ToolRegion = 'usa' | 'uk' | 'europe' | 'india' | 'global'\n\nexport type ToolRecord = {\n  name: string\n  href: string\n  cat: ToolCategory\n  catLabel: string\n  kw: string\n  region?: ToolRegion\n}\n\nexport const TOOL_CATALOG: readonly ToolRecord[] = [\n${lines.join('\n')}\n]\n`
 fs.writeFileSync(oldPath, output)
 console.log(`Catalog generated: ${records.size} tools.`)

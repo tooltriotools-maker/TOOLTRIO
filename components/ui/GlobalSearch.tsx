@@ -1,12 +1,10 @@
 'use client'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { Search, X, Zap, Smile, BookOpen, BarChart2 } from 'lucide-react'
+import { Search, X, Smile, BookOpen, BarChart2 } from 'lucide-react'
 import { PUBLIC_TOOL_REGISTRY, BLOG_CATALOG, TOOL_COUNTS } from '@/lib/catalog'
-import { isRestrictedBlogCatalogItem } from '@/lib/visibility'
 
 const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNode }> = {
-  Dev:     { color: 'text-blue-600',  bg: 'bg-blue-100',  icon: <Zap className="w-3 h-3" /> },
   Fun:     { color: 'text-purple-600',bg: 'bg-purple-100',icon: <Smile className="w-3 h-3" /> },
   Blog:    { color: 'text-orange-600',bg: 'bg-orange-100',icon: <BookOpen className="w-3 h-3" /> },
   ZIP:     { color: 'text-cyan-600',  bg: 'bg-cyan-100',  icon: <BarChart2 className="w-3 h-3" /> },
@@ -16,13 +14,14 @@ const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNod
 const TRENDING: { name: string; href: string; cat: string }[] = [
 ]
 
-const PUBLIC_BLOG_CATALOG = BLOG_CATALOG.filter(item => !isRestrictedBlogCatalogItem(item))
+const PUBLIC_BLOG_CATALOG = BLOG_CATALOG
 const BLOG_COUNT = PUBLIC_BLOG_CATALOG.length
-const DEV_COUNT = TOOL_COUNTS.dev
 const FUN_COUNT = TOOL_COUNTS.fun
+const ZIP_COUNT = TOOL_COUNTS.zip
+const COMMODITIES_COUNT = TOOL_COUNTS.commodities
 const TOTAL = PUBLIC_TOOL_REGISTRY.length + BLOG_COUNT
 const ITEMS = [
-  ...PUBLIC_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.cat === 'dev' ? 'Dev' : item.catLabel })),
+  ...PUBLIC_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.catLabel })),
   ...PUBLIC_BLOG_CATALOG.map(item => ({ name: item.name, href: item.href, cat: item.cat })),
 ]
 
@@ -89,7 +88,7 @@ export function GlobalSearch({ className }: { className?: string }) {
     return () => document.removeEventListener('keydown', handler)
   }, [open, openSearch, closeSearch])
 
-  const tabs = ['All', 'Dev', 'Fun', 'ZIP', 'Commodities', 'Blog']
+  const tabs = ['All', 'Fun', 'ZIP', 'Commodities', 'Blog']
 
   return (
     <div ref={containerRef} className={`relative ${className || ''}`}>
@@ -159,7 +158,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                     {filtered.length} result{filtered.length !== 1 ? 's' : ''}{activeTab !== 'All' ? ` in ${activeTab}` : ''}
                   </p>
                   {filtered.map(item => {
-                    const meta = CAT_META[item.cat] || CAT_META.Dev
+                    const meta = CAT_META[item.cat] || CAT_META.Fun
                     return (
                       <Link
                         key={item.href}
@@ -184,14 +183,14 @@ export function GlobalSearch({ className }: { className?: string }) {
                 <div className="p-8 text-center">
                   <Search className="w-8 h-8 text-gray-300 mx-auto mb-3" />
                   <p className="text-sm font-semibold text-gray-600 mb-1">No results for "{query}"</p>
-                  <p className="text-xs text-gray-400">Try "JSON", "ZIP", or "developer"</p>
+                  <p className="text-xs text-gray-400">Try "ZIP", "Fun", or a tool name</p>
                 </div>
               )
             ) : (
               <div className="p-3">
                 <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2 py-1.5">🔥 Trending</p>
                 {TRENDING.map(item => {
-                  const meta = CAT_META[item.cat] || CAT_META.Dev
+                  const meta = CAT_META[item.cat] || CAT_META.Fun
                   return (
                     <Link
                       key={item.href}
@@ -205,10 +204,11 @@ export function GlobalSearch({ className }: { className?: string }) {
                     </Link>
                   )
                 })}
-                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-3 gap-1 px-2">
+                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-4 gap-1 px-2">
                   {[
-                    ['Dev', DEV_COUNT, 'text-blue-600 bg-blue-50'],
                     ['Fun', FUN_COUNT, 'text-purple-600 bg-purple-50'],
+                    ['ZIP', ZIP_COUNT, 'text-cyan-600 bg-cyan-50'],
+                    ['Commodities', COMMODITIES_COUNT, 'text-amber-700 bg-amber-50'],
                     ['Blog', BLOG_COUNT, 'text-orange-600 bg-orange-50'],
                   ].map(([cat, count, cls]) => (
                     <button

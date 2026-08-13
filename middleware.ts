@@ -1,25 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 /**
- * YMYL discovery policy:
- * Finance and Health calculator routes remain directly reachable for internal
- * review, but every response is explicitly marked noindex. We intentionally
- * do not disallow these routes in robots.txt because Google must be able to
- * crawl the response and see the noindex directive.
+ * Permanently removed calculator categories.
+ * These URLs must not remain discoverable or redirect to another category.
+ * Returning 410 Gone also gives search engines a clear removal signal.
  */
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  const restrictedTool =
+  const removedCategory =
     pathname === '/calculators/finance' || pathname.startsWith('/calculators/finance/') ||
-    pathname === '/calculators/health' || pathname.startsWith('/calculators/health/')
+    pathname === '/calculators/health' || pathname.startsWith('/calculators/health/') ||
+    pathname === '/calculators/dev' || pathname.startsWith('/calculators/dev/')
 
-  if (!restrictedTool) return NextResponse.next()
+  if (!removedCategory) return NextResponse.next()
 
-  const response = NextResponse.next()
-  response.headers.set('X-Robots-Tag', 'noindex, follow')
-  return response
+  return new NextResponse('Gone', {
+    status: 410,
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  })
 }
 
 export const config = {
-  matcher: ['/calculators/finance/:path*', '/calculators/health/:path*'],
+  matcher: ['/calculators/finance/:path*', '/calculators/health/:path*', '/calculators/dev/:path*'],
 }

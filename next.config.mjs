@@ -100,12 +100,7 @@ const nextConfig = {
         permanent:   true,
       },
       // ── Trailing slash removal (canonical URL enforcement) ───────────────────
-      { source: '/calculators/finance/:path*/', destination: '/calculators/finance/:path*', permanent: true },
-      { source: '/calculators/health/:path*/',  destination: '/calculators/health/:path*',  permanent: true },
-      { source: '/calculators/dev/:path*/',     destination: '/calculators/dev/:path*',     permanent: true },
       { source: '/calculators/fun/:path*/',     destination: '/calculators/fun/:path*',     permanent: true },
-      { source: '/calculators/',                destination: '/calculators/finance',         permanent: true },
-      { source: '/calculators',                 destination: '/calculators/finance',         permanent: true },
       { source: '/zip/:path*/',                 destination: '/zip/:path*',                  permanent: true },
       { source: '/zip/',                        destination: '/zip',                         permanent: true },
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
@@ -113,8 +108,6 @@ const nextConfig = {
       { source: '/commodities/:path*/',         destination: '/commodities/:path*',          permanent: true },
       { source: '/commodities/',                destination: '/commodities',                 permanent: true },
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
-      { source: '/calculators/health/pregnancy-due-date-calculator',  destination: '/calculators/health/pregnancy-calculator', permanent: true },
-      { source: '/calculators/health/pregnancy-due-date-calculator/', destination: '/calculators/health/pregnancy-calculator', permanent: true },
       // ── Insult generator duplicate fix (byte-identical pages, merged into canonical) ──
       { source: '/calculators/fun/insult-generator',  destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
       { source: '/calculators/fun/insult-generator/', destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },

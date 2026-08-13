@@ -19,18 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return true
   })
 
-  const toolUrls = MASTER_TOOL_REGISTRY
-    .filter(tool => {
-      return tool.cat !== 'finance' && tool.cat !== 'health'
-
-    })
-    .map(tool => ({
+  const toolUrls = MASTER_TOOL_REGISTRY.map(tool => ({
       url: `${BASE}${tool.href}`,
       ...(tool.metadata.lastReviewed ? { lastModified: tool.metadata.lastReviewed } : {}),
     }))
 
   const categoryRoutes = [
-    '/calculators/dev',
     '/calculators/fun',
     '/zip',
     '/commodities',
@@ -50,8 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt ?? post.publishedAt).toISOString(),
     })),
-    ...blogCategories.filter(category => !['investment','retirement','loans','personal-finance','tax','health','property','commodity'].includes(category.slug)).map(category => ({
-      url: `${BASE}/blog/category/${category.slug}`,
-    })),
+    { url: `${BASE}/blog/category/zip-codes` },
   ]
 }

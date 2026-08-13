@@ -19,16 +19,16 @@ const contactEmail = 'tooltrio.tools@gmail.com'
 export const metadata: Metadata = {
   title: 'About ToolTrio | Who We Are & What We Build',
   description:
-    'ToolTrio is a free finance and health calculator website. We offer 200+ mortgage, 401k, BMI, calorie and health calculators. No signup, no ads, instant results.',
+    'ToolTrio is a free online tools website focused on US ZIP code utilities, commodity calculators and fun tools. No signup, no ads, instant results.',
   keywords: [
     'about tooltrio','tooltrio mission','who built tooltrio','tooltrio team',
-    'free calculator website','finance calculator platform','health calculator platform',
+    'free online tools website','zip code tools','commodity calculators','fun tools',
     'tooltrio about us','tool trio about ','tooltrio story',
   ],
   alternates: { canonical: `${siteUrl}/about` },
   openGraph: {
     title: 'About ToolTrio | Who We Are & What We Build',
-    description: 'ToolTrio offers free finance and health calculators — mortgage, 401k, BMI, calorie, TDEE and 200+ more. No signup, no ads, instant results.',
+    description: 'ToolTrio offers free ZIP code tools, commodity calculators and fun tools with instant results and no signup.',
     url: `${siteUrl}/about`,
     siteName: 'ToolTrio',
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About ToolTrio | Who We Are & What We Build',
-    description: '200+ free finance and health calculators. No signup, no ads, instant results.',
+    description: '75+ free online tools. No signup, no ads, instant results.',
     images: [`${siteUrl}/og-image.png`],
   },
   robots: { index: true, follow: true },
@@ -48,7 +48,7 @@ const aboutSchema = {
   '@type': 'AboutPage',
   name: 'About ToolTrio',
   url: `${siteUrl}/about`,
-  description: 'ToolTrio is a free online calculator platform for finance, health, ZIP codes, developer utilities and everyday calculations.',
+  description: 'ToolTrio is a free online tools platform for US ZIP codes, commodities, fun generators and everyday utilities.',
   mainEntity: {
     '@type': 'Organization',
     name: 'ToolTrio',
@@ -57,19 +57,19 @@ const aboutSchema = {
     email: contactEmail,
     logo: `${siteUrl}/logo.png`,
     foundingDate: '2026',
-    description: 'ToolTrio provides free online calculators — no signup, no ads, instant results — across finance, health, developer tools, ZIP code utilities, and more.',
+    description: 'ToolTrio provides free online tools — no signup, no ads, instant results — across ZIP code utilities, commodities, fun generators and more.',
   },
 }
 
 const stats = [
-  { value: '560+', label: 'Free Tools & Calculators', icon: Zap },
+  { value: '75+', label: 'Free Tools', icon: Zap },
   { value: '157+', label: 'Expert Guides', icon: BookOpen },
   { value: '4', label: 'Currencies', icon: Globe },
   { value: '0', label: 'Ads or Paywalls', icon: Shield },
 ]
 
 const values = [
-  { icon: Target, title: 'Accuracy First', desc: 'Every formula is verified against standard finance and health calculations used by professionals.', color: 'bg-green-100 text-green-700' },
+  { icon: Target, title: 'Accuracy First', desc: 'Tool calculations are documented with clear assumptions and practical explanations.', color: 'bg-green-100 text-green-700' },
   { icon: Shield, title: 'Privacy by Design', desc: 'No account required. Your inputs are processed in-browser and never stored on our servers.', color: 'bg-blue-100 text-blue-700' },
   { icon: Zap, title: 'Instant & Free', desc: 'Every calculator works immediately — no paywalls, no premium tiers, no upsells.', color: 'bg-amber-100 text-amber-700' },
   { icon: Globe, title: 'Built for Everyone', desc: 'Supports USD, GBP, INR and EUR. Tools cover US, UK, India, and Europe use cases.', color: 'bg-violet-100 text-violet-700' },
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We build free, fast, private calculators so anyone can get accurate answers
-            to their finance, health, and everyday questions — instantly.
+            to their ZIP, Fun and everyday questions — instantly.
           </p>
         </div>
 
@@ -146,39 +146,29 @@ export default function AboutPage() {
 
         <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-8 md:p-10 text-white mb-10">
           <h2 className="text-2xl font-black mb-4">What ToolTrio Covers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="font-bold text-green-200 mb-2 flex items-center gap-2"><TrendingUp className="w-4 h-4" /> Finance</h3>
-              <ul className="text-sm text-green-100 space-y-1">
-                <li>— SIP, EMI, FD, RD, Compound Interest</li>
-                <li>— Mortgage, 401k, Roth IRA, Retirement</li>
-                <li>— CAGR, XIRR, SWP, Step-Up SIP</li>
-                <li>— Loan, Debt Payoff, Net Worth, Budget</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-green-200 mb-2 flex items-center gap-2"><Heart className="w-4 h-4" /> Health</h3>
-              <ul className="text-sm text-green-100 space-y-1">
-                <li>— BMI, BMR, TDEE, Calorie Calculator</li>
-                <li>— Body Fat, Ideal Weight, Water Intake</li>
-                <li>— Protein Intake, Sleep Cycle, Heart Rate</li>
-                <li>— Pregnancy, Ovulation, Age Calculator</li>
-              </ul>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <h3 className="font-bold text-green-200 mb-2">📮 ZIP Code Tools</h3>
               <ul className="text-sm text-green-100 space-y-1">
-                <li>— ZIP Lookup, City/State, Distance</li>
-                <li>— Timezone, Radius, Nearest ZIP</li>
+                <li>— ZIP Code Lookup &amp; City/State</li>
+                <li>— ZIP Code Distance &amp; Radius</li>
+                <li>— ZIP+4 &amp; Timezone tools</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-green-200 mb-2">⚙️ Developer Tools</h3>
+              <h3 className="font-bold text-green-200 mb-2">🥇 Commodity Tools</h3>
               <ul className="text-sm text-green-100 space-y-1">
-                <li>— JSON, Regex, Base64, UUID, Hash</li>
-                <li>— Color, CSS, Password, Markdown</li>
+                <li>— Gold &amp; Silver prices</li>
+                <li>— Platinum &amp; Palladium</li>
+                <li>— Metals P&amp;L &amp; portfolio tools</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-green-200 mb-2">😄 Fun Tools</h3>
+              <ul className="text-sm text-green-100 space-y-1">
+                <li>— Personality Quiz</li>
+                <li>— Shakespeare Insult Generator</li>
+                <li>— Trivia, names, countdowns &amp; more</li>
               </ul>
             </div>
           </div>

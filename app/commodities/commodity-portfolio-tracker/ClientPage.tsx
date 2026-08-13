@@ -431,19 +431,12 @@ export default function CommodityPortfolioTrackerPage() {
           <div className="space-y-4 text-gray-600 leading-relaxed text-sm">
             <p>Most precious metals investors hold positions across multiple metals, bought at different times and prices, in different weight units, from different dealers — and have no single view of what their total collection is worth today. This portfolio tracker solves that: enter each holding with its purchase price, get a live total portfolio value, position-level unrealized P&L, and overall return — all updating in real time from the same live price feeds that power our individual calculators.</p>
             <p>The tracker handles all four major precious metals (gold, silver, platinum, palladium) in any weight unit (grams, troy ounces, tolas, kilograms). You can add multiple positions for the same metal — the tracker computes weighted average cost automatically. The total portfolio view shows your metals allocation breakdown, best and worst performing positions, and total unrealized gain/loss in absolute amount and percentage.</p>
-            <p>For a comprehensive investment picture: combine this tracker with our financial calculators. Use the <Link href="/calculators/finance/sip-vs-gold-calculator" className="text-indigo-700 font-semibold underline underline-offset-2">SIP vs Gold Calculator</Link> to benchmark your gold return against equity mutual funds. Use the <Link href="/calculators/finance/lumpsum-vs-gold-calculator" className="text-indigo-700 font-semibold underline underline-offset-2">Lumpsum vs Gold Calculator</Link> for one-time investment comparisons. For trade-level P&L with dealer fees, use the <Link href="/commodities/precious-metals-profit-calculator" className="text-indigo-700 font-semibold underline underline-offset-2">Precious Metals Profit Calculator</Link>.</p>
           </div>
         </section>
 
         <PortfolioFAQ />
 
-        <section>
-          <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'Trade-level ROI with dealer fees for any single position'},{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices in 5 currencies'},{e:'🥈',n:'Silver Price Calculator',h:'/commodities/silver-price-calculator',d:'Live silver by purity — 999, 925, 900, 800'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Benchmark your gold portfolio vs SIP returns'},{e:'📊',n:'Lumpsum vs Gold',h:'/calculators/finance/lumpsum-vs-gold-calculator',d:'One-time investment vs gold — historical comparison'},{e:'💱',n:'Currency Converter',h:'/calculators/finance/currency-converter',d:'Live USD/INR/GBP/EUR for cross-currency portfolio valuation'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-indigo-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-indigo-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
-          </div>
-        </section>
+        
       </div>
     </div>
   )

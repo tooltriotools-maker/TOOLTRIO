@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { publicBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
-import { isRestrictedBlogCategory } from '@/lib/visibility'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -17,17 +16,16 @@ const CURRENT_YEAR = new Date().getFullYear()
 
 export const metadata: Metadata = {
   title: `Free Guides & Articles ${CURRENT_YEAR} | ToolTrio`,
-  description: `${blogPosts.length} free guides and articles on ZIP codes and developer tools.`,
+  description: `${blogPosts.length} free ZIP Code guides and articles.`,
   keywords: [
     'ZIP code guides',
-    'developer tools guides',
-    'JSON formatter guide',
+        'JSON formatter guide',
     'ZIP+4 guide',
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
   openGraph: {
     title: `${blogPosts.length} Expert Guides & Articles ${CURRENT_YEAR}`, 
-    description: `${blogPosts.length} expert guides on ZIP codes and developer tools.`,
+    description: `${blogPosts.length} expert ZIP Code guides.`,
     url: 'https://tooltrio.com/blog',
     siteName: 'ToolTrio',
     type: 'website',
@@ -37,22 +35,13 @@ export const metadata: Metadata = {
 
 const CATEGORY_STYLE: Record<string, { color: string; border: string; bg: string }> = {
   'zip-codes': { color: 'text-teal-700', border: 'border-teal-200', bg: 'bg-teal-50' },
-  investment: { color: 'text-green-700', border: 'border-green-200', bg: 'bg-green-50' },
-  retirement: { color: 'text-purple-700', border: 'border-purple-200', bg: 'bg-purple-50' },
-  loans: { color: 'text-blue-700', border: 'border-blue-200', bg: 'bg-blue-50' },
-  'personal-finance': { color: 'text-orange-700', border: 'border-orange-200', bg: 'bg-orange-50' },
-  health: { color: 'text-red-700', border: 'border-red-200', bg: 'bg-red-50' },
-  property: { color: 'text-yellow-700', border: 'border-yellow-200', bg: 'bg-yellow-50' },
-  tax: { color: 'text-gray-700', border: 'border-gray-200', bg: 'bg-gray-50' },
-  commodity: { color: 'text-amber-700', border: 'border-amber-200', bg: 'bg-amber-50' },
-  'developer-tools': { color: 'text-indigo-700', border: 'border-indigo-200', bg: 'bg-indigo-50' },
 }
 
 const CAT_CONFIG = Object.fromEntries(
   blogCategories.map(category => ({
     ...category,
     label: category.name,
-    ...(CATEGORY_STYLE[category.slug] ?? CATEGORY_STYLE.investment),
+    ...(CATEGORY_STYLE[category.slug] ?? CATEGORY_STYLE['zip-codes']),
   })).map(category => [category.slug, category]),
 ) as Record<string, (typeof blogCategories)[number] & { label: string; color: string; border: string; bg: string }>
 
@@ -61,7 +50,7 @@ const blogListingSchema = {
   '@type': 'Blog',
   name: 'tooltrio.com Blog',
   url: 'https://tooltrio.com/blog',
-  description: `${blogPosts.length} expert guides on ZIP codes and developer tools.`,
+  description: `${blogPosts.length} expert ZIP Code guides.`,
   blogPost: blogPosts.map(p => ({
     '@type': 'BlogPosting',
     headline: p.seoTitle,
@@ -79,7 +68,7 @@ export default function BlogPage() {
   const featured = blogPosts[0]
   const byCategory: Record<string, typeof blogPosts> = {}
   blogPosts.forEach(p => {
-    const cat = p.categorySlug || 'investment'
+    const cat = p.categorySlug || 'zip-codes'
     if (!byCategory[cat]) byCategory[cat] = []
     byCategory[cat].push(p)
   })
@@ -105,10 +94,10 @@ export default function BlogPage() {
             </div>
           </div>
           <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-            Practical guides covering ZIP code lookups, ZIP+4, developer utilities and other public ToolTrio resources.
+            Practical guides covering US ZIP code lookups, ZIP+4, distance, timezones and format rules.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
-            {Object.entries(CAT_CONFIG).filter(([slug]) => !isRestrictedBlogCategory(slug)).map(([slug, cfg]) => {
+            {Object.entries(CAT_CONFIG).map(([slug, cfg]) => {
               const count = byCategory[slug]?.length ?? 0
               if (!count) return null
               return (

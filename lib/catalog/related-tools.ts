@@ -1,6 +1,5 @@
 import { GENERATED_TOOL_PAGE_METADATA } from './generated-tool-metadata'
 const REDIRECTED_TOOL_HREFS = new Set<string>([
-  '/calculators/health/pregnancy-due-date-calculator',
   '/calculators/fun/insult-generator',
 ])
 import { TOOL_CATALOG, type ToolCategory, type ToolRecord } from './tools'

@@ -9,22 +9,6 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
   {
-    key: 'dev', label: '⚡ Dev Tools', color: 'blue',
-    href: '/calculators/dev', viewAll: 'All 90 Dev Tools →',
-    items: [
-      { name: 'JSON Formatter', href: '/calculators/dev/json-formatter' },
-      { name: 'Regex Tester', href: '/calculators/dev/regex-tester' },
-      { name: 'Color Converter', href: '/calculators/dev/color-converter' },
-      { name: 'Base64 Encoder', href: '/calculators/dev/base64-encoder' },
-      { name: 'UUID Generator', href: '/calculators/dev/uuid-generator' },
-      { name: 'Password Generator', href: '/calculators/dev/password-generator' },
-      { name: 'Unix Timestamp', href: '/calculators/dev/unix-timestamp' },
-      { name: 'JWT Decoder', href: '/calculators/dev/jwt-decoder' },
-      { name: 'Hash Generator', href: '/calculators/dev/hash-generator' },
-      { name: 'SQL Formatter', href: '/calculators/dev/sql-formatter' },
-    ],
-  },
-  {
     key: 'fun', label: '😄 Fun', color: 'purple',
     href: '/calculators/fun', viewAll: 'All 30 Fun Tools →',
     items: [

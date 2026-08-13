@@ -68,7 +68,7 @@ const contactSchema = {
 const reasons = [
   { icon: HelpCircle, title: 'General Support', desc: 'Questions about how a calculator works, what a result means, or how to use a specific feature.', color: 'bg-blue-100 text-blue-700' },
   { icon: Bug, title: 'Bug Reports', desc: 'Found a wrong calculation, a broken page, or something behaving unexpectedly? Tell us.', color: 'bg-red-100 text-red-700' },
-  { icon: Lightbulb, title: 'Calculator Requests', desc: 'Want a new finance, health, ZIP or developer tool added to ToolTrio? We build from requests.', color: 'bg-amber-100 text-amber-700' },
+  { icon: Lightbulb, title: 'Calculator Requests', desc: 'Want a new ZIP or Fun tool added to ToolTrio? We build from requests.', color: 'bg-amber-100 text-amber-700' },
   { icon: Globe, title: 'Business & Partnerships', desc: 'Press, media, data partnerships, or collaboration opportunities with ToolTrio.', color: 'bg-green-100 text-green-700' },
 ]
 

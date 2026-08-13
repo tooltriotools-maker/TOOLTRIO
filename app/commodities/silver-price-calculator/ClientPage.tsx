@@ -202,13 +202,7 @@ export default function Page() {
 
         <SilverFAQ />
 
-        <section>
-          <h3 className="text-xl font-black text-gray-900 mb-4">🔗 Related Calculators</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[{e:'🥇',n:'Gold Price Calculator',h:'/commodities/gold-price-calculator',d:'Live 24K–10K gold prices per gram, tola & oz with GST'},{e:'💎',n:'Platinum Calculator',h:'/commodities/platinum-price-calculator',d:'Live platinum per gram and troy oz'},{e:'💰',n:'Precious Metals P&L',h:'/commodities/precious-metals-profit-calculator',d:'ROI, break-even & annualized return on any silver trade'},{e:'🗂️',n:'Portfolio Tracker',h:'/commodities/commodity-portfolio-tracker',d:'All your metals at live prices — total P&L dashboard'},{e:'⚖️',n:'SIP vs Gold',h:'/calculators/finance/sip-vs-gold-calculator',d:'Has gold beaten your mutual fund SIP? Find out.'},{e:'📊',n:'Inflation Calculator',h:'/calculators/finance/inflation-calculator',d:'Measure real purchasing power loss vs silver gains'},].map((c: any) =>(<Link key={c.h} href={c.h} className="group bg-white rounded-2xl border border-gray-100 hover:border-slate-300 hover:shadow-md transition-all p-4 flex flex-col gap-2">
-              <span className="flex items-center gap-2"><span className="text-2xl">{c.e}</span><p className="font-black text-gray-900 text-sm group-hover:text-slate-700 leading-tight">{c.n}</p></span><p className="text-[11px] text-gray-500 flex-1 leading-relaxed">{c.d}</p><span className="text-xs font-bold text-slate-500 flex items-center gap-1 mt-auto">Open <ArrowRight className="w-3 h-3"/></span></Link>))}
-          </div>
-        </section>
+        
       </div>
     </div>
   )

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { publicBlogPosts, blogCategories } from '@/lib/blog/posts'
-import { isRestrictedBlogCategory } from '@/lib/visibility'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -22,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cat = blogCategories.find(c => c.slug === slug)
   if (!cat) return { title: 'Category Not Found | ToolTrio' }
-  const restricted = isRestrictedBlogCategory(slug)
+  const restricted = false
   if (slug === 'zip-codes') {
     return {
       title: 'ZIP Code Guides — Lookup, ZIP+4, Distance, Timezone & Coordinates | ToolTrio',

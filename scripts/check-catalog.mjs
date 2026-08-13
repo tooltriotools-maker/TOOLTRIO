@@ -6,7 +6,7 @@ const catalog = fs.readFileSync(path.join(root, 'lib/catalog/tools.ts'), 'utf8')
 const hrefs = [...catalog.matchAll(/href: '([^']+)'/g)].map(m => m[1])
 const seen = new Set()
 const errors = []
-const redirectOnly = new Set(['/calculators/fun/insult-generator', '/calculators/health/pregnancy-due-date-calculator'])
+const redirectOnly = new Set(['/calculators/fun/insult-generator',])
 for (const href of hrefs) {
   if (seen.has(href)) errors.push(`Duplicate catalog href: ${href}`)
   seen.add(href)

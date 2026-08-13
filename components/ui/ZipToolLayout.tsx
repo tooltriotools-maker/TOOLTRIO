@@ -276,7 +276,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
           </div>
           <div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
             <ShareButton title={title} description={description} category="ZIP" />
-            <ExportButtonPair title={title} category="Dev" compact />
+            <ExportButtonPair title={title} category="ZIP" compact />
           </div>
         </div>
 
