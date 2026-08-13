@@ -79,7 +79,7 @@ export default function ZipToolClient() {
             <BarChart data={chartData} margin={{ bottom: 40 }}>
               <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-35} textAnchor="end" />
               <YAxis tickFormatter={v => `${(v/1000).toFixed(0)}k`} tick={{ fontSize: 10 }} />
-              <Tooltip formatter={(v: number, _, props: any) => [`${v.toLocaleString()} residents`, props.payload.city]} />
+              <Tooltip formatter={(v, _, props: any) => [`${Number(v ?? 0).toLocaleString()} residents`, props.payload.city]} />
               <Bar dataKey="pop" radius={[4,4,0,0]}>
                 {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Bar>
@@ -96,7 +96,7 @@ export default function ZipToolClient() {
               <Pie data={chartData} dataKey="pop" nameKey="name" cx="50%" cy="50%" outerRadius={90} label={({ name }) => name}>
                 {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Pie>
-              <Tooltip formatter={(v: number) => v.toLocaleString()} />
+              <Tooltip formatter={v => Number(v ?? 0).toLocaleString()} />
               <Legend />
             </PieChart>
           </ResponsiveContainer>

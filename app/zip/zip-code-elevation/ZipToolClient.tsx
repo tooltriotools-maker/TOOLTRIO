@@ -120,7 +120,7 @@ export default function ZipToolClient() {
               <BarChart data={chartData} margin={{ bottom: 40, left: 8 }}>
                 <XAxis dataKey="name" tick={{ fontSize: 10 }} angle={-30} textAnchor="end" interval={0} />
                 <YAxis tickFormatter={v => `${v.toLocaleString()}ft`} tick={{ fontSize: 9 }} />
-                <Tooltip formatter={(v: number) => [`${v.toLocaleString()} ft`, 'Elevation']} />
+                <Tooltip formatter={v => [`${Number(v ?? 0).toLocaleString()} ft`, 'Elevation']} />
                 <ReferenceLine y={0} stroke="#94a3b8" strokeDasharray="3 3" />
                 <Bar dataKey="ft" radius={[4,4,0,0]}>
                   {chartData.map((entry: any, i: number) => (

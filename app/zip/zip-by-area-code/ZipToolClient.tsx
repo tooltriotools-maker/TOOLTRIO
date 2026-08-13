@@ -126,7 +126,7 @@ export default function ZipToolClient() {
                 <BarChart data={cityPop} margin={{ bottom: 40 }}>
                   <XAxis dataKey="city" tick={{ fontSize: 10 }} angle={-30} textAnchor="end" interval={0} />
                   <YAxis tick={{ fontSize: 10 }} tickFormatter={v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : String(v)} />
-                  <Tooltip formatter={(v: number) => v.toLocaleString()} />
+                  <Tooltip formatter={v => Number(v ?? 0).toLocaleString()} />
                   <Bar dataKey="pop" radius={[4,4,0,0]}>
                     {cityPop.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                   </Bar>
