@@ -21,9 +21,6 @@ for (const tool of registry) {
 }
 
 const categories = [
-  ['finance', path.join(root, 'app', 'calculators', 'finance')],
-  ['health', path.join(root, 'app', 'calculators', 'health')],
-  ['dev', path.join(root, 'app', 'calculators', 'dev')],
   ['fun', path.join(root, 'app', 'calculators', 'fun')],
   ['zip', path.join(root, 'app', 'zip')],
   ['commodities', path.join(root, 'app', 'commodities')],

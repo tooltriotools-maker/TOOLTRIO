@@ -33,8 +33,6 @@ export type ToolSource = {
  *   evidence-backed value, never today's date by default.
  * - SEO title/description/keywords are optional until the page has calculator-
  *   specific copy. We do not manufacture generic SEO padding.
- * - Finance quality data is promoted from the Finance Quality Registry so the
- *   same evidence is not duplicated in application code.
  */
 export type ToolMetadata = {
   slug: string
@@ -107,9 +105,6 @@ export function buildToolMetadataMap(tools: readonly ToolRecord[]): ReadonlyMap<
 
 export function categoryLabel(category: ToolCategory): string {
   switch (category) {
-    case 'finance': return 'Finance'
-    case 'health': return 'Health'
-    case 'dev': return 'Dev Tools'
     case 'fun': return 'Fun'
     case 'zip': return 'ZIP Tools'
     case 'commodities': return 'Commodities'

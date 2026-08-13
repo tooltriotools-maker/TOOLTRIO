@@ -149,7 +149,7 @@ export default function BlogPage() {
         )}
 
         {/* By Category */}
-        {Object.entries(CAT_CONFIG).filter(([catSlug]) => !isRestrictedBlogCategory(catSlug)).map(([catSlug, cfg]) => {
+        {Object.entries(CAT_CONFIG).map(([catSlug, cfg]) => {
           const posts = byCategory[catSlug] ?? []
           if (!posts.length) return null
           const SHOW = 6

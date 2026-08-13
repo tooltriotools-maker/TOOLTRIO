@@ -11,26 +11,14 @@ const redirects = new Set([
 ])
 const active = records.filter(tool => !redirects.has(tool.href))
 
-const contentDir = path.join(root, 'lib', 'content')
-const qualityFiles = fs.readdirSync(contentDir).filter(name => /^finance(?:-batch|-(?:quality|unreviewed)).*\.ts$/.test(name))
-const financeSlugs = new Set()
-for (const file of qualityFiles) {
-  const source = fs.readFileSync(path.join(contentDir, file), 'utf8')
-  for (const match of source.matchAll(/slug:\s*'([^']+)'/g)) financeSlugs.add(match[1])
-}
-
-const financeRoutes = active.filter(tool => tool.cat === 'finance')
-const financeMissing = financeRoutes.filter(tool => !financeSlugs.has(tool.href.split('/').filter(Boolean).at(-1)))
-
 const pageFiles = []
-for (const cat of ['finance', 'health', 'dev', 'fun']) {
-  const dir = path.join(root, 'app', 'calculators', cat)
+for (const cat of ['fun', 'zip', 'commodities']) {
+  const dir = cat === 'fun' ? path.join(root, 'app', 'calculators', cat) : path.join(root, 'app', cat)
   if (!fs.existsSync(dir)) continue
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue
-    for (const fileName of fs.readdirSync(path.join(dir, entry.name)).filter(name => name.endsWith('.tsx'))) {
-      pageFiles.push({ cat, slug: entry.name, file: path.join(dir, entry.name, fileName) })
-    }
+    const page = path.join(dir, entry.name, 'page.tsx')
+    if (fs.existsSync(page)) pageFiles.push({ cat, slug: entry.name, file: page })
   }
 }
 
@@ -50,8 +38,6 @@ for (const item of pageFiles) {
   if (/average American/i.test(text)) contextualAverageAmerican.push(`${item.cat}/${item.slug}/${path.basename(item.file)}`)
 }
 
-// Exact three-item boilerplate block is prohibited because it was repeated across
-// a large number of unrelated Finance calculators.
 const repeatedBoilerplate = 'The average American has only $87,000 saved for retirement by ages 55\\u201364'
 let repeatedBoilerplateHits = 0
 for (const item of pageFiles) {
@@ -65,9 +51,6 @@ const generatedMetadata = fs.existsSync(path.join(root, 'lib', 'catalog', 'gener
 
 const stats = {
   activeRoutes: active.length,
-  financeRoutes: financeRoutes.length,
-  financeQualityProfiles: financeSlugs.size,
-  financeMissingQuality: financeMissing.length,
   generatedPageMetadata: generatedMetadata,
   genericSeoHits: genericHits.length,
   contextualAverageAmericanMentions: contextualAverageAmerican.length,
@@ -78,7 +61,6 @@ const stats = {
 console.log(JSON.stringify(stats, null, 2))
 
 const errors = []
-if (financeMissing.length) errors.push(`Finance routes missing quality profiles: ${financeMissing.map(x => x.href).join(', ')}`)
 if (genericHits.length) errors.push(`Generic SEO boilerplate remains: ${genericHits.join(', ')}`)
 if (repeatedBoilerplateHits) errors.push(`Repeated generic retirement boilerplate remains in ${repeatedBoilerplateHits} files.`)
 if (errors.length) {

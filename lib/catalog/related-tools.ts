@@ -12,9 +12,6 @@ export type RelatedTool = {
 }
 
 const CATEGORY_ICONS: Record<ToolCategory, string> = {
-  finance: '💰',
-  health: '❤️',
-  dev: '🛠️',
   fun: '🎯',
   zip: '📍',
   commodities: '📈',

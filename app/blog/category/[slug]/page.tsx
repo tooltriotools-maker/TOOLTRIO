@@ -113,7 +113,7 @@ export default async function BlogCategory({ params }: Props) {
         <div className="mt-12 pt-8 border-t border-gray-100">
           <h2 className="font-bold text-gray-700 mb-4">Browse Other Categories</h2>
           <div className="flex flex-wrap gap-3">
-            {blogCategories.filter(c => c.slug !== slug && !isRestrictedBlogCategory(c.slug)).map(c => (
+            {blogCategories.filter(c => c.slug !== slug).map(c => (
               <Link key={c.slug} href={`/blog/category/${c.slug}`}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-all text-sm font-semibold text-gray-700">
                 <span>{c.icon}</span> {c.name}
