@@ -53,7 +53,7 @@ const relatedTools = [
   {name:'ZIP to County',href:'/zip/zip-to-county',icon:'📍'},
   {name:'ZIP Code Validator',href:'/zip/zip-code-validator',icon:'✅'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'ZIP to Area Code',href:'/zip/zip-to-area-code',icon:'📞'},
   {name:'State ZIP Codes',href:'/zip/state-zip-codes',icon:'🗺️'},
   {name:'ZIP Code Population',href:'/zip/zip-code-population',icon:'👥'},

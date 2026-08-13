@@ -7,11 +7,7 @@ const source = fs.readFileSync(catalogPath, 'utf8')
 const records = [...source.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '([^']+)', cat: '([^']+)'/g)]
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
-const redirects = new Set([
-    '/calculators/fun/insult-generator',
-])
-
-const registry = records.filter(r => !redirects.has(r.href))
+const registry = records
 const errors = []
 const seen = new Set()
 
@@ -35,7 +31,7 @@ for (const [cat, dir] of categories) {
     const href = cat === 'zip'
       ? `/${cat}/${entry.name}`
       : `/calculators/${cat}/${entry.name}`
-    if (!redirects.has(href)) actual.add(href)
+    actual.add(href)
   }
 }
 

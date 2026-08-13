@@ -6,10 +6,6 @@ const catalogSource = fs.readFileSync(path.join(root, 'lib', 'catalog', 'tools.t
 const records = [...catalogSource.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '([^']+)', cat: '([^']+)'/g)]
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
-const redirects = new Set([
-  '/calculators/fun/insult-generator',
-])
-
 function pagePathFor(href) {
   if (href.startsWith('/calculators/')) {
     const [, , category, slug] = href.split('/')
@@ -38,7 +34,6 @@ const output = {}
 const missing = []
 
 for (const tool of records) {
-  if (redirects.has(tool.href)) continue
   const file = pagePathFor(tool.href)
   if (!fs.existsSync(file)) {
     missing.push(tool.href)

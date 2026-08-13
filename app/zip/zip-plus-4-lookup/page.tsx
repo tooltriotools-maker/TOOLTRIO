@@ -78,7 +78,7 @@ const relatedTools = [
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'City to ZIP Code',href:'/zip/city-to-zip',icon:'🏙️'},
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
 ]
 

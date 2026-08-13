@@ -6,10 +6,7 @@ const root = process.cwd()
 const catalogPath = path.join(root, 'lib/catalog/tools.ts')
 const source = fs.readFileSync(catalogPath, 'utf8')
 const hrefs = [...source.matchAll(/href:\s*'([^']+)'/g)].map(m => m[1])
-const redirected = new Set([
-  '/calculators/fun/insult-generator',
-])
-const active = hrefs.filter(h => !redirected.has(h))
+const active = hrefs
 
 const relatedFile = path.join(root, 'lib/catalog/related-tools.ts')
 const related = fs.readFileSync(relatedFile, 'utf8')
@@ -31,4 +28,4 @@ if (active.length === 0) {
 }
 
 console.log(`Related-tools architecture passed: ${active.length} active catalog routes.`)
-console.log('Resolver is catalog-backed, deterministic, region/category aware, and excludes redirected routes.')
+console.log('Resolver is catalog-backed, deterministic, and region/category aware.')

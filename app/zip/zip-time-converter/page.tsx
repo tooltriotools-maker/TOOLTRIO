@@ -47,9 +47,9 @@ export const metadata: Metadata = {
 }
 
 const relatedTools = [
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'Same Timezone ZIPs',href:'/zip/same-timezone-zips',icon:'🕐'},
-  {name:'ZIP to Timezone Map',href:'/zip/zip-to-timezone-map',icon:'🗺️'},
+  {name:'ZIP Code Timezone Map',href:'/zip/zip-to-timezone-map',icon:'🗺️'},
   {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
   {name:'ZIP to City',href:'/zip/zip-to-city',icon:'🏙️'},
   {name:'ZIP to State',href:'/zip/zip-to-state',icon:'🗺️'},

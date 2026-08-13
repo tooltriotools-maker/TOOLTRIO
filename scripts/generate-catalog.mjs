@@ -18,7 +18,6 @@ const categories = [
   ]
 const labels = { fun: 'Fun', zip: 'ZIP' }
 const records = new Map()
-const redirectOnly = new Set(['/calculators/fun/insult-generator'])
 const title = slug => slug.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 
 for (const [cat, dir] of categories) {
@@ -33,7 +32,7 @@ for (const [cat, dir] of categories) {
     const href = cat === 'zip'
       ? `/${cat}/${entry.name}`
       : `/calculators/${cat}/${entry.name}`
-    if (!redirectOnly.has(href)) records.set(href, { name: nameByHref.get(href) ?? title(entry.name), cat, region: inferredRegion })
+    records.set(href, { name: nameByHref.get(href) ?? title(entry.name), cat, region: inferredRegion })
   }
 }
 

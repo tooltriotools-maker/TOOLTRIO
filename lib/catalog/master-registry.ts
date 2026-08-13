@@ -19,12 +19,7 @@ export type MasterToolRecord = ToolRecord & {
   metadata: ToolMetadata
 }
 
-export const REDIRECTED_TOOL_HREFS = new Set<string>([
-  '/calculators/fun/insult-generator',
-])
-
 export const MASTER_TOOL_REGISTRY: readonly MasterToolRecord[] = TOOL_CATALOG
-  .filter(tool => !REDIRECTED_TOOL_HREFS.has(tool.href))
   .map(tool => ({ ...tool, metadata: buildToolMetadata(tool) }))
 
 export const TOOL_COUNTS: Record<ToolCategory, number> = MASTER_TOOL_REGISTRY.reduce(

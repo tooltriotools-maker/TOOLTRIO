@@ -93,7 +93,7 @@ const relatedTools = [
   {name:'ZIP to ZIP Route',href:'/zip/zip-to-zip-route',icon:'🛣️'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
   {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'ZIP+4 Lookup',href:'/zip/zip-plus-4-lookup',icon:'➕'},
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Boundary Info',href:'/zip/zip-boundary-info',icon:'🔲'},

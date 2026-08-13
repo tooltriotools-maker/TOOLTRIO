@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 }
 
 const relatedTools = [
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'Same Timezone ZIPs',href:'/zip/same-timezone-zips',icon:'🕐'},
   {name:'ZIP Time Converter',href:'/zip/zip-time-converter',icon:'⏱️'},
   {name:'ZIP Code Map',href:'/zip/zip-code-map',icon:'🗺️'},
@@ -139,7 +139,7 @@ Building a timezone-aware map application requires a ZIP-to-timezone database an
     { q: `How are timezone boundaries determined?`, a: `Timezone boundaries in the US are set by federal law (Department of Transportation) following natural geographic, cultural, and economic divisions. They are generally implemented at the county level — entire counties are assigned to one timezone.` },
     { q: `Can I download a US timezone shapefile?`, a: `Yes — the timezone-boundary-builder open-source project (github.com/evansiroky/timezone-boundary-builder) provides IANA timezone polygon shapefiles globally. Census Bureau county shapefiles combined with IANA county-timezone assignments also work for US-specific applications.` },
     { q: `Does the map show DST transitions?`, a: `The map shows timezone regions. DST transition dates are consistent across all observing regions: second Sunday in March (clocks spring forward) and first Sunday in November (clocks fall back). Arizona and Hawaii are marked as non-DST.` },
-    { q: `How do I determine which timezone a ZIP code is in?`, a: `Use our ZIP to Timezone tool to look up the exact IANA timezone for any ZIP code. The timezone map provides visual context for understanding regional patterns.` },
+    { q: `How do I determine which timezone a ZIP code is in?`, a: `Use our ZIP Code Timezone tool to look up the exact IANA timezone for any ZIP code. The timezone map provides visual context for understanding regional patterns.` },
     { q: `Why does the timezone boundary sometimes run through a city?`, a: `Timezone boundaries follow county lines, and when a metropolitan area spans multiple counties, the timezone boundary may run through the metro area. This is rare but occurs in some border areas.` },
     { q: `What is the best time to call from Eastern to Pacific?`, a: `12 PM–2 PM ET (9 AM–11 AM PT) is the classic cross-country call window when both parties are reliably in their morning work period.` },
     { q: `Is the timezone map interactive?`, a: `Yes — you can zoom, pan, and click on ZIP codes to identify their timezone. Enter a specific ZIP in the search box to highlight it on the map and display its timezone information.` },
@@ -152,7 +152,7 @@ Building a timezone-aware map application requires a ZIP-to-timezone database an
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout title="ZIP Code Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Timezone Map — Visualize US Timezones by ZIP Code 2026\",\"description\":\"View an interactive map of US timezones by ZIP code. See which timezone any ZIP code falls in on a visual map. Free ZIP timezone map tool. Free on TOO\",\"url\":\"https://tooltrio.com/zip/zip-to-timezone-map\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>

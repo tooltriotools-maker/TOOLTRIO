@@ -55,7 +55,7 @@ const relatedTools = [
   {name:'Nearest ZIP Code',href:'/zip/nearest-zip-code',icon:'📌'},
   {name:'ZIP to Coordinates',href:'/zip/zip-to-coordinates',icon:'🌐'},
   {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:'🔍'},
-  {name:'ZIP to Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
+  {name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:'🕐'},
   {name:'ZIP Code Population',href:'/zip/zip-code-population',icon:'👥'},
   {name:'ZIP Boundary Info',href:'/zip/zip-boundary-info',icon:'🔲'},
   {name:'Same Timezone ZIPs',href:'/zip/same-timezone-zips',icon:'🕐'},
@@ -123,7 +123,7 @@ Field sales reps covering multiple ZIP code territories plan weekly call routes 
 
 **Understanding Timezone Changes on Long Routes**
 
-Long ZIP-to-ZIP routes that cross state lines may also cross timezone boundaries. A route from Denver, CO (Mountain Time) to Kansas City, MO (Central Time) crosses the MT/CT boundary in western Kansas. Our ZIP to Timezone tool can identify the timezone of each ZIP code involved in a long route, helping travelers and logistics planners account for timezone transitions in arrival time calculations.
+Long ZIP-to-ZIP routes that cross state lines may also cross timezone boundaries. A route from Denver, CO (Mountain Time) to Kansas City, MO (Central Time) crosses the MT/CT boundary in western Kansas. Our ZIP Code Timezone tool can identify the timezone of each ZIP code involved in a long route, helping travelers and logistics planners account for timezone transitions in arrival time calculations.
 
 **Route Distance for Freight and Shipping Rate Calculation**
 
@@ -141,7 +141,7 @@ Beyond logistics, ZIP code routing is useful for travel planning. Road trippers 
     { q: `How do freight carriers use ZIP-to-ZIP distance?`, a: `Freight carriers calculate rates based on point-to-point distance between origin and destination ZIP codes. The route distance from our tool provides the mileage input for freight rate lookups and cost estimation.` },
     { q: `What is the longest ZIP to ZIP route in the US?`, a: `The longest possible route between two US ZIP codes (excluding territories) is roughly 3,000+ miles — cross-country from the easternmost Maine ZIPs to the westernmost Washington state ZIPs.` },
     { q: `Can I plan a road trip by entering start and end ZIP codes?`, a: `Yes — enter your origin and destination ZIP codes to get the route distance and time. For adding multiple waypoints, use Google Maps or a road trip planner that supports multi-stop routing.` },
-    { q: `How does a timezone change affect travel planning on long routes?`, a: `A drive from Denver CO (Mountain Time) to Kansas City MO (Central Time) gains one hour. Our ZIP to Timezone tool can identify timezone transitions along your route.` },
+    { q: `How does a timezone change affect travel planning on long routes?`, a: `A drive from Denver CO (Mountain Time) to Kansas City MO (Central Time) gains one hour. Our ZIP Code Timezone tool can identify timezone transitions along your route.` },
     { q: `Why does my ZIP to ZIP result show a different distance than my car odometer?`, a: `Odometer distance reflects your exact starting and ending address-to-address route. Our calculation is centroid-to-centroid and may differ by a few miles. Additionally, any detours or alternative routes you take will add odometer distance.` },
     { q: `Is the tool free?`, a: `Yes — free, no account required.` },
     { q: `Does the tool work for ZIP codes in Hawaii and Alaska?`, a: `Yes — routes within Hawaii and within Alaska are supported. Routes between Hawaii/Alaska and the continental US will show the straight-line distance since driving is not possible across the ocean.` },

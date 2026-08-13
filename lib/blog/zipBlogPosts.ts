@@ -1884,9 +1884,9 @@ Finding a ZIP code's county takes seconds with a ZIP-to-county lookup, but remem
     category: 'ZIP Code Guides', categorySlug: 'zip-codes', readTime: '7 min read',
     publishedAt: D, author: AUTHOR,
     tags: ['zip to timezone', 'time zone lookup'],
-    relatedCalc: { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
+    relatedCalc: { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
     relatedCalcs: [
-      { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone', icon: '🕐', desc: 'Timezone from ZIP' },
+      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone', icon: '🕐', desc: 'Timezone from ZIP' },
       { name: 'ZIP Time Converter', href: '/zip/zip-time-converter', icon: '⏱️', desc: 'Convert time between ZIPs' },
       { name: 'Same Timezone ZIPs', href: '/zip/same-timezone-zips', icon: '🕐', desc: 'ZIPs sharing a timezone' },
     ],
@@ -1895,11 +1895,11 @@ Finding a ZIP code's county takes seconds with a ZIP-to-county lookup, but remem
     keywords: ['zip code time zone lookup', 'find time zone by zip code', 'what timezone is my zip code'],
     content: `# How to Find a Time Zone From a ZIP Code
 
-Use our **[ZIP to Timezone tool](/zip/zip-to-timezone)** — enter any five-digit ZIP code and get the exact U.S. timezone instantly, including whether it observes Daylight Saving Time. This is more reliable than assuming a timezone based on state alone, since several states are split across more than one timezone.
+Use our **[ZIP Code Timezone tool](/zip/zip-to-timezone)** — enter any five-digit ZIP code and get the exact U.S. timezone instantly, including whether it observes Daylight Saving Time. This is more reliable than assuming a timezone based on state alone, since several states are split across more than one timezone.
 
 ## Quick Answer
 
-To find the timezone for a ZIP code, enter it into a ZIP-to-timezone lookup tool, such as our **[ZIP to Timezone tool](/zip/zip-to-timezone)**, which returns the specific U.S. timezone and whether that area observes Daylight Saving Time. This is important because several states — including Indiana, Texas, and others — are split across more than one timezone, so state alone isn't always a reliable indicator.
+To find the timezone for a ZIP code, enter it into a ZIP-to-timezone lookup tool, such as our **[ZIP Code Timezone tool](/zip/zip-to-timezone)**, which returns the specific U.S. timezone and whether that area observes Daylight Saving Time. This is important because several states — including Indiana, Texas, and others — are split across more than one timezone, so state alone isn't always a reliable indicator.
 
 ## The 6 US Timezones a ZIP Code Can Fall In
 
@@ -1955,7 +1955,7 @@ Building a call schedule or marketing campaign for an entire timezone at once? U
 ## Frequently Asked Questions
 
 **How do I find the timezone for a specific ZIP code?**
-Enter the ZIP code into our **[ZIP to Timezone tool](/zip/zip-to-timezone)** for an instant result, including whether the area observes Daylight Saving Time.
+Enter the ZIP code into our **[ZIP Code Timezone tool](/zip/zip-to-timezone)** for an instant result, including whether the area observes Daylight Saving Time.
 
 **Can two ZIP codes in the same state have different timezones?**
 Yes — states like Indiana, Texas, Nebraska, and Kansas have ZIP codes that fall into more than one U.S. timezone.
@@ -1974,7 +1974,7 @@ Because several states are split across more than one timezone, relying on state
 
 ## Final Takeaway
 
-Finding the correct timezone for a ZIP code takes seconds with a dedicated lookup tool, and it's meaningfully more reliable than assuming based on state, since several states are genuinely split across timezone boundaries. Use **[ZIP to Timezone](/zip/zip-to-timezone)** for an instant, accurate answer for any U.S. ZIP code, **[ZIP Time Converter](/zip/zip-time-converter)** to convert a specific time between two ZIP codes, or **[Same Timezone ZIPs](/zip/same-timezone-zips)** to pull every ZIP code sharing a given timezone at once.`,
+Finding the correct timezone for a ZIP code takes seconds with a dedicated lookup tool, and it's meaningfully more reliable than assuming based on state, since several states are genuinely split across timezone boundaries. Use **[ZIP Code Timezone](/zip/zip-to-timezone)** for an instant, accurate answer for any U.S. ZIP code, **[ZIP Time Converter](/zip/zip-time-converter)** to convert a specific time between two ZIP codes, or **[Same Timezone ZIPs](/zip/same-timezone-zips)** to pull every ZIP code sharing a given timezone at once.`,
   },
 
   {

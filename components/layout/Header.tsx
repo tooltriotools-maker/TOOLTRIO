@@ -34,7 +34,7 @@ const NAV = [
       { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
       { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius' },
       { name: 'City to ZIP', href: '/zip/city-to-zip' },
-      { name: 'ZIP to Timezone', href: '/zip/zip-to-timezone' },
+      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
       { name: 'ZIP Code Map', href: '/zip/zip-code-map' },
       { name: 'ZIP Validator', href: '/zip/zip-code-validator' },
       { name: 'USPS Address Format', href: '/zip/usps-address-format' },

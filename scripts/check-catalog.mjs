@@ -6,7 +6,6 @@ const catalog = fs.readFileSync(path.join(root, 'lib/catalog/tools.ts'), 'utf8')
 const hrefs = [...catalog.matchAll(/href: '([^']+)'/g)].map(m => m[1])
 const seen = new Set()
 const errors = []
-const redirectOnly = new Set(['/calculators/fun/insult-generator',])
 for (const href of hrefs) {
   if (seen.has(href)) errors.push(`Duplicate catalog href: ${href}`)
   seen.add(href)
@@ -22,7 +21,7 @@ for (const [cat, dir] of routeDirs) {
     const page = path.join(dir, entry.name, 'page.tsx')
     if (!fs.existsSync(page)) continue
     const href = cat === 'zip' ? `/${cat}/${entry.name}` : `/calculators/${cat}/${entry.name}`
-    if (!redirectOnly.has(href) && !seen.has(href)) errors.push(`Route missing from catalog: ${href}`)
+    if (!seen.has(href)) errors.push(`Route missing from catalog: ${href}`)
   }
 }
 if (errors.length) {

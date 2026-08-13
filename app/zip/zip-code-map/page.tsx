@@ -55,7 +55,7 @@ const relatedTools = [
   {name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:'📏'},
   {name:'State ZIP Codes',href:'/zip/state-zip-codes',icon:'🗺️'},
   {name:'County ZIP Codes',href:'/zip/county-zip-codes',icon:'📋'},
-  {name:'ZIP to Timezone Map',href:'/zip/zip-to-timezone-map',icon:'🗺️'},
+  {name:'ZIP Code Timezone Map',href:'/zip/zip-to-timezone-map',icon:'🗺️'},
   {name:'Nearest ZIP Code',href:'/zip/nearest-zip-code',icon:'📌'},
   {name:'ZIP to ZIP Route',href:'/zip/zip-to-zip-route',icon:'🛣️'},
   {name:'ZIP Code Population',href:'/zip/zip-code-population',icon:'👥'},

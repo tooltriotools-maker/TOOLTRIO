@@ -194,10 +194,10 @@ function getToolDescription(name: string) {
     "ZIP Time Converter":
       "Convert time between ZIP Codes.",
 
-    "ZIP to Timezone":
+    "ZIP Code Timezone":
       "Find the timezone for any ZIP Code.",
 
-    "ZIP to Timezone Map":
+    "ZIP Code Timezone Map":
       "View ZIP timezone coverage.",
 
     "Same Timezone ZIPs":

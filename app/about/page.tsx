@@ -23,7 +23,7 @@ const schema = {
 const tools = [
   ['ZIP Code Lookup', '/zip/zip-code-lookup', 'Find city, state, county and related ZIP information.'],
   ['ZIP Code Distance', '/zip/zip-code-distance', 'Compare the distance between two US ZIP codes.'],
-  ['ZIP to Timezone', '/zip/zip-to-timezone', 'Identify the timezone associated with a US ZIP code.'],
+  ['ZIP Code Timezone', '/zip/zip-to-timezone', 'Identify the timezone associated with a US ZIP code.'],
   ['ZIP+4 Lookup', '/zip/zip-plus-4-lookup', 'Understand and look up the four-digit ZIP extension.'],
   ['ZIP to Coordinates', '/zip/zip-to-coordinates', 'Find latitude and longitude for a ZIP code.'],
   ['ZIPs Within Radius', '/zip/zips-within-radius', 'Explore ZIP codes around a selected ZIP and radius.'],

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — 35+ USA ZIP Utilities | ToolTrio',
-  description: 'Free US ZIP code tools: ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator, ZIP to timezone finder, radius search, area codes, demographics and 30+ more. Covers every ZIP code cluster in all 50 states. No signup.',
+  description: 'Free US ZIP code tools: ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator, ZIP to timezone finder, radius search, area codes, demographics and 30+ more. Covers US ZIP codes across all 50 states. No signup.',
   keywords: [
     'zip code lookup',
     'zip code finder',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     url: 'https://tooltrio.com/zip',
     siteName: 'ToolTrio',
     title: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — ToolTrio',
-    description: 'ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — plus 30+ more free US ZIP code tools. Covers every ZIP cluster. No signup.',
+    description: 'ZIP Code Lookup, ZIP+4 Lookup, ZIP Code Distance and ZIP Code Timezone — plus 30+ more free US ZIP code tools. No signup.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Free ZIP Code Lookup, ZIP+4, Distance & Timezone Tools — ToolTrio' }],
     locale: 'en_US',
   },
@@ -53,7 +53,7 @@ const HERO_TOOLS = [
   { name: 'ZIP Code Lookup', desc: 'City, state, county & timezone for any US ZIP', href: '/zip/zip-code-lookup', icon: '🔍' },
   { name: 'ZIP Code Distance', desc: 'Miles & km between any two ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
   { name: 'ZIP+4 Lookup', desc: 'Find your ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
-  { name: 'ZIP to Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
+  { name: 'ZIP Code Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
 ]
 
 const zipHubFAQs = [
@@ -111,7 +111,7 @@ const ZIP_TOOLS = [
       { name: 'ZIP to City', desc: 'City from ZIP code', href: '/zip/zip-to-city', icon: '🏙️' },
       { name: 'ZIP to State', desc: 'State from ZIP code', href: '/zip/zip-to-state', icon: '🗺️' },
       { name: 'ZIP to County', desc: 'County from ZIP code', href: '/zip/zip-to-county', icon: '📍' },
-      { name: 'ZIP to Timezone', desc: 'Timezone from ZIP', href: '/zip/zip-to-timezone', icon: '🕐' },
+      { name: 'ZIP Code Timezone', desc: 'Timezone from ZIP', href: '/zip/zip-to-timezone', icon: '🕐' },
       { name: 'ZIP to Area Code', desc: 'Phone area code by ZIP', href: '/zip/zip-to-area-code', icon: '📞' },
       { name: 'ZIP to Coordinates', desc: 'Lat/lng for any ZIP', href: '/zip/zip-to-coordinates', icon: '🌐' },
       { name: 'ZIP Code Type', desc: 'Standard, PO Box or Military?', href: '/zip/zip-code-type', icon: '📬' },
@@ -162,7 +162,7 @@ const ZIP_TOOLS = [
     color: 'teal',
     tools: [
       { name: 'ZIP Time Converter', desc: 'Convert time between ZIPs', href: '/zip/zip-time-converter', icon: '⏱️', hot: true },
-      { name: 'ZIP to Timezone Map', desc: 'Visual timezone finder', href: '/zip/zip-to-timezone-map', icon: '🗺️' },
+      { name: 'ZIP Code Timezone Map', desc: 'Visual timezone finder', href: '/zip/zip-to-timezone-map', icon: '🗺️' },
       { name: 'Same Timezone ZIPs', desc: 'ZIPs sharing a timezone', href: '/zip/same-timezone-zips', icon: '🕐' },
       { name: 'Area Code by ZIP', desc: 'Phone area code lookup', href: '/zip/area-code-by-zip', icon: '📱' },
       { name: 'ZIPs by Area Code', desc: 'Find ZIPs for area code', href: '/zip/zip-by-area-code', icon: '☎️' },
@@ -203,7 +203,7 @@ export default function ZipHubPage() {
             Free ZIP Code Lookup, ZIP+4 & Distance Tools
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
-            Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — the most complete free suite of US ZIP code utilities, covering every ZIP cluster in all 50 states.
+            Instant ZIP Code Lookup, ZIP+4 Lookup, ZIP Code Distance and ZIP Code Timezone — a focused suite of free US ZIP code utilities covering all 50 states.
           </p>
 
           {/* Popular quick-links */}
@@ -212,7 +212,7 @@ export default function ZipHubPage() {
               { href: '/zip/zip-code-lookup', label: '🔍 ZIP Lookup' },
               { href: '/zip/zip-code-distance', label: '📏 Distance Calculator' },
               { href: '/zip/zip-plus-4-lookup', label: '➕ ZIP+4 Lookup' },
-              { href: '/zip/zip-to-timezone', label: '🕐 ZIP to Timezone' },
+              { href: '/zip/zip-to-timezone', label: '🕐 ZIP Code Timezone' },
               { href: '/zip/city-to-zip', label: '🏙️ City to ZIP' },
               { href: '/zip/zips-within-radius', label: '🎯 ZIPs in Radius' },
               { href: '/zip/usps-address-format', label: '📬 USPS Format' },
@@ -312,7 +312,7 @@ export default function ZipHubPage() {
             <strong>TOOLTRIO</strong> (also known as <em>Tool Trio</em>, <em>ToolTrio</em>, and <em>Trio Tools</em>) is a free collection of 35+ US ZIP code utilities built for developers, marketers, data analysts, logistics teams, and everyday users who need fast, accurate US postal data. Every tool on TOOLTRIO is free — no account, no subscription, no rate limit for individual use.
           </p>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            When you search for <strong>"tooltrio zip code"</strong>, <strong>"zip code tooltrio"</strong>, <strong>"tooltrio"</strong>, <strong>"tool trio zip"</strong>, or <strong>"trio tools address"</strong>, you find a platform built around one mission: making US ZIP code data instantly accessible. From the flagship <a href="/zip/zip-code-lookup" className="text-green-700 underline">ZIP Code Lookup</a> to specialized tools like <a href="/zip/zips-within-radius" className="text-green-700 underline">ZIPs Within Radius</a>, <a href="/zip/zip-code-distance" className="text-green-700 underline">ZIP Code Distance</a>, and <a href="/zip/zip-to-timezone" className="text-green-700 underline">ZIP to Timezone</a>, every TOOLTRIO tool returns accurate, USPS-sourced data enriched with Census demographics, IANA timezone data, and Census TIGER/Line geographic coordinates.
+            When you search for <strong>"tooltrio zip code"</strong>, <strong>"zip code tooltrio"</strong>, <strong>"tooltrio"</strong>, <strong>"tool trio zip"</strong>, or <strong>"trio tools address"</strong>, you find a platform built around one mission: making US ZIP code data instantly accessible. From the flagship <a href="/zip/zip-code-lookup" className="text-green-700 underline">ZIP Code Lookup</a> to specialized tools like <a href="/zip/zips-within-radius" className="text-green-700 underline">ZIPs Within Radius</a>, <a href="/zip/zip-code-distance" className="text-green-700 underline">ZIP Code Distance</a>, and <a href="/zip/zip-to-timezone" className="text-green-700 underline">ZIP Code Timezone</a>, every TOOLTRIO tool returns accurate, USPS-sourced data enriched with Census demographics, IANA timezone data, and Census TIGER/Line geographic coordinates.
           </p>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
             TOOLTRIO ZIP tools are used by e-commerce teams to auto-fill checkout forms, by sales operations teams to design territories, by healthcare analysts to map service areas, by direct mail agencies to build ZIP code target lists, by developers to validate address inputs, and by students and researchers exploring US geographic data. Whether you call it TOOLTRIO, Tool Trio, ToolTrio, or Trio Tools — every tool is free, every result is immediate, and every data point is sourced from authoritative US government databases including the USPS Address Management System, the Census Bureau ACS, and the Census TIGER/Line geographic files.

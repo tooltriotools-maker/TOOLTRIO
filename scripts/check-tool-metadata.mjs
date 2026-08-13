@@ -6,10 +6,7 @@ const catalog = fs.readFileSync(path.join(root, 'lib', 'catalog', 'tools.ts'), '
 const records = [...catalog.matchAll(/\{ name: '((?:\\'|[^'])*)', href: '([^']+)', cat: '([^']+)'/g)]
   .map(m => ({ name: m[1].replaceAll("\\'", "'"), href: m[2], cat: m[3] }))
 
-const redirects = new Set([
-    '/calculators/fun/insult-generator',
-])
-const active = records.filter(tool => !redirects.has(tool.href))
+const active = records
 
 const pageFiles = []
 for (const cat of ['fun', 'zip']) {

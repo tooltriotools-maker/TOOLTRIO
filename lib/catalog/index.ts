@@ -1,9 +1,9 @@
-import { MASTER_TOOL_REGISTRY, TOOL_COUNTS, CALCULATOR_COUNTS, TOOL_TOTAL, REDIRECTED_TOOL_HREFS, findToolByHref, getToolMetadata, getToolsByCategory, searchMasterRegistry, masterRegistryIntegrityErrors } from './master-registry'
+import { MASTER_TOOL_REGISTRY, TOOL_COUNTS, CALCULATOR_COUNTS, TOOL_TOTAL, findToolByHref, getToolMetadata, getToolsByCategory, searchMasterRegistry, masterRegistryIntegrityErrors } from './master-registry'
 import { BLOG_CATALOG } from './blog'
 import type { ToolCategory, ToolRecord } from './master-registry'
 
 export type { MasterToolRecord, ToolMetadata } from './master-registry'
-export { MASTER_TOOL_REGISTRY, BLOG_CATALOG, REDIRECTED_TOOL_HREFS, TOOL_COUNTS, CALCULATOR_COUNTS, TOOL_TOTAL, findToolByHref, getToolMetadata, getToolsByCategory, searchMasterRegistry, masterRegistryIntegrityErrors }
+export { MASTER_TOOL_REGISTRY, BLOG_CATALOG, TOOL_COUNTS, CALCULATOR_COUNTS, TOOL_TOTAL, findToolByHref, getToolMetadata, getToolsByCategory, searchMasterRegistry, masterRegistryIntegrityErrors }
 
 /** Public discovery catalog: only active public ToolTrio categories are registered. */
 export const PUBLIC_TOOL_REGISTRY = MASTER_TOOL_REGISTRY

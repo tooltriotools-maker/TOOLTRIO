@@ -1,7 +1,7 @@
 {
   "name": "ToolTrio — US ZIP Code Tools",
   "short_name": "ToolTrio",
-  "description": "Free US ZIP code tools including US ZIP Code Cluster, ZIP Code Lookup, ZIP Code Distance and ZIP Code Timezone tools. No signup required.",
+  "description": "Free US ZIP code tools including ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone and ZIP+4 Lookup. No signup required.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#f0faf5",

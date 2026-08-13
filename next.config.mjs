@@ -99,9 +99,6 @@ const nextConfig = {
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
       { source: '/blog/',                       destination: '/blog',                        permanent: true },
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
-      // ── Insult generator duplicate fix (byte-identical pages, merged into canonical) ──
-      { source: '/calculators/fun/insult-generator',  destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
-      { source: '/calculators/fun/insult-generator/', destination: '/calculators/fun/shakespeare-insult-generator', permanent: true },
     ]
   },
 }

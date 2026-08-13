@@ -1,7 +1,4 @@
 import { GENERATED_TOOL_PAGE_METADATA } from './generated-tool-metadata'
-const REDIRECTED_TOOL_HREFS = new Set<string>([
-  '/calculators/fun/insult-generator',
-])
 import { TOOL_CATALOG, type ToolCategory, type ToolRecord } from './tools'
 
 export type RelatedTool = {
@@ -63,7 +60,7 @@ export function getRelatedTools(href: string, limit = 6): RelatedTool[] {
   const currentTokens = tokens(candidateText(current))
 
   return TOOL_CATALOG
-    .filter(tool => tool.href !== href && !REDIRECTED_TOOL_HREFS.has(tool.href))
+    .filter(tool => tool.href !== href)
     .map(tool => {
       const candidateRegion = tool.region ?? 'global'
       const candidateTokens = tokens(candidateText(tool))
