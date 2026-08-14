@@ -6,10 +6,10 @@ import { publicBlogPosts } from '@/lib/blog/posts'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
+      absolute: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
   },
     description:
-    'ToolTrio is a US ZIP Code Cluster toolkit with ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone, ZIP+4, coordinates, radius and mailing utilities. Free, focused and available without signup.',
+        'Free US ZIP code tools for ZIP lookup, ZIP-to-ZIP distance, timezone lookup, ZIP coordinates and ZIP+4. Use 35+ practical ZIP tools for location, mailing and geographic lookups with instant results and no signup.',
 
   keywords: [
     'zip code lookup',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
+        title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
     description:
       'ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools for US ZIP codes. Free, fast and easy to use with no signup.',
     url: 'https://tooltrio.com',
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-     title: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
-    description: 'US ZIP Code Cluster tools for lookup, distance, timezone, ZIP+4, coordinates and nearby ZIP searches, plus selected fun tools. No signup required.',
-     images: ['/og-image.png'],
+     title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
+    description: 'Free US ZIP code tools for lookup, distance, timezone, coordinates and ZIP+4, plus fun tools. No signup required.',
+    images: ['/og-image.png'],
   },
 }
 
@@ -184,7 +184,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-            US ZIP Code Cluster — Lookup, Distance, Timezone & ZIP+4{' '}
+              Free US ZIP Code Lookup, Distance, Timezone & ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
