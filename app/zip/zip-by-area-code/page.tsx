@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+  title: 'ZIP Codes by Area Code — Find ZIPs by Area Code | ToolTrio',
   description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
   keywords: [
     'zip codes by area code',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-by-area-code',
     siteName: 'ToolTrio',
-    title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+    title: 'ZIP Codes by Area Code — Find ZIPs by Area Code | ToolTrio',
     description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Codes by Area Code — All ZIP Codes for a Phone Area Code USA Free | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Codes by Area Code — All ZIPs for Any Area Code USA | ToolTrio',
+    title: 'ZIP Codes by Area Code — Find ZIPs by Area Code | ToolTrio',
     description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -156,9 +156,9 @@ The original 1947 telephone area code plan assigned area codes strategically: th
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP by Area Code" description="Find all ZIP codes associated with any US telephone area code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-by-area-code" title="ZIP by Area Code" description="Find all ZIP codes associated with any US telephone area code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by Area Code — Find ZIPs for Any Area Code 2026\",\"description\":\"Find all US ZIP codes associated with any telephone area code. Enter an area code and get every ZIP code in that area code region. Free ZIP by area co\",\"url\":\"https://tooltrio.com/zip/zip-by-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

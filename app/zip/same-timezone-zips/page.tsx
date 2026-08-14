@@ -144,9 +144,9 @@ Businesses with customers in multiple timezones need operations schedules that a
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Same Timezone ZIPs" description="Find all US ZIP codes that share the same timezone as any entered ZIP code." icon="🕐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="same-timezone-zips" title="Same Timezone ZIPs" description="Find all US ZIP codes that share the same timezone as any entered ZIP code." icon="🕐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Same Timezone ZIP Codes — Find All ZIPs in Same Timezone 2026\",\"description\":\"Find all US ZIP codes in the same timezone as any ZIP code. Enter a ZIP and get a complete list of ZIP codes sharing the same timezone. Free tool. Fre\",\"url\":\"https://tooltrio.com/zip/same-timezone-zips\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

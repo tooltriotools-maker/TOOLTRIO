@@ -99,7 +99,7 @@ const seoContent = {
     { label: 'Case sensitivity', value: 'Search is case-insensitive' },
     { label: 'Partial match support', value: 'Yes — Spring matches Springfield, Spring Hill, etc.' },
   ],
-  body: `Searching for ZIP codes by city name is the most intuitive way to find ZIP codes when you know the place name but not the specific ZIP code. Our ZIPs by City Name tool searches the complete USPS city name database — covering all preferred city names and acceptable alternate city names across all 42,000+ active US ZIP codes — and returns every matching ZIP code with its state, county, and type. Whether you are looking for all ZIP codes in a specific city, exploring which states have cities with a common name, or building a geographic filter based on community names, this tool provides immediate, comprehensive results.
+  body: `Searching for ZIP codes by city name is the most intuitive way to find ZIP codes when you know the place name but not the specific ZIP code. Our ZIPs by City Name tool searches the complete USPS city name database — covering all preferred city names and acceptable alternate city names across all 41,000+ active US ZIP codes — and returns every matching ZIP code with its state, county, and type. Whether you are looking for all ZIP codes in a specific city, exploring which states have cities with a common name, or building a geographic filter based on community names, this tool provides immediate, comprehensive results.
 
 **How City Name Search Works**
 
@@ -164,9 +164,9 @@ Digital advertisers can use city name ZIP search to build geographic targeting l
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIPs by City Name" description="Search for all ZIP codes matching any city or community name across the US." icon="🔎" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zips-by-city-name" title="ZIPs by City Name" description="Search for all ZIP codes matching any city or community name across the US." icon="🔎" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Codes by City Name — Search Any US City Name 2026\",\"description\":\"Search for ZIP codes using any city or community name in the US. Find all ZIP codes that match a city name across all states. Free ZIP codes by city n\",\"url\":\"https://tooltrio.com/zip/zips-by-city-name\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

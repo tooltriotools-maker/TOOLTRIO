@@ -159,9 +159,9 @@ Customer databases accumulate incorrect ZIP codes over time through data entry e
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Address to ZIP" description="Find the exact ZIP code for any US street address." icon="🏠" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="address-to-zip" title="Address to ZIP" description="Find the exact ZIP code for any US street address." icon="🏠" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Address to ZIP Code — Find ZIP Code for Any US Address 2026\",\"description\":\"Find the ZIP code for any US street address. Enter a street address, city, and state to get the exact 5-digit ZIP code. Free address to ZIP lookup. Fr\",\"url\":\"https://tooltrio.com/zip/address-to-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

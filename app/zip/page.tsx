@@ -58,7 +58,7 @@ const HERO_TOOLS = [
 
 const zipHubFAQs = [
   { q: 'What is a ZIP code?', a: 'ZIP code stands for Zone Improvement Plan. It\'s a 5-digit postal code used by the United States Postal Service (USPS) since 1963 to efficiently route mail to specific geographic areas.' },
-  { q: 'How many ZIP codes are there in the US?', a: 'There are approximately 42,000 active ZIP codes in the United States. This includes Standard, PO Box, Unique, and Military ZIP codes across all 50 states, DC, and US territories.' },
+  { q: 'How many ZIP codes are there in the US?', a: 'There are approximately 41,000+ active ZIP codes in the United States. This includes Standard, PO Box, Unique, and Military ZIP codes across all 50 states, DC, and US territories.' },
   { q: 'What is the difference between ZIP and ZIP+4?', a: 'A standard ZIP code is 5 digits. ZIP+4 adds a hyphen and 4 extra digits to identify a specific city block or delivery point. The format is XXXXX-XXXX (e.g., 10001-0001).' },
   { q: 'Can one city have multiple ZIP codes?', a: 'Yes. Large cities like New York, Los Angeles, and Chicago have dozens of ZIP codes, each serving a specific neighborhood or district within the city.' },
   { q: 'Are ZIP codes the same as area codes?', a: 'No. ZIP codes are postal codes used for mail delivery, while area codes are 3-digit telephone prefixes. A single ZIP code area may have one or more area codes.' },

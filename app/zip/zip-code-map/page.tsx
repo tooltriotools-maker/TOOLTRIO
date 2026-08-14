@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+  title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
   description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
   keywords: [
     'zip code map',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-map',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+    title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
     description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Map — View Any ZIP Code on Interactive Map Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Map — View Any ZIP on Interactive Map Free USA | ToolTrio',
+    title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
     description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -134,7 +134,7 @@ One of the most useful features of a ZIP code map is the ability to compare neig
     { q: 'Can I use the ZIP code map to determine if two addresses are in the same delivery zone?', a: `Yes — if both addresses fall within the same ZCTA polygon on the map, they share a ZIP code and are in the same delivery zone. However, the map visualization is for reference. For programmatic determination, use a spatial point-in-polygon query: given two addresses (lat/lng), query the ZCTA polygon dataset and compare the returned ZIP codes. In PostGIS: SELECT zip FROM zcta WHERE ST_Contains(geom, ST_Point(-73.9967, 40.7484)) returns the ZIP for that coordinate.` },
     { q: 'My choropleth map of customer density by ZIP code looks wrong for rural vs. urban areas — why?', a: `This is the modifiable areal unit problem (MAUP). Urban ZIP codes are tiny (0.1-2 sq mi) and show high customer density on a choropleth. Rural ZIP codes are enormous (100-10,000 sq mi) and appear to have very low density even with significant population. Solution: use proportional symbol maps (circle size = customer count) instead of choropleth fill color for count data. Use choropleth only for rate/density data (customers per sq mi or per 1,000 population). Our ZIP Boundary Info tool provides land area for density normalization.` },
     { q: 'What is the difference between a ZCTA boundary and a USPS delivery zone boundary?', a: `ZCTA boundaries are built by the Census Bureau from census block polygons — they approximate ZIP code boundaries but are defined in terms of statistical geography. USPS delivery zone boundaries are defined by actual carrier routes and post office service areas — they are not publicly available as GIS shapefiles. ZCTAs are the best publicly available approximation. They match USPS zones well in urban areas (where census block boundaries align with street grids) and less precisely in rural areas (where large census blocks may straddle delivery zone lines).` },
-    { q: 'How do I add a ZIP code boundary layer to a Google Maps embed on my website?', a: `Google Maps API approach: Load ZCTA GeoJSON (from Census Bureau) into a Fetch request. Convert to Google Maps Data layer: map.data.loadGeoJson('zctas.geojson'). Style with map.data.setStyle(): fill color, stroke. Handle click events to show ZIP info. For a simpler approach with limited ZIPs, encode ZCTA polygon coordinates as Google Maps Polygon objects and add to the map. For large-scale ZCTA rendering across all 42,000+ ZIPs, tile-based approaches using Mapbox Vector Tiles or AWS Location Service are more performant than client-side GeoJSON.` },
+    { q: 'How do I add a ZIP code boundary layer to a Google Maps embed on my website?', a: `Google Maps API approach: Load ZCTA GeoJSON (from Census Bureau) into a Fetch request. Convert to Google Maps Data layer: map.data.loadGeoJson('zctas.geojson'). Style with map.data.setStyle(): fill color, stroke. Handle click events to show ZIP info. For a simpler approach with limited ZIPs, encode ZCTA polygon coordinates as Google Maps Polygon objects and add to the map. For large-scale ZCTA rendering across all 41,000+ ZIPs, tile-based approaches using Mapbox Vector Tiles or AWS Location Service are more performant than client-side GeoJSON.` },
     { q: 'I see some ZIP codes appear as two separate polygons on the map — is that a rendering error?', a: `No — some ZIP codes genuinely serve non-contiguous geographic areas. This happens when a post office serves two geographically separated communities: an island and its mainland ferry terminal, two unconnected rural route areas, or a community split by a large geographic feature. The ZCTA appears as a multi-polygon feature. Our map correctly renders both polygons for these ZIPs. If you are doing a point-in-polygon query, your spatial database must handle multi-polygon features — ensure your query checks both polygons.` },
     { q: 'What zoom level should I use to display a single ZIP code on a map?', a: `Recommended zoom levels for Mapbox GL JS or Leaflet: Small urban ZIP (<1 sq mi): zoom 14-15. Medium urban ZIP (1-5 sq mi): zoom 12-13. Suburban ZIP (5-25 sq mi): zoom 11-12. Rural ZIP (25-100 sq mi): zoom 10-11. Large rural ZIP (>100 sq mi): zoom 8-10. For automatic fit-to-bounds, calculate the ZCTA polygon bounding box and use the map library fitBounds() function with padding. This scales zoom automatically regardless of ZIP size.` },
     { q: 'Can ZIP code maps be used for redistricting or political boundary analysis?', a: `ZIP codes are not political boundaries — they are postal administrative zones. Legislative redistricting uses census blocks and tracts as building blocks, not ZIP codes. However, ZIP code maps are useful for political campaigns as a proxy for neighborhood targeting: ZIP codes correspond to recognizable community names that voters understand, making ZIP-based canvassing and mail targeting operationally simple. For formal redistricting legal analysis, always use official political boundary data.` },
@@ -148,9 +148,9 @@ One of the most useful features of a ZIP code map is the ability to compare neig
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Map" description="View any US ZIP code on an interactive map with boundary and surrounding ZIPs." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-map" title="ZIP Code Map" description="View any US ZIP code on an interactive map with boundary and surrounding ZIPs." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Map — Interactive Map of US ZIP Codes 2026\",\"description\":\"View any US ZIP code on an interactive map. Enter a ZIP code and see its boundaries, location, and surrounding ZIP codes on a map. Free ZIP code map t\",\"url\":\"https://tooltrio.com/zip/zip-code-map\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

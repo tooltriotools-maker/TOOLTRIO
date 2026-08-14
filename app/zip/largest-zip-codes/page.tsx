@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+  title: 'Largest ZIP Codes — Most Populous ZIPs in USA | ToolTrio',
   description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
   keywords: [
     'largest zip codes by population',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/largest-zip-codes',
     siteName: 'ToolTrio',
-    title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+    title: 'Largest ZIP Codes — Most Populous ZIPs in USA | ToolTrio',
     description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Largest ZIP Codes by Population — Most Populous US ZIP Codes 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Largest ZIP Codes by Population — Top Populous ZIPs USA | ToolTrio',
+    title: 'Largest ZIP Codes — Most Populous ZIPs in USA | ToolTrio',
     description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -99,7 +99,7 @@ const seoContent = {
     { label: 'ZIP codes with 0 population', value: '~3,000 (P.O. Box / unique / military)' },
     { label: 'Most ZIPs per city', value: 'New York City (~178 ZIPs)' },
   ],
-  body: `The United States has over 42,000 active ZIP codes, ranging from tiny urban postal zones covering a few city blocks to massive rural ZIP codes spanning hundreds of square miles. Understanding which ZIP codes are the largest — by population, by geographic area, or by housing unit count — provides essential insight for market analysis, resource planning, political districting, and geographic research.
+  body: `The United States has over 41,000+ active ZIP codes, ranging from tiny urban postal zones covering a few city blocks to massive rural ZIP codes spanning hundreds of square miles. Understanding which ZIP codes are the largest — by population, by geographic area, or by housing unit count — provides essential insight for market analysis, resource planning, political districting, and geographic research.
 
 **Largest ZIP Codes by Population**
 
@@ -156,9 +156,9 @@ The Census Bureau's ACS releases ZIP-level demographic data including total popu
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Largest ZIP Codes" description="Discover the most populous and geographically largest ZIP codes in the United States." icon="📊" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="largest-zip-codes" title="Largest ZIP Codes" description="Discover the most populous and geographically largest ZIP codes in the United States." icon="📊" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Largest ZIP Codes by Population — Most Populous US ZIP Codes 2026\",\"description\":\"Discover the largest US ZIP codes by population, geographic area, and housing units. Free tool with Census ACS data. Free on TOOLTRIO — no signup need\",\"url\":\"https://tooltrio.com/zip/largest-zip-codes\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

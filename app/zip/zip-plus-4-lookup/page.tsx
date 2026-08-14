@@ -10,7 +10,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 
 export const metadata: Metadata = {
   title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
-  description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
+  description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code for postal lookup and mailing workflows.',
   keywords: [
     'zip plus 4 lookup',
     'zip+4 code finder',
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     url: 'https://tooltrio.com/zip/zip-plus-4-lookup',
     siteName: 'ToolTrio',
     title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
-    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
+    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code for postal lookup and mailing workflows.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP+4 Code Lookup — Find Full 9-Digit ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZIP+4 Lookup — Find the Full 9-Digit US ZIP Code | ToolTrio',
-    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code. Use ZIP+4 for address standardization, mailing and postal lookup workflows.',
+    description: 'Find ZIP+4 information for US mailing addresses and understand the full 9-digit ZIP code for postal lookup and mailing workflows.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -183,9 +183,9 @@ Mail processing software that appends ZIP+4 codes must meet USPS Coding Accuracy
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP+4 Lookup" description="Find the full 9-digit ZIP+4 code for any US address or ZIP code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-plus-4-lookup" title="ZIP+4 Lookup" description="Find the full 9-digit ZIP+4 code for any US address or ZIP code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP+4 Lookup — Find ZIP+4 Code for Any US Address 2026\",\"description\":\"Look up the ZIP+4 code for any US address. Find the full 9-digit ZIP code (ZIP plus 4) for precise mail sorting and bulk mail discounts. Free tool. Fr\",\"url\":\"https://tooltrio.com/zip/zip-plus-4-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

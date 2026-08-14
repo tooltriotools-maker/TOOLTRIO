@@ -152,9 +152,9 @@ Building a timezone-aware map application requires a ZIP-to-timezone database an
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-timezone-map" title="ZIP Code Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Timezone Map — Visualize US Timezones by ZIP Code 2026\",\"description\":\"View an interactive map of US timezones by ZIP code. See which timezone any ZIP code falls in on a visual map. Free ZIP timezone map tool. Free on TOO\",\"url\":\"https://tooltrio.com/zip/zip-to-timezone-map\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

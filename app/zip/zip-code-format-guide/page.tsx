@@ -160,9 +160,9 @@ Different systems handle ZIP codes with different quirks. USPS systems use 5-dig
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Format Guide" description="Complete guide to US ZIP code formats, types, leading zeros, ZIP+4, and storage best practices." icon="📖" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-format-guide" title="ZIP Code Format Guide" description="Complete guide to US ZIP code formats, types, leading zeros, ZIP+4, and storage best practices." icon="📖" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Format Guide — US ZIP Code Format Rules 2026\",\"description\":\"Complete guide to US ZIP code formats, types, ZIP+4, leading zeros, and best practices for storing and validating ZIP codes. Free reference guide. Fre\",\"url\":\"https://tooltrio.com/zip/zip-code-format-guide\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

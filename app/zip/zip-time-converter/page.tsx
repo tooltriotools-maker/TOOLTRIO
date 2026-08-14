@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Time Converter — Convert Time Between ZIPs USA | ToolTrio',
+  title: 'ZIP Time Converter — Time Conversion Between ZIP Codes | ToolTrio',
   description: 'Convert the current time between any two US ZIP codes free. Enter two ZIPs to see the local time in each timezone. Handles daylight saving automatically.',
   keywords: [
     'zip code time converter',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-time-converter',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Time Converter — Convert Time Between ZIPs USA | ToolTrio',
+    title: 'ZIP Time Converter — Time Conversion Between ZIP Codes | ToolTrio',
     description: 'Convert the current time between any two US ZIP codes free. Enter two ZIPs to see the local time in each timezone. Handles daylight saving automatically.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Time Converter — Convert Time Between Two ZIPs USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Time Converter — Convert Time Between ZIPs USA | ToolTrio',
+    title: 'ZIP Time Converter — Time Conversion Between ZIP Codes | ToolTrio',
     description: 'Convert the current time between any two US ZIP codes free. Enter two ZIPs to see the local time in each timezone. Handles daylight saving automatically.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -153,9 +153,9 @@ DST adds complexity to time conversion for 8 months of the year (when most of th
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Time Converter" description="Convert and compare current local times between any two US ZIP codes." icon="⏱️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-time-converter" title="ZIP Time Converter" description="Convert and compare current local times between any two US ZIP codes." icon="⏱️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Time Converter — Convert Time Between ZIP Codes USA 2026\",\"description\":\"Convert the current time between any two US ZIP codes. Enter two ZIP codes and see the current local time in each location. Free ZIP time converter. F\",\"url\":\"https://tooltrio.com/zip/zip-time-converter\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

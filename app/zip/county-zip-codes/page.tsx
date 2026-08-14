@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+  title: 'County ZIP Codes — Find ZIP Codes in Any County | ToolTrio',
   description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
   keywords: [
     'county zip codes',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/county-zip-codes',
     siteName: 'ToolTrio',
-    title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+    title: 'County ZIP Codes — Find ZIP Codes in Any County | ToolTrio',
     description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'County ZIP Codes — Find All ZIP Codes in Any US County Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'County ZIP Codes — Find All ZIP Codes in Any County USA | ToolTrio',
+    title: 'County ZIP Codes — Find ZIP Codes in Any County | ToolTrio',
     description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -148,9 +148,9 @@ Sales territory designers use county boundaries as natural dividers because coun
 
 export default function Page() {
   return (
-    <ZipToolLayout title="County ZIP Codes" description="Find every ZIP code within any US county, complete with city names and population data." icon="📋" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="county-zip-codes" title="County ZIP Codes" description="Find every ZIP code within any US county, complete with city names and population data." icon="📋" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"County ZIP Codes — Find All ZIP Codes in a County USA 2026\",\"description\":\"Find all ZIP codes within any US county. Enter a county name and state to get a complete list of ZIP codes with cities and population data. Free tool.\",\"url\":\"https://tooltrio.com/zip/county-zip-codes\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

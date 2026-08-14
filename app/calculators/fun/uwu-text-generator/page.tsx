@@ -1,6 +1,7 @@
 import { CalculatorBatch54DeepDive } from '@/components/ui/CalculatorBatch54DeepDive'
 import type { Metadata } from 'next'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import { generateFunToolStructuredDataFromSlug } from '@/lib/seo/structured-data'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -11,7 +12,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'UWU Text Generator Online | ToolTrio',
-  description: 'Convert any text into adorable UWU speak with kawaii faces, cute substitutions, and anime-style speech patterns. Free UWU text generator, Uwu Text Generator output.',
+  description: 'Convert text into cute UWU speak with kawaii faces, substitutions and anime-style speech patterns. Free online UWU text generator.',
   slug: 'uwu-text-generator',
   keywords: [
     'uwu text generator',
@@ -62,12 +63,14 @@ const faqs = [
 ]
 
 export default function Page() {
+  const _structuredData = generateFunToolStructuredDataFromSlug('uwu-text-generator')
   const _faqSchema = generateFAQStructuredData(faqs)
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} />
-          <CalculatorBatch54DeepDive slug="uwu-text-generator" />
-</>
+    </>
   )
 }

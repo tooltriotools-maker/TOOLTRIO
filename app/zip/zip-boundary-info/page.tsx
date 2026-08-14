@@ -115,7 +115,7 @@ This distinction matters for population density calculations: **Population Densi
 
 A ZIP code **bounding box** (also called the minimum bounding rectangle or envelope) is the smallest axis-aligned rectangle that completely contains the ZCTA polygon. It is expressed as four coordinates: [minimum longitude, minimum latitude, maximum longitude, maximum latitude], or equivalently, [westernmost point, southernmost point, easternmost point, northernmost point].
 
-Bounding boxes are widely used in spatial indexing (R-tree, quadtree, geohash) to quickly filter candidate ZIP codes before running exact polygon intersection tests. A location can only be inside a ZIP code if it is inside that ZIP bounding box first. Checking bounding box containment is a fast operation (four comparisons) compared to the full polygon containment test; spatial databases use bounding boxes as a pre-filter to avoid running expensive polygon tests against all 42,000+ ZCTAs for every query.
+Bounding boxes are widely used in spatial indexing (R-tree, quadtree, geohash) to quickly filter candidate ZIP codes before running exact polygon intersection tests. A location can only be inside a ZIP code if it is inside that ZIP bounding box first. Checking bounding box containment is a fast operation (four comparisons) compared to the full polygon containment test; spatial databases use bounding boxes as a pre-filter to avoid running expensive polygon tests against all 41,000+ ZCTAs for every query.
 
 **Neighboring ZIP Codes**
 
@@ -127,7 +127,7 @@ Formally, two ZCTAs are neighbors if their geometries are not disjoint — if th
 
 GIS applications that need to determine which ZIP code a point (latitude/longitude) falls in use a **spatial join** between the point and the ZCTA polygon layer. The operation: given point P at (lat, lon), find the ZCTA polygon that contains P. This is typically implemented using spatial databases (PostGIS, SpatiaLite, BigQuery GIS) or GIS libraries (Shapely in Python, GEOS, Turf.js in JavaScript).
 
-The naïve approach — checking every ZCTA polygon — is O(n) per query and too slow for high-volume applications with 42,000+ polygons. The standard optimization: use an R-tree or quadtree spatial index on the ZCTA polygons for O(log n) lookup. PostGIS automatically maintains spatial indexes when you run 'CREATE INDEX ON zcta USING GIST (geom)'. Python Shapely with STRtree achieves similar performance.
+The naïve approach — checking every ZCTA polygon — is O(n) per query and too slow for high-volume applications with 41,000+ polygons. The standard optimization: use an R-tree or quadtree spatial index on the ZCTA polygons for O(log n) lookup. PostGIS automatically maintains spatial indexes when you run 'CREATE INDEX ON zcta USING GIST (geom)'. Python Shapely with STRtree achieves similar performance.
 
 **ZIP Boundary Accuracy and Limitations**
 
@@ -160,9 +160,9 @@ Environmental analysis at the ZIP code level uses ZCTA boundaries to aggregate f
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Boundary Info" description="Get geographic boundary details, area, and neighbors for any US ZIP code." icon="🔲" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-boundary-info" title="ZIP Boundary Info" description="Get geographic boundary details, area, and neighbors for any US ZIP code." icon="🔲" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Boundary Info — ZIP Code Area & Border Details USA 2026\",\"description\":\"Get boundary details for any US ZIP code: area in square miles, perimeter, bounding box, and neighboring ZIP codes. Free ZIP boundary information tool\",\"url\":\"https://tooltrio.com/zip/zip-boundary-info\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

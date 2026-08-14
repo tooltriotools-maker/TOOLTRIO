@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
-  description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
+  title: 'ZIP Code Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+  description: 'Get the latitude and longitude associated with any US ZIP code for mapping, distance calculations and geographic lookup.',
   keywords: [
     'zip code to coordinates',
     'zip code latitude longitude',
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-coordinates',
     siteName: 'ToolTrio',
-    title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
-    description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
+    title: 'ZIP Code Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+    description: 'Get the latitude and longitude associated with any US ZIP code for mapping, distance calculations and geographic lookup.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Coordinates — Latitude & Longitude by ZIP Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code to Coordinates — Latitude & Longitude by US ZIP | ToolTrio',
-    description: 'Get the latitude and longitude associated with any US ZIP code. Use ZIP centroid coordinates for mapping, distance calculations, proximity analysis and geographic lookup.',
+    title: 'ZIP Code Coordinates — Latitude & Longitude by ZIP | ToolTrio',
+    description: 'Get the latitude and longitude associated with any US ZIP code for mapping, distance calculations and geographic lookup.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -158,9 +158,9 @@ ZIP code centroid coordinates are accurate to approximately 4 decimal places —
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to Coordinates" description="Get the latitude and longitude centroid coordinates for any US ZIP code." icon="🌐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-coordinates" title="ZIP to Coordinates" description="Get the latitude and longitude centroid coordinates for any US ZIP code." icon="🌐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to Coordinates — Latitude & Longitude by ZIP Code USA 2026\",\"description\":\"Find the latitude and longitude coordinates for any US ZIP code. Get centroid lat/lng for geocoding, mapping, and distance calculations. Free ZIP to c\",\"url\":\"https://tooltrio.com/zip/zip-to-coordinates\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+  title: 'ZIP Code Population — Demographics by ZIP Code | ToolTrio',
   description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
   keywords: [
     'zip code population',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-population',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+    title: 'ZIP Code Population — Demographics by ZIP Code | ToolTrio',
     description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Population Lookup — Demographics by ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Population — Demographics by ZIP Code Free USA | ToolTrio',
+    title: 'ZIP Code Population — Demographics by ZIP Code | ToolTrio',
     description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -116,7 +116,7 @@ const seoContent = {
     { label: 'Median US ZIP code population', value: '~8,000–12,000 residents' },
     { label: 'ZIP codes with zero population', value: '~3,000 (P.O. Box, unique, military)' },
   ],
-  body: `Population data at the ZIP code level is one of the most valuable geographic datasets for marketers, urban planners, healthcare administrators, logistics managers, and policy researchers. Understanding how many people live in a ZIP code — and their demographic characteristics — transforms a postal routing code into a powerful unit of geographic analysis. Our ZIP Code Population tool provides instant access to population estimates, housing unit counts, and demographic breakdowns for any of the 42,000+ active US ZIP codes.
+  body: `Population data at the ZIP code level is one of the most valuable geographic datasets for marketers, urban planners, healthcare administrators, logistics managers, and policy researchers. Understanding how many people live in a ZIP code — and their demographic characteristics — transforms a postal routing code into a powerful unit of geographic analysis. Our ZIP Code Population tool provides instant access to population estimates, housing unit counts, and demographic breakdowns for any of the 41,000+ active US ZIP codes.
 
 **How ZIP Code Population Is Measured**
 
@@ -169,9 +169,9 @@ Residential population (ACS data) measures where people sleep. Daytime populatio
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Population" description="Look up population, housing units, and demographics for any US ZIP code." icon="👥" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-population" title="ZIP Code Population" description="Look up population, housing units, and demographics for any US ZIP code." icon="👥" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Population Lookup — US ZIP Code Demographics 2026\",\"description\":\"Look up the population, housing units, and demographic data for any US ZIP code. Free ZIP code population tool based on Census ACS data. Free on TOOLT\",\"url\":\"https://tooltrio.com/zip/zip-code-population\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -1,6 +1,7 @@
 import { CalculatorBatch49DeepDive } from '@/components/ui/CalculatorBatch49DeepDive'
 import type { Metadata } from 'next'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import { generateFunToolStructuredDataFromSlug } from '@/lib/seo/structured-data'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -58,12 +59,14 @@ const faqs = [
 ]
 
 export default function Page() {
+  const _structuredData = generateFunToolStructuredDataFromSlug('fantasy-name-generator')
   const _faqSchema = generateFAQStructuredData(faqs)
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} />
-          <CalculatorBatch49DeepDive slug="fantasy-name-generator" />
-</>
+    </>
   )
 }

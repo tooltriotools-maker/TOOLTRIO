@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Radius — Find All ZIP Codes Within a Radius Free | ToolTrio',
+  title: 'ZIP Code Radius — ZIP Codes Within a Radius | ToolTrio',
   description: 'Find all ZIP codes within any radius of a center ZIP. Enter miles and get every ZIP code nearby with population, county, and distance. Free radius search tool.',
   keywords: [
     'zip code radius',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zips-within-radius',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Radius — Find All ZIP Codes Within a Radius Free | ToolTrio',
+    title: 'ZIP Code Radius — ZIP Codes Within a Radius | ToolTrio',
     description: 'Find all ZIP codes within any radius of a center ZIP code. Free tool with population data.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Radius Search' }],
     locale: 'en_US',
@@ -90,7 +90,8 @@ const seoContent = {
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Radius" description="Find all ZIP codes within any mile radius of a center ZIP code." icon="🎯" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zips-within-radius" title="ZIP Code Radius" description="Find all ZIP codes within any mile radius of a center ZIP code." icon="🎯" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
+  title: 'ZIP Code Timezone — US Time Zone by ZIP Code | ToolTrio',
   description:
   'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
 
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-timezone',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
+    title: 'ZIP Code Timezone — US Time Zone by ZIP Code | ToolTrio',
     description:
   'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to Timezone — Find Time Zone by ZIP Code Free USA 2026 | ToolTrio' }],
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-   title: 'ZIP Code Timezone Lookup — Find the US Time Zone by ZIP Code | ToolTrio',
+   title: 'ZIP Code Timezone — US Time Zone by ZIP Code | ToolTrio',
     description:
   'Find the US time zone for any ZIP code, including the current local time, UTC offset, daylight-saving status and IANA timezone identifier.',
     images: ['https://tooltrio.com/og-image.png'],
@@ -198,6 +198,7 @@ Military APO (Army Post Office) and FPO (Fleet Post Office) ZIP codes are assign
 export default function Page() {
   return (
     <ZipToolLayout
+      slug="zip-to-timezone"
   title="US ZIP Code to Timezone"
   description="Find the time zone, current local time, UTC offset and DST status for any US ZIP code."
   icon="🕐"
@@ -206,7 +207,6 @@ export default function Page() {
   seoContent={seoContent}
 >
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Timezone Lookup — Find US Time Zone by ZIP Code\",\"description\":\"Find the timezone for any US ZIP code instantly. Get IANA timezone ID, UTC offset, and daylight saving time status. Free ZIP to timezone lookup tool. \",\"url\":\"https://tooltrio.com/zip/zip-to-timezone\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

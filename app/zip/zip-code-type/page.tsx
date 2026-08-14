@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+  title: 'ZIP Code Type — Standard, PO Box & Military Lookup | ToolTrio',
   description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
   keywords: [
     'zip code type',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-type',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+    title: 'ZIP Code Type — Standard, PO Box & Military Lookup | ToolTrio',
     description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Type Lookup — Standard, PO Box or Military ZIP USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Type — Standard, PO Box or Military ZIP Lookup | ToolTrio',
+    title: 'ZIP Code Type — Standard, PO Box & Military Lookup | ToolTrio',
     description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -99,7 +99,7 @@ const seoContent = {
 
 **Standard ZIP Codes (Type S)**
 
-Standard ZIP codes — sometimes called Regular ZIP codes in USPS documentation — serve residential and business addresses with standard carrier route delivery. Approximately 30,000 of the 42,000+ active US ZIP codes are Standard type. These are the most familiar ZIP codes: neighborhood ZIP codes in cities and suburbs, rural route delivery zones, and mixed residential-commercial areas. Standard ZIP codes can receive all types of mail and packages via USPS and all major carriers (FedEx, UPS, DHL).
+Standard ZIP codes — sometimes called Regular ZIP codes in USPS documentation — serve residential and business addresses with standard carrier route delivery. Approximately 30,000 of the 41,000+ active US ZIP codes are Standard type. These are the most familiar ZIP codes: neighborhood ZIP codes in cities and suburbs, rural route delivery zones, and mixed residential-commercial areas. Standard ZIP codes can receive all types of mail and packages via USPS and all major carriers (FedEx, UPS, DHL).
 
 Standard ZIP codes are further subdivided by carrier route type within the ZIP: City Delivery (C routes serving urban and suburban door delivery), Rural Route (R routes serving rural areas), Highway Contract Route (H routes serving areas under contract delivery), Business Reply Mail (B routes), and General Delivery (G routes). For most applications, you only need to know the ZIP is Standard type, not its internal carrier route classification.
 
@@ -153,9 +153,9 @@ This type-checking logic prevents a significant class of delivery failures and i
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Type" description="Find out whether a ZIP code is Standard, P.O. Box, Unique, or Military." icon="🏷️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-type" title="ZIP Code Type" description="Find out whether a ZIP code is Standard, P.O. Box, Unique, or Military." icon="🏷️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Type — Find the Type of Any US ZIP Code 2026\",\"description\":\"Look up the type of any US ZIP code: Standard, P.O. Box, Unique, or Military. Know if a ZIP accepts physical deliveries. Free ZIP code type checker. F\",\"url\":\"https://tooltrio.com/zip/zip-code-type\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

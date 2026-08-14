@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP to ZIP Route — Driving Directions Between ZIP Codes | ToolTrio',
+  title: 'ZIP to ZIP Route — Driving Directions Between ZIPs | ToolTrio',
   description: 'Get the driving route between any two US ZIP codes free. View turn-by-turn directions, total distance in miles, and estimated drive time.',
   keywords: [
     'zip to zip route',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-to-zip-route',
     siteName: 'ToolTrio',
-    title: 'ZIP to ZIP Route — Driving Directions Between ZIP Codes | ToolTrio',
+    title: 'ZIP to ZIP Route — Driving Directions Between ZIPs | ToolTrio',
     description: 'Get the driving route between any two US ZIP codes free. View turn-by-turn directions, total distance in miles, and estimated drive time.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP to ZIP Route — Driving Directions Between Two ZIP Codes Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP to ZIP Route — Driving Directions Between ZIP Codes | ToolTrio',
+    title: 'ZIP to ZIP Route — Driving Directions Between ZIPs | ToolTrio',
     description: 'Get the driving route between any two US ZIP codes free. View turn-by-turn directions, total distance in miles, and estimated drive time.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -152,9 +152,9 @@ Beyond logistics, ZIP code routing is useful for travel planning. Road trippers 
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to ZIP Route" description="Get driving route, distance, and directions between any two US ZIP codes." icon="🛣️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-zip-route" title="ZIP to ZIP Route" description="Get driving route, distance, and directions between any two US ZIP codes." icon="🛣️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to ZIP Route — Get Driving Route Between Two ZIP Codes 2026\",\"description\":\"Get the driving route between any two US ZIP codes. View turn-by-turn directions, distance, and estimated drive time. Free ZIP to ZIP route tool. Free\",\"url\":\"https://tooltrio.com/zip/zip-to-zip-route\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

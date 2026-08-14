@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
+import { generateFunToolStructuredDataFromSlug } from '@/lib/seo/structured-data'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -11,7 +12,7 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
 export const metadata: Metadata = generateFunToolMetadata({
   title: 'Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio',
   description:
-    'Free Shakespeare Insult Generator. Create funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks instantly. Generate over 468 million unique Shakespeare-style insults.',
+    'Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.',
 
   slug: 'shakespeare-insult-generator',
 
@@ -97,9 +98,12 @@ const faqs = [
 ]
 
 export default function Page() {
+  const _structuredData = generateFunToolStructuredDataFromSlug('shakespeare-insult-generator')
   const _faqSchema = generateFAQStructuredData(faqs)
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
       <CalculatorClient faqs={faqs} />
     </>

@@ -9,8 +9,8 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Area Code by ZIP Code — Phone Area Code Lookup Free USA | ToolTrio',
-  description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 42,000+ ZIP codes covered.',
+  title: 'Area Code by ZIP Code — Phone Area Code Lookup | ToolTrio',
+  description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 41,000+ ZIP codes covered.',
   keywords: [
     'area code by zip code',
     'find area code by zip',
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/area-code-by-zip',
     siteName: 'ToolTrio',
-    title: 'Area Code by ZIP Code — Phone Area Code Lookup Free USA | ToolTrio',
-    description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 42,000+ ZIP codes covered.',
+    title: 'Area Code by ZIP Code — Phone Area Code Lookup | ToolTrio',
+    description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 41,000+ ZIP codes covered.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Area Code by ZIP Code — Find Phone Area Code for Any ZIP Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Area Code by ZIP Code — Phone Area Code Lookup Free USA | ToolTrio',
-    description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 42,000+ ZIP codes covered.',
+    title: 'Area Code by ZIP Code — Phone Area Code Lookup | ToolTrio',
+    description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 41,000+ ZIP codes covered.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -163,9 +163,9 @@ Area code assignments have changed significantly since 1947, with dozens of spli
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Area Code by ZIP" description="Find the telephone area code(s) for any US ZIP code instantly." icon="📱" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="area-code-by-zip" title="Area Code by ZIP" description="Find the telephone area code(s) for any US ZIP code instantly." icon="📱" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Area Code by ZIP — Find Phone Area Code for Any ZIP 2026\",\"description\":\"Find the telephone area code for any US ZIP code. Enter a ZIP and instantly get all associated phone area codes. Free area code by ZIP lookup tool. Fr\",\"url\":\"https://tooltrio.com/zip/area-code-by-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+  title: 'ZIP Code Elevation — Elevation by ZIP Code | ToolTrio',
   description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
   keywords: [
     'zip code elevation',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-elevation',
     siteName: 'ToolTrio',
-    title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+    title: 'ZIP Code Elevation — Elevation by ZIP Code | ToolTrio',
     description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Elevation — Average Elevation by ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZIP Code Elevation — Find Average Elevation by ZIP Free | ToolTrio',
+    title: 'ZIP Code Elevation — Elevation by ZIP Code | ToolTrio',
     description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -168,9 +168,9 @@ Extreme terrain ZIP codes have elevated (pun intended) logistics costs. Mountain
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Elevation" description="Find the average elevation in feet and meters for any US ZIP code." icon="⛰️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-elevation" title="ZIP Code Elevation" description="Find the average elevation in feet and meters for any US ZIP code." icon="⛰️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Elevation — Find Average Elevation by ZIP Code USA 2026\",\"description\":\"Find the average elevation in feet and meters for any US ZIP code. Useful for altitude-sensitive applications, health, shipping, and geography. Free t\",\"url\":\"https://tooltrio.com/zip/zip-code-elevation\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

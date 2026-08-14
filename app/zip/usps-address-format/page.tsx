@@ -166,9 +166,9 @@ USPS Optical Character Recognition (OCR) and barcode readers process addresses a
 
 export default function Page() {
   return (
-    <ZipToolLayout title="USPS Address Format" description="Complete guide to official USPS mailing address format rules and standards." icon="📬" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="usps-address-format" title="USPS Address Format" description="Complete guide to official USPS mailing address format rules and standards." icon="📬" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"USPS Address Format — Official US Mailing Guide 2026\",\"description\":\"Learn the correct USPS address format for letters, packages, and bulk mail. Complete guide to US mailing address standards including abbreviations and\",\"url\":\"https://tooltrio.com/zip/usps-address-format\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

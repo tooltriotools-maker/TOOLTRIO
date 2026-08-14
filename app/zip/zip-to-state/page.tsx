@@ -152,9 +152,9 @@ USPS SCF boundaries were drawn in the early 1960s for operational efficiency, no
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to State" description="Find the state name and abbreviation for any US ZIP code." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-state" title="ZIP to State" description="Find the state name and abbreviation for any US ZIP code." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to State — Find the State for Any US ZIP Code 2026\",\"description\":\"Find the state name and abbreviation for any US ZIP code instantly. Free ZIP to state lookup — covers all 50 states, DC, territories, and military cod\",\"url\":\"https://tooltrio.com/zip/zip-to-state\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

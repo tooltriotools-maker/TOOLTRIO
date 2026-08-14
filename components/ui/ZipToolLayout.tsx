@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { ExportButtonPair } from '@/components/ui/ExportPDFButton'
 import { ShareButton } from '@/components/ui/ShareButton'
 import { filterCalculatorFAQs } from '@/lib/content/faq-policy'
+import { generateZipToolStructuredData } from '@/lib/seo/structured-data'
 
 
 
@@ -42,6 +43,8 @@ interface Props {
   relatedTools?: RelatedTool[]
   tips?: string[]
   seoContent?: SeoContent
+  /** Canonical route slug, used for shared WebApplication + BreadcrumbList JSON-LD. */
+  slug: string
 }
 
 function renderBody(text: string) {
@@ -213,13 +216,17 @@ function getToolDescription(name: string) {
 
   return descriptions[name] || "Explore this ZIP tool."
 }
-export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent }: Props) {
+export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent, slug }: Props) {
+  const structuredData = generateZipToolStructuredData({ name: title, description, slug })
+
   return (
-    <main className="min-h-screen bg-gray-50/50 py-8 px-4">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <main className="min-h-screen bg-gray-50/50 py-8 px-4">
       <div className="max-w-5xl mx-auto">
 
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-gray-400 mb-5 flex-wrap">
           <Link href="/" className="hover:text-green-600 transition-colors">Home</Link>
           <span>›</span>
           <Link href="/zip" className="hover:text-green-600 transition-colors">ZIP Tools</Link>
@@ -621,5 +628,6 @@ View all 35+ ZIP Tools
 
       </div>
     </main>
+    </>
   )
 }

@@ -58,10 +58,9 @@ export default async function BlogPost({ params }: Props) {
       height: 630,
     },
     author: {
-      '@type': 'Person',
-      name: post.author,
+      '@type': 'Organization',
+      name: post.author || 'ToolTrio',
       url: 'https://tooltrio.com/about',
-      worksFor: { '@type': 'Organization', name: 'ToolTrio', url: 'https://tooltrio.com' },
     },
     publisher: {
       '@type': 'Organization',
@@ -97,7 +96,7 @@ export default async function BlogPost({ params }: Props) {
         <div className="max-w-4xl mx-auto px-4 py-8">
 
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-6 flex-wrap">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-gray-500 mb-6 flex-wrap">
             <Link href="/" className="hover:text-green-600 transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
             <Link href="/blog" className="hover:text-green-600 transition-colors">Blog</Link>

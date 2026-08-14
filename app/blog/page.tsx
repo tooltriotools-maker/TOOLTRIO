@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { publicBlogPosts as blogPosts, blogCategories } from '@/lib/blog/posts'
+import { generateBreadcrumbStructuredData } from '@/lib/seo/structured-data'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -19,7 +20,6 @@ export const metadata: Metadata = {
   description: `${blogPosts.length} free ZIP Code guides and articles.`,
   keywords: [
     'ZIP code guides',
-        'JSON formatter guide',
     'ZIP+4 guide',
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
@@ -57,9 +57,14 @@ const blogListingSchema = {
     description: p.seoDescription,
     url: `https://tooltrio.com/blog/${p.slug}`,
     datePublished: p.publishedAt,
-    author: { '@type': 'Person', name: p.author },
+    author: { '@type': 'Organization', name: p.author || 'ToolTrio', url: 'https://tooltrio.com/about' },
   })),
 }
+
+const blogBreadcrumbSchema = generateBreadcrumbStructuredData([
+  { name: 'Home', url: 'https://tooltrio.com' },
+  { name: 'Blog', url: 'https://tooltrio.com/blog' },
+])
 
 const TRENDING_KEYWORDS: string[] = []
 const POPULAR_KEYWORDS: { label: string; href: string }[] = []
@@ -76,10 +81,11 @@ export default function BlogPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListingSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogBreadcrumbSchema) }} />
       <div className="max-w-6xl mx-auto px-4 py-10">
         {/* Header */}
         <div className="mb-10">
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-gray-500 mb-4">
             <Link href="/" className="hover:text-green-600">Home</Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-gray-900 font-semibold">Blog & Guides</span>

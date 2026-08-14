@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+  title: 'Drive Time by ZIP — Driving Time Between ZIP Codes | ToolTrio',
   description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
   keywords: [
     'drive time by zip code',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/drive-time-by-zip',
     siteName: 'ToolTrio',
-    title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+    title: 'Drive Time by ZIP — Driving Time Between ZIP Codes | ToolTrio',
     description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Drive Time by ZIP Code — Estimated Driving Time Between ZIPs Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Drive Time by ZIP — Estimated Driving Time Between ZIPs | ToolTrio',
+    title: 'Drive Time by ZIP — Driving Time Between ZIP Codes | ToolTrio',
     description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -156,9 +156,9 @@ Straight-line distance is useful for ranking ZIP codes by proximity, defining se
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Drive Time by ZIP" description="Get estimated driving time and distance between any two US ZIP codes." icon="🚗" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="drive-time-by-zip" title="Drive Time by ZIP" description="Get estimated driving time and distance between any two US ZIP codes." icon="🚗" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Drive Time by ZIP Code — Estimate Travel Time USA 2026\",\"description\":\"Calculate estimated driving time between any two US ZIP codes. Get drive time in minutes, driving distance in miles, and route overview. Free tool. Fr\",\"url\":\"https://tooltrio.com/zip/drive-time-by-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

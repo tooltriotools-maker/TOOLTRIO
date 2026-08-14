@@ -146,9 +146,9 @@ California has the most area codes of any state — over 26 active codes coverin
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to Area Code" description="Find the local phone area code for any US ZIP code." icon="📞" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-area-code" title="ZIP to Area Code" description="Find the local phone area code for any US ZIP code." icon="📞" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to Area Code — Find Phone Area Code by ZIP USA 2026\",\"description\":\"Find the telephone area code for any US ZIP code instantly. Enter a ZIP and get the local phone area code. Free ZIP to area code lookup tool. Free on \",\"url\":\"https://tooltrio.com/zip/zip-to-area-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

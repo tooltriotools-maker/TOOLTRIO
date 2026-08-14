@@ -1,6 +1,7 @@
 import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
 
 // Inline SVG icons — no external package needed in server components
 function Calculator({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="14" y1="18" x2="16" y2="18"/></svg> }
@@ -115,14 +116,22 @@ export default function FunPage() {
   const grouped = Object.keys(TAG_CONFIG).map(tag => ({
     tag, tools: tools.filter(t => t.tag === tag)
   }))
+  const structuredData = generateCollectionStructuredData({
+    name: '30 Free Fun Calculators & Entertainment Tools',
+    description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
+    url: 'https://tooltrio.com/calculators/fun',
+    categoryName: 'Fun & Entertainment',
+    categoryUrl: 'https://tooltrio.com/calculators/fun',
+    items: tools.map(tool => ({ name: tool.name, url: `https://tooltrio.com${tool.href}` })),
+  })
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <div className="max-w-6xl mx-auto px-4 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-pink-600">Home</Link>
-        <ChevronRight className="w-3 h-3" />
-        <Link href="/calculators" className="hover:text-pink-600">Calculators</Link>
         <ChevronRight className="w-3 h-3" />
         <span className="text-gray-700 font-semibold">Fun & Entertainment</span>
       </nav>
@@ -221,5 +230,6 @@ export default function FunPage() {
 
           <CalculatorBatch53DeepDive slug="fun" />
 </div>
+    </>
   )
 }

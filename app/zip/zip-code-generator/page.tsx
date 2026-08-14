@@ -154,9 +154,9 @@ Load testing an address-handling system requires a large set of valid, diverse Z
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP Code Generator" description="Generate random valid US ZIP codes for testing, development, and demos." icon="⚡" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-code-generator" title="ZIP Code Generator" description="Generate random valid US ZIP codes for testing, development, and demos." icon="⚡" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Generator — Generate Random Valid US ZIP Codes 2026\",\"description\":\"Generate random valid US ZIP codes for testing, development, and demos. Filter by state, type, or population range. Free ZIP code generator tool. Free\",\"url\":\"https://tooltrio.com/zip/zip-code-generator\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

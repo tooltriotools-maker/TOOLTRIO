@@ -9,7 +9,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+  title: 'Nearest ZIP Code — Closest ZIP Code to Any ZIP | ToolTrio',
   description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
   keywords: [
     'nearest zip code',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://tooltrio.com/zip/nearest-zip-code',
     siteName: 'ToolTrio',
-    title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+    title: 'Nearest ZIP Code — Closest ZIP Code to Any ZIP | ToolTrio',
     description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Nearest ZIP Code — Find the Closest ZIP Code to Any ZIP USA Free 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nearest ZIP Code — Find Closest ZIP Code to Any ZIP USA | ToolTrio',
+    title: 'Nearest ZIP Code — Closest ZIP Code to Any ZIP | ToolTrio',
     description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
     images: ['https://tooltrio.com/og-image.png'],
   },
@@ -101,7 +101,7 @@ const seoContent = {
 
 **How Nearest ZIP Code Works**
 
-The tool calculates the Haversine great-circle distance from your center ZIP's centroid to the centroid of every other ZIP code in the database (42,000+ ZIPs), sorts all results by distance ascending, and returns the top N nearest ZIPs. The result set is your ZIP's geographic neighborhood — the postal areas that immediately surround and border your location.
+The tool calculates the Haversine great-circle distance from your center ZIP's centroid to the centroid of every other ZIP code in the database (41,000+ ZIPs), sorts all results by distance ascending, and returns the top N nearest ZIPs. The result set is your ZIP's geographic neighborhood — the postal areas that immediately surround and border your location.
 
 The Haversine formula for centroid-to-centroid distance:
 a = sin²(Δlat/2) + cos(lat₁) × cos(lat₂) × sin²(Δlon/2)
@@ -157,9 +157,9 @@ Direct mail campaigns often target customers "neighbors" — households in the s
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Nearest ZIP Code" description="Find the closest ZIP codes to any US ZIP, sorted by distance." icon="📌" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="nearest-zip-code" title="Nearest ZIP Code" description="Find the closest ZIP codes to any US ZIP, sorted by distance." icon="📌" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Nearest ZIP Code — Find the Closest ZIP Code to Any ZIP USA 2026\",\"description\":\"Find the nearest ZIP code to any US ZIP code. Enter a ZIP and instantly get the closest neighboring ZIP codes sorted by distance. Free nearest ZIP fin\",\"url\":\"https://tooltrio.com/zip/nearest-zip-code\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { publicBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
 
 // Inline SVG icons — no external package needed in server components
 function ArrowRight({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> }
@@ -60,13 +61,26 @@ export default async function BlogCategory({ params }: Props) {
   if (!cat) notFound()
 
   const posts = publicBlogPosts.filter(p => p.categorySlug === slug)
+  const structuredData = generateCollectionStructuredData({
+    name: `${cat.name} — ToolTrio Guides`,
+    description: cat.desc,
+    url: `https://tooltrio.com/blog/category/${slug}`,
+    categoryName: 'Blog',
+    categoryUrl: 'https://tooltrio.com/blog',
+    items: posts.map(post => ({
+      name: post.title,
+      url: `https://tooltrio.com/blog/${post.slug}`,
+    })),
+  })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <div className="min-h-screen bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20">
       <div className="max-w-5xl mx-auto px-4 py-8">
 
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-6">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-gray-500 mb-6">
           <Link href="/" className="hover:text-green-600 transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <Link href="/blog" className="hover:text-green-600 transition-colors">Blog</Link>
@@ -123,6 +137,7 @@ export default async function BlogCategory({ params }: Props) {
         </div>
 
       </div>
-    </div>
+      </div>
+    </>
   )
 }

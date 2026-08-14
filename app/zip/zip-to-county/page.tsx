@@ -10,7 +10,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 
 export const metadata: Metadata = {
   title: 'ZIP Code to County — Find County for Any ZIP Code Free | ToolTrio',
-  description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 42,000+ ZIP codes covered.',
+  description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 41,000+ ZIP codes covered.',
   keywords: [
     'zip code to county',
     'find county by zip code',
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     url: 'https://tooltrio.com/zip/zip-to-county',
     siteName: 'ToolTrio',
     title: 'ZIP Code to County — Find County for Any ZIP Code Free | ToolTrio',
-    description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 42,000+ ZIP codes covered.',
+    description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 41,000+ ZIP codes covered.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to County — Find County for Any ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZIP Code to County — Find County for Any ZIP Code Free | ToolTrio',
-    description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 42,000+ ZIP codes covered.',
+    description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 41,000+ ZIP codes covered.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -152,9 +152,9 @@ The number of ZIP codes per county varies enormously based on population density
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to County" description="Find the county name and FIPS code for any US ZIP code." icon="📍" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-county" title="ZIP to County" description="Find the county name and FIPS code for any US ZIP code." icon="📍" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to County — Find County for Any US ZIP Code 2026\",\"description\":\"Find the county name for any US ZIP code instantly. Enter a 5-digit ZIP code and get the county, state, FIPS code, and more. Free ZIP to county lookup\",\"url\":\"https://tooltrio.com/zip/zip-to-county\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

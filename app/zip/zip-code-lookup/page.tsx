@@ -93,7 +93,7 @@ const seoContent = {
   ],
 
   statsTable: [
-    { label: 'US ZIP Codes Covered', value: '42k+' },
+    { label: 'US ZIP Codes Covered', value: '41k+' },
     { label: 'Square Miles (USA)', value: '3.8m' },
     { label: 'Data Fields Returned', value: '9+' },
     { label: 'Avg Response Time', value: '<100ms' },
@@ -190,6 +190,7 @@ A single ZIP code lookup from TOOLTRIO returns: (1) preferred city name + altern
 export default function Page() {
   return (
     <ZipToolLayout
+      slug="zip-code-lookup"
       title="ZIP Code Lookup"
       description="Instantly convert any 5-digit US ZIP Code to City, State, County, Timezone, Coordinates & more."
       icon="🔍"
@@ -197,7 +198,6 @@ export default function Page() {
       seoContent={seoContent}
     >
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP Code Lookup — Full ZIP Code Details USA 2026 | ToolTrio\",\"description\":\"Instantly look up any US ZIP code: city, state, county, timezone, coordinates, area code, population, and type. The most complete free ZIP code lookup\",\"url\":\"https://tooltrio.com/zip/zip-code-lookup\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

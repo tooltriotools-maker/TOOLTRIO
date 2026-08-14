@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+
+const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
 export const viewport: Viewport = {
   themeColor: '#16a34a',
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
   keywords: [
     'tooltrio', 'tool trio', 'tooltrio.com', 'trio tools', 'tools trio', 'toolstrio',
     'online tools', 'free online tools', 'ZIP code tools',
-    'JSON formatter', 'regex tester', 'ZIP code lookup',
+    'ZIP code lookup',
   ],
 
   authors: [{ name: 'ToolTrio', url: siteUrl }],
@@ -106,10 +109,6 @@ const organizationSchema = {
     'ToolTrio is a free online tools website offering ZIP code tools, fun generators and other practical tools.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
-  // Keep one hostname everywhere. www.tooltrio.com permanently redirects to tooltrio.com.
-  sameAs: [
-    'https://tooltrio.com',
-  ],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
@@ -138,7 +137,7 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${inter.className}`}>
       <head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
@@ -166,16 +165,6 @@ export default function RootLayout({
           }}
         />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </head>
 
       <body suppressHydrationWarning className="antialiased">
@@ -199,7 +188,7 @@ export default function RootLayout({
 
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-1">{children}</main>
+          <div className="flex-1">{children}</div>
           <Footer />
         </div>
       </body>

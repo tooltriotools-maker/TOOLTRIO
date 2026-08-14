@@ -152,9 +152,9 @@ USPS periodically updates preferred city names and acceptable alternate names th
 
 export default function Page() {
   return (
-    <ZipToolLayout title="Multiple Cities in ZIP" description="Find every city and community name served by any US ZIP code." icon="🏘️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="multiple-cities-in-zip" title="Multiple Cities in ZIP" description="Find every city and community name served by any US ZIP code." icon="🏘️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"Multiple Cities in a ZIP — Find All Cities in a ZIP USA 2026\",\"description\":\"Find all cities and communities served by any US ZIP code. Some ZIP codes deliver to multiple cities — see every city name associated with a ZIP. Free\",\"url\":\"https://tooltrio.com/zip/multiple-cities-in-zip\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }

@@ -10,7 +10,7 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 
 export const metadata: Metadata = {
   title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
-  description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+  description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 41,000+ US ZIP codes.',
   keywords: [
     'zip code to city',
     'find city by zip code',
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     url: 'https://tooltrio.com/zip/zip-to-city',
     siteName: 'ToolTrio',
     title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
-    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 41,000+ US ZIP codes.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code to City — Find City Name by ZIP Code Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
-    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 42,000+ US ZIP codes.',
+    description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 41,000+ US ZIP codes.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -122,7 +122,7 @@ const seoContent = {
     { label: 'Military APO/FPO ZIPs', value: '~600+' },
     { label: 'ZIP codes serving multiple cities', value: '~18,000+' },
   ],
-  body: `Converting a ZIP code to its city name is one of the most common postal data operations in the United States. Whether you are building an address form, validating customer records, enriching a CRM dataset, running a direct mail campaign, or simply curious about where a ZIP code falls, our ZIP to City tool delivers instant, accurate results for all 42,000+ active US ZIP codes — no account required, no rate limits for individual lookups.
+  body: `Converting a ZIP code to its city name is one of the most common postal data operations in the United States. Whether you are building an address form, validating customer records, enriching a CRM dataset, running a direct mail campaign, or simply curious about where a ZIP code falls, our ZIP to City tool delivers instant, accurate results for all 41,000+ active US ZIP codes — no account required, no rate limits for individual lookups.
 
 **Understanding Preferred City vs. Alternate Cities**
 
@@ -179,9 +179,9 @@ When USPS introduced ZIP codes in 1963, city name assignments reflected the prim
 
 export default function Page() {
   return (
-    <ZipToolLayout title="ZIP to City" description="Find the city name, state, and county for any US ZIP code instantly." icon="🏙️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+    <ZipToolLayout
+      slug="zip-to-city" title="ZIP to City" description="Find the city name, state, and county for any US ZIP code instantly." icon="🏙️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: '{\"@context\":\"https://schema.org\",\"@type\":\"WebApplication\",\"name\":\"ZIP to City — Find City Name from ZIP Code USA 2026\",\"description\":\"Find the city name for any US ZIP code instantly. Enter a 5-digit ZIP code and get the city, state, county, and alternate city names. Free ZIP to city\",\"url\":\"https://tooltrio.com/zip/zip-to-city\",\"applicationCategory\":\"UtilitiesApplication\",\"operatingSystem\":\"Any\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"},\"author\":{\"@type\":\"Organization\",\"name\":\"TOOLTRIO\",\"url\":\"https://tooltrio.com\",\"alternateName\":[\"Tool Trio\",\"ToolTrio\",\"Trio Tools\"]},\"isAccessibleForFree\":true}'}} />
     </ZipToolLayout>
   )
 }
