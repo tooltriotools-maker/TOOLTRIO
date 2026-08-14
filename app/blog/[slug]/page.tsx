@@ -44,7 +44,7 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound()
 
   const headings = getHeadings(post.content)
-  const relatedTools = getRelatedTools(post.relatedCalc?.href ?? '/zip/zip-code-lookup', 8)
+  const relatedTools = []
   const articleSchema = {
     '@context': 'https://schema.org', '@type': 'Article', headline: post.seoTitle, description: post.seoDescription,
     image: { '@type': 'ImageObject', url: `https://tooltrio.com/blog/${post.slug}/opengraph-image`, width: 1200, height: 630 },

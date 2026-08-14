@@ -30,9 +30,7 @@ export function CalculatorLayout({ title, description, icon, category, children,
 
   const resolvedRelatedCalculators = relatedCalculators?.length
     ? relatedCalculators
-    : slug
-      ? getRelatedTools(`/calculators/${catPath}/${slug}`)
-      : []
+    : []
 
   // ── Schema injection removed from this client component ──────────────────
   // All JSON-LD schemas (BreadcrumbList, HowTo, FAQPage, WebApplication,
