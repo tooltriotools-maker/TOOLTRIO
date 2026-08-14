@@ -52,6 +52,21 @@ export function generateBreadcrumbStructuredData(items: Array<{ name: string; ur
   }
 }
 
+export function generateFunToolStructuredDataFromSlug(slug: string) {
+  const key = `/calculators/fun/${slug}`
+  const metadata = GENERATED_TOOL_PAGE_METADATA[key]
+
+  if (!metadata?.title || !metadata.description) {
+    throw new Error(`Missing generated metadata for fun tool slug: ${slug}`)
+  }
+
+  return generateFunToolStructuredData({
+    name: metadata.title,
+    description: metadata.description,
+    slug,
+  })
+}
+
 export function generateFunToolStructuredData(params: {
   name: string
   description: string
