@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import dynamic from 'next/dynamic'
 import { zipFetch } from '@/lib/data/zip-client'
+import { normalizeZipCode, sanitizeZipInput } from '@/lib/data/zip-utils'
 
 
 const USTimezoneMap = dynamic(
@@ -132,8 +133,9 @@ useEffect(() => {
 }, [])
 
   async function lookup(z?: string) {
-    const val = (z || zip).trim(); if (z) setZip(z)
-    if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); setResult(null); return }
+    const rawVal = (z || zip).trim(); if (z) setZip(sanitizeZipInput(z))
+    const val = normalizeZipCode(rawVal)
+    if (!val) { setError('Enter a valid 5-digit ZIP or 9-digit ZIP+4 code'); setResult(null); return }
     setLoading(true); setError('')
     const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
@@ -147,9 +149,9 @@ useEffect(() => {
     <div>
       <ZipQuickFill onSelect={z => lookup(z)} />
       <div className="flex gap-2 mb-6">
-        <input value={zip} onChange={e => setZip(e.target.value.replace(/\D/g, ''))}
+        <input value={zip} onChange={e => setZip(sanitizeZipInput(e.target.value))}
           onKeyDown={e => e.key === 'Enter' && lookup()}
-          placeholder="Enter ZIP code (e.g. 10001)" maxLength={5}
+          placeholder="Enter ZIP or ZIP+4 (e.g. 76033-4007)" maxLength={9}
           className="flex-1 border-2 rounded-xl px-4 py-3 text-lg font-mono focus:outline-none focus:border-green-500" style={{ borderColor: '#e2e8f0' }} />
         <button onClick={() => lookup()} disabled={loading} className="px-6 py-3 text-white font-bold rounded-xl disabled:opacity-60"
           style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)', boxShadow: '0 4px 16px rgba(34,197,94,0.3)' }}>

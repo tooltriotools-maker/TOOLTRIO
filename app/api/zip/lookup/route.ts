@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { lookupZip, getNearby, TIMEZONE_OFFSETS } from '@/lib/data/zip-loader'
+import { normalizeZipCode } from '@/lib/data/zip-utils'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  const zip = req.nextUrl.searchParams.get('zip')?.trim()
-  if (!zip || !/^\d{5}$/.test(zip)) {
-    return NextResponse.json({ error: 'Enter a valid 5-digit ZIP code' }, { status: 400 })
+  const rawZip = req.nextUrl.searchParams.get('zip')?.trim() || ''
+  const zip = normalizeZipCode(rawZip)
+  if (!zip) {
+    return NextResponse.json({ error: 'Enter a valid 5-digit ZIP or 9-digit ZIP+4 code' }, { status: 400 })
   }
   const rec = lookupZip(zip)
   if (!rec) {

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import { zipFetch } from '@/lib/data/zip-client'
+import { normalizeZipCode, sanitizeZipInput } from '@/lib/data/zip-utils'
 
 const TZ_LABELS: Record<string,string> = {
   'America/New_York':'Eastern (ET)','America/Chicago':'Central (CT)',
@@ -20,8 +21,9 @@ export default function ZipToolClient() {
   useEffect(()=>{ const t=setInterval(()=>setNow(new Date()),1000); return()=>clearInterval(t) },[])
 
   async function lookup(z?: string) {
-    const val=(z||zip).trim(); if(z) setZip(z)
-    if(!/^\d{5}$/.test(val)){setError('Enter a valid 5-digit US ZIP code');setResult(null);return}
+    const rawVal=(z||zip).trim(); if(z) setZip(sanitizeZipInput(z))
+    const val=normalizeZipCode(rawVal)
+    if(!val){setError('Enter a valid 5-digit ZIP or 9-digit ZIP+4 code');setResult(null);return}
     setLoading(true);setError('')
     const res=await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data=await res.json(); setLoading(false)
@@ -339,7 +341,7 @@ const browserTimezone = getBrowserTimezone()
     </label>
 
     <p className="text-xs text-gray-500 mt-1">
-      Find the timezone and current local time for any 5-digit US ZIP code.
+      Find the timezone and current local time for a 5-digit ZIP or ZIP+4 code.
     </p>
   </div>
 
@@ -364,15 +366,15 @@ const browserTimezone = getBrowserTimezone()
         id="timezone-zip-input"
         value={zip}
         onChange={e => {
-          setZip(e.target.value.replace(/\D/g, ''))
+          setZip(sanitizeZipInput(e.target.value))
           setError('')
         }}
         onKeyDown={e => e.key === 'Enter' && lookup()}
-        placeholder="e.g. 98101"
-        maxLength={5}
+        placeholder="e.g. 76033-4007"
+        maxLength={9}
         inputMode="numeric"
         autoComplete="postal-code"
-        aria-label="Enter 5-digit US ZIP code"
+        aria-label="Enter 5-digit ZIP or 9-digit ZIP+4"
         className="
           w-full
           border-2
@@ -398,7 +400,7 @@ const browserTimezone = getBrowserTimezone()
 
     <button
       onClick={() => lookup()}
-      disabled={loading || zip.length !== 5}
+      disabled={loading || !normalizeZipCode(zip)}
       className="
         sm:min-w-[180px]
         px-6

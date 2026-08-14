@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import { zipFetch } from '@/lib/data/zip-client'
+import { normalizeZipCode, sanitizeZipInput } from '@/lib/data/zip-utils'
 
 const TIMEZONES = [
   { tz: 'America/New_York', label: 'Eastern (ET)', offset: 'UTC-5/-4', states: 'NY, FL, GA, MA, NC, OH, PA, VA...', icon: '🗽' },
@@ -37,8 +38,9 @@ export default function ZipToolClient() {
   const [searchText, setSearchText] = useState('')
 
   async function lookupByZip(z?: string) {
-    const val = (z || zip).trim(); if (z) setZip(z)
-    if (!/^\d{5}$/.test(val)) { setError('Enter a valid 5-digit ZIP'); return }
+    const rawVal = (z || zip).trim(); if (z) setZip(sanitizeZipInput(z))
+    const val = normalizeZipCode(rawVal)
+    if (!val) { setError('Enter a valid 5-digit ZIP or 9-digit ZIP+4 code'); return }
     setLoading(true); setError(''); setResults([])
     const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
@@ -113,9 +115,9 @@ export default function ZipToolClient() {
 
       {/* Manual ZIP input */}
       <div className="flex gap-2 mb-4">
-        <input value={zip} onChange={e => setZip(e.target.value.replace(/\D/g, ''))}
+        <input value={zip} onChange={e => setZip(sanitizeZipInput(e.target.value))}
           onKeyDown={e => e.key === 'Enter' && lookupByZip()}
-          placeholder="Enter any ZIP to find its timezone peers" maxLength={5}
+          placeholder="Enter ZIP or ZIP+4 to find its timezone peers" maxLength={9}
           className="flex-1 border-2 rounded-xl px-4 py-3 text-lg font-mono focus:outline-none focus:border-green-500" style={{ borderColor: '#e2e8f0' }} />
         <button onClick={() => lookupByZip()} disabled={loading}
           className="px-5 py-3 text-white font-bold rounded-xl disabled:opacity-60"

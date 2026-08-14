@@ -1,4 +1,5 @@
 import { API_LIMITS, clampPositiveInt, clampPositiveNumber } from '@/lib/api/request-limits'
+import { normalizeZipCode } from '@/lib/data/zip-utils'
 
 // Client-side ZIP data layer.
 // Loads /public/zip-data/index.json (real USPS/Census-derived city, state,
@@ -165,8 +166,9 @@ export async function zipFetch(url: string): Promise<MockResponse> {
 
   try {
     if (u.pathname === '/api/zip/lookup') {
-      const zip = p.get('zip')?.trim() || ''
-      if (!/^\d{5}$/.test(zip)) return fail('Enter a valid 5-digit ZIP code')
+      const rawZip = p.get('zip')?.trim() || ''
+      const zip = normalizeZipCode(rawZip)
+      if (!zip) return fail('Enter a valid 5-digit ZIP or 9-digit ZIP+4 code')
       const rec = await lookupZip(zip)
       if (!rec) return fail(`ZIP code ${zip} not found`)
       const nearby = await getNearby(zip, 30, 6)

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import { zipFetch } from '@/lib/data/zip-client'
+import { normalizeZipCode, sanitizeZipInput } from '@/lib/data/zip-utils'
 
 export default function ZipToolClient() {
   const [zip1, setZip1] = useState('')
@@ -15,9 +16,11 @@ export default function ZipToolClient() {
   useEffect(() => { const t = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(t) }, [])
 
   async function compare() {
-    if (!/^\d{5}$/.test(zip1) || !/^\d{5}$/.test(zip2)) { setError('Enter two valid 5-digit ZIP codes'); return }
+    const normalizedZip1 = normalizeZipCode(zip1)
+    const normalizedZip2 = normalizeZipCode(zip2)
+    if (!normalizedZip1 || !normalizedZip2) { setError('Enter two valid 5-digit ZIP or 9-digit ZIP+4 codes'); return }
     setLoading(true); setError('')
-    const [a, b] = await Promise.all([zipFetch(`/api/zip/lookup?zip=${zip1}`), zipFetch(`/api/zip/lookup?zip=${zip2}`)])
+    const [a, b] = await Promise.all([zipFetch(`/api/zip/lookup?zip=${normalizedZip1}`), zipFetch(`/api/zip/lookup?zip=${normalizedZip2}`)])
     const [da, db] = await Promise.all([a.json(), b.json()])
     setLoading(false)
     if (!a.ok || !b.ok) { setError((da.error || db.error)); return }
@@ -39,15 +42,15 @@ export default function ZipToolClient() {
         <div>
           <label className="text-xs font-bold text-gray-500 mb-1 block">FROM ZIP</label>
           <ZipQuickFill onSelect={z => setZip1(z)} />
-          <input value={zip1} onChange={e => setZip1(e.target.value.replace(/\D/g, ''))}
-            placeholder="e.g. 10001" maxLength={5}
+          <input value={zip1} onChange={e => setZip1(sanitizeZipInput(e.target.value))}
+            placeholder="e.g. 76033-4007" maxLength={9}
             className="w-full border-2 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-green-500" style={{ borderColor: '#e2e8f0' }} />
         </div>
         <div>
           <label className="text-xs font-bold text-gray-500 mb-1 block">TO ZIP</label>
           <ZipQuickFill onSelect={z => setZip2(z)} />
-          <input value={zip2} onChange={e => setZip2(e.target.value.replace(/\D/g, ''))}
-            placeholder="e.g. 90210" maxLength={5}
+          <input value={zip2} onChange={e => setZip2(sanitizeZipInput(e.target.value))}
+            placeholder="e.g. 90210-0001" maxLength={9}
             className="w-full border-2 rounded-xl px-4 py-3 font-mono focus:outline-none focus:border-green-500" style={{ borderColor: '#e2e8f0' }} />
         </div>
       </div>
