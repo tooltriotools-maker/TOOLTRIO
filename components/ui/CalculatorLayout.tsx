@@ -7,6 +7,13 @@ import { ShareButton } from './ShareButton'
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
 
+type RelatedTool = {
+  href: string
+  icon: string
+  name: string
+  desc: string
+}
+
 interface CalculatorLayoutProps {
   title: string
   description: string
