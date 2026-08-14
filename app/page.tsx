@@ -6,10 +6,11 @@ import { publicBlogPosts } from '@/lib/blog/posts'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'ToolTrio — US ZIP Code Tools | Lookup, Distance, Timezone & ZIP+4',
+    absolute: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
   },
-  description:
-    'ToolTrio provides focused US ZIP code tools including ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone, ZIP+4 Lookup, ZIP to Coordinates and ZIPs Within Radius. Free and available without signup.',
+    description:
+    'ToolTrio is a US ZIP Code Cluster toolkit with ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone, ZIP+4, coordinates, radius and mailing utilities. Free, focused and available without signup.',
+
   keywords: [
     'zip code lookup',
     'zip code finder',
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-    title: 'ToolTrio — US ZIP Code Tools | Lookup, Distance, Timezone & ZIP+4',
+    title: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
     description:
-      'ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone, ZIP to Coordinates and ZIP+4 tools for US ZIP codes. Free, fast and easy to use with no signup.',
+      'ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools for US ZIP codes. Free, fast and easy to use with no signup.',
     url: 'https://tooltrio.com',
     siteName: 'ToolTrio',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio — Free ZIP Code Lookup, ZIP+4 & ZIP Distance Tools' }],
@@ -47,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ToolTrio — US ZIP Code Tools | Lookup, Distance, Timezone & ZIP+4',
-    description: 'US ZIP code tools for ZIP Code Lookup, ZIP Code Distance, ZIP Code Timezone, ZIP+4 Lookup, ZIP to Coordinates and ZIPs Within Radius, plus selected fun tools. No signup required.',
-    images: ['/og-image.png'],
+     title: 'ToolTrio — US ZIP Code Cluster, Lookup, Distance & Timezone Tools',
+    description: 'US ZIP Code Cluster tools for lookup, distance, timezone, ZIP+4, coordinates and nearby ZIP searches, plus selected fun tools. No signup required.',
+     images: ['/og-image.png'],
   },
 }
 
@@ -72,7 +73,7 @@ const homepageFAQSchema = {
       name: 'How do I look up a ZIP code on ToolTrio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see the city, state, county, timezone and area code. ToolTrio covers US ZIP codes across all 50 states plus DC.',
+               text: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see the city, state, county, timezone and area code. ToolTrio covers every ZIP code cluster across all 50 states plus DC.',
       },
     },
     {
@@ -183,7 +184,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-            US ZIP Code Tools — Lookup, Distance, Timezone & ZIP+4{' '}
+            US ZIP Code Cluster — Lookup, Distance, Timezone & ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
@@ -265,7 +266,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="text-sm text-gray-500 mb-5 max-w-2xl">
-            Look up any US ZIP code, find your ZIP+4 extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — instant results for US ZIP codes.
+                   Look up any US ZIP code, find your ZIP+4 extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — instant results for every ZIP code cluster in the US.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {heroZipTools.map(c => (
@@ -401,14 +402,14 @@ export default function HomePage() {
             <div className="space-y-5">
               <div>
                 <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>📮</span> ZIP Code Lookup — Find Any US ZIP Code
+                       <span>📮</span> ZIP Code Lookup — Every US ZIP Cluster
                 </h3>
                 <p>
                   Our free{' '}
                   <Link href="/zip/zip-code-lookup" className="text-green-600 hover:underline font-medium">
                     ZIP code lookup
                   </Link>{' '}
-                  tool covers US ZIP codes across all 50 states plus DC. Enter any 5-digit ZIP to instantly see the city, state, county, population, timezone and area code.
+                     tool covers every ZIP code cluster across all 50 states plus DC. Enter any 5-digit ZIP to instantly see the city, state, county, population, timezone and area code.
                 </p>
               </div>
 
@@ -486,7 +487,7 @@ export default function HomePage() {
               },
               {
                 q: 'How do I find the city and state for a ZIP code?',
-                a: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see its city, state, county, population, timezone and area code — covering US ZIP codes in all 50 states plus DC.',
+                                a: 'Enter any 5-digit US ZIP code into the ZIP Code Lookup tool to instantly see its city, state, county, population, timezone and area code — covering every ZIP code cluster in all 50 states plus DC.',
               },
               {
                 q: 'What is a ZIP+4 code?',
@@ -498,7 +499,7 @@ export default function HomePage() {
               },
               {
                 q: 'How do I find the timezone for a ZIP code?',
-                a: 'Enter a ZIP code into the ZIP Code Timezone tool to instantly see its US timezone — Eastern, Central, Mountain, Pacific, Alaska or Hawaii — useful for scheduling calls and deliveries across states.',
+                                a: 'Enter a ZIP code into the ZIP to Timezone tool to instantly see its US timezone — Eastern, Central, Mountain, Pacific, Alaska or Hawaii — useful for scheduling calls and deliveries across states.',
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
