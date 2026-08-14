@@ -98,6 +98,10 @@ function tableCells(line: string): string[] {
   return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(cell => cell.trim())
 }
 
+function headingId(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9\s-]/g, '').trim().replace(/\s+/g, '-').slice(0, 90)
+}
+
 export function MarkdownContent({ content }: { content: string }) {
   const lines = content.replace(/\r\n?/g, '\n').split('\n')
   const blocks: ReactNode[] = []
@@ -143,12 +147,13 @@ export function MarkdownContent({ content }: { content: string }) {
             ? 'text-xl font-bold text-gray-800 mt-5 mb-2'
             : 'text-lg font-bold text-gray-800 mt-4 mb-2'
       const headingKey = `heading-${key++}`
-      if (level === 1) blocks.push(<h1 key={headingKey} className={className}>{text}</h1>)
-      else if (level === 2) blocks.push(<h2 key={headingKey} className={className}>{text}</h2>)
-      else if (level === 3) blocks.push(<h3 key={headingKey} className={className}>{text}</h3>)
-      else if (level === 4) blocks.push(<h4 key={headingKey} className={className}>{text}</h4>)
-      else if (level === 5) blocks.push(<h5 key={headingKey} className={className}>{text}</h5>)
-      else blocks.push(<h6 key={headingKey} className={className}>{text}</h6>)
+      const id = headingId(heading[2])
+      if (level === 1) blocks.push(<h1 id={id} key={headingKey} className={className}>{text}</h1>)
+      else if (level === 2) blocks.push(<h2 id={id} key={headingKey} className={className}>{text}</h2>)
+      else if (level === 3) blocks.push(<h3 id={id} key={headingKey} className={className}>{text}</h3>)
+      else if (level === 4) blocks.push(<h4 id={id} key={headingKey} className={className}>{text}</h4>)
+      else if (level === 5) blocks.push(<h5 id={id} key={headingKey} className={className}>{text}</h5>)
+      else blocks.push(<h6 id={id} key={headingKey} className={className}>{text}</h6>)
       i += 1
       continue
     }

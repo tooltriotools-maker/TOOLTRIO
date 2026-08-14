@@ -16,7 +16,7 @@ function TrendingUp({size=16,className=""}: {size?:number;className?:string}) { 
 const CURRENT_YEAR = new Date().getFullYear()
 
 export const metadata: Metadata = {
-  title: `Free Guides & Articles ${CURRENT_YEAR} | ToolTrio`,
+  title: `Free ZIP Guides & Research ${CURRENT_YEAR} | ToolTrio`,
   description: `${blogPosts.length} free ZIP Code guides and articles.`,
   keywords: [
     'ZIP code guides',
@@ -100,7 +100,7 @@ export default function BlogPage() {
             </div>
           </div>
           <p className="text-gray-600 text-lg max-w-3xl leading-relaxed">
-            Practical guides covering US ZIP code lookups, ZIP+4, distance, timezones and format rules.
+            Deep, task-first ZIP Code guides with current USPS/Census context, worked examples, edge cases, and direct links to the exact ToolTrio lookup you need.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
             {Object.entries(CAT_CONFIG).map(([slug, cfg]) => {
