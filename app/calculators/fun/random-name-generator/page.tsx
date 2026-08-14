@@ -1,4 +1,3 @@
-import { CalculatorBatch47DeepDive } from '@/components/ui/CalculatorBatch47DeepDive'
 import type { Metadata } from 'next'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import { generateFunToolStructuredDataFromSlug } from '@/lib/seo/structured-data'

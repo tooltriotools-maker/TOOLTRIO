@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { DownloadPDFButton } from './ExportPDFButton'
 import { ShareButton } from './ShareButton'
-import { getRelatedTools, type RelatedTool } from '@/lib/catalog/related-tools'
-
 const BASE_URL = 'https://tooltrio.com'
 const SITE_NAME = 'ToolTrio'
 

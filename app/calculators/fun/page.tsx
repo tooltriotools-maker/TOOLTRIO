@@ -1,4 +1,3 @@
-import { CalculatorBatch53DeepDive } from '@/components/ui/CalculatorBatch53DeepDive'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
@@ -227,8 +226,6 @@ export default function FunPage() {
           ))}
         </div>
       </section>
-
-          <CalculatorBatch53DeepDive slug="fun" />
 </div>
     </>
   )
