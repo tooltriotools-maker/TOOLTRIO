@@ -155,6 +155,7 @@ const funTools = [
   { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/fun/coffee-calculator', icon: '☕', badge: null },
   { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/fun/how-rich-am-i', icon: '💸', badge: null },
   { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/fun/would-you-rather', icon: '🤔', badge: null },
+  { name: 'Insult Generator', desc: '24 generators — pirate, medieval, savage & more', href: '/fun/insult-generator', icon: '🔥', badge: 'NEW' },
 ]
 
 export default function HomePage() {
@@ -243,6 +244,7 @@ export default function HomePage() {
               { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
               { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
+              { name: 'Insult Generator', href: '/fun/insult-generator' },
               { name: 'Personality Quiz', href: '/fun/personality-quiz' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">

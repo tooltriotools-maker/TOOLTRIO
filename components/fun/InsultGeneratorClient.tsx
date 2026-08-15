@@ -113,14 +113,19 @@ export default function InsultGeneratorClient({ generator, related, faqs }: Prop
             <h2 className="text-xl font-black text-gray-900 mb-4">All Insult &amp; Roast Generators</h2>
             <p className="text-sm text-gray-500 mb-4">Every generator in the library — jump to any of them.</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {related.map(r => (
-                <Link key={r.slug} href={`/fun/insult-generator/${r.slug}`}
-                  className="flex items-center gap-2 p-3 rounded-2xl border group hover:border-purple-300 hover:-translate-y-0.5 transition-all"
-                  style={{ borderColor: 'rgba(216,180,254,0.5)' }}>
-                  <span className="text-lg">{r.icon}</span>
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-purple-700">{r.name.replace(' Generator', '')}</span>
-                </Link>
-              ))}
+              {related.map(r => {
+                const href = r.slug === 'shakespeare-insult-generator'
+                  ? '/fun/shakespeare-insult-generator'
+                  : `/fun/insult-generator/${r.slug}`
+                return (
+                  <Link key={r.slug} href={href}
+                    className="flex items-center gap-2 p-3 rounded-2xl border group hover:border-purple-300 hover:-translate-y-0.5 transition-all"
+                    style={{ borderColor: 'rgba(216,180,254,0.5)' }}>
+                    <span className="text-lg">{r.icon}</span>
+                    <span className="text-sm font-semibold text-gray-700 group-hover:text-purple-700">{r.name.replace(' Generator', '')}</span>
+                  </Link>
+                )
+              })}
             </div>
           </section>
         )}

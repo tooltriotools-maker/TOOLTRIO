@@ -33,7 +33,7 @@ export const TOOL_CATALOG: readonly ToolRecord[] = [
   { name: 'Random Fact Generator', href: '/fun/random-fact-generator', cat: 'fun', catLabel: 'Fun', kw: 'random fact generator', region: 'global' },
   { name: 'Random Name Generator', href: '/fun/random-name-generator', cat: 'fun', catLabel: 'Fun', kw: 'random name generator', region: 'global' },
   { name: 'Screen Time Calculator', href: '/fun/screen-time-calculator', cat: 'fun', catLabel: 'Fun', kw: 'screen time calculator', region: 'global' },
-  { name: 'Insult Generator', href: '/fun/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
+  { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
   { name: 'Sleep Debt Calculator', href: '/fun/sleep-debt-calculator', cat: 'fun', catLabel: 'Fun', kw: 'sleep debt calculator', region: 'global' },
   { name: 'Social Media Addiction', href: '/fun/social-media-addiction', cat: 'fun', catLabel: 'Fun', kw: 'social media addiction', region: 'global' },
   { name: 'Superhero Name', href: '/fun/superhero-name', cat: 'fun', catLabel: 'Fun', kw: 'superhero name', region: 'global' },
@@ -44,9 +44,8 @@ export const TOOL_CATALOG: readonly ToolRecord[] = [
   { name: 'Workout Excuse Generator', href: '/fun/workout-excuse-generator', cat: 'fun', catLabel: 'Fun', kw: 'workout excuse generator', region: 'global' },
   { name: 'Would You Rather', href: '/fun/would-you-rather', cat: 'fun', catLabel: 'Fun', kw: 'would you rather', region: 'global' },
   { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', cat: 'fun', catLabel: 'Fun', kw: 'zodiac calculator', region: 'global' },
-  // ── Insult Generators sub-hub (19 tools under /fun/insult-generator/*) ──
+  // ── Insult Generators sub-hub (24 tools under /fun/insult-generator/*) ──
   { name: 'Insult Generator Hub', href: '/fun/insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'insult generator', region: 'global' },
-  { name: 'Shakespeare Insult Generator (Hub)', href: '/fun/insult-generator/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
   { name: 'Medieval Insult Generator', href: '/fun/insult-generator/medieval-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'medieval insult generator', region: 'global' },
   { name: 'Pirate Insult Generator', href: '/fun/insult-generator/pirate-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'pirate insult generator', region: 'global' },
   { name: 'Victorian Insult Generator', href: '/fun/insult-generator/victorian-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'victorian insult generator', region: 'global' },

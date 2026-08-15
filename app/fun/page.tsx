@@ -10,7 +10,7 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 export const metadata: Metadata = {
   title: '49+ Free Fun Calculators 2026 | ToolTrio',
-  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 19 insult generators and more free fun.',
+  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 24 insult generators and more free fun.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
     title: '49 Free Fun Calculators – Zodiac, Trivia, Insults & Name Generators',
-    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 19 insult generators and more. Instant results.',
+    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 24 insult generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
@@ -46,8 +46,7 @@ const tools = [
   { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
   { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
   { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
-  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/fun/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
-  { name: '19 Insult Generators',   desc: 'Pirate, medieval, savage, office roasts & more',   href: '/fun/insult-generator',        icon: '🔥', tag: 'Generators',  popular: true  },
+  { name: 'Insult Generator',       desc: '24 generators — Shakespeare, pirate, medieval, savage, office roasts & more', href: '/fun/insult-generator', icon: '🔥', tag: 'Generators',  popular: true  },
   { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
   { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
   { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },

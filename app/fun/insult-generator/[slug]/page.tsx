@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import { generateFunToolStructuredData } from '@/lib/seo/structured-data'
 import { INSULT_GENERATORS, getInsultGeneratorBySlug } from '@/lib/fun/insult-generators'
@@ -12,7 +12,11 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return INSULT_GENERATORS.map(g => ({ slug: g.slug }))
+  // Shakespeare has its own dedicated, upgraded page at /fun/shakespeare-insult-generator
+  // (full combinatorial engine, richer content) — it's excluded here so this generic
+  // template doesn't also build a duplicate, lower-quality version of it. The old URL
+  // permanently redirects to the real page (see next.config.js).
+  return INSULT_GENERATORS.filter(g => g.slug !== 'shakespeare-insult-generator').map(g => ({ slug: g.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -59,6 +63,11 @@ function buildFaqs(generator: NonNullable<ReturnType<typeof getInsultGeneratorBy
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params
+  // Belt-and-suspenders alongside the next.config.js redirect: anyone who lands on this
+  // slug directly (old bookmark, stale search index, etc.) still lands on the real,
+  // fully-upgraded Shakespeare generator instead of this template's fallback version.
+  if (slug === 'shakespeare-insult-generator') redirect('/fun/shakespeare-insult-generator')
+
   const generator = getInsultGeneratorBySlug(slug)
   if (!generator) notFound()
 

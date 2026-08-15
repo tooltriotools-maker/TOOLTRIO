@@ -117,6 +117,12 @@ const nextConfig = {
       { source: '/calculators/fun/:path*/',     destination: '/fun/:path*',                  permanent: true },
       { source: '/calculators/fun/:path*',      destination: '/fun/:path*',                  permanent: true },
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
+
+      // ── Insult Generator: old flat/fallback Shakespeare URL → real upgraded page ──
+      // (Aug 2026) The generic insult-generator template used to also build a lower-
+      // quality duplicate of the Shakespeare generator at this URL. It now redirects
+      // straight to the real, fully-upgraded page with the full combinatorial engine.
+      { source: '/fun/insult-generator/shakespeare-insult-generator', destination: '/fun/shakespeare-insult-generator', permanent: true },
     ]
   },
 }
