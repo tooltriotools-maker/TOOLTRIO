@@ -1,9 +1,9 @@
 import { defineConfig, globalIgnores } from 'eslint/config'
-import nextVitals from 'eslint-config-next/core-web-vitals.js'
+import nextVitals from 'eslint-config-next/core-web-vitals'
 
 const nextConfig = Array.isArray(nextVitals) ? nextVitals : [nextVitals]
 
-export default defineConfig(
+export default defineConfig([
   ...nextConfig,
   globalIgnores([
     '.next/**',
@@ -15,4 +15,4 @@ export default defineConfig(
     'public/**',
     '*.min.js',
   ]),
-)
+])

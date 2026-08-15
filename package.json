@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "verify:insults": "node scripts/verify-insult-generators.mjs"
+    "verify:insults": "node scripts/verify-insult-generators.mjs",
+    "verify:build-routes": "node scripts/verify-build-routes.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",
