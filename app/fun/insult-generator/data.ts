@@ -299,6 +299,22 @@ export const INSULT_TOOLS: InsultTool[] = [
 ]
 
 
+
+/** Existing Shakespeare generator; original client/library remains intact. */
+export const SHAKESPEARE_INSULT_TOOL = {
+  slug: 'shakespeare-insult-generator',
+  title: 'Shakespeare Insult Generator',
+  shortDescription: 'Use the existing Shakespearean generator for dramatic Elizabethan insults, old-English roasts, and theatrical comebacks.',
+  icon: '🎭',
+  accent: 'purple',
+  href: '/fun/insult-generator/shakespeare-insult-generator',
+} as const
+
+export const INSULT_COLLECTION_TOOLS = [
+  ...INSULT_TOOLS,
+  SHAKESPEARE_INSULT_TOOL,
+]
+
 export const INSULT_TOOLS_WITH_LIBRARY = INSULT_TOOLS.map(tool => ({
   ...tool,
   library: buildToolLibrary(tool),

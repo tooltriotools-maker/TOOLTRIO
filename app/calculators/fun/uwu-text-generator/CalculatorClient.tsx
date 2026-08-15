@@ -41,7 +41,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🐱"
       description="Transform any text into adorable UwU speak! Because why not? OwO"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
         <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{background:'rgba(255,255,255,0.8)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.8)',boxShadow:'0 4px 16px rgba(15,23,42,0.05)'}}>

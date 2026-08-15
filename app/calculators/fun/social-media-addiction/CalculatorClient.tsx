@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="📱"
       description="How dependent are you on social media? Answer honestly - your screen time already knows the truth."
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

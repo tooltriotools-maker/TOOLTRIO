@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="☕"
       description="Find out how much caffeine you're drinking and whether you\'re in the safe zone."
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

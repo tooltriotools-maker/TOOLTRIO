@@ -127,7 +127,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Emoji Translator" icon="😊"
       description={`Translate text to emoji or emoji to text — ${Object.keys(EMOJI_MAP).length}+ word mappings`}
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       {/* Mode toggle */}
       <div className="flex rounded-xl overflow-hidden border-2 border-yellow-200 mb-4">

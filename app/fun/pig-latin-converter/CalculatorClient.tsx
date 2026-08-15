@@ -48,7 +48,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🐷"
       description="Translate any English text into Pig Latin instantly!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

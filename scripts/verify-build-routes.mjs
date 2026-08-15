@@ -27,8 +27,10 @@ const canonical = path.join(root, 'app', 'fun', 'insult-generator', '[slug]', 'p
 if (!fs.existsSync(canonical)) throw new Error(`Missing dynamic insult generator route: ${canonical}`)
 
 const legacyShakespeare = path.join(root, 'app', 'calculators', 'fun', 'shakespeare-insult-generator')
-if (fs.existsSync(legacyShakespeare)) {
-  throw new Error('Legacy Shakespeare page still exists. Remove it so next.config.mjs owns the direct 301.')
+const oldFlatShakespeare = path.join(root, 'app', 'fun', 'shakespeare-insult-generator')
+const nestedShakespeare = path.join(root, 'app', 'fun', 'insult-generator', 'shakespeare-insult-generator', 'page.tsx')
+if (fs.existsSync(legacyShakespeare) || fs.existsSync(oldFlatShakespeare) || !fs.existsSync(nestedShakespeare)) {
+  throw new Error('Shakespeare route is misplaced or the old flat filesystem route still exists.')
 }
 
 const dataPath = path.join(root, 'app', 'fun', 'insult-generator', 'data.ts')
@@ -42,5 +44,5 @@ if (!nextConfig.includes("source: '/calculators/fun/shakespeare-insult-generator
 }
 
 console.log(`Verified ${required.length} new insult generator routes.`)
-console.log('Verified legacy Shakespeare filesystem route is removed.')
+console.log('Verified existing Shakespeare functionality is nested under the insult-generator hub.')
 console.log('Verified direct legacy Shakespeare 301 is configured.')

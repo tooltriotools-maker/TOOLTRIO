@@ -21,7 +21,7 @@ interface DevToolLayoutProps {
   slug?: string
   /** Category label for colour theming — defaults to 'Fun' */
   category?: ExportCategory
-  /** Breadcrumb parent path e.g. '/calculators/fun' */
+  /** Breadcrumb parent path e.g. '/fun' */
   parentPath?: string
   /** Breadcrumb parent label e.g. 'Fun Tools' */
   parentLabel?: string
@@ -34,7 +34,7 @@ export function DevToolLayout({
   icon = '🔧',
   slug,
   category = 'Fun',
-  parentPath = '/calculators/fun',
+  parentPath = '/fun',
   parentLabel = 'Fun & Entertainment',
   children,
 }: DevToolLayoutProps) {

@@ -32,7 +32,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Superhero Name Generator" icon="🦸"
       description={`Generate your superhero identity — ${Math.round(TOTAL/1000)}K+ unique names with full character profiles`}
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="rounded-3xl border p-5 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <label className="text-xs font-bold text-gray-500 uppercase block mb-2">Your Name / Nickname (optional — influences your hero)</label>

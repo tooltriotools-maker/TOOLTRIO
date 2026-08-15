@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="📱"
       description="Calculate how much of your life you spend looking at screens. (Warning: may be terrifying.)"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

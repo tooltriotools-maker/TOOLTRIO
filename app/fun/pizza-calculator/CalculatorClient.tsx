@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🍕"
       description="Never under-order pizza again. Calculate exactly how many pizzas you need!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

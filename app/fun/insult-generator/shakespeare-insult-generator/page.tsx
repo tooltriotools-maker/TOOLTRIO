@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
-import { generateFunToolStructuredData } from '@/lib/seo/structured-data'
+import { generateFAQStructuredData } from '@/lib/seo/metadata'
+import { generateWebApplicationStructuredData } from '@/lib/seo/structured-data'
 import dynamic from 'next/dynamic'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   
@@ -9,37 +9,19 @@ const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   )
 })
 
-export const metadata: Metadata = generateFunToolMetadata({
+export const metadata: Metadata = {
   title: 'Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio',
-  description:
-    'Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.',
+  description: 'Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.',
+  keywords: ['shakespeare insult generator','shakespearean insult generator','shakespeare roast generator','shakespearean roast generator','shakespeare insults','shakespearean insults','random shakespeare insult','funny shakespeare insults','shakespeare comeback generator','old english insult generator','elizabethan insult generator','bard insult generator','witty insult generator','funny insult generator','roast generator','tooltrio'],
+  authors: [{ name: 'ToolTrio', url: 'https://tooltrio.com' }],
+  creator: 'ToolTrio',
+  publisher: 'ToolTrio',
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
+  alternates: { canonical: 'https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator' },
+  openGraph: { type: 'website', url: 'https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator', siteName: 'ToolTrio', title: 'Shakespeare Insult Generator | ToolTrio', description: 'Create funny Shakespearean insults, Elizabethan roasts and theatrical old-English comebacks.', images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'Shakespeare Insult Generator' }], locale: 'en_US' },
+  twitter: { card: 'summary_large_image', title: 'Shakespeare Insult Generator | ToolTrio', description: 'Generate dramatic Shakespearean insults and Elizabethan roasts.', images: ['https://tooltrio.com/og-image.png'] },
+}
 
-  slug: 'insult-generator/shakespeare-insult-generator',
-
-  keywords: [
-    'shakespeare insult generator',
-    'shakespearean insult generator',
-    'shakespeare roast generator',
-    'shakespearean roast generator',
-    'shakespeare insults',
-    'shakespearean insults',
-    'random shakespeare insult',
-    'funny shakespeare insults',
-    'shakespeare comeback generator',
-    'shakespearean comeback generator',
-    'old english insult generator',
-    'old english roast generator',
-    'elizabethan insult generator',
-    'elizabethan roast generator',
-    'william shakespeare insults',
-    'bard insult generator',
-    'creative roast generator',
-    'witty insult generator',
-    'funny insult generator',
-    'roast generator',
-    'tooltrio'
-  ]
-})
 const faqs = [
   {
   question: 'Why is this Shakespeare insult generator different?',
@@ -98,11 +80,26 @@ const faqs = [
 ]
 
 export default function Page() {
-  const _structuredData = generateFunToolStructuredData({
-    name: 'Shakespeare Insult Generator',
-    description: 'Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.',
-    slug: 'insult-generator/shakespeare-insult-generator',
-  })
+  const _structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      generateWebApplicationStructuredData({
+        name: 'Shakespeare Insult Generator',
+        description: 'Generate funny Shakespearean insults, Elizabethan roasts and old-English-style comebacks.',
+        url: 'https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator',
+        applicationCategory: 'EntertainmentApplication',
+      }),
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tooltrio.com' },
+          { '@type': 'ListItem', position: 2, name: 'Fun & Entertainment', item: 'https://tooltrio.com/fun' },
+          { '@type': 'ListItem', position: 3, name: 'Insult Generators', item: 'https://tooltrio.com/fun/insult-generator' },
+          { '@type': 'ListItem', position: 4, name: 'Shakespeare Insult Generator', item: 'https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator' },
+        ],
+      },
+    ],
+  }
   const _faqSchema = generateFAQStructuredData(faqs)
 
   return (

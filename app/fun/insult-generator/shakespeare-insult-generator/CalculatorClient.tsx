@@ -255,8 +255,8 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🎭"
       description="Generate gloriously old-fashioned insults straight from the Bard himself!"
       category="Fun"
-      parentPath="/calculators/fun"
-      parentLabel="Fun & Entertainment"
+      parentPath="/fun"
+      parentLabel="Insult Generators"
     >
       <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For laughs only - never use to genuinely hurt anyone.</p>
 

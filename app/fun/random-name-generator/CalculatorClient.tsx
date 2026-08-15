@@ -46,7 +46,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Random Name Generator" icon="👤"
       description={`Generate ${totalMillions}M+ unique names with detailed meaning and origin`}
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="rounded-3xl border p-5 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <div>

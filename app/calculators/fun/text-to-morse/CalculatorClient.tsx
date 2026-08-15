@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="📡"
       description="Convert text to Morse code and back - with dots and dashes"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
         <div className="flex gap-2 mb-4">

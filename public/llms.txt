@@ -3,11 +3,12 @@
 # Generated from the ToolTrio Master Tool Registry
 
 ## About
-65+ active tools across Fun and ZIP tools.
+83+ active tools across Fun and ZIP tools.
 Free to use. No signup required.
 
 ## Categories
-- Fun: https://tooltrio.com/calculators/fun
+- Fun: https://tooltrio.com/fun
+- Insult Generators: https://tooltrio.com/fun/insult-generator
 - ZIP: https://tooltrio.com/zip
 
 ## Tools
@@ -32,6 +33,24 @@ Free to use. No signup required.
 - Screen Time Calculator: https://tooltrio.com/fun/screen-time-calculator
 - Insult Generators Hub: https://tooltrio.com/fun/insult-generator
 - Shakespeare Insult Generator: https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator
+- Medieval Insult Generator: https://tooltrio.com/fun/insult-generator/medieval-insult-generator
+- Pirate Insult Generator: https://tooltrio.com/fun/insult-generator/pirate-insult-generator
+- Victorian Insult Generator: https://tooltrio.com/fun/insult-generator/victorian-insult-generator
+- Roast Generator: https://tooltrio.com/fun/insult-generator/roast-generator
+- Savage Insult Generator: https://tooltrio.com/fun/insult-generator/savage-insult-generator
+- Funny Insult Generator: https://tooltrio.com/fun/insult-generator/funny-insult-generator
+- Friendly Insult Generator: https://tooltrio.com/fun/insult-generator/friendly-insult-generator
+- Fantasy Insult Generator: https://tooltrio.com/fun/insult-generator/fantasy-insult-generator
+- Wizard Insult Generator: https://tooltrio.com/fun/insult-generator/wizard-insult-generator
+- Pirate Roast Generator: https://tooltrio.com/fun/insult-generator/pirate-roast-generator
+- Cowboy Insult Generator: https://tooltrio.com/fun/insult-generator/cowboy-insult-generator
+- Royal Insult Generator: https://tooltrio.com/fun/insult-generator/royal-insult-generator
+- Schoolyard Insult Generator: https://tooltrio.com/fun/insult-generator/schoolyard-insult-generator
+- Office Roast Generator: https://tooltrio.com/fun/insult-generator/office-roast-generator
+- Best Friend Roast Generator: https://tooltrio.com/fun/insult-generator/best-friend-roast-generator
+- Comeback Generator: https://tooltrio.com/fun/insult-generator/comeback-generator
+- Sarcastic Comeback Generator: https://tooltrio.com/fun/insult-generator/sarcastic-comeback-generator
+- Villain Insult Generator: https://tooltrio.com/fun/insult-generator/villain-insult-generator
 - Sleep Debt Calculator: https://tooltrio.com/fun/sleep-debt-calculator
 - Social Media Addiction: https://tooltrio.com/fun/social-media-addiction
 - Superhero Name: https://tooltrio.com/fun/superhero-name

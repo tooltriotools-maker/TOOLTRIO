@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🧠"
       description="Answer 4 quick questions to discover your MBTI-inspired personality type. Just for fun!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

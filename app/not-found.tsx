@@ -16,7 +16,7 @@ export default function NotFound() {
           <Link href="/zip" className="rounded-xl border border-green-200 bg-white px-5 py-3 text-sm font-bold text-green-700 hover:bg-green-50 transition-colors">
             ZIP Tools
           </Link>
-          <Link href="/calculators/fun" className="rounded-xl border border-purple-200 bg-white px-5 py-3 text-sm font-bold text-purple-700 hover:bg-purple-50 transition-colors">
+          <Link href="/fun" className="rounded-xl border border-purple-200 bg-white px-5 py-3 text-sm font-bold text-purple-700 hover:bg-purple-50 transition-colors">
             Fun Tools
           </Link>
         </div>

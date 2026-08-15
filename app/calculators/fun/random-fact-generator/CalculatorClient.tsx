@@ -49,7 +49,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🤯"
       description="Expand your mind with wild, verified, and mind-blowing facts from around the world!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

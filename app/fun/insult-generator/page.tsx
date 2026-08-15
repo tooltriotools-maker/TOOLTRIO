@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Sparkles } from 'lucide-react'
-import { INSULT_TOOLS } from './data'
+import { INSULT_COLLECTION_TOOLS } from './data'
 
 const SHAKESPEARE_TOOL = {
   title: 'Shakespeare Insult Generator',

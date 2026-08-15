@@ -148,7 +148,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Workout Excuse Generator" icon="🏋️"
       description={`${EXCUSES.length}+ creative workout excuses — for entertainment only, we promise`}
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="rounded-xl border p-3 bg-amber-50 border-amber-200 text-xs text-amber-800 mb-4">
         😄 For entertainment only. Exercise is genuinely good for you. Please also exercise.

@@ -243,7 +243,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Procrastination Score Test" icon="⏰"
       description="Measure your procrastination level with 100-question bank — detailed profile with actionable insights"
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       {result ? (
         <div className="space-y-4">

@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🍺"
       description="Find out how many calories are hiding in your favourite beers!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

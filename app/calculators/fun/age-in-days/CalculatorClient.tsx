@@ -45,7 +45,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🎂"
       description="Discover your exact age in days, hours, minutes, and more mind-blowing stats"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
         <div className="rounded-3xl border p-6 mb-6" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>

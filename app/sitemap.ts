@@ -13,8 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return true
   })
 
-  // MASTER_TOOL_REGISTRY now contains canonical /fun/* links for the 30
-  // migrated fun tools. Legacy /calculators/fun/* URLs are intentionally
+  // MASTER_TOOL_REGISTRY now contains canonical /fun/* links for the 48
+  // migrated fun tools. Legacy /fun/* URLs are intentionally
   // excluded because they permanently redirect and must not be sitemap URLs.
   const toolUrls = MASTER_TOOL_REGISTRY.map(tool => ({
     url: `${BASE}${tool.href}`,

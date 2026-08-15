@@ -28,7 +28,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="😴"
       description="Track how much sleep you owe your body this week. Your bed thanks you for caring."
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

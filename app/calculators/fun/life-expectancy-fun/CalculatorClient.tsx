@@ -34,7 +34,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon=""
       description="A lighthearted (not medical!) look at lifestyle factors and longevity."
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
         <p className="text-xs text-amber-600 font-semibold mb-6">⚠️ For entertainment only - not medical advice.</p>

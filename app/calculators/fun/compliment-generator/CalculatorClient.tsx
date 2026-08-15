@@ -29,7 +29,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Compliment Generator" icon="💖"
       description="Generate a genuine, thoughtful compliment — then explore what it really means"
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="text-center mb-6">
         <button onClick={generate}

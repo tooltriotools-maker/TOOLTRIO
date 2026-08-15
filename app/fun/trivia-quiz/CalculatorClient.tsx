@@ -57,7 +57,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🧠"
       description="Test your knowledge across 8 categories - 10 random questions"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
         {!done ? (

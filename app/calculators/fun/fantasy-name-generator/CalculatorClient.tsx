@@ -68,7 +68,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Fantasy Name Generator" icon="⚔️"
       description={`Generate unique fantasy names across 5 races — ${Math.round(totalCombos / 1000)}K+ unique combinations`}
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="rounded-3xl border p-5 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <div>

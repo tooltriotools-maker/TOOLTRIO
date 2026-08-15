@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     'trivia quiz online free',
     'random name generator',
   ],
-  alternates: { canonical: 'https://tooltrio.com/calculators/fun' },
+  alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
     title: '30 Free Fun Calculators – Zodiac, Trivia & Name Generators',
     description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator and 23 more free fun tools. Instant results.',
-    url: 'https://tooltrio.com/calculators/fun',
+    url: 'https://tooltrio.com/fun',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
   },
@@ -118,9 +118,9 @@ export default function FunPage() {
   const structuredData = generateCollectionStructuredData({
     name: '30 Free Fun Calculators & Entertainment Tools',
     description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
-    url: 'https://tooltrio.com/calculators/fun',
+    url: 'https://tooltrio.com/fun',
     categoryName: 'Fun & Entertainment',
-    categoryUrl: 'https://tooltrio.com/calculators/fun',
+    categoryUrl: 'https://tooltrio.com/fun',
     items: tools.map(tool => ({ name: tool.name, url: `https://tooltrio.com${tool.href}` })),
   })
 

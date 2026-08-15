@@ -39,7 +39,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🎂"
       description="See exactly how long until your next birthday - down to the second!"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

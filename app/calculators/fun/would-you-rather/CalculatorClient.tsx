@@ -40,7 +40,7 @@ export default function CalculatorClient({ faqs }: Props) {
       icon="🤔"
       description="The classic dilemma game - which impossible choice would you make?"
       category="Fun"
-      parentPath="/calculators/fun"
+      parentPath="/fun"
       parentLabel="Fun & Entertainment"
     >
   

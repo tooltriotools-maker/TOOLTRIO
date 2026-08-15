@@ -147,7 +147,7 @@ export default function CalculatorClient({ faqs }: Props) {
   return (
     <DevToolLayout title="Lucky Number Calculator" icon="🍀"
       description="Discover your numerology lucky numbers based on your birth date & name"
-      category="Fun" parentPath="/calculators/fun" parentLabel="Fun & Entertainment">
+      category="Fun" parentPath="/fun" parentLabel="Fun & Entertainment">
 
       <div className="rounded-3xl border p-6 mb-6 space-y-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)'}}>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Your Name</label>
