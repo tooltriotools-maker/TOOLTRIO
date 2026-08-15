@@ -2,15 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { INSULT_COLLECTION_TOOLS } from './data'
-
-const SHAKESPEARE_TOOL = {
-  title: 'Shakespeare Insult Generator',
-  shortDescription: 'Use the existing Shakespeare generator to create theatrical Elizabethan-style insults with its original functionality and library.',
-  icon: '🎭',
-  slug: 'shakespeare-insult-generator',
-}
-const ALL_INSULT_TOOLS = [...INSULT_TOOLS, SHAKESPEARE_TOOL]
 import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
+
+const ALL_INSULT_TOOLS = INSULT_COLLECTION_TOOLS
 
 const BASE = 'https://tooltrio.com'
 

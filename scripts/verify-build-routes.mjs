@@ -46,3 +46,8 @@ if (!nextConfig.includes("source: '/calculators/fun/shakespeare-insult-generator
 console.log(`Verified ${required.length} new insult generator routes.`)
 console.log('Verified existing Shakespeare functionality is nested under the insult-generator hub.')
 console.log('Verified direct legacy Shakespeare 301 is configured.')
+
+// Insult hub must use the collection source of truth (18 new + existing Shakespeare).
+const hub = fs.readFileSync(path.join(root, 'app', 'fun', 'insult-generator', 'page.tsx'), 'utf8')
+if (!hub.includes('INSULT_COLLECTION_TOOLS')) throw new Error('Insult hub must use INSULT_COLLECTION_TOOLS.')
+if (hub.includes('INSULT_TOOLS, SHAKESPEARE_TOOL')) throw new Error('Stale INSULT_TOOLS + SHAKESPEARE_TOOL hub composition remains.')
