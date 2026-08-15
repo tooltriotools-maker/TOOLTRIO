@@ -53,7 +53,7 @@ export function generateBreadcrumbStructuredData(items: Array<{ name: string; ur
 }
 
 export function generateFunToolStructuredDataFromSlug(slug: string) {
-  const key = `/calculators/fun/${slug}`
+  const key = `/fun/${slug}`
   const metadata = GENERATED_TOOL_PAGE_METADATA[key]
 
   if (!metadata?.title || !metadata.description) {
@@ -72,7 +72,7 @@ export function generateFunToolStructuredData(params: {
   description: string
   slug: string
 }) {
-  const url = `${BASE_URL}/calculators/fun/${params.slug}`
+  const url = `${BASE_URL}/fun/${params.slug}`
 
   return {
     '@context': 'https://schema.org',
@@ -85,7 +85,7 @@ export function generateFunToolStructuredData(params: {
       }),
       generateBreadcrumbNode([
         { name: 'Home', url: BASE_URL },
-        { name: 'Fun & Entertainment', url: `${BASE_URL}/calculators/fun` },
+        { name: 'Fun & Entertainment', url: `${BASE_URL}/fun` },
         { name: params.name, url },
       ]),
     ],

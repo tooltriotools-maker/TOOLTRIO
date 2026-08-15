@@ -1,16 +1,10 @@
 import { MetadataRoute } from 'next'
-import { publicBlogPosts, blogCategories } from '@/lib/blog/posts'
+import { publicBlogPosts } from '@/lib/blog/posts'
 import { MASTER_TOOL_REGISTRY } from '@/lib/catalog'
+import { INSULT_TOOLS } from '@/app/fun/insult-generator/data'
 
 const BASE = 'https://tooltrio.com'
 
-/**
- * Sitemap policy:
- * - Include only canonical/indexable tool routes.
- * - Use a real content/review date when one exists.
- * - Do not invent deployment dates for pages that were not materially changed.
- * - Google ignores priority/changefreq, so we omit those signals entirely.
- */
 export default function sitemap(): MetadataRoute.Sitemap {
   const seenBlogSlugs = new Set<string>()
   const uniqueBlogPosts = publicBlogPosts.filter(post => {
@@ -19,19 +13,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return true
   })
 
+  // MASTER_TOOL_REGISTRY now contains canonical /fun/* links for the 30
+  // migrated fun tools. Legacy /calculators/fun/* URLs are intentionally
+  // excluded because they permanently redirect and must not be sitemap URLs.
   const toolUrls = MASTER_TOOL_REGISTRY.map(tool => ({
-      url: `${BASE}${tool.href}`,
-      ...(tool.metadata.lastReviewed ? { lastModified: tool.metadata.lastReviewed } : {}),
-    }))
+    url: `${BASE}${tool.href}`,
+    ...(tool.metadata.lastReviewed ? { lastModified: tool.metadata.lastReviewed } : {}),
+  }))
 
-  const categoryRoutes = [
-    '/calculators/fun',
-    '/zip',
-  ]
+  const insultHub = { url: `${BASE}/fun/insult-generator` }
+  const insultPages = INSULT_TOOLS.map(tool => ({
+    url: `${BASE}/fun/insult-generator/${tool.slug}`,
+  }))
 
-  return [
+  const categoryRoutes = ['/fun', '/zip']
+
+  const routes = [
     { url: BASE },
     ...categoryRoutes.map(href => ({ url: `${BASE}${href}` })),
+    insultHub,
+    ...insultPages,
     { url: `${BASE}/blog` },
     { url: `${BASE}/about` },
     { url: `${BASE}/methodology` },
@@ -45,4 +46,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${BASE}/blog/category/zip-codes` },
   ]
+
+  const seen = new Set<string>()
+  return routes.filter(route => {
+    if (seen.has(route.url)) return false
+    seen.add(route.url)
+    return true
+  })
 }

@@ -11,7 +11,7 @@ export type GeneratedToolPageMetadata = {
 }
 
 export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedToolPageMetadata>> = {
-  "/calculators/fun/age-in-days": {
+  "/fun/age-in-days": {
     "title": "Age in Days Calculator – How Old Am I? | ToolTrio",
     "description": "Find out exactly how many days, hours, minutes, and seconds you have been alive. Plus heartbeats, breaths taken, and wild life stats. Free, instant, no signup.",
     "keywords": [
@@ -25,9 +25,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "age in days from birthday",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/age-in-days/page.tsx"
+    "source": "app/fun/age-in-days/page.tsx"
   },
-  "/calculators/fun/birthday-countdown": {
+  "/fun/birthday-countdown": {
     "title": "Birthday Countdown Calculator | ToolTrio",
     "description": "See exactly how many days, hours, minutes, and seconds until your next birthday. Live real-time countdown. Free, no login, works on any device.",
     "keywords": [
@@ -41,9 +41,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "birthday countdown clock",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/birthday-countdown/page.tsx"
+    "source": "app/fun/birthday-countdown/page.tsx"
   },
-  "/calculators/fun/calories-in-beer": {
+  "/fun/calories-in-beer": {
     "title": "Calories in Beer Calculator | ToolTrio",
     "description": "Calculate calories in any beer by type, ABV, and serving size. Find out how long it takes to burn off those pints. Free, instant, no login needed.",
     "keywords": [
@@ -57,9 +57,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "alcohol calorie calculator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/calories-in-beer/page.tsx"
+    "source": "app/fun/calories-in-beer/page.tsx"
   },
-  "/calculators/fun/coffee-calculator": {
+  "/fun/coffee-calculator": {
     "title": "Lifetime Caffeine Calculator | ToolTrio",
     "description": "Calculate your lifetime coffee consumption, total caffeine intake, money spent on coffee, and how many cups you will drink before retirement. Free and instant.",
     "keywords": [
@@ -73,9 +73,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "coffee cost calculator lifetime",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/coffee-calculator/page.tsx"
+    "source": "app/fun/coffee-calculator/page.tsx"
   },
-  "/calculators/fun/compliment-generator": {
+  "/fun/compliment-generator": {
     "title": "Compliment Generator Online | ToolTrio",
     "description": "Generate heartfelt, funny, or creative compliments for anyone — friends, colleagues, partners, or strangers. Free random compliment generator with no login.",
     "keywords": [
@@ -89,9 +89,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "heartfelt compliment generator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/compliment-generator/page.tsx"
+    "source": "app/fun/compliment-generator/page.tsx"
   },
-  "/calculators/fun/emoji-translator": {
+  "/fun/emoji-translator": {
     "title": "Emoji Translator – Text to Emoji | ToolTrio",
     "description": "Translate any sentence into emoji representations instantly. Also decode emoji back to text. Fun text-to-emoji converter for captions, chats, and social.",
     "keywords": [
@@ -105,9 +105,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "turn words into emoji",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/emoji-translator/page.tsx"
+    "source": "app/fun/emoji-translator/page.tsx"
   },
-  "/calculators/fun/fantasy-name-generator": {
+  "/fun/fantasy-name-generator": {
     "title": "Fantasy Name Generator | ToolTrio",
     "description": "Generate unique fantasy names for elves, dwarves, wizards, dragons, orcs, and more. Perfect for D&D, RPGs, novels, and gaming characters. Free, instant.",
     "keywords": [
@@ -121,9 +121,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "RPG character name generator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/fantasy-name-generator/page.tsx"
+    "source": "app/fun/fantasy-name-generator/page.tsx"
   },
-  "/calculators/fun/fortune-cookie": {
+  "/fun/fortune-cookie": {
     "title": "Fortune Cookie Generator | ToolTrio",
     "description": "Get your virtual fortune cookie message instantly. Wisdom, humor, life advice, and lucky numbers — all the magic of a fortune cookie, none of the.",
     "keywords": [
@@ -137,9 +137,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "crack a fortune cookie online",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/fortune-cookie/page.tsx"
+    "source": "app/fun/fortune-cookie/page.tsx"
   },
-  "/calculators/fun/how-rich-am-i": {
+  "/fun/how-rich-am-i": {
     "title": "How Rich Am I? Global Wealth Rank | ToolTrio",
     "description": "Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people.",
     "keywords": [
@@ -153,9 +153,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "global income comparison tool",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/how-rich-am-i/page.tsx"
+    "source": "app/fun/how-rich-am-i/page.tsx"
   },
-  "/calculators/fun/life-expectancy-fun": {
+  "/fun/life-expectancy-fun": {
     "title": "Life Expectancy Calculator – Fun | ToolTrio",
     "description": "Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for.",
     "keywords": [
@@ -169,9 +169,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "life expectancy based on habits",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/life-expectancy-fun/page.tsx"
+    "source": "app/fun/life-expectancy-fun/page.tsx"
   },
-  "/calculators/fun/love-compatibility": {
+  "/fun/love-compatibility": {
     "title": "Love Compatibility Calculator | ToolTrio",
     "description": "Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and.",
     "keywords": [
@@ -185,9 +185,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "relationship compatibility test online",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/love-compatibility/page.tsx"
+    "source": "app/fun/love-compatibility/page.tsx"
   },
-  "/calculators/fun/lucky-number": {
+  "/fun/lucky-number": {
     "title": "Lucky Number Calculator | ToolTrio",
     "description": "Calculate your life path number, expression number, and personal lucky numbers from your name and birthday using numerology. Free, instant, no signup needed.",
     "keywords": [
@@ -201,9 +201,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "lucky number by name",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/lucky-number/page.tsx"
+    "source": "app/fun/lucky-number/page.tsx"
   },
-  "/calculators/fun/personality-quiz": {
+  "/fun/personality-quiz": {
     "title": "Personality Quiz – Myers-Briggs Style | ToolTrio",
     "description": "Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free.",
     "keywords": [
@@ -217,9 +217,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "free personality assessment online",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/personality-quiz/page.tsx"
+    "source": "app/fun/personality-quiz/page.tsx"
   },
-  "/calculators/fun/pig-latin-converter": {
+  "/fun/pig-latin-converter": {
     "title": "Pig Latin Translator Online | ToolTrio",
     "description": "Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login.",
     "keywords": [
@@ -233,9 +233,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "pig latin rules converter",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/pig-latin-converter/page.tsx"
+    "source": "app/fun/pig-latin-converter/page.tsx"
   },
-  "/calculators/fun/pizza-calculator": {
+  "/fun/pizza-calculator": {
     "title": "Pizza Calculator – How Many Pizzas? | ToolTrio",
     "description": "Calculate exactly how many pizzas to order for any group size, appetite level, and pizza size. Never over- or under-order again. Free pizza party.",
     "keywords": [
@@ -249,9 +249,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "how many pizzas for 20 people",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/pizza-calculator/page.tsx"
+    "source": "app/fun/pizza-calculator/page.tsx"
   },
-  "/calculators/fun/procrastination-score": {
+  "/fun/procrastination-score": {
     "title": "Procrastination Score Calculator | ToolTrio",
     "description": "Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free.",
     "keywords": [
@@ -265,9 +265,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "do I procrastinate too much quiz",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/procrastination-score/page.tsx"
+    "source": "app/fun/procrastination-score/page.tsx"
   },
-  "/calculators/fun/random-fact-generator": {
+  "/fun/random-fact-generator": {
     "title": "Random Fact Generator | ToolTrio",
     "description": "Generate random interesting facts about science, history, animals, space, food, and more. A new mind-blowing fact every click. Free, ad-free, no login needed.",
     "keywords": [
@@ -281,9 +281,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "random science facts generator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/random-fact-generator/page.tsx"
+    "source": "app/fun/random-fact-generator/page.tsx"
   },
-  "/calculators/fun/random-name-generator": {
+  "/fun/random-name-generator": {
     "title": "Random Name Generator | ToolTrio",
     "description": "Generate random names for babies, characters, usernames, pets, or businesses. Filter by origin, gender, style, and popularity. Free random name generator.",
     "keywords": [
@@ -297,9 +297,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "character name generator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/random-name-generator/page.tsx"
+    "source": "app/fun/random-name-generator/page.tsx"
   },
-  "/calculators/fun/screen-time-calculator": {
+  "/fun/screen-time-calculator": {
     "title": "Screen Time Calculator | ToolTrio",
     "description": "Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free.",
     "keywords": [
@@ -313,37 +313,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "lifetime phone usage calculator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/screen-time-calculator/page.tsx"
+    "source": "app/fun/screen-time-calculator/page.tsx"
   },
-  "/calculators/fun/shakespeare-insult-generator": {
-    "title": "Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio",
-    "description": "Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.",
-    "keywords": [
-      "shakespeare insult generator",
-      "shakespearean insult generator",
-      "shakespeare roast generator",
-      "shakespearean roast generator",
-      "shakespeare insults",
-      "shakespearean insults",
-      "random shakespeare insult",
-      "funny shakespeare insults",
-      "shakespeare comeback generator",
-      "shakespearean comeback generator",
-      "old english insult generator",
-      "old english roast generator",
-      "elizabethan insult generator",
-      "elizabethan roast generator",
-      "william shakespeare insults",
-      "bard insult generator",
-      "creative roast generator",
-      "witty insult generator",
-      "funny insult generator",
-      "roast generator",
-      "tooltrio"
-    ],
-    "source": "app/calculators/fun/shakespeare-insult-generator/page.tsx"
-  },
-  "/calculators/fun/sleep-debt-calculator": {
+  "/fun/sleep-debt-calculator": {
     "title": "Sleep Debt Calculator | ToolTrio",
     "description": "Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend.",
     "keywords": [
@@ -357,9 +329,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "how to calculate sleep debt",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/sleep-debt-calculator/page.tsx"
+    "source": "app/fun/sleep-debt-calculator/page.tsx"
   },
-  "/calculators/fun/social-media-addiction": {
+  "/fun/social-media-addiction": {
     "title": "Social Media Addiction Score | ToolTrio",
     "description": "Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back.",
     "keywords": [
@@ -373,9 +345,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "social media usage calculator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/social-media-addiction/page.tsx"
+    "source": "app/fun/social-media-addiction/page.tsx"
   },
-  "/calculators/fun/superhero-name": {
+  "/fun/superhero-name": {
     "title": "Superhero Name Generator | ToolTrio",
     "description": "Discover your superhero name, powers, backstory, and nemesis based on your name and personality. Free online superhero name generator — Superhero Name output.",
     "keywords": [
@@ -389,9 +361,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "superhero name creator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/superhero-name/page.tsx"
+    "source": "app/fun/superhero-name/page.tsx"
   },
-  "/calculators/fun/text-to-morse": {
+  "/fun/text-to-morse": {
     "title": "Morse Code Translator Online | ToolTrio",
     "description": "Convert any text to Morse code instantly and decode Morse code back to text. Hear your Morse code played back with audio. Free online Morse code.",
     "keywords": [
@@ -405,9 +377,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "morse code generator",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/text-to-morse/page.tsx"
+    "source": "app/fun/text-to-morse/page.tsx"
   },
-  "/calculators/fun/trivia-quiz": {
+  "/fun/trivia-quiz": {
     "title": "Trivia Quiz – Random Questions | ToolTrio",
     "description": "Test your knowledge with 10 random trivia questions spanning science, history, pop culture, sports, geography, and more. Free trivia quiz online, instant.",
     "keywords": [
@@ -421,9 +393,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "trivia quiz for adults",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/trivia-quiz/page.tsx"
+    "source": "app/fun/trivia-quiz/page.tsx"
   },
-  "/calculators/fun/uwu-text-generator": {
+  "/fun/uwu-text-generator": {
     "title": "UWU Text Generator Online | ToolTrio",
     "description": "Convert text into cute UWU speak with kawaii faces, substitutions and anime-style speech patterns. Free online UWU text generator.",
     "keywords": [
@@ -437,9 +409,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "how to write in uwu",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/uwu-text-generator/page.tsx"
+    "source": "app/fun/uwu-text-generator/page.tsx"
   },
-  "/calculators/fun/villain-name": {
+  "/fun/villain-name": {
     "title": "Villain Name Generator | ToolTrio",
     "description": "Generate your supervillain name, evil powers, sinister origin story, and secret weakness. Dark, dramatic, and delightfully fun. Free villain name.",
     "keywords": [
@@ -453,9 +425,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "my villain name quiz",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/villain-name/page.tsx"
+    "source": "app/fun/villain-name/page.tsx"
   },
-  "/calculators/fun/workout-excuse-generator": {
+  "/fun/workout-excuse-generator": {
     "title": "Workout Excuse Generator | ToolTrio",
     "description": "Generate hilariously creative excuses to skip your workout. From mildly plausible to completely unhinged. Because sometimes the couch wins. Free, instant.",
     "keywords": [
@@ -469,9 +441,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "best workout excuses",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/workout-excuse-generator/page.tsx"
+    "source": "app/fun/workout-excuse-generator/page.tsx"
   },
-  "/calculators/fun/would-you-rather": {
+  "/fun/would-you-rather": {
     "title": "Would You Rather Generator | ToolTrio",
     "description": "Generate wild, funny, and impossible Would You Rather questions. Perfect for parties, road trips, dates, and group chats. Free online Would You Rather.",
     "keywords": [
@@ -485,9 +457,9 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "would you rather party game",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/would-you-rather/page.tsx"
+    "source": "app/fun/would-you-rather/page.tsx"
   },
-  "/calculators/fun/zodiac-calculator": {
+  "/fun/zodiac-calculator": {
     "title": "Zodiac Sign Calculator | ToolTrio",
     "description": "Find your Western and Chinese zodiac sign from your birthday. Get your personality traits, best compatibility matches, and lucky elements. Free zodiac.",
     "keywords": [
@@ -501,7 +473,7 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "zodiac personality traits",
       "tooltrio.com"
     ],
-    "source": "app/calculators/fun/zodiac-calculator/page.tsx"
+    "source": "app/fun/zodiac-calculator/page.tsx"
   },
   "/zip/address-to-zip": {
     "title": "Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio",

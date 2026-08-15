@@ -33,46 +33,46 @@ export const metadata: Metadata = {
 
 const tools = [
   // Personality & Identity
-  { name: 'Lucky Number',           desc: 'Your life path & numerology lucky numbers',        href: '/calculators/fun/lucky-number',           icon: '🍀', tag: 'Personality', popular: true  },
-  { name: 'Zodiac Calculator',      desc: 'Western + Chinese zodiac, traits & compatibility', href: '/calculators/fun/zodiac-calculator',       icon: '⭐', tag: 'Personality', popular: true  },
-  { name: 'Love Compatibility',     desc: 'Name & birthday match — how well do you fit?',     href: '/calculators/fun/love-compatibility',      icon: '💕', tag: 'Personality', popular: true  },
-  { name: 'Personality Quiz',       desc: 'Myers-Briggs style type test, 3 minutes flat',     href: '/calculators/fun/personality-quiz',        icon: '🧬', tag: 'Personality', popular: true  },
-  { name: 'Procrastination Score',  desc: 'Find your type, your triggers, actual fix tips',   href: '/calculators/fun/procrastination-score',   icon: '⏰', tag: 'Personality', popular: false },
+  { name: 'Lucky Number',           desc: 'Your life path & numerology lucky numbers',        href: '/fun/lucky-number',           icon: '🍀', tag: 'Personality', popular: true  },
+  { name: 'Zodiac Calculator',      desc: 'Western + Chinese zodiac, traits & compatibility', href: '/fun/zodiac-calculator',       icon: '⭐', tag: 'Personality', popular: true  },
+  { name: 'Love Compatibility',     desc: 'Name & birthday match — how well do you fit?',     href: '/fun/love-compatibility',      icon: '💕', tag: 'Personality', popular: true  },
+  { name: 'Personality Quiz',       desc: 'Myers-Briggs style type test, 3 minutes flat',     href: '/fun/personality-quiz',        icon: '🧬', tag: 'Personality', popular: true  },
+  { name: 'Procrastination Score',  desc: 'Find your type, your triggers, actual fix tips',   href: '/fun/procrastination-score',   icon: '⏰', tag: 'Personality', popular: false },
 
   // Name Generators
-  { name: 'Random Name Generator',  desc: 'Baby names, usernames, characters — any origin',  href: '/calculators/fun/random-name-generator',   icon: '🎲', tag: 'Generators',  popular: true  },
-  { name: 'Superhero Name',         desc: 'Your hero identity, powers & origin story',        href: '/calculators/fun/superhero-name',          icon: '🦸', tag: 'Generators',  popular: true  },
-  { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/calculators/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
-  { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/calculators/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
-  { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/calculators/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
-  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/calculators/fun/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
-  { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/calculators/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
-  { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/calculators/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
-  { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/calculators/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },
+  { name: 'Random Name Generator',  desc: 'Baby names, usernames, characters — any origin',  href: '/fun/random-name-generator',   icon: '🎲', tag: 'Generators',  popular: true  },
+  { name: 'Superhero Name',         desc: 'Your hero identity, powers & origin story',        href: '/fun/superhero-name',          icon: '🦸', tag: 'Generators',  popular: true  },
+  { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
+  { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
+  { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
+  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/fun/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
+  { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
+  { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
+  { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },
 
   // Life Stats
-  { name: 'Age in Days',            desc: 'Days, heartbeats, breaths — your life in numbers', href: '/calculators/fun/age-in-days',             icon: '🎂', tag: 'Life Stats',  popular: true  },
-  { name: 'Birthday Countdown',     desc: 'Live countdown to your next birthday + day of week',href: '/calculators/fun/birthday-countdown',     icon: '🎉', tag: 'Life Stats',  popular: false },
-  { name: 'How Rich Am I?',         desc: 'Your real global wealth percentile — eye-opening', href: '/calculators/fun/how-rich-am-i',           icon: '💰', tag: 'Life Stats',  popular: true  },
-  { name: 'Life Expectancy Fun',    desc: 'Lifestyle-based estimate with habit impact sliders',href: '/calculators/fun/life-expectancy-fun',     icon: '🌟', tag: 'Life Stats',  popular: false },
-  { name: 'Sleep Debt',             desc: 'Your sleep deficit, recovery time & real effects', href: '/calculators/fun/sleep-debt-calculator',   icon: '😴', tag: 'Life Stats',  popular: false },
+  { name: 'Age in Days',            desc: 'Days, heartbeats, breaths — your life in numbers', href: '/fun/age-in-days',             icon: '🎂', tag: 'Life Stats',  popular: true  },
+  { name: 'Birthday Countdown',     desc: 'Live countdown to your next birthday + day of week',href: '/fun/birthday-countdown',     icon: '🎉', tag: 'Life Stats',  popular: false },
+  { name: 'How Rich Am I?',         desc: 'Your real global wealth percentile — eye-opening', href: '/fun/how-rich-am-i',           icon: '💰', tag: 'Life Stats',  popular: true  },
+  { name: 'Life Expectancy Fun',    desc: 'Lifestyle-based estimate with habit impact sliders',href: '/fun/life-expectancy-fun',     icon: '🌟', tag: 'Life Stats',  popular: false },
+  { name: 'Sleep Debt',             desc: 'Your sleep deficit, recovery time & real effects', href: '/fun/sleep-debt-calculator',   icon: '😴', tag: 'Life Stats',  popular: false },
 
   // Habits & Lifestyle
-  { name: 'Coffee Calculator',      desc: 'Lifetime cups, caffeine & money spent on coffee',  href: '/calculators/fun/coffee-calculator',       icon: '☕', tag: 'Habits',      popular: true  },
-  { name: 'Social Media Addiction', desc: 'Your addiction score, type & platform breakdown',  href: '/calculators/fun/social-media-addiction',  icon: '📱', tag: 'Habits',      popular: false },
-  { name: 'Screen Time Stats',      desc: 'Lifetime screen time & what you could do instead', href: '/calculators/fun/screen-time-calculator',  icon: '📺', tag: 'Habits',      popular: false },
-  { name: 'Calories in Beer',       desc: 'Beer calories by ABV + how long to burn it off',   href: '/calculators/fun/calories-in-beer',        icon: '🍺', tag: 'Habits',      popular: false },
-  { name: 'Pizza Calculator',       desc: 'Exactly how many pizzas to order for any group',   href: '/calculators/fun/pizza-calculator',        icon: '🍕', tag: 'Habits',      popular: true  },
-  { name: 'Workout Excuses',        desc: 'Creative, oddly believable reasons to skip the gym',href: '/calculators/fun/workout-excuse-generator',icon: '🏃', tag: 'Habits',     popular: false },
+  { name: 'Coffee Calculator',      desc: 'Lifetime cups, caffeine & money spent on coffee',  href: '/fun/coffee-calculator',       icon: '☕', tag: 'Habits',      popular: true  },
+  { name: 'Social Media Addiction', desc: 'Your addiction score, type & platform breakdown',  href: '/fun/social-media-addiction',  icon: '📱', tag: 'Habits',      popular: false },
+  { name: 'Screen Time Stats',      desc: 'Lifetime screen time & what you could do instead', href: '/fun/screen-time-calculator',  icon: '📺', tag: 'Habits',      popular: false },
+  { name: 'Calories in Beer',       desc: 'Beer calories by ABV + how long to burn it off',   href: '/fun/calories-in-beer',        icon: '🍺', tag: 'Habits',      popular: false },
+  { name: 'Pizza Calculator',       desc: 'Exactly how many pizzas to order for any group',   href: '/fun/pizza-calculator',        icon: '🍕', tag: 'Habits',      popular: true  },
+  { name: 'Workout Excuses',        desc: 'Creative, oddly believable reasons to skip the gym',href: '/fun/workout-excuse-generator',icon: '🏃', tag: 'Habits',     popular: false },
 
   // Text & Language
-  { name: 'Emoji Translator',       desc: 'Convert text to emoji and decode emoji back',      href: '/calculators/fun/emoji-translator',        icon: '😊', tag: 'Language',    popular: true  },
-  { name: 'Morse Code',             desc: 'Text ↔ Morse code with audio playback & chart',    href: '/calculators/fun/text-to-morse',           icon: '📡', tag: 'Language',    popular: true  },
-  { name: 'Pig Latin',              desc: 'Full paragraph translator with reverse decoding',   href: '/calculators/fun/pig-latin-converter',     icon: '🐷', tag: 'Language',    popular: false },
-  { name: 'UWU Text Generator',     desc: 'Kawaii-ify any text with adjustable uwu intensity', href: '/calculators/fun/uwu-text-generator',      icon: '🐾', tag: 'Language',    popular: false },
+  { name: 'Emoji Translator',       desc: 'Convert text to emoji and decode emoji back',      href: '/fun/emoji-translator',        icon: '😊', tag: 'Language',    popular: true  },
+  { name: 'Morse Code',             desc: 'Text ↔ Morse code with audio playback & chart',    href: '/fun/text-to-morse',           icon: '📡', tag: 'Language',    popular: true  },
+  { name: 'Pig Latin',              desc: 'Full paragraph translator with reverse decoding',   href: '/fun/pig-latin-converter',     icon: '🐷', tag: 'Language',    popular: false },
+  { name: 'UWU Text Generator',     desc: 'Kawaii-ify any text with adjustable uwu intensity', href: '/fun/uwu-text-generator',      icon: '🐾', tag: 'Language',    popular: false },
 
   // Games
-  { name: 'Trivia Quiz',            desc: '10 random questions, 8 categories, timed mode',    href: '/calculators/fun/trivia-quiz',             icon: '🧠', tag: 'Games',       popular: true  },
+  { name: 'Trivia Quiz',            desc: '10 random questions, 8 categories, timed mode',    href: '/fun/trivia-quiz',             icon: '🧠', tag: 'Games',       popular: true  },
 ]
 
 const TAG_CONFIG: Record<string, { color: string; bg: string; border: string; desc: string }> = {

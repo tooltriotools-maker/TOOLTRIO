@@ -104,9 +104,20 @@ const nextConfig = {
         destination: 'https://tooltrio.com/:path*',
         permanent:   true,
       },
-      // ── Trailing slash removal (canonical URL enforcement) ───────────────────
-      { source: '/calculators/fun/:path*/',     destination: '/calculators/fun/:path*',     permanent: true },
-      { source: '/zip/:path*/',                 destination: '/zip/:path*',                  permanent: true },
+      // ── Fun URL migration: legacy /calculators/fun/* → canonical /fun/* ─────
+      // The trailing-slash legacy rule points directly to the new canonical URL,
+      // preventing a /old/ → /old → /new redirect chain.
+      { source: '/calculators/fun/shakespeare-insult-generator/', destination: '/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/shakespeare-insult-generator', destination: '/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/:path*/', destination: '/fun/:path*', permanent: true },
+      { source: '/calculators/fun', destination: '/fun', permanent: true },
+      { source: '/calculators/fun/', destination: '/fun', permanent: true },
+      { source: '/calculators/fun/:path*', destination: '/fun/:path*', permanent: true },
+      // New canonical fun URLs keep the site's no-trailing-slash convention.
+      { source: '/fun/:path*/', destination: '/fun/:path*', permanent: true },
+      { source: '/fun/', destination: '/fun', permanent: true },
+      // Other site-wide trailing-slash canonicalization.
+      { source: '/zip/:path*/', destination: '/zip/:path*', permanent: true },
       { source: '/zip/',                        destination: '/zip',                         permanent: true },
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
       { source: '/blog/',                       destination: '/blog',                        permanent: true },

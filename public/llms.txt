@@ -11,36 +11,37 @@ Free to use. No signup required.
 - ZIP: https://tooltrio.com/zip
 
 ## Tools
-- Age in Days: https://tooltrio.com/calculators/fun/age-in-days
-- Birthday Countdown: https://tooltrio.com/calculators/fun/birthday-countdown
-- Calories in Beer: https://tooltrio.com/calculators/fun/calories-in-beer
-- Coffee Calculator: https://tooltrio.com/calculators/fun/coffee-calculator
-- Compliment Generator: https://tooltrio.com/calculators/fun/compliment-generator
-- Emoji Translator: https://tooltrio.com/calculators/fun/emoji-translator
-- Fantasy Name Generator: https://tooltrio.com/calculators/fun/fantasy-name-generator
-- Fortune Cookie: https://tooltrio.com/calculators/fun/fortune-cookie
-- How Rich Am I: https://tooltrio.com/calculators/fun/how-rich-am-i
-- Life Expectancy Fun: https://tooltrio.com/calculators/fun/life-expectancy-fun
-- Love Compatibility: https://tooltrio.com/calculators/fun/love-compatibility
-- Lucky Number: https://tooltrio.com/calculators/fun/lucky-number
-- Personality Quiz: https://tooltrio.com/calculators/fun/personality-quiz
-- Pig Latin Converter: https://tooltrio.com/calculators/fun/pig-latin-converter
-- Pizza Calculator: https://tooltrio.com/calculators/fun/pizza-calculator
-- Procrastination Score: https://tooltrio.com/calculators/fun/procrastination-score
-- Random Fact Generator: https://tooltrio.com/calculators/fun/random-fact-generator
-- Random Name Generator: https://tooltrio.com/calculators/fun/random-name-generator
-- Screen Time Calculator: https://tooltrio.com/calculators/fun/screen-time-calculator
-- Insult Generator: https://tooltrio.com/calculators/fun/shakespeare-insult-generator
-- Sleep Debt Calculator: https://tooltrio.com/calculators/fun/sleep-debt-calculator
-- Social Media Addiction: https://tooltrio.com/calculators/fun/social-media-addiction
-- Superhero Name: https://tooltrio.com/calculators/fun/superhero-name
-- Text to Morse: https://tooltrio.com/calculators/fun/text-to-morse
-- Trivia Quiz: https://tooltrio.com/calculators/fun/trivia-quiz
-- Uwu Text Generator: https://tooltrio.com/calculators/fun/uwu-text-generator
-- Villain Name: https://tooltrio.com/calculators/fun/villain-name
-- Workout Excuse Generator: https://tooltrio.com/calculators/fun/workout-excuse-generator
-- Would You Rather: https://tooltrio.com/calculators/fun/would-you-rather
-- Zodiac Calculator: https://tooltrio.com/calculators/fun/zodiac-calculator
+- Age in Days: https://tooltrio.com/fun/age-in-days
+- Birthday Countdown: https://tooltrio.com/fun/birthday-countdown
+- Calories in Beer: https://tooltrio.com/fun/calories-in-beer
+- Coffee Calculator: https://tooltrio.com/fun/coffee-calculator
+- Compliment Generator: https://tooltrio.com/fun/compliment-generator
+- Emoji Translator: https://tooltrio.com/fun/emoji-translator
+- Fantasy Name Generator: https://tooltrio.com/fun/fantasy-name-generator
+- Fortune Cookie: https://tooltrio.com/fun/fortune-cookie
+- How Rich Am I: https://tooltrio.com/fun/how-rich-am-i
+- Life Expectancy Fun: https://tooltrio.com/fun/life-expectancy-fun
+- Love Compatibility: https://tooltrio.com/fun/love-compatibility
+- Lucky Number: https://tooltrio.com/fun/lucky-number
+- Personality Quiz: https://tooltrio.com/fun/personality-quiz
+- Pig Latin Converter: https://tooltrio.com/fun/pig-latin-converter
+- Pizza Calculator: https://tooltrio.com/fun/pizza-calculator
+- Procrastination Score: https://tooltrio.com/fun/procrastination-score
+- Random Fact Generator: https://tooltrio.com/fun/random-fact-generator
+- Random Name Generator: https://tooltrio.com/fun/random-name-generator
+- Screen Time Calculator: https://tooltrio.com/fun/screen-time-calculator
+- Insult Generators Hub: https://tooltrio.com/fun/insult-generator
+- Shakespeare Insult Generator: https://tooltrio.com/fun/shakespeare-insult-generator
+- Sleep Debt Calculator: https://tooltrio.com/fun/sleep-debt-calculator
+- Social Media Addiction: https://tooltrio.com/fun/social-media-addiction
+- Superhero Name: https://tooltrio.com/fun/superhero-name
+- Text to Morse: https://tooltrio.com/fun/text-to-morse
+- Trivia Quiz: https://tooltrio.com/fun/trivia-quiz
+- Uwu Text Generator: https://tooltrio.com/fun/uwu-text-generator
+- Villain Name: https://tooltrio.com/fun/villain-name
+- Workout Excuse Generator: https://tooltrio.com/fun/workout-excuse-generator
+- Would You Rather: https://tooltrio.com/fun/would-you-rather
+- Zodiac Calculator: https://tooltrio.com/fun/zodiac-calculator
 - Address To Zip: https://tooltrio.com/zip/address-to-zip
 - Area Code By Zip: https://tooltrio.com/zip/area-code-by-zip
 - City To Zip: https://tooltrio.com/zip/city-to-zip

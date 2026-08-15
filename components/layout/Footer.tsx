@@ -18,6 +18,15 @@ const zipLinks = [
 ]
 
 
+const funLinks = [
+  ['Fun Tools Hub', '/fun'],
+  ['Insult Generators', '/fun/insult-generator'],
+  ['Shakespeare Insult Generator', '/fun/shakespeare-insult-generator'],
+  ['Random Name Generator', '/fun/random-name-generator'],
+  ['Trivia Quiz', '/fun/trivia-quiz'],
+  ['All Fun Tools →', '/fun'],
+]
+
 const blogLinks = [
   ['Blog Home', '/blog'],
 ]
@@ -66,6 +75,18 @@ export function Footer() {
               {zipLinks.map(([name, href]) => (
                 <li key={href}>
                   <Link href={href} className="hover:text-teal-400 transition-all">{name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Fun Tools */}
+          <div>
+            <h2 className="font-bold text-white text-sm mb-4">🎉 Fun Tools</h2>
+            <ul className="space-y-2.5 text-sm">
+              {funLinks.map(([name, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-pink-400 transition-all">{name}</Link>
                 </li>
               ))}
             </ul>

@@ -144,17 +144,17 @@ const heroZipTools = [
 
 
 const funTools = [
-  { name: 'Pizza Calculator', desc: 'How many pizzas to order', href: '/calculators/fun/pizza-calculator', icon: '🍕', badge: 'Popular' },
-  { name: 'Trivia Quiz', desc: 'Random trivia questions', href: '/calculators/fun/trivia-quiz', icon: '🧠', badge: 'Popular' },
-  { name: 'Love Compatibility', desc: 'Fun name-based score', href: '/calculators/fun/love-compatibility', icon: '💘', badge: null },
-  { name: 'Zodiac Calculator', desc: 'Find your star sign', href: '/calculators/fun/zodiac-calculator', icon: '♈', badge: null },
-  { name: 'Birthday Countdown', desc: 'Days until your birthday', href: '/calculators/fun/birthday-countdown', icon: '🎂', badge: null },
-  { name: 'Fortune Cookie', desc: 'Random fortune generator', href: '/calculators/fun/fortune-cookie', icon: '🥠', badge: null },
-  { name: 'Shakespeare Insult Generator', desc: 'Funny Shakespearean roasts', href: '/calculators/fun/shakespeare-insult-generator', icon: '🎭', badge: 'Popular' },
-  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/calculators/fun/personality-quiz', icon: '🧬', badge: 'Popular' },
-  { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/calculators/fun/coffee-calculator', icon: '☕', badge: null },
-  { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/calculators/fun/how-rich-am-i', icon: '💸', badge: null },
-  { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/calculators/fun/would-you-rather', icon: '🤔', badge: null },
+  { name: 'Pizza Calculator', desc: 'How many pizzas to order', href: '/fun/pizza-calculator', icon: '🍕', badge: 'Popular' },
+  { name: 'Trivia Quiz', desc: 'Random trivia questions', href: '/fun/trivia-quiz', icon: '🧠', badge: 'Popular' },
+  { name: 'Love Compatibility', desc: 'Fun name-based score', href: '/fun/love-compatibility', icon: '💘', badge: null },
+  { name: 'Zodiac Calculator', desc: 'Find your star sign', href: '/fun/zodiac-calculator', icon: '♈', badge: null },
+  { name: 'Birthday Countdown', desc: 'Days until your birthday', href: '/fun/birthday-countdown', icon: '🎂', badge: null },
+  { name: 'Fortune Cookie', desc: 'Random fortune generator', href: '/fun/fortune-cookie', icon: '🥠', badge: null },
+  { name: 'Shakespeare Insult Generator', desc: 'Funny Shakespearean roasts', href: '/fun/shakespeare-insult-generator', icon: '🎭', badge: 'Popular' },
+  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/fun/personality-quiz', icon: '🧬', badge: 'Popular' },
+  { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/fun/coffee-calculator', icon: '☕', badge: null },
+  { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/fun/how-rich-am-i', icon: '💸', badge: null },
+  { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/fun/would-you-rather', icon: '🤔', badge: null },
 ]
 
 export default function HomePage() {
@@ -242,8 +242,8 @@ export default function HomePage() {
               { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
               { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-              { name: 'Shakespeare Insult Generator', href: '/calculators/fun/shakespeare-insult-generator' },
-              { name: 'Personality Quiz', href: '/calculators/fun/personality-quiz' },
+              { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
+              { name: 'Personality Quiz', href: '/fun/personality-quiz' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}

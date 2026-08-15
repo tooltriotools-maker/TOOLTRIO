@@ -20,7 +20,7 @@ export function generateFunToolMetadata(params: {
   keywords: string[]
 }): Metadata {
   const { title, description, slug, keywords } = params
-  const url = `${BASE_URL}/calculators/fun/${slug}`
+  const url = `${BASE_URL}/fun/${slug}`
   const allKeywords = Array.from(new Set([...keywords, 'tooltrio', 'tool trio', ...FUN_CORE_KW]))
 
   return {
