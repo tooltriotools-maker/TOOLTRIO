@@ -31,7 +31,7 @@ Free to use. No signup required.
 - Random Name Generator: https://tooltrio.com/fun/random-name-generator
 - Screen Time Calculator: https://tooltrio.com/fun/screen-time-calculator
 - Insult Generators Hub: https://tooltrio.com/fun/insult-generator
-- Shakespeare Insult Generator: https://tooltrio.com/fun/shakespeare-insult-generator
+- Shakespeare Insult Generator: https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator
 - Sleep Debt Calculator: https://tooltrio.com/fun/sleep-debt-calculator
 - Social Media Addiction: https://tooltrio.com/fun/social-media-addiction
 - Superhero Name: https://tooltrio.com/fun/superhero-name

@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   const insultHub = { url: `${BASE}/fun/insult-generator` }
+  const shakespeareInsultPage = { url: `${BASE}/fun/insult-generator/shakespeare-insult-generator` }
   const insultPages = INSULT_TOOLS.map(tool => ({
     url: `${BASE}/fun/insult-generator/${tool.slug}`,
   }))
@@ -33,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryRoutes.map(href => ({ url: `${BASE}${href}` })),
     insultHub,
     ...insultPages,
+    shakespeareInsultPage,
     { url: `${BASE}/blog` },
     { url: `${BASE}/about` },
     { url: `${BASE}/methodology` },

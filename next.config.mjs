@@ -107,8 +107,8 @@ const nextConfig = {
       // ── Fun URL migration: legacy /calculators/fun/* → canonical /fun/* ─────
       // The trailing-slash legacy rule points directly to the new canonical URL,
       // preventing a /old/ → /old → /new redirect chain.
-      { source: '/calculators/fun/shakespeare-insult-generator/', destination: '/fun/shakespeare-insult-generator', permanent: true },
-      { source: '/calculators/fun/shakespeare-insult-generator', destination: '/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/shakespeare-insult-generator/', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
+      { source: '/calculators/fun/shakespeare-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
       { source: '/calculators/fun/:path*/', destination: '/fun/:path*', permanent: true },
       { source: '/calculators/fun', destination: '/fun', permanent: true },
       { source: '/calculators/fun/', destination: '/fun', permanent: true },

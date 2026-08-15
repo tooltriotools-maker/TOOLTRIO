@@ -21,7 +21,7 @@ const zipLinks = [
 const funLinks = [
   ['Fun Tools Hub', '/fun'],
   ['Insult Generators', '/fun/insult-generator'],
-  ['Shakespeare Insult Generator', '/fun/shakespeare-insult-generator'],
+  ['Shakespeare Insult Generator', '/fun/insult-generator/shakespeare-insult-generator'],
   ['Random Name Generator', '/fun/random-name-generator'],
   ['Trivia Quiz', '/fun/trivia-quiz'],
   ['All Fun Tools →', '/fun'],

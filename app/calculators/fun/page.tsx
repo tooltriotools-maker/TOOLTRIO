@@ -45,7 +45,7 @@ const tools = [
   { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
   { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
   { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
-  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/fun/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
+  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/fun/insult-generator/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
   { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
   { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
   { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },

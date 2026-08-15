@@ -2,13 +2,21 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { INSULT_TOOLS } from './data'
+
+const SHAKESPEARE_TOOL = {
+  title: 'Shakespeare Insult Generator',
+  shortDescription: 'Use the existing Shakespeare generator to create theatrical Elizabethan-style insults with its original functionality and library.',
+  icon: '🎭',
+  slug: 'shakespeare-insult-generator',
+}
+const ALL_INSULT_TOOLS = [...INSULT_TOOLS, SHAKESPEARE_TOOL]
 import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
 
 const BASE = 'https://tooltrio.com'
 
 export const metadata: Metadata = {
-  title: '18 Insult Generators & Roast Tools | ToolTrio',
-  description: 'Explore 18 free insult and roast generators for medieval, pirate, Victorian, fantasy, office, best-friend and other playful themes.',
+  title: '19 Insult Generators & Roast Tools | ToolTrio',
+  description: 'Explore 19 free insult and roast generators for medieval, pirate, Victorian, fantasy, office, best-friend and other playful themes.',
   keywords: [
     'insult generators',
     'insult generator',
@@ -23,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: `${BASE}/fun/insult-generator`,
-    title: '18 Insult Generators & Roast Tools | ToolTrio',
+    title: '19 Insult Generators & Roast Tools | ToolTrio',
     description: 'A themed directory of free, playful insult and roast generators.',
     images: [{ url: `${BASE}/og-image.png`, width: 1200, height: 630, alt: 'ToolTrio Insult Generators' }],
   },
@@ -31,12 +39,12 @@ export const metadata: Metadata = {
 
 export default function InsultGeneratorHub() {
   const structuredData = generateCollectionStructuredData({
-    name: '18 Insult Generators',
-    description: 'A directory of 18 free, playful, themed insult and roast generators.',
+    name: '19 Insult Generators',
+    description: 'A directory of 19 free, playful, themed insult and roast generators.',
     url: `${BASE}/fun/insult-generator`,
     categoryName: 'Fun Tools',
     categoryUrl: `${BASE}/fun`,
-    items: INSULT_TOOLS.map(tool => ({
+    items: ALL_INSULT_TOOLS.map(tool => ({
       name: tool.title,
       url: `${BASE}/fun/insult-generator/${tool.slug}`,
     })),
@@ -58,7 +66,7 @@ export default function InsultGeneratorHub() {
           <header className="mx-auto max-w-4xl text-center">
             <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-gray-950 text-4xl shadow-2xl">🎭</div>
             <div className="inline-flex items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-pink-700">
-              <Sparkles className="h-4 w-4" /> 18 themed generators
+              <Sparkles className="h-4 w-4" /> 19 themed generators
             </div>
             <h1 className="mt-5 text-4xl font-black tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
               Insult Generators
@@ -79,10 +87,10 @@ export default function InsultGeneratorHub() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {INSULT_TOOLS.map(tool => (
+              {ALL_INSULT_TOOLS.map(tool => (
                 <Link
                   key={tool.slug}
-                  href={`/fun/insult-generator/${tool.slug}`}
+                  href={tool.slug === 'shakespeare-insult-generator' ? '/fun/insult-generator/shakespeare-insult-generator' : `/fun/insult-generator/${tool.slug}`}
                   className="group relative overflow-hidden rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-2xl"
                 >
                   <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-purple-100 opacity-60 blur-2xl transition group-hover:scale-125" />

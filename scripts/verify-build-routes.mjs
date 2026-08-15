@@ -37,7 +37,7 @@ const missing = required.filter((slug) => !data.includes(`slug: '${slug}'`))
 if (missing.length) throw new Error(`Missing insult generator slugs: ${missing.join(', ')}`)
 
 const nextConfig = fs.readFileSync(path.join(root, 'next.config.mjs'), 'utf8')
-if (!nextConfig.includes("source: '/calculators/fun/shakespeare-insult-generator', destination: '/fun/shakespeare-insult-generator', permanent: true")) {
+if (!nextConfig.includes("source: '/calculators/fun/shakespeare-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true")) {
   throw new Error('Missing direct Shakespeare 301 rule.')
 }
 

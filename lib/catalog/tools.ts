@@ -33,7 +33,7 @@ export const TOOL_CATALOG: readonly ToolRecord[] = [
   { name: 'Random Fact Generator', href: '/fun/random-fact-generator', cat: 'fun', catLabel: 'Fun', kw: 'random fact generator', region: 'global' },
   { name: 'Random Name Generator', href: '/fun/random-name-generator', cat: 'fun', catLabel: 'Fun', kw: 'random name generator', region: 'global' },
   { name: 'Screen Time Calculator', href: '/fun/screen-time-calculator', cat: 'fun', catLabel: 'Fun', kw: 'screen time calculator', region: 'global' },
-  { name: 'Insult Generator', href: '/fun/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
+  { name: 'Insult Generator', href: '/fun/insult-generator/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
   { name: 'Sleep Debt Calculator', href: '/fun/sleep-debt-calculator', cat: 'fun', catLabel: 'Fun', kw: 'sleep debt calculator', region: 'global' },
   { name: 'Social Media Addiction', href: '/fun/social-media-addiction', cat: 'fun', catLabel: 'Fun', kw: 'social media addiction', region: 'global' },
   { name: 'Superhero Name', href: '/fun/superhero-name', cat: 'fun', catLabel: 'Fun', kw: 'superhero name', region: 'global' },

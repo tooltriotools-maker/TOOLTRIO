@@ -30,5 +30,5 @@ if (missing.length || extra.length || nestedShakespeare || !fs.existsSync(route)
 }
 
 console.log('OK: 18 tool-specific generators are configured.')
-console.log('OK: Shakespeare remains separate at /fun/shakespeare-insult-generator.')
+console.log('OK: Shakespeare remains separate at /fun/insult-generator/shakespeare-insult-generator.')
 console.log('OK: each tool has 1,030,301 virtual combinations (101 × 101 × 101).')
