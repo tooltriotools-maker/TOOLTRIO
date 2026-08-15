@@ -18,11 +18,7 @@ const BLOG_COUNT = PUBLIC_BLOG_CATALOG.length
 const FUN_COUNT = TOOL_COUNTS.fun
 const ZIP_COUNT = TOOL_COUNTS.zip
 const TOTAL = PUBLIC_TOOL_REGISTRY.length + BLOG_COUNT
-const CATEGORY_ITEMS = [
-  { name: 'Insult Generators', href: '/fun/insult-generator', cat: 'Fun' },
-]
 const ITEMS = [
-  ...CATEGORY_ITEMS,
   ...PUBLIC_TOOL_REGISTRY.map(item => ({ name: item.name, href: item.href, cat: item.catLabel })),
   ...PUBLIC_BLOG_CATALOG.map(item => ({ name: item.name, href: item.href, cat: item.cat })),
 ]

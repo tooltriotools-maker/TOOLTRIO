@@ -315,6 +315,34 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/screen-time-calculator/page.tsx"
   },
+  "/fun/shakespeare-insult-generator": {
+    "title": "Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio",
+    "description": "Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.",
+    "keywords": [
+      "shakespeare insult generator",
+      "shakespearean insult generator",
+      "shakespeare roast generator",
+      "shakespearean roast generator",
+      "shakespeare insults",
+      "shakespearean insults",
+      "random shakespeare insult",
+      "funny shakespeare insults",
+      "shakespeare comeback generator",
+      "shakespearean comeback generator",
+      "old english insult generator",
+      "old english roast generator",
+      "elizabethan insult generator",
+      "elizabethan roast generator",
+      "william shakespeare insults",
+      "bard insult generator",
+      "creative roast generator",
+      "witty insult generator",
+      "funny insult generator",
+      "roast generator",
+      "tooltrio"
+    ],
+    "source": "app/fun/shakespeare-insult-generator/page.tsx"
+  },
   "/fun/sleep-debt-calculator": {
     "title": "Sleep Debt Calculator | ToolTrio",
     "description": "Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend.",

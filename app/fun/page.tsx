@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
-import { INSULT_COLLECTION_TOOLS } from './insult-generator/data'
 
 // Inline SVG icons — no external package needed in server components
 function Calculator({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="14" y1="18" x2="16" y2="18"/></svg> }
@@ -10,8 +9,8 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 
 export const metadata: Metadata = {
-  title: '48+ Free Fun Calculators & Entertainment Tools 2026 | ToolTrio',
-  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, procrastination score and 22 more free fun.',
+  title: '49+ Free Fun Calculators 2026 | ToolTrio',
+  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 19 insult generators and more free fun.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
@@ -21,11 +20,12 @@ export const metadata: Metadata = {
     'lucky number calculator',
     'trivia quiz online free',
     'random name generator',
+    'insult generator',
   ],
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
-    title: '48 Free Fun Calculators & Entertainment Tools – Zodiac, Trivia & Insult Generators',
-    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator and 23 more free fun tools. Instant results.',
+    title: '49 Free Fun Calculators – Zodiac, Trivia, Insults & Name Generators',
+    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 19 insult generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
@@ -46,7 +46,8 @@ const tools = [
   { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
   { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
   { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
-  { name: 'Insult Generators',       desc: '19 themed roast, insult & comeback tools',             href: '/fun/insult-generator',        icon: '🎭', tag: 'Generators',  popular: true  },
+  { name: 'Insult Generator',       desc: 'Shakespearean roasts — dramatic, never cruel',     href: '/fun/shakespeare-insult-generator',        icon: '🎭', tag: 'Generators',  popular: false },
+  { name: '19 Insult Generators',   desc: 'Pirate, medieval, savage, office roasts & more',   href: '/fun/insult-generator',        icon: '🔥', tag: 'Generators',  popular: true  },
   { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
   { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
   { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },
@@ -100,7 +101,7 @@ const SEO_FAQS = [
   },
   {
     q: 'Can I use these tools on my phone?',
-    a: 'All 48 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
+    a: 'All 49 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
   },
   {
     q: 'Are the results shareable on social media?',
@@ -117,15 +118,12 @@ export default function FunPage() {
     tag, tools: tools.filter(t => t.tag === tag)
   }))
   const structuredData = generateCollectionStructuredData({
-    name: '48 Free Fun Calculators & Entertainment Tools',
+    name: '49 Free Fun Calculators & Entertainment Tools',
     description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
     url: 'https://tooltrio.com/fun',
     categoryName: 'Fun & Entertainment',
     categoryUrl: 'https://tooltrio.com/fun',
-    items: [
-      ...tools.filter(tool => tool.href !== '/fun/insult-generator').map(tool => ({ name: tool.name, url: `https://tooltrio.com${tool.href}` })),
-      ...INSULT_COLLECTION_TOOLS.map(tool => ({ name: tool.title, url: `https://tooltrio.com/fun/insult-generator/${tool.slug}` })),
-    ],
+    items: tools.map(tool => ({ name: tool.name, url: `https://tooltrio.com${tool.href}` })),
   })
 
   return (
@@ -146,14 +144,14 @@ export default function FunPage() {
         </div>
         <div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment</h1>
-          <p className="text-pink-600 font-semibold mt-0.5">48 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
+          <p className="text-pink-600 font-semibold mt-0.5">49 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>
 
       {/* Intro — human, not boilerplate */}
       <div className="prose prose-gray max-w-3xl mb-8 text-gray-600 leading-relaxed">
         <p className="text-lg">
-          Not everything needs to be a spreadsheet. We built 48 free fun tools for the moments when
+          Not everything needs to be a spreadsheet. We built 49 free fun tools for the moments when
           you want to know <strong>how many days old you are</strong>, argue about your
           <strong> zodiac compatibility</strong> with someone, settle who owes the most pizza at a party,
           or finally find out what your Shakespearean villain name would be.
@@ -163,23 +161,6 @@ export default function FunPage() {
           Results are designed to be shared, debated, and occasionally humbling.
         </p>
       </div>
-
-      {/* Insult Generators collection */}
-      <section className="mb-10" aria-labelledby="insult-collection-heading">
-        <div className="rounded-3xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 via-white to-pink-50 p-5 sm:p-6 shadow-sm">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-start gap-4">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gray-950 text-3xl shadow-lg">🎭</div>
-              <div>
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-purple-600">New Fun Collection</p>
-                <h2 id="insult-collection-heading" className="mt-1 text-xl font-black text-gray-950 sm:text-2xl">Insult Generators — 19 Styles</h2>
-                <p className="mt-1 text-sm leading-6 text-gray-600">Medieval, pirate, Victorian, fantasy, office, comeback, villain and Shakespearean generators in one dedicated directory.</p>
-              </div>
-            </div>
-            <Link href="/fun/insult-generator" className="inline-flex shrink-0 items-center justify-center rounded-xl bg-purple-600 px-5 py-3 text-sm font-black text-white shadow-md hover:bg-purple-700">Explore all 19 →</Link>
-          </div>
-        </div>
-      </section>
 
       {/* Popular row */}
       <section className="mb-10" aria-label="Most popular fun tools">

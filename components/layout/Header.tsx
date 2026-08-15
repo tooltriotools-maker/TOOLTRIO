@@ -9,7 +9,7 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 const NAV = [
   {
     key: 'fun', label: '😄 Fun', color: 'purple',
-    href: '/fun', viewAll: 'All 48 Fun Tools →',
+    href: '/fun', viewAll: 'All 49 Fun Tools →',
     items: [
       { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator' },
       { name: 'Love Compatibility', href: '/fun/love-compatibility' },
@@ -19,9 +19,8 @@ const NAV = [
       { name: 'Morse Code', href: '/fun/text-to-morse' },
       { name: 'Fortune Cookie', href: '/fun/fortune-cookie' },
       { name: 'Age in Days', href: '/fun/age-in-days' },
-      { name: 'Pizza Calculator', href: '/fun/pizza-calculator' },
+      { name: 'Insult Generators', href: '/fun/insult-generator' },
       { name: 'Personality Quiz', href: '/fun/personality-quiz' },
-      { name: '🎭 Insult Generators · 19 styles', href: '/fun/insult-generator' },
     ],
   },
   {
