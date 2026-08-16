@@ -2,28 +2,27 @@
 import { useState, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Smile, MapPin, BookOpen } from 'lucide-react'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
   {
-    key: 'fun', label: '😄 Fun', color: 'purple',
+    key: 'fun', label: 'Fun Tools', icon: Smile, color: 'purple',
     href: '/fun', viewAll: 'All Fun Tools →',
     items: [
+      { name: 'Insult Generator', href: '/fun/insult-generator' },
+      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
       { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator' },
       { name: 'Love Compatibility', href: '/fun/love-compatibility' },
       { name: 'Lucky Number', href: '/fun/lucky-number' },
       { name: 'Trivia Quiz', href: '/fun/trivia-quiz' },
       { name: 'Superhero Name', href: '/fun/superhero-name' },
-      { name: 'Morse Code', href: '/fun/text-to-morse' },
       { name: 'Fortune Cookie', href: '/fun/fortune-cookie' },
-      { name: 'Age in Days', href: '/fun/age-in-days' },
-      { name: 'Insult Generators', href: '/fun/insult-generator' },
     ],
   },
   {
-    key: 'zip', label: '📮 ZIP Tools', color: 'teal',
+    key: 'zip', label: 'ZIP Tools', icon: MapPin, color: 'teal',
     href: '/zip', viewAll: 'All 35 ZIP Tools →',
     items: [
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
@@ -41,7 +40,7 @@ const NAV = [
     ],
   },
   {
-    key: 'blog', label: '📚 Blog', color: 'green',
+    key: 'blog', label: 'Blog', icon: BookOpen, color: 'green',
     href: '/blog', viewAll: 'All Blog Posts ->',
     items: [
       { name: 'ZIP Code Guides', href: '/blog/category/zip-codes' },
@@ -49,6 +48,8 @@ const NAV = [
       { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes' },
       { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code' },
       { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code' },
+      { name: 'ZIP Radius Guide', href: '/blog/how-to-find-zip-codes-within-a-radius' },
+      { name: 'ZIP Validator Guide', href: '/blog/how-to-validate-a-zip-code' },
       { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code' },
     ],
   },
@@ -69,7 +70,10 @@ function Dropdown({ nav, onClose }: { nav: typeof NAV[0]; onClose: () => void })
   return (
     <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-2xl shadow-2xl p-2 z-[9999]">
       <p className={`text-[11px] font-bold ${c.text} uppercase tracking-wider px-3 py-2 ${c.header} rounded-xl mb-1`}>
-        {nav.label}
+        <span className="flex items-center gap-2">
+          <nav.icon className="w-3.5 h-3.5" />
+          {nav.label}
+        </span>
       </p>
       {nav.items.map(item => (
         <Link key={item.href} href={item.href} onClick={onClose}
@@ -126,6 +130,7 @@ export function Header() {
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
                 >
+                  <nav.icon className="w-4 h-4" />
                   {nav.label}
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openKey === nav.key ? 'rotate-180' : ''}`} />
                 </button>
@@ -168,7 +173,7 @@ export function Header() {
                     onClick={() => setMobileSection(mobileSection === nav.key ? null : nav.key)}
                     className="w-full flex items-center justify-between px-3 py-3 font-bold text-sm text-gray-800 hover:bg-gray-50 rounded-xl"
                   >
-                    <span>{nav.label}</span>
+                    <span className="flex items-center gap-2"><nav.icon className="w-4 h-4" />{nav.label}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === nav.key ? 'rotate-180' : ''}`} />
                   </button>
                   {mobileSection === nav.key && (

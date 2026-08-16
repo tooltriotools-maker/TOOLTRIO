@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { generateCollectionStructuredData } from '@/lib/seo/structured-data'
+import { generateFAQStructuredData } from '@/lib/seo/metadata'
 
 // Inline SVG icons — no external package needed in server components
 function Calculator({size=16,className=""}: {size?:number;className?:string}) { const w=size,h=size,cls=className; return <svg xmlns="http://www.w3.org/2000/svg" width={w} height={h} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cls}><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="14" y1="18" x2="16" y2="18"/></svg> }
@@ -9,23 +10,23 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 
 export const metadata: Metadata = {
-  title: '41 Free Fun Calculators 2026 | ToolTrio',
-  description: 'Zodiac signs, love compatibility, trivia, name generators, Morse code, emoji translator, 19 insult generators and more free fun.',
+  title: '41 Free Fun Calculators & Entertainment Tools 2026 | ToolTrio',
+  description: '41 free fun tools including Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
     'zodiac sign calculator free',
     'love compatibility calculator',
-    '',
     'lucky number calculator',
     'trivia quiz online free',
     'random name generator',
     'insult generator',
+    'shakespeare insult generator',
   ],
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
-    title: '41 Free Fun Calculators – Zodiac, Trivia, Insults & Name Generators',
-    description: 'Zodiac signs, love compatibility, trivia, name generators, Morse code, emoji translator, 19 insult generators and more. Instant results.',
+    title: '41 Free Fun Tools – Insult Generators, Zodiac & Trivia',
+    description: 'Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
@@ -34,38 +35,38 @@ export const metadata: Metadata = {
 
 const tools = [
   // Personality & Identity
-  { name: 'Lucky Number',           desc: 'Your life path & numerology lucky numbers',        href: '/fun/lucky-number',           icon: '🍀', tag: 'Personality', popular: true  },
-  { name: 'Zodiac Calculator',      desc: 'Western + Chinese zodiac, traits & compatibility', href: '/fun/zodiac-calculator',       icon: '⭐', tag: 'Personality', popular: true  },
-  { name: 'Love Compatibility',     desc: 'Name & birthday match — how well do you fit?',     href: '/fun/love-compatibility',      icon: '💕', tag: 'Personality', popular: true  },
+  { name: 'Lucky Number',           desc: 'Your life path & numerology lucky numbers',        href: '/fun/lucky-number',           icon: '🍀', tag: 'Personality', popular: false  },
+  { name: 'Zodiac Calculator',      desc: 'Western + Chinese zodiac, traits & compatibility', href: '/fun/zodiac-calculator',       icon: '⭐', tag: 'Personality', popular: false  },
+  { name: 'Love Compatibility',     desc: 'Name & birthday match — how well do you fit?',     href: '/fun/love-compatibility',      icon: '💕', tag: 'Personality', popular: false  },
 
   // Name Generators
-  { name: 'Random Name Generator',  desc: 'Baby names, usernames, characters — any origin',  href: '/fun/random-name-generator',   icon: '🎲', tag: 'Generators',  popular: true  },
-  { name: 'Superhero Name',         desc: 'Your hero identity, powers & origin story',        href: '/fun/superhero-name',          icon: '🦸', tag: 'Generators',  popular: true  },
+  { name: 'Random Name Generator',  desc: 'Baby names, usernames, characters — any origin',  href: '/fun/random-name-generator',   icon: '🎲', tag: 'Generators',  popular: false  },
+  { name: 'Superhero Name',         desc: 'Your hero identity, powers & origin story',        href: '/fun/superhero-name',          icon: '🦸', tag: 'Generators',  popular: false  },
   { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
   { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
   { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
   { name: 'Insult Generator',       desc: '19 generators — Shakespeare, pirate, medieval & more', href: '/fun/insult-generator', icon: '🔥', tag: 'Generators',  popular: true  },
-  { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
+  { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: false  },
   { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
   { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },
 
   // Life Stats
-  { name: 'Age in Days',            desc: 'Days, heartbeats, breaths — your life in numbers', href: '/fun/age-in-days',             icon: '🎂', tag: 'Life Stats',  popular: true  },
+  { name: 'Age in Days',            desc: 'Days, heartbeats, breaths — your life in numbers', href: '/fun/age-in-days',             icon: '🎂', tag: 'Life Stats',  popular: false  },
   { name: 'Birthday Countdown',     desc: 'Live countdown to your next birthday + day of week',href: '/fun/birthday-countdown',     icon: '🎉', tag: 'Life Stats',  popular: false },
 
   // Habits & Lifestyle
-  { name: 'Coffee Calculator',      desc: 'Lifetime cups, caffeine & money spent on coffee',  href: '/fun/coffee-calculator',       icon: '☕', tag: 'Habits',      popular: true  },
-  { name: 'Pizza Calculator',       desc: 'Exactly how many pizzas to order for any group',   href: '/fun/pizza-calculator',        icon: '🍕', tag: 'Habits',      popular: true  },
+  { name: 'Coffee Calculator',      desc: 'Lifetime cups, caffeine & money spent on coffee',  href: '/fun/coffee-calculator',       icon: '☕', tag: 'Habits',      popular: false  },
+  { name: 'Pizza Calculator',       desc: 'Exactly how many pizzas to order for any group',   href: '/fun/pizza-calculator',        icon: '🍕', tag: 'Habits',      popular: false  },
   { name: 'Workout Excuses',        desc: 'Creative, oddly believable reasons to skip the gym',href: '/fun/workout-excuse-generator',icon: '🏃', tag: 'Habits',     popular: false },
 
   // Text & Language
-  { name: 'Emoji Translator',       desc: 'Convert text to emoji and decode emoji back',      href: '/fun/emoji-translator',        icon: '😊', tag: 'Language',    popular: true  },
-  { name: 'Morse Code',             desc: 'Text ↔ Morse code with audio playback & chart',    href: '/fun/text-to-morse',           icon: '📡', tag: 'Language',    popular: true  },
+  { name: 'Emoji Translator',       desc: 'Convert text to emoji and decode emoji back',      href: '/fun/emoji-translator',        icon: '😊', tag: 'Language',    popular: false  },
+  { name: 'Morse Code',             desc: 'Text ↔ Morse code with audio playback & chart',    href: '/fun/text-to-morse',           icon: '📡', tag: 'Language',    popular: false  },
   { name: 'Pig Latin',              desc: 'Full paragraph translator with reverse decoding',   href: '/fun/pig-latin-converter',     icon: '🐷', tag: 'Language',    popular: false },
   { name: 'UWU Text Generator',     desc: 'Kawaii-ify any text with adjustable uwu intensity', href: '/fun/uwu-text-generator',      icon: '🐾', tag: 'Language',    popular: false },
 
   // Games
-  { name: 'Trivia Quiz',            desc: '10 random questions, 8 categories, timed mode',    href: '/fun/trivia-quiz',             icon: '🧠', tag: 'Games',       popular: true  },
+  { name: 'Trivia Quiz',            desc: '10 random questions, 8 categories, timed mode',    href: '/fun/trivia-quiz',             icon: '🧠', tag: 'Games',       popular: false  },
 ]
 
 const TAG_CONFIG: Record<string, { color: string; bg: string; border: string; desc: string }> = {
@@ -87,8 +88,12 @@ const SEO_FAQS = [
     a: 'No. Every calculator on this site runs entirely in your browser. Nothing you type — your name, birthday, income, or any other input — is ever sent to a server, stored in a database, or shared with anyone. Close the tab and your data is gone.',
   },
   {
-    q: 'Which fun calculator is the most popular?',
-    a: 'The Love Compatibility Calculator, Zodiac Sign Calculator, and Trivia Quiz and Love Compatibility are popular with people who share results with friends and compare scores.',
+    q: 'Which fun tools are featured as most popular?',
+    a: 'The featured Most Popular section highlights the Insult Generator and Shakespeare Insult Generator. They are designed for quick results, easy sharing, and playful group conversations.',
+  },
+  {
+    q: 'What can I do with the Insult Generator and Shakespeare Insult Generator?',
+    a: 'Use the Insult Generator to explore themed roasts and comebacks, and the Shakespeare Insult Generator to create dramatic Elizabethan-style put-downs. Both are free and run in your browser.',
   },
   {
     q: 'Can I use these tools on my phone?',
@@ -100,7 +105,7 @@ const SEO_FAQS = [
   },
   {
     q: 'Are these tools appropriate for kids?',
-    a: 'All tools on the Fun & Entertainment page are family-friendly. Trivia Quiz, Superhero Name Generator, Fantasy Name Generator, and Would You Rather are particularly popular for casual group use. There is no adult content, violence, or inappropriate material anywhere in the fun category.',
+    a: 'The Fun & Entertainment collection is designed for light, playful use. For insult tools, preview a generated line before sharing it and keep the humor appropriate to the audience. Trivia Quiz, Superhero Name Generator, Fantasy Name Generator, and Would You Rather are particularly popular for casual group use. There is no adult content, violence, or inappropriate material anywhere in the fun category.',
   },
 ]
 
@@ -108,6 +113,7 @@ export default function FunPage() {
   const grouped = Object.keys(TAG_CONFIG).map(tag => ({
     tag, tools: tools.filter(t => t.tag === tag)
   }))
+  const faqStructuredData = generateFAQStructuredData(SEO_FAQS.map(({ q, a }) => ({ question: q, answer: a })))
   const structuredData = generateCollectionStructuredData({
     name: '41 Free Fun Calculators & Entertainment Tools',
     description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
@@ -120,6 +126,7 @@ export default function FunPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <div className="max-w-6xl mx-auto px-4 py-10">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-gray-400 mb-6" aria-label="Breadcrumb">
@@ -145,7 +152,8 @@ export default function FunPage() {
           Not everything needs to be a spreadsheet. We built 41 free fun tools for the moments when
           you want to know <strong>how many days old you are</strong>, argue about your
           <strong> zodiac compatibility</strong> with someone, settle who owes the most pizza at a party,
-          or finally find out what your Shakespearean villain name would be.
+          or settle the group chat with a fresh insult. The two standout tools are the
+          <strong>Insult Generator</strong> and <strong>Shakespeare Insult Generator</strong> — quick, shareable tools built for a little friendly chaos.
         </p>
         <p className="mt-3">
           Every tool runs entirely in your browser — <strong>no account, no email, nothing stored</strong>.
@@ -159,7 +167,10 @@ export default function FunPage() {
           <span className="text-pink-500">⭐</span> Most Popular
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-          {tools.filter(t => t.popular).map(tool => {
+          {[
+            tools.find(t => t.href === '/fun/insult-generator')!,
+            { name: 'Shakespeare Insult Generator', desc: 'Elizabethan-style put-downs with a huge library of unique lines', href: '/fun/shakespeare-insult-generator', icon: '🎭', tag: 'Generators' as const, popular: false },
+          ].map(tool => {
             const cfg = TAG_CONFIG[tool.tag]
             return (
               <Link key={tool.href} href={tool.href}

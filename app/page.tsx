@@ -113,7 +113,7 @@ const homepageFAQSchema = {
       name: 'Does ToolTrio have ZIP code tools and fun tools?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 41+ tools.',
+        text: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 42+ tools.',
       },
     },
   ],
@@ -217,7 +217,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { val: '35+', label: 'ZIP Code Tools' },
-              { val: '41+', label: 'Fun Tools' },
+              { val: '42+', label: 'Fun Tools' },
             ].map(s => (
               <div key={s.label} className="text-center">
                 <div className="text-2xl font-black" style={{ color: '#16a34a' }}>{s.val}</div>
@@ -293,7 +293,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
-              { name: 'Fun', count: '41+ tools', href: '/fun', icon: '😄', color: '#db2777' },
+              { name: 'Fun', count: '42+ tools', href: '/fun', icon: '😄', color: '#db2777' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="group p-4 border rounded-2xl text-center hover:-translate-y-1 hover:shadow-lg transition-all" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
                 <div className="text-2xl mb-1">{c.icon}</div>
@@ -502,7 +502,7 @@ export default function HomePage() {
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
-                a: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 41+ tools.',
+                a: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 42+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

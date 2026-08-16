@@ -11,7 +11,6 @@ export function middleware(request: NextRequest) {
     '/fun/calories-in-beer',
     '/fun/how-rich-am-i',
     '/fun/life-expectancy-fun',
-    '/fun/personality-quiz',
     '/fun/procrastination-score',
     '/fun/screen-time-calculator',
     '/fun/sleep-debt-calculator',

@@ -1,136 +1,204 @@
 'use client'
+import { useState, useRef, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Mail, Shield, FileText, Info, BookOpen } from 'lucide-react'
+import { Menu, X, ChevronDown, Smile, MapPin, BookOpen } from 'lucide-react'
+import { GlobalSearch } from '@/components/ui/GlobalSearch'
 
-const contactEmail = 'tooltrio.tools@gmail.com'
-
-const zipLinks = [
-  ['ZIP Code Lookup', '/zip/zip-code-lookup'],
-  ['ZIP Distance', '/zip/zip-code-distance'],
-  ['ZIP to City', '/zip/zip-to-city'],
-  ['City to ZIP', '/zip/city-to-zip'],
-  ['ZIPs in Radius', '/zip/zips-within-radius'],
-  ['ZIP Timezone', '/zip/zip-to-timezone'],
-  ['ZIP Code Map', '/zip/zip-code-map'],
-  ['ZIP Validator', '/zip/zip-code-validator'],
-  ['USPS Address Format', '/zip/usps-address-format'],
-  ['All ZIP Tools →', '/zip'],
+// -- Nav data ------------------------------------------------------------------
+const NAV = [
+  {
+    key: 'fun', label: 'Fun Tools', icon: Smile, color: 'purple',
+    href: '/fun', viewAll: 'All Fun Tools →',
+    items: [
+      { name: 'Insult Generator', href: '/fun/insult-generator' },
+      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
+      { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator' },
+      { name: 'Love Compatibility', href: '/fun/love-compatibility' },
+      { name: 'Lucky Number', href: '/fun/lucky-number' },
+      { name: 'Trivia Quiz', href: '/fun/trivia-quiz' },
+      { name: 'Superhero Name', href: '/fun/superhero-name' },
+      { name: 'Fortune Cookie', href: '/fun/fortune-cookie' },
+    ],
+  },
+  {
+    key: 'zip', label: 'ZIP Tools', icon: MapPin, color: 'teal',
+    href: '/zip', viewAll: 'All 35 ZIP Tools →',
+    items: [
+      { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
+      { name: 'ZIP to City', href: '/zip/zip-to-city' },
+      { name: 'ZIP to State', href: '/zip/zip-to-state' },
+      { name: 'ZIP to County', href: '/zip/zip-to-county' },
+      { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
+      { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius' },
+      { name: 'City to ZIP', href: '/zip/city-to-zip' },
+      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
+      { name: 'ZIP Code Map', href: '/zip/zip-code-map' },
+      { name: 'ZIP Validator', href: '/zip/zip-code-validator' },
+      { name: 'USPS Address Format', href: '/zip/usps-address-format' },
+      { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip' },
+    ],
+  },
+  {
+    key: 'blog', label: 'Blog', icon: BookOpen, color: 'green',
+    href: '/blog', viewAll: 'All Blog Posts ->',
+    items: [
+      { name: 'ZIP Code Guides', href: '/blog/category/zip-codes' },
+      { name: 'ZIP Code Lookup Guide', href: '/blog/how-to-find-a-zip-code-from-an-address' },
+      { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes' },
+      { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code' },
+      { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code' },
+      { name: 'ZIP Radius Guide', href: '/blog/how-to-find-zip-codes-within-a-radius' },
+      { name: 'ZIP Validator Guide', href: '/blog/how-to-validate-a-zip-code' },
+      { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code' },
+    ],
+  },
 ]
 
+const COLOR_MAP: Record<string, { text: string; hover: string; header: string }> = {
+  green:  { text: 'text-green-700',  hover: 'hover:bg-green-50',  header: 'bg-green-50'  },
+  red:    { text: 'text-red-600',    hover: 'hover:bg-red-50',    header: 'bg-red-50'    },
+  blue:   { text: 'text-blue-600',   hover: 'hover:bg-blue-50',   header: 'bg-blue-50'   },
+  purple: { text: 'text-purple-600', hover: 'hover:bg-purple-50', header: 'bg-purple-50' },
+  yellow: { text: 'text-yellow-700', hover: 'hover:bg-yellow-50', header: 'bg-yellow-50' },
+  teal:   { text: 'text-teal-700',   hover: 'hover:bg-teal-50',   header: 'bg-teal-50'   },
+}
 
-const blogLinks = [
-  ['Blog Home', '/blog'],
-]
-
-const companyLinks = [
-  ['About ToolTrio', '/about'],
-  ['Our Methodology', '/methodology'],
-  ['Contact ToolTrio', '/contact'],
-  ['Privacy Policy', '/privacy-policy'],
-  ['Disclaimer', '/disclaimer'],
-]
-
-export function Footer() {
+// -- Dropdown ------------------------------------------------------------------
+function Dropdown({ nav, onClose }: { nav: typeof NAV[0]; onClose: () => void }) {
+  const c = COLOR_MAP[nav.color] || COLOR_MAP.green
   return (
-    <footer className="bg-gray-950 text-gray-400 mt-16">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-2xl shadow-2xl p-2 z-[9999]">
+      <p className={`text-[11px] font-bold ${c.text} uppercase tracking-wider px-3 py-2 ${c.header} rounded-xl mb-1`}>
+        <span className="flex items-center gap-2">
+          <nav.icon className="w-3.5 h-3.5" />
+          {nav.label}
+        </span>
+      </p>
+      {nav.items.map(item => (
+        <Link key={item.href} href={item.href} onClick={onClose}
+          className={`block px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-all font-medium truncate`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
+          {item.name}
+        </Link>
+      ))}
+      <Link href={nav.href} onClick={onClose}
+        className={`flex items-center justify-center mt-1 px-3 py-2 rounded-xl text-xs font-bold ${c.text} border border-current/30 ${c.hover} transition-all`}>
+        {nav.viewAll}
+      </Link>
+    </div>
+  )
+}
 
-        {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+// -- Header --------------------------------------------------------------------
+export function Header() {
+  const [openKey, setOpenKey] = useState<string | null>(null)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileSection, setMobileSection] = useState<string | null>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <img
-                src="/tooltrio-logo.png"
-                alt="ToolTrio — Free Online Calculators and Tools"
-                style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
-              />
-            </Link>
-            <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              Free online calculators and tools for ZIP codes and fun tools. No signup. No ads. Instant results.
-            </p>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="flex items-center gap-2 text-sm hover:text-white transition-all text-green-400 font-semibold"
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpenKey(null)
+      }
+    }
+    document.addEventListener('mousedown', handle)
+    return () => document.removeEventListener('mousedown', handle)
+  }, [])
+
+  return (
+    <header ref={headerRef} className="sticky top-0 z-[9990] border-b border-white/50 bg-white/70 backdrop-blur-xl shadow-sm" style={{backdropFilter:'blur(12px)',WebkitBackdropFilter:'blur(12px)'}}>
+      <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="flex items-center h-16 gap-2 overflow-visible">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0 mr-2">
+            <img src="/tooltrio-footer-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto"}} />
+            <span className="font-black text-xl tracking-tight text-gray-900 hidden sm:block">TOOLTRIO</span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-0.5 flex-1 overflow-visible">
+            {NAV.map(nav => (
+              <div key={nav.key} className="relative">
+                <button
+                  onClick={() => setOpenKey(openKey === nav.key ? null : nav.key)}
+                  className={`flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-semibold whitespace-nowrap ${
+                    openKey === nav.key
+                      ? 'bg-gray-100 text-gray-900'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  }`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
+                >
+                  <nav.icon className="w-4 h-4" />
+                  {nav.label}
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openKey === nav.key ? 'rotate-180' : ''}`} />
+                </button>
+                {openKey === nav.key && (
+                  <Dropdown nav={nav} onClose={() => setOpenKey(null)} />
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* Search Bar - Desktop */}
+          <div className="hidden lg:block flex-shrink-0 w-56 xl:w-72">
+            <GlobalSearch />
+          </div>
+
+          {/* Mobile toggle */}
+          <div className="flex items-center gap-2 ml-auto lg:ml-2">
+            {/* Mobile menu button */}
+            <button
+              onClick={() => { setMobileOpen(o => !o); setMobileSection(null) }}
+              className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-all"
             >
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              {contactEmail}
-            </a>
-          </div>
-
-          {/* ZIP Tools */}
-          <div>
-            <h2 className="font-bold text-white text-sm mb-4">📮 ZIP Tools</h2>
-            <ul className="space-y-2.5 text-sm">
-              {zipLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-teal-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Blog + Company */}
-          <div>
-            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
-              <BookOpen className="w-4 h-4 text-blue-400" /> Blog
-            </h2>
-            <ul className="space-y-2.5 text-sm mb-6">
-              {blogLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-blue-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
-              <Info className="w-4 h-4 text-gray-400" /> Company
-            </h2>
-            <ul className="space-y-2.5 text-sm">
-              {companyLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-white transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
 
-        {/* SEO text block — natural, not spammy */}
-        <div className="border-t border-gray-800 pt-8 mb-8">
-          <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
-            <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
-            ZIP codes and fun tools. Popular public tools include{' '}
-            <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
-            All tools are free, private, and require no account.
-          </p>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© 2026 ToolTrio.com — All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="/methodology" className="hover:text-white flex items-center gap-1">
-              <BookOpen className="w-3 h-3" /> Methodology
-            </Link>
-            <Link href="/privacy-policy" className="hover:text-white flex items-center gap-1">
-              <Shield className="w-3 h-3" /> Privacy Policy
-            </Link>
-            <Link href="/disclaimer" className="hover:text-white flex items-center gap-1">
-              <FileText className="w-3 h-3" /> Disclaimer
-            </Link>
-            <Link href="/about" className="hover:text-white flex items-center gap-1">
-              <Info className="w-3 h-3" /> About
-            </Link>
-            <Link href="/contact" className="hover:text-white flex items-center gap-1">
-              <Mail className="w-3 h-3" /> Contact
-            </Link>
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="lg:hidden border-t border-gray-100 py-2 max-h-[75vh] overflow-y-auto">
+            {/* Mobile Search */}
+            <div className="px-3 py-2 border-b border-gray-100 mb-2">
+              <GlobalSearch className="w-full" />
+            </div>
+            {NAV.map(nav => {
+              const c = COLOR_MAP[nav.color] || COLOR_MAP.green
+              return (
+                <div key={nav.key}>
+                  <button
+                    onClick={() => setMobileSection(mobileSection === nav.key ? null : nav.key)}
+                    className="w-full flex items-center justify-between px-3 py-3 font-bold text-sm text-gray-800 hover:bg-gray-50 rounded-xl"
+                  >
+                    <span className="flex items-center gap-2"><nav.icon className="w-4 h-4" />{nav.label}</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === nav.key ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileSection === nav.key && (
+                    <div className="ml-3 pb-2">
+                      {nav.items.map(item => (
+                        <Link key={item.href} href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={`block px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-all`}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                      <Link href={nav.href} onClick={() => setMobileOpen(false)}
+                        className={`block text-center px-3 py-2 rounded-xl text-xs font-bold ${c.text} border border-current/30 mt-1`}
+                      >
+                        {nav.viewAll}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
-          <p className="text-gray-700">For informational use only. Not financial or medical advice.</p>
-        </div>
-
+        )}
       </div>
-    </footer>
+    </header>
   )
 }
