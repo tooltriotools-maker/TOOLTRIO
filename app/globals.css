@@ -695,3 +695,14 @@ table {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
   mix-blend-mode: soft-light;
 }
+
+/* ToolTrio clean utility homepage */
+html { scroll-behavior: smooth; }
+.home-clean-link { transition: color .18s ease, border-color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .home-clean-reveal { animation: homeCleanReveal .45s cubic-bezier(.22,1,.36,1) both; }
+  .home-clean-reveal:nth-child(2) { animation-delay: 40ms; }
+  .home-clean-reveal:nth-child(3) { animation-delay: 80ms; }
+  .home-clean-reveal:nth-child(4) { animation-delay: 120ms; }
+}
+@keyframes homeCleanReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

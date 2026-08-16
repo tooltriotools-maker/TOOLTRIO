@@ -1,6 +1,48 @@
 import type { Metadata } from 'next'
 import { TOOL_COUNTS } from '@/lib/catalog'
 import { HomePageClient } from '@/components/home/HomePageClient'
-export const metadata: Metadata = { title:'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio', description:'Free US ZIP code tools for lookup, ZIP-to-ZIP distance, ZIP+4, timezone and coordinates, plus fun generators. Fast, free and no signup.', keywords:['zip code lookup','zip code finder','zip code distance','zip code timezone','zip code coordinates','zip+4 lookup','zip code distance calculator','zip to timezone','city to zip code','free zip code tools','tooltrio','tool trio'], alternates:{canonical:'https://tooltrio.com'}, openGraph:{title:'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',description:'Fast US ZIP utilities for lookup, distance, ZIP+4, timezone and coordinates, plus fun generators. Free and no signup.',url:'https://tooltrio.com',siteName:'ToolTrio',images:[{url:'https://tooltrio.com/og-image.png',width:1200,height:630,alt:'ToolTrio — Free US ZIP utilities and fun tools'}],type:'website'}, twitter:{card:'summary_large_image',title:'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',description:'Free US ZIP utilities plus fun generators. No signup required.',images:['/og-image.png']} }
-const homepageFAQSchema={ '@context':'https://schema.org','@type':'FAQPage',mainEntity:[['What is ToolTrio?','ToolTrio is a free utility site focused on fast US ZIP code lookups plus a secondary collection of fun generators and calculators. No signup is required.'],['How do I find a city and state from a ZIP code?','Enter any 5-digit US ZIP code in ZIP Code Lookup to see its city, state, county, timezone and other available location details.'],['Can I calculate the distance between two ZIP codes?','Yes. ZIP Code Distance calculates the straight-line distance between two US ZIP codes in miles and kilometers using their coordinates.'],['How do I find my ZIP+4?','Use ZIP+4 Lookup to identify your base ZIP and then use the official USPS address lookup when you need the exact delivery-point suffix for a street address.'],['Does ToolTrio have fun tools too?',`Yes. ToolTrio has a separate Fun category with ${TOOL_COUNTS.fun} tools, including insult generators, quizzes, zodiac tools and compatibility tools.`],['Are ToolTrio tools free?','Yes. The public tools are free to use without registration or a subscription.']].map(([name,text])=>({'@type':'Question',name,acceptedAnswer:{'@type':'Answer',text}})) }
-export default function HomePage(){return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(homepageFAQSchema)}}/><HomePageClient zipCount={TOOL_COUNTS.zip} funCount={TOOL_COUNTS.fun}/></>}
+
+export const metadata: Metadata = {
+  title: 'ToolTrio — Fast, Accurate ZIP & Everyday Utility Tools',
+  description: 'Fast, accurate tools for everyday lookups: US ZIP code lookup, ZIP+4, distance, timezone, coordinates and fun generators. Free and no signup.',
+  keywords: ['zip code lookup', 'zip code finder', 'zip+4 lookup', 'zip code distance', 'zip code timezone', 'zip code coordinates', 'fun generators', 'tooltrio'],
+  alternates: { canonical: 'https://tooltrio.com' },
+  openGraph: {
+    title: 'ToolTrio — Fast, Accurate ZIP & Everyday Utility Tools',
+    description: 'US ZIP lookup, ZIP+4, distance, timezone, coordinates and fun generators. Free and no signup.',
+    url: 'https://tooltrio.com',
+    siteName: 'ToolTrio',
+    images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio utility tools' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ToolTrio — Fast, Accurate ZIP & Everyday Utility Tools',
+    description: 'US ZIP utilities and fun generators. Free and no signup.',
+    images: ['/og-image.png'],
+  },
+}
+
+const homepageFAQSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    ['What is ToolTrio?', 'ToolTrio is a free utility site focused on fast US ZIP code lookups plus a secondary collection of fun generators. No signup is required.'],
+    ['How do I find a city and state from a ZIP code?', 'Enter a 5-digit US ZIP code in ZIP Code Lookup to see available city, state, county and timezone information.'],
+    ['Can I calculate the distance between two ZIP codes?', 'Yes. ZIP Code Distance compares two US ZIP codes and provides straight-line distance in miles and kilometers.'],
+    ['How do I find my ZIP+4?', 'Use ZIP+4 Lookup for the 9-digit extension. For exact delivery-point information tied to a street address, use the official USPS lookup.'],
+    ['Does ToolTrio have fun generators?', `Yes. ToolTrio has ${TOOL_COUNTS.fun} fun tools, including Shakespearean and general insult generators, quizzes and other lightweight entertainment tools.`],
+    ['Are ToolTrio tools free?', 'Yes. Public ToolTrio tools are free to use without registration or a subscription.'],
+  ].map(([name, text]) => ({
+    '@type': 'Question',
+    name,
+    acceptedAnswer: { '@type': 'Answer', text },
+  })),
+}
+
+export default function HomePage() {
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFAQSchema) }} />
+    <HomePageClient zipCount={TOOL_COUNTS.zip} funCount={TOOL_COUNTS.fun} />
+  </>
+}

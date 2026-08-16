@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import type { LucideIcon } from 'lucide-react'
 import {
-  ArrowRight, BadgeCheck, BookOpen, Check, Clock3, FileText, Flame, Globe2,
-  Heart, Map, MapPin, Navigation, Ruler, Search, ShieldCheck, Sparkles, Zap,
-  ChevronDown, Calculator, Compass, LocateFixed
+  ArrowRight, BookOpen, Check, ChevronDown, Clock3, FileText, Flame, Globe2,
+  Heart, Map, MapPin, Navigation, Ruler, ShieldCheck, Sparkles,
+  Zap, LocateFixed, Route, Crosshair, BadgeCheck
 } from 'lucide-react'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 
@@ -14,274 +14,247 @@ type Tool = {
   desc: string
   href: string
   icon: LucideIcon
-  badge?: string | null
+  badge?: string
 }
 
-const ZIP_TOOLS: Tool[] = [
-  { name:'ZIP Code Lookup', desc:'City, state, county and timezone for any US ZIP.', href:'/zip/zip-code-lookup', icon:MapPin, badge:'Most searched' },
-  { name:'ZIP Code Distance', desc:'Compare miles and kilometers between two ZIP codes.', href:'/zip/zip-code-distance', icon:Ruler, badge:'Popular' },
-  { name:'ZIP+4 Lookup', desc:'Find the four-digit extension used for mail delivery.', href:'/zip/zip-plus-4-lookup', icon:FileText, badge:'Popular' },
-  { name:'ZIP Code Timezone', desc:'Identify the US timezone for a ZIP code instantly.', href:'/zip/zip-to-timezone', icon:Clock3, badge:'Popular' },
-  { name:'ZIP to Coordinates', desc:'Get latitude and longitude for a US ZIP code.', href:'/zip/zip-to-coordinates', icon:Globe2, badge:'Popular' },
-  { name:'ZIP Code Map', desc:'Explore ZIP boundaries and geographic context.', href:'/zip/zip-code-map', icon:Map, badge:null },
+const FEATURED_ZIP: Tool[] = [
+  { name: 'ZIP Code Lookup', desc: 'City, state, county and timezone for any US ZIP.', href: '/zip/zip-code-lookup', icon: MapPin, badge: 'Most searched' },
+  { name: 'ZIP+4 Lookup', desc: 'Find the 9-digit ZIP extension used for precise mail routing.', href: '/zip/zip-plus-4-lookup', icon: FileText, badge: 'Popular' },
+  { name: 'ZIP Code Distance', desc: 'Compare straight-line distance between two ZIP codes.', href: '/zip/zip-code-distance', icon: Ruler, badge: 'Popular' },
+  { name: 'ZIP Code Timezone', desc: 'Identify the US timezone for a ZIP code instantly.', href: '/zip/zip-to-timezone', icon: Clock3, badge: 'Popular' },
+  { name: 'ZIP to Coordinates & Map', desc: 'Find latitude, longitude and geographic context.', href: '/zip/zip-to-coordinates', icon: Globe2, badge: 'Popular' },
 ]
 
-const FUN_TOOLS: Tool[] = [
-  { name:'Shakespeare Insult Generator', desc:'Theatrical Elizabethan-style insults, instantly generated.', href:'/fun/shakespeare-insult-generator', icon:Sparkles, badge:'Featured' },
-  { name:'Insult Generator', desc:'Themed roasts, comebacks and playful burns.', href:'/fun/insult-generator', icon:Flame, badge:'Popular' },
-  { name:'Trivia Quiz', desc:'Quick random trivia for solo play or groups.', href:'/fun/trivia-quiz', icon:Calculator, badge:null },
-  { name:'Zodiac Calculator', desc:'Find your sign and explore fun compatibility.', href:'/fun/zodiac-calculator', icon:Compass, badge:null },
-  { name:'Love Compatibility', desc:'A lighthearted name-based compatibility score.', href:'/fun/love-compatibility', icon:Heart, badge:null },
+const FEATURED_FUN: Tool[] = [
+  { name: 'Shakespeare Insult Generator', desc: 'Instant Elizabethan-style creative insults.', href: '/fun/shakespeare-insult-generator', icon: Sparkles, badge: 'Featured' },
+  { name: 'Insult Generator', desc: 'Playful roasts, comebacks and themed burns.', href: '/fun/insult-generator', icon: Flame, badge: 'Fun' },
 ]
 
-const GUIDE_LINKS = [
-  { title:'What Is a ZIP+4 Code? The Extra 4 Digits Explained', href:'/blog/what-is-a-zip-plus-4-code', read:'5 min read' },
-  { title:'How to Find a ZIP Code From an Address', href:'/blog/how-to-find-a-zip-code-from-an-address', read:'5 min read' },
-  { title:'How to Find ZIP Codes Within a Radius', href:'/blog/how-to-find-zip-codes-within-a-radius', read:'6 min read' },
-  { title:'How Far Apart Are Two ZIP Codes? Distance Explained', href:'/blog/how-far-apart-are-two-zip-codes', read:'5 min read' },
-  { title:'How to Find the Timezone for a ZIP Code', href:'/blog/how-to-find-a-time-zone-from-a-zip-code', read:'4 min read' },
-  { title:'ZIP Code vs Postal Code: What Is the Difference?', href:'/blog/zip-code-vs-postal-code', read:'4 min read' },
+const DIRECTORY_ZIP: Tool[] = [
+  ...FEATURED_ZIP,
+  { name: 'ZIP Code Map', desc: 'Explore ZIP boundaries and geographic context.', href: '/zip/zip-code-map', icon: Map },
+  { name: 'ZIPs Within Radius', desc: 'Find ZIP codes around a location.', href: '/zip/zips-within-radius', icon: Crosshair },
+  { name: 'ZIP Validator', desc: 'Check whether a ZIP code is valid.', href: '/zip/zip-code-validator', icon: BadgeCheck },
+  { name: 'Drive Time by ZIP', desc: 'Estimate drive time between ZIP locations.', href: '/zip/drive-time-by-zip', icon: Route },
+]
+
+const DIRECTORY_FUN: Tool[] = [
+  ...FEATURED_FUN,
+  { name: 'Trivia Quiz', desc: 'Quick random trivia for solo play or groups.', href: '/fun/trivia-quiz', icon: Check },
+  { name: 'Love Compatibility', desc: 'A lighthearted name-based compatibility tool.', href: '/fun/love-compatibility', icon: Heart },
+  { name: 'Zodiac Calculator', desc: 'Find your sign and explore zodiac details.', href: '/fun/zodiac-calculator', icon: Sparkles },
+]
+
+const QUICK_FILTERS = [
+  ['All Tools', '#all-tools'],
+  ['ZIP Lookup', '/zip/zip-code-lookup'],
+  ['ZIP+4', '/zip/zip-plus-4-lookup'],
+  ['Distance', '/zip/zip-code-distance'],
+  ['Timezone', '/zip/zip-to-timezone'],
+  ['Fun Generators', '/fun'],
+]
+
+const GUIDES = [
+  ['What Is a ZIP+4 Code? The Extra 4 Digits Explained', '/blog/what-is-a-zip-plus-4-code', '5 min'],
+  ['How to Find a ZIP Code From an Address', '/blog/how-to-find-a-zip-code-from-an-address', '5 min'],
+  ['How to Find ZIP Codes Within a Radius', '/blog/how-to-find-zip-codes-within-a-radius', '6 min'],
+  ['How Far Apart Are Two ZIP Codes? Distance Explained', '/blog/how-far-apart-are-two-zip-codes', '5 min'],
+  ['How to Find the Timezone for a ZIP Code', '/blog/how-to-find-a-time-zone-from-a-zip-code', '4 min'],
+  ['ZIP Code vs Postal Code: What Is the Difference?', '/blog/zip-code-vs-postal-code', '4 min'],
 ]
 
 const FAQS = [
-  ['What is ToolTrio?','ToolTrio is a free collection of fast US ZIP utilities, calculators and lightweight fun generators. No signup is required.'],
-  ['How do I find a city and state from a ZIP code?','Enter a 5-digit US ZIP code in ZIP Code Lookup to see the city, state, county, timezone and other available location details.'],
-  ['Can I calculate the distance between two ZIP codes?','Yes. ZIP Code Distance calculates the straight-line distance between two US ZIP codes in miles and kilometers.'],
-  ['How do I find my ZIP+4?','Use ZIP+4 Lookup for the base ZIP and use the official USPS address lookup when you need the exact delivery-point suffix.'],
-  ['Does ToolTrio have fun tools too?','Yes. The Fun category includes insult generators, trivia, zodiac and compatibility tools.'],
-  ['Are ToolTrio tools free?','Yes. Public ToolTrio tools are free to use without registration or a subscription.'],
+  ['What is ToolTrio?', 'ToolTrio is a focused collection of free ZIP code utilities and lightweight fun generators. The tools are designed for quick, everyday lookups without an account.'],
+  ['How do I find a city and state from a ZIP code?', 'Open ZIP Code Lookup and enter a 5-digit US ZIP code. The tool returns available city, state, county and timezone information.'],
+  ['Can I calculate the distance between two ZIP codes?', 'Yes. ZIP Code Distance compares two ZIP codes and gives their straight-line distance in miles and kilometers.'],
+  ['How do I find my ZIP+4?', 'Use ZIP+4 Lookup for the 9-digit extension. For exact delivery-point information tied to a street address, use the official USPS lookup.'],
+  ['Does ToolTrio have fun generators?', 'Yes. ToolTrio also includes creative generators such as Shakespearean and general insult generators, plus quizzes and other light entertainment tools.'],
+  ['Are ToolTrio tools free?', 'Yes. The public tools are free to use and do not require a subscription or account.'],
 ]
 
-function IconBox({ tool, fun = false, large = false }: { tool: Tool; fun?: boolean; large?: boolean }) {
-  const Icon = tool.icon
-  return (
-    <div className={`relative flex shrink-0 items-center justify-center rounded-2xl border ${large ? 'h-14 w-14' : 'h-11 w-11'} ${fun ? 'border-fuchsia-300/20 bg-fuchsia-500/10 text-fuchsia-300 shadow-[0_0_24px_rgba(217,70,239,.12)]' : 'border-emerald-300/20 bg-emerald-400/10 text-emerald-300 shadow-[0_0_24px_rgba(16,185,129,.12)]'}`}>
-      <Icon className={large ? 'h-6 w-6' : 'h-5 w-5'} strokeWidth={1.8} />
-    </div>
-  )
+function IconBadge({ icon: Icon, tone = 'neutral', large = false }: { icon: LucideIcon; tone?: 'neutral' | 'indigo' | 'fun'; large?: boolean }) {
+  const toneClass = tone === 'indigo'
+    ? 'bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100'
+    : tone === 'fun'
+      ? 'bg-zinc-100 text-zinc-900 ring-1 ring-zinc-200'
+      : 'bg-zinc-100 text-zinc-700 ring-1 ring-zinc-200'
+  return <span className={`inline-flex shrink-0 items-center justify-center rounded-xl ${large ? 'h-12 w-12' : 'h-10 w-10'} ${toneClass}`}><Icon className={large ? 'h-5.5 w-5.5' : 'h-4.5 w-4.5'} strokeWidth={1.7} /></span>
 }
 
-function PremiumToolCard({ tool, index = 0 }: { tool: Tool; index?: number }) {
+function FeaturedCard({ tool, variant = 'normal', className = '' }: { tool: Tool; variant?: 'normal' | 'large' | 'fun'; className?: string }) {
   const Icon = tool.icon
-  const accents = [
-    'from-emerald-400/20 via-emerald-500/5 to-transparent',
-    'from-cyan-400/20 via-cyan-500/5 to-transparent',
-    'from-violet-400/20 via-violet-500/5 to-transparent',
-    'from-orange-400/20 via-orange-500/5 to-transparent',
-    'from-sky-400/20 via-sky-500/5 to-transparent',
-    'from-blue-400/20 via-blue-500/5 to-transparent',
-  ]
-  const iconTones = [
-    'border-emerald-300/20 bg-emerald-400/10 text-emerald-300',
-    'border-cyan-300/20 bg-cyan-400/10 text-cyan-300',
-    'border-violet-300/20 bg-violet-400/10 text-violet-300',
-    'border-orange-300/20 bg-orange-400/10 text-orange-300',
-    'border-sky-300/20 bg-sky-400/10 text-sky-300',
-    'border-blue-300/20 bg-blue-400/10 text-blue-300',
-  ]
+  const fun = variant === 'fun'
   return (
-    <Link href={tool.href} className="group relative min-h-[205px] overflow-hidden rounded-[24px] border border-white/10 bg-[#101722] p-5 shadow-[0_14px_45px_rgba(0,0,0,.22)] transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_22px_55px_rgba(0,0,0,.32)]">
-      <div className={`absolute inset-0 bg-gradient-to-br ${accents[index % accents.length]} opacity-70 transition-opacity duration-300 group-hover:opacity-100`} />
-      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/[0.03] blur-2xl transition-transform duration-500 group-hover:scale-150" />
-      <div className="relative flex h-full flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <div className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${iconTones[index % iconTones.length]}`}>
-            <Icon className="h-5.5 w-5.5" strokeWidth={1.8} />
+    <Link
+      href={tool.href}
+      className={`group relative flex min-h-[190px] flex-col overflow-hidden rounded-2xl border p-5 transition-all duration-200 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
+        fun
+          ? 'border-zinc-800 bg-zinc-950 text-white hover:border-zinc-700'
+          : 'border-zinc-200/80 bg-white text-zinc-900 hover:border-zinc-300'
+      } ${variant === 'large' ? 'min-h-[260px] sm:p-6' : ''} ${className}`}
+    >
+      <div className={`absolute -right-14 -top-14 h-32 w-32 rounded-full blur-3xl transition-transform duration-300 group-hover:scale-125 ${fun ? 'bg-indigo-500/15' : 'bg-indigo-500/5'}`} />
+      <div className="relative flex items-start justify-between gap-4">
+        <IconBadge icon={Icon} tone={fun ? 'fun' : 'indigo'} large={variant === 'large'} />
+        {tool.badge && <span className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${fun ? 'border-zinc-700 bg-zinc-900 text-zinc-400' : 'border-zinc-200 bg-zinc-50 text-zinc-500'}`}>{tool.badge}</span>}
+      </div>
+      <div className="relative mt-auto pt-10">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h3 className={`font-semibold tracking-tight ${variant === 'large' ? 'text-lg sm:text-xl' : 'text-[15px]'} ${fun ? 'text-white' : 'text-zinc-900'}`}>{tool.name}</h3>
+            <p className={`mt-2 max-w-lg text-xs leading-5 ${fun ? 'text-zinc-500' : 'text-zinc-500'}`}>{tool.desc}</p>
           </div>
-          {tool.badge && <span className="rounded-full border border-white/10 bg-white/[0.06] px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.12em] text-white/60">{tool.badge}</span>}
-        </div>
-        <div className="mt-auto pt-8">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-              <h3 className="text-[15px] font-extrabold tracking-tight text-white">{tool.name}</h3>
-              <p className="mt-2 max-w-[240px] text-xs leading-5 text-slate-400">{tool.desc}</p>
-            </div>
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-slate-500 transition-all group-hover:translate-x-1 group-hover:border-white/20 group-hover:text-white">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </div>
+          <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-200 group-hover:translate-x-1 ${fun ? 'border-zinc-700 text-zinc-500 group-hover:border-zinc-500 group-hover:text-white' : 'border-zinc-200 text-zinc-400 group-hover:border-indigo-200 group-hover:text-indigo-600'}`}>
+            <ArrowRight className="h-4 w-4" />
+          </span>
         </div>
       </div>
     </Link>
   )
 }
 
-function LightToolCard({ tool, fun = false }: { tool: Tool; fun?: boolean }) {
+function DirectoryCard({ tool, fun = false }: { tool: Tool; fun?: boolean }) {
   const Icon = tool.icon
   return (
-    <Link href={tool.href} className="group relative overflow-hidden rounded-[22px] border border-slate-200/80 bg-white p-5 shadow-[0_5px_20px_rgba(15,23,42,.05)] transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_18px_40px_rgba(15,23,42,.10)]">
-      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${fun ? 'from-fuchsia-500 via-pink-400 to-orange-400' : 'from-emerald-500 via-cyan-400 to-blue-500'} opacity-0 transition-opacity group-hover:opacity-100`} />
-      <div className="flex items-start justify-between gap-3">
-        <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${fun ? 'bg-fuchsia-50 text-fuchsia-600' : 'bg-emerald-50 text-emerald-600'}`}>
-          <Icon className="h-5 w-5" strokeWidth={1.8} />
-        </div>
-        {tool.badge && <span className={`rounded-full px-2.5 py-1 text-[9px] font-black uppercase tracking-[.1em] ${fun ? 'bg-fuchsia-50 text-fuchsia-700' : 'bg-emerald-50 text-emerald-700'}`}>{tool.badge}</span>}
-      </div>
-      <h3 className="mt-5 text-sm font-extrabold tracking-tight text-slate-950">{tool.name}</h3>
-      <p className="mt-1.5 text-xs leading-5 text-slate-500">{tool.desc}</p>
-      <span className="mt-4 inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 transition-colors group-hover:text-slate-900">Open tool <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></span>
+    <Link href={tool.href} className="group flex items-center gap-3 rounded-xl border border-zinc-200/80 bg-white p-3.5 transition-all duration-200 hover:border-zinc-300 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">
+      <IconBadge icon={Icon} tone={fun ? 'fun' : 'neutral'} />
+      <span className="min-w-0 flex-1">
+        <span className="block truncate text-sm font-medium text-zinc-900">{tool.name}</span>
+        <span className="mt-0.5 block truncate text-[11px] text-zinc-500">{tool.desc}</span>
+      </span>
+      <ArrowRight className="h-4 w-4 shrink-0 text-zinc-300 transition-transform group-hover:translate-x-0.5 group-hover:text-indigo-600" />
     </Link>
   )
 }
 
 export function HomePageClient({ zipCount, funCount }: { zipCount: number; funCount: number }) {
-  const popular = [...ZIP_TOOLS.slice(0, 5), FUN_TOOLS[0], FUN_TOOLS[1]]
-
+  const total = zipCount + funCount
   return (
-    <main className="home-premium-noise min-h-screen overflow-hidden bg-[#f5f7f8] text-slate-950">
+    <main className="min-h-screen bg-white text-zinc-900">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#060a11] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(16,185,129,.20),transparent_27%),radial-gradient(circle_at_88%_15%,rgba(99,102,241,.18),transparent_28%),radial-gradient(circle_at_55%_100%,rgba(217,70,239,.10),transparent_32%)]" />
-        <div className="absolute left-[7%] top-28 h-72 w-72 rounded-full bg-emerald-400/10 blur-[100px]" />
-        <div className="absolute right-[5%] top-20 h-80 w-80 rounded-full bg-indigo-500/10 blur-[110px]" />
-
-        <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-14 sm:px-6 lg:px-8 lg:pb-16 lg:pt-20">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3.5 py-2 text-[10px] font-black uppercase tracking-[.15em] text-emerald-300 shadow-[0_0_30px_rgba(16,185,129,.10)]">
-              <BadgeCheck className="h-3.5 w-3.5" /> Free · No signup · Instant results
+      <section className="relative overflow-hidden border-b border-zinc-200/70 bg-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(79,70,229,.10),transparent_34%)]" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[11px] font-medium text-zinc-500 shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Free · No signup · Instant results
             </div>
-            <h1 className="mt-6 text-4xl font-black tracking-[-0.055em] text-white sm:text-5xl lg:text-[66px] lg:leading-[1.02]">
-              Every US ZIP utility,
-              <span className="block bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 bg-clip-text text-transparent">instant and free.</span>
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-slate-400 sm:text-base">
-              Lookup ZIP codes, compare distance, find ZIP+4, identify timezones and coordinates — with a fast collection of fun tools when you want a break.
-            </p>
-
-            <div className="mx-auto mt-8 max-w-2xl rounded-[22px] border border-white/10 bg-white/[0.06] p-1.5 shadow-[0_20px_70px_rgba(0,0,0,.35)] backdrop-blur-xl">
-              <div className="rounded-[17px] bg-white/[0.97] p-1 text-slate-900">
-                <GlobalSearch className="w-full" />
-              </div>
+            <h1 className="mt-6 text-4xl font-semibold tracking-[-.045em] text-zinc-950 sm:text-5xl lg:text-6xl">Fast, accurate tools for everyday lookups.</h1>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-zinc-500 sm:text-base">Find ZIP details, compare distances, locate ZIP+4 information, check timezones and coordinates — then jump into a fun generator when you need a little chaos.</p>
+            <div className="mx-auto mt-8 max-w-2xl">
+              <GlobalSearch className="w-full" />
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
-              {['ZIP Code Lookup','ZIP Distance','ZIP+4','Timezone','Coordinates'].map((x) => (
-                <span key={x} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-semibold text-slate-400">{x}</span>
+              {QUICK_FILTERS.map(([label, href]) => (
+                <Link key={label} href={href} className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[11px] font-medium text-zinc-600 transition-colors hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500">{label}</Link>
               ))}
             </div>
           </div>
-
-          {/* DARK BENTO QUICK ACCESS */}
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
-            {ZIP_TOOLS.map((tool, i) => <div key={tool.href} className={i === 0 ? 'lg:col-span-2' : 'lg:col-span-1'}><PremiumToolCard tool={tool} index={i} /></div>)}
-          </div>
-
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] font-semibold text-slate-500">
-            <span><strong className="text-white">{zipCount}</strong> ZIP tools</span>
-            <span><strong className="text-white">{funCount}</strong> Fun tools</span>
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> Runs in your browser</span>
-          </div>
         </div>
       </section>
 
-      {/* POPULAR RAIL */}
-      <section className="sticky top-[60px] z-20 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 overflow-x-auto px-4 py-3 [scrollbar-width:none] sm:px-6 lg:px-8">
-          <span className="shrink-0 text-[9px] font-black uppercase tracking-[.18em] text-slate-400">Popular now</span>
-          {popular.map((tool) => (
-            <Link key={tool.href} href={tool.href} className="group flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-[10px] font-bold text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-950 hover:text-white">
-              <tool.icon className="h-3.5 w-3.5" /> {tool.name}
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* CATEGORY DIRECTORY */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      {/* FEATURED */}
+      <section id="all-tools" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div className="mb-7 flex items-end justify-between gap-4">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-[.2em] text-emerald-600">Browse by category</p>
-            <h2 className="mt-2 text-3xl font-black tracking-[-.04em] text-slate-950 sm:text-4xl">Tools that do the work.<br className="hidden sm:block" /> Tools that make it fun.</h2>
+            <p className="text-[10px] font-semibold uppercase tracking-[.18em] text-indigo-600">Featured utilities</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-[-.03em] text-zinc-950 sm:text-3xl">Start with the tools people use most.</h2>
           </div>
-          <Link href="/zip" className="inline-flex items-center gap-1.5 text-sm font-extrabold text-slate-950">Browse all ZIP tools <ArrowRight className="h-4 w-4" /></Link>
+          <Link href="/zip" className="hidden items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-indigo-600 sm:inline-flex">View all ZIP tools <ArrowRight className="h-3.5 w-3.5" /></Link>
         </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <FeaturedCard tool={FEATURED_ZIP[0]} variant="large" className="lg:row-span-2" />
+          <FeaturedCard tool={FEATURED_ZIP[1]} />
+          <FeaturedCard tool={FEATURED_ZIP[2]} />
+          <FeaturedCard tool={FEATURED_ZIP[3]} />
+          <FeaturedCard tool={FEATURED_ZIP[4]} variant="large" />
+          <FeaturedCard tool={FEATURED_FUN[0]} variant="fun" />
+        </div>
+      </section>
 
-        <div className="grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
-          <div className="rounded-[30px] border border-slate-200 bg-white p-5 shadow-[0_12px_40px_rgba(15,23,42,.06)] sm:p-6">
-            <div className="mb-5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600"><LocateFixed className="h-5 w-5" /></div>
-                <div><h3 className="text-base font-black">ZIP Tools</h3><p className="text-[11px] text-slate-400">Location utilities</p></div>
-              </div>
-              <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-[10px] font-black text-emerald-700">{zipCount} tools</span>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">{ZIP_TOOLS.map(tool => <LightToolCard key={tool.href} tool={tool} />)}</div>
+      {/* QUICK STATS */}
+      <section className="border-y border-zinc-200/70 bg-zinc-50/50">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-5 text-xs text-zinc-500 sm:px-6 lg:px-8">
+          <span><strong className="font-semibold text-zinc-900">{zipCount}</strong> ZIP tools</span>
+          <span><strong className="font-semibold text-zinc-900">{funCount}</strong> Fun tools</span>
+          <span><strong className="font-semibold text-zinc-900">{total}</strong> public utilities</span>
+          <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-emerald-600" /> Browser-friendly</span>
+        </div>
+      </section>
+
+      {/* DIRECTORY */}
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div className="mb-8">
+          <p className="text-[10px] font-semibold uppercase tracking-[.18em] text-zinc-400">Tool directory</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-[-.03em] text-zinc-950 sm:text-3xl">Everything organized by purpose.</h2>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div>
+            <div className="mb-4 flex items-center justify-between"><div className="flex items-center gap-2"><IconBadge icon={LocateFixed} /><div><h3 className="text-sm font-semibold">ZIP & Postal Tools</h3><p className="text-[11px] text-zinc-500">Lookups, distance, routing and location data</p></div></div><span className="text-[11px] font-medium text-zinc-400">{zipCount} tools</span></div>
+            <div className="grid gap-2">{DIRECTORY_ZIP.map(tool => <DirectoryCard key={tool.href} tool={tool} />)}</div>
           </div>
-
-          <div className="rounded-[30px] border border-slate-200 bg-[#101017] p-5 text-white shadow-[0_18px_55px_rgba(15,23,42,.18)] sm:p-6">
-            <div className="mb-5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-fuchsia-500/10 text-fuchsia-300"><Sparkles className="h-5 w-5" /></div>
-                <div><h3 className="text-base font-black">Fun & Entertainment</h3><p className="text-[11px] text-slate-500">Generators & quick games</p></div>
-              </div>
-              <span className="rounded-full bg-fuchsia-500/10 px-3 py-1.5 text-[10px] font-black text-fuchsia-300">{funCount} tools</span>
-            </div>
-            <div className="space-y-3">
-              {FUN_TOOLS.map((tool, i) => (
-                <Link key={tool.href} href={tool.href} className="group flex items-center gap-3 rounded-[20px] border border-white/8 bg-white/[0.04] p-3.5 transition-all hover:-translate-y-0.5 hover:bg-white/[0.07] hover:border-fuchsia-300/20">
-                  <IconBox tool={tool} fun />
-                  <div className="min-w-0 flex-1"><h3 className="truncate text-sm font-extrabold text-white">{tool.name}</h3><p className="mt-0.5 truncate text-[11px] text-slate-500">{tool.desc}</p></div>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-slate-600 transition-transform group-hover:translate-x-1 group-hover:text-fuchsia-300" />
-                </Link>
-              ))}
-            </div>
+          <div>
+            <div className="mb-4 flex items-center justify-between"><div className="flex items-center gap-2"><IconBadge icon={Sparkles} tone="fun" /><div><h3 className="text-sm font-semibold">Creative & Fun Tools</h3><p className="text-[11px] text-zinc-500">Generators, games and lightweight entertainment</p></div></div><span className="text-[11px] font-medium text-zinc-400">{funCount} tools</span></div>
+            <div className="grid gap-2">{DIRECTORY_FUN.map(tool => <DirectoryCard key={tool.href} tool={tool} fun />)}</div>
           </div>
         </div>
       </section>
 
-      {/* COMMAND SEARCH */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#070b13] p-7 text-white shadow-[0_25px_70px_rgba(0,0,0,.22)] sm:p-10">
-          <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-emerald-400/10 blur-[80px]" />
-          <div className="relative grid gap-8 lg:grid-cols-[1fr_.8fr] lg:items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[.15em] text-emerald-300"><Search className="h-3.5 w-3.5" /> One search for every tool</span>
-              <h2 className="mt-5 text-3xl font-black tracking-[-.04em] sm:text-4xl">Stop hunting through menus.</h2>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-400">Search ZIP utilities, Fun tools and guides from one command bar. Press <kbd className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-slate-300">⌘K</kbd> or <kbd className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono text-[10px] text-slate-300">Ctrl K</kbd>.</p>
+      {/* COMMAND CTA */}
+      <section className="border-y border-zinc-200/70 bg-zinc-50/50">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-zinc-950 p-7 text-white shadow-xl sm:p-10">
+            <div className="grid gap-7 lg:grid-cols-[1fr_420px] lg:items-center">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[.18em] text-indigo-300">One command bar</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-[-.03em] sm:text-3xl">Stop hunting through menus.</h2>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">Search every ZIP utility, generator and guide from one place. Use <kbd className="rounded-md border border-zinc-700 bg-zinc-900 px-1.5 py-0.5 font-mono text-[10px] text-zinc-300">⌘K</kbd> or <kbd className="rounded-md border border-zinc-700 bg-zinc-900 px-1.5 py-0.5 font-mono text-[10px] text-zinc-300">Ctrl K</kbd>.</p>
+              </div>
+              <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5"><GlobalSearch className="w-full" /></div>
             </div>
-            <div className="rounded-[22px] border border-white/10 bg-white/[0.06] p-1.5"><div className="rounded-[17px] bg-white/[0.96] p-1"><GlobalSearch className="w-full" /></div></div>
           </div>
         </div>
       </section>
 
       {/* GUIDES */}
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div><p className="text-[10px] font-black uppercase tracking-[.2em] text-blue-600">SEO & educational hub</p><h2 className="mt-2 text-3xl font-black tracking-[-.04em]">ZIP guides people actually search for</h2></div>
-            <Link href="/blog/category/zip-codes" className="inline-flex items-center gap-1 text-sm font-extrabold text-blue-700">All ZIP guides <ArrowRight className="h-4 w-4" /></Link>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {GUIDE_LINKS.map((g, i) => (
-              <Link key={g.href} href={g.href} className="group relative overflow-hidden rounded-[22px] border border-slate-200 bg-slate-50 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl">
-                <div className="absolute right-0 top-0 h-20 w-20 rounded-full bg-blue-500/5 blur-2xl transition-transform group-hover:scale-150" />
-                <div className="relative flex items-center justify-between gap-3"><span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-black uppercase tracking-[.1em] text-blue-700"><BookOpen className="h-3 w-3" /> ZIP Guide</span><span className="text-[10px] text-slate-400">{g.read}</span></div>
-                <h3 className="relative mt-5 text-sm font-extrabold leading-5 text-slate-950">{g.title}</h3>
-                <span className="relative mt-5 inline-flex items-center gap-1 text-[11px] font-bold text-slate-400 transition-colors group-hover:text-blue-700">Read guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" /></span>
-              </Link>
-            ))}
-          </div>
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-18">
+        <div className="mb-7 flex items-end justify-between gap-4">
+          <div><p className="text-[10px] font-semibold uppercase tracking-[.18em] text-indigo-600">Guides</p><h2 className="mt-2 text-2xl font-semibold tracking-[-.03em]">Answers behind the tools.</h2></div>
+          <Link href="/blog/category/zip-codes" className="hidden items-center gap-1 text-xs font-medium text-zinc-500 hover:text-indigo-600 sm:inline-flex">Browse guides <ArrowRight className="h-3.5 w-3.5" /></Link>
+        </div>
+        <div className="grid gap-x-10 divide-y divide-zinc-200/70 border-y border-zinc-200/70 sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-3">
+          {GUIDES.map(([title, href, read], index) => (
+            <Link key={href} href={href} className="group px-1 py-5 sm:px-5 lg:px-6 first:pt-5 sm:[&:nth-child(3n+1)]:pl-0 lg:[&:nth-child(3n+1)]:pl-0">
+              <div className="flex items-center justify-between gap-3"><span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-zinc-400"><BookOpen className="h-3.5 w-3.5" /> ZIP Guide</span><span className="text-[10px] text-zinc-400">{read}</span></div>
+              <h3 className="mt-4 text-sm font-medium leading-5 text-zinc-900 group-hover:text-indigo-600">{title}</h3>
+              <span className="mt-4 inline-flex items-center gap-1 text-[11px] font-medium text-zinc-400 group-hover:text-indigo-600">Read guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" /></span>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* GUARANTEES */}
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {/* TRUST */}
+      <section className="border-y border-zinc-200/70 bg-zinc-50/50">
+        <div className="mx-auto grid max-w-6xl gap-px bg-zinc-200/70 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            [Zap,'Instant results','Built for quick lookups','bg-emerald-50 text-emerald-600'],
-            [ShieldCheck,'No signup','No account required','bg-blue-50 text-blue-600'],
-            [Check,'Free to use','No subscription gate','bg-violet-50 text-violet-600'],
-            [Navigation,'Works everywhere','Desktop, tablet & mobile','bg-orange-50 text-orange-600'],
-          ].map(([Icon,title,desc,classes]) => { const I = Icon as typeof Zap; return <div key={title as string} className="rounded-[22px] border border-slate-200 bg-white p-5 shadow-sm"><div className={`mx-auto flex h-11 w-11 items-center justify-center rounded-2xl ${classes as string}`}><I className="h-5 w-5" /></div><p className="mt-3 text-center text-sm font-black">{title as string}</p><p className="mt-1 text-center text-[11px] text-slate-400">{desc as string}</p></div> })}
+            [Zap, 'Instant results', 'Built for quick lookups'],
+            [ShieldCheck, 'No signup', 'No account required'],
+            [Check, 'Free to use', 'No subscription gate'],
+            [Navigation, 'Works everywhere', 'Desktop, tablet and mobile'],
+          ].map(([Icon, title, desc]) => { const I = Icon as LucideIcon; return <div key={title as string} className="bg-zinc-50/80 px-5 py-7 text-center"><I className="mx-auto h-5 w-5 text-zinc-700" strokeWidth={1.6} /><p className="mt-3 text-sm font-medium text-zinc-900">{title as string}</p><p className="mt-1 text-[11px] text-zinc-500">{desc as string}</p></div> })}
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-slate-200 bg-[#f8fafb]">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mb-8 text-center"><p className="text-[10px] font-black uppercase tracking-[.22em] text-slate-400">FAQ</p><h2 className="mt-2 text-3xl font-black tracking-[-.04em]">Frequently asked questions</h2></div>
-          <div className="grid gap-3 md:grid-cols-2">
-            {FAQS.map(([q,a]) => <details key={q} className="group rounded-[20px] border border-slate-200 bg-white p-5 shadow-sm transition-all open:shadow-md"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold"><span>{q}</span><ChevronDown className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-180" /></summary><p className="mt-3 border-t border-slate-100 pt-3 text-xs leading-6 text-slate-500">{a}</p></details>)}
-          </div>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mb-8 text-center"><p className="text-[10px] font-semibold uppercase tracking-[.18em] text-zinc-400">FAQ</p><h2 className="mt-2 text-2xl font-semibold tracking-[-.03em] sm:text-3xl">Common questions.</h2></div>
+        <div className="divide-y divide-zinc-200 border-y border-zinc-200">
+          {FAQS.map(([q, a]) => (
+            <details key={q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-sm font-medium text-zinc-900 focus-visible:outline-none"><span>{q}</span><ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform duration-200 group-open:rotate-180" /></summary>
+              <p className="max-w-3xl pr-10 pt-3 text-sm leading-6 text-zinc-500">{a}</p>
+            </details>
+          ))}
         </div>
       </section>
     </main>
