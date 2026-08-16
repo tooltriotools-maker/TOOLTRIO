@@ -155,9 +155,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP+4 and delivery-point precision** should preserve these fields where relevant: **base ZIP, ZIP+4, delivery-point information, address-standardization status, verification date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Postal code depth", "description": "Digits carried by each USPS code layer", "labels": ["ZIP", "ZIP+4", "Delivery point"], "values": [5, 9, 11], "source": "USPS history describes ZIP in 1963, ZIP+4 in 1983 and two additional digits for delivery-point sorting in 1991."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -188,7 +188,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP+4 and delivery-point precision** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP+4 and delivery-point precision** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -300,7 +300,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the distinction between a delivery segment and a unique household**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -456,9 +456,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **address-to-ZIP resolution** should preserve these fields where relevant: **house number, street name, suffix, directional, unit, city, state, normalized address, ZIP, match status, source date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Address matching precision", "description": "Postal-code detail available after resolution", "labels": ["5-digit ZIP", "ZIP+4", "Delivery point"], "values": [5, 9, 11], "source": "The chart shows code depth, not a success rate. More digits mean more routing detail, not proof that an address is valid."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -489,7 +489,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **address-to-ZIP resolution** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **address-to-ZIP resolution** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -601,7 +601,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between city-level discovery and address-level matching**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -751,9 +751,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP radius search and center-point distance** should preserve these fields where relevant: **origin ZIP, origin coordinates, candidate ZIP coordinates, radius, distance method, result ZIPs, optional drive time**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Common radius inputs", "description": "Distance in miles for a radius search", "labels": ["5 miles", "10 miles", "25 miles", "50 miles"], "values": [5, 10, 25, 50], "source": "These are user-selected search distances, not claims about a universal delivery radius."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -784,7 +784,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP radius search and center-point distance** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP radius search and center-point distance** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -896,7 +896,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between a representative point and actual service coverage**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -1059,9 +1059,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP-to-ZIP distance calculation** should preserve these fields where relevant: **origin ZIP, destination ZIP, latitude, longitude, distance unit, distance method, optional route distance**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Distance conversion reference", "description": "Miles converted to kilometres", "labels": ["1 mile", "5 miles", "25 miles", "50 miles"], "values": [1.60934, 8.0467, 40.2335, 80.467], "source": "Conversions use 1 mile = 1.60934 kilometres; they do not imply road distance."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -1092,7 +1092,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP-to-ZIP distance calculation** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP-to-ZIP distance calculation** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -1204,7 +1204,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between geographic distance and travel distance**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -1361,9 +1361,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **the current national ZIP-code count** should preserve these fields where relevant: **ZIP count, observation date, inclusion rules, ZIP type, source, refresh date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "USPS ZIP system milestones", "description": "Digits in the code at major system stages", "labels": ["1963 ZIP", "1983 ZIP+4", "1991 delivery point"], "values": [5, 9, 11], "source": "USPS reports 41,554 ZIP Codes as of May 15, 2026; the chart illustrates code-depth milestones, not ZIP counts by year."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -1394,7 +1394,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **the current national ZIP-code count** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **the current national ZIP-code count** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -1506,7 +1506,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between a current USPS inventory and a vendor snapshot**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -1640,9 +1640,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **state-level ZIP-code counts** should preserve these fields where relevant: **state, ZIP count, ZIP type, source, observation date, inclusion rules**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Illustrative current state-count comparison", "description": "ZIP records in a current third-party dataset", "labels": ["Texas", "California", "New York", "Pennsylvania"], "values": [2598, 1761, 1794, 1795], "source": "Secondary dataset snapshot; use the same source and definition for a ranking. USPS publishes the national total, not this exact state ranking."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -1673,7 +1673,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **state-level ZIP-code counts** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **state-level ZIP-code counts** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -1785,7 +1785,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between a postal inventory ranking and a demographic ranking**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -1918,9 +1918,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **the low end of state ZIP-code counts** should preserve these fields where relevant: **state, ZIP count, land area, population, ZIP type, source date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Current low-count comparison", "description": "ZIP records in a current third-party dataset", "labels": ["Rhode Island", "Delaware"], "values": [90, 96], "source": "Secondary dataset snapshot; rankings vary with inclusion rules. USPS is the authority for postal inventory, while the displayed state counts come from the cited current secondary dataset."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -1951,7 +1951,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **the low end of state ZIP-code counts** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **the low end of state ZIP-code counts** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -2063,7 +2063,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **the difference between a small postal inventory and a small market**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -2219,9 +2219,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **the distinction between the U.S. term ZIP Code and the international term postal code** should preserve these fields where relevant: **country, postal-code label, format rule, normalization rule, validation source**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Example postal-code character counts", "description": "Characters in common postal-code formats", "labels": ["U.S. ZIP", "U.S. ZIP+4", "Canada", "India", "Japan"], "values": [5, 9, 6, 6, 7], "source": "Examples show why a global form should not hard-code U.S. ZIP assumptions."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -2252,7 +2252,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **the distinction between the U.S. term ZIP Code and the international term postal code** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **the distinction between the U.S. term ZIP Code and the international term postal code** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -2364,7 +2364,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **country-specific postal conventions**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -2517,9 +2517,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **the five-digit ZIP structure** should preserve these fields where relevant: **ZIP string, first digit, first three digits, final two digits, USPS reference data**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "ZIP code structure", "description": "Digits represented at each level", "labels": ["First digit", "First 3 digits", "Full ZIP"], "values": [1, 3, 5], "source": "USPS describes the first digit as a broad geographic area, the next two as regional areas, and the final two as specific post offices."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -2550,7 +2550,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **the five-digit ZIP structure** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **the five-digit ZIP structure** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -2662,7 +2662,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal hierarchy versus physical geography**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -2806,9 +2806,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **multiple place names associated with one ZIP** should preserve these fields where relevant: **ZIP, preferred mailing city, acceptable city names, municipality, state, alias type, source**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Address identity layers", "description": "Number of distinct location concepts that should not be conflated", "labels": ["ZIP", "Mailing city", "Municipality", "County"], "values": [1, 1, 1, 1], "source": "The chart is a conceptual model: these are four separate fields, not four levels of accuracy."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -2839,7 +2839,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **multiple place names associated with one ZIP** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **multiple place names associated with one ZIP** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -2951,7 +2951,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **mailing-city names versus legal municipalities**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -3082,9 +3082,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP-to-county relationships** should preserve these fields where relevant: **ZIP, county, county FIPS, primary county, all associated counties, crosswalk source, vintage**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Current ZIP dataset: multi-county records", "description": "Records identified as multi-county in a current third-party statistics snapshot", "labels": ["Multi-county ZIPs", "All ZIPs"], "values": [9687, 41541], "source": "Secondary dataset snapshot from August 2026; the relationship is not an USPS boundary rule and should be treated as a data crosswalk."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -3115,7 +3115,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP-to-county relationships** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP-to-county relationships** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -3227,7 +3227,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal routing versus county jurisdiction**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -3362,9 +3362,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIPs near or across state boundaries** should preserve these fields where relevant: **ZIP, state code, mailing city, address coordinates, state boundary, source date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Geographic certainty by input", "description": "Relative data specificity (conceptual)", "labels": ["ZIP prefix", "ZIP + state", "Exact address + boundary"], "values": [1, 2, 3], "source": "Conceptual scale: it shows why additional address information is needed for jurisdiction-sensitive decisions."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -3395,7 +3395,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIPs near or across state boundaries** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIPs near or across state boundaries** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -3507,7 +3507,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal relationships versus state jurisdiction**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -3644,9 +3644,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **how USPS assigns and changes ZIP Codes** should preserve these fields where relevant: **delivery routes, address volume, facility relationships, ZIP code, effective date, Postal Service updates**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "ZIP system milestones", "description": "Year of major ZIP-system expansions", "labels": ["ZIP introduced", "ZIP+4 introduced", "Delivery-point digits added"], "values": [1963, 1983, 1991], "source": "USPS Postal Facts identifies these milestones; the values are years, not counts."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -3677,7 +3677,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **how USPS assigns and changes ZIP Codes** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **how USPS assigns and changes ZIP Codes** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -3789,7 +3789,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal network design versus political geography**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -3925,9 +3925,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **three-digit ZIP prefixes** should preserve these fields where relevant: **5-digit ZIP, 3-digit prefix, region, prefix-to-ZIP relationship, source date**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Postal hierarchy depth", "description": "Number of digits at each common level", "labels": ["Prefix", "ZIP", "ZIP+4"], "values": [3, 5, 9], "source": "The chart visualizes code length, not physical area or accuracy."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -3958,7 +3958,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **three-digit ZIP prefixes** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **three-digit ZIP prefixes** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -4070,7 +4070,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **prefix grouping versus address identification**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -4204,9 +4204,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **what makes a ZIP Code a USPS postal identifier** should preserve these fields where relevant: **ZIP, ZIP type, mailing city, delivery route, source, effective date, optional ZCTA relationship**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "ZIP ecosystem: distinct data layers", "description": "Conceptual number of separate data layers commonly confused", "labels": ["USPS ZIP", "ZCTA", "Coordinate"], "values": [1, 1, 1], "source": "These are distinct objects. The chart is a conceptual model, not a measure of accuracy."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -4237,7 +4237,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **what makes a ZIP Code a USPS postal identifier** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **what makes a ZIP Code a USPS postal identifier** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -4349,7 +4349,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal identity versus statistical geography**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -4492,9 +4492,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **syntax rules for U.S. ZIP and ZIP+4 strings** should preserve these fields where relevant: **raw input, normalized string, 5-digit format, ZIP+4 format, validation status, error reason**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Accepted code lengths", "description": "Digits in common U.S. ZIP representations", "labels": ["Standard ZIP", "ZIP+4", "Delivery point"], "values": [5, 9, 11], "source": "USPS describes ZIP, ZIP+4 and later delivery-point sorting as distinct levels."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -4526,7 +4526,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **syntax rules for U.S. ZIP and ZIP+4 strings** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **syntax rules for U.S. ZIP and ZIP+4 strings** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -4638,7 +4638,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **syntax versus existence**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -4777,9 +4777,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **two-stage ZIP validation** should preserve these fields where relevant: **raw ZIP, normalized ZIP, format result, existence result, matched city/state, source date, error code**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Validation depth", "description": "Number of validation layers", "labels": ["Format", "Existence", "Context"], "values": [1, 2, 3], "source": "The chart shows validation depth, not a percentage of correct records."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -4810,7 +4810,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **two-stage ZIP validation** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **two-stage ZIP validation** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -4922,7 +4922,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **format validation versus reference validation**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -5049,9 +5049,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP-to-county lookup and crosswalk semantics** should preserve these fields where relevant: **ZIP, county name, county FIPS, primary county, all counties, address, crosswalk vintage**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "County mapping depth", "description": "Geographic specificity by lookup method", "labels": ["ZIP only", "ZIP crosswalk", "Exact address"], "values": [1, 2, 3], "source": "Conceptual specificity scale; exact jurisdiction requires an address and the appropriate boundary dataset."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -5082,7 +5082,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP-to-county lookup and crosswalk semantics** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP-to-county lookup and crosswalk semantics** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -5194,7 +5194,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **primary county association versus exact jurisdiction**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -5339,9 +5339,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP-to-time-zone lookup and daylight-saving behavior** should preserve these fields where relevant: **ZIP, timezone, UTC offset, DST rule, IANA zone, effective date, user locale**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "U.S. timezone layers", "description": "Standard U.S. timezone groups relevant to ZIP lookup", "labels": ["Eastern", "Central", "Mountain", "Pacific", "Alaska", "Hawaii"], "values": [1, 1, 1, 1, 1, 1], "source": "Six major U.S. timezone groups commonly encountered in ZIP-level tools; daylight-saving rules are a separate layer."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -5372,7 +5372,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP-to-time-zone lookup and daylight-saving behavior** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP-to-time-zone lookup and daylight-saving behavior** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -5484,7 +5484,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **timezone identification versus daylight-saving rules**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -5625,9 +5625,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP-level coordinates and their precision limits** should preserve these fields where relevant: **ZIP, latitude, longitude, coordinate source, precision, representative-point type, geocoding timestamp**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Coordinate precision ladder", "description": "Conceptual location detail", "labels": ["ZIP point", "ZIP area", "Exact address"], "values": [1, 2, 3], "source": "The chart is a conceptual precision ladder, not a numeric accuracy guarantee."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -5658,7 +5658,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP-level coordinates and their precision limits** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP-level coordinates and their precision limits** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -5770,7 +5770,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **representative ZIP points versus address coordinates**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
@@ -5927,9 +5927,9 @@ For this page, the evidence chain is simple: identify the postal concept, identi
 
 A useful result for **ZIP population versus Census ZCTA population** should preserve these fields where relevant: **ZIP, ZCTA, population, housing units, density, Census vintage, survey/program, source**. If a system returns only a single label or number, it can hide the assumptions that produced it. For production use, keep the raw input and the normalized or derived value separately. That makes it possible to audit a surprising result instead of overwriting it.
 
-```chart
+\`\`\`chart
 {"type": "bar", "title": "Population-data source layers", "description": "Conceptual number of distinct geography layers", "labels": ["USPS ZIP", "ZCTA", "Census estimate"], "values": [1, 2, 3], "source": "The chart illustrates the transformation from postal identifier to statistical geography and then to a published estimate."}
-```
+\`\`\`
 
 ## Comparison: which method should you use?
 
@@ -5960,7 +5960,7 @@ A good implementation should therefore return a status such as **exact**, **prim
 
 ## Data design: keep postal facts separate from derived geography
 
-If you are storing **ZIP population versus Census ZCTA population** in a database, avoid a catch-all `location` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
+If you are storing **ZIP population versus Census ZCTA population** in a database, avoid a catch-all \`location\` field. Store the postal identifier as text, preserve leading zeroes, and keep derived attributes such as county, timezone, coordinates or population in explicitly named columns. Record the source and refresh date when the value is important enough to drive reporting or automation.
 
 For APIs, return structured fields rather than one formatted sentence. For example, an address workflow should distinguish the submitted address from the normalized address and the matched ZIP; a population workflow should distinguish the ZIP from its ZCTA and the Census vintage; a distance workflow should distinguish representative-point distance from driving distance. This prevents downstream developers from accidentally treating a derived value as an official postal fact.
 
@@ -6072,7 +6072,7 @@ Being explicit about these limitations is not a weakness. It is what makes the p
 
 For an application, model the result as structured data. Keep the identifier as a string, then add named fields for derived attributes. For example, a postal record can contain the ZIP, postal city, state, ZIP type, source and effective date. A geographic record can add latitude, longitude, county and timezone, but each field should retain its own meaning. A demographic record should add ZCTA, Census program and vintage rather than overwriting the ZIP with a statistical geography.
 
-When a field is optional, return `null` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
+When a field is optional, return \`null\` or an explicit unavailable state instead of inventing a value. When a relationship is many-to-many, represent it as a relationship rather than forcing one value into a single column. When a calculation is derived, store the inputs and method if the result will be audited later. These patterns are small engineering decisions, but they prevent large reporting errors.
 
 For **postal ZIPs versus Census ZCTAs**, the most useful automated test cases should include normal records plus at least one boundary case. Test leading-zero identifiers where relevant, multiple associated place names where relevant, missing or stale records, and a case where the obvious geographic assumption is wrong. A system that passes only happy-path examples can still fail exactly where users need it most.
 
