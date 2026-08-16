@@ -1,52 +1,165 @@
+'use client'
 import Link from 'next/link'
-import { CheckCircle2, Mail, MapPin, Sparkles } from 'lucide-react'
+import { Mail, Shield, FileText, Info, BookOpen, Smile } from 'lucide-react'
 
-const ZIP = [
+const contactEmail = 'tooltrio.tools@gmail.com'
+
+const zipLinks = [
   ['ZIP Code Lookup', '/zip/zip-code-lookup'],
-  ['ZIP+4 Lookup', '/zip/zip-plus-4-lookup'],
   ['ZIP Distance', '/zip/zip-code-distance'],
+  ['ZIP to City', '/zip/zip-to-city'],
+  ['City to ZIP', '/zip/city-to-zip'],
+  ['ZIPs in Radius', '/zip/zips-within-radius'],
   ['ZIP Timezone', '/zip/zip-to-timezone'],
-  ['ZIP Coordinates', '/zip/zip-to-coordinates'],
-]
-const FUN = [
-  ['Shakespeare Insult', '/fun/shakespeare-insult-generator'],
-  ['Insult Generator', '/fun/insult-generator'],
-  ['Trivia Quiz', '/fun/trivia-quiz'],
-  ['Zodiac Calculator', '/fun/zodiac-calculator'],
-]
-const GUIDES = [
-  ['ZIP Code Guides', '/blog/category/zip-codes'],
-  ['ZIP+4 Guide', '/blog/what-is-a-zip-plus-4-code'],
-  ['ZIP Lookup Guide', '/blog/how-to-find-a-zip-code-from-an-address'],
-  ['ZIP Distance Guide', '/blog/how-far-apart-are-two-zip-codes'],
-]
-const COMPANY = [
-  ['About', '/about'], ['Methodology', '/methodology'], ['Contact', '/contact'], ['Privacy', '/privacy-policy'], ['Disclaimer', '/disclaimer'],
+  ['ZIP Code Map', '/zip/zip-code-map'],
+  ['ZIP Validator', '/zip/zip-code-validator'],
+  ['USPS Address Format', '/zip/usps-address-format'],
+  ['All ZIP Tools →', '/zip'],
 ]
 
-function FooterLinks({ title, items }: { title: string; items: string[][] }) {
-  return <div><h2 className="text-xs font-semibold text-zinc-950">{title}</h2><ul className="mt-4 space-y-2.5">{items.map(([name, href]) => <li key={href}><Link href={href} className="text-xs text-zinc-500 transition-colors hover:text-zinc-950">{name}</Link></li>)}</ul></div>
-}
+
+const funLinks = [
+  ['Insult Generator', '/fun/insult-generator'],
+  ['Shakespeare Insult Generator', '/fun/shakespeare-insult-generator'],
+  ['Pirate Insult Generator', '/fun/pirate-insult-generator'],
+  ['Victorian Insult Generator', '/fun/victorian-insult-generator'],
+  ['Royal Insult Generator', '/fun/royal-insult-generator'],
+  ['All Fun Tools →', '/fun'],
+]
+
+const blogLinks = [
+  ['Blog Home', '/blog'],
+  ['ZIP Code Guides', '/blog/category/zip-codes'],
+  ['ZIP Code Lookup Guide', '/blog/how-to-find-a-zip-code-from-an-address'],
+  ['ZIP Code Distance Guide', '/blog/how-far-apart-are-two-zip-codes'],
+  ['ZIP+4 Guide', '/blog/what-is-a-zip-plus-4-code'],
+  ['ZIP Timezone Guide', '/blog/how-to-find-a-time-zone-from-a-zip-code'],
+  ['ZIP Radius Guide', '/blog/how-to-find-zip-codes-within-a-radius'],
+]
+
+const companyLinks = [
+  ['About ToolTrio', '/about'],
+  ['Our Methodology', '/methodology'],
+  ['Contact ToolTrio', '/contact'],
+  ['Privacy Policy', '/privacy-policy'],
+  ['Disclaimer', '/disclaimer'],
+]
 
 export function Footer() {
-  return <footer className="border-t border-zinc-200/70 bg-white">
-    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
-      <div className="grid gap-10 lg:grid-cols-[1.6fr_repeat(4,1fr)]">
-        <div>
-          <Link href="/" className="inline-flex items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"><img src="/tooltrio-footer-logo.png" alt="ToolTrio" className="h-12 w-auto object-contain" /></Link>
-          <p className="mt-4 max-w-xs text-xs leading-5 text-zinc-500">Fast, focused utilities for US ZIP lookups and lightweight generators. Free to use, no account required.</p>
-          <a href="mailto:tooltrio.tools@gmail.com" className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-zinc-600 hover:text-indigo-600"><Mail className="h-3.5 w-3.5" /> tooltrio.tools@gmail.com</a>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1.5 text-[10px] font-medium text-emerald-700"><CheckCircle2 className="h-3.5 w-3.5" /> All systems operational</div>
+  return (
+    <footer className="bg-gray-950 text-gray-400 mt-16">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+
+        {/* Main grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <img
+                src="/tooltrio-logo.png"
+                alt="ToolTrio — Free Online Calculators and Tools"
+                style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+              />
+            </Link>
+            <p className="text-sm leading-relaxed mb-5 max-w-xs">
+              Free online calculators and tools for ZIP codes and fun tools. No signup. No ads. Instant results.
+            </p>
+            <a
+              href={`mailto:${contactEmail}`}
+              className="flex items-center gap-2 text-sm hover:text-white transition-all text-green-400 font-semibold"
+            >
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              {contactEmail}
+            </a>
+          </div>
+
+          {/* Fun Tools */}
+          <div>
+            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">
+              <Smile className="w-4 h-4 text-fuchsia-400" /> Fun Tools
+            </h2>
+            <ul className="space-y-2.5 text-sm">
+              {funLinks.map(([name, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-fuchsia-400 transition-all">{name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ZIP Tools */}
+          <div>
+            <h2 className="font-bold text-white text-sm mb-4">📮 ZIP Tools</h2>
+            <ul className="space-y-2.5 text-sm">
+              {zipLinks.map(([name, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-teal-400 transition-all">{name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Blog + Company */}
+          <div>
+            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
+              <BookOpen className="w-4 h-4 text-blue-400" /> Blog
+            </h2>
+            <ul className="space-y-2.5 text-sm mb-6">
+              {blogLinks.map(([name, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-blue-400 transition-all">{name}</Link>
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
+              <Info className="w-4 h-4 text-gray-400" /> Company
+            </h2>
+            <ul className="space-y-2.5 text-sm">
+              {companyLinks.map(([name, href]) => (
+                <li key={href}>
+                  <Link href={href} className="hover:text-white transition-all">{name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <FooterLinks title="ZIP Tools" items={ZIP} />
-        <FooterLinks title="Generators" items={FUN} />
-        <FooterLinks title="Guides" items={GUIDES} />
-        <FooterLinks title="Company" items={COMPANY} />
+
+        {/* SEO text block — natural, not spammy */}
+        <div className="border-t border-gray-800 pt-8 mb-8">
+          <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
+            <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
+            ZIP codes and fun tools. Popular public tools include{' '}
+            <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
+            All tools are free, private, and require no account.
+          </p>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <p>© 2026 ToolTrio.com — All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/methodology" className="hover:text-white flex items-center gap-1">
+              <BookOpen className="w-3 h-3" /> Methodology
+            </Link>
+            <Link href="/privacy-policy" className="hover:text-white flex items-center gap-1">
+              <Shield className="w-3 h-3" /> Privacy Policy
+            </Link>
+            <Link href="/disclaimer" className="hover:text-white flex items-center gap-1">
+              <FileText className="w-3 h-3" /> Disclaimer
+            </Link>
+            <Link href="/about" className="hover:text-white flex items-center gap-1">
+              <Info className="w-3 h-3" /> About
+            </Link>
+            <Link href="/contact" className="hover:text-white flex items-center gap-1">
+              <Mail className="w-3 h-3" /> Contact
+            </Link>
+          </div>
+          <p className="text-gray-700">For informational use only. Not financial or medical advice.</p>
+        </div>
+
       </div>
-      <div className="mt-12 flex flex-col gap-3 border-t border-zinc-200/70 pt-6 text-[11px] text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 ToolTrio.com. All rights reserved.</p>
-        <div className="flex items-center gap-4"><span className="inline-flex items-center gap-1.5"><MapPin className="h-3 w-3" /> US ZIP utilities</span><span className="inline-flex items-center gap-1.5"><Sparkles className="h-3 w-3" /> Fun generators</span></div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  )
 }
