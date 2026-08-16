@@ -80,7 +80,7 @@ const seoContent = {
 
   heading: 'ZIP Code to Coordinates — Find Latitude & Longitude by US ZIP',
   populationChart: {
-    title: 'US Geographic Extent by Latitude/Longitude',
+    title: 'US Geographic Extent by Latitude/Longitude | ToolTrio',
     subtitle: 'ZIP code centroids range across the full geographic span of the US',
     unit: '°',
     bars: [

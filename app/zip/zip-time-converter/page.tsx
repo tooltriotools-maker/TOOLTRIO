@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Time Converter — Converting Local Time Between US ZIP Codes`,
   populationChart: {
-    title: 'Time Differences Between US Timezone Pairs (Standard/Winter Time)',
+    title: 'Time Differences Between US Timezone Pairs (Standard/Winter Time) | ToolTrio',
     subtitle: 'The same pair may differ by 1 hour during DST transitions if only one zone observes DST',
     unit: 'hours difference',
     bars: [

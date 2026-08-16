@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Address to ZIP Code — Finding and Verifying ZIP Codes from US Addresses`,
   populationChart: {
-    title: 'US Deliverable Address Count by State (Approximate Millions)',
+    title: 'US Deliverable Address Count by State (Approximate Millions) | ToolTrio',
     subtitle: 'More addresses means higher ZIP code density and more precise address-to-ZIP matching',
     unit: 'million addresses',
     bars: [

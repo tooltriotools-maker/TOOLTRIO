@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Codes by Area Code — Finding ZIP Codes in a Telephone Area Code Region`,
   populationChart: {
-    title: 'Largest US Area Codes by Number of Associated ZIP Codes',
+    title: 'Largest US Area Codes by Number of Associated ZIP Codes | ToolTrio',
     subtitle: 'Rural state-wide area codes cover far more ZIPs than urban area codes',
     unit: 'ZIP codes',
     bars: [

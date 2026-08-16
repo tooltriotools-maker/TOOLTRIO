@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP to Area Code — The Relationship Between US Phone Area Codes and ZIP Codes`,
   populationChart: {
-    title: 'US Area Code Distribution by Region',
+    title: 'US Area Code Distribution by Region | ToolTrio',
     subtitle: 'Area codes were originally designed around population density and state lines',
     unit: 'area codes',
     bars: [

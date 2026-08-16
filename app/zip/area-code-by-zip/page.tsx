@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Area Code by ZIP Code — Finding Phone Area Codes From US ZIP Codes`,
   populationChart: {
-    title: 'Most Area Codes per Metro Area (Overlay Density)',
+    title: 'Most Area Codes per Metro Area (Overlay Density) | ToolTrio',
     subtitle: 'High-population metros require multiple overlapping area codes due to number exhaustion',
     unit: 'area codes for the metro',
     bars: [

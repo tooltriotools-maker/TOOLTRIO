@@ -98,7 +98,7 @@ const seoContent = {
 
   heading: `ZIP+4 Lookup — Find and Understand the Full 9-Digit US ZIP Code`,
   populationChart: {
-    title: 'Postage Savings from ZIP+4 and Delivery Point Barcode (DPB)',
+    title: 'Postage Savings from ZIP+4 and Delivery Point Barcode (DPB) | ToolTrio',
     subtitle: 'Bulk mailers can save 10–20¢ per piece by using full ZIP+4 / DPB barcoding',
     unit: 'cents saved per piece',
     bars: [

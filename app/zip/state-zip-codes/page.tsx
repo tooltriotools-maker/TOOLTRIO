@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `State ZIP Codes — Finding and Using ZIP Code Lists by State`,
   populationChart: {
-    title: 'US States by Number of Active ZIP Codes',
+    title: 'US States by Number of Active ZIP Codes | ToolTrio',
     subtitle: 'ZIP code count reflects both population density and geographic size',
     unit: 'ZIP codes',
     bars: [

@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Multi-ZIP Distance — Planning Multi-Stop Routes Across ZIP Codes`,
   populationChart: {
-    title: 'Route Distance Reduction from Optimizing Stop Order (Example 8-Stop Route)',
+    title: 'Route Distance Reduction from Optimizing Stop Order (Example 8-Stop Route) | ToolTrio',
     subtitle: 'Stop order optimization typically saves 20–40% of total route distance',
     unit: 'miles',
     bars: [

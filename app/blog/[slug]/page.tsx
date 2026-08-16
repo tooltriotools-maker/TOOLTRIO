@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = publishedBlogPosts.find(p => p.slug === slug)
   if (!post) return { title: 'Post Not Found | ToolTrio' }
   return {
-    title: post.seoTitle,
+    title: post.seoTitle.replace(/\s*\|\s*ToolTrio\s*$/i, '') + ' | ToolTrio',
     description: post.seoDescription,
     keywords: post.keywords,
     robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
     alternates: { canonical: `https://tooltrio.com/blog/${slug}` },
-    openGraph: { title: post.seoTitle, description: post.seoDescription, url: `https://tooltrio.com/blog/${slug}`, siteName: 'ToolTrio', type: 'article', publishedTime: post.publishedAt, modifiedTime: post.updatedAt ?? post.publishedAt, images: [{ url: `https://tooltrio.com/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.seoTitle }] },
+    openGraph: { title: post.seoTitle.replace(/\s*\|\s*ToolTrio\s*$/i, '') + ' | ToolTrio', description: post.seoDescription, url: `https://tooltrio.com/blog/${slug}`, siteName: 'ToolTrio', type: 'article', publishedTime: post.publishedAt, modifiedTime: post.updatedAt ?? post.publishedAt, images: [{ url: `https://tooltrio.com/blog/${slug}/opengraph-image`, width: 1200, height: 630, alt: post.seoTitle }] },
   }
 }
 

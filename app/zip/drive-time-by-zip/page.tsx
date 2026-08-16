@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Drive Time by ZIP Code — How Driving Time Between ZIP Codes Is Estimated`,
   populationChart: {
-    title: 'Straight-Line vs. Driving Distance Multiplier by Terrain Type',
+    title: 'Straight-Line vs. Driving Distance Multiplier by Terrain Type | ToolTrio',
     subtitle: 'Road geometry always adds distance; terrain and road network density vary the multiplier',
     unit: '× straight-line distance',
     bars: [

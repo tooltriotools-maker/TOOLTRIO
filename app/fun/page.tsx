@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
-    title: '41 Free Fun Tools – Insult Generators, Zodiac & Trivia',
+    title: '41 Free Fun Tools – Insult Generators, Zodiac & Trivia | ToolTrio',
     description: 'Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',

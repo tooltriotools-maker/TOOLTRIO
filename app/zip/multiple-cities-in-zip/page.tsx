@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Multiple Cities in a ZIP Code — How ZIP Codes Serve Multiple Communities`,
   populationChart: {
-    title: 'Distribution of US ZIP Codes by Number of Associated City Names',
+    title: 'Distribution of US ZIP Codes by Number of Associated City Names | ToolTrio',
     subtitle: 'Most ZIPs have 1–2 city names; a few large rural ZIPs serve many communities',
     unit: '% of ZIPs',
     bars: [

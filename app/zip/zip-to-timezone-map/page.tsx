@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Timezone Map — Visualizing US Timezone Boundaries by ZIP Code`,
   populationChart: {
-    title: 'US Population Distribution by Timezone',
+    title: 'US Population Distribution by Timezone | ToolTrio',
     subtitle: 'Eastern Time contains the most US population; Pacific despite fewer ZIPs is heavily populated',
     unit: 'million people (approx.)',
     bars: [

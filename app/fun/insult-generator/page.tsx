@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE_URL}/fun/insult-generator` },
   openGraph: {
-    title: `${COUNT} Free Insult Generators — Roasts, Comebacks & Burns`,
+    title: `${COUNT} Free Insult Generators — Roasts, Comebacks & Burns | ToolTrio`,
     description: `Shakespeare, pirate, Victorian and royal insult generators plus medieval, savage, office roasts and comebacks — ${COUNT} free generators in one place.`,
     url: `${BASE_URL}/fun/insult-generator`,
     type: 'website',

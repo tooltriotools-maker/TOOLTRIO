@@ -100,7 +100,7 @@ const seoContent = {
   ],
 
   populationChart: {
-    title: 'Most Populous US ZIP Codes (Census ACS Estimates)',
+    title: 'Most Populous US ZIP Codes (Census ACS Estimates) | ToolTrio',
     subtitle: 'Dense urban ZIP codes in NY, TX, IL, and CA — each with 100,000+ residents',
     unit: 'K residents',
     bars: [

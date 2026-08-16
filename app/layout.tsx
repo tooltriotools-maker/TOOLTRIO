@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
   title: {
     default: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
-    template: '%s | ToolTrio',
+    template: '%s | ToolTrio', // Every non-absolute route title is branded consistently.
   },
 
   description:

@@ -100,7 +100,7 @@ const seoContent = {
 
   heading: 'ZIP Code Validation — How to Verify a US ZIP Code is Real and Active',
   populationChart: {
-    title: 'US ZIP Code Types: Distribution by Category',
+    title: 'US ZIP Code Types: Distribution by Category | ToolTrio',
     subtitle: 'Not all ZIP codes serve residential addresses — type validation matters',
     unit: 'thousands of ZIPs',
     bars: [

@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Boundary Info — Understanding ZIP Code Geographic Boundaries and Area`,
   populationChart: {
-    title: 'US ZIP Code Land Area Distribution',
+    title: 'US ZIP Code Land Area Distribution | ToolTrio',
     subtitle: 'ZIP code geographic size varies from under 1 sq mi in dense cities to thousands in rural areas',
     unit: '% of all ZIPs',
     bars: [

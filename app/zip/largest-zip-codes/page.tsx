@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Largest ZIP Codes in the USA — Population, Area, and Demographics`,
   populationChart: {
-    title: 'Most Populous US ZIP Codes (Census ACS Estimates, thousands)',
+    title: 'Most Populous US ZIP Codes (Census ACS Estimates, thousands) | ToolTrio',
     subtitle: 'Dense urban ZIP codes in NY, TX, IL, and CA dominate the top of the list',
     unit: 'thousand residents',
     bars: [

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/blog' },
   openGraph: {
-    title: `${blogPosts.length} Expert Guides & Articles ${CURRENT_YEAR}`, 
+    title: `${blogPosts.length} Expert Guides & Articles ${CURRENT_YEAR} | ToolTrio`, 
     description: `${blogPosts.length} expert ZIP Code guides.`,
     url: 'https://tooltrio.com/blog',
     siteName: 'ToolTrio',

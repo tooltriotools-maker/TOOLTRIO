@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `USPS Address Format — The Official Standards for US Mailing Addresses`,
   populationChart: {
-    title: 'USPS Address Line Components — Standard Domestic Address Structure',
+    title: 'USPS Address Line Components — Standard Domestic Address Structure | ToolTrio',
     subtitle: 'Each line serves a specific sorting and routing function in USPS automation',
     unit: 'characters max per line',
     bars: [

@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP to ZIP Route — Planning Drives Between US ZIP Codes`,
   populationChart: {
-    title: 'Typical Drive Time by Distance Range (Free-Flow, US Average)',
+    title: 'Typical Drive Time by Distance Range (Free-Flow, US Average) | ToolTrio',
     subtitle: 'Drive time depends on road type mix — more highway = faster per mile',
     unit: 'minutes',
     bars: [

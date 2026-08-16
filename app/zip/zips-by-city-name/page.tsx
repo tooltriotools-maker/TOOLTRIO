@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Codes by City Name — Searching the US Postal Database by City or Community Name`,
   populationChart: {
-    title: 'Most Common US City Names (Number of States with That City Name)',
+    title: 'Most Common US City Names (Number of States with That City Name) | ToolTrio',
     subtitle: 'Many common city names appear in 20+ states — state context is essential for disambiguation',
     unit: 'states with this city name',
     bars: [

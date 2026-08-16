@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Same Timezone ZIP Codes — Finding ZIP Codes That Share a Timezone`,
   populationChart: {
-    title: 'US ZIP Code Distribution by Timezone',
+    title: 'US ZIP Code Distribution by Timezone | ToolTrio',
     subtitle: 'Eastern and Central zones contain the most ZIP codes and population',
     unit: 'thousand ZIPs',
     bars: [

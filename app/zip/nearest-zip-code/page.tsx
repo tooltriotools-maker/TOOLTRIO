@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `Nearest ZIP Code Finder — How to Find Adjacent and Neighboring ZIP Codes`,
   populationChart: {
-    title: 'Typical Distance to Nearest ZIP by US Region Type',
+    title: 'Typical Distance to Nearest ZIP by US Region Type | ToolTrio',
     subtitle: 'Urban areas have much denser ZIP packing than rural regions',
     unit: 'miles to nearest ZIP',
     bars: [

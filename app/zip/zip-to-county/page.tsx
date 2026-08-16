@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: 'ZIP to County — How to Find the County for Any US ZIP Code',
   populationChart: {
-    title: 'Largest US Counties by Population (2024 Estimates)',
+    title: 'Largest US Counties by Population (2024 Estimates) | ToolTrio',
     subtitle: 'County-level data is critical for tax, regulatory, and demographic analysis',
     unit: 'million residents',
     bars: [

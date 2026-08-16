@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `City to ZIP Code Lookup — Finding All ZIP Codes That Serve a US City`,
   populationChart: {
-    title: 'US Cities by Number of ZIP Codes (Top 8)',
+    title: 'US Cities by Number of ZIP Codes (Top 8) | ToolTrio',
     subtitle: 'Larger, denser cities have more ZIP codes to handle higher mail volumes',
     unit: 'ZIP codes',
     bars: [

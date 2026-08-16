@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Radius Search' }],
     locale: 'en_US',
   },
-  twitter: { card: 'summary_large_image', title: 'ZIP Code Radius', description: 'Find all ZIP codes within any radius. Free.', images: ['https://tooltrio.com/og-image.png'] },
+  twitter: { card: 'summary_large_image', title: 'ZIP Code Radius — ZIP Codes Within a Radius | ToolTrio', description: 'Find all ZIP codes within any radius. Free.', images: ['https://tooltrio.com/og-image.png'] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' } },
 }
 
@@ -60,7 +60,7 @@ const seoContent = {
   ],
   heading: 'ZIP Code Radius Search — Find All ZIP Codes Within Any Distance',
   populationChart: {
-    title: 'Typical ZIP Count by Radius (Urban Area)',
+    title: 'Typical ZIP Count by Radius (Urban Area) | ToolTrio',
     subtitle: 'Number of ZIP codes within radius of a dense urban center',
     unit: 'ZIP codes',
     bars: [

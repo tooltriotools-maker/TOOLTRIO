@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: 'ZIP to State — How US ZIP Codes Map to States and Territories',
   populationChart: {
-    title: 'US States by Number of ZIP Codes (Top 8)',
+    title: 'US States by Number of ZIP Codes (Top 8) | ToolTrio',
     subtitle: 'More ZIP codes reflect larger area, higher population, or both',
     unit: 'ZIPs',
     bars: [

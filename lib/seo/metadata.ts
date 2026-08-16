@@ -18,7 +18,8 @@ export function generateFunToolMetadata(params: {
   slug: string
   keywords: string[]
 }): Metadata {
-  const { title, description, slug, keywords } = params
+  const { title: rawTitle, description, slug, keywords } = params
+  const title = rawTitle.replace(/\s*\|\s*ToolTrio\s*$/i, '') + ' | ToolTrio'
   const url = `${BASE_URL}/fun/${slug}`
   const allKeywords = Array.from(new Set([...keywords, 'tooltrio', 'tool trio', ...FUN_CORE_KW]))
 

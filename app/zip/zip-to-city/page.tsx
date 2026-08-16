@@ -100,7 +100,7 @@ const seoContent = {
 
   heading: 'ZIP to City Lookup — Find the City Name for Any US ZIP Code',
   populationChart: {
-    title: 'Top 8 US Cities by Number of ZIP Codes Assigned',
+    title: 'Top 8 US Cities by Number of ZIP Codes Assigned | ToolTrio',
     subtitle: 'More ZIP codes generally indicate higher population density and mail volume',
     unit: 'ZIPs',
     bars: [

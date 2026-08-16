@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `US ZIP Code Format Guide — Everything About ZIP Code Structure and Storage`,
   populationChart: {
-    title: 'US ZIP Code Leading-Zero States and Their ZIP Prefix Ranges',
+    title: 'US ZIP Code Leading-Zero States and Their ZIP Prefix Ranges | ToolTrio',
     subtitle: '8 states + Puerto Rico + USVI have ZIPs starting with 0 — must be stored as text',
     unit: 'ZIP range start',
     bars: [

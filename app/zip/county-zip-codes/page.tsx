@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `County ZIP Codes — Finding All ZIP Codes Within a US County`,
   populationChart: {
-    title: 'US Counties by Number of ZIP Codes (Top 8)',
+    title: 'US Counties by Number of ZIP Codes (Top 8) | ToolTrio',
     subtitle: 'Urban counties have many small ZIP codes; rural counties may have just one or two',
     unit: 'ZIP codes',
     bars: [

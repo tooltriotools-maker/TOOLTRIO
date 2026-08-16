@@ -94,7 +94,7 @@ const seoContent = {
 
   heading: 'ZIP Code Population Data — Understanding US ZIP Code Demographics',
   populationChart: {
-    title: 'Most Populous US ZIP Codes (Approximate Population, ACS Estimates)',
+    title: 'Most Populous US ZIP Codes (Approximate Population, ACS Estimates) | ToolTrio',
     subtitle: 'Top ZIP codes by total resident population based on Census Bureau ZCTA data',
     unit: 'thousand residents',
     bars: [

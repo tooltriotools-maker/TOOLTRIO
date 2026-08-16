@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Generator — Creating Valid US ZIP Codes for Testing and Development`,
   populationChart: {
-    title: 'ZIP Code Generator Filter Options — Distribution of Results',
+    title: 'ZIP Code Generator Filter Options — Distribution of Results | ToolTrio',
     subtitle: 'More specific filters produce smaller but more targeted result sets',
     unit: 'available ZIPs',
     bars: [

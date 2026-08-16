@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Map — Visualizing US ZIP Code Boundaries and Geography`,
   populationChart: {
-    title: 'US ZIP Code Geographic Size Distribution',
+    title: 'US ZIP Code Geographic Size Distribution | ToolTrio',
     subtitle: 'ZIP code area varies enormously from city blocks to thousands of square miles',
     unit: '% of all ZIPs',
     bars: [

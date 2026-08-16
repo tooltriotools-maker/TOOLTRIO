@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Elevation — Why Altitude Matters and How It Varies Across US ZIP Codes`,
   populationChart: {
-    title: 'US ZIP Codes at Notable Elevation Ranges',
+    title: 'US ZIP Codes at Notable Elevation Ranges | ToolTrio',
     subtitle: 'Elevation varies from below sea level (Death Valley) to over 10,000 ft in Rockies',
     unit: 'feet above sea level',
     bars: [

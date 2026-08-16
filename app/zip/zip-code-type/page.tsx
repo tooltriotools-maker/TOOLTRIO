@@ -77,7 +77,7 @@ const seoContent = {
 
   heading: `ZIP Code Types — Standard, P.O. Box, Unique, and Military ZIP Codes Explained`,
   populationChart: {
-    title: 'US ZIP Code Distribution by Type',
+    title: 'US ZIP Code Distribution by Type | ToolTrio',
     subtitle: 'Standard ZIPs handle the vast majority of residential and business deliveries',
     unit: 'thousands of ZIP codes',
     bars: [

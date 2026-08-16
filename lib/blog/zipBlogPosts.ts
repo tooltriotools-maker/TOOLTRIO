@@ -18,7 +18,7 @@ export const zipBlogPosts: BlogPost[] = [
       { name: 'USPS Address Format', href: '/zip/usps-address-format', icon: '📬', desc: 'Format addresses correctly' },
       { name: 'ZIP Code Format Guide', href: '/zip/zip-code-format-guide', icon: '🔤', desc: 'Every ZIP format explained' },
     ],
-    seoTitle: 'What Is a ZIP+4 Code? Format, Meaning & How to Find Yours',
+    seoTitle: 'What Is a ZIP+4 Code? Format, Meaning & How to Find Yours | ToolTrio',
     seoDescription: 'ZIP+4 explained: what the extra 4 digits mean, the XXXXX-XXXX format, why USPS uses it, and how to look up your ZIP+4 code for free.',
     keywords: ['zip+4 code', 'what is zip+4', 'zip plus 4 lookup', 'zip code extension', 'zip+4 format', 'zip code 9 digit'],
     trendingKeywords: ['zip+4 lookup', 'zip code 9 digit', 'nine digit zip code'],
@@ -346,7 +346,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
       { name: 'ZIP Code Type', href: '/zip/zip-code-type', icon: '🏷️', desc: 'Standard, PO Box, Unique, or Military' },
     ],
-    seoTitle: 'How to Find a ZIP Code From an Address (Free Lookup)',
+    seoTitle: 'How to Find a ZIP Code From an Address (Free Lookup) | ToolTrio',
     seoDescription: 'Find the exact ZIP code for any US street address in seconds. Covers city-based lookup, edge cases, and why USPS is the final authority.',
     keywords: ['find zip code from address', 'address to zip code', 'what is my zip code', 'lookup zip by address', 'zip code from street address'],
     content: `# How to Find a ZIP Code From an Address
@@ -647,7 +647,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'Nearest ZIP Code', href: '/zip/nearest-zip-code', icon: '📌', desc: 'Closest ZIPs to yours' },
       { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip', icon: '🚗', desc: 'Estimate drive time' },
     ],
-    seoTitle: 'How to Find ZIP Codes Within a Radius (Free Search Tool)',
+    seoTitle: 'How to Find ZIP Codes Within a Radius (Free Search Tool) | ToolTrio',
     seoDescription: 'Find every ZIP code within a set distance of any location. Free radius search tool for delivery zones, service areas, and territory planning.',
     keywords: ['zip codes within radius', 'zip radius search', 'zip codes within 25 miles', 'find zip codes near me', 'zip code radius tool'],
     content: `# How to Find ZIP Codes Within a Radius
@@ -942,7 +942,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'Multi-ZIP Distance', href: '/zip/multi-zip-distance', icon: '📐', desc: 'Distance between many ZIPs' },
       { name: 'Nearest ZIP Code', href: '/zip/nearest-zip-code', icon: '📌', desc: 'Closest ZIPs to yours' },
     ],
-    seoTitle: 'How Far Apart Are Two ZIP Codes? Free Distance Calculator',
+    seoTitle: 'How Far Apart Are Two ZIP Codes? Free Distance Calculator | ToolTrio',
     seoDescription: 'Calculate the exact distance in miles and kilometers between any two US ZIP codes. Free instant ZIP code distance calculator.',
     keywords: ['distance between zip codes', 'zip code distance calculator', 'how far apart are two zip codes', 'miles between zip codes', 'zip code mileage'],
     content: `# How Far Apart Are Two ZIP Codes?
@@ -1250,7 +1250,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'State ZIP Codes', href: '/zip/state-zip-codes', icon: '🗺️', desc: 'All ZIPs in a state' },
       { name: 'ZIP Code Type', href: '/zip/zip-code-type', icon: '🏷️', desc: 'Standard, PO Box, Unique, or Military' },
     ],
-    seoTitle: 'How Many ZIP Codes Are in the United States?',
+    seoTitle: 'How Many ZIP Codes Are in the United States? | ToolTrio',
     seoDescription: 'USPS reports 41,554 official ZIP Codes in the US. See the real breakdown by Standard, PO Box, Unique, and Military types, and why counts vary.',
     keywords: ['how many zip codes in the us', 'total zip codes usa', 'number of zip codes', 'us zip code count', 'how many zip codes are there'],
     content: `# How Many ZIP Codes Are in the United States?
@@ -1551,7 +1551,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'Largest ZIP Codes', href: '/zip/largest-zip-codes', icon: '📊', desc: 'Most populous ZIPs' },
       { name: 'ZIP Code Population', href: '/zip/zip-code-population', icon: '👥', desc: 'Population for ZIP' },
     ],
-    seoTitle: 'Which State Has the Most ZIP Codes? Full Ranking',
+    seoTitle: 'Which State Has the Most ZIP Codes? Full Ranking | ToolTrio',
     seoDescription: 'Texas and California consistently rank as the top two US states by ZIP code count. See the full ranking and why the exact numbers vary by source.',
     keywords: ['state with most zip codes', 'which state has the most zip codes', 'texas zip codes', 'california zip codes count'],
     content: `# Which State Has the Most ZIP Codes?
@@ -1830,7 +1830,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
       { name: 'ZIP Code Population', href: '/zip/zip-code-population', icon: '👥', desc: 'Population for ZIP' },
     ],
-    seoTitle: 'Which State Has the Fewest ZIP Codes? Full Ranking',
+    seoTitle: 'Which State Has the Fewest ZIP Codes? Full Ranking | ToolTrio',
     seoDescription: 'Rhode Island and Delaware consistently rank lowest for ZIP code count in the US. See why, and how ZIP count relates to population.',
     keywords: ['state with fewest zip codes', 'which state has the fewest zip codes', 'rhode island zip codes', 'smallest number of zip codes'],
     content: `# Which State Has the Fewest ZIP Codes?
@@ -2109,7 +2109,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'USPS Address Format', href: '/zip/usps-address-format', icon: '📬', desc: 'Format addresses correctly' },
       { name: 'ZIP Code Population', href: '/zip/zip-code-population', icon: '👥', desc: 'Population for ZIP' },
     ],
-    seoTitle: "ZIP Code vs Postal Code: What's the Difference?",
+    seoTitle: "ZIP Code vs Postal Code: What's the Difference? | ToolTrio",
     seoDescription: 'ZIP code is the US-specific term for what most other countries call a postal code. Learn the real difference, plus how US ZIP codes are structured.',
     keywords: ['zip code vs postal code', 'is zip code the same as postal code', 'us postal code format', 'zip code meaning', 'zip code vs zcta'],
     content: `# ZIP Code vs Postal Code: What's the Difference?
@@ -2410,7 +2410,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP to State', href: '/zip/zip-to-state', icon: '🗺️', desc: 'State from ZIP code' },
       { name: 'ZIP Code Distance', href: '/zip/zip-code-distance', icon: '📏', desc: 'Distance between 2 ZIPs' },
     ],
-    seoTitle: 'What Do the 5 Digits in a ZIP Code Mean?',
+    seoTitle: 'What Do the 5 Digits in a ZIP Code Mean? | ToolTrio',
     seoDescription: 'Each digit in a US ZIP code has geographic meaning. See exactly what the 1st, 2nd, and last digits represent, with real examples.',
     keywords: ['what do zip code digits mean', 'zip code structure', 'zip code first digit meaning', 'how zip codes work'],
     content: `# What Do the 5 Digits in a ZIP Code Mean?
@@ -2708,7 +2708,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'City to ZIP', href: '/zip/city-to-zip', icon: '🏙️', desc: 'All ZIPs for a city' },
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
     ],
-    seoTitle: "Can Two Cities Have the Same ZIP Code? (Yes — Here's Why)",
+    seoTitle: "Can Two Cities Have the Same ZIP Code? (Yes — Here's Why) | ToolTrio",
     seoDescription: 'Some ZIP codes are shared by multiple city or town names. Learn why this happens and how to check which cities share a given ZIP.',
     keywords: ['can two cities have the same zip code', 'shared zip codes', 'zip code multiple cities', 'one zip code two towns'],
     content: `# Can Two Cities Have the Same ZIP Code?
@@ -2996,7 +2996,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'County ZIP Codes', href: '/zip/county-zip-codes', icon: '📋', desc: 'ZIPs in a county' },
       { name: 'ZIP Boundary Info', href: '/zip/zip-boundary-info', icon: '🔲', desc: 'ZIP code border details' },
     ],
-    seoTitle: 'Can a ZIP Code Cross County Lines? (Yes — Explained)',
+    seoTitle: 'Can a ZIP Code Cross County Lines? (Yes — Explained) | ToolTrio',
     seoDescription: 'ZIP codes and county boundaries are drawn independently, so yes, a single ZIP code can span two or more counties. Here is why and how to check.',
     keywords: ['can a zip code cross county lines', 'zip code multiple counties', 'zip code county boundary'],
     content: `# Can a ZIP Code Cross County Lines?
@@ -3272,7 +3272,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Boundary Info', href: '/zip/zip-boundary-info', icon: '🔲', desc: 'ZIP code border details' },
       { name: 'ZIP Code Map', href: '/zip/zip-code-map', icon: '🗺️', desc: 'View ZIP on Google Maps' },
     ],
-    seoTitle: 'Can a ZIP Code Cross State Lines? (Rare, But Yes)',
+    seoTitle: 'Can a ZIP Code Cross State Lines? (Rare, But Yes) | ToolTrio',
     seoDescription: 'A small number of US ZIP codes technically span two states. Learn how this happens and how to check which state a ZIP officially belongs to.',
     keywords: ['can a zip code cross state lines', 'zip code two states', 'zip code state boundary'],
     content: `# Can a ZIP Code Cross State Lines?
@@ -3552,7 +3552,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Code Type', href: '/zip/zip-code-type', icon: '📬', desc: 'Standard, PO Box or Military?' },
       { name: 'ZIP Code Generator', href: '/zip/zip-code-generator', icon: '⚡', desc: 'Generate valid ZIPs' },
     ],
-    seoTitle: 'How Are ZIP Codes Assigned? The USPS Process Explained',
+    seoTitle: 'How Are ZIP Codes Assigned? The USPS Process Explained | ToolTrio',
     seoDescription: 'ZIP codes are assigned by USPS based on mail delivery efficiency, not political boundaries. Learn exactly how and why new ZIP codes get created.',
     keywords: ['how are zip codes assigned', 'who assigns zip codes', 'how zip codes are created', 'usps zip code process'],
     content: `# How Are ZIP Codes Assigned?
@@ -3834,7 +3834,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP to Area Code', href: '/zip/zip-to-area-code', icon: '📞', desc: 'Phone area code by ZIP' },
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
     ],
-    seoTitle: 'What Is a ZIP Code Prefix? (First 3 Digits Explained)',
+    seoTitle: 'What Is a ZIP Code Prefix? (First 3 Digits Explained) | ToolTrio',
     seoDescription: 'A ZIP code prefix is the first 3 digits, identifying a regional USPS Sectional Center Facility. Learn what it means and how to use it.',
     keywords: ['zip code prefix', 'first 3 digits of zip code', 'zip code prefix meaning', 'sectional center facility'],
     content: `# What Is a ZIP Code Prefix?
@@ -4115,7 +4115,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
       { name: 'USPS Address Format', href: '/zip/usps-address-format', icon: '📬', desc: 'Format addresses correctly' },
     ],
-    seoTitle: 'What Is a USPS ZIP Code? Meaning & Official Source Explained',
+    seoTitle: 'What Is a USPS ZIP Code? Meaning & Official Source Explained | ToolTrio',
     seoDescription: 'Every US ZIP code is officially defined by USPS. Learn what makes a ZIP code "official," how it differs from third-party data, and where to validate one.',
     keywords: ['usps zip code', 'what is a usps zip code', 'official zip code source', 'zip code authority'],
     content: `# What Is a USPS ZIP Code?
@@ -4394,7 +4394,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Code Validator', href: '/zip/zip-code-validator', icon: '✅', desc: 'Validate any ZIP code' },
       { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup', icon: '➕', desc: '9-digit ZIP code lookup' },
     ],
-    seoTitle: 'What Is a Valid U.S. ZIP Code Format? (5-Digit & ZIP+4)',
+    seoTitle: 'What Is a Valid U.S. ZIP Code Format? (5-Digit & ZIP+4) | ToolTrio',
     seoDescription: 'A valid US ZIP code is 5 digits, or 9 digits as ZIP+4 (XXXXX-XXXX). See the exact format rules, common mistakes, and how to validate one.',
     keywords: ['valid zip code format', 'us zip code format', 'zip code format rules', 'zip code digits format'],
     content: `# What Is a Valid U.S. ZIP Code Format?
@@ -4683,7 +4683,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'ZIP Format Guide', href: '/zip/zip-code-format-guide', icon: '📖', desc: 'ZIP formatting rules' },
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
     ],
-    seoTitle: 'How to Validate a ZIP Code (Format + Existence Check)',
+    seoTitle: 'How to Validate a ZIP Code (Format + Existence Check) | ToolTrio',
     seoDescription: 'ZIP code validation checks two things: correct format, and whether the ZIP actually exists. Free instant ZIP code validator tool.',
     keywords: ['how to validate a zip code', 'zip code validation', 'check if zip code is valid', 'zip code checker'],
     content: `# How to Validate a ZIP Code
@@ -4967,7 +4967,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'County ZIP Codes', href: '/zip/county-zip-codes', icon: '📋', desc: 'ZIPs in a county' },
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
     ],
-    seoTitle: 'How to Find a County From a ZIP Code (Free Lookup)',
+    seoTitle: 'How to Find a County From a ZIP Code (Free Lookup) | ToolTrio',
     seoDescription: 'Find the county for any US ZIP code instantly. Learn why some ZIP codes span multiple counties and how to check yours.',
     keywords: ['find county from zip code', 'zip code to county lookup', 'what county is my zip code in'],
     content: `# How to Find a County From a ZIP Code
@@ -5243,7 +5243,7 @@ If you are using this result for a real workflow, treat the lookup as the beginn
       { name: 'ZIP Time Converter', href: '/zip/zip-time-converter', icon: '⏱️', desc: 'Convert time between ZIPs' },
       { name: 'Same Timezone ZIPs', href: '/zip/same-timezone-zips', icon: '🕐', desc: 'ZIPs sharing a timezone' },
     ],
-    seoTitle: 'How to Find a Time Zone From a ZIP Code (Free Tool)',
+    seoTitle: 'How to Find a Time Zone From a ZIP Code (Free Tool) | ToolTrio',
     seoDescription: 'Find the exact US timezone for any ZIP code instantly — including tricky cases like Arizona (no DST) and split-timezone states.',
     keywords: ['zip code time zone lookup', 'find time zone by zip code', 'what timezone is my zip code'],
     content: `# How to Find a Time Zone From a ZIP Code
@@ -5533,7 +5533,7 @@ If you are using this result for a real workflow, treat the lookup as the beginn
       { name: 'ZIP Code Distance', href: '/zip/zip-code-distance', icon: '📏', desc: 'Distance between 2 ZIPs' },
       { name: 'ZIP Code Map', href: '/zip/zip-code-map', icon: '🗺️', desc: 'View ZIP on Google Maps' },
     ],
-    seoTitle: 'How to Find Latitude & Longitude From a ZIP Code (Free Tool)',
+    seoTitle: 'How to Find Latitude & Longitude From a ZIP Code (Free Tool) | ToolTrio',
     seoDescription: 'Get the exact latitude and longitude coordinates for any US ZIP code instantly. Free tool, plus what ZIP-level coordinates are accurate for.',
     keywords: ['zip code to latitude longitude', 'zip code coordinates', 'find lat long from zip code', 'zip code gps coordinates'],
     content: `# How to Find Latitude & Longitude From a ZIP Code
@@ -5815,7 +5815,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'Largest ZIP Codes', href: '/zip/largest-zip-codes', icon: '📊', desc: 'Most populous ZIPs' },
       { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: '🔍', desc: 'Full details for any ZIP' },
     ],
-    seoTitle: 'How to Find the Population of a ZIP Code (Free Lookup)',
+    seoTitle: 'How to Find the Population of a ZIP Code (Free Lookup) | ToolTrio',
     seoDescription: 'Find accurate population data for any US ZIP code. Learn how ZIP codes relate to Census ZCTAs, why some ZIPs show no data, and how to look it up free.',
     keywords: ['zip code population', 'population by zip code', 'zip code demographics lookup', 'how many people live in zip code', 'zcta population data'],
     content: `# How to Find the Population of a ZIP Code
