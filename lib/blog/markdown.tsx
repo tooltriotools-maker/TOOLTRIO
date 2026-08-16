@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
+import { BlogChart } from './BlogChart'
 
 function escapeText(value: string): string {
   return value
@@ -126,12 +127,21 @@ export function MarkdownContent({ content }: { content: string }) {
         i += 1
       }
       if (i < lines.length) i += 1
-      blocks.push(
-        <pre key={`codeblock-${key++}`} className="overflow-x-auto rounded-xl bg-gray-950 text-gray-100 p-4 mb-5 text-sm leading-relaxed">
-          {language && <code className="sr-only">{language}</code>}
-          <code>{codeLines.join('\n')}</code>
-        </pre>,
-      )
+      if (language.toLowerCase() === 'chart') {
+        try {
+          const spec = JSON.parse(codeLines.join('\n'))
+          blocks.push(<BlogChart key={`chart-${key++}`} spec={spec} />)
+        } catch {
+          blocks.push(<pre key={`codeblock-${key++}`} className="overflow-x-auto rounded-xl bg-gray-950 text-gray-100 p-4 mb-5 text-sm leading-relaxed"><code>{codeLines.join('\n')}</code></pre>)
+        }
+      } else {
+        blocks.push(
+          <pre key={`codeblock-${key++}`} className="overflow-x-auto rounded-xl bg-gray-950 text-gray-100 p-4 mb-5 text-sm leading-relaxed">
+            {language && <code className="sr-only">{language}</code>}
+            <code>{codeLines.join('\n')}</code>
+          </pre>,
+        )
+      }
       continue
     }
 
