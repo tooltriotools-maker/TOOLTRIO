@@ -170,14 +170,8 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="text-2xl flex-shrink-0">🥠</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Fortune Cookie</p><p className="text-xs text-gray-400 mt-0.5">Crack open your digital fortune</p></span>
           </Link>
-          <Link href="/fun/personality-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧬</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Personality Quiz</p><p className="text-xs text-gray-400 mt-0.5">16 personality archetypes</p></span>
-          </Link>
-          <Link href="/fun/how-rich-am-i" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">💰</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">How Rich Am I</p><p className="text-xs text-gray-400 mt-0.5">Your global wealth ranking</p></span>
-          </Link>
+          
+          
           <Link href="/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🧠</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>

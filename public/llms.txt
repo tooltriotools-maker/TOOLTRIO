@@ -3,44 +3,55 @@
 # Generated from the ToolTrio Master Tool Registry
 
 ## About
-65+ active tools across Fun and ZIP tools.
+76 active tools across Fun and ZIP tools.
 Free to use. No signup required.
 
 ## Categories
-- Fun: https://tooltrio.com/calculators/fun
-- ZIP: https://tooltrio.com/zip
+- Fun: https://tooltrio.com/fun (41 tools)
+- ZIP: https://tooltrio.com/zip (35 tools)
 
 ## Tools
-- Age in Days: https://tooltrio.com/calculators/fun/age-in-days
-- Birthday Countdown: https://tooltrio.com/calculators/fun/birthday-countdown
-- Calories in Beer: https://tooltrio.com/calculators/fun/calories-in-beer
-- Coffee Calculator: https://tooltrio.com/calculators/fun/coffee-calculator
-- Compliment Generator: https://tooltrio.com/calculators/fun/compliment-generator
-- Emoji Translator: https://tooltrio.com/calculators/fun/emoji-translator
-- Fantasy Name Generator: https://tooltrio.com/calculators/fun/fantasy-name-generator
-- Fortune Cookie: https://tooltrio.com/calculators/fun/fortune-cookie
-- How Rich Am I: https://tooltrio.com/calculators/fun/how-rich-am-i
-- Life Expectancy Fun: https://tooltrio.com/calculators/fun/life-expectancy-fun
-- Love Compatibility: https://tooltrio.com/calculators/fun/love-compatibility
-- Lucky Number: https://tooltrio.com/calculators/fun/lucky-number
-- Personality Quiz: https://tooltrio.com/calculators/fun/personality-quiz
-- Pig Latin Converter: https://tooltrio.com/calculators/fun/pig-latin-converter
-- Pizza Calculator: https://tooltrio.com/calculators/fun/pizza-calculator
-- Procrastination Score: https://tooltrio.com/calculators/fun/procrastination-score
-- Random Fact Generator: https://tooltrio.com/calculators/fun/random-fact-generator
-- Random Name Generator: https://tooltrio.com/calculators/fun/random-name-generator
-- Screen Time Calculator: https://tooltrio.com/calculators/fun/screen-time-calculator
-- Insult Generator: https://tooltrio.com/calculators/fun/shakespeare-insult-generator
-- Sleep Debt Calculator: https://tooltrio.com/calculators/fun/sleep-debt-calculator
-- Social Media Addiction: https://tooltrio.com/calculators/fun/social-media-addiction
-- Superhero Name: https://tooltrio.com/calculators/fun/superhero-name
-- Text to Morse: https://tooltrio.com/calculators/fun/text-to-morse
-- Trivia Quiz: https://tooltrio.com/calculators/fun/trivia-quiz
-- Uwu Text Generator: https://tooltrio.com/calculators/fun/uwu-text-generator
-- Villain Name: https://tooltrio.com/calculators/fun/villain-name
-- Workout Excuse Generator: https://tooltrio.com/calculators/fun/workout-excuse-generator
-- Would You Rather: https://tooltrio.com/calculators/fun/would-you-rather
-- Zodiac Calculator: https://tooltrio.com/calculators/fun/zodiac-calculator
+- Age in Days: https://tooltrio.com/fun/age-in-days
+- Birthday Countdown: https://tooltrio.com/fun/birthday-countdown
+- Coffee Calculator: https://tooltrio.com/fun/coffee-calculator
+- Compliment Generator: https://tooltrio.com/fun/compliment-generator
+- Emoji Translator: https://tooltrio.com/fun/emoji-translator
+- Fantasy Name Generator: https://tooltrio.com/fun/fantasy-name-generator
+- Fortune Cookie: https://tooltrio.com/fun/fortune-cookie
+- Love Compatibility: https://tooltrio.com/fun/love-compatibility
+- Lucky Number: https://tooltrio.com/fun/lucky-number
+- Pig Latin Converter: https://tooltrio.com/fun/pig-latin-converter
+- Pizza Calculator: https://tooltrio.com/fun/pizza-calculator
+- Random Fact Generator: https://tooltrio.com/fun/random-fact-generator
+- Random Name Generator: https://tooltrio.com/fun/random-name-generator
+- Shakespeare Insult Generator: https://tooltrio.com/fun/shakespeare-insult-generator
+- Superhero Name: https://tooltrio.com/fun/superhero-name
+- Text to Morse: https://tooltrio.com/fun/text-to-morse
+- Trivia Quiz: https://tooltrio.com/fun/trivia-quiz
+- Uwu Text Generator: https://tooltrio.com/fun/uwu-text-generator
+- Villain Name: https://tooltrio.com/fun/villain-name
+- Workout Excuse Generator: https://tooltrio.com/fun/workout-excuse-generator
+- Would You Rather: https://tooltrio.com/fun/would-you-rather
+- Zodiac Calculator: https://tooltrio.com/fun/zodiac-calculator
+- Insult Generator Hub: https://tooltrio.com/fun/insult-generator
+- Medieval Insult Generator: https://tooltrio.com/fun/insult-generator/medieval-insult-generator
+- Pirate Insult Generator: https://tooltrio.com/fun/insult-generator/pirate-insult-generator
+- Victorian Insult Generator: https://tooltrio.com/fun/insult-generator/victorian-insult-generator
+- Funny Insult Generator: https://tooltrio.com/fun/insult-generator/funny-insult-generator
+- Friendly Insult Generator: https://tooltrio.com/fun/insult-generator/friendly-insult-generator
+- Fantasy Insult Generator: https://tooltrio.com/fun/insult-generator/fantasy-insult-generator
+- Wizard Insult Generator: https://tooltrio.com/fun/insult-generator/wizard-insult-generator
+- Pirate Roast Generator: https://tooltrio.com/fun/insult-generator/pirate-roast-generator
+- Cowboy Insult Generator: https://tooltrio.com/fun/insult-generator/cowboy-insult-generator
+- Royal Insult Generator: https://tooltrio.com/fun/insult-generator/royal-insult-generator
+- Comeback Generator: https://tooltrio.com/fun/insult-generator/comeback-generator
+- Sarcastic Comeback Generator: https://tooltrio.com/fun/insult-generator/sarcastic-comeback-generator
+- Villain Insult Generator: https://tooltrio.com/fun/insult-generator/villain-insult-generator
+- New Age Insult Generator: https://tooltrio.com/fun/insult-generator/new-age-insult-generator
+- Zodiac Insult Generator: https://tooltrio.com/fun/insult-generator/zodiac-insult-generator
+- Sci-Fi Insult Generator: https://tooltrio.com/fun/insult-generator/sci-fi-insult-generator
+- Robot Insult Generator: https://tooltrio.com/fun/insult-generator/robot-insult-generator
+- Zombie Insult Generator: https://tooltrio.com/fun/insult-generator/zombie-insult-generator
 - Address To Zip: https://tooltrio.com/zip/address-to-zip
 - Area Code By Zip: https://tooltrio.com/zip/area-code-by-zip
 - City To Zip: https://tooltrio.com/zip/city-to-zip
@@ -77,13 +88,13 @@ Free to use. No signup required.
 - Zips By City Name: https://tooltrio.com/zip/zips-by-city-name
 - Zips Within Radius: https://tooltrio.com/zip/zips-within-radius
 
-## Key Pages
-- Home: https://tooltrio.com
-- Blog: https://tooltrio.com/blog
-- Methodology: https://tooltrio.com/methodology
+## Site pages
 - About: https://tooltrio.com/about
-- Disclaimer: https://tooltrio.com/disclaimer
+- Methodology: https://tooltrio.com/methodology
+- Contact: https://tooltrio.com/contact
 - Privacy Policy: https://tooltrio.com/privacy-policy
+- Disclaimer: https://tooltrio.com/disclaimer
+- Blog: https://tooltrio.com/blog
 
-## Content Policy
-Calculator formulas, sources, review status and regional assumptions are maintained per tool. Review dates are only published when explicitly evidenced; the system never invents a current review date. The Master Tool Registry is the canonical list of active tools used by sitemap, search, counts and this file.
+## Notes
+ToolTrio is a collection of browser-based utilities. The Master Tool Registry is the canonical list of active tools used by the application catalog and sitemap.

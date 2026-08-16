@@ -7,6 +7,27 @@ import { NextRequest, NextResponse } from 'next/server'
  */
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const removedFunTools = new Set([
+    '/fun/calories-in-beer',
+    '/fun/how-rich-am-i',
+    '/fun/life-expectancy-fun',
+    '/fun/personality-quiz',
+    '/fun/procrastination-score',
+    '/fun/screen-time-calculator',
+    '/fun/sleep-debt-calculator',
+    '/fun/social-media-addiction',
+  ])
+
+  if (removedFunTools.has(pathname)) {
+    return new NextResponse('Gone', {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Robots-Tag': 'noindex',
+      },
+    })
+  }
+
   const removedCategory =
     pathname === '/calculators/finance' || pathname.startsWith('/calculators/finance/') ||
     pathname === '/calculators/health' || pathname.startsWith('/calculators/health/') ||
@@ -21,5 +42,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/calculators/finance/:path*', '/calculators/health/:path*', '/calculators/dev/:path*'],
+  matcher: ['/calculators/finance/:path*', '/calculators/health/:path*', '/calculators/dev/:path*', '/fun/:path*'],
 }

@@ -43,22 +43,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/birthday-countdown/page.tsx"
   },
-  "/fun/calories-in-beer": {
-    "title": "Calories in Beer Calculator | ToolTrio",
-    "description": "Calculate calories in any beer by type, ABV, and serving size. Find out how long it takes to burn off those pints. Free, instant, no login needed.",
-    "keywords": [
-      "calories in beer calculator",
-      "how many calories in a beer",
-      "beer calories by ABV",
-      "lager calories calculator",
-      "IPA calories calculator",
-      "beer calorie counter",
-      "pint of beer calories",
-      "alcohol calorie calculator",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/calories-in-beer/page.tsx"
-  },
   "/fun/coffee-calculator": {
     "title": "Lifetime Caffeine Calculator | ToolTrio",
     "description": "Calculate your lifetime coffee consumption, total caffeine intake, money spent on coffee, and how many cups you will drink before retirement. Free and instant.",
@@ -139,38 +123,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/fortune-cookie/page.tsx"
   },
-  "/fun/how-rich-am-i": {
-    "title": "How Rich Am I? Global Wealth Rank | ToolTrio",
-    "description": "Find out where your income ranks globally. Are you in the top 1%? Enter your annual income and see your wealth percentile compared to 8 billion people.",
-    "keywords": [
-      "how rich am I calculator",
-      "global wealth percentile calculator",
-      "am I rich compared to the world",
-      "income percentile calculator global",
-      "world income ranking calculator",
-      "top 1 percent income calculator",
-      "how does my income compare globally",
-      "global income comparison tool",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/how-rich-am-i/page.tsx"
-  },
-  "/fun/life-expectancy-fun": {
-    "title": "Life Expectancy Calculator – Fun | ToolTrio",
-    "description": "Get a quirky, lifestyle-based estimate of your life expectancy. Answer fun questions about sleep, diet, exercise, stress, and habits. Purely for.",
-    "keywords": [
-      "fun life expectancy calculator",
-      "how long will I live calculator",
-      "life expectancy calculator lifestyle",
-      "quirky life expectancy test",
-      "how many years do I have left calculator",
-      "life expectancy quiz fun",
-      "estimated life expectancy calculator free",
-      "life expectancy based on habits",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/life-expectancy-fun/page.tsx"
-  },
   "/fun/love-compatibility": {
     "title": "Love Compatibility Calculator | ToolTrio",
     "description": "Calculate your love compatibility score using names and birthdays. Find out how compatible you are with your partner, crush, or soulmate. Fun, free, and.",
@@ -202,22 +154,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio.com"
     ],
     "source": "app/fun/lucky-number/page.tsx"
-  },
-  "/fun/personality-quiz": {
-    "title": "Personality Quiz – Myers-Briggs Style | ToolTrio",
-    "description": "Discover your personality type with our fun, fast quiz inspired by Myers-Briggs. Find out if you are an introvert or extrovert, thinker or feeler. Free.",
-    "keywords": [
-      "personality quiz free online",
-      "Myers-Briggs personality test free",
-      "MBTI test online free",
-      "personality type test",
-      "introvert extrovert test",
-      "personality quiz no signup",
-      "what is my personality type",
-      "free personality assessment online",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/personality-quiz/page.tsx"
   },
   "/fun/pig-latin-converter": {
     "title": "Pig Latin Translator Online | ToolTrio",
@@ -251,22 +187,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/pizza-calculator/page.tsx"
   },
-  "/fun/procrastination-score": {
-    "title": "Procrastination Score Calculator | ToolTrio",
-    "description": "Find out your procrastination score with our fun quiz. Discover your procrastinator type, triggers, and get practical tips to actually fix it. Free.",
-    "keywords": [
-      "procrastination score calculator",
-      "am I a procrastinator quiz",
-      "procrastination test online free",
-      "how bad is my procrastination",
-      "procrastination quiz 2026",
-      "procrastinator type test",
-      "procrastination assessment free",
-      "do I procrastinate too much quiz",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/procrastination-score/page.tsx"
-  },
   "/fun/random-fact-generator": {
     "title": "Random Fact Generator | ToolTrio",
     "description": "Generate random interesting facts about science, history, animals, space, food, and more. A new mind-blowing fact every click. Free, ad-free, no login needed.",
@@ -299,22 +219,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/random-name-generator/page.tsx"
   },
-  "/fun/screen-time-calculator": {
-    "title": "Screen Time Calculator | ToolTrio",
-    "description": "Calculate your lifetime screen time — phone, TV, computer combined. See it in years, books you could have read, and miles you could have walked. Free.",
-    "keywords": [
-      "screen time calculator",
-      "lifetime screen time calculator",
-      "how much time do I spend on my phone",
-      "daily screen time calculator",
-      "screen time life calculator",
-      "phone addiction calculator",
-      "how many hours on phone per year",
-      "lifetime phone usage calculator",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/screen-time-calculator/page.tsx"
-  },
   "/fun/shakespeare-insult-generator": {
     "title": "Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio",
     "description": "Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.",
@@ -342,38 +246,6 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "tooltrio"
     ],
     "source": "app/fun/shakespeare-insult-generator/page.tsx"
-  },
-  "/fun/sleep-debt-calculator": {
-    "title": "Sleep Debt Calculator | ToolTrio",
-    "description": "Calculate your accumulated sleep debt. Find out how many hours of sleep you owe your body, how long it takes to recover, and whether your weekend.",
-    "keywords": [
-      "sleep debt calculator",
-      "how much sleep debt do I have",
-      "am I sleep deprived calculator",
-      "sleep deprivation calculator",
-      "how many hours of sleep do I owe",
-      "sleep deficit calculator",
-      "sleep debt recovery calculator",
-      "how to calculate sleep debt",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/sleep-debt-calculator/page.tsx"
-  },
-  "/fun/social-media-addiction": {
-    "title": "Social Media Addiction Score | ToolTrio",
-    "description": "Find out your social media addiction score with our quiz. Discover your addiction type, the platforms driving it, and practical steps to take back.",
-    "keywords": [
-      "social media addiction test",
-      "am I addicted to social media quiz",
-      "social media addiction score",
-      "social media addiction calculator",
-      "phone addiction quiz free",
-      "Instagram addiction test",
-      "TikTok addiction quiz",
-      "social media usage calculator",
-      "tooltrio.com"
-    ],
-    "source": "app/fun/social-media-addiction/page.tsx"
   },
   "/fun/superhero-name": {
     "title": "Superhero Name Generator | ToolTrio",

@@ -113,7 +113,7 @@ const homepageFAQSchema = {
       name: 'Does ToolTrio have ZIP code tools and fun tools?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 49+ tools.',
+        text: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 41+ tools.',
       },
     },
   ],
@@ -151,11 +151,9 @@ const funTools = [
   { name: 'Birthday Countdown', desc: 'Days until your birthday', href: '/fun/birthday-countdown', icon: '🎂', badge: null },
   { name: 'Fortune Cookie', desc: 'Random fortune generator', href: '/fun/fortune-cookie', icon: '🥠', badge: null },
   { name: 'Shakespeare Insult Generator', desc: 'Funny Shakespearean roasts', href: '/fun/shakespeare-insult-generator', icon: '🎭', badge: 'Popular' },
-  { name: 'Personality Quiz', desc: 'Quick personality test', href: '/fun/personality-quiz', icon: '🧬', badge: 'Popular' },
   { name: 'Coffee Calculator', desc: 'Perfect coffee ratio', href: '/fun/coffee-calculator', icon: '☕', badge: null },
-  { name: 'How Rich Am I', desc: 'Global wealth percentile', href: '/fun/how-rich-am-i', icon: '💸', badge: null },
   { name: 'Would You Rather', desc: 'Random would-you-rather', href: '/fun/would-you-rather', icon: '🤔', badge: null },
-  { name: 'Insult Generator', desc: '24 generators — pirate, medieval, savage & more', href: '/fun/insult-generator', icon: '🔥', badge: 'NEW' },
+  { name: 'Insult Generator', desc: '19 generators — pirate, medieval & more', href: '/fun/insult-generator', icon: '🔥', badge: 'NEW' },
 ]
 
 export default function HomePage() {
@@ -219,7 +217,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { val: '35+', label: 'ZIP Code Tools' },
-              { val: '49+', label: 'Fun Tools' },
+              { val: '41+', label: 'Fun Tools' },
             ].map(s => (
               <div key={s.label} className="text-center">
                 <div className="text-2xl font-black" style={{ color: '#16a34a' }}>{s.val}</div>
@@ -245,7 +243,6 @@ export default function HomePage() {
               { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
               { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
               { name: 'Insult Generator', href: '/fun/insult-generator' },
-              { name: 'Personality Quiz', href: '/fun/personality-quiz' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
                 {c.name}
@@ -296,7 +293,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { name: 'ZIP Tools', count: '35+ tools', href: '/zip', icon: '📮', color: '#7c3aed' },
-              { name: 'Fun', count: '49+ tools', href: '/fun', icon: '😄', color: '#db2777' },
+              { name: 'Fun', count: '41+ tools', href: '/fun', icon: '😄', color: '#db2777' },
             ].map(c => (
               <Link key={c.href} href={c.href} className="group p-4 border rounded-2xl text-center hover:-translate-y-1 hover:shadow-lg transition-all" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
                 <div className="text-2xl mb-1">{c.icon}</div>
@@ -505,7 +502,7 @@ export default function HomePage() {
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
-                a: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 49+ tools.',
+                a: 'Yes. ToolTrio includes 35+ US ZIP code tools and a Fun category with 41+ tools.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

@@ -7,7 +7,6 @@ const OG_IMAGE = `${BASE_URL}/og-image.png`
 
 const FUN_CORE_KW = [
   'fun calculators online',
-  'personality quiz free',
   'lucky number calculator',
   'age in days calculator',
   'fun generators',

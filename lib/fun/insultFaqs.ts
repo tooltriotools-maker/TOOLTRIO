@@ -75,50 +75,6 @@ export const INSULT_FAQ_EXTRAS: Record<string, { question: string; answer: strin
         "Yes — it's a solid starting point for Victorian-era dialogue between characters of a certain social standing. You'll likely want to adjust for your specific characters' voices, but the cadence and vocabulary give you a period-appropriate base to build from.",
     },
   ],
-  'roast-generator': [
-    {
-      question: 'How is the Roast Generator different from the Savage Insult Generator?',
-      answer:
-        "This one aims for punchy, shareable one-liners in a modern internet register — the kind you'd screenshot into a group chat. The Savage Insult Generator turns the intensity up further, going for maximum sting rather than a quick laugh.",
-    },
-    {
-      question: 'Is this generator meant for roasting friends or strangers?',
-      answer:
-        "It's built for roast battles and banter between people who already have that dynamic — friends, siblings, coworkers you're close with. It's not written for anonymous internet arguments or people who might take it seriously.",
-    },
-    {
-      question: 'Can I use this for a roast battle or comedy set?',
-      answer:
-        "Yes — it's a popular pre-loading tool before a friendly roast session or open-mic roast segment. Generate a handful, pick your favorites, and adapt the delivery to your target.",
-    },
-    {
-      question: 'Why do the insults reference modern tech and internet culture?',
-      answer:
-        "Because that's the shared reference point most people get instantly — a 'buffering wheel' or 'Wi-Fi signal' lands immediately without explanation, the same way medieval insults leaned on plague and livestock. It's built for how people actually talk today.",
-    },
-  ],
-  'savage-insult-generator': [
-    {
-      question: "How 'savage' is this generator, really?",
-      answer:
-        "It's the most intense generator in the library — no warm-up, no gentle framing, straight for maximum sting. If you want something with more of a laugh and less of a bite, the Funny or Friendly Insult Generator is a better fit.",
-    },
-    {
-      question: "Is this okay to use on people I actually don't like?",
-      answer:
-        "The generator is built for entertainment and roast-battle contexts, not for genuinely hurting someone. These lines are sharp, but they're written for consenting participants in a joke — not for actual conflict or harassment.",
-    },
-    {
-      question: "What's the difference between this and the Roast Generator?",
-      answer:
-        'The Roast Generator keeps things punchy but lighter, closer to a comedy roast. This one skips the softening and goes for blunt, unfiltered lines meant to sting immediately rather than build up to a laugh.',
-    },
-    {
-      question: 'Who typically uses the Savage Insult Generator?',
-      answer:
-        "People prepping for competitive roast battles, comedy writers looking for a sharp opening line, or friend groups with a well-established 'no mercy' banter culture who want maximum impact rather than a gentle jab.",
-    },
-  ],
   'funny-insult-generator': [
     {
       question: "Is this generator meant to actually hurt anyone's feelings?",
@@ -271,72 +227,6 @@ export const INSULT_FAQ_EXTRAS: Record<string, { question: string; answer: strin
       question: 'Can I use this for a fantasy story with a royal court setting?',
       answer:
         "It works well as a base for a haughty noble or monarch's dismissive dialogue toward a lesser character. As always, adjust the specific phrasing to fit your character's individual voice and the formality of your setting.",
-    },
-  ],
-  'schoolyard-insult-generator': [
-    {
-      question: 'What age group is this actually written for?',
-      answer:
-        "It's written as adult nostalgia humor about the playground era — a throwback for grown-ups remembering recess-era comebacks — rather than content actively aimed at children. The references (lunch trades, dodgeball, cafeteria nicknames) are meant to trigger '90s/2000s kid nostalgia.",
-    },
-    {
-      question: 'Is this appropriate for actual kids or classrooms?',
-      answer:
-        "The tone is mild and nostalgic rather than crude, so many teachers do use it for a lighthearted icebreaker, but it's designed with adult nostalgia in mind first — a quick preview before classroom use is always sensible.",
-    },
-    {
-      question: 'Why does it reference things like dodgeball and cafeteria trades?',
-      answer:
-        'Those are near-universal shared experiences from childhood in the US school system, so they land as recognizable jokes for a broad range of ages without needing extra context — the same reason old sitcoms lean on them.',
-    },
-    {
-      question: 'Can I use this for a school reunion or nostalgia-themed event?',
-      answer:
-        "Yes — it's a popular choice for class reunions, throwback parties, or '90s kid' themed events where the humor works precisely because everyone remembers the specific playground dynamics being referenced.",
-    },
-  ],
-  'office-roast-generator': [
-    {
-      question: 'Is this safe to actually use on coworkers?',
-      answer:
-        "Use real judgment here — these lines are written for entertainment (a private group chat, a roast at a goodbye party with willing participants) rather than actual workplace conflict. Corporate humor about a real coworker's real work performance can land very differently depending on context and power dynamics.",
-    },
-    {
-      question: "What kind of 'office' behavior does this make fun of?",
-      answer:
-        "Universally recognizable corporate cringe — unnecessary meetings, reply-all culture, buzzword overuse ('synergy'), inflated LinkedIn posts — rather than anything about a specific person's actual competence or job performance.",
-    },
-    {
-      question: "Is this good for a coworker's going-away party or roast?",
-      answer:
-        "Yes, that's one of its most common uses — a lighthearted roast at a farewell party, where the target is in on the joke and the lines poke fun at shared office culture rather than anything personal.",
-    },
-    {
-      question: 'Can I use this in a work Slack channel?',
-      answer:
-        "It depends heavily on your workplace culture — some teams have an established banter dynamic where this fits fine, others don't. If in doubt, keep it to contexts where everyone involved has clearly opted into the joke.",
-    },
-  ],
-  'best-friend-roast-generator': [
-    {
-      question: 'How is this different from the Friendly Insult Generator?',
-      answer:
-        'The Friendly Insult Generator is broad, playful banter for any close relationship. This one is narrower and specifically built around best-friendship dynamics — shared secrets, unreliable hangout planning, mutual bad influence — the very particular chaos of a ride-or-die friendship.',
-    },
-    {
-      question: 'Who should actually receive these lines?',
-      answer:
-        "Your actual best friend, ideally someone who has heard worse from you already. The whole format depends on a relationship where 'I love you, but your taste in exes needs an investigation' reads as affectionate rather than cutting.",
-    },
-    {
-      question: "Can I use this for a best friend's birthday or maid-of-honor speech?",
-      answer:
-        "Yes — it's a popular choice for a birthday card, a bachelorette toast, or a maid-of-honor speech, since the lines are built to land as 'I know you better than anyone and I love you anyway,' which is exactly the tone those speeches want.",
-    },
-    {
-      question: 'Is this the same as the Comeback Generator?',
-      answer:
-        'No — the Comeback Generator gives you a quick retort to use in a conversation. This one is a standalone roast about your best friend specifically, written to be delivered (or sent) as its own line rather than as a reply to something they said.',
     },
   ],
   'villain-insult-generator': [

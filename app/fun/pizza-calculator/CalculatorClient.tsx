@@ -88,7 +88,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Every group pizza order collapses into the same negotiation: someone confidently orders too few and is proven right by the carnage of empty boxes; someone orders too many and is eating cold pizza for three days. This calculator solves the arithmetic permanently. Enter your headcount, appetite level, the proportion of kids vs adults, and your pizza size preference, and it gives you a precise number with the slice math shown -- no more guessing, no more heroic pizza overcalculation. For other food-adjacent calculations, the <Link href="/fun/calories-in-beer" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Calories in Beer Calculator</Link> handles the drinks side of the same party.</p>
+          <p className="text-gray-600 leading-relaxed">Every group pizza order collapses into the same negotiation: someone confidently orders too few and is proven right by the carnage of empty boxes; someone orders too many and is eating cold pizza for three days. This calculator solves the arithmetic permanently. Enter your headcount, appetite level, the proportion of kids vs adults, and your pizza size preference, and it gives you a precise number with the slice math shown -- no more guessing, no more heroic pizza overcalculation. For other food-adjacent calculations, the  handles the drinks side of the same party.</p>
         </section>
 
         {/* How It Works */}
@@ -139,10 +139,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
             </div>
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/fun/calories-in-beer" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🍺</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Calories in Beer</p><p className="text-xs text-gray-400 mt-0.5">How bad is that pint, really?</p></span>
-          </Link>
+          
           <Link href="/fun/coffee-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">☕</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Coffee Calculator</p><p className="text-xs text-gray-400 mt-0.5">Caffeine cost & habit tracker</p></span>
@@ -151,18 +148,9 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="text-2xl flex-shrink-0">🏃</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Workout Excuse Generator</p><p className="text-xs text-gray-400 mt-0.5">Skip gym, guilt-free</p></span>
           </Link>
-          <Link href="/fun/procrastination-score" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">⏰</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Procrastination Score</p><p className="text-xs text-gray-400 mt-0.5">How bad is your habit?</p></span>
-          </Link>
-          <Link href="/fun/screen-time-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">📱</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Screen Time Calculator</p><p className="text-xs text-gray-400 mt-0.5">Your phone hours, exposed</p></span>
-          </Link>
-          <Link href="/fun/sleep-debt-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😴</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Sleep Debt Calculator</p><p className="text-xs text-gray-400 mt-0.5">Track your sleep deficit</p></span>
-          </Link>
+          
+          
+          
           <Link href="/fun/random-fact-generator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🎯</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Random Fact Generator</p><p className="text-xs text-gray-400 mt-0.5">Surprising facts on demand</p></span>

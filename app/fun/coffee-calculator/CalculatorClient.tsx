@@ -106,7 +106,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Coffee is the world's most widely used psychoactive substance -- consumed daily by over 2 billion people, with a global industry worth hundreds of billions of dollars. This calculator quantifies your relationship with it: daily caffeine intake, annual cost, monthly spend, the point at which your afternoon coffee is still affecting your 11pm sleep, and the lifetime projection at current consumption. If sleep disruption shows up in your results, the <Link href="/fun/sleep-debt-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Sleep Debt Calculator</Link> can give you a fuller picture of what that costs cognitively.</p>
+          <p className="text-gray-600 leading-relaxed">Coffee is the world's most widely used psychoactive substance -- consumed daily by over 2 billion people, with a global industry worth hundreds of billions of dollars. This calculator quantifies your relationship with it: daily caffeine intake, annual cost, monthly spend, the point at which your afternoon coffee is still affecting your 11pm sleep, and the lifetime projection at current consumption. If sleep disruption shows up in your results, the  can give you a fuller picture of what that costs cognitively.</p>
         </section>
 
         {/* How It Works */}
@@ -127,7 +127,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine has a half-life of approximately 5-6 hours for most people (up to 9 hours for slow metabolizers, 3 hours for fast ones, which you can roughly determine by whether caffeine sensitivity runs in your family). A 3pm coffee still has 50% of its caffeine active at 9pm.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The cost difference between home brewing and café drinks seems small per day but substantial per year. A daily $5.50 flat white is roughly $2,000 per year; a home-brewed equivalent is under $300. The 10-year delta funds a decent holiday.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine tolerance develops quickly -- within a week of consistent daily use, the alertness benefit diminishes significantly while the dependence (withdrawal headaches on missed days) remains. The "I need coffee to function" sensation is mostly describing dependence rather than genuine benefit over baseline. The <Link href="/fun/calories-in-beer" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Calories in Beer Calculator</Link> has a parallel caffeine/alcohol calorie section if you're tracking both habits.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine tolerance develops quickly -- within a week of consistent daily use, the alertness benefit diminishes significantly while the dependence (withdrawal headaches on missed days) remains. The "I need coffee to function" sensation is mostly describing dependence rather than genuine benefit over baseline. The  has a parallel caffeine/alcohol calorie section if you're tracking both habits.</span></li>
           </ul>
         </section>
 
@@ -157,26 +157,10 @@ export default function CalculatorClient({ faqs }: Props) {
               <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
             </div>
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/fun/sleep-debt-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">😴</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Sleep Debt Calculator</p><p className="text-xs text-gray-400 mt-0.5">Track your sleep deficit</p>
-</span>
-          </Link>
-          <Link href="/fun/calories-in-beer" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🍺</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Calories in Beer</p><p className="text-xs text-gray-400 mt-0.5">How bad is that pint, really?</p>
-</span>
-          </Link>
-          <Link href="/fun/procrastination-score" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">⏰</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Procrastination Score</p><p className="text-xs text-gray-400 mt-0.5">How bad is your habit?</p>
-</span>
-          </Link>
-          <Link href="/fun/screen-time-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">📱</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Screen Time Calculator</p><p className="text-xs text-gray-400 mt-0.5">Your phone hours, exposed</p>
-</span>
-          </Link>
+          
+          
+          
+          
           <Link href="/fun/pizza-calculator" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🍕</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Pizza Calculator</p><p className="text-xs text-gray-400 mt-0.5">Never under-order again</p>
@@ -187,16 +171,8 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Workout Excuse Generator</p><p className="text-xs text-gray-400 mt-0.5">Skip gym, guilt-free</p>
 </span>
           </Link>
-          <Link href="/fun/how-rich-am-i" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">💰</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">How Rich Am I</p><p className="text-xs text-gray-400 mt-0.5">Your global wealth ranking</p>
-</span>
-          </Link>
-          <Link href="/fun/life-expectancy-fun" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">⏳</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Life Expectancy Fun</p><p className="text-xs text-gray-400 mt-0.5">Lifestyle-based lifespan estimate</p>
-</span>
-          </Link>
+          
+          
             </div>
           </div>
         </section>

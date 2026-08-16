@@ -9,14 +9,14 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 
 export const metadata: Metadata = {
-  title: '49+ Free Fun Calculators 2026 | ToolTrio',
-  description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 24 insult generators and more free fun.',
+  title: '41 Free Fun Calculators 2026 | ToolTrio',
+  description: 'Zodiac signs, love compatibility, trivia, name generators, Morse code, emoji translator, 19 insult generators and more free fun.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
     'zodiac sign calculator free',
     'love compatibility calculator',
-    'personality quiz online free',
+    '',
     'lucky number calculator',
     'trivia quiz online free',
     'random name generator',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
-    title: '49 Free Fun Calculators – Zodiac, Trivia, Insults & Name Generators',
-    description: 'Zodiac signs, love compatibility, personality quizzes, trivia, name generators, Morse code, emoji translator, 24 insult generators and more. Instant results.',
+    title: '41 Free Fun Calculators – Zodiac, Trivia, Insults & Name Generators',
+    description: 'Zodiac signs, love compatibility, trivia, name generators, Morse code, emoji translator, 19 insult generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ToolTrio' }],
@@ -37,8 +37,6 @@ const tools = [
   { name: 'Lucky Number',           desc: 'Your life path & numerology lucky numbers',        href: '/fun/lucky-number',           icon: '🍀', tag: 'Personality', popular: true  },
   { name: 'Zodiac Calculator',      desc: 'Western + Chinese zodiac, traits & compatibility', href: '/fun/zodiac-calculator',       icon: '⭐', tag: 'Personality', popular: true  },
   { name: 'Love Compatibility',     desc: 'Name & birthday match — how well do you fit?',     href: '/fun/love-compatibility',      icon: '💕', tag: 'Personality', popular: true  },
-  { name: 'Personality Quiz',       desc: 'Myers-Briggs style type test, 3 minutes flat',     href: '/fun/personality-quiz',        icon: '🧬', tag: 'Personality', popular: true  },
-  { name: 'Procrastination Score',  desc: 'Find your type, your triggers, actual fix tips',   href: '/fun/procrastination-score',   icon: '⏰', tag: 'Personality', popular: false },
 
   // Name Generators
   { name: 'Random Name Generator',  desc: 'Baby names, usernames, characters — any origin',  href: '/fun/random-name-generator',   icon: '🎲', tag: 'Generators',  popular: true  },
@@ -46,7 +44,7 @@ const tools = [
   { name: 'Villain Name',           desc: 'Your evil alter ego, master plan & nemesis',       href: '/fun/villain-name',            icon: '😈', tag: 'Generators',  popular: false },
   { name: 'Fantasy Name Generator', desc: 'Elves, dwarves, wizards, dragons — D&D ready',    href: '/fun/fantasy-name-generator',  icon: '🧙', tag: 'Generators',  popular: false },
   { name: 'Compliment Generator',   desc: 'Specific, genuine compliments — not generic cards',href: '/fun/compliment-generator',    icon: '💐', tag: 'Generators',  popular: false },
-  { name: 'Insult Generator',       desc: '24 generators — Shakespeare, pirate, medieval, savage, office roasts & more', href: '/fun/insult-generator', icon: '🔥', tag: 'Generators',  popular: true  },
+  { name: 'Insult Generator',       desc: '19 generators — Shakespeare, pirate, medieval & more', href: '/fun/insult-generator', icon: '🔥', tag: 'Generators',  popular: true  },
   { name: 'Fortune Cookie',         desc: 'Virtual fortune cookie with wisdom & lucky numbers',href: '/fun/fortune-cookie',         icon: '🥠', tag: 'Generators',  popular: true  },
   { name: 'Would You Rather',       desc: 'Impossible dilemmas for parties, dates & groups',  href: '/fun/would-you-rather',        icon: '🤔', tag: 'Generators',  popular: false },
   { name: 'Random Fact',            desc: 'Verified surprising facts across 8 categories',    href: '/fun/random-fact-generator',   icon: '🎯', tag: 'Generators',  popular: false },
@@ -54,15 +52,9 @@ const tools = [
   // Life Stats
   { name: 'Age in Days',            desc: 'Days, heartbeats, breaths — your life in numbers', href: '/fun/age-in-days',             icon: '🎂', tag: 'Life Stats',  popular: true  },
   { name: 'Birthday Countdown',     desc: 'Live countdown to your next birthday + day of week',href: '/fun/birthday-countdown',     icon: '🎉', tag: 'Life Stats',  popular: false },
-  { name: 'How Rich Am I?',         desc: 'Your real global wealth percentile — eye-opening', href: '/fun/how-rich-am-i',           icon: '💰', tag: 'Life Stats',  popular: true  },
-  { name: 'Life Expectancy Fun',    desc: 'Lifestyle-based estimate with habit impact sliders',href: '/fun/life-expectancy-fun',     icon: '🌟', tag: 'Life Stats',  popular: false },
-  { name: 'Sleep Debt',             desc: 'Your sleep deficit, recovery time & real effects', href: '/fun/sleep-debt-calculator',   icon: '😴', tag: 'Life Stats',  popular: false },
 
   // Habits & Lifestyle
   { name: 'Coffee Calculator',      desc: 'Lifetime cups, caffeine & money spent on coffee',  href: '/fun/coffee-calculator',       icon: '☕', tag: 'Habits',      popular: true  },
-  { name: 'Social Media Addiction', desc: 'Your addiction score, type & platform breakdown',  href: '/fun/social-media-addiction',  icon: '📱', tag: 'Habits',      popular: false },
-  { name: 'Screen Time Stats',      desc: 'Lifetime screen time & what you could do instead', href: '/fun/screen-time-calculator',  icon: '📺', tag: 'Habits',      popular: false },
-  { name: 'Calories in Beer',       desc: 'Beer calories by ABV + how long to burn it off',   href: '/fun/calories-in-beer',        icon: '🍺', tag: 'Habits',      popular: false },
   { name: 'Pizza Calculator',       desc: 'Exactly how many pizzas to order for any group',   href: '/fun/pizza-calculator',        icon: '🍕', tag: 'Habits',      popular: true  },
   { name: 'Workout Excuses',        desc: 'Creative, oddly believable reasons to skip the gym',href: '/fun/workout-excuse-generator',icon: '🏃', tag: 'Habits',     popular: false },
 
@@ -77,10 +69,10 @@ const tools = [
 ]
 
 const TAG_CONFIG: Record<string, { color: string; bg: string; border: string; desc: string }> = {
-  Personality: { color: 'text-purple-700', bg: 'bg-purple-50', border: 'border-purple-200', desc: 'Zodiac, personality types, lucky numbers & compatibility' },
+  Personality: { color: 'text-purple-700', bg: 'bg-purple-50', border: 'border-purple-200', desc: 'Zodiac, lucky numbers & compatibility' },
   Generators:  { color: 'text-pink-700',   bg: 'bg-pink-50',   border: 'border-pink-200',   desc: 'Names, fortunes, compliments, insults & impossible dilemmas' },
-  'Life Stats':{ color: 'text-orange-700', bg: 'bg-orange-50', border: 'border-orange-200', desc: 'Age, wealth, sleep debt & life expectancy in hard numbers' },
-  Habits:      { color: 'text-green-700',  bg: 'bg-green-50',  border: 'border-green-200',  desc: 'Coffee, screen time, beer calories & pizza math' },
+  'Life Stats':{ color: 'text-orange-700', bg: 'bg-orange-50', border: 'border-orange-200', desc: 'Age, birthdays & life in hard numbers' },
+  Habits:      { color: 'text-green-700',  bg: 'bg-green-50',  border: 'border-green-200',  desc: 'Coffee, pizza math & everyday habits' },
   Language:    { color: 'text-blue-700',   bg: 'bg-blue-50',   border: 'border-blue-200',   desc: 'Emoji, Morse code, Pig Latin & UWU transformers' },
   Games:       { color: 'text-red-700',    bg: 'bg-red-50',    border: 'border-red-200',    desc: 'Trivia, quizzes & interactive brain-teasers' },
 }
@@ -96,19 +88,19 @@ const SEO_FAQS = [
   },
   {
     q: 'Which fun calculator is the most popular?',
-    a: 'The Love Compatibility Calculator, Zodiac Sign Calculator, and How Rich Am I? tool consistently attract the most visitors — people share their results on social media which drives a lot of organic traffic. The Personality Quiz and Trivia Quiz also see heavy use from people who challenge friends to beat their scores.',
+    a: 'The Love Compatibility Calculator, Zodiac Sign Calculator, and Trivia Quiz and Love Compatibility are popular with people who share results with friends and compare scores.',
   },
   {
     q: 'Can I use these tools on my phone?',
-    a: 'All 49 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
+    a: 'All 41 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
   },
   {
     q: 'Are the results shareable on social media?',
-    a: 'Yes — most tools include a share button or are designed with screenshot-friendly result cards. Zodiac results, personality types, procrastination scores, and How Rich Am I percentiles are among the most-shared content from this site. People compare results with friends, which is half the fun.',
+    a: 'Yes — most tools include a share button or are designed with screenshot-friendly result cards. Zodiac results, trivia scores, and insult-generator results are among the most-shared content from this site. People compare results with friends, which is half the fun.',
   },
   {
     q: 'Are these tools appropriate for kids?',
-    a: 'All tools on the Fun & Entertainment page are family-friendly. The Personality Quiz, Trivia Quiz, Superhero Name Generator, Fantasy Name Generator, and Would You Rather are particularly popular with younger users. There is no adult content, violence, or inappropriate material anywhere in the fun category.',
+    a: 'All tools on the Fun & Entertainment page are family-friendly. Trivia Quiz, Superhero Name Generator, Fantasy Name Generator, and Would You Rather are particularly popular for casual group use. There is no adult content, violence, or inappropriate material anywhere in the fun category.',
   },
 ]
 
@@ -117,7 +109,7 @@ export default function FunPage() {
     tag, tools: tools.filter(t => t.tag === tag)
   }))
   const structuredData = generateCollectionStructuredData({
-    name: '49 Free Fun Calculators & Entertainment Tools',
+    name: '41 Free Fun Calculators & Entertainment Tools',
     description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
     url: 'https://tooltrio.com/fun',
     categoryName: 'Fun & Entertainment',
@@ -143,14 +135,14 @@ export default function FunPage() {
         </div>
         <div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment</h1>
-          <p className="text-pink-600 font-semibold mt-0.5">49 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
+          <p className="text-pink-600 font-semibold mt-0.5">41 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>
 
       {/* Intro — human, not boilerplate */}
       <div className="prose prose-gray max-w-3xl mb-8 text-gray-600 leading-relaxed">
         <p className="text-lg">
-          Not everything needs to be a spreadsheet. We built 49 free fun tools for the moments when
+          Not everything needs to be a spreadsheet. We built 41 free fun tools for the moments when
           you want to know <strong>how many days old you are</strong>, argue about your
           <strong> zodiac compatibility</strong> with someone, settle who owes the most pizza at a party,
           or finally find out what your Shakespearean villain name would be.

@@ -93,7 +93,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Would You Rather is the game that exposes your actual value hierarchy faster than almost any conversation format. Forced choices between two roughly equivalent bad options (or good ones) reveal what you prioritise when you can't have both -- which is most situations in real life. This generator creates scenario pairs calibrated for genuine difficulty, not ones where the answer is obviously one-sided. The goal is questions where reasonable people disagree and the disagreement is interesting. For structured personality analysis, the <Link href="/fun/personality-quiz" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Personality Quiz</Link> gives a more formal framework; Would You Rather reveals the same things less formally.</p>
+          <p className="text-gray-600 leading-relaxed">Would You Rather is the game that exposes your actual value hierarchy faster than almost any conversation format. Forced choices between two roughly equivalent bad options (or good ones) reveal what you prioritise when you can't have both -- which is most situations in real life. This generator creates scenario pairs calibrated for genuine difficulty, not ones where the answer is obviously one-sided. The goal is questions where reasonable people disagree and the disagreement is interesting. For structured personality analysis, the  gives a more formal framework; Would You Rather reveals the same things less formally.</p>
         </section>
 
         {/* How It Works */}
@@ -144,10 +144,7 @@ export default function CalculatorClient({ faqs }: Props) {
               <p className="text-sm text-gray-500 mt-0.5">Try these next -- free and instant</p>
             </div>
             <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <Link href="/fun/personality-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">🧬</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Personality Quiz</p><p className="text-xs text-gray-400 mt-0.5">16 personality archetypes</p></span>
-          </Link>
+          
           <Link href="/fun/trivia-quiz" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🧠</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Trivia Quiz</p><p className="text-xs text-gray-400 mt-0.5">Random knowledge challenge</p></span>
@@ -160,14 +157,8 @@ export default function CalculatorClient({ faqs }: Props) {
             <span className="text-2xl flex-shrink-0">😤</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Insult Generator</p><p className="text-xs text-gray-400 mt-0.5">Shakespearean burns, instantly</p></span>
           </Link>
-          <Link href="/fun/procrastination-score" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">⏰</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Procrastination Score</p><p className="text-xs text-gray-400 mt-0.5">How bad is your habit?</p></span>
-          </Link>
-          <Link href="/fun/social-media-addiction" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
-            <span className="text-2xl flex-shrink-0">📲</span>
-            <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Social Media Addiction</p><p className="text-xs text-gray-400 mt-0.5">Bergen scale addiction score</p></span>
-          </Link>
+          
+          
           <Link href="/fun/fortune-cookie" className="flex items-center gap-3 p-4 rounded-2xl border group" style={{borderColor:'rgba(216,180,254,0.5)',transition:'all 0.3s cubic-bezier(.4,0,.2,1)'}} onMouseEnter={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(147,51,234,0.1)';el.style.borderColor='rgba(147,51,234,0.3)';}} onMouseLeave={(e)=>{const el=e.currentTarget as HTMLElement;el.style.transform='';el.style.boxShadow='';el.style.borderColor='rgba(216,180,254,0.5)';}}>
             <span className="text-2xl flex-shrink-0">🥠</span>
             <span className="block"><p className="font-semibold text-sm text-gray-800 group-hover:text-purple-700 transition-all">Fortune Cookie</p><p className="text-xs text-gray-400 mt-0.5">Crack open your digital fortune</p></span>

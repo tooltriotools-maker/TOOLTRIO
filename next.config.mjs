@@ -118,6 +118,12 @@ const nextConfig = {
       { source: '/calculators/fun/:path*',      destination: '/fun/:path*',                  permanent: true },
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
 
+      // ── Removed insult variants → main insult hub (Aug 2026) ────────────────
+      { source: '/fun/insult-generator/roast-generator', destination: '/fun/insult-generator', permanent: true },
+      { source: '/fun/insult-generator/savage-insult-generator', destination: '/fun/insult-generator', permanent: true },
+      { source: '/fun/insult-generator/schoolyard-insult-generator', destination: '/fun/insult-generator', permanent: true },
+      { source: '/fun/insult-generator/office-roast-generator', destination: '/fun/insult-generator', permanent: true },
+      { source: '/fun/insult-generator/best-friend-roast-generator', destination: '/fun/insult-generator', permanent: true },
       // ── Insult Generator: old flat/fallback Shakespeare URL → real upgraded page ──
       // (Aug 2026) The generic insult-generator template used to also build a lower-
       // quality duplicate of the Shakespeare generator at this URL. It now redirects
