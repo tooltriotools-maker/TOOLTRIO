@@ -24,7 +24,7 @@ const funLinks = [
   ['Pirate Insult Generator', '/fun/pirate-insult-generator'],
   ['Victorian Insult Generator', '/fun/victorian-insult-generator'],
   ['Royal Insult Generator', '/fun/royal-insult-generator'],
-  ['All Fun Tools →', '/fun'],
+  ['All 41 Fun Tools →', '/fun'],
 ]
 
 const blogLinks = [
@@ -57,9 +57,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img
-                src="/tooltrio-logo.png"
+                src="/tooltrio-footer-logo.png"
                 alt="ToolTrio — Free Online Calculators and Tools"
-                style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                style={{ height: '58px', width: 'auto', filter: 'brightness(0) invert(1)' }}
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
