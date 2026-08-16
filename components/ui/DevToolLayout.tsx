@@ -39,6 +39,8 @@ export function DevToolLayout({
   children,
 }: DevToolLayoutProps) {
 
+  const displayTitle = /\bToolTrio\b/i.test(title) ? title : `${title} | ToolTrio`
+
   const badgeColor = 'text-purple-700 bg-purple-100 border-purple-200'
 
   const iconBg = 'bg-purple-100 border-purple-200'
@@ -53,7 +55,7 @@ export function DevToolLayout({
         <ChevronRight className="w-3 h-3" />
         <Link href={parentPath} className="hover:text-gray-600 transition-colors">{parentLabel}</Link>
         <ChevronRight className="w-3 h-3" />
-        <span className="text-gray-700 font-semibold truncate">{title}</span>
+        <span className="text-gray-700 font-semibold truncate">{displayTitle}</span>
       </nav>
 
       {/* Header */}
@@ -71,7 +73,7 @@ export function DevToolLayout({
             className="calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
             style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
           >
-            {icon} {title}
+            {icon} {displayTitle}
           </h1>
           {description && (
             <p className="text-gray-500 text-sm md:text-base max-w-xl leading-relaxed">{description}</p>

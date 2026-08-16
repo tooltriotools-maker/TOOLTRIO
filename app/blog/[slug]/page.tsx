@@ -79,7 +79,7 @@ export default async function BlogPost({ params }: Props) {
               <span className="blog-meta-pill">Updated {post.updatedAt ?? post.publishedAt}</span>
               <span className="blog-verified"><Shield size={14}/> Data-aware guide</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 leading-[1.04] max-w-5xl">{post.title}</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 leading-[1.04] max-w-5xl">{post.title} <span className="text-green-600">| ToolTrio</span></h1>
             <p className="mt-5 text-lg md:text-xl text-slate-600 leading-relaxed max-w-4xl">{post.excerpt}</p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
               {post.relatedCalc && <Link href={post.relatedCalc.href} className="blog-primary-cta">Open {post.relatedCalc.name}<ArrowRight size={17}/></Link>}

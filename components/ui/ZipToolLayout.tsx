@@ -217,7 +217,8 @@ function getToolDescription(name: string) {
   return descriptions[name] || "Explore this ZIP tool."
 }
 export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent, slug }: Props) {
-  const structuredData = generateZipToolStructuredData({ name: title, description, slug })
+  const displayTitle = /\bToolTrio\b/i.test(title) ? title : `${title} | ToolTrio`
+  const structuredData = generateZipToolStructuredData({ name: displayTitle, description, slug })
 
   return (
     <>
@@ -231,7 +232,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
           <span>›</span>
           <Link href="/zip" className="hover:text-green-600 transition-colors">ZIP Tools</Link>
           <span>›</span>
-          <span className="text-gray-600 font-medium">{title}</span>
+          <span className="text-gray-600 font-medium">{displayTitle}</span>
         </nav>
 
         {/* ── HERO HEADER ───────────────────────────────────────── */}
@@ -261,7 +262,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
   </>
 )}
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-            {title}
+            {displayTitle}
           </h1>
           {seoContent?.tagline ? (
             <p className="text-gray-500 text-base max-w-2xl mx-auto leading-relaxed">

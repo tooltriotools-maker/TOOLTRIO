@@ -200,7 +200,7 @@ export default function ZipHubPage() {
             📮 {total} Free ZIP Code Tools · No Signup · Updated 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-            Free ZIP Code Lookup, ZIP+4 & Distance Tools
+            Free ZIP Code Lookup, ZIP+4 & Distance Tools <span className="text-green-600">| ToolTrio</span>
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
                         Instant ZIP code lookup, ZIP+4 lookup, ZIP code distance calculator and ZIP to timezone finder — the most complete free suite of US ZIP code utilities, covering every ZIP cluster in all 50 states.

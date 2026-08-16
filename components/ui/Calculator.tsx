@@ -338,7 +338,7 @@ export function CalculatorShell({
             </div>
             <div>
               <h1 className="text-2xl md:text-3xl font-bold" style={{ color: "#f9fafb" }}>
-                {title}
+                {title} <span style={{ color: "#22c55e" }}>| ToolTrio</span>
               </h1>
               <p className="mt-2 text-sm md:text-base max-w-2xl" style={{ color: "#64748b" }}>
                 {description}
