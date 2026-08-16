@@ -59,7 +59,7 @@ export function Footer() {
               <img
                 src="/tooltrio-footer-logo.png"
                 alt="ToolTrio — Free Online Calculators and Tools"
-                style={{ height: '54px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                style={{ height: '58px', width: 'auto', objectFit: 'contain' }}
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
