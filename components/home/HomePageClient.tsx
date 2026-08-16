@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import type { ComponentType } from 'react'
+import type { LucideIcon } from 'lucide-react'
 import {
   ArrowRight, BadgeCheck, BookOpen, Check, Clock3, FileText, Flame, Globe2,
   Heart, Map, MapPin, Navigation, Ruler, Search, ShieldCheck, Sparkles, Zap,
@@ -13,7 +13,7 @@ type Tool = {
   name: string
   desc: string
   href: string
-  icon: ComponentType<{ className?: string }>
+  icon: LucideIcon
   badge?: string | null
 }
 
