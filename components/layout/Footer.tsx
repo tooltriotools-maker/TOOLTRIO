@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Mail, Shield, FileText, Info, BookOpen, Smile } from 'lucide-react'
+import { Mail, Shield, FileText, Info, BookOpen, Smile, MapPin } from 'lucide-react'
 
 const contactEmail = 'tooltrio.tools@gmail.com'
 
@@ -57,9 +57,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <img
-                src="/tooltrio-logo.png"
+                src="/tooltrio-footer-logo.png"
                 alt="ToolTrio — Free Online Calculators and Tools"
-                style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                style={{ height: '54px', width: 'auto', filter: 'brightness(0) invert(1)' }}
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* ZIP Tools */}
           <div>
-            <h2 className="font-bold text-white text-sm mb-4">📮 ZIP Tools</h2>
+            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5"><MapPin className="w-4 h-4 text-teal-400" /> ZIP Tools</h2>
             <ul className="space-y-2.5 text-sm">
               {zipLinks.map(([name, href]) => (
                 <li key={href}>

@@ -1,58 +1,18 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, Smile, MapPin, BookOpen } from 'lucide-react'
+import { Menu, X, ChevronDown, Smile, MapPin, BookOpen, Flame, Drama, Sparkles, Heart, Clover, Brain, Shield, Cookie, Search, Navigation, Building2, Ruler, Crosshair, Clock3, Map, BadgeCheck, Mail, Route, FileText } from 'lucide-react'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
+import { TOOL_COUNTS } from '@/lib/catalog'
 
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
-  {
-    key: 'fun', label: 'Fun Tools', icon: Smile, color: 'purple',
-    href: '/fun', viewAll: 'All Fun Tools →',
-    items: [
-      { name: 'Insult Generator', href: '/fun/insult-generator' },
-      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator' },
-      { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator' },
-      { name: 'Love Compatibility', href: '/fun/love-compatibility' },
-      { name: 'Lucky Number', href: '/fun/lucky-number' },
-      { name: 'Trivia Quiz', href: '/fun/trivia-quiz' },
-      { name: 'Superhero Name', href: '/fun/superhero-name' },
-      { name: 'Fortune Cookie', href: '/fun/fortune-cookie' },
-    ],
-  },
-  {
-    key: 'zip', label: 'ZIP Tools', icon: MapPin, color: 'teal',
-    href: '/zip', viewAll: 'All 35 ZIP Tools →',
-    items: [
-      { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
-      { name: 'ZIP to City', href: '/zip/zip-to-city' },
-      { name: 'ZIP to State', href: '/zip/zip-to-state' },
-      { name: 'ZIP to County', href: '/zip/zip-to-county' },
-      { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
-      { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius' },
-      { name: 'City to ZIP', href: '/zip/city-to-zip' },
-      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
-      { name: 'ZIP Code Map', href: '/zip/zip-code-map' },
-      { name: 'ZIP Validator', href: '/zip/zip-code-validator' },
-      { name: 'USPS Address Format', href: '/zip/usps-address-format' },
-      { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip' },
-    ],
-  },
-  {
-    key: 'blog', label: 'Blog', icon: BookOpen, color: 'green',
-    href: '/blog', viewAll: 'All Blog Posts ->',
-    items: [
-      { name: 'ZIP Code Guides', href: '/blog/category/zip-codes' },
-      { name: 'ZIP Code Lookup Guide', href: '/blog/how-to-find-a-zip-code-from-an-address' },
-      { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes' },
-      { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code' },
-      { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code' },
-      { name: 'ZIP Radius Guide', href: '/blog/how-to-find-zip-codes-within-a-radius' },
-      { name: 'ZIP Validator Guide', href: '/blog/how-to-validate-a-zip-code' },
-      { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code' },
-    ],
-  },
+  { key:'fun', label:'Fun Tools', icon:Smile, color:'purple', href:'/fun', viewAll:`All ${TOOL_COUNTS.fun} Fun Tools →`, items:[
+    {name:'Insult Generator',href:'/fun/insult-generator',icon:Flame},{name:'Shakespeare Insult Generator',href:'/fun/shakespeare-insult-generator',icon:Drama},{name:'Zodiac Calculator',href:'/fun/zodiac-calculator',icon:Sparkles},{name:'Love Compatibility',href:'/fun/love-compatibility',icon:Heart},{name:'Lucky Number',href:'/fun/lucky-number',icon:Clover},{name:'Trivia Quiz',href:'/fun/trivia-quiz',icon:Brain},{name:'Superhero Name',href:'/fun/superhero-name',icon:Shield},{name:'Fortune Cookie',href:'/fun/fortune-cookie',icon:Cookie}], },
+  { key:'zip', label:'ZIP Tools', icon:MapPin, color:'teal', href:'/zip', viewAll:`All ${TOOL_COUNTS.zip} ZIP Tools →`, items:[
+    {name:'ZIP Code Lookup',href:'/zip/zip-code-lookup',icon:Search},{name:'ZIP to City',href:'/zip/zip-to-city',icon:Building2},{name:'ZIP to State',href:'/zip/zip-to-state',icon:MapPin},{name:'ZIP to County',href:'/zip/zip-to-county',icon:Navigation},{name:'ZIP Code Distance',href:'/zip/zip-code-distance',icon:Ruler},{name:'ZIPs Within Radius',href:'/zip/zips-within-radius',icon:Crosshair},{name:'City to ZIP',href:'/zip/city-to-zip',icon:Map},{name:'ZIP Code Timezone',href:'/zip/zip-to-timezone',icon:Clock3},{name:'ZIP Code Map',href:'/zip/zip-code-map',icon:Map},{name:'ZIP Validator',href:'/zip/zip-code-validator',icon:BadgeCheck},{name:'USPS Address Format',href:'/zip/usps-address-format',icon:Mail},{name:'Drive Time by ZIP',href:'/zip/drive-time-by-zip',icon:Route}], },
+  { key:'blog', label:'Blog', icon:BookOpen, color:'green', href:'/blog', viewAll:'All Blog Posts →', items:[
+    {name:'ZIP Code Guides',href:'/blog/category/zip-codes',icon:BookOpen},{name:'ZIP Code Lookup Guide',href:'/blog/how-to-find-a-zip-code-from-an-address',icon:Search},{name:'ZIP Code Distance Guide',href:'/blog/how-far-apart-are-two-zip-codes',icon:Ruler},{name:'ZIP+4 Guide',href:'/blog/what-is-a-zip-plus-4-code',icon:FileText},{name:'ZIP Timezone Guide',href:'/blog/how-to-find-a-time-zone-from-a-zip-code',icon:Clock3},{name:'ZIP Radius Guide',href:'/blog/how-to-find-zip-codes-within-a-radius',icon:Crosshair},{name:'ZIP Validator Guide',href:'/blog/how-to-validate-a-zip-code',icon:BadgeCheck},{name:'ZIP Code vs Postal Code',href:'/blog/zip-code-vs-postal-code',icon:MapPin}], },
 ]
 
 const COLOR_MAP: Record<string, { text: string; hover: string; header: string }> = {
@@ -77,8 +37,9 @@ function Dropdown({ nav, onClose }: { nav: typeof NAV[0]; onClose: () => void })
       </p>
       {nav.items.map(item => (
         <Link key={item.href} href={item.href} onClick={onClose}
-          className={`block px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-all font-medium truncate`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
-          {item.name}
+          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-all font-medium truncate`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
+          <item.icon className={`h-3.5 w-3.5 shrink-0 ${c.text}`} />
+          <span className="truncate">{item.name}</span>
         </Link>
       ))}
       <Link href={nav.href} onClick={onClose}
@@ -114,7 +75,7 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0 mr-2">
-            <img src="/tooltrio-logo.png" alt="TOOLTRIO" style={{height:"36px",width:"auto"}} />
+            <img src="/tooltrio-header.png" alt="ToolTrio" className="h-9 w-auto object-contain" />
             <span className="font-black text-xl tracking-tight text-gray-900 hidden sm:block">TOOLTRIO</span>
           </Link>
 
@@ -181,9 +142,10 @@ export function Header() {
                       {nav.items.map(item => (
                         <Link key={item.href} href={item.href}
                           onClick={() => setMobileOpen(false)}
-                          className={`block px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-all`}
+                          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-all`}
                         >
-                          {item.name}
+                          <item.icon className={`h-3.5 w-3.5 shrink-0 ${c.text}`} />
+                          <span>{item.name}</span>
                         </Link>
                       ))}
                       <Link href={nav.href} onClick={() => setMobileOpen(false)}
