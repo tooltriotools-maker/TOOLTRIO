@@ -10,8 +10,8 @@ function Smile({size=16,className=""}: {size?:number;className?:string}) { const
 
 
 export const metadata: Metadata = {
-  title: '41 Free Fun Calculators & Entertainment Tools 2026 | ToolTrio',
-  description: '41 free fun tools including Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more.',
+  title: '42 Free Fun Calculators & Entertainment Tools 2026 | ToolTrio',
+  description: '42 free fun tools including Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more.',
   keywords: [
     'fun calculators online free',
     'entertainment tools online',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com/fun' },
   openGraph: {
-    title: '41 Free Fun Tools – Insult Generators, Zodiac & Trivia | ToolTrio',
+    title: '42 Free Fun Tools – Insult Generators, Zodiac & Trivia | ToolTrio',
     description: 'Insult Generator, Shakespeare Insult Generator, zodiac, trivia, name generators and more. Instant results.',
     url: 'https://tooltrio.com/fun',
     type: 'website',
@@ -63,6 +63,7 @@ const tools = [
   { name: 'Emoji Translator',       desc: 'Convert text to emoji and decode emoji back',      href: '/fun/emoji-translator',        icon: '😊', tag: 'Language',    popular: false  },
   { name: 'Morse Code',             desc: 'Text ↔ Morse code with audio playback & chart',    href: '/fun/text-to-morse',           icon: '📡', tag: 'Language',    popular: false  },
   { name: 'Pig Latin',              desc: 'Full paragraph translator with reverse decoding',   href: '/fun/pig-latin-converter',     icon: '🐷', tag: 'Language',    popular: false },
+  { name: 'Shakespeare Translator', desc: 'Modern English ↔ Shakespearean, with a full meanings glossary', href: '/fun/shakespeare-translator', icon: '🪶', tag: 'Language', popular: true },
   { name: 'UWU Text Generator',     desc: 'Kawaii-ify any text with adjustable uwu intensity', href: '/fun/uwu-text-generator',      icon: '🐾', tag: 'Language',    popular: false },
 
   // Games
@@ -97,7 +98,7 @@ const SEO_FAQS = [
   },
   {
     q: 'Can I use these tools on my phone?',
-    a: 'All 41 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
+    a: 'All 42 tools are fully mobile-responsive and work on iPhone, Android, and tablets without downloading any app. The birthday countdown ticks live on mobile, the Morse code audio plays through your phone speaker, and result cards are designed to screenshot cleanly for Instagram Stories.',
   },
   {
     q: 'Are the results shareable on social media?',
@@ -115,7 +116,7 @@ export default function FunPage() {
   }))
   const faqStructuredData = generateFAQStructuredData(SEO_FAQS.map(({ q, a }) => ({ question: q, answer: a })))
   const structuredData = generateCollectionStructuredData({
-    name: '41 Free Fun Calculators & Entertainment Tools',
+    name: '42 Free Fun Calculators & Entertainment Tools',
     description: 'Free fun calculators, generators, quizzes and entertainment tools from ToolTrio.',
     url: 'https://tooltrio.com/fun',
     categoryName: 'Fun & Entertainment',
@@ -142,14 +143,14 @@ export default function FunPage() {
         </div>
         <div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment <span className="text-green-600">| ToolTrio</span></h1>
-          <p className="text-pink-600 font-semibold mt-0.5">41 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
+          <p className="text-pink-600 font-semibold mt-0.5">42 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>
 
       {/* Intro — human, not boilerplate */}
       <div className="prose prose-gray max-w-3xl mb-8 text-gray-600 leading-relaxed">
         <p className="text-lg">
-          Not everything needs to be a spreadsheet. We built 41 free fun tools for the moments when
+          Not everything needs to be a spreadsheet. We built 42 free fun tools for the moments when
           you want to know <strong>how many days old you are</strong>, argue about your
           <strong> zodiac compatibility</strong> with someone, settle who owes the most pizza at a party,
           or settle the group chat with a fresh insult. The two standout tools are the
@@ -170,6 +171,7 @@ export default function FunPage() {
           {[
             tools.find(t => t.href === '/fun/insult-generator')!,
             { name: 'Shakespeare Insult Generator', desc: 'Elizabethan-style put-downs with a huge library of unique lines', href: '/fun/shakespeare-insult-generator', icon: '🎭', tag: 'Generators' as const, popular: false },
+            tools.find(t => t.href === '/fun/shakespeare-translator')!,
           ].map(tool => {
             const cfg = TAG_CONFIG[tool.tag]
             return (

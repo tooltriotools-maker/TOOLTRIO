@@ -155,6 +155,23 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/lucky-number/page.tsx"
   },
+  "/fun/shakespeare-translator": {
+    "title": "Shakespeare English Translator | ToolTrio",
+    "description": "Translate any sentence between modern English and Shakespearean English, both directions, with a full glossary explaining every word. Free, instant, no login.",
+    "keywords": [
+      "shakespeare translator",
+      "shakespeare english translator",
+      "english to shakespearean translator",
+      "shakespearean to english translator",
+      "translate to old english",
+      "elizabethan english translator",
+      "shakespeare language converter",
+      "shakespearean words and meanings",
+      "thou thee thy translator",
+      "tooltrio.com"
+    ],
+    "source": "app/fun/shakespeare-translator/page.tsx"
+  },
   "/fun/pig-latin-converter": {
     "title": "Pig Latin Translator Online | ToolTrio",
     "description": "Instantly translate English text into Pig Latin. Works with sentences, paragraphs, names, or entire messages. Free online Pig Latin converter, no login.",

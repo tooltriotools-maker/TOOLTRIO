@@ -5,6 +5,7 @@ import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
 import type { InsultGenerator } from '@/lib/fun/insult-generators'
 import { generateUnique, estimateCombinations, hasBankLibrary } from '@/lib/fun/insultCombinator'
+import { getMeanings, translateToModern } from '@/lib/fun/shakespeareTranslate'
 
 interface Props {
   generator: InsultGenerator
@@ -43,6 +44,9 @@ export default function InsultGeneratorClient({ generator, related, faqs }: Prop
     setGenerated(true)
   }
 
+  const meanings = line ? getMeanings(line) : []
+  const plainEnglish = line ? translateToModern(line) : ''
+
   function share() {
     const text = `${icon} ${name}\n\n"${line}"\n\nGenerate yours: tooltrio.com/fun/insult-generator/${slug}`
     if (navigator.share) navigator.share({ title: name, text })
@@ -77,6 +81,25 @@ export default function InsultGeneratorClient({ generator, related, faqs }: Prop
               📋 Copy
             </button>
           </div>
+        </div>
+      )}
+
+      {line && meanings.length > 0 && (
+        <div className="rounded-2xl border p-5 mb-6" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.7)' }}>
+          <h2 className="font-bold text-gray-900 mb-1">📖 What Does This Mean in Plain English?</h2>
+          <p className="text-xs text-gray-500 mb-3">Pulled dynamically from our full Shakespeare English Translator library — every word gets its real meaning.</p>
+          <p className="text-sm text-gray-700 italic bg-purple-50 border border-purple-100 rounded-xl p-3 mb-4">&ldquo;{plainEnglish}&rdquo;</p>
+          <div className="space-y-2">
+            {meanings.map(m => (
+              <div key={m.shakespearean + m.modern} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 border-b border-gray-100 pb-2 last:border-0">
+                <span className="font-bold text-purple-700 text-sm capitalize min-w-[140px] flex-shrink-0">{m.shakespearean}</span>
+                <span className="text-sm text-gray-600">{m.meaning}</span>
+              </div>
+            ))}
+          </div>
+          <Link href="/fun/shakespeare-translator" className="inline-block mt-4 text-xs font-bold text-purple-600 underline underline-offset-2 hover:text-purple-800">
+            Try the full Shakespeare English Translator →
+          </Link>
         </div>
       )}
 
