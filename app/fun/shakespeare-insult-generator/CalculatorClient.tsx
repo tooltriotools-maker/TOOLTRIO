@@ -8,10 +8,10 @@ import { INSULT_GENERATORS } from '@/lib/fun/insult-generators'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-// CHARACTER: 100 items — used ×2 in full mode
+// CHARACTER: 118 items — used ×2 in full mode
 const CHARACTER = [
-  'artless','bawdy','beslubbering','bootless','churlish',
-  'clouted','craven','currish','dankish','dissembling',
+  'artless','bawdy','base-court','bat-fowling','beef-witted','bootless','churlish',
+  'clouted','cockered','craven','currish','dankish','dissembling',
   'droning','errant','fawning','fobbing','frothy',
   'gleeking','goatish','gorbellied','impertinent','jarring',
   'loggerheaded','lumpish','mammering','mangled','paunchy',
@@ -35,13 +35,13 @@ const CHARACTER = [
   'treacherous','turbulent','unworthy','vaporous','whining'
 ]
 
-// PHYSICAL: 200 items — used in both short and full modes
+// PHYSICAL: 277 items — used in both short and full modes
 const PHYSICAL = [
-  'beef-witted','beetle-headed','boil-brained','clay-brained',
-  'crook-pated','dog-hearted','earth-vexing','elf-skinned',
-  'fat-kidneyed','fen-sucked','fly-bitten','fool-born',
-  'full-gorged','goose-witted','guts-griping','half-faced',
-  'hedge-born','horn-mad','idle-headed','ill-breeding',
+  'beslubbering','beetle-headed','boil-brained','clay-brained',
+  'crook-pated','dizzy-eyed','doghearted','dread-bolted','earth-vexing','elf-skinned',
+  'fat-kidneyed','fen-sucked','flap-mouthed','fly-bitten','folly-fallen','fool-born',
+  'full-gorged','goose-witted','guts-griping','half-faced','hasty-witted','hell-hated',
+  'hedge-born','horn-mad','idle-headed','ill-breeding','ill-nurtured',
   'knotty-pated','long-tongued','maggot-pated','milk-livered',
   'motley-minded','muddy-mettled','onion-eyed','pickle-herring',
   'pigeon-livered','plume-plucked','rough-hewn','rump-fed',
@@ -97,16 +97,16 @@ const PHYSICAL = [
   'wick-brained','wind-shaken','withered-limbed','worm-tongued','yellow-bellied'
 ]
 
-// NOUNS: 200 items — used in both short and full modes
+// NOUNS: 303 items — used in both short and full modes
 const NOUNS = [
   'canker-blossom','foot-licker','malt-worm','moldwarp',
   'hedge-pig','mumble-news','skainsmate','puttock',
   'knave','miscreant','varlot','wag-tail',
-  'harpy','whey-face','vassal','flap-dragon',
-  'giglet','minnow','pumpion','nut-hook',
+  'harpy','haggard','whey-face','vassal','flap-dragon',
+  'giglet','horn-beast','joithead','minnow','pumpion','nut-hook',
   'codpiece','apple-john','barnacle','bladder',
-  'boar-pig','clack-dish','coxcomb','dewberry',
-  'fustilarian','lewdster','lout','maggot',
+  'baggage','boar-pig','bugbear','bum-bailey','clack-dish','coxcomb','death-token','dewberry',
+  'flirt-gill','fustilarian','lewdster','lout','maggot',
   'muck-spout','nightsoil','pignut','rascal',
   'scullion','toad','villain','weasel',
   'worm','jackanapes','mooncalf','addlepate',
@@ -121,7 +121,7 @@ const NOUNS = [
   'chaff-seed','changeling','chap-fallen','clodpoll','clotpole',
   'clownish-fool','cobweb','cock-sparrow','cold-heart','common-scold',
   'cony-catcher','craven','crow-keeper','cur','cutpurse',
-  'dead-nettle','death-token','ditch-bred','dock-weed','dog-fish',
+  'dead-nettle',,'ditch-bred','dock-weed','dog-fish',
   'dotard','dragon-fly','drone','dull-head','dunghill-cock',
   'dung-worm','dust-worm','eel-skin','empty-barrel','fallow-deer',
   'fat-guts','featherweight','fen-rat','fig-seed','filth-monger',
@@ -142,7 +142,7 @@ const NOUNS = [
   'lurdan','lusk','maggot-pie','maltworm','mandrake',
   'mange-worm','marsh-gas','measle','mildew','minnow-brain',
   'mitten','mongrel','moon-calf','mop-squeezer','mortar-pestle',
-  'moth','muck-raker','mud-worm','muddle-head','mule-driver',
+  'moth','muck-raker','mud-worm','muddle-head','mule-driver','mammet',
   'mumpsimus','nag','nit','noodle','notch-back',
   'oaf','offal-eater','oil-cake','old-crone','onion-seed',
   'ordinary','out-scum','paddock','pale-face','pantaloon',
@@ -219,9 +219,9 @@ const ENDINGS = [
 ]
 
 // ─── Combination counts ───────────────────────────────────────────
-// Short mode: PHYSICAL(200) × NOUNS(200) = 40,000
-// Full mode:  CHARACTER(100)² × PHYSICAL(200)² × NOUNS(200) × ENDINGS(50)
-//             = 100×100×200×200×200×50 = 20,000,000,000,000 (20 trillion)
+// Short mode: PHYSICAL(277) × NOUNS(303) = 83,931
+// Full mode: CHARACTER(118)² × PHYSICAL(277)² × NOUNS(303) × ENDINGS(50)
+//             = 118×118×277×277×303×50 = 16,185,875,129,400 (16.19 trillion)
 
 export default function CalculatorClient({ faqs }: Props) {
   const [insult, setInsult] = useState('')
@@ -237,10 +237,10 @@ export default function CalculatorClient({ faqs }: Props) {
     let result = ''
     do {
       if (length === 'short') {
-        // 3-word insult: "Thou [PHYSICAL] [NOUN]!" — 40,000 unique combinations
+        // 3-word insult: "Thou [PHYSICAL] [NOUN]!" — 83,931 unique combinations
         result = `Thou ${rand(PHYSICAL)} ${rand(NOUNS)}!`
       } else {
-        // Full insult: CHARACTER×CHARACTER×PHYSICAL×PHYSICAL×NOUN×ENDING — 20 trillion unique
+        // Full insult: CHARACTER×CHARACTER×PHYSICAL×PHYSICAL×NOUN×ENDING — 16.19 trillion unique
         result = `Thou ${rand(CHARACTER)}, ${rand(CHARACTER)}, ${rand(PHYSICAL)}, ${rand(PHYSICAL)} ${rand(NOUNS)}, ${rand(ENDINGS)}`
       }
     } while (generated.current.has(result))
@@ -283,13 +283,13 @@ export default function CalculatorClient({ faqs }: Props) {
             onClick={() => { setLength('short'); setInsult('') }}
             className={`flex-1 py-2.5 text-sm font-bold transition-all ${length === 'short' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
           >
-            Short (3 words · 40K unique)
+            Short (3 words · 83,931 unique)
           </button>
           <button
             onClick={() => { setLength('full'); setInsult('') }}
             className={`flex-1 py-2.5 text-sm font-bold transition-all ${length === 'full' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
           >
-            Full (20 Trillion unique)
+            Full (16.19 Trillion unique)
           </button>
         </div>
       </div>
@@ -317,14 +317,14 @@ export default function CalculatorClient({ faqs }: Props) {
           <p className="text-gray-700 leading-relaxed mb-3">The generator combines Shakespearean character traits, physical descriptors, classic Elizabethan nouns, and dramatic closing phrases.</p>
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div className="bg-white rounded-xl p-3 border border-purple-100">
-              <p className="font-black text-purple-700 text-lg">40,000</p>
+              <p className="font-black text-purple-700 text-lg">83,931</p>
               <p className="text-gray-600 font-semibold">Short insults (3 words)</p>
-              <p className="text-xs text-gray-400 mt-1">200 descriptors × 200 nouns</p>
+              <p className="text-xs text-gray-400 mt-1">277 descriptors × 303 nouns</p>
             </div>
             <div className="bg-white rounded-xl p-3 border border-purple-100">
-              <p className="font-black text-purple-700 text-lg">20 Trillion</p>
+              <p className="font-black text-purple-700 text-lg">16.19 Trillion</p>
               <p className="text-gray-600 font-semibold">Full insults</p>
-              <p className="text-xs text-gray-400 mt-1">100²×200²×200×50 combinations</p>
+              <p className="text-xs text-gray-400 mt-1">118²×277²×303×50 combinations</p>
             </div>
           </div>
         </section>
@@ -439,12 +439,12 @@ export default function CalculatorClient({ faqs }: Props) {
 
 This free Shakespeare insult generator creates funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks inspired by the language of William Shakespeare.
 
-Choose **Short mode** for punchy 3-word insults (40,000 unique combinations) or **Full mode** for maximum dramatic effect with over 20 trillion unique Shakespearean insult combinations — making repeated results practically impossible.
+Choose **Short mode** for punchy 3-word insults (83,931 unique combinations) or **Full mode** for maximum dramatic effect with over 16.19 trillion unique Shakespearean insult combinations — making repeated results practically impossible.
 
 Whether you need a Shakespeare roast for a party, a funny Elizabethan comeback, a classroom activity, a creative writing prompt, or simply want to explore Shakespearean language, this Shakespearean insult generator provides endless entertainment.
 
 `}
-          howItWorks={`The generator uses four pools of authentic Elizabethan vocabulary: character adjectives (100 words), physical descriptors (200 words), Shakespearean nouns (200 words), and dramatic endings (50 phrases). Short mode picks one descriptor and one noun for a punchy 3-word insult — 40,000 unique combinations. Full mode stacks two character adjectives, two physical descriptors, a noun, and an ending — over 20 trillion unique combinations.`}
+          howItWorks={`The generator uses four pools of authentic Elizabethan vocabulary: character adjectives (118 words), physical descriptors (277 words), Shakespearean nouns (303 words), and dramatic endings (50 phrases). Short mode picks one descriptor and one noun for a punchy 3-word insult — 83,931 unique combinations. Full mode stacks two character adjectives, two physical descriptors, a noun, and an ending — over 16.19 trillion unique combinations.`}
           tipsSection={`These are purely for entertainment and theatrical fun — NOT for actual use against real people. The Shakespearean insult is best deployed in jest with willing participants who appreciate the form. It's the verbal equivalent of a foam sword fight.`}
           conclusion={`Creativity in language — even antagonistic language — is a form of wit. Shakespeare's insults have survived 400 years precisely because they're inventive rather than merely vulgar. Enjoy them in the spirit of linguistic playfulness they represent.`}
           benefits={[
