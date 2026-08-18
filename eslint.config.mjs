@@ -1,10 +1,8 @@
 import { defineConfig, globalIgnores } from 'eslint/config'
+import nextVitals from 'eslint-config-next/core-web-vitals'
 
-// Keep the project on ESLint's flat-config format without loading legacy
-// plugin presets during `next build`. The previous Next preset could resolve
-// an empty plugin name in some CI/Vercel environments and fail the build with
-// `Plugin "" not found.` TypeScript checking remains handled by Next.js.
-export default defineConfig(
+export default defineConfig([
+  ...nextVitals,
   globalIgnores([
     '.next/**',
     'out/**',
@@ -15,4 +13,4 @@ export default defineConfig(
     'public/**',
     '*.min.js',
   ]),
-)
+])

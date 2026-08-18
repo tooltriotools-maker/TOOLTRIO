@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
-import { getZipClusterSeo } from '@/lib/seo/zip-cluster-seo'
-const zipSeo = getZipClusterSeo('zip-code-map')
-
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -12,34 +9,34 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
 })
 
 export const metadata: Metadata = {
-  title: "ZIP Code Map \u2014 US ZIP Code Tool | ToolTrio",
-  description: "ToolTrio helps you visualizing the geographic location and surrounding context of a US ZIP Code. Get practical ZIP-level results for local researchers and everyday US location research.",
+  title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
+  description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
   keywords: [
-    "zip code map",
-    "zip  map",
-    "zip code map usa",
-    "zip code map free",
-    "us zip code map",
-    "find zip code map",
-    "zip code map tool",
-    "zip code map lookup",
-    "us zip code tools",
-    "tooltrio"
-    ],
+    'zip code map',
+    'zip code on map',
+    'interactive zip code map usa',
+    'show zip code on map free',
+    'view zip code boundaries map',
+    'zip code location map',
+    'find zip code on map free',
+    'us zip code boundary map',
+    'tooltrio',
+    'zip code tooltrio',
+  ],
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-map' },
   openGraph: {
     type: 'website',
     url: 'https://tooltrio.com/zip/zip-code-map',
     siteName: 'ToolTrio',
-    title: "ZIP Code Map \u2014 US ZIP Code Tool | ToolTrio",
-    description: "ToolTrio helps you visualizing the geographic location and surrounding context of a US ZIP Code. Get practical ZIP-level results for local researchers and everyday US location research.",
+    title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
+    description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
     images: [{ url: 'https://tooltrio.com/og-image.png', width: 1200, height: 630, alt: 'ZIP Code Map — View Any ZIP Code on Interactive Map Free USA 2026 | ToolTrio' }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: "ZIP Code Map \u2014 US ZIP Code Tool | ToolTrio",
-    description: "ToolTrio helps you visualizing the geographic location and surrounding context of a US ZIP Code. Get practical ZIP-level results for local researchers and everyday US location research.",
+    title: 'ZIP Code Map — Interactive US ZIP Code Map | ToolTrio',
+    description: 'View any US ZIP code on an interactive map free. See ZIP code boundaries, location, and surrounding area. No signup, no install required.',
     images: ['https://tooltrio.com/og-image.png'],
   },
   robots: {
@@ -71,67 +68,81 @@ const tips = [
 ]
 
 const seoContent = {
-  ...zipSeo,
-  verifiedDate: 'AUG 2026',
-  heading: "Interactive ZIP Code Map: See Where a US ZIP Code Is Located",
-  tagline: "Page-specific guidance for zip code map: visualizing the geographic location and surrounding context of a US ZIP Code.",
-  comparisonTitle: "Choosing ZIP Code Map vs. Related ZIP Tools",
-  comparisonTable: [
-    { option: "ZIP Code Map", input: "Visual location", bestFor: "Best for geographic orientation" },
-    { option: "ZIP Boundary Info", input: "Boundary attributes", bestFor: "Best for area details" },
-    { option: "ZIP to Coordinates", input: "Latitude/longitude", bestFor: "Best for numeric mapping workflows" }
+  verifiedDate: 'JAN 2026',
+  featureCards: [
+    { icon: '🗺️', title: `ZCTA Boundaries`, desc: `Map renders Census Bureau ZIP Code Tabulation Area polygons — the authoritative geographic boundaries.`, bullets: [] },
+    { icon: '📍', title: `Centroid Marker`, desc: `Shows the geographic center of the ZCTA — the reference point for distance calculations.`, bullets: [] },
+    { icon: '🔲', title: `Neighbor View`, desc: `Displays adjacent ZIP codes and their boundaries on the same map for context.`, bullets: [] },
   ],
-  body: `**What this ZIP Code Map is designed to answer**
-The ZIP Code Map page is built for one specific geographic question: visualizing the geographic location and surrounding context of a US ZIP Code. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns a map-oriented view of the ZIP location and nearby geography. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip code map. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+  heading: `ZIP Code Map — Visualizing US ZIP Code Boundaries and Geography`,
+  populationChart: {
+    title: 'US ZIP Code Geographic Size Distribution | ToolTrio',
+    subtitle: 'ZIP code area varies enormously from city blocks to thousands of square miles',
+    unit: '% of all ZIPs',
+    bars: [
+      { label: 'Under 1 sq mi', value: 8 },
+      { label: '1–5 sq mi', value: 22 },
+      { label: '5–25 sq mi', value: 28 },
+      { label: '25–100 sq mi', value: 20 },
+      { label: '100–500 sq mi', value: 14 },
+      { label: '500+ sq mi', value: 8 },
+    ],
+  },
+  statsTable: [
+    { label: 'Smallest ZIP codes', value: 'NYC neighborhoods, <0.1 sq mi' },
+    { label: 'Largest ZIP codes', value: 'Rural AK/MT, >10,000 sq mi' },
+    { label: 'Map tile source', value: 'OpenStreetMap / Google Maps' },
+    { label: 'Boundary source', value: 'Census TIGER/Line ZCTA polygons' },
+    { label: 'Coordinate display', value: 'WGS 84 decimal degrees' },
+    { label: 'Boundary update frequency', value: 'Annually with Census ZCTA releases' },
+  ],
+  body: `Visualizing a ZIP code on a map transforms it from an abstract 5-digit number into a tangible geographic area with defined boundaries, spatial relationships with neighboring ZIPs, and real-world geographic context. Our ZIP Code Map tool renders any US ZIP code on an interactive map showing the ZCTA boundary, nearby ZIP codes, streets, landmarks, and the city or community it serves — giving you the geographic intuition that numbers alone cannot convey.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**ZIP Code Boundary Data: Where It Comes From**
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP Code Map is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for checking whether a ZIP is near a city center, orienting a sales territory, or visually explaining neighboring ZIPs. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+ZIP code boundaries on our map come from the Census Bureau's **TIGER/Line ZCTA (ZIP Code Tabulation Area) shapefiles** — the authoritative geographic dataset for ZIP code boundaries used by government agencies, GIS professionals, and data analysts. ZCTA boundaries are updated annually with each new TIGER/Line release and represent the most current official approximation of ZIP code geographic extent. The Census Bureau releases ZCTA boundaries as GIS shapefiles (.shp), GeoJSON files, and API-accessible features through the Census Bureau's TIGER/Line WFS service.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, map position can use a representative ZIP location rather than showing every delivery address. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+ZCTA boundaries are built by assigning each census block to the ZIP code that is most common among addresses in that block, then aggregating blocks with the same ZIP assignment into contiguous polygons. This process creates boundary polygons that closely approximate actual USPS delivery zone boundaries while being defined in terms of census statistical geography.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP Code Map is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
+**Reading a ZIP Code Map**
 
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP Code Map can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
+When you view a ZIP code on our map, several elements are visible. The highlighted boundary polygon shows the extent of the ZIP Code Tabulation Area — the official geographic approximation of where mail addressed to that ZIP is delivered. The centroid marker shows the geographic center of the ZCTA, which is also the reference coordinate used for distance calculations. Neighboring ZIP boundaries show adjacent ZIP codes and their geographic relationships. The basemap (streets, satellite, or terrain) provides real-world geographic context for understanding what the ZIP code represents on the ground.
 
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip code map, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
+**Geographic Size Variation: From City Blocks to Vast Wilderness**
 
-**A practical example**
-Suppose an analyst receives a record that needs zip code map before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
+ZIP code geographic size is enormously variable. Urban ZIP codes in Manhattan, San Francisco's downtown, or Chicago's Loop cover fractions of a square mile — some New York City ZIPs cover less than 0.1 square miles but contain tens of thousands of residents. At the other extreme, rural ZIP codes in Alaska, Montana, and Nevada cover thousands of square miles of wilderness, with sparse populations served by long rural delivery routes.
 
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP Code Map, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
+This size variation has major implications for any analysis using ZIP codes as geographic units. A ZIP-level dataset (census data, sales data, health data) aggregates information across very different geographic areas depending on whether you are looking at urban or rural ZIPs. A single rural ZIP in Montana may represent an area larger than the entire state of Connecticut. This is the modifiable areal unit problem (MAUP) — geographic analysis results change depending on the size and shape of the areal units used.
 
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
+**Map Use Cases: Real Estate, Site Selection, and Market Analysis**
 
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip code map results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
+Real estate professionals use ZIP code maps to understand market boundaries — where one pricing zone ends and another begins, which amenities and school districts fall within a ZIP, and how a property ZIP code relates to commute corridors and employment centers. Site selection analysts overlay ZIP code boundaries with demographic heat maps (income, age, daytime population) to identify optimal store or office locations.
 
-**Bottom line**
-ZIP Code Map is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are checking whether a ZIP is near a city center, orienting a sales territory, or visually explaining neighboring ZIPs, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
+Urban planners use ZIP code maps alongside census tract maps to understand service delivery areas, transportation access, and demographic composition at a fine-grained geographic level. Public health researchers use ZIP code maps to visualize health outcome disparities and environmental exposure patterns.
 
-**A simple decision rule for ZIP Code Map**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on visualizing the geographic location and surrounding context of a US ZIP Code. If the next action is checking whether a ZIP is near a city center, keep the result at ZIP level and document the lookup. If the next action is orienting a sales territory, combine the ZIP with the relevant business or geographic dataset. If the next action is visually explaining neighboring ZIPs, verify that the ZIP representation is appropriate for the final decision. Above all, remember that map position can use a representative ZIP location rather than showing every delivery address. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**ZIP Code Boundaries for Data Visualization**
+
+Choropleth maps — maps where geographic areas are colored by a data value — are one of the most powerful ways to visualize geographic data, and ZIP codes are a popular unit for US choropleth maps. Creating a ZIP code choropleth requires: (1) the ZCTA boundary shapefile from the Census Bureau, (2) data keyed by ZIP code (e.g., average income, vaccination rate, sales per capita), and (3) a mapping library (Mapbox GL JS, Leaflet, D3.js, Kepler.gl) that can join the boundary data and value data and render the filled polygons. Our ZIP code map uses this same architecture to visualize individual ZIPs in their geographic context.
+
+**Comparing ZIP Codes Visually**
+
+One of the most useful features of a ZIP code map is the ability to compare neighboring ZIPs visually. Two ZIP codes that look similar in a spreadsheet (same state, similar population) may be dramatically different geographically — one might be a compact urban neighborhood and the other a sprawling rural county subdivision. Seeing them side by side on a map immediately communicates this difference and helps analysts and planners make better decisions about geographic targeting, territory assignment, and resource allocation.`,
   faqs: [
-    { q: "What does the ZIP Code Map tool return?", a: "It is designed to answer the page-specific question of visualizing the geographic location and surrounding context of a US ZIP Code. You provide a five-digit ZIP Code, and the tool returns a map-oriented view of the ZIP location and nearby geography. Review the surrounding location fields before using the result in a production dataset." },
-    { q: "Who is the ZIP Code Map tool most useful for?", a: "It is particularly useful for local researchers, marketers, real-estate users, GIS learners, delivery planners, and anyone who thinks spatially. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
-    { q: "Can I use a ZIP result as an exact legal boundary?", a: "No. Map position can use a representative zip location rather than showing every delivery address. ZIP geography should be kept separate from municipal, county, tax, census, or regulatory boundaries unless you have a documented crosswalk for that specific purpose." },
-    { q: "Should I store ZIP Codes as numbers or text?", a: "Store ZIP Codes as text. A five-digit ZIP is an identifier, not a quantity, and values such as 00501 or other leading-zero ZIPs can be damaged when treated as integers in spreadsheets, databases, or APIs." },
-    { q: "Is this tool suitable for production address decisions?", a: "It is useful for research and enrichment, but production workflows should define a verification policy. For zip code map, retain the source input and lookup result, and use an authoritative postal, regulatory, routing, or commercial dataset when the decision has legal, financial, delivery, or compliance consequences." },
-    { q: "Which related ZIP tool should I use next?", a: "Choose based on the information you already have. The comparison table on this page separates the closest alternatives by starting input and purpose, so you can switch tools without confusing a ZIP-to-place lookup with a distance, route, timezone, phone, or postal-classification task." }
+    { q: 'I\'m trying to understand why ZIP 94025 (Menlo Park, CA) has a very irregular boundary. Why isn\'t it a clean rectangle?', a: `ZIP code boundaries follow census block boundaries, which themselves follow streets, property lines, waterways, and railroad tracks. Menlo Park's ZIP 94025 has an irregular boundary because it wraps around the downtown core, follows El Camino Real (a major diagonal arterial), and is split by SR-101 and the Caltrain corridor. Rectangular ZIP codes essentially don't exist — every ZIP reflects the irregular physical geography of its delivery area. The Census TIGER/Line ZCTA polygons capture these exact irregular shapes.` },
+    { q: 'How can I download the ZCTA boundary shapefiles to use in my GIS application?', a: `Free download from the Census Bureau: census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html. Choose 'ZCTA' from the layer list. Available formats: Shapefile (.shp), Geodatabase (.gdb), and KML. The shapefile includes ZIP code, land area, water area, and internal point coordinates. For web mapping, convert to GeoJSON using GDAL: ogr2ogr -f GeoJSON zctas.geojson tl_2024_us_zcta520.shp. Then load in Mapbox GL JS or Leaflet with a choropleth fill layer.` },
+    { q: 'Can I use the ZIP code map to determine if two addresses are in the same delivery zone?', a: `Yes — if both addresses fall within the same ZCTA polygon on the map, they share a ZIP code and are in the same delivery zone. However, the map visualization is for reference. For programmatic determination, use a spatial point-in-polygon query: given two addresses (lat/lng), query the ZCTA polygon dataset and compare the returned ZIP codes. In PostGIS: SELECT zip FROM zcta WHERE ST_Contains(geom, ST_Point(-73.9967, 40.7484)) returns the ZIP for that coordinate.` },
+    { q: 'My choropleth map of customer density by ZIP code looks wrong for rural vs. urban areas — why?', a: `This is the modifiable areal unit problem (MAUP). Urban ZIP codes are tiny (0.1-2 sq mi) and show high customer density on a choropleth. Rural ZIP codes are enormous (100-10,000 sq mi) and appear to have very low density even with significant population. Solution: use proportional symbol maps (circle size = customer count) instead of choropleth fill color for count data. Use choropleth only for rate/density data (customers per sq mi or per 1,000 population). Our ZIP Boundary Info tool provides land area for density normalization.` },
+    { q: 'What is the difference between a ZCTA boundary and a USPS delivery zone boundary?', a: `ZCTA boundaries are built by the Census Bureau from census block polygons — they approximate ZIP code boundaries but are defined in terms of statistical geography. USPS delivery zone boundaries are defined by actual carrier routes and post office service areas — they are not publicly available as GIS shapefiles. ZCTAs are the best publicly available approximation. They match USPS zones well in urban areas (where census block boundaries align with street grids) and less precisely in rural areas (where large census blocks may straddle delivery zone lines).` },
+    { q: 'How do I add a ZIP code boundary layer to a Google Maps embed on my website?', a: `Google Maps API approach: Load ZCTA GeoJSON (from Census Bureau) into a Fetch request. Convert to Google Maps Data layer: map.data.loadGeoJson('zctas.geojson'). Style with map.data.setStyle(): fill color, stroke. Handle click events to show ZIP info. For a simpler approach with limited ZIPs, encode ZCTA polygon coordinates as Google Maps Polygon objects and add to the map. For large-scale ZCTA rendering across all 41,000+ ZIPs, tile-based approaches using Mapbox Vector Tiles or AWS Location Service are more performant than client-side GeoJSON.` },
+    { q: 'I see some ZIP codes appear as two separate polygons on the map — is that a rendering error?', a: `No — some ZIP codes genuinely serve non-contiguous geographic areas. This happens when a post office serves two geographically separated communities: an island and its mainland ferry terminal, two unconnected rural route areas, or a community split by a large geographic feature. The ZCTA appears as a multi-polygon feature. Our map correctly renders both polygons for these ZIPs. If you are doing a point-in-polygon query, your spatial database must handle multi-polygon features — ensure your query checks both polygons.` },
+    { q: 'What zoom level should I use to display a single ZIP code on a map?', a: `Recommended zoom levels for Mapbox GL JS or Leaflet: Small urban ZIP (<1 sq mi): zoom 14-15. Medium urban ZIP (1-5 sq mi): zoom 12-13. Suburban ZIP (5-25 sq mi): zoom 11-12. Rural ZIP (25-100 sq mi): zoom 10-11. Large rural ZIP (>100 sq mi): zoom 8-10. For automatic fit-to-bounds, calculate the ZCTA polygon bounding box and use the map library fitBounds() function with padding. This scales zoom automatically regardless of ZIP size.` },
+    { q: 'Can ZIP code maps be used for redistricting or political boundary analysis?', a: `ZIP codes are not political boundaries — they are postal administrative zones. Legislative redistricting uses census blocks and tracts as building blocks, not ZIP codes. However, ZIP code maps are useful for political campaigns as a proxy for neighborhood targeting: ZIP codes correspond to recognizable community names that voters understand, making ZIP-based canvassing and mail targeting operationally simple. For formal redistricting legal analysis, always use official political boundary data.` },
+    { q: 'Why do some neighboring states have ZIP codes with very different boundary sizes along their shared border?', a: `ZIP code size reflects postal delivery efficiency, not any effort to match across state lines. A state with sparse rural population naturally has large ZIP codes near the border. An adjacent state with a major metropolitan area near the border has many small ZIP codes. This creates visually dramatic boundary mismatches at state lines on zip code maps — for example, the Kansas-Missouri border near Kansas City, where tiny urban Kansas City MO ZIPs meet large rural Kansas ZIPs.` },
+    { q: 'How do I show a user their ZIP code boundary after they enter their ZIP on a website?', a: `Workflow: (1) Get user ZIP from form. (2) Call ZIP to Coordinates tool/API to get centroid lat/lng. (3) Fetch the ZCTA polygon for that ZIP from Census Bureau TIGERweb GeoJSON API: https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/2/query?where=ZCTA5CE20=%2794025%27&f=geojson. (4) Display polygon on map centered on centroid with fitBounds. This gives users a visual confirmation of their ZIP boundary.` },
+    { q: `Is the ZIP Code Map tool on TOOLTRIO free?`, a: `Yes — completely free. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides the ZIP Code Map as part of 35+ free ZIP code tools.` },
   ],
 }
-
 
 
 
