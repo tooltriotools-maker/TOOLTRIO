@@ -1,9 +1,10 @@
 'use client'
 import { DevToolLayout } from '@/components/ui/DevToolLayout'
 import { SEOContent } from '@/components/ui/SEOContent'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
-import { Copy, Check, ArrowLeftRight } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { Copy, Check } from 'lucide-react'
 import { translate, getMeanings, type Direction } from '@/lib/fun/shakespeareTranslate'
 import { ALL_SHAKESPEARE_ENTRIES, CATEGORY_LABELS, getAllCategories, type WordCategory } from '@/lib/fun/shakespeareDictionary'
 import { INSULT_GENERATORS } from '@/lib/fun/insult-generators'
@@ -26,22 +27,30 @@ const EXAMPLES: Record<Direction, string[]> = {
 }
 
 export default function CalculatorClient({ faqs }: Props) {
+  const searchParams = useSearchParams()
   const [tab, setTab] = useState<'translator' | 'glossary'>('translator')
-  const [direction, setDirection] = useState<Direction>('toShakespeare')
-  const [input, setInput] = useState('Why are you so foolish? I love you and I always will.')
+  // Default: Shakespearean → Modern English, so a first-time visitor (often
+  // arriving from an insult generator) sees "translate this old English"
+  // rather than the reverse.
+  const [direction, setDirection] = useState<Direction>('toModern')
+  const [input, setInput] = useState("Good morrow — how now, sirrah?")
   const [copied, setCopied] = useState(false)
   const [search, setSearch] = useState('')
   const [activeCategory, setActiveCategory] = useState<WordCategory | 'all'>('all')
+
+  // Prefill from links like /fun/shakespeare-translator?text=...&dir=toModern
+  // (used by every insult generator's "Translate this" button).
+  useEffect(() => {
+    const text = searchParams.get('text')
+    const dir = searchParams.get('dir')
+    if (text) setInput(text)
+    if (dir === 'toShakespeare' || dir === 'toModern') setDirection(dir)
+  }, [searchParams])
 
   const output = useMemo(() => translate(input, direction), [input, direction])
   const meanings = useMemo(() => getMeanings(input + ' ' + output), [input, output])
 
   const copy = () => { navigator.clipboard.writeText(output); setCopied(true); setTimeout(() => setCopied(false), 1500) }
-
-  const swap = () => {
-    setDirection(d => d === 'toShakespeare' ? 'toModern' : 'toShakespeare')
-    setInput(output || input)
-  }
 
   const categories = getAllCategories()
   const filteredEntries = ALL_SHAKESPEARE_ENTRIES.filter(e => {
@@ -74,13 +83,20 @@ export default function CalculatorClient({ faqs }: Props) {
 
       {tab === 'translator' ? (
         <>
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className={`text-sm font-bold ${direction === 'toShakespeare' ? 'text-purple-700' : 'text-gray-400'}`}>Modern English</span>
-            <button onClick={swap} aria-label="Swap direction"
-              className="w-9 h-9 rounded-full bg-purple-100 border-2 border-purple-300 text-purple-700 flex items-center justify-center hover:bg-purple-200 transition-all">
-              <ArrowLeftRight className="w-4 h-4" />
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 text-center">Translation Direction — tap to switch</p>
+          <div className="flex rounded-xl overflow-hidden border-2 border-purple-200 mb-6">
+            <button
+              onClick={() => setDirection('toShakespeare')}
+              className={`flex-1 py-3 text-sm font-bold transition-all ${direction === 'toShakespeare' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
+            >
+              English → Shakespearean
             </button>
-            <span className={`text-sm font-bold ${direction === 'toModern' ? 'text-purple-700' : 'text-gray-400'}`}>Shakespearean English</span>
+            <button
+              onClick={() => setDirection('toModern')}
+              className={`flex-1 py-3 text-sm font-bold transition-all ${direction === 'toModern' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
+            >
+              Shakespearean → English
+            </button>
           </div>
 
           <div className="rounded-2xl border p-6 mb-4 shadow-sm" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
@@ -96,7 +112,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-6 mb-6">
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-6 mb-2">
             <div className="flex items-center justify-between mb-3">
               <label className="text-xs font-bold text-purple-700 uppercase tracking-wide">
                 {direction === 'toShakespeare' ? 'Shakespearean Output' : 'Modern English Output'}
@@ -108,6 +124,15 @@ export default function CalculatorClient({ faqs }: Props) {
             <p className="text-lg font-semibold text-gray-800 leading-relaxed italic">{output || '—'}</p>
           </div>
 
+          <div className="text-center mb-6">
+            <button
+              onClick={() => { setDirection(d => d === 'toShakespeare' ? 'toModern' : 'toShakespeare'); setInput(output || input) }}
+              className="text-xs font-bold text-purple-500 hover:text-purple-700 underline underline-offset-2"
+            >
+              ⇄ Use this result as the new input &amp; switch direction
+            </button>
+          </div>
+
           {meanings.length > 0 && (
             <div className="rounded-2xl border p-5 mb-6" style={{ background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.7)' }}>
               <h2 className="font-bold text-gray-900 mb-3">📚 Word-by-Word Meanings</h2>
@@ -117,8 +142,8 @@ export default function CalculatorClient({ faqs }: Props) {
                   <div key={m.shakespearean + m.modern} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 border-b border-gray-100 pb-2 last:border-0">
                     <div className="flex items-center gap-2 flex-shrink-0 min-w-[180px]">
                       <span className="font-bold text-purple-700 text-sm capitalize">{m.shakespearean}</span>
-                      <span className="text-gray-300 text-xs">↔</span>
-                      <span className="font-semibold text-gray-600 text-sm capitalize">{m.modern}</span>
+                      {m.modern && <span className="text-gray-300 text-xs">↔</span>}
+                      {m.modern && <span className="font-semibold text-gray-600 text-sm capitalize">{m.modern}</span>}
                     </div>
                     <span className="text-sm text-gray-600">{m.meaning}</span>
                   </div>

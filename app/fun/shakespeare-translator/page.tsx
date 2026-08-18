@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { generateFunToolMetadata, generateFAQStructuredData } from '@/lib/seo/metadata'
 import { generateFunToolStructuredDataFromSlug } from '@/lib/seo/structured-data'
 import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 const CalculatorClient = dynamic(() => import('./CalculatorClient'), {
   loading: () => (
     <div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />
@@ -65,7 +66,9 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_structuredData) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(_faqSchema) }} />
-      <CalculatorClient faqs={faqs} />
+      <Suspense fallback={<div className="min-h-[400px] bg-white rounded-2xl border border-gray-100 animate-pulse m-4" />}>
+        <CalculatorClient faqs={faqs} />
+      </Suspense>
     </>
   )
 }

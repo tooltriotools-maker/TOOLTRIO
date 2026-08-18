@@ -5,7 +5,7 @@ import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { RefreshCw, Copy, Check } from 'lucide-react'
 import { INSULT_GENERATORS } from '@/lib/fun/insult-generators'
-import { getMeanings, translateToModern } from '@/lib/fun/shakespeareTranslate'
+import { getMeanings } from '@/lib/fun/shakespeareTranslate'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
@@ -252,7 +252,7 @@ export default function CalculatorClient({ faqs }: Props) {
   const copy = () => { navigator.clipboard.writeText(insult); setCopied(true); setTimeout(() => setCopied(false), 1500) }
 
   const meanings = insult ? getMeanings(insult) : []
-  const plainEnglish = insult ? translateToModern(insult) : ''
+  const translateHref = insult ? `/fun/shakespeare-translator?text=${encodeURIComponent(insult)}&dir=toModern` : '/fun/shakespeare-translator'
 
   return (
     <DevToolLayout
@@ -279,23 +279,23 @@ export default function CalculatorClient({ faqs }: Props) {
         )}
       </div>
 
-      {insult && meanings.length > 0 && (
-        <div className="rounded-2xl border p-5 mb-6" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.7)' }}>
-          <h2 className="font-bold text-gray-900 mb-1">📖 What Does This Mean in Plain English?</h2>
-          <p className="text-xs text-gray-500 mb-3">Pulled dynamically from our full Shakespeare English Translator library — every word gets its real meaning.</p>
-          <p className="text-sm text-gray-700 italic bg-purple-50 border border-purple-100 rounded-xl p-3 mb-4">&ldquo;{plainEnglish}&rdquo;</p>
-          <div className="space-y-2">
-            {meanings.map(m => (
-              <div key={m.shakespearean + m.modern} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 border-b border-gray-100 pb-2 last:border-0">
-                <span className="font-bold text-purple-700 text-sm capitalize min-w-[140px] flex-shrink-0">{m.shakespearean}</span>
-                <span className="text-sm text-gray-600">{m.meaning}</span>
-              </div>
-            ))}
+      {insult && (
+        <Link href={translateHref}
+          className="block rounded-2xl border-2 border-purple-300 p-5 mb-6 bg-gradient-to-br from-purple-50 to-indigo-50 hover:border-purple-400 hover:-translate-y-0.5 transition-all group">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <h2 className="font-bold text-gray-900 mb-1">📖 Not sure what that means?</h2>
+              <p className="text-sm text-gray-600">
+                {meanings.length > 0
+                  ? `This line uses ${meanings.length} real Shakespearean word${meanings.length === 1 ? '' : 's'}. Open the Shakespeare English Translator to see the full plain-English meaning.`
+                  : 'Open the Shakespeare English Translator to see this insult\u2019s plain-English meaning, word by word.'}
+              </p>
+            </div>
+            <span className="flex-shrink-0 px-4 py-2 rounded-xl bg-purple-700 text-white font-bold text-sm group-hover:bg-purple-800 transition-all whitespace-nowrap">
+              Translate it →
+            </span>
           </div>
-          <Link href="/fun/shakespeare-translator" className="inline-block mt-4 text-xs font-bold text-purple-600 underline underline-offset-2 hover:text-purple-800">
-            Try the full Shakespeare English Translator →
-          </Link>
-        </div>
+        </Link>
       )}
 
       {/* Length selector */}
