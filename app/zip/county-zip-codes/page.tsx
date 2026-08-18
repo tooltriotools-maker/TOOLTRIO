@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('county-zip-codes')
+
 export const metadata: Metadata = {
   title: 'County ZIP Codes — Find ZIP Codes in Any County | ToolTrio',
   description: 'Find all ZIP codes within any US county free. Enter a county name and state to get a complete list. All 3,100+ US counties covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'county zip codes',
     'zip codes by county',
     'find zip codes in county',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code county list lookup free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/county-zip-codes' },
   openGraph: {
     type: 'website',
@@ -142,14 +147,12 @@ Sales territory designers use county boundaries as natural dividers because coun
     { q: `Can I download a county ZIP code list as a CSV?`, a: `Our tool allows copying and exporting results. The HUD USPS ZIP-County crosswalk file (downloadable from huduser.gov) and Census TIGER/Line ZCTA-to-county relationship files are official sources for bulk county-ZIP data.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="county-zip-codes" title="County ZIP Codes" description="Find every ZIP code within any US county, complete with city names and population data." icon="📋" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="county-zip-codes" title="County ZIP Codes" description="Find every ZIP code within any US county, complete with city names and population data." icon="📋" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-county')
+
 export const metadata: Metadata = {
   title: 'ZIP Code to County — Find County for Any ZIP Code Free | ToolTrio',
   description: 'Find the county for any US ZIP code free. Enter a ZIP code and instantly get the county name, state, and FIPS code. All 41,000+ ZIP codes covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code to county',
     'find county by zip code',
     'what county is zip code in',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code fips county lookup',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-county' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ The number of ZIP codes per county varies enormously based on population density
     { q: 'What county is ZIP 77001 in?', a: `ZIP 77001 is in Harris County, Texas — FIPS code 48201. Harris County is the home county of Houston, the fourth-largest city in the US. It has approximately 165 ZIP codes, more than most US states have in total. The county encompasses Houston proper plus surrounding unincorporated communities. Harris County uses a combined sales tax rate consisting of Texas state rate plus county and city components.` },
     { q: `Is the ZIP to County tool on TOOLTRIO free?`, a: `Yes — completely free. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP to County as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-county" title="ZIP to County" description="Find the county name and FIPS code for any US ZIP code." icon="📍" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-county" title="ZIP to County" description="Find the county name and FIPS code for any US ZIP code." icon="📍" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -141,6 +141,31 @@ async function searchByCity(city: string, stateCode?: string, limit = 30): Promi
   return results
 }
 
+async function searchByCounty(county: string, limit = 500): Promise<ZipRecord[]> {
+  const idx = await loadIndex()
+  const q = county.toLowerCase().trim()
+  const results: ZipRecord[] = []
+  for (const [z, e] of Object.entries(idx)) {
+    if (e[6].toLowerCase() === q || e[6].toLowerCase().includes(q)) {
+      results.push(toRecord(z, e))
+      if (results.length >= limit) break
+    }
+  }
+  return results
+}
+
+async function searchByTimezone(timezone: string, limit = 5000): Promise<ZipRecord[]> {
+  const idx = await loadIndex()
+  const results: ZipRecord[] = []
+  for (const [z, e] of Object.entries(idx)) {
+    if (e[4] === timezone) {
+      results.push(toRecord(z, e))
+      if (results.length >= limit) break
+    }
+  }
+  return results
+}
+
 async function searchByAreaCode(areaCode: string, limit = 500): Promise<ZipRecord[]> {
   const idx = await loadIndex()
   const results: ZipRecord[] = []
@@ -176,6 +201,24 @@ export async function zipFetch(url: string): Promise<MockResponse> {
       return ok({ ...rec, tzLabel, nearby })
     }
 
+    if (u.pathname === '/api/zip/county') {
+      const county = p.get('county')?.trim() || ''
+      const limit = clampPositiveInt(p.get('limit'), 500, 5000)
+      if (county.length < 2) return fail('Enter at least 2 characters for the county')
+      const results = await searchByCounty(county, limit)
+      if (!results.length) return fail(`No ZIPs found for county ${county}`)
+      return ok({ county, results, count: results.length })
+    }
+
+    if (u.pathname === '/api/zip/timezone') {
+      const timezone = p.get('timezone')?.trim() || ''
+      const limit = clampPositiveInt(p.get('limit'), 5000, 5000)
+      if (!timezone) return fail('Enter a valid timezone')
+      const results = await searchByTimezone(timezone, limit)
+      if (!results.length) return fail(`No ZIPs found for timezone ${timezone}`)
+      return ok({ timezone, results, count: results.length })
+    }
+
     if (u.pathname === '/api/zip/search') {
       const limit = clampPositiveInt(p.get('limit'), 30, API_LIMITS.searchLimit)
       const areaCode = p.get('areaCode')?.trim()
@@ -201,12 +244,14 @@ export async function zipFetch(url: string): Promise<MockResponse> {
     if (u.pathname === '/api/zip/nearby') {
       const zip = p.get('zip')?.trim() || ''
       const radius = parseFloat(p.get('radius') || '25')
-      const limit = clampPositiveInt(p.get('limit'), 30, API_LIMITS.searchLimit)
+      const requestedLimit = clampPositiveInt(p.get('limit'), 30, 500)
       if (!/^\d{5}$/.test(zip)) return fail('Enter a valid 5-digit ZIP code')
       const origin = await lookupZip(zip)
       if (!origin) return fail(`ZIP ${zip} not found`)
-      const results = await getNearby(zip, radius, limit)
-      return ok({ origin, results, count: results.length })
+      const results = await getNearby(zip, radius, requestedLimit)
+      // Keep the radius tool response backward-compatible with both the
+      // older API shape (origin/results) and the radius UI shape (center/nearby).
+      return ok({ center: origin, nearby: results, origin, results, count: results.length })
     }
 
     if (u.pathname === '/api/zip/distance') {

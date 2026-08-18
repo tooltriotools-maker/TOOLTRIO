@@ -1,6 +1,6 @@
 export const API_LIMITS = {
   searchLimit: 100,
-  nearbyLimit: 100,
+  nearbyLimit: 500,
   nearbyRadiusMiles: 500,
   queryLength: 100,
   streetLength: 200,

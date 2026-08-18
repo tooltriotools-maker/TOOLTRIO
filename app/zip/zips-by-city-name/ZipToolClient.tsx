@@ -13,9 +13,9 @@ export default function ZipToolClient() {
     const q = query.trim()
     if (!q) return
     setLoading(true)
-    let url = '/api/zip/'
-    if (/^\d{5}$/.test(q)) url += 'lookup?zip=' + q
-    else url += 'search?q=' + encodeURIComponent(q) + '&limit=30'
+    const url = /^\d{5}$/.test(q)
+      ? `/api/zip/lookup?zip=${q}`
+      : `/api/zip/search?city=${encodeURIComponent(q)}&limit=500`
     const res = await zipFetch(url)
     const data = await res.json()
     setLoading(false); setSearched(true)

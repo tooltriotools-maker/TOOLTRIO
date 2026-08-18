@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('city-to-zip')
+
 export const metadata: Metadata = {
   title: 'City to ZIP Code — Find All ZIP Codes for Any US City | ToolTrio',
   description: 'Find all ZIP codes for any US city free. Enter a city name and state to get every ZIP code serving that city. All 41,000+ US ZIP codes covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'city to zip code',
     'find zip code by city',
     'zip codes for city name',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'find all postal codes for city free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/city-to-zip' },
   openGraph: {
     type: 'website',
@@ -144,14 +149,12 @@ Online retailers building geographic delivery zones frequently need to translate
     { q: `Why might City to ZIP return different results depending on how I spell the city name?`, a: `Our search is case-insensitive and handles common spelling variants. However, significant misspellings (e.g., 'Chicgo' instead of 'Chicago') may return no results. Special characters: 'St. Louis vs 'Saint Louis — try both if one returns no results. USPS standardizes city names without periods: 'Saint Louis is preferred over 'St. Louis in USPS records. Hyphens and apostrophes in city names (e.g., 'Winston-Salem', "O'Fallon") should be entered as written.` },
     { q: `Is the City to ZIP Code tool on TOOLTRIO free?`, a: `Yes — free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides City to ZIP as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="city-to-zip" title="City to ZIP Code" description="Find all ZIP codes that serve any US city, town, or community." icon="🏙️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="city-to-zip" title="City to ZIP Code" description="Find all ZIP codes that serve any US city, town, or community." icon="🏙️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

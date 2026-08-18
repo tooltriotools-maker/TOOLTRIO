@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-code-format-guide')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Format Guide — US ZIP Code Rules & Structure | ToolTrio',
   description: 'Complete guide to US ZIP code formats: 5-digit, ZIP+4, leading zeros, USPS rules, and best practices for storing ZIP codes in databases. Free.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code format guide',
     'us zip code format rules',
     'zip code structure explained',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code format for developers free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-format-guide' },
   openGraph: {
     type: 'website',
@@ -154,14 +159,12 @@ Different systems handle ZIP codes with different quirks. USPS systems use 5-dig
     { q: `How often does USPS change ZIP codes?`, a: `USPS publishes quarterly ZIP code changes through the Address Management System (AMS). New ZIPs are added for growing areas; old ZIPs are retired when routes are consolidated. Production systems should synchronize with quarterly USPS updates.` },
     { q: `Is this guide free?`, a: `Yes — all TOOLTRIO ZIP tools are free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-code-format-guide" title="ZIP Code Format Guide" description="Complete guide to US ZIP code formats, types, leading zeros, ZIP+4, and storage best practices." icon="📖" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-code-format-guide" title="ZIP Code Format Guide" description="Complete guide to US ZIP code formats, types, leading zeros, ZIP+4, and storage best practices." icon="📖" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

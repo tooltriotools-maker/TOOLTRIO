@@ -95,10 +95,16 @@ export default function ZipToolClient() {
         return
       }
 
-      setCenter(data.center)
-      setResults(data.nearby || [])
+      // The ZIP radius search is powered entirely by ToolTrio's local ZIP
+      // dataset through zipFetch. Do not depend on a third-party geocoding API.
+      // Accept both the local data-layer shape and the API compatibility shape.
+      const nextCenter = data.center || data.origin
+      const nextResults = data.nearby || data.results || []
 
-      if (!data.nearby?.length) {
+      setCenter(nextCenter)
+      setResults(nextResults)
+
+      if (!nextResults.length) {
         setError(`No ZIP codes found within ${activeRadius} miles of ${value}`)
       }
     } catch {

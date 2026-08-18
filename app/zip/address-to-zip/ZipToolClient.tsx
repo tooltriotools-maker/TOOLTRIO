@@ -37,9 +37,14 @@ export default function ZipToolClient() {
     if (!val || val.length < 2) return
     if (q) setQuery(q)
     setLoading(true); setSearched(false); setSelectedZip(null)
+    const parts = val.split(',').map(x => x.trim()).filter(Boolean)
+    const state = parts.length ? parts[parts.length - 1].toUpperCase() : ''
+    const city = parts.length >= 2 ? parts[parts.length - 2] : ''
     const url = /^\d{5}$/.test(val)
       ? `/api/zip/lookup?zip=${val}`
-      : `/api/zip/search?q=${encodeURIComponent(val)}&limit=50`
+      : city && /^[A-Z]{2}$/.test(state)
+        ? `/api/zip/search?city=${encodeURIComponent(city)}&state=${state}&limit=50`
+        : `/api/zip/search?q=${encodeURIComponent(val)}&limit=50`
     const res = await zipFetch(url)
     const data = await res.json()
     setLoading(false); setSearched(true)

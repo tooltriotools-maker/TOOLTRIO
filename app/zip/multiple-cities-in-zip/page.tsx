@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('multiple-cities-in-zip')
+
 export const metadata: Metadata = {
   title: 'Multiple Cities in a ZIP Code — All Cities by ZIP Free | ToolTrio',
   description: 'Find all cities and communities served by any US ZIP code free. Some ZIP codes deliver to multiple cities — see every city name for any ZIP.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'multiple cities in zip code',
     'cities in a zip code',
     'how many cities in zip code',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code serves multiple cities',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/multiple-cities-in-zip' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ USPS periodically updates preferred city names and acceptable alternate names th
     { q: `Why does a ZIP show a small town name instead of the nearby major city?`, a: `USPS assigns the preferred city name based on the post office that serves the ZIP — historically the community where the post office was established. If a small town post office was the original facility, its name remains preferred even as a major nearby city grows.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="multiple-cities-in-zip" title="Multiple Cities in ZIP" description="Find every city and community name served by any US ZIP code." icon="🏘️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="multiple-cities-in-zip" title="Multiple Cities in ZIP" description="Find every city and community name served by any US ZIP code." icon="🏘️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

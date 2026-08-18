@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-city')
+
 export const metadata: Metadata = {
   title: 'ZIP Code to City — Find City Name by ZIP Code Free USA | ToolTrio',
   description: 'Find the city name for any US ZIP code free. Enter a 5-digit ZIP and instantly get the city, state, and county. Covers all 41,000+ US ZIP codes.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code to city',
     'find city by zip code',
     'what city is this zip code',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'find city from postal code',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-city' },
   openGraph: {
     type: 'website',
@@ -173,14 +178,12 @@ When USPS introduced ZIP codes in 1963, city name assignments reflected the prim
     { q: 'What is the USPS preferred city for ZIP 77001 in Houston?', a: `ZIP 77001 is a P.O. Box ZIP in Houston, TX — preferred city: Houston, state: TX, county: Harris County (FIPS 48201). Houston as a city spans approximately 74 ZIP codes (77001–77099 and beyond). Not all ZIPs in the 770xx range are in Houston proper — some belong to neighboring cities like Pasadena, Deer Park, and La Porte. Always verify city and county for each specific ZIP rather than assuming all ZIPs in a numeric range belong to the same city.` },
     { q: `Is the ZIP-to-city tool on TOOLTRIO free?`, a: `Yes — completely free, no account, no signup, unlimited individual lookups. TOOLTRIO (also Tool Trio, ToolTrio, Trio Tools) provides ZIP-to-city as part of a free suite of 35+ US ZIP code tools at tooltrio.com.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-city" title="ZIP to City" description="Find the city name, state, and county for any US ZIP code instantly." icon="🏙️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-city" title="ZIP to City" description="Find the city name, state, and county for any US ZIP code instantly." icon="🏙️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

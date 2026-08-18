@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-area-code')
+
 export const metadata: Metadata = {
   title: 'ZIP to Area Code — Telephone Area Code by ZIP USA Free | ToolTrio',
   description: 'Find the telephone area code for any US ZIP code free. Instant lookup — enter a ZIP and get the area code and city instantly. No signup required.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip to area code',
     'zip code area code lookup',
     'find area code from zip',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'area code lookup by zip usa',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-area-code' },
   openGraph: {
     type: 'website',
@@ -140,14 +145,12 @@ California has the most area codes of any state — over 26 active codes coverin
     { q: `How often are new area codes added?`, a: `NANPA reviews numbering resource exhaustion projections and recommends new area codes or number pooling as needed. New area codes are added every few years in high-growth markets. The FCC approves and state public utility commissions implement the changes.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-area-code" title="ZIP to Area Code" description="Find the local phone area code for any US ZIP code." icon="📞" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-area-code" title="ZIP to Area Code" description="Find the local phone area code for any US ZIP code." icon="📞" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-code-elevation')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Elevation — Elevation by ZIP Code | ToolTrio',
   description: 'Find the average elevation in feet and meters for any US ZIP code free. Useful for altitude-sensitive shipping, health, and weather research.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code elevation',
     'elevation by zip code',
     'find altitude by zip code',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code height above sea level',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-elevation' },
   openGraph: {
     type: 'website',
@@ -162,14 +167,12 @@ Extreme terrain ZIP codes have elevated (pun intended) logistics costs. Mountain
     { q: 'What is the elevation of ZIP code 10001 (Midtown Manhattan)?', a: `ZIP 10001 (Midtown Manhattan) has an average elevation of approximately 33 feet (10 meters) above sea level. Manhattan island rises slightly from the waterfront edges toward its center but remains essentially flat at low elevation throughout. This low elevation, combined with surrounding waterways, made Lower Manhattan vulnerable to flooding during Hurricane Sandy (2012), when the subway system flooded at elevations up to 14 feet above sea level.` },
     { q: `Is the ZIP Code Elevation tool on TOOLTRIO free?`, a: `Yes — completely free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP Code Elevation as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-code-elevation" title="ZIP Code Elevation" description="Find the average elevation in feet and meters for any US ZIP code." icon="⛰️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-code-elevation" title="ZIP Code Elevation" description="Find the average elevation in feet and meters for any US ZIP code." icon="⛰️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

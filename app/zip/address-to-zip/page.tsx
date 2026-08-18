@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('address-to-zip')
+
 export const metadata: Metadata = {
   title: 'Address to ZIP Code — Find ZIP Code by Street Address | ToolTrio',
   description: 'Find the ZIP code for any US street address free. Enter a street address, city, and state to get the exact ZIP code instantly. No signup required.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'address to zip code',
     'find zip code by address',
     'what zip code is this address',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'find postal code by address free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/address-to-zip' },
   openGraph: {
     type: 'website',
@@ -153,14 +158,12 @@ Customer databases accumulate incorrect ZIP codes over time through data entry e
     { q: 'Why does entering just a city and state without a street address return multiple ZIPs?', a: `A city can span many ZIP codes. 'Houston, TX' has ~74 ZIP codes. Entering just a city name returns all of them because without a specific street address, USPS cannot narrow to one delivery zone. This is correct behavior — to get a single ZIP, you need at least a street name and preferably a house number. For city-level ZIP browsing, use our City to ZIP Code tool which returns all ZIPs for a city in one organized list.` },
     { q: `Is the Address to ZIP tool on TOOLTRIO free?`, a: `Yes — free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides Address to ZIP as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="address-to-zip" title="Address to ZIP" description="Find the exact ZIP code for any US street address." icon="🏠" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="address-to-zip" title="Address to ZIP" description="Find the exact ZIP code for any US street address." icon="🏠" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

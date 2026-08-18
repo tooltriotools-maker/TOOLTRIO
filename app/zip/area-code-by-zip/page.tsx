@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('area-code-by-zip')
+
 export const metadata: Metadata = {
   title: 'Area Code by ZIP Code — Phone Area Code Lookup | ToolTrio',
   description: 'Find the telephone area code for any US ZIP code free. Enter a ZIP and get the phone area code, state, and city. All 41,000+ ZIP codes covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'area code by zip code',
     'find area code by zip',
     'zip code to area code lookup',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'find phone area code by zip free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/area-code-by-zip' },
   openGraph: {
     type: 'website',
@@ -157,14 +162,12 @@ Area code assignments have changed significantly since 1947, with dozens of spli
     { q: `What is NPA-NXX?`, a: `NPA = Numbering Plan Area (the area code). NXX = the exchange (the next 3 digits of a phone number). Together, NPA-NXX identifies the block of 10,000 numbers (NPA-NXX-0000 through NPA-NXX-9999) assigned to a specific carrier in a specific area.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="area-code-by-zip" title="Area Code by ZIP" description="Find the telephone area code(s) for any US ZIP code instantly." icon="📱" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="area-code-by-zip" title="Area Code by ZIP" description="Find the telephone area code(s) for any US ZIP code instantly." icon="📱" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

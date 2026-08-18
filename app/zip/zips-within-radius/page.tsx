@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zips-within-radius')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Radius — ZIP Codes Within a Radius | ToolTrio',
   description: 'Find all ZIP codes within any radius of a center ZIP. Enter miles and get every ZIP code nearby with population, county, and distance. Free radius search tool.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code radius',
     'zip codes within radius',
     'find zip codes near me',
@@ -21,7 +25,8 @@ export const metadata: Metadata = {
     'zip codes by distance',
     'radius zip code finder',
     'tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zips-within-radius' },
   openGraph: {
     type: 'website',
@@ -86,12 +91,12 @@ const seoContent = {
     { q: 'What is the maximum search radius?', a: 'The tool supports up to 500 miles, returning up to 500 ZIP codes. For very large radii, use the filter to narrow by state or city.' },
     { q: 'Is this free?', a: 'Yes — completely free, no account needed.' },
   ],
+  ...zipSeo,
 }
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zips-within-radius" title="ZIP Code Radius" description="Find all ZIP codes within any mile radius of a center ZIP code." icon="🎯" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zips-within-radius" title="ZIP Code Radius" description="Find all ZIP codes within any mile radius of a center ZIP code." icon="🎯" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

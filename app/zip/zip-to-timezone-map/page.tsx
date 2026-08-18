@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-timezone-map')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Timezone Map — Interactive US Timezone by ZIP | ToolTrio',
   description: 'View an interactive map of US timezones by ZIP code free. See which timezone any ZIP falls in — Eastern, Central, Mountain, Pacific, Alaska, Hawaii.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code timezone map',
     'us timezone map by zip code',
     'interactive timezone map zip',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'eastern central mountain pacific zip map',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-timezone-map' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ Building a timezone-aware map application requires a ZIP-to-timezone database an
     { q: `Does the map include US territories?`, a: `Yes — Puerto Rico (AST UTC-4), Guam (ChST UTC+10), US Virgin Islands (AST UTC-4), American Samoa (SST UTC-11), and Northern Mariana Islands (ChST UTC+10) are included.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-timezone-map" title="ZIP Code Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-timezone-map" title="ZIP Code Timezone Map" description="Visualize US timezone boundaries and see which timezone any ZIP code falls in." icon="🗺️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

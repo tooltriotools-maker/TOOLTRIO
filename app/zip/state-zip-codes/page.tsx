@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('state-zip-codes')
+
 export const metadata: Metadata = {
   title: 'State ZIP Codes — Browse ZIP Codes by State | ToolTrio',
   description: 'Browse all ZIP codes for any US state free. Find every ZIP code in a state with city names, counties, and population data. All 50 states covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'state zip codes',
     'zip codes by state',
     'all zip codes in a state',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'complete zip code list by state',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/state-zip-codes' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ Beyond the 50 states and DC, US territories have their own ZIP code ranges. Puer
     { q: `How are ZIP codes assigned to states?`, a: `ZIP codes are assigned to states based on the Sectional Center Facility (SCF) that processes their mail. SCF boundaries generally follow state lines, but a handful of border ZIP codes are served by an SCF in a neighboring state, giving them a ZIP prefix associated with a different state.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="state-zip-codes" title="State ZIP Codes" description="Browse all ZIP codes in any US state with city names, counties, and details." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="state-zip-codes" title="State ZIP Codes" description="Browse all ZIP codes in any US state with city names, counties, and details." icon="🗺️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-boundary-info')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Boundary Info — ZIP Area & Border Details USA | ToolTrio',
   description: 'Get boundary details for any US ZIP code free: area in square miles, perimeter, bounding box coordinates, and neighboring ZIP codes.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code boundary info',
     'zip code boundary details',
     'zip code area square miles',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code geographic boundary free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-boundary-info' },
   openGraph: {
     type: 'website',
@@ -154,14 +159,12 @@ Environmental analysis at the ZIP code level uses ZCTA boundaries to aggregate f
     { q: 'Why does ZIP 10001 have a very small land area compared to its population?', a: `ZIP 10001 covers Midtown Manhattan's Penn Station / Garment District / Hudson Yards area — approximately 0.6 square miles. With roughly 10,000 residents plus hundreds of thousands of daily commuters, the area is extraordinarily dense. Manhattan's grid layout and 30+ story residential buildings pack enormous populations into tiny land areas. At 10,000 residents in 0.6 sq mi, the residential density is ~16,667 per sq mi — and the daytime population density when office workers are counted exceeds 200,000 per sq mi.` },
     { q: `Is the ZIP Boundary Info tool on TOOLTRIO free?`, a: `Yes — free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP Boundary Info as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-boundary-info" title="ZIP Boundary Info" description="Get geographic boundary details, area, and neighbors for any US ZIP code." icon="🔲" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-boundary-info" title="ZIP Boundary Info" description="Get geographic boundary details, area, and neighbors for any US ZIP code." icon="🔲" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

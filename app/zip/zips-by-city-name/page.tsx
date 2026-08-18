@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zips-by-city-name')
+
 export const metadata: Metadata = {
   title: 'ZIP Codes by City Name — Search All ZIPs by City Name | ToolTrio',
   description: 'Search for all US ZIP codes matching any city name. Find every ZIP code serving cities or communities with a given name across all 50 US states.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip codes by city name',
     'find zip codes by city name',
     'all zips for city name',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code city name search all states',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zips-by-city-name' },
   openGraph: {
     type: 'website',
@@ -158,14 +163,12 @@ Digital advertisers can use city name ZIP search to build geographic targeting l
     { q: `Does the search handle misspellings?`, a: `The search handles common variants and case differences but not significant misspellings. For fuzzy matching of misspelled city names, consider a Levenshtein distance-based match against the city name database.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zips-by-city-name" title="ZIPs by City Name" description="Search for all ZIP codes matching any city or community name across the US." icon="🔎" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zips-by-city-name" title="ZIPs by City Name" description="Search for all ZIP codes matching any city or community name across the US." icon="🔎" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

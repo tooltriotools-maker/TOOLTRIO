@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-zip-route')
+
 export const metadata: Metadata = {
   title: 'ZIP to ZIP Route — Driving Directions Between ZIPs | ToolTrio',
   description: 'Get the driving route between any two US ZIP codes free. View turn-by-turn directions, total distance in miles, and estimated drive time.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip to zip route',
     'route between zip codes',
     'driving directions between zip codes',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code driving route free tool',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-zip-route' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ Beyond logistics, ZIP code routing is useful for travel planning. Road trippers 
     { q: `Is the tool free?`, a: `Yes — free, no account required.` },
     { q: `Does the tool work for ZIP codes in Hawaii and Alaska?`, a: `Yes — routes within Hawaii and within Alaska are supported. Routes between Hawaii/Alaska and the continental US will show the straight-line distance since driving is not possible across the ocean.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-zip-route" title="ZIP to ZIP Route" description="Get driving route, distance, and directions between any two US ZIP codes." icon="🛣️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-zip-route" title="ZIP to ZIP Route" description="Get driving route, distance, and directions between any two US ZIP codes." icon="🛣️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

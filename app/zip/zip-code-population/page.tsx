@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-code-population')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Population — Demographics by ZIP Code | ToolTrio',
   description: 'Look up population, housing units, and demographic data for any US ZIP code free. Find population density, household count, and ZIP code statistics.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code population',
     'population by zip code',
     'zip code demographics lookup',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code population density usa',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-population' },
   openGraph: {
     type: 'website',
@@ -163,14 +168,12 @@ Residential population (ACS data) measures where people sleep. Daytime populatio
     { q: 'How does ZIP code population affect USPS mail volume and carrier routes?', a: `USPS assigns carrier routes within each ZIP based on delivery address count. High-population ZIP codes may have 20+ carrier routes (each covering ~500-600 delivery points), while rural ZIP codes may have a single route. For Every Door Direct Mail (EDDM), you purchase by carrier route — knowing the ZIP population helps estimate the number of routes and total cost of an EDDM campaign before purchasing route data from USPS.` },
     { q: `Is the ZIP population tool on TOOLTRIO free?`, a: `Yes — free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP Code Population as part of a free suite of 35+ ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-code-population" title="ZIP Code Population" description="Look up population, housing units, and demographics for any US ZIP code." icon="👥" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-code-population" title="ZIP Code Population" description="Look up population, housing units, and demographics for any US ZIP code." icon="👥" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

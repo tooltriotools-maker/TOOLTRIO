@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('same-timezone-zips')
+
 export const metadata: Metadata = {
   title: 'Same Timezone ZIP Codes — All ZIPs in Same Time Zone | ToolTrio',
   description: 'Find all US ZIP codes in the same timezone as any ZIP code free. Enter a ZIP and get a complete list of ZIP codes sharing the same time zone.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'same timezone zip codes',
     'zip codes in same timezone',
     'find zip codes by timezone',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'us zip codes by time zone lookup',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/same-timezone-zips' },
   openGraph: {
     type: 'website',
@@ -138,14 +143,12 @@ Businesses with customers in multiple timezones need operations schedules that a
     { q: 'What is the most efficient timezone for holding US national broadcasts?', a: `For live content reaching the largest simultaneous audience in their normal viewing hours: 8 PM ET / 7 PM CT / 6 PM MT / 5 PM PT is the classic US primetime network schedule. This serves 95% of Americans at a reasonable evening hour. Hawaii (2 PM HST) and Alaska (4 PM AKT) are earlier but still accessible. West Coast primetime-matched broadcasts (8 PM PT) occur at 11 PM ET — fine for recorded content but too late for live events expecting significant East Coast engagement.` },
     { q: `Is the Same Timezone ZIPs tool on TOOLTRIO free?`, a: `Yes — completely free. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides Same Timezone ZIPs as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="same-timezone-zips" title="Same Timezone ZIPs" description="Find all US ZIP codes that share the same timezone as any entered ZIP code." icon="🕐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="same-timezone-zips" title="Same Timezone ZIPs" description="Find all US ZIP codes that share the same timezone as any entered ZIP code." icon="🕐" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   if (!origin) return NextResponse.json({ error: `ZIP ${zip} not found` }, { status: 404 })
   const results = getNearby(zip, radius, limit)
   return NextResponse.json(
-    { origin, results, count: results.length },
+    { center: origin, nearby: results, origin, results, count: results.length },
     { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } }
   )
 }

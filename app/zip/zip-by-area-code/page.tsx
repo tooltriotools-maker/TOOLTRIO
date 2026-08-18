@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-by-area-code')
+
 export const metadata: Metadata = {
   title: 'ZIP Codes by Area Code — Find ZIPs by Area Code | ToolTrio',
   description: 'Find all ZIP codes for any US telephone area code free. Enter an area code and get every ZIP code in that region. All 300+ US area codes covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip codes by area code',
     'find zip codes for area code',
     'area code zip code lookup',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'all zip codes in area code usa',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-by-area-code' },
   openGraph: {
     type: 'website',
@@ -150,14 +155,12 @@ The original 1947 telephone area code plan assigned area codes strategically: th
     { q: `Are there ZIP codes not associated with any area code?`, a: `Military APO/FPO ZIP codes, some unique organizational ZIPs, and P.O. Box ZIPs may not correspond to a standard geographic area code. Our tool notes these cases.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-by-area-code" title="ZIP by Area Code" description="Find all ZIP codes associated with any US telephone area code." icon="🔢" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-by-area-code" title="ZIP by Area Code" description="Find all ZIP codes associated with any US telephone area code." icon="🔢" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

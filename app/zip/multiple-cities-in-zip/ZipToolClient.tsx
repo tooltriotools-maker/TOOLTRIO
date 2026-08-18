@@ -11,17 +11,17 @@ export default function ZipToolClient() {
 
   async function lookup() {
     const q = query.trim()
-    if (!q) return
+    if (!/^\d{5}$/.test(q)) {
+      setSearched(true)
+      setResults([])
+      return
+    }
     setLoading(true)
-    let url = '/api/zip/'
-    if (/^\d{5}$/.test(q)) url += 'lookup?zip=' + q
-    else url += 'search?q=' + encodeURIComponent(q) + '&limit=30'
-    const res = await zipFetch(url)
+    const res = await zipFetch(`/api/zip/lookup?zip=${q}`)
     const data = await res.json()
     setLoading(false); setSearched(true)
-    if (res.ok) {
-      setResults(data.results || (data.zip ? [data] : []))
-    } else { setResults([]) }
+    if (res.ok) setResults([data])
+    else setResults([])
   }
 
   return (
@@ -30,7 +30,7 @@ export default function ZipToolClient() {
       <div className="flex gap-2 mb-6">
         <input value={query} onChange={e=>setQuery(e.target.value)}
           onKeyDown={e=>e.key==='Enter'&&lookup()}
-          placeholder="Enter ZIP code or city name..."
+          placeholder="Enter ZIP code (e.g. 10001)..."
           className="flex-1 border-2 rounded-xl px-4 py-3 focus:outline-none focus:border-green-500"
           style={{borderColor:'#e2e8f0',background:'rgba(255,255,255,0.9)'}} />
         <button onClick={lookup} disabled={loading}
@@ -46,7 +46,8 @@ export default function ZipToolClient() {
       )}
       {results.length > 0 && (
         <div>
-          <div className="text-sm text-gray-500 mb-3">{results.length} result{results.length !== 1 ? 's' : ''} found</div>
+          <div className="mb-3 p-3 rounded-xl bg-blue-50 border border-blue-100 text-blue-700 text-xs">The local ToolTrio dataset stores one primary city record per ZIP. Alternate USPS city aliases are not included in this local dataset.</div>
+          <div className="text-sm text-gray-500 mb-3">{results.length} ZIP result{results.length !== 1 ? 's' : ''} found</div>
           <div className="space-y-2 max-h-96 overflow-y-auto">
             {results.map((r:any) => (
               <div key={r.zip} className="rounded-xl border p-3 flex items-center justify-between"

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-code-type')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Type — Standard, PO Box & Military Lookup | ToolTrio',
   description: 'Find the type of any US ZIP code free. Check if a ZIP is Standard, P.O. Box, Unique, or Military (APO/FPO/DPO). Instant verification, no signup.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code type',
     'po box zip code lookup',
     'military zip code type',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code type checker usa free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-type' },
   openGraph: {
     type: 'website',
@@ -147,14 +152,12 @@ This type-checking logic prevents a significant class of delivery failures and i
     { q: `Is ZIP code type visible to the end user?`, a: `Usually not — most address forms do not display ZIP type. But the type should be validated programmatically to prevent shipping to non-deliverable addresses.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-code-type" title="ZIP Code Type" description="Find out whether a ZIP code is Standard, P.O. Box, Unique, or Military." icon="🏷️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-code-type" title="ZIP Code Type" description="Find out whether a ZIP code is Standard, P.O. Box, Unique, or Military." icon="🏷️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

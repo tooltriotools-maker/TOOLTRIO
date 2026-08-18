@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('multi-zip-distance')
+
 export const metadata: Metadata = {
   title: 'Multi-ZIP Distance — Total Distance Across ZIP Codes | ToolTrio',
   description: 'Calculate total distance across multiple US ZIP codes free. Enter a sequence of ZIPs to get the total route distance in miles. Multi-stop ZIP route planner.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'multi zip distance calculator',
     'distance across multiple zip codes',
     'total distance between zip codes',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'multi stop zip code distance',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/multi-zip-distance' },
   openGraph: {
     type: 'website',
@@ -150,14 +155,12 @@ Combine multi-ZIP distance routing with ZIP Code Population data to create cover
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
     { q: `Can I use multi-ZIP distance for road trip planning?`, a: `Yes — enter your start ZIP, waypoint ZIPs, and destination ZIP to get total estimated straight-line distance. Multiply by ~1.3 for driving distance estimate.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="multi-zip-distance" title="Multi-ZIP Distance" description="Calculate total distance across a sequence of multiple US ZIP codes." icon="📐" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="multi-zip-distance" title="Multi-ZIP Distance" description="Calculate total distance across a sequence of multiple US ZIP codes." icon="📐" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-time-converter')
+
 export const metadata: Metadata = {
   title: 'ZIP Time Converter — Time Conversion Between ZIP Codes | ToolTrio',
   description: 'Convert the current time between any two US ZIP codes free. Enter two ZIPs to see the local time in each timezone. Handles daylight saving automatically.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code time converter',
     'convert time between zip codes',
     'time difference by zip code',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'what time is it in zip code',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-time-converter' },
   openGraph: {
     type: 'website',
@@ -147,14 +152,12 @@ DST adds complexity to time conversion for 8 months of the year (when most of th
     { q: `Is the tool free?`, a: `Yes — free, no account required.` },
     { q: `How do I convert a specific time (not current) between two ZIP codes?`, a: `Enter both ZIP codes to see the current offset. Apply the offset to your specific time: if ET is 3 hours ahead of PT, a 2 PM ET event is 11 AM PT.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-time-converter" title="ZIP Time Converter" description="Convert and compare current local times between any two US ZIP codes." icon="⏱️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-time-converter" title="ZIP Time Converter" description="Convert and compare current local times between any two US ZIP codes." icon="⏱️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

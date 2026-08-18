@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-to-state')
+
 export const metadata: Metadata = {
   title: 'ZIP Code to State — Which State Is Any ZIP Code In | ToolTrio',
   description: 'Find the US state for any ZIP code free. Enter a 5-digit ZIP and instantly see the full state name and two-letter abbreviation. All US ZIPs covered.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code to state',
     'what state is this zip code',
     'find state by zip code',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'zip code state finder free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-to-state' },
   openGraph: {
     type: 'website',
@@ -146,14 +151,12 @@ USPS SCF boundaries were drawn in the early 1960s for operational efficiency, no
     { q: 'Why would I get different state results for the same ZIP from two different data providers?', a: `Possible reasons: (1) One provider has stale data — a ZIP that was reassigned to a different SCF and effectively 'moved' states in a USPS update. (2) Cross-state ZIPs — the rare ZIPs serving addresses in two states may be assigned differently by different providers. (3) Data entry error in one provider database. When results conflict, the USPS AMS is the authoritative source. Our tool syncs with USPS quarterly releases.` },
     { q: `Is the ZIP to State tool on TOOLTRIO free?`, a: `Yes — completely free, no account required. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides ZIP to State as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-to-state" title="ZIP to State" description="Find the state name and abbreviation for any US ZIP code." icon="🗺️" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-to-state" title="ZIP to State" description="Find the state name and abbreviation for any US ZIP code." icon="🗺️" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

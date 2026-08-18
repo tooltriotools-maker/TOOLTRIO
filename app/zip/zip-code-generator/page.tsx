@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('zip-code-generator')
+
 export const metadata: Metadata = {
   title: 'ZIP Code Generator — Generate Random Valid ZIP Codes | ToolTrio',
   description: 'Generate random valid US ZIP codes free. Filter by state, ZIP type, or population. Perfect for software testing, QA, demos, and sample data.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'zip code generator',
     'random zip code generator',
     'generate valid us zip codes',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'valid random zip code usa free',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/zip-code-generator' },
   openGraph: {
     type: 'website',
@@ -148,14 +153,12 @@ Load testing an address-handling system requires a large set of valid, diverse Z
     { q: `Can I generate ZIP codes for demos that audiences will recognize?`, a: `Use well-known ZIP codes like 10001 (NYC Midtown), 90210 (Beverly Hills), 60601 (Chicago Loop), 77001 (Houston Downtown), or 20500 (White House) for demo presentations where audience recognition helps.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="zip-code-generator" title="ZIP Code Generator" description="Generate random valid US ZIP codes for testing, development, and demos." icon="⚡" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="zip-code-generator" title="ZIP Code Generator" description="Generate random valid US ZIP codes for testing, development, and demos." icon="⚡" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

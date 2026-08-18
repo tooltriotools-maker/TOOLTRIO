@@ -52,42 +52,21 @@ export default function ZipToolClient() {
 
   async function loadByTimezone(tz: string) {
     setLoading(true); setError(''); setResults([])
-    // Use state search for each state that matches — faster approach via nearby for a large set
-    // We'll do a search query using timezone directly
     try {
-      // Fetch from multiple representative ZIPs per timezone and get all nearby
-      const tzToSampleZips: Record<string, string[]> = {
-        'America/New_York': ['10001','30301','33101','02101','28201'],
-        'America/Chicago': ['60601','77001','55401','53201','63101'],
-        'America/Denver': ['80201','84101','87101','83701','59701'],
-        'America/Los_Angeles': ['90001','98101','97201','89101'],
-        'America/Phoenix': ['85001','85201','85301'],
-        'America/Anchorage': ['99501','99701'],
-        'Pacific/Honolulu': ['96801','96801'],
+      const res = await zipFetch(`/api/zip/timezone?timezone=${encodeURIComponent(tz)}&limit=5000`)
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data.error || `No ZIP codes found for timezone: ${tz}`)
+        return
       }
-      const sampleZips = tzToSampleZips[tz] || ['10001']
-      // Use state-level API to gather ZIPs, then client-filter by timezone
-      // For best results, use the nearby API on representative points with large radius
-      const fetches = await Promise.all(
-        sampleZips.map(z => zipFetch(`/api/zip/nearby?zip=${z}&radius=500&limit=500`).then(r => r.json()))
-      )
-      const allResults: any[] = []
-      const seen = new Set<string>()
-      fetches.forEach(d => {
-        const items = d.nearby || []
-        items.forEach((r: any) => {
-          if (!seen.has(r.zip) && r.timezone === tz) {
-            seen.add(r.zip); allResults.push(r)
-          }
-        })
-      })
-      allResults.sort((a, b) => (b.population || 0) - (a.population || 0))
+      const allResults = (data.results || []).sort((a: any, b: any) => (b.population || 0) - (a.population || 0))
       setResults(allResults)
       if (!allResults.length) setError(`No ZIP codes found for timezone: ${tz}`)
     } catch {
       setError('Failed to load timezone data')
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   async function lookupByTz(tz: string) {

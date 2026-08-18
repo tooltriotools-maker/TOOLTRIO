@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('nearest-zip-code')
+
 export const metadata: Metadata = {
   title: 'Nearest ZIP Code — Closest ZIP Code to Any ZIP | ToolTrio',
   description: 'Find the nearest ZIP code to any US ZIP code free. Enter a ZIP and instantly get the closest neighboring ZIP codes ranked by distance in miles.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'nearest zip code',
     'closest zip code',
     'find nearest zip code free',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'closest zip code by distance usa',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/nearest-zip-code' },
   openGraph: {
     type: 'website',
@@ -151,14 +156,12 @@ Direct mail campaigns often target customers "neighbors" — households in the s
     { q: `Can I combine nearest ZIP results with population data?`, a: `Yes — use our ZIP Code Population tool to append population and demographic data to each nearest ZIP result for market sizing and prioritization.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="nearest-zip-code" title="Nearest ZIP Code" description="Find the closest ZIP codes to any US ZIP, sorted by distance." icon="📌" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="nearest-zip-code" title="Nearest ZIP Code" description="Find the closest ZIP codes to any US ZIP, sorted by distance." icon="📌" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

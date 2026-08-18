@@ -19,20 +19,18 @@ const STATE_PREFIXES: Record<string, number[][]> = {
   'WA': [[980,994]], 'WV': [[247,268]], 'WI': [[530,549]], 'WY': [[820,831]],
 }
 
-function generateZipsForState(state: string, count: number): string[] {
-  const ranges = STATE_PREFIXES[state]
-  if (!ranges) return []
-  const zips = new Set<string>()
-  let attempts = 0
-  while (zips.size < count && attempts < count * 10) {
-    attempts++
-    const range = ranges[Math.floor(Math.random() * ranges.length)]
-    const prefix = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0]
-    const suffix = Math.floor(Math.random() * 100)
-    const zip = `${prefix}${suffix.toString().padStart(2, '0')}`
-    if (zip.length === 5) zips.add(zip)
+async function generateZipsForState(state: string, count: number): Promise<string[]> {
+  const response = await fetch('/zip-data/index.json')
+  if (!response.ok) throw new Error('Unable to load local ZIP dataset')
+  const index = await response.json() as Record<string, [string, string]>
+  const candidates = Object.entries(index)
+    .filter(([, entry]) => state === 'ALL' || entry[1] === state)
+    .map(([zip]) => zip)
+  for (let i = candidates.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[candidates[i], candidates[j]] = [candidates[j], candidates[i]]
   }
-  return Array.from(zips).slice(0, count)
+  return candidates.slice(0, count)
 }
 
 function shareResult(zips: string[], state: string) {
@@ -57,21 +55,13 @@ export default function ZipToolClient() {
   const [generated, setGenerated] = useState<string[]>([])
   const [copied, setCopied] = useState(false)
 
-  function generate() {
-    let zips: string[] = []
-    if (state === 'ALL') {
-      // Pick randomly from all states
-      const perState = Math.ceil(count / ALL_STATES.length) + 1
-      ALL_STATES.forEach(s => { zips = zips.concat(generateZipsForState(s, perState)) })
-      // Shuffle and take count
-      for (let i = zips.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [zips[i], zips[j]] = [zips[j], zips[i]]
-      }
-    } else {
-      zips = generateZipsForState(state, count)
+  async function generate() {
+    try {
+      const zips = await generateZipsForState(state, count)
+      setGenerated(zips)
+    } catch {
+      setGenerated([])
     }
-    setGenerated(zips.slice(0, count))
   }
 
   function copyAll() {
@@ -88,7 +78,7 @@ export default function ZipToolClient() {
   return (
     <div>
       <div className="rounded-xl border p-4 mb-4 bg-amber-50 border-amber-200 text-xs text-amber-800">
-        ⚠️ <strong>Testing purposes only.</strong> These are randomly generated ZIP codes within valid US ranges — they may not correspond to real delivery routes. Use real Census/USPS data for production applications.
+        ⚠️ <strong>Testing purposes only.</strong> These are randomly selected from ToolTrio’s local US ZIP dataset, so every generated ZIP exists in the local data.
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-3">

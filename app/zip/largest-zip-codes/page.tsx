@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('largest-zip-codes')
+
 export const metadata: Metadata = {
   title: 'Largest ZIP Codes — Most Populous ZIPs in USA | ToolTrio',
   description: 'Discover the largest US ZIP codes by population, geographic area, and housing units free. Browse top ZIP codes by size, density, and more.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'largest zip codes by population',
     'most populous zip codes usa',
     'biggest zip code in america',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'highest population zip code usa',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/largest-zip-codes' },
   openGraph: {
     type: 'website',
@@ -150,14 +155,12 @@ The Census Bureau's ACS releases ZIP-level demographic data including total popu
     { q: 'How do I find the most and least populous ZIP codes in a specific state?', a: `Use our State ZIP Codes tool to get all ZIPs in a state. Each result includes a population estimate from Census ACS data. Sort by population descending to find the most populous; ascending to find the least. For state-level population analysis, this allows you to identify: where your state population is concentrated (large-population ZIPs), where rural coverage is needed (small-population ZIPs), and which ZIPs represent the most significant market segments within the state.` },
     { q: `Is the Largest ZIP Codes tool on TOOLTRIO free?`, a: `Yes — completely free. TOOLTRIO (Tool Trio / ToolTrio / Trio Tools) at tooltrio.com provides the Largest ZIP Codes tool as part of 35+ free ZIP code tools.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="largest-zip-codes" title="Largest ZIP Codes" description="Discover the most populous and geographically largest ZIP codes in the United States." icon="📊" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="largest-zip-codes" title="Largest ZIP Codes" description="Discover the most populous and geographically largest ZIP codes in the United States." icon="📊" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )

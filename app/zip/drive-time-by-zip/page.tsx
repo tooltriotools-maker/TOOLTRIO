@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo, sanitizeZipSeoKeywords, filterZipRelatedTools } from '@/lib/seo/zip-cluster-seo'
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
@@ -8,10 +9,13 @@ const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   )
 })
 
+const zipSeo = getZipClusterSeo('drive-time-by-zip')
+
 export const metadata: Metadata = {
   title: 'Drive Time by ZIP — Driving Time Between ZIP Codes | ToolTrio',
   description: 'Calculate estimated driving time between any two US ZIP codes free. Get drive time in hours and minutes plus total driving distance. No signup needed.',
-  keywords: [
+  keywords: sanitizeZipSeoKeywords([
+
     'drive time by zip code',
     'driving time between zip codes',
     'estimated drive time zip',
@@ -22,7 +26,8 @@ export const metadata: Metadata = {
     'estimated driving time zip code tool',
     'tooltrio',
     'zip code tooltrio',
-  ],
+    ...zipSeo.keywords,
+  ]),
   alternates: { canonical: 'https://tooltrio.com/zip/drive-time-by-zip' },
   openGraph: {
     type: 'website',
@@ -150,14 +155,12 @@ Straight-line distance is useful for ranking ZIP codes by proximity, defining se
     { q: `What is the maximum drive time I can calculate?`, a: `There is no maximum — you can calculate drive time between any two US ZIP codes, including cross-country distances.` },
     { q: `Is this tool free?`, a: `Yes — free, no account required.` },
   ],
+  ...zipSeo,
 }
-
-
-
 export default function Page() {
   return (
     <ZipToolLayout
-      slug="drive-time-by-zip" title="Drive Time by ZIP" description="Get estimated driving time and distance between any two US ZIP codes." icon="🚗" relatedTools={relatedTools} tips={tips} seoContent={seoContent}>
+      slug="drive-time-by-zip" title="Drive Time by ZIP" description="Get estimated driving time and distance between any two US ZIP codes." icon="🚗" relatedTools={filterZipRelatedTools(relatedTools)} tips={tips} seoContent={seoContent}>
       <ZipToolClient />
     </ZipToolLayout>
   )
