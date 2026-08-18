@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import { Mail, Shield, FileText, Info, BookOpen, Smile } from 'lucide-react'
 
 const contactEmail = 'tooltrio.tools@gmail.com'
 
@@ -55,11 +54,13 @@ export function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="inline-flex items-center rounded-2xl bg-white px-4 py-2.5 mb-4 shadow-sm">
               <img
-                src="/tooltrio-footer-logo.png"
+                src="/tooltrio-horizontal.png"
                 alt="ToolTrio — Free Online Calculators and Tools"
-                style={{ height: '58px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                width={220}
+                height={70}
+                className="site-brand-logo"
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
@@ -69,16 +70,14 @@ export function Footer() {
               href={`mailto:${contactEmail}`}
               className="flex items-center gap-2 text-sm hover:text-white transition-all text-green-400 font-semibold"
             >
-              <Mail className="w-4 h-4 flex-shrink-0" />
+              ✉️
               {contactEmail}
             </a>
           </div>
 
           {/* Fun Tools */}
           <div>
-            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">
-              <Smile className="w-4 h-4 text-fuchsia-400" /> Fun Tools
-            </h2>
+            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">🎭 Fun Tools</h2>
             <ul className="space-y-2.5 text-sm">
               {funLinks.map(([name, href]) => (
                 <li key={href}>
@@ -102,9 +101,7 @@ export function Footer() {
 
           {/* Blog + Company */}
           <div>
-            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
-              <BookOpen className="w-4 h-4 text-blue-400" /> Blog
-            </h2>
+            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">📚 Blog</h2>
             <ul className="space-y-2.5 text-sm mb-6">
               {blogLinks.map(([name, href]) => (
                 <li key={href}>
@@ -113,9 +110,7 @@ export function Footer() {
               ))}
             </ul>
 
-            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">
-              <Info className="w-4 h-4 text-gray-400" /> Company
-            </h2>
+            <h2 className="font-bold text-white text-sm mb-3 flex items-center gap-1.5">🏢 Company</h2>
             <ul className="space-y-2.5 text-sm">
               {companyLinks.map(([name, href]) => (
                 <li key={href}>
@@ -140,21 +135,11 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p>© 2026 ToolTrio.com — All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
-            <Link href="/methodology" className="hover:text-white flex items-center gap-1">
-              <BookOpen className="w-3 h-3" /> Methodology
-            </Link>
-            <Link href="/privacy-policy" className="hover:text-white flex items-center gap-1">
-              <Shield className="w-3 h-3" /> Privacy Policy
-            </Link>
-            <Link href="/disclaimer" className="hover:text-white flex items-center gap-1">
-              <FileText className="w-3 h-3" /> Disclaimer
-            </Link>
-            <Link href="/about" className="hover:text-white flex items-center gap-1">
-              <Info className="w-3 h-3" /> About
-            </Link>
-            <Link href="/contact" className="hover:text-white flex items-center gap-1">
-              <Mail className="w-3 h-3" /> Contact
-            </Link>
+            <Link href="/methodology" className="hover:text-white flex items-center gap-1">📖 Methodology</Link>
+            <Link href="/privacy-policy" className="hover:text-white flex items-center gap-1">🛡️ Privacy Policy</Link>
+            <Link href="/disclaimer" className="hover:text-white flex items-center gap-1">📄 Disclaimer</Link>
+            <Link href="/about" className="hover:text-white flex items-center gap-1">ℹ️ About</Link>
+            <Link href="/contact" className="hover:text-white flex items-center gap-1">✉️ Contact</Link>
           </div>
           <p className="text-gray-700">For informational use only. Not financial or medical advice.</p>
         </div>

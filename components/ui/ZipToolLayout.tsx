@@ -261,7 +261,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
     </div>
   </>
 )}
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+          <h1 className="page-title text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
             {displayTitle}
           </h1>
           {seoContent?.tagline ? (

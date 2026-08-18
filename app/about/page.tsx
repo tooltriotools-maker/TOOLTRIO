@@ -36,7 +36,7 @@ export default function AboutPage() {
       <nav className="flex items-center gap-2 mb-8 text-sm" aria-label="Breadcrumb"><Link href="/" className="text-gray-500 hover:text-green-600">Home</Link><span className="text-gray-300">/</span><span className="font-semibold text-gray-900">About</span></nav>
       <header className="text-center mb-12">
         <p className="text-green-700 font-bold text-sm uppercase tracking-wider mb-3">📮 Built around US ZIP data</p>
-        <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">About <span className="text-green-600">ToolTrio</span></h1>
+        <h1 className="page-title text-4xl md:text-5xl font-black text-gray-900 mb-4">About <span className="text-green-600">ToolTrio</span></h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">ToolTrio is a focused online toolkit for people who need a quick answer about a US ZIP code, its location, distance, timezone, coordinates, ZIP+4 structure or nearby ZIPs.</p>
       </header>
 

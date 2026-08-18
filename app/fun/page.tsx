@@ -142,7 +142,7 @@ export default function FunPage() {
           <Smile className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment <span className="text-green-600">| ToolTrio</span></h1>
+          <h1 className="page-title text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Fun & Entertainment <span className="text-green-600">| ToolTrio</span></h1>
           <p className="text-pink-600 font-semibold mt-0.5">42 Free Tools &middot; Zero Seriousness &middot; 100% Fun 🎉</p>
         </div>
       </div>

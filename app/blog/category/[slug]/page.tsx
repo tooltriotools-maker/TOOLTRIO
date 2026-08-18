@@ -92,7 +92,7 @@ export default async function BlogCategory({ params }: Props) {
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-4xl">{cat.icon}</span>
-            <h1 className="text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{cat.name} <span className="text-green-600">| ToolTrio</span></h1>
+            <h1 className="page-title text-3xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>{cat.name} <span className="text-green-600">| ToolTrio</span></h1>
           </div>
           <p className="text-gray-600 text-lg">{cat.desc}</p>
           <p className="text-sm text-gray-400 mt-2">{posts.length} articles</p>

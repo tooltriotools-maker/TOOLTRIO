@@ -95,7 +95,7 @@ export default function BlogPage() {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Guides & Articles <span className="text-green-600">| ToolTrio</span></h1>
+              <h1 className="page-title text-3xl md:text-4xl font-black text-gray-900" style={{fontFamily:"'Inter', system-ui, sans-serif"}}>Guides & Articles <span className="text-green-600">| ToolTrio</span></h1>
               <p className="text-green-600 font-semibold text-sm mt-0.5">{blogPosts.length} Expert Guides - Free - No Signup</p>
             </div>
           </div>

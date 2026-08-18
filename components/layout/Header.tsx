@@ -1,61 +1,55 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import type { ReactNode } from 'react'
 import Link from 'next/link'
-import {
-  Menu, X, ChevronDown, Smile, MapPin, BookOpen,
-  Flame, Drama, Star, Heart, Clover, Brain, Sparkles, Cookie,
-  Search, MapPinned, Navigation, Route, Clock3, Map, ShieldCheck,
-  LocateFixed, Building2, Globe2, FileSearch, Ruler, BookMarked
-} from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { GlobalSearch } from '@/components/ui/GlobalSearch'
 
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
   {
-    key: 'fun', label: 'Fun Tools', icon: Smile, color: 'purple',
+    key: 'fun', label: 'Fun Tools', emoji: '🎭', color: 'purple',
     href: '/fun', viewAll: 'All 41 Fun Tools →',
     items: [
-      { name: 'Insult Generator', href: '/fun/insult-generator', icon: Flame },
-      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator', icon: Drama },
-      { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', icon: Star },
-      { name: 'Love Compatibility', href: '/fun/love-compatibility', icon: Heart },
-      { name: 'Lucky Number', href: '/fun/lucky-number', icon: Clover },
-      { name: 'Trivia Quiz', href: '/fun/trivia-quiz', icon: Brain },
-      { name: 'Superhero Name', href: '/fun/superhero-name', icon: Sparkles },
-      { name: 'Fortune Cookie', href: '/fun/fortune-cookie', icon: Cookie },
+      { name: 'Insult Generator', href: '/fun/insult-generator', emoji: '🔥' },
+      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator', emoji: '🎭' },
+      { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', emoji: '⭐' },
+      { name: 'Love Compatibility', href: '/fun/love-compatibility', emoji: '❤️' },
+      { name: 'Lucky Number', href: '/fun/lucky-number', emoji: '🍀' },
+      { name: 'Trivia Quiz', href: '/fun/trivia-quiz', emoji: '🧠' },
+      { name: 'Superhero Name', href: '/fun/superhero-name', emoji: '🦸' },
+      { name: 'Fortune Cookie', href: '/fun/fortune-cookie', emoji: '🥠' },
     ],
   },
   {
-    key: 'zip', label: 'ZIP Tools', icon: MapPin, color: 'teal',
+    key: 'zip', label: 'ZIP Tools', emoji: '📮', color: 'teal',
     href: '/zip', viewAll: 'All 35 ZIP Tools →',
     items: [
-      { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', icon: Search },
-      { name: 'ZIP to City', href: '/zip/zip-to-city', icon: Building2 },
-      { name: 'ZIP to State', href: '/zip/zip-to-state', icon: MapPinned },
-      { name: 'ZIP to County', href: '/zip/zip-to-county', icon: Map },
-      { name: 'ZIP Code Distance', href: '/zip/zip-code-distance', icon: Ruler },
-      { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius', icon: LocateFixed },
-      { name: 'City to ZIP', href: '/zip/city-to-zip', icon: Navigation },
-      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone', icon: Clock3 },
-      { name: 'ZIP Code Map', href: '/zip/zip-code-map', icon: Map },
-      { name: 'ZIP Validator', href: '/zip/zip-code-validator', icon: ShieldCheck },
-      { name: 'USPS Address Format', href: '/zip/usps-address-format', icon: FileSearch },
-      { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip', icon: Route },
+      { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', emoji: '🔎' },
+      { name: 'ZIP to City', href: '/zip/zip-to-city', emoji: '🏙️' },
+      { name: 'ZIP to State', href: '/zip/zip-to-state', emoji: '🗺️' },
+      { name: 'ZIP to County', href: '/zip/zip-to-county', emoji: '📍' },
+      { name: 'ZIP Code Distance', href: '/zip/zip-code-distance', emoji: '📏' },
+      { name: 'ZIPs Within Radius', href: '/zip/zips-within-radius', emoji: '⭕' },
+      { name: 'City to ZIP', href: '/zip/city-to-zip', emoji: '🏙️' },
+      { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone', emoji: '🕐' },
+      { name: 'ZIP Code Map', href: '/zip/zip-code-map', emoji: '🗺️' },
+      { name: 'ZIP Validator', href: '/zip/zip-code-validator', emoji: '✅' },
+      { name: 'USPS Address Format', href: '/zip/usps-address-format', emoji: '📬' },
+      { name: 'Drive Time by ZIP', href: '/zip/drive-time-by-zip', emoji: '🚗' },
     ],
   },
   {
-    key: 'blog', label: 'Blog', icon: BookOpen, color: 'green',
+    key: 'blog', label: 'Blog', emoji: '📚', color: 'green',
     href: '/blog', viewAll: 'All Blog Posts →',
     items: [
-      { name: 'ZIP Code Guides', href: '/blog/category/zip-codes', icon: BookMarked },
-      { name: 'ZIP Code Lookup Guide', href: '/blog/how-to-find-a-zip-code-from-an-address', icon: Search },
-      { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes', icon: Ruler },
-      { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code', icon: FileSearch },
-      { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code', icon: Clock3 },
-      { name: 'ZIP Radius Guide', href: '/blog/how-to-find-zip-codes-within-a-radius', icon: LocateFixed },
-      { name: 'ZIP Validator Guide', href: '/blog/how-to-validate-a-zip-code', icon: ShieldCheck },
-      { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code', icon: Globe2 },
+      { name: 'ZIP Code Guides', href: '/blog/category/zip-codes', emoji: '📖' },
+      { name: 'ZIP Code Lookup Guide', href: '/blog/how-to-find-a-zip-code-from-an-address', emoji: '🔎' },
+      { name: 'ZIP Code Distance Guide', href: '/blog/how-far-apart-are-two-zip-codes', emoji: '📏' },
+      { name: 'ZIP+4 Guide', href: '/blog/what-is-a-zip-plus-4-code', emoji: '📬' },
+      { name: 'ZIP Timezone Guide', href: '/blog/how-to-find-a-time-zone-from-a-zip-code', emoji: '🕐' },
+      { name: 'ZIP Radius Guide', href: '/blog/how-to-find-zip-codes-within-a-radius', emoji: '⭕' },
+      { name: 'ZIP Validator Guide', href: '/blog/how-to-validate-a-zip-code', emoji: '✅' },
+      { name: 'ZIP Code vs Postal Code', href: '/blog/zip-code-vs-postal-code', emoji: '🌎' },
     ],
   },
 ]
@@ -76,14 +70,14 @@ function Dropdown({ nav, onClose }: { nav: typeof NAV[0]; onClose: () => void })
     <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-2xl shadow-2xl p-2 z-[9999]">
       <p className={`text-[11px] font-bold ${c.text} uppercase tracking-wider px-3 py-2 ${c.header} rounded-xl mb-1`}>
         <span className="flex items-center gap-2">
-          <nav.icon className="w-3.5 h-3.5" />
+          <span className="text-base leading-none" aria-hidden="true">{nav.emoji}</span>
           {nav.label}
         </span>
       </p>
       {nav.items.map(item => (
         <Link key={item.href} href={item.href} onClick={onClose}
           className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-gray-700 hover:text-gray-900 ${c.hover} transition-all font-medium truncate`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}>
-          <item.icon className="w-4 h-4 flex-shrink-0 text-gray-400 group-hover:text-gray-600" aria-hidden="true" />
+          <span className="w-5 text-center text-base leading-none flex-shrink-0" aria-hidden="true">{item.emoji}</span>
           <span className="truncate">{item.name}</span>
         </Link>
       ))}
@@ -116,16 +110,16 @@ export function Header() {
   return (
     <header ref={headerRef} className="sticky top-0 z-[9990] border-b border-white/50 bg-white/70 backdrop-blur-xl shadow-sm" style={{backdropFilter:'blur(12px)',WebkitBackdropFilter:'blur(12px)'}}>
       <div className="max-w-7xl mx-auto px-4 relative">
-        <div className="flex items-center h-16 gap-2 overflow-visible">
+        <div className="flex items-center min-h-[76px] gap-3 overflow-visible">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 mr-3" aria-label="ToolTrio home">
+          <Link href="/" className="flex items-center flex-shrink-0 mr-4" aria-label="ToolTrio home">
             <img
-              src="/tooltrio-header.png"
+              src="/tooltrio-horizontal.png"
               alt="ToolTrio"
-              width={82}
-              height={45}
-              className="h-9 w-auto object-contain"
+              width={220}
+              height={70}
+              className="site-brand-logo"
             />
           </Link>
 
@@ -141,7 +135,7 @@ export function Header() {
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`} style={{transition:'all 0.25s cubic-bezier(.4,0,.2,1)'}}
                 >
-                  <nav.icon className="w-4 h-4" />
+                  <span className="text-base leading-none" aria-hidden="true">{nav.emoji}</span>
                   {nav.label}
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openKey === nav.key ? 'rotate-180' : ''}`} />
                 </button>
@@ -184,7 +178,7 @@ export function Header() {
                     onClick={() => setMobileSection(mobileSection === nav.key ? null : nav.key)}
                     className="w-full flex items-center justify-between px-3 py-3 font-bold text-sm text-gray-800 hover:bg-gray-50 rounded-xl"
                   >
-                    <span className="flex items-center gap-2"><nav.icon className="w-4 h-4" />{nav.label}</span>
+                    <span className="flex items-center gap-2"><span className="text-base leading-none" aria-hidden="true">{nav.emoji}</span>{nav.label}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${mobileSection === nav.key ? 'rotate-180' : ''}`} />
                   </button>
                   {mobileSection === nav.key && (
@@ -194,7 +188,7 @@ export function Header() {
                           onClick={() => setMobileOpen(false)}
                           className={`flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm text-gray-600 hover:text-gray-900 ${c.hover} font-medium transition-all`}
                         >
-                          <item.icon className="w-4 h-4 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                          <span className="w-5 text-center text-base leading-none flex-shrink-0" aria-hidden="true">{item.emoji}</span>
                           <span className="truncate">{item.name}</span>
                         </Link>
                       ))}

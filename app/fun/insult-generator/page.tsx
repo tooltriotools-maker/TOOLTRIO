@@ -95,7 +95,7 @@ export default function InsultGeneratorHubPage() {
           <span className="text-gray-700 font-semibold">Insult Generators</span>
         </nav>
 
-        <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+        <h1 className="page-title text-3xl sm:text-4xl font-black text-gray-900 mb-3" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
           🎭 {COUNT} Free Insult Generators
         </h1>
         <div className="prose prose-gray max-w-3xl mb-10 text-gray-600 leading-relaxed">

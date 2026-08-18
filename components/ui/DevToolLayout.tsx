@@ -70,7 +70,7 @@ export function DevToolLayout({
             </span>
           </div>
           <h1
-            className="calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
+            className="page-title page-title calc-page-h1 text-2xl sm:text-3xl font-black text-gray-900 mb-1"
             style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
           >
             {icon} {displayTitle}

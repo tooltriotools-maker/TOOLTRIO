@@ -182,7 +182,7 @@ export default function HomePage() {
             <span>🔒 Free · No Signup</span>
           </div>
 
-          <h1 className="font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
+          <h1 className="page-title font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
               Free US ZIP Code Lookup, Distance, Timezone & ZIP+4{' '}
           </h1>
 
