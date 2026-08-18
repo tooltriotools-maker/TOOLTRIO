@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { ZipToolLayout } from '@/components/ui/ZipToolLayout'
 import dynamic from 'next/dynamic'
+import { getZipClusterSeo } from '@/lib/seo/zip-cluster-seo'
+const zipSeo = getZipClusterSeo('zip-code-map')
+
 const ZipToolClient = dynamic(() => import('./ZipToolClient'), {
   
   loading: () => (
