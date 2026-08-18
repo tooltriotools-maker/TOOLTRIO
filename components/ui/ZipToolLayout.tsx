@@ -12,6 +12,7 @@ interface FAQ { q: string; a: string }
 interface ChartBar { label: string; value: number; color?: string }
 interface PopulationChart { title: string; subtitle?: string; bars: ChartBar[]; unit?: string }
 interface StatsRow { label: string; value: string }
+interface ComparisonRow { option: string; input: string; bestFor: string }
 interface FeatureCard { icon: string; title: string; desc: string; bullets?: string[] }
 interface UseCase { icon: string; title: string; desc: string }
 interface RouteRow { from: string; to: string; dist: string; note: string }
@@ -25,6 +26,8 @@ interface SeoContent {
   faqs?: FAQ[]
   populationChart?: PopulationChart
   statsTable?: StatsRow[]
+  comparisonTitle?: string
+  comparisonTable?: ComparisonRow[]
   featureCards?: FeatureCard[]
   useCases?: UseCase[]
   howToSteps?: HowToStep[]
@@ -396,6 +399,35 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
                 <div className={`text-xs mt-1 ${i === 0 ? 'text-blue-100' : 'text-gray-500'}`}>{row.label}</div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* ── TOOL COMPARISON TABLE ─────────────────────────────── */}
+        {seoContent?.comparisonTable && seoContent.comparisonTable.length > 0 && (
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 mb-6 shadow-sm overflow-x-auto">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-lg">⚖️</span>
+              <h2 className="text-lg font-bold text-gray-900">{seoContent.comparisonTitle || `How ${title} Compares with Related ZIP Tools`}</h2>
+            </div>
+            <p className="text-xs text-gray-500 mb-4">Choose the tool by matching your starting information to the output you need.</p>
+            <table className="w-full text-sm min-w-[620px]">
+              <thead>
+                <tr className="border-b-2 border-gray-200">
+                  <th className="text-left py-2.5 px-3 text-xs font-bold text-gray-700">TOOL / OPTION</th>
+                  <th className="text-left py-2.5 px-3 text-xs font-bold text-gray-700">STARTS WITH</th>
+                  <th className="text-left py-2.5 px-3 text-xs font-bold text-gray-700">BEST FOR</th>
+                </tr>
+              </thead>
+              <tbody>
+                {seoContent.comparisonTable.map((row, i) => (
+                  <tr key={i} className="border-b border-gray-50 hover:bg-blue-50/30">
+                    <td className="py-3 px-3 font-semibold text-gray-800">{row.option}</td>
+                    <td className="py-3 px-3 text-gray-600">{row.input}</td>
+                    <td className="py-3 px-3 text-gray-600">{row.bestFor}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
 
