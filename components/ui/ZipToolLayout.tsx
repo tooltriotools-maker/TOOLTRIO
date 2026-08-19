@@ -17,6 +17,7 @@ interface FeatureCard { icon: string; title: string; desc: string; bullets?: str
 interface UseCase { icon: string; title: string; desc: string }
 interface RouteRow { from: string; to: string; dist: string; note: string }
 interface HowToStep { num: number; title: string; desc: string }
+interface InfoTable { title: string; subtitle?: string; icon?: string; columns: string[]; rows: string[][] }
 
 interface SeoContent {
   heading: string
@@ -36,6 +37,10 @@ interface SeoContent {
   successStory?: { title: string; problem: string; fix: string; icon: string }
   dataSources?: { name: string; desc: string; icon: string }[]
   prefixTable?: { prefix: string; region: string; states: string }[]
+  /** Page-specific reference table with a custom title/columns — used to make each page's data unique. */
+  infoTable?: InfoTable
+  /** Optional second page-specific reference table. */
+  infoTable2?: InfoTable
 }
 
 interface Props {
@@ -109,6 +114,36 @@ function PopulationBarChart({ chart }: { chart: PopulationChart }) {
   )
 }
 
+
+function InfoTableBlock({ table }: { table: InfoTable }) {
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-white p-6 mb-6 shadow-sm overflow-x-auto">
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-lg">{table.icon || '📊'}</span>
+        <h2 className="text-base font-bold text-gray-900">{table.title}</h2>
+      </div>
+      {table.subtitle && <p className="text-xs text-gray-500 mb-4 ml-7">{table.subtitle}</p>}
+      <table className="w-full text-sm min-w-[560px]">
+        <thead>
+          <tr className="border-b-2 border-gray-200">
+            {table.columns.map((col, i) => (
+              <th key={i} className="text-left py-2 px-3 text-xs font-bold text-gray-700">{col}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, i) => (
+            <tr key={i} className={`border-b border-gray-50 hover:bg-blue-50/30 ${i % 2 === 0 ? '' : 'bg-gray-50/30'}`}>
+              {row.map((cell, j) => (
+                <td key={j} className={`py-2.5 px-3 ${j === 0 ? 'font-semibold text-gray-800' : 'text-gray-600'}`}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 function getToolDescription(name: string) {
 
@@ -430,6 +465,10 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
             </table>
           </div>
         )}
+
+        {/* ── PAGE-SPECIFIC INFO TABLE(S) ───────────────────────── */}
+        {seoContent?.infoTable && <InfoTableBlock table={seoContent.infoTable} />}
+        {seoContent?.infoTable2 && <InfoTableBlock table={seoContent.infoTable2} />}
 
         {/* ── POPULATION CHART ─────────────────────────────────── */}
         {seoContent?.populationChart && (

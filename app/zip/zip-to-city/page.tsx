@@ -81,47 +81,60 @@ const seoContent = {
     { option: "City to ZIP", input: "City \u2192 ZIPs", bestFor: "Best when the place is known first" },
     { option: "ZIP to County", input: "ZIP \u2192 county", bestFor: "Best for county-level reporting" }
   ],
-  body: `**What this ZIP to City is designed to answer**
-The ZIP to City page is built for one specific geographic question: identifying the city or postal place associated with a five-digit ZIP Code. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns city/place, state, and related county context. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "Reading a ZIP-to-City Result Correctly",
+  "subtitle": "What each field actually represents and where it can mislead you",
+  "icon": "🏙️",
+  "columns": [
+    "Field",
+    "What It Represents",
+    "Common Misreading"
+  ],
+  "rows": [
+    [
+      "Primary city",
+      "USPS-preferred label for the ZIP",
+      "Assuming it's the only valid/deliverable name"
+    ],
+    [
+      "Alternate city names",
+      "Other names USPS still delivers to",
+      "Ignoring them and flagging valid entries as errors"
+    ],
+    [
+      "County",
+      "Best-fit county for the ZIP's area",
+      "Treating it as exact for every address inside the ZIP"
+    ],
+    [
+      "State",
+      "State associated with the ZIP record",
+      "Assuming a ZIP can never sit near another state's border"
+    ],
+    [
+      "ZIP type",
+      "Standard, PO Box, or Unique delivery class",
+      "Applying household logic to PO Box or Unique ZIPs"
+    ]
+  ]
+},
+  body: `**The one question this lookup actually answers**
+Given a five-digit ZIP, this tool returns the USPS preferred city name, state, and county tied to that delivery area. It sounds trivial until you consider that USPS never intended ZIP codes to map cleanly onto the place names people actually use. A ZIP's official city on file may differ from the name residents use for their own neighborhood, and a single ZIP can legally deliver mail addressed to several different city names as long as one of them is the accepted primary. This page is built to surface exactly what USPS has on record — not a crowdsourced or colloquial name — which matters if the output feeds a system that checks address deliverability.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip to city. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why the "official" city sometimes looks unfamiliar**
+Every ZIP has one preferred city name USPS wants printed on mail, but many carry a longer list of acceptable alternate city names that will still deliver correctly. A ZIP that covers a well-known neighborhood inside a big city might show the larger city's name as primary, with the neighborhood name filed only as an alternate. Conversely, some rural ZIPs show a small unincorporated community as primary even though most people would describe that address as being "near" a larger, more recognizable town. Neither is a data error — it's simply how USPS has classified the delivery area for routing purposes, and it will not always match a real-estate listing, a GPS map label, or local convention.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**County context and why it's included**
+Alongside city and state, this tool also surfaces the county because ZIP boundaries frequently sit close to — or straddle — county lines, and the county field is often the more useful geography for tax, legal, or government-data purposes. Treat the returned county as a strong approximation rather than an absolute fact for every address inside the ZIP: a small number of addresses near a county border can fall on the other side of the line even though the bulk of the ZIP sits in the listed county.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP to City is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for auto-filling an address form, normalizing customer records, or checking a ZIP before a local campaign. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Using this for address validation and enrichment**
+The most common production use of a ZIP-to-city lookup is filling in missing city and state fields, or cross-checking a city a customer typed against what USPS has on file for their ZIP. When the two disagree, do not automatically overwrite the customer's typed value — many disagreements are the alternate-name situation described above and the customer's entry is still deliverable. Instead, flag the mismatch for review only when the returned city is in a different state or an implausible distance from the entered value, which is a much stronger signal of a genuine typo or transposed digit.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, the USPS preferred city name can differ from the legal municipality or neighborhood name. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Distinguishing a real error from an acceptable variant**
+A useful rule of thumb: if the returned city and the customer-entered city are both associated with the same ZIP (primary or alternate), leave the record alone. If the ZIP simply does not exist, or if it maps to a city in a completely different state than the one the customer entered, that's a genuine data problem worth flagging — likely a transposed digit, a copy-paste error, or an outdated ZIP that has since been retired or reassigned. Building this distinction into your validation logic prevents the common mistake of "correcting" perfectly valid customer records because they used a locally accepted name instead of the USPS primary label.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP to City is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP to City can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip to city, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip to city before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP to City, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip to city results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP to City is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are auto-filling an address form, normalizing customer records, or checking a ZIP before a local campaign, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP to City**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on identifying the city or postal place associated with a five-digit ZIP Code. If the next action is auto-filling an address form, keep the result at ZIP level and document the lookup. If the next action is normalizing customer records, combine the ZIP with the relevant business or geographic dataset. If the next action is checking a ZIP before a local campaign, verify that the ZIP representation is appropriate for the final decision. Above all, remember that the USPS preferred city name can differ from the legal municipality or neighborhood name. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**Batch lookups and rate considerations**
+If you are resolving city names for a large address list, batch the lookups by unique ZIP rather than by row — most files have far fewer distinct ZIPs than rows, since the same ZIP repeats across many customers. Deduplicate first, run the lookup once per unique ZIP, then join the result back onto the full dataset. This is both faster and produces a smaller, more reviewable list of any ZIPs that returned no match, which are the records that actually need human attention.`,
   faqs: [
     { q: "What does the ZIP to City tool return?", a: "It is designed to answer the page-specific question of identifying the city or postal place associated with a five-digit ZIP Code. You provide a five-digit ZIP Code, and the tool returns city/place, state, and related county context. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP to City tool most useful for?", a: "It is particularly useful for developers, CRM teams, address researchers, local marketers, and customer-support staff. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

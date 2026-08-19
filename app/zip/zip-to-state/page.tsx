@@ -81,47 +81,65 @@ const seoContent = {
     { option: "State ZIP Codes", input: "State \u2192 ZIP inventory", bestFor: "Best for statewide lists" },
     { option: "ZIP to City", input: "ZIP \u2192 city/state/county", bestFor: "Best when more location detail is needed" }
   ],
-  body: `**What this ZIP to State is designed to answer**
-The ZIP to State page is built for one specific geographic question: determining the state or territory associated with a ZIP Code. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns state name, abbreviation, and geographic context. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "ZIP Codes That Don't Map to a Standard US State",
+  "subtitle": "Special jurisdictions and ranges to handle explicitly in your logic",
+  "icon": "🇺🇸",
+  "columns": [
+    "ZIP Pattern / Range",
+    "Jurisdiction Type",
+    "Handling Note"
+  ],
+  "rows": [
+    [
+      "006–009",
+      "Puerto Rico",
+      "Territory — not one of the 50 states"
+    ],
+    [
+      "008",
+      "US Virgin Islands",
+      "Territory — separate tax/shipping rules often apply"
+    ],
+    [
+      "969",
+      "Guam",
+      "Territory — exclude from mainland state rollups"
+    ],
+    [
+      "96799",
+      "American Samoa",
+      "Territory — exclude from mainland state rollups"
+    ],
+    [
+      "9694x–9695x",
+      "Northern Mariana Islands",
+      "Territory — exclude from mainland state rollups"
+    ],
+    [
+      "09xxx / 340 / 962–966",
+      "Military (APO/FPO/DPO)",
+      "No fixed civilian state — exclude from geographic mapping"
+    ]
+  ]
+},
+  body: `**The simplest-looking lookup with the most edge cases**
+Resolving a ZIP to its state sounds like it should be a one-line lookup table, and for the overwhelming majority of the roughly 41,000 active US ZIP codes, it is. But a small, important set of exceptions makes this page more than a formality: military ZIP codes are not tied to a US state at all, several territories carry ZIP codes but are not states, and a handful of ZIP codes sit so close to a state line that naive distance-based tools occasionally guess wrong. This tool resolves against the official USPS ZIP-to-state assignment rather than inferring the state from coordinates, which avoids that border-guessing failure mode entirely.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip to state. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Territories and the "state" question**
+Puerto Rico, the US Virgin Islands, Guam, American Samoa, and the Northern Mariana Islands all have valid USPS ZIP codes and all get treated as their own jurisdiction rather than folded into a mainland state. If your system assumes every returned "state" value is one of the 50 states plus DC, territory ZIPs will not fit that assumption and should be handled as a distinct category — particularly for tax, shipping-rate, and regulatory logic, since territories are frequently governed by different rules than the mainland.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Military ZIP codes (APO/FPO/DPO)**
+ZIP codes beginning with certain reserved ranges (notably many starting with 09, 962–966, and 340) are assigned to military postal facilities — Army/Air Post Office, Fleet Post Office, and Diplomatic Post Office — and route through domestic mail processing to overseas destinations. These ZIPs do not correspond to a fixed civilian state or a fixed physical location on a map at all; a service member's APO ZIP can represent a base anywhere in the world depending on current assignment. Any system built to plot ZIP codes on a US map, or to compute a state-level tax rate, needs an explicit exception for this ZIP range rather than trying to force a state guess.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP to State is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for auto-selecting a state field, grouping customer data by state, or checking whether a ZIP belongs to an expected state. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Why state resolution should never come from ZIP-prefix guessing alone**
+It's tempting to build a shortcut that maps the first one to three digits of a ZIP directly to a state, since prefixes do cluster by region. That shortcut breaks in more places than expected: several three-digit prefixes are split across two neighboring states, some states share prefix ranges with a bordering state along their mutual border, and any newly introduced ZIP could fall outside your hardcoded prefix table until it's updated. Resolving against the actual USPS ZIP record, rather than a static prefix table, avoids all three failure modes and stays correct as new ZIP codes are added.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, ZIP prefixes provide regional clues but should not replace an actual ZIP-to-state mapping. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Common production uses**
+State-level tax rate calculation, state-specific regulatory or licensing checks, shipping-carrier zone determination, and state-based reporting rollups are the most common reasons this lookup gets called in an automated pipeline. In each case, resolve the state once per unique ZIP in your dataset (not per row) to keep the process fast, and store both the full state name and the two-letter abbreviation — different downstream systems often expect one format or the other, and normalizing both up front avoids a second round of lookups later.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP to State is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP to State can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip to state, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip to state before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP to State, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip to state results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP to State is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are auto-selecting a state field, grouping customer data by state, or checking whether a ZIP belongs to an expected state, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP to State**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on determining the state or territory associated with a ZIP Code. If the next action is auto-selecting a state field, keep the result at ZIP level and document the lookup. If the next action is grouping customer data by state, combine the ZIP with the relevant business or geographic dataset. If the next action is checking whether a ZIP belongs to an expected state, verify that the ZIP representation is appropriate for the final decision. Above all, remember that ZIP prefixes provide regional clues but should not replace an actual ZIP-to-state mapping. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A quick accuracy check for your own data**
+If you maintain a customer or shipping database, periodically spot-check a sample of ZIP-to-state values against this tool rather than assuming a one-time import stays accurate forever. The two situations most likely to introduce drift are newly issued ZIP codes for recently developed areas, which may be missing from an older static dataset, and legacy records where a customer's state field was manually typed and never cross-validated against their ZIP — those manual entries are the most common source of state mismatches in real-world databases.`,
   faqs: [
     { q: "What does the ZIP to State tool return?", a: "It is designed to answer the page-specific question of determining the state or territory associated with a ZIP Code. You provide a five-digit ZIP Code, and the tool returns state name, abbreviation, and geographic context. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP to State tool most useful for?", a: "It is particularly useful for developers, forms, analysts, marketers, and address-data teams. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

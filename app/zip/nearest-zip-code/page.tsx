@@ -81,47 +81,60 @@ const seoContent = {
     { option: "ZIPs Within Radius", input: "Returns all ZIPs inside a limit", bestFor: "Best for coverage analysis" },
     { option: "ZIP Code Distance", input: "Measures a chosen pair", bestFor: "Best when both ZIPs are already known" }
   ],
-  body: `**What this Nearest ZIP Code is designed to answer**
-The Nearest ZIP Code page is built for one specific geographic question: finding the closest ZIP-code area to a supplied location or ZIP-based starting point. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a ZIP Code or supported location and returns the nearest ZIP Code and distance/location context. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "Choosing a Proximity Radius for Nearest-ZIP Use Cases",
+  "subtitle": "Typical distance thresholds by business scenario",
+  "icon": "📌",
+  "columns": [
+    "Use Case",
+    "Typical Threshold",
+    "Why This Range"
+  ],
+  "rows": [
+    [
+      "Same-day local delivery",
+      "5–10 miles",
+      "Keeps drive time practical within a single shift"
+    ],
+    [
+      "Retail store cannibalization check",
+      "3–5 miles",
+      "Distance at which two stores start competing for the same customers"
+    ],
+    [
+      "Field-service dispatch",
+      "15–25 miles",
+      "Balances technician travel time against coverage"
+    ],
+    [
+      "Regional real estate search expansion",
+      "10–20 miles",
+      "Widens a search meaningfully without leaving the metro area"
+    ],
+    [
+      "Rural service-gap analysis",
+      "30–50+ miles",
+      "Reflects lower ZIP density in rural regions"
+    ]
+  ]
+},
+  body: `**A ranking tool, not a single-answer lookup**
+Unlike a basic distance calculator that compares exactly two ZIP codes, this tool starts from one center ZIP and ranks every other ZIP code by proximity to it, giving you an ordered list of nearest neighbors rather than a single number. That ranked-list format matters because most real decisions aren't "how far is point B" — they're "which of my available options is closest," and this tool is built to answer that comparative question directly instead of forcing you to run dozens of individual distance checks.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for nearest zip code. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Straight-line proximity, and why that's the right default here**
+Nearest-neighbor ranking is calculated using straight-line (great-circle) distance between ZIP centroids. That's a deliberate choice: straight-line distance is the fastest way to establish relative closeness across a large candidate set, and for ranking purposes it correlates well with real-world proximity in most of the country. The exception is terrain-constrained areas — coastlines, mountain ranges, large water bodies — where the nearest ZIP by straight-line distance might not be the fastest to actually reach by road. If your final decision depends on travel time rather than raw proximity, use this tool to generate a shortlist of nearby candidates, then check drive time for the top few before finalizing.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a ZIP Code or supported location, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Why "nearest" isn't always "best"**
+Especially near a state line, a ZIP code's closest neighbors often reflect that adjacency more than genuine practical relevance — the nearest ZIP to an address might be in a different state, with different tax rules, different service providers, or a different licensing jurisdiction, even though it's geographically the closest. Filter or flag cross-jurisdiction results before treating "nearest" as automatically "most relevant" for any use case involving tax, licensing, service-area, or compliance decisions.
 
-**What the result means in a real workflow**
-The most useful way to interpret Nearest ZIP Code is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for assigning a nearby ZIP to a service location, finding a postal area around a point, or selecting the closest candidate territory. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Common uses for nearest-neighbor ZIP ranking**
+Retail and franchise operations use nearest-ZIP ranking to identify overlap or gaps between store locations — checking whether two of your own locations are unnecessarily close together, or whether a stretch of ZIP codes has no nearby coverage at all. Service dispatch and field operations use it to find the closest available technician's home base ZIP to an incoming job. Real estate search platforms use it to expand a search radius intelligently when a specific ZIP has too few listings, pulling in the next-closest ZIPs automatically. In each of these, the ranked list is more useful than a single "closest" answer because it lets you apply your own secondary filters — availability, jurisdiction, inventory — on top of a proximity-sorted base list.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, the nearest ZIP centroid is not necessarily the nearest street address or fastest driving destination. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Handling ties and near-ties in the ranking**
+When several ZIP codes sit at a very similar distance from your center point, don't treat the ranking order among them as meaningfully precise — a fraction-of-a-mile difference in centroid-to-centroid distance often falls within the margin created by how differently sized and shaped two ZIP areas are. For any decision where the exact rank order among near-ties actually matters, use a secondary tiebreaker relevant to your use case (population, service availability, drive time) rather than relying on the raw distance ranking alone.
 
-**Use case: data quality and automation**
-For software and data teams, Nearest ZIP Code is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. Nearest ZIP Code can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For nearest zip code, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs nearest zip code before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For Nearest ZIP Code, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes nearest zip code results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-Nearest ZIP Code is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are assigning a nearby ZIP to a service location, finding a postal area around a point, or selecting the closest candidate territory, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for Nearest ZIP Code**
-Use this page when your starting fact is a ZIP Code or supported location and your decision depends on finding the closest ZIP-code area to a supplied location or ZIP-based starting point. If the next action is assigning a nearby ZIP to a service location, keep the result at ZIP level and document the lookup. If the next action is finding a postal area around a point, combine the ZIP with the relevant business or geographic dataset. If the next action is selecting the closest candidate territory, verify that the ZIP representation is appropriate for the final decision. Above all, remember that the nearest ZIP centroid is not necessarily the nearest street address or fastest driving destination. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**Building a coverage or expansion map from repeated nearest-neighbor queries**
+Running this tool from several different center points and combining the results is a practical way to build out a broader regional coverage picture without needing a full GIS platform — for example, running it from each of your existing service locations to identify which surrounding ZIPs are well covered and which fall outside a reasonable proximity threshold from every existing location, flagging those as expansion candidates.`,
   faqs: [
     { q: "What does the Nearest ZIP Code tool return?", a: "It is designed to answer the page-specific question of finding the closest ZIP-code area to a supplied location or ZIP-based starting point. You provide a ZIP Code or supported location, and the tool returns the nearest ZIP Code and distance/location context. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the Nearest ZIP Code tool most useful for?", a: "It is particularly useful for delivery planners, geocoders, local search products, field teams, and geographic researchers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

@@ -81,47 +81,75 @@ const seoContent = {
     { option: "ZIP Timezone", input: "ZIP \u2192 timezone", bestFor: "Best for one-location lookup" },
     { option: "Same Timezone ZIPs", input: "Timezone \u2192 ZIP group", bestFor: "Best for batching locations" }
   ],
-  body: `**What this ZIP Time Converter is designed to answer**
-The ZIP Time Converter page is built for one specific geographic question: converting or comparing local clock time between two ZIP-code locations. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts two ZIP Codes and a reference time and returns corresponding local times and time difference. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "US Time Zones and Daylight Saving Behavior",
+  "subtitle": "Reference for building accurate ZIP-based time conversions",
+  "icon": "⏱️",
+  "columns": [
+    "Time Zone",
+    "Standard UTC Offset",
+    "Observes DST?"
+  ],
+  "rows": [
+    [
+      "Eastern",
+      "UTC-5",
+      "Yes (UTC-4 in summer)"
+    ],
+    [
+      "Central",
+      "UTC-6",
+      "Yes (UTC-5 in summer)"
+    ],
+    [
+      "Mountain",
+      "UTC-7",
+      "Yes, except most of Arizona"
+    ],
+    [
+      "Pacific",
+      "UTC-8",
+      "Yes (UTC-7 in summer)"
+    ],
+    [
+      "Alaska",
+      "UTC-9",
+      "Yes (UTC-8 in summer)"
+    ],
+    [
+      "Hawaii-Aleutian (Hawaii)",
+      "UTC-10",
+      "No"
+    ],
+    [
+      "Atlantic (Puerto Rico, USVI)",
+      "UTC-4",
+      "No"
+    ],
+    [
+      "Chamorro (Guam, N. Mariana Islands)",
+      "UTC+10",
+      "No"
+    ]
+  ]
+},
+  body: `**Converting time correctly requires knowing the date, not just the zone**
+The most common mistake in manual time-zone conversion is treating the offset between two zones as a fixed number. It isn't — because most of the US observes daylight saving time, the offset between, say, Eastern and Pacific time is three hours for most of the year but can temporarily shift for the roughly one-week windows each spring and fall when the two zones haven't yet made the same seasonal switch. This tool converts using the actual current date, not a static offset table, which avoids that entire class of error.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip time converter. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why ZIP codes, not just named time zones, are the right starting point**
+You could convert between two named zones directly if you already know them, but starting from ZIP codes is more useful in practice for two reasons. First, most business records — customer addresses, delivery destinations, meeting locations — are stored as ZIP codes, not time-zone names, so this saves a manual translation step. Second, and more importantly, it correctly handles the states that split across a time-zone boundary internally (Florida, Indiana, Michigan, Texas, and several others), where guessing the zone from the state name alone would silently produce a wrong answer for ZIP codes in the split portion of that state.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with two ZIP Codes and a reference time, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Arizona and Hawaii: the two zones that break the "obvious" pattern**
+Arizona observes Mountain Standard Time year-round and does not spring forward or fall back, with the notable exception of the Navajo Nation, whose Arizona territory does observe daylight saving time along with the rest of the country. Hawaii similarly does not observe daylight saving time. This means the practical time difference between Arizona and its Pacific-time neighbors changes twice a year — during daylight saving months, Arizona effectively runs on the same clock as Pacific time, then reverts to a one-hour difference in winter. Any conversion tool that doesn't account for this will be right for roughly four months of the year and wrong for the other eight.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP Time Converter is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for scheduling a customer call, planning a nationwide campaign launch, or avoiding an hour-off error during daylight-saving transitions. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Common scheduling failures this prevents**
+Cross-country meeting scheduling is the most frequent use case, and the most frequent failure mode is a meeting organizer manually calculating "three hours difference" without checking whether that's currently accurate — a fine habit most of the year, but wrong during the one-to-two week transition windows when US zones haven't uniformly switched, and wrong twice a year for anyone dealing with Arizona. Customer-facing scheduling — service appointment windows, delivery time commitments, support call-backs — carries the same risk at a larger scale, since a systematic offset error affects every customer in the mismatched zone rather than just one meeting.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, the local clock depends on the timezone rules for the location and the date being converted. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Using converted time for customer communication**
+When you tell a customer "your delivery window is 2–4pm," that time needs to be in their local time, resolved from their delivery ZIP, not the time zone of your operations center. Building this conversion into automated customer messaging — rather than relying on a manually maintained offset table that someone forgot to update for daylight saving — removes an entire category of confusing, trust-eroding customer communication errors.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP Time Converter is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP Time Converter can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip time converter, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip time converter before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP Time Converter, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip time converter results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP Time Converter is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are scheduling a customer call, planning a nationwide campaign launch, or avoiding an hour-off error during daylight-saving transitions, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP Time Converter**
-Use this page when your starting fact is two ZIP Codes and a reference time and your decision depends on converting or comparing local clock time between two ZIP-code locations. If the next action is scheduling a customer call, keep the result at ZIP level and document the lookup. If the next action is planning a nationwide campaign launch, combine the ZIP with the relevant business or geographic dataset. If the next action is avoiding an hour-off error during daylight-saving transitions, verify that the ZIP representation is appropriate for the final decision. Above all, remember that the local clock depends on the timezone rules for the location and the date being converted. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A note on international and territory time zones**
+US territories including Puerto Rico, the US Virgin Islands, Guam, American Samoa, and the Northern Mariana Islands each have their own ZIP-associated time zones, some of which do not observe daylight saving time and some of which sit at large offsets from the mainland — Guam, for instance, is far enough west that it's often a full day ahead of the US mainland by calendar date even though the clock-hour offset looks unremarkable. If your operation includes territory ZIP codes, verify the specific zone rather than assuming it follows a nearby mainland pattern.`,
   faqs: [
     { q: "What does the ZIP Time Converter tool return?", a: "It is designed to answer the page-specific question of converting or comparing local clock time between two ZIP-code locations. You provide two ZIP Codes and a reference time, and the tool returns corresponding local times and time difference. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP Time Converter tool most useful for?", a: "It is particularly useful for remote teams, sales reps, call centers, appointment schedulers, and customer-support operations. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

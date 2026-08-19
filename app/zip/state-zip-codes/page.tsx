@@ -81,47 +81,85 @@ const seoContent = {
     { option: "City to ZIP", input: "City \u2192 ZIP inventory", bestFor: "Best for a local place" },
     { option: "County ZIP Codes", input: "County \u2192 ZIP inventory", bestFor: "Best for county territory" }
   ],
-  body: `**What this State ZIP Codes is designed to answer**
-The State ZIP Codes page is built for one specific geographic question: finding and organizing ZIP Codes belonging to a selected state. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts US state or territory and returns ZIP Codes associated with the selected state. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "ZIP Prefix Ranges by US Region",
+  "subtitle": "The first digit of a ZIP code groups states into ten national delivery regions",
+  "icon": "🗺️",
+  "columns": [
+    "First Digit",
+    "Region",
+    "Example States"
+  ],
+  "rows": [
+    [
+      "0",
+      "Northeast (CT, MA, ME, NH, NJ, PR, RI, VT)",
+      "Connecticut, New Jersey, Puerto Rico"
+    ],
+    [
+      "1",
+      "New York / Delaware / Pennsylvania",
+      "New York, Pennsylvania, Delaware"
+    ],
+    [
+      "2",
+      "Mid-Atlantic / DC / Virginia / Carolinas",
+      "Virginia, Maryland, North Carolina"
+    ],
+    [
+      "3",
+      "Southeast (AL, FL, GA, MS, TN)",
+      "Florida, Georgia, Tennessee"
+    ],
+    [
+      "4",
+      "Great Lakes (IN, KY, MI, OH)",
+      "Ohio, Michigan, Kentucky"
+    ],
+    [
+      "5",
+      "North Central (IA, MN, MT, ND, SD, WI)",
+      "Minnesota, Wisconsin, Iowa"
+    ],
+    [
+      "6",
+      "South Central (IL, KS, MO, NE)",
+      "Illinois, Missouri, Kansas"
+    ],
+    [
+      "7",
+      "Gulf / South Central (AR, LA, OK, TX)",
+      "Texas, Louisiana, Arkansas"
+    ],
+    [
+      "8",
+      "Mountain West (AZ, CO, ID, NM, NV, UT, WY)",
+      "Colorado, Arizona, Utah"
+    ],
+    [
+      "9",
+      "Pacific (AK, CA, HI, OR, WA)",
+      "California, Washington, Oregon"
+    ]
+  ]
+},
+  body: `**How ZIP prefixes reveal state structure before you even search**
+Every US ZIP code's first digit groups it into one of ten broad national regions running roughly west to east and north to south, and the first three digits narrow that down to a "sectional center facility," a regional mail-sorting hub that usually covers one state or a large piece of one. That means a state's ZIP codes are rarely scattered randomly across the numbering range — they cluster into a predictable band of three-digit prefixes. New York mostly sits in the 100–149 range, California spans roughly 900–961, and Texas covers a wide 750–799 and 733–775 band because of its size. Understanding this structure helps you sanity-check a state ZIP list at a glance: if a "California" record shows a ZIP starting with 3, something in your data is wrong.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for state zip codes. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why state-level ZIP counts vary so widely**
+Texas and California each contain more than 2,600 ZIP codes, while Delaware and Rhode Island contain fewer than 100. The difference is not just population — it also reflects land area, the number of separate postal-delivery routes required, and how many small unincorporated communities have their own dedicated code versus sharing one with a larger town nearby. A state's ZIP count is a reasonable proxy for postal-delivery complexity, but it should never be used alone as a proxy for population, since large rural states can have many low-population ZIPs.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with US state or territory, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Working with a full state ZIP inventory**
+When you pull every ZIP in a state, the resulting list is most useful once you segment it — by type (standard, PO Box, unique), by county, or by population band. A raw unsegmented list of thousands of ZIP codes is hard to act on directly. If your goal is coverage verification (confirming a shipping or service network reaches "the whole state"), compare your active-ZIP list against the full state inventory and flag the gap. If your goal is market sizing, sum population by ZIP rather than treating each ZIP as an equal unit, since a handful of urban ZIPs can carry more residents than hundreds of rural ones combined.
 
-**What the result means in a real workflow**
-The most useful way to interpret State ZIP Codes is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for creating a statewide mailing universe, checking whether a ZIP is represented in a state list, or building state-specific geographic filters. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Special cases inside a state list**
+A few states contain ZIP codes that do not behave like the rest of the inventory. Military ZIP codes (starting with 09 for APO/FPO Europe, or embedded elsewhere for stateside bases) are technically associated with a state but do not represent a fixed civilian geography in the way other codes do. Unique ZIPs assigned to a single large employer, government agency, or university also inflate a raw state count without adding meaningful residential coverage. Before using a state ZIP count for anything population-related, subtract these special categories so your baseline reflects only standard delivery areas.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, ZIP prefixes can cross intuitive regional boundaries and should not be used as a substitute for official state assignment. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Comparing states for expansion or licensing decisions**
+Businesses evaluating state-by-state expansion often start from a ZIP inventory because state licensing, sales tax, and shipping rules are frequently ZIP-adjacent even though they are legally state-based. Use the full ZIP list as the operational unit for rollout sequencing (which ZIPs go live in phase one, two, three) while keeping the legal and tax obligations tied to the state itself rather than the individual ZIP. This separation avoids a common mistake: treating ZIP-level rollout completion as equivalent to state-level regulatory completion, when the two follow different rules.
 
-**Use case: data quality and automation**
-For software and data teams, State ZIP Codes is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. State ZIP Codes can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For state zip codes, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs state zip codes before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For State ZIP Codes, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes state zip codes results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-State ZIP Codes is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are creating a statewide mailing universe, checking whether a ZIP is represented in a state list, or building state-specific geographic filters, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for State ZIP Codes**
-Use this page when your starting fact is US state or territory and your decision depends on finding and organizing ZIP Codes belonging to a selected state. If the next action is creating a statewide mailing universe, keep the result at ZIP level and document the lookup. If the next action is checking whether a ZIP is represented in a state list, combine the ZIP with the relevant business or geographic dataset. If the next action is building state-specific geographic filters, verify that the ZIP representation is appropriate for the final decision. Above all, remember that ZIP prefixes can cross intuitive regional boundaries and should not be used as a substitute for official state assignment. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A quick sanity check before publishing a state list**
+Before you rely on a state ZIP export for a report or a production system, check three things: the ZIP prefix range matches the expected band for that state, the total count is in a plausible range for the state's known size, and no ZIP appears twice under two different state assignments (a rare but real data-quality issue near state borders, since a handful of ZIP codes serve addresses that physically sit close to another state line).`,
   faqs: [
     { q: "What does the State ZIP Codes tool return?", a: "It is designed to answer the page-specific question of finding and organizing ZIP Codes belonging to a selected state. You provide US state or territory, and the tool returns ZIP Codes associated with the selected state. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the State ZIP Codes tool most useful for?", a: "It is particularly useful for market researchers, sales operations, data engineers, marketers, and people building state-level geographic lists. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

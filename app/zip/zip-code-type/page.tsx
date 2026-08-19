@@ -82,47 +82,58 @@ const seoContent = {
     { option: "Unique ZIP", input: "Dedicated organization/address group", bestFor: "Best for specialized high-volume destinations" },
     { option: "Military ZIP", input: "APO/FPO/DPO geography", bestFor: "Best for military mail handling" }
   ],
-  body: `**What this ZIP Code Type is designed to answer**
-The ZIP Code Type page is built for one specific geographic question: understanding what operational type a ZIP Code represents. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns the ZIP type and relevant postal classification. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "ZIP Code Types and What to Assume About Each",
+  "subtitle": "How each classification should be treated in analysis and data models",
+  "icon": "🏷️",
+  "columns": [
+    "ZIP Type",
+    "Population Data",
+    "Safe Analytical Use"
+  ],
+  "rows": [
+    [
+      "Standard",
+      "Meaningful, matches residential/business area",
+      "Default type for most demographic and marketing analysis"
+    ],
+    [
+      "PO Box-only",
+      "Zero or near-zero",
+      "Exclude from population/household calculations"
+    ],
+    [
+      "Unique (single organization)",
+      "Not meaningful — represents one entity",
+      "Exclude from household calculations; useful for org directories"
+    ],
+    [
+      "Military (APO/FPO/DPO)",
+      "Not tied to a fixed civilian population",
+      "Exclude from geographic mapping; route through military mail logic"
+    ]
+  ]
+},
+  body: `**Why "is this ZIP valid" is the wrong first question**
+Every ZIP code in USPS's system is technically valid in the sense that it's an assigned, active code — the more useful question this tool answers is what kind of delivery area it represents, because that classification changes what you can reasonably assume about the ZIP. A five-digit code alone doesn't tell you whether you're looking at a normal residential neighborhood, a mail-pickup-only box location, a single large organization's dedicated code, or a military routing destination — and treating all four the same in an analysis produces meaningfully wrong conclusions.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip code type. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Standard ZIP codes — the majority, and the default assumption**
+Most ZIP codes fall into this category: a normal residential and/or business delivery area with street-level mail delivery to individual addresses. This is the type that population figures, household counts, and typical demographic data are meaningfully associated with, and it's the safe default assumption for most everyday business use — customer records, shipping addresses, marketing targeting — unless you have a specific reason to expect otherwise.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**PO Box-only ZIP codes**
+Some ZIP codes exist purely to serve a post office's box-rental customers rather than any street delivery route. These ZIPs typically show zero or near-zero residential population in census-derived data, because no one actually lives at a PO Box address — it's a mail pickup point, not a residence. If your analysis or targeting logic is built around residential population or household counts, PO Box-only ZIPs should generally be excluded from those totals, since including them either adds nothing meaningful or, worse, silently introduces a phantom low-population entry into an average.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP Code Type is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for deciding how an address form should behave, segmenting mailing records, or understanding why a ZIP does not behave like a normal neighborhood. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Unique ZIP codes — one organization, one code**
+A Unique ZIP is dedicated to a single entity that generates enough mail volume to warrant its own dedicated code — think a large university, a major corporate headquarters, a large government agency, or a similarly high-volume single-recipient organization. These ZIPs behave nothing like a residential ZIP: there's no "population" in the household sense, no diverse resident base, and the entire code essentially represents one organizational address. Confusing a Unique ZIP for a standard residential one in any demographic or household-based calculation will produce a nonsensical result.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, ZIP type describes postal operations and does not tell you whether an area is a legal city. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Military ZIP codes (APO/FPO/DPO)**
+Military ZIP codes route mail addressed to Army/Air Post Office, Fleet Post Office, or Diplomatic Post Office destinations — effectively domestic mail-processing entry points for delivery to military personnel stationed overseas, aboard naval vessels, or at diplomatic posts. These ZIPs are not tied to a fixed civilian geographic location the way standard ZIPs are; the same military ZIP can represent completely different physical locations over time as units rotate and deploy. Any system that maps ZIP codes to a fixed point on a map needs an explicit exception for this category, since plotting a military ZIP as if it were a stable domestic location will produce a misleading result.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP Code Type is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
+**Why type classification matters for data quality**
+A dataset that mixes all four types together without a type field loses important context: population averages get diluted by zero-population PO Box and Unique ZIPs, geographic mapping breaks for military ZIPs, and any per-household business calculation risks including entries that don't represent real households at all. Adding a ZIP-type field to your own data model — even a simple standard/PO-Box/unique/military flag — meaningfully improves the accuracy of any downstream analysis built on top of ZIP-level data, and it's a small addition compared to the errors it prevents.
 
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP Code Type can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip code type, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip code type before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP Code Type, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip code type results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP Code Type is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are deciding how an address form should behave, segmenting mailing records, or understanding why a ZIP does not behave like a normal neighborhood, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP Code Type**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on understanding what operational type a ZIP Code represents. If the next action is deciding how an address form should behave, keep the result at ZIP level and document the lookup. If the next action is segmenting mailing records, combine the ZIP with the relevant business or geographic dataset. If the next action is understanding why a ZIP does not behave like a normal neighborhood, verify that the ZIP representation is appropriate for the final decision. Above all, remember that ZIP type describes postal operations and does not tell you whether an area is a legal city. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A practical filtering approach**
+For most consumer-facing, household-based, or population-based analysis, filter your working ZIP list down to Standard type only before running calculations, then bring PO Box, Unique, and Military ZIPs back in separately for the specific purposes they're actually relevant to — mail-forwarding logistics, organizational directory data, or military mail routing, respectively — rather than leaving them mixed into a general-purpose dataset by default.`,
   faqs: [
     { q: "What does the ZIP Code Type tool return?", a: "It is designed to answer the page-specific question of understanding what operational type a ZIP Code represents. You provide a five-digit ZIP Code, and the tool returns the ZIP type and relevant postal classification. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP Code Type tool most useful for?", a: "It is particularly useful for address-data teams, developers, mailers, compliance workflows, and researchers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

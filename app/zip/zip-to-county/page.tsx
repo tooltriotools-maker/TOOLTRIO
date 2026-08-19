@@ -81,47 +81,60 @@ const seoContent = {
     { option: "County ZIP Codes", input: "County \u2192 ZIPs", bestFor: "Best for building a county inventory" },
     { option: "ZIP to City", input: "ZIP \u2192 place", bestFor: "Best for city-level context" }
   ],
-  body: `**What this ZIP to County is designed to answer**
-The ZIP to County page is built for one specific geographic question: mapping a ZIP Code to county-level geography for reporting and analysis. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns county name, state, and available FIPS/geographic identifiers. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "When ZIP-to-County Approximation Is (and Isn't) Reliable",
+  "subtitle": "Match your use case to the right confidence level",
+  "icon": "📍",
+  "columns": [
+    "Use Case",
+    "Approximation Reliability",
+    "Recommended Practice"
+  ],
+  "rows": [
+    [
+      "Sales & marketing territory mapping",
+      "High — safe to use directly",
+      "Use ZIP-to-county as-is"
+    ],
+    [
+      "Sales-tax nexus determination",
+      "Medium — border ZIPs are a real risk",
+      "Confirm border ZIPs with an address-level tax engine"
+    ],
+    [
+      "Court venue / legal jurisdiction",
+      "Low for border addresses",
+      "Verify with an official county GIS parcel lookup"
+    ],
+    [
+      "Government/Census data joins",
+      "High if using FIPS code",
+      "Join on FIPS, never on county name alone"
+    ],
+    [
+      "Election district routing",
+      "Medium",
+      "Cross-check against the county election office's own tool"
+    ]
+  ]
+},
+  body: `**County lookups solve a different problem than city lookups**
+A ZIP-to-city search answers "where is this," but a ZIP-to-county search answers "who has jurisdiction here" — and those are frequently different questions with different correct answers. Counties administer property tax, run elections, operate courts, and in many states collect a share of sales tax, none of which follows ZIP boundaries. This tool exists because a huge number of downstream business processes are legally anchored to the county, even though the only geographic field available in a typical customer or shipping record is the ZIP code.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip to county. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**FIPS codes and why they matter more than county names alone**
+Alongside the county name, this page returns the county's FIPS (Federal Information Processing Standards) code, a five-digit government identifier — two digits for the state, three for the county — used across nearly every federal dataset, from Census Bureau tables to CDC health statistics to USDA agricultural reports. County names are not unique nationally (there are more than two dozen "Washington" counties, for example), so any serious data-joining work should use the FIPS code as the primary key and the county name only as a human-readable label. If you're joining ZIP-level business data to a government dataset for reporting or research, resolve to FIPS first — matching on county name alone risks silently merging the wrong county when names repeat across states.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Why a ZIP's county assignment is an approximation**
+A meaningful share of ZIP codes physically overlap two or occasionally three counties, because carrier routes were drawn for delivery efficiency, not administrative neatness. Most datasets, including this one, assign a ZIP to the county containing the majority of its addresses or area. That's the right default for most uses, but if your application has real regulatory weight — sales-tax remittance, court venue, licensing jurisdiction — a border ZIP's minority-county residents will not match the value this tool returns. For high-stakes work, cross-reference against a street-level or parcel-level geocoding source for any customer whose ZIP is known to sit near a county line.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP to County is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for county sales reporting, regional territory assignment, or joining ZIP records to county-level datasets. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Common uses across industries**
+Tax and compliance teams use ZIP-to-county to approximate nexus obligations before running a full address-level tax engine. Real estate and mortgage teams use it to identify the recording jurisdiction for a property. Political and civic organizations use it to route constituents to the correct county election office. Insurance and healthcare operations use it because plan networks, Medicaid administration, and licensing requirements are frequently organized at the county level even when the underlying customer data is ZIP-based. In every one of these cases, the ZIP-to-county mapping is a fast first-pass filter, with the understanding that border cases get escalated to a more precise source.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, ZIP boundaries can cross county lines, so a ZIP-to-county mapping can require a representative or dominant-area rule. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Independent cities and consolidated governments**
+A structural quirk worth knowing before you build logic around this data: Virginia has more than three dozen independent cities that are not part of any county at all, and several major cities elsewhere (San Francisco, Denver, Nashville-Davidson, Philadelphia) function as consolidated city-county governments reported as a single county-equivalent. If your system assumes every US address rolls up into a standard county, these cases will break that assumption — build an explicit "county-equivalent" category into your data model rather than forcing every record into a traditional county bucket.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP to County is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP to County can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip to county, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip to county before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP to County, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip to county results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP to County is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are county sales reporting, regional territory assignment, or joining ZIP records to county-level datasets, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP to County**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on mapping a ZIP Code to county-level geography for reporting and analysis. If the next action is county sales reporting, keep the result at ZIP level and document the lookup. If the next action is regional territory assignment, combine the ZIP with the relevant business or geographic dataset. If the next action is joining ZIP records to county-level datasets, verify that the ZIP representation is appropriate for the final decision. Above all, remember that ZIP boundaries can cross county lines, so a ZIP-to-county mapping can require a representative or dominant-area rule. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A practical validation workflow**
+When you pull a ZIP-to-county result for a batch of records, store the FIPS code, not just the name, and keep a note of which ZIPs are known border cases if you have that information from a prior audit. Re-run the lookup periodically rather than treating it as a one-time enrichment step — county boundaries themselves rarely change, but new ZIP codes are introduced and existing ones are occasionally reassigned as postal routes are restructured, which can shift a ZIP's majority-county classification over time.`,
   faqs: [
     { q: "What does the ZIP to County tool return?", a: "It is designed to answer the page-specific question of mapping a ZIP Code to county-level geography for reporting and analysis. You provide a five-digit ZIP Code, and the tool returns county name, state, and available FIPS/geographic identifiers. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP to County tool most useful for?", a: "It is particularly useful for tax analysts, sales operations, public-sector researchers, GIS users, and data engineers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

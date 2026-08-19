@@ -81,47 +81,75 @@ const seoContent = {
     { option: "ZIP Time Converter", input: "ZIP pair \u2192 local-time comparison", bestFor: "Best for a specific two-location meeting" },
     { option: "ZIP Timezone Map", input: "Map-based timezone context", bestFor: "Best for visual exploration" }
   ],
-  body: `**What this Same Timezone ZIP Codes is designed to answer**
-The Same Timezone ZIP Codes page is built for one specific geographic question: discovering ZIP Codes that share the same time-zone classification. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a reference ZIP or time-zone selection and returns ZIP Codes associated with the same time-zone group. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "US States That Split Across Time Zone Boundaries",
+  "subtitle": "Never assume state = time zone for these states — verify at ZIP or county level",
+  "icon": "🕐",
+  "columns": [
+    "State",
+    "Primary Time Zone",
+    "Split Area / Exception"
+  ],
+  "rows": [
+    [
+      "Florida",
+      "Eastern",
+      "Western Panhandle counties are Central"
+    ],
+    [
+      "Indiana",
+      "Eastern",
+      "Six counties in the southwest and northwest are Central"
+    ],
+    [
+      "Michigan",
+      "Eastern",
+      "Four western Upper Peninsula counties are Central"
+    ],
+    [
+      "Texas",
+      "Central",
+      "Far west (El Paso area) is Mountain"
+    ],
+    [
+      "Idaho",
+      "Mountain",
+      "Northern Panhandle counties are Pacific"
+    ],
+    [
+      "Oregon",
+      "Pacific",
+      "Small far-eastern portion (Malheur County) is Mountain"
+    ],
+    [
+      "Nebraska / Kansas / North & South Dakota",
+      "Central",
+      "Western portions of each are Mountain"
+    ],
+    [
+      "Arizona",
+      "Mountain (no DST)",
+      "Navajo Nation portion observes DST"
+    ]
+  ]
+},
+  body: `**Grouping by time zone is not the same as grouping by state**
+It's a common assumption that a US state sits entirely in one time zone, and for most states that's true — but a meaningful number of states straddle a time-zone boundary, meaning two ZIP codes in the same state can be an hour apart in local time, while two ZIP codes in different states right next to each other on a map can share the exact same local time. This tool groups ZIP codes purely by actual time zone, which is the correct grouping for anything scheduling-related, rather than by state, which is the more common but less accurate shortcut people default to.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for same timezone zip codes. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**States that split across time zones**
+Several well-known examples: Florida is almost entirely Eastern, but its westernmost Panhandle counties are Central. Indiana was historically split and even today a portion of the state observes Central time while the majority observes Eastern. Michigan's Upper Peninsula includes a section on Central time despite most of the state being Eastern. Texas is mostly Central but includes a section of the far west in Mountain time. Nebraska, Kansas, South Dakota, North Dakota, Idaho, and Oregon all have similar internal splits. If your scheduling logic assumes "state equals time zone," these states will silently produce wrong meeting times or delivery windows for the affected ZIP codes.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a reference ZIP or time-zone selection, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Why this tool exists as a dedicated grouping, not just a lookup**
+A single ZIP-to-timezone lookup answers the question for one ZIP at a time, but many practical tasks need the opposite operation: given a reference ZIP, find every other ZIP that shares its exact local time, so a call center, delivery schedule, or marketing send-time can be built around genuinely simultaneous local time across a whole ZIP list rather than a state-based approximation. This tool performs that grouping directly, saving you from cross-referencing dozens of individual ZIP timezone lookups by hand.
 
-**What the result means in a real workflow**
-The most useful way to interpret Same Timezone ZIP Codes is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for creating a calling list within working hours, grouping offices by local time, or planning a national campaign launch. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Daylight saving time and the exceptions worth knowing**
+Almost all US time zones observe daylight saving time and shift together each spring and fall, so ZIP codes grouped by time zone stay grouped correctly year-round without additional adjustment. The two well-known exceptions are Arizona (which does not observe daylight saving time, except for the Navajo Nation within Arizona, which does) and Hawaii (which also does not observe it). During daylight saving months, Arizona effectively aligns with Pacific time rather than its usual Mountain time, meaning its practical same-time grouping with the rest of the Mountain zone temporarily changes for roughly eight months of the year.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, time-zone boundaries and daylight-saving rules are separate from ZIP numbering. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Practical uses across scheduling and operations**
+Call centers and customer-support operations use timezone grouping to build shift coverage that maps to actual customer local hours rather than an assumed regional block. National marketing and email teams use it to schedule sends at the same local hour across a nationwide list, since "9am Eastern" and "9am local time everywhere" are very different sends with very different open-rate implications. Multi-region meeting and appointment scheduling tools use it to avoid the state-boundary trap described above, ensuring a customer in the Florida Panhandle isn't scheduled as if they were on Eastern time when they're actually Central.
 
-**Use case: data quality and automation**
-For software and data teams, Same Timezone ZIP Codes is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. Same Timezone ZIP Codes can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For same timezone zip codes, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs same timezone zip codes before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For Same Timezone ZIP Codes, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes same timezone zip codes results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-Same Timezone ZIP Codes is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are creating a calling list within working hours, grouping offices by local time, or planning a national campaign launch, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for Same Timezone ZIP Codes**
-Use this page when your starting fact is a reference ZIP or time-zone selection and your decision depends on discovering ZIP Codes that share the same time-zone classification. If the next action is creating a calling list within working hours, keep the result at ZIP level and document the lookup. If the next action is grouping offices by local time, combine the ZIP with the relevant business or geographic dataset. If the next action is planning a national campaign launch, verify that the ZIP representation is appropriate for the final decision. Above all, remember that time-zone boundaries and daylight-saving rules are separate from ZIP numbering. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A simple rule to prevent scheduling errors**
+Never infer time zone from state alone when precision matters — always resolve time zone at the ZIP or county level for any state known to split across a boundary. For the handful of split states, the extra lookup step is a small cost against the real risk of double-booking, missing a delivery window, or sending a "good morning" email at what's actually mid-morning or worse for a meaningful slice of your list.`,
   faqs: [
     { q: "What does the Same Timezone ZIP Codes tool return?", a: "It is designed to answer the page-specific question of discovering ZIP Codes that share the same time-zone classification. You provide a reference ZIP or time-zone selection, and the tool returns ZIP Codes associated with the same time-zone group. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the Same Timezone ZIP Codes tool most useful for?", a: "It is particularly useful for remote teams, call-center planners, scheduling systems, marketers, and researchers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

@@ -81,47 +81,65 @@ const seoContent = {
     { option: "ZIP+4", input: "Nine-digit extended code", bestFor: "Adds delivery-segment precision" },
     { option: "ZIP+4 lookup", input: "Finds an extension from an address", bestFor: "Best when the full address is available" }
   ],
-  body: `**What this ZIP Code Format Guide is designed to answer**
-The ZIP Code Format Guide page is built for one specific geographic question: understanding how US ZIP Codes are written, structured, and used in real address workflows. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts ZIP strings or address-field requirements and returns clear rules for formatting and handling ZIP values. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "US Postal Code Formats at a Glance",
+  "subtitle": "The different formats you'll encounter and how each should be stored",
+  "icon": "📖",
+  "columns": [
+    "Format",
+    "Example",
+    "Storage Recommendation"
+  ],
+  "rows": [
+    [
+      "Standard 5-digit ZIP",
+      "10001",
+      "Text field, exactly 5 characters, preserve leading zeros"
+    ],
+    [
+      "ZIP+4 (full format)",
+      "10001-3703",
+      "Two separate text fields: 5-digit base + 4-digit extension"
+    ],
+    [
+      "Leading-zero ZIP",
+      "00501",
+      "Must be text — becomes invalid if stored as a number"
+    ],
+    [
+      "PO Box-only ZIP",
+      "N/A — same 5-digit format",
+      "Flag with a type field; exclude from residential counts"
+    ],
+    [
+      "Unique/organization ZIP",
+      "N/A — same 5-digit format",
+      "Flag with a type field; treat as non-residential"
+    ],
+    [
+      "Military ZIP (APO/FPO/DPO)",
+      "09021 (example range)",
+      "Flag as non-civilian; exclude from geographic mapping"
+    ]
+  ]
+},
+  body: `**The five-digit code is only part of the standard**
+Most people know a ZIP code as five digits, but that's the truncated, informal version of a system that USPS designed to go much further. The full ZIP+4 format adds a hyphen and four additional digits that pinpoint delivery down to a specific side of a street, a specific building, or even a specific floor or department in a large facility. Understanding the full format — not just the five-digit shorthand — matters for anyone building software that stores, validates, or displays postal codes, because treating "five digits" as the complete standard causes real data-handling problems.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip code format guide. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why leading zeros are the most common ZIP data bug in the industry**
+Roughly a dozen states, mostly in the Northeast (led by ZIP codes starting with 0, covering parts of Connecticut, Massachusetts, New Hampshire, New Jersey, Puerto Rico, and Rhode Island), have valid ZIP codes that begin with a zero. When a ZIP code is stored as a number instead of text in a spreadsheet, database, or form field, that leading zero is silently dropped — 00501 becomes 501, a five-character code becomes a four-character one, and every downstream lookup, mail merge, or validation check against that record breaks. This is, by a wide margin, the single most common ZIP-related data bug across business systems, and it is entirely avoidable by storing ZIP codes as text from the start.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with ZIP strings or address-field requirements, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**The ZIP+4 extension explained**
+The four digits after the hyphen in a ZIP+4 code represent a specific delivery segment within the five-digit ZIP — commonly a city block, a single large building, a floor, or in some cases a single high-volume mail recipient like a major corporation or government office. Businesses that do high-volume mailing use ZIP+4 because USPS offers postage discounts for pre-sorted, fully-qualified addresses, and because it materially speeds up automated mail sorting. For most everyday purposes — online forms, customer records, casual correspondence — the standard five-digit ZIP is sufficient, and ZIP+4 becomes valuable specifically at the point where accurate, high-volume, or automated mail processing is involved.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP Code Format Guide is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for designing a database column, validating a web form's input shape, or preventing Excel from dropping leading zeros. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Special-purpose ZIP code types**
+Not every ZIP code represents a standard residential and business delivery area. PO Box-only ZIPs exist purely for post office box mail pickup and carry no street delivery or residential population. Unique ZIPs are assigned to a single organization that receives enough mail volume to warrant its own dedicated code — universities, large government agencies, and major corporations are common examples. Military ZIPs route mail to Army/Air Post Office, Fleet Post Office, or Diplomatic Post Office destinations, representing overseas or shipboard delivery rather than a fixed civilian location. Recognizing these types matters because they behave completely differently from standard ZIPs in any analysis involving population, household counts, or residential delivery assumptions.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, a ZIP Code is a string identifier, not a numeric quantity; leading zeros must be preserved. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Validating format without validating existence**
+There's an important distinction between checking that a string is formatted like a ZIP code (five digits, or five digits plus a hyphen and four more) and checking that it's an actual, currently active ZIP code assigned by USPS. A regex-only format check will happily accept 00000 or 99999 as "valid" even though neither is a real, currently assigned ZIP. Production systems that need real accuracy should validate format first as a fast initial filter, then confirm existence against an actual current ZIP dataset — format validation alone catches typos in length but not fictional or retired codes.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP Code Format Guide is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP Code Format Guide can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip code format guide, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip code format guide before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP Code Format Guide, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip code format guide results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP Code Format Guide is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are designing a database column, validating a web form's input shape, or preventing Excel from dropping leading zeros, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP Code Format Guide**
-Use this page when your starting fact is ZIP strings or address-field requirements and your decision depends on understanding how US ZIP Codes are written, structured, and used in real address workflows. If the next action is designing a database column, keep the result at ZIP level and document the lookup. If the next action is validating a web form's input shape, combine the ZIP with the relevant business or geographic dataset. If the next action is preventing Excel from dropping leading zeros, verify that the ZIP representation is appropriate for the final decision. Above all, remember that a ZIP Code is a string identifier, not a numeric quantity; leading zeros must be preserved. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**Storage recommendations for developers**
+Store ZIP codes as a text/string field with a defined length constraint, never as an integer or float type. Keep the five-digit base ZIP and any ZIP+4 extension as separate fields rather than concatenating them into one string field, since many systems only need the base ZIP and forcing a combined field creates unnecessary parsing work downstream. Validate input format at the point of entry, but design your system to tolerate a "valid format, unconfirmed existence" state gracefully rather than hard-rejecting anything that doesn't immediately match a static internal list, since new ZIP codes are introduced periodically and a stale internal list will otherwise reject legitimate new addresses.`,
   faqs: [
     { q: "What does the ZIP Code Format Guide tool return?", a: "It is designed to answer the page-specific question of understanding how US ZIP Codes are written, structured, and used in real address workflows. You provide ZIP strings or address-field requirements, and the tool returns clear rules for formatting and handling ZIP values. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP Code Format Guide tool most useful for?", a: "It is particularly useful for developers, data-entry teams, form designers, marketers, and anyone standardizing US addresses. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

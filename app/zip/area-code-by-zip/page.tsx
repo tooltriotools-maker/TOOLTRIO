@@ -81,47 +81,60 @@ const seoContent = {
     { option: "ZIP by Area Code", input: "Area code \u2192 ZIPs", bestFor: "Useful for expanding a phone-code territory" },
     { option: "ZIP to City", input: "ZIP \u2192 place name", bestFor: "Useful when the missing field is geographic rather than telephone" }
   ],
-  body: `**What this Area Code by ZIP Code is designed to answer**
-The Area Code by ZIP Code page is built for one specific geographic question: mapping a US ZIP Code to telephone area-code information without treating postal and telephone boundaries as identical. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts a five-digit ZIP Code and returns area-code information associated with that ZIP and the relevant location context. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "Why Area Code ≠ Current Location (Common Failure Modes)",
+  "subtitle": "Reasons a phone number's area code can mislead a location assumption",
+  "icon": "📞",
+  "columns": [
+    "Situation",
+    "Effect on Area Code",
+    "Practical Implication"
+  ],
+  "rows": [
+    [
+      "Number portability",
+      "Number keeps original area code after a move",
+      "Never assume area code = current residence"
+    ],
+    [
+      "Mobile-first users",
+      "Rarely change numbers even after relocating states",
+      "Especially unreliable for younger demographics"
+    ],
+    [
+      "Overlay regions",
+      "Same geography served by 2+ area codes",
+      "Store area code as a list, not a single value, per ZIP"
+    ],
+    [
+      "VOIP / business lines",
+      "Area code chosen for branding, not geography",
+      "Treat business numbers with extra caution"
+    ],
+    [
+      "Split regions (older codes)",
+      "Original code retained by some, new code by others nearby",
+      "Two ZIP-adjacent numbers can have different codes"
+    ]
+  ]
+},
+  body: `**Two numbering systems that were never designed to match**
+ZIP codes were created by USPS in 1963 to organize mail delivery. Area codes were created decades earlier by AT&T and the Bell System, later governed by the North American Numbering Plan (NANP), to organize telephone switching equipment. They are separate systems built for separate purposes at separate times, and the geographic regions they cover only loosely correspond. This tool exists to bridge that gap — given a ZIP code, it returns the telephone area code (or codes) historically associated with that geographic region, which is useful context, but never a guarantee about any specific phone number today.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for area code by zip code. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why a single ZIP can map to more than one area code**
+As phone number demand grew, especially with the rise of fax machines, pagers, then cell phones and second lines, many regions ran out of numbers under their original area code and were split or overlaid with an additional code. A "split" assigns a new area code to part of the original region going forward, while an "overlay" adds a second area code to the exact same geographic footprint, meaning two neighbors on the same street can have entirely different area codes despite living in the same ZIP. Because of overlays, a meaningful number of ZIP codes today are legitimately served by two or more valid area codes simultaneously.
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with a five-digit ZIP Code, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Why a phone number's area code no longer reliably indicates a caller's actual location**
+This is the single most important limitation to understand: number portability rules, introduced in the early 2000s, let people keep their phone number when they move to a new city, state, or even across the country. Combined with the rise of mobile phones that people rarely change even after relocating, a phone number's area code today tells you where that number was originally issued — not where the person currently lives. Treating a caller's area code as proof of their current location is one of the most common and consequential misuses of this kind of data.
 
-**What the result means in a real workflow**
-The most useful way to interpret Area Code by ZIP Code is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for checking a local-looking phone number against a service area, building a ZIP list for a call campaign, or understanding why one ZIP can map to multiple area codes. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Legitimate uses despite that limitation**
+None of this makes ZIP-to-area-code mapping useless — it just narrows what it's legitimately good for. It works well as a soft, non-definitive signal in fraud-review models (a customer whose billing ZIP and phone area code are wildly geographically inconsistent is a weak signal worth a second look, not proof of anything). It's useful for CRM and lead-record enrichment, adding regional context to a phone field for reporting purposes. And it's genuinely useful the other direction too: businesses setting up local phone numbers for a new market use ZIP-to-area-code data to choose an area code that will feel local to customers in that region.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, area codes can overlap, split, or overlay ZIPs, so a ZIP should not be treated as a unique area-code boundary. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**How overlays should change your data model**
+If your system stores "the" area code for a ZIP as a single value, overlay regions will make that field simply wrong for some customers. Store area code as a list per ZIP where overlays exist, and if your business logic depends on distinguishing between overlay codes (for example, choosing which one to use for a new local number), check current NANP allocation data directly rather than relying on any static table, since overlay assignments are updated periodically as regions exhaust their number pools.
 
-**Use case: data quality and automation**
-For software and data teams, Area Code by ZIP Code is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. Area Code by ZIP Code can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For area code by zip code, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs area code by zip code before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For Area Code by ZIP Code, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes area code by zip code results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-Area Code by ZIP Code is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are checking a local-looking phone number against a service area, building a ZIP list for a call campaign, or understanding why one ZIP can map to multiple area codes, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for Area Code by ZIP Code**
-Use this page when your starting fact is a five-digit ZIP Code and your decision depends on mapping a US ZIP Code to telephone area-code information without treating postal and telephone boundaries as identical. If the next action is checking a local-looking phone number against a service area, keep the result at ZIP level and document the lookup. If the next action is building a ZIP list for a call campaign, combine the ZIP with the relevant business or geographic dataset. If the next action is understanding why one ZIP can map to multiple area codes, verify that the ZIP representation is appropriate for the final decision. Above all, remember that area codes can overlap, split, or overlay ZIPs, so a ZIP should not be treated as a unique area-code boundary. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**A realistic way to use this for regional analysis**
+For aggregate, non-individual analysis — understanding which area codes cluster around which regions, or building a rough geographic distribution model — ZIP-to-area-code mapping is solid, because these patterns hold reasonably well in aggregate even when any single number's story is more complicated. The failure mode to avoid is applying an aggregate-level pattern to make a specific claim about one specific individual's current location based solely on their phone number's area code.`,
   faqs: [
     { q: "What does the Area Code by ZIP Code tool return?", a: "It is designed to answer the page-specific question of mapping a US ZIP Code to telephone area-code information without treating postal and telephone boundaries as identical. You provide a five-digit ZIP Code, and the tool returns area-code information associated with that ZIP and the relevant location context. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the Area Code by ZIP Code tool most useful for?", a: "It is particularly useful for sales teams, call-center planners, local businesses, CRM analysts, and researchers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },

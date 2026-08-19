@@ -66,47 +66,60 @@ const seoContent = {
     { option: "Nearest ZIP Code", input: "Center \u2192 closest ZIP", bestFor: "Best for one nearest match" },
     { option: "Multi-ZIP Distance", input: "Many ZIPs \u2192 distance relationships", bestFor: "Best for network comparison" }
   ],
-  body: `**What this ZIP Code Radius is designed to answer**
-The ZIP Code Radius page is built for one specific geographic question: finding ZIP Codes within a chosen distance of a center ZIP. That sounds simple, but ZIP data sits at the intersection of postal operations, geography, demographics, transportation, and address quality. The useful result is therefore not just a code or label; it is the context needed to interpret that result correctly. This tool accepts center ZIP and radius in miles and returns nearby ZIP Codes, distance, and available location/population context. The goal is to give you a practical answer without making you assemble several unrelated lookups first. For a business user, that means less manual spreadsheet work. For a developer, it means a clearer field-level mapping. For a researcher, it means a repeatable starting point for comparing locations.
+  infoTable: {
+  "title": "Choosing a Radius Distance by Business Purpose",
+  "subtitle": "Common radius sizes and what they typically represent operationally",
+  "icon": "🎯",
+  "columns": [
+    "Radius",
+    "Typical Purpose",
+    "Consideration"
+  ],
+  "rows": [
+    [
+      "3–5 miles",
+      "Walkable / dense-urban local reach",
+      "Best in high-density metro cores"
+    ],
+    [
+      "10 miles",
+      "Same-day local delivery zone",
+      "Validate boundary ZIPs with drive time"
+    ],
+    [
+      "25 miles",
+      "Regional retail catchment",
+      "Good default for suburban service areas"
+    ],
+    [
+      "50 miles",
+      "Broad market / media-buy radius",
+      "Better suited to lower-density regions"
+    ],
+    [
+      "100+ miles",
+      "Rural or wide-area service network",
+      "Population-weight the result — area is very uneven"
+    ]
+  ]
+},
+  body: `**A circle on a map, translated into a usable ZIP list**
+Radius search takes a center ZIP code and a distance in miles, then returns every ZIP code whose center falls inside that circle. It's the fastest way to convert a "how far is reasonable" business rule into an actual, exportable list of postal areas — the kind of list a CRM, ad platform, or delivery-zone system can consume directly, rather than requiring someone to manually check each nearby ZIP one at a time.
 
-**Why the ZIP-code level matters for this task**
-ZIP Codes are delivery-oriented geographic identifiers created for postal routing. They are extremely useful because they provide a stable way to group addresses, but they do not behave exactly like counties, cities, census tracts, telephone exchanges, or political districts. That distinction matters specifically for zip code radius. A postal area can contain multiple communities, cross a county line, or cover a large rural footprint. When you use the result, treat the ZIP as the geographic key it actually is rather than silently converting it into a different boundary system. This is especially important when the output is later used for reporting, targeting, routing, compliance, or address normalization.
+**Why the circle includes partial-overlap ZIPs, and why that's the right default**
+A ZIP code is included in the results if its centroid — its representative center point — falls inside your specified radius, even if part of that ZIP's actual area extends outside the circle, or the reverse: part of a ZIP outside the circle might extend inside it. This is the standard, most useful default for radius search because it avoids two worse alternatives: requiring a ZIP's entire area to fall inside the circle (which would exclude many genuinely nearby ZIPs whose boundary just barely crosses the line) or including any ZIP with even a sliver of overlap (which would pull in ZIPs whose bulk sits well outside your intended area). Centroid-based inclusion is the closest practical approximation to "is this ZIP genuinely within range."
 
-**How to use the tool effectively**
-Start with the smallest set of information the tool needs and enter it exactly as it appears in the source record. If you are working with center ZIP and radius in miles, keep ZIP Codes as text rather than numeric values so leading zeros survive imports and exports. Review the returned city, state, county, distance, time, classification, or other fields together instead of copying only one value. Then decide whether the result is being used for a lookup, a filter, a calculation, or a production data update. That final distinction is important: a quick research answer can tolerate a little uncertainty, while a production address database should use authoritative records and an explicit verification policy.
+**Choosing a radius that matches your actual use case**
+The right radius size depends entirely on what the circle represents in your business. A same-day local delivery zone typically works best at 5–10 miles, since drive time stays manageable within that range in most metro areas. A regional service area or a "within a reasonable drive" definition for a retail catchment often runs 15–25 miles. A broader market or media-buy radius can extend to 50 miles or more, particularly in lower-density regions where population is spread thinner and a tighter radius wouldn't capture enough addressable audience.
 
-**What the result means in a real workflow**
-The most useful way to interpret ZIP Code Radius is as a decision-support step. Consider a business that is cleaning customer records, a field team defining a service area, or an analyst preparing a regional report. The ZIP result can become a join key, a filter, a territory attribute, or a human-readable explanation. For example, you could use this page for building a 25-mile marketing territory, estimating nearby ZIP coverage for a store, or screening delivery or service areas. Each scenario starts with a different business question, but the common pattern is the same: establish the ZIP-based geographic fact first, then combine it with the rest of the record. That keeps postal geography separate from assumptions about the customer, property, road network, or municipality.
+**Radius search vs. drive-time-based service areas**
+A radius is fast to compute and easy to explain, but it's geographically naive — it draws a perfect circle regardless of roads, water, or terrain, so two ZIPs at the same straight-line distance from your center can have very different real-world accessibility. If your business genuinely cares about actual travel time (a delivery guarantee, a service-call window), a radius is a reasonable first pass, but consider validating the edge ZIPs — the ones near your radius boundary — against a drive-time tool before finalizing a coverage commitment, since a boundary ZIP might be closer in miles but farther in practical travel time than the radius suggests.
 
-**Accuracy, boundaries, and interpretation**
-A ZIP Code should never be assumed to describe a perfect circle or a legal boundary. The underlying point, polygon, crosswalk, or postal classification used by a dataset can change the way a location is represented. In particular, radius membership is typically based on representative ZIP locations, so it is not the same as every address inside a geometric circle. If two sources disagree, check whether they are using USPS delivery geography, Census ZCTAs, a ZIP centroid, a county crosswalk, or another geographic model. Those datasets can all be useful while producing different answers. For high-value decisions, preserve the source and date of the geographic data in your own system so another analyst can reproduce the result later.
+**Building a layered coverage strategy**
+Many businesses use radius search at more than one distance to create tiered service levels — for example, a 10-mile ring for same-day delivery, a 25-mile ring for next-day, and a 50-mile ring for a "call for availability" outer zone. Running the radius search three times at increasing distances and taking the set differences between each ring produces exactly this kind of tiered structure without needing custom GIS software.
 
-**Use case: data quality and automation**
-For software and data teams, ZIP Code Radius is most useful when it is part of a controlled pipeline rather than a one-off manual correction. Keep the original input, store the normalized output separately, and record whether the value was found, ambiguous, or missing. If you import a large address file, do not overwrite the original ZIP field before you have a reconciliation report. A simple pattern is \`raw_zip → normalized_zip → geographic attributes → validation status\`. This makes it possible to identify malformed records, investigate unexpected place names, and rerun the transformation when your source data changes. It also prevents a geographic lookup from becoming an irreversible data-cleaning operation.
-
-**Use case: sales, marketing, and service territories**
-Territory teams often think in miles, cities, counties, or ZIP lists, but the right unit depends on the decision. ZIP Code Radius can supply the ZIP-level fact needed to build a territory, enrich a lead, rank a market, or explain why a location was included. If your goal is outreach, combine postal geography with customer density and business rules rather than assuming that every address inside a ZIP has the same value. If your goal is service delivery, add road travel time and operational capacity. If your goal is market research, add population or demographic estimates. The ZIP is the organizing key; it should not be the only variable in the model.
-
-**Use case: developers and forms**
-If you are implementing this workflow in a web application, store a ZIP Code as a string with a five-character constraint for the standard form, and keep any extended ZIP+4 value as a separate field. Do not parse a ZIP as an integer. In UI logic, distinguish between an empty field, a malformed value, a valid lookup with no secondary attribute, and a successful result. For zip code radius, that distinction can prevent misleading messages such as treating an unknown geography as an invalid address. It also makes the experience accessible to users who paste values from spreadsheets, CRM systems, labels, or customer messages.
-
-**A practical example**
-Suppose an analyst receives a record that needs zip code radius before it can be assigned to a territory. The analyst first preserves the source record, runs the lookup, reviews the returned location context, and then applies the company's territory rule. If the result is ambiguous, the analyst does not guess. Instead, the record is flagged for a more precise address or authoritative source. If the result is clear, the normalized attribute can be added to the reporting table. This process is safer than copying a value from a search result without documenting where it came from. It also scales better because the same decision rule can be applied to thousands of records.
-
-**How this differs from nearby ZIP tools**
-ZIP tools often have overlapping vocabulary, but they answer different questions. A city lookup is not the same as a county lookup; a distance calculation is not a route; a timezone classification is not a time conversion; and a postal classification is not address validation. For ZIP Code Radius, the closest alternatives are shown in the comparison table below. Use this page when your starting field and desired output match the description above. Switch tools when the input changes. That simple rule reduces false matches and prevents one ZIP attribute from being incorrectly used as a substitute for another.
-
-**Data limitations you should know before relying on the result**
-No ZIP-level dataset should be treated as a live representation of every address at every moment. Postal assignments can change, geographic crosswalks can be revised, demographic estimates have publication lags, and route conditions change throughout the day. Results can also be affected by special ZIP types, military addresses, P.O. Box service, unique organizational ZIPs, or communities whose postal name differs from their municipal name. For that reason, use this page as a fast research and enrichment tool, and use the appropriate official or contractual source when a mailing, tax, legal, regulatory, or operational decision requires authoritative verification.
-
-**Best practice for repeatable analysis**
-For repeat work, save four pieces of information: the original ZIP or location input, the returned value, the lookup date, and the rule used to interpret the result. If you are comparing locations, keep units explicit—miles versus kilometers, local time versus UTC, population versus households, or postal place versus legal municipality. If you are publishing a report, explain the geographic unit in a footnote. This small amount of metadata makes zip code radius results much easier to audit and prevents readers from assuming that a postal geography is equivalent to another boundary system.
-
-**Bottom line**
-ZIP Code Radius is most valuable when you use it to answer a clearly defined ZIP-level question and then connect that answer to the next decision. Start with the correct input, inspect the full returned context, preserve ZIPs as text, and keep postal geography separate from legal, demographic, telephone, and road-network boundaries. Whether you are building a 25-mile marketing territory, estimating nearby ZIP coverage for a store, or screening delivery or service areas, the same discipline produces cleaner data and more defensible geographic decisions. When precision matters, verify the final record against the authoritative source appropriate to the job.
-
-**A simple decision rule for ZIP Code Radius**
-Use this page when your starting fact is center ZIP and radius in miles and your decision depends on finding ZIP Codes within a chosen distance of a center ZIP. If the next action is building a 25-mile marketing territory, keep the result at ZIP level and document the lookup. If the next action is estimating nearby ZIP coverage for a store, combine the ZIP with the relevant business or geographic dataset. If the next action is screening delivery or service areas, verify that the ZIP representation is appropriate for the final decision. Above all, remember that radius membership is typically based on representative ZIP locations, so it is not the same as every address inside a geometric circle. That discipline keeps a fast lookup useful without turning a postal identifier into an unsupported assumption.`,
+**Population-weighting your radius result**
+A raw list of ZIPs inside a radius treats a dense urban ZIP with 40,000 residents the same as a rural ZIP with 400. If your radius is defining a marketing or delivery audience, pull population figures for each returned ZIP and sum them to get a realistic audience-size estimate, rather than assuming that "we cover 30 ZIP codes" translates evenly into addressable market size — a handful of dense ZIPs inside your radius likely account for the majority of the actual population you can reach.`,
   faqs: [
     { q: "What does the ZIP Code Radius tool return?", a: "It is designed to answer the page-specific question of finding ZIP Codes within a chosen distance of a center ZIP. You provide center ZIP and radius in miles, and the tool returns nearby ZIP Codes, distance, and available location/population context. Review the surrounding location fields before using the result in a production dataset." },
     { q: "Who is the ZIP Code Radius tool most useful for?", a: "It is particularly useful for marketers, delivery planners, sales managers, service businesses, real-estate analysts, and territory designers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
