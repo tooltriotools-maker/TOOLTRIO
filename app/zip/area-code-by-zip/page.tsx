@@ -73,14 +73,8 @@ const tips = [
 const seoContent = {
   ...zipSeo,
   verifiedDate: 'AUG 2026',
-  heading: "Area Code by ZIP Code: Find Telephone Area Codes Associated with a US ZIP",
-  tagline: "Page-specific guidance for area code by zip code: mapping a US ZIP Code to telephone area-code information without treating postal and telephone boundaries as identical.",
-  comparisonTitle: "Choosing Area Code by ZIP Code vs. Related ZIP Tools",
-  comparisonTable: [
-    { option: "Area Code by ZIP", input: "ZIP \u2192 telephone area code", bestFor: "Useful for phone geography and outreach" },
-    { option: "ZIP by Area Code", input: "Area code \u2192 ZIPs", bestFor: "Useful for expanding a phone-code territory" },
-    { option: "ZIP to City", input: "ZIP \u2192 place name", bestFor: "Useful when the missing field is geographic rather than telephone" }
-  ],
+  heading: "ZIP-to-NPA Mapping: Reconciling Two Numbering Systems That Were Never Designed to Match",
+  tagline: "How a ZIP code gets cross-referenced against NANP rate-center geography, and why splits and overlays break a naive one-to-one lookup.",
   infoTable: {
   "title": "Why Area Code ≠ Current Location (Common Failure Modes)",
   "subtitle": "Reasons a phone number's area code can mislead a location assumption",
@@ -118,30 +112,69 @@ const seoContent = {
     ]
   ]
 },
-  body: `**Two numbering systems that were never designed to match**
-ZIP codes were created by USPS in 1963 to organize mail delivery. Area codes were created decades earlier by AT&T and the Bell System, later governed by the North American Numbering Plan (NANP), to organize telephone switching equipment. They are separate systems built for separate purposes at separate times, and the geographic regions they cover only loosely correspond. This tool exists to bridge that gap — given a ZIP code, it returns the telephone area code (or codes) historically associated with that geographic region, which is useful context, but never a guarantee about any specific phone number today.
+  infoTable2: {
+    title: "ZIP → NPA Benchmark Samples",
+    subtitle: "Representative ZIPs illustrating single-code, split, and overlay coverage",
+    icon: "📊",
+    columns: ["ZIP", "Region", "Area Code(s)", "Coverage Type"],
+    rows: [
+      ["90210", "Beverly Hills, CA", "310 / 424", "Overlay — two NPAs, 10-digit dialing required"],
+      ["10001", "Manhattan, NY", "212 / 646 / 332", "Overlay — three NPAs stacked on one rate center"],
+      ["60601", "Chicago, IL", "312 / 872", "Overlay"],
+      ["20500", "Washington, DC", "202", "Single NPA, no overlay"],
+      ["77002", "Houston, TX", "713 / 281 / 346 / 832", "Overlay — four NPAs, historically split then overlaid"],
+      ["33101", "Miami, FL", "305 / 786", "Overlay"],
+      ["59101", "Billings, MT", "406", "Single NPA — statewide code, no split or overlay"],
+      ["94103", "San Francisco, CA", "415 / 628", "Overlay"],
+    ],
+  },
+  body: `**1. Technical Mechanics & Computational Logic**
 
-**Why a single ZIP can map to more than one area code**
-As phone number demand grew, especially with the rise of fax machines, pagers, then cell phones and second lines, many regions ran out of numbers under their original area code and were split or overlaid with an additional code. A "split" assigns a new area code to part of the original region going forward, while an "overlay" adds a second area code to the exact same geographic footprint, meaning two neighbors on the same street can have entirely different area codes despite living in the same ZIP. Because of overlays, a meaningful number of ZIP codes today are legitimately served by two or more valid area codes simultaneously.
+**Two numbering systems that were never designed to match**
+ZIP codes were created by USPS in 1963 to organize mail delivery. Area codes — formally Numbering Plan Areas (NPAs) — predate ZIP codes and are governed by the North American Numbering Plan (NANP), the scheme shared by the US, Canada, and several Caribbean nations to route telephone traffic. NPAs are assigned to **rate centers**, not postal areas — a rate center is a legacy telephony billing/routing construct with its own boundary that was drawn independently of any ZIP boundary. Mapping ZIP to NPA therefore isn't a lookup between equivalent units; it's a best-effort spatial crosswalk between two boundary systems that happen to overlap geographically without being derived from each other.
 
-**Why a phone number's area code no longer reliably indicates a caller's actual location**
-This is the single most important limitation to understand: number portability rules, introduced in the early 2000s, let people keep their phone number when they move to a new city, state, or even across the country. Combined with the rise of mobile phones that people rarely change even after relocating, a phone number's area code today tells you where that number was originally issued — not where the person currently lives. Treating a caller's area code as proof of their current location is one of the most common and consequential misuses of this kind of data.
+**How the crosswalk is actually computed**
+Because no single authoritative "ZIP → NPA" file is published by NANPA (the North American Numbering Plan Administrator), this kind of tool is built by taking a ZIP's approximate geographic centroid or coverage area and intersecting it against published rate-center boundary data and NPA-to-rate-center assignment tables. Where a ZIP's area falls entirely within one rate center served by one NPA, the mapping is clean. Where a ZIP straddles more than one rate center, or where a rate center is served by more than one NPA (an overlay), the tool returns multiple candidate area codes rather than forcing a single answer — which is the technically correct behavior, even though it complicates any UI expecting one value.
 
-**Legitimate uses despite that limitation**
-None of this makes ZIP-to-area-code mapping useless — it just narrows what it's legitimately good for. It works well as a soft, non-definitive signal in fraud-review models (a customer whose billing ZIP and phone area code are wildly geographically inconsistent is a weak signal worth a second look, not proof of anything). It's useful for CRM and lead-record enrichment, adding regional context to a phone field for reporting purposes. And it's genuinely useful the other direction too: businesses setting up local phone numbers for a new market use ZIP-to-area-code data to choose an area code that will feel local to customers in that region.
+**Splits vs. overlays — a critical distinction**
+A **split** permanently reassigns part of a region to a new NPA going forward, so a ZIP's "correct" area code can change at a fixed point in time. An **overlay** adds a second (or third, or fourth) NPA to the exact same geographic footprint without moving anyone — meaning two neighbors in the same ZIP can carry different area codes indefinitely, and 10-digit local dialing becomes mandatory in that rate center. Overlay adoption has accelerated since the early 2000s as major metros exhausted their original NPA's roughly 7.9 million possible numbers; a modern ZIP-to-area-code tool has to treat "multiple valid codes per ZIP" as the normal case in dense metros, not an edge case.
 
-**How overlays should change your data model**
-If your system stores "the" area code for a ZIP as a single value, overlay regions will make that field simply wrong for some customers. Store area code as a list per ZIP where overlays exist, and if your business logic depends on distinguishing between overlay codes (for example, choosing which one to use for a new local number), check current NANP allocation data directly rather than relying on any static table, since overlay assignments are updated periodically as regions exhaust their number pools.
+**Enterprise use cases**
+- **Local-presence provisioning** — businesses buying DID (direct inward dial) numbers for a new market use ZIP-to-NPA data to pick an area code that reads as local to that region.
+- **Call-center and IVR routing** — regional call routing systems use area-code geography as a coarse signal for language/region-based queue assignment, layered with other signals rather than used alone.
+- **Fraud and risk scoring** — a wide mismatch between a billing ZIP and a phone's originally-issued NPA is a soft, non-definitive signal that feeds a broader risk model, never a standalone decision.
+- **CRM and lead enrichment** — adding NPA context to a phone field supports regional reporting without waiting for a full address-verification pass.
 
-**A realistic way to use this for regional analysis**
-For aggregate, non-individual analysis — understanding which area codes cluster around which regions, or building a rough geographic distribution model — ZIP-to-area-code mapping is solid, because these patterns hold reasonably well in aggregate even when any single number's story is more complicated. The failure mode to avoid is applying an aggregate-level pattern to make a specific claim about one specific individual's current location based solely on their phone number's area code.`,
+**2. Methodology & Comparison Analysis**
+
+**3. Real-World Edge Cases & Resolution Strategies**
+
+- **Number portability breaks any assumption about current location.** Since the early 2000s, portability rules let a person keep their number when they move across the country. A phone's NPA reflects where the number was *originally issued*, not where the subscriber lives now. *Resolution:* never treat NPA as a location-verification signal on its own; pair it with an independently sourced address or IP-geolocation signal if location matters.
+- **Mobile numbers are especially unreliable as location signals.** People rarely change mobile numbers after relocating, so mobile NPA drift from actual residence is common and increasing over time. *Resolution:* weight mobile-line NPA mismatches lower than landline mismatches in any scoring model.
+- **Overlay ZIPs need to store a list, not a scalar.** A data model with a single "area_code" column per ZIP will silently be wrong for every overlay region — which today includes most major US metros. *Resolution:* store area codes as an array per ZIP and surface all valid candidates.
+- **VOIP and business lines choose NPAs for branding, not geography.** A number can be provisioned with a New York area code by a business with no NYC presence at all. *Resolution:* treat business-line and VOIP-originated numbers as lower-confidence for any geographic inference.
+- **Rate-center boundaries don't update on the same cycle as ZIP boundaries.** NANPA and state utility commissions manage NPA relief (splits/overlays) on their own schedule, independent of USPS ZIP boundary changes, so a crosswalk table can drift out of sync with either source. *Resolution:* re-derive the crosswalk periodically against current rate-center data rather than treating it as static.
+
+**4. Empirical Reference & Benchmark Table**
+
+The samples above span the three coverage patterns a system needs to handle: single-NPA ZIPs (rural and mid-size markets), two-NPA overlays (most major metros today), and the denser three-to-four-NPA stacks found in the largest urban cores. Note that Houston's 77002 shows a common historical pattern — an original split followed later by an overlay, leaving four valid codes layered on one geography.
+
+**5. Implementation Guide & Best Practices**
+
+- **Model area code as one-to-many per ZIP from day one.** Retrofitting a scalar "area_code" field into an array after overlays are added to your target markets is a much larger migration than starting with the correct shape.
+- **Never use NPA as a standalone identity or location signal.** Combine it with billing address, IP geolocation, or other independently sourced signals; use it only as one weak input among several.
+- **Refresh against current NANPA/rate-center data on a schedule**, not once at build time — NPA relief actions (splits and overlays) are announced and implemented on an ongoing basis as regions approach exhaust.
+- **Distinguish mobile from landline NPA reliability** in any model that assigns confidence — mobile portability makes landline NPA a comparatively stronger (though still imperfect) geographic signal.
+- **Expose all valid area codes to the user in overlay regions**, and default any outbound local-number provisioning UI to present all of them rather than guessing one.
+
+**6. Technical & Operational FAQ**`,
   faqs: [
-    { q: "What does the Area Code by ZIP Code tool return?", a: "It is designed to answer the page-specific question of mapping a US ZIP Code to telephone area-code information without treating postal and telephone boundaries as identical. You provide a five-digit ZIP Code, and the tool returns area-code information associated with that ZIP and the relevant location context. Review the surrounding location fields before using the result in a production dataset." },
-    { q: "Who is the Area Code by ZIP Code tool most useful for?", a: "It is particularly useful for sales teams, call-center planners, local businesses, CRM analysts, and researchers. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
-    { q: "Can I use a ZIP result as an exact legal boundary?", a: "No. Area codes can overlap, split, or overlay zips, so a zip should not be treated as a unique area-code boundary. ZIP geography should be kept separate from municipal, county, tax, census, or regulatory boundaries unless you have a documented crosswalk for that specific purpose." },
-    { q: "Should I store ZIP Codes as numbers or text?", a: "Store ZIP Codes as text. A five-digit ZIP is an identifier, not a quantity, and values such as 00501 or other leading-zero ZIPs can be damaged when treated as integers in spreadsheets, databases, or APIs." },
-    { q: "Is this tool suitable for production address decisions?", a: "It is useful for research and enrichment, but production workflows should define a verification policy. For area code by zip code, retain the source input and lookup result, and use an authoritative postal, regulatory, routing, or commercial dataset when the decision has legal, financial, delivery, or compliance consequences." },
-    { q: "Which related ZIP tool should I use next?", a: "Choose based on the information you already have. The comparison table on this page separates the closest alternatives by starting input and purpose, so you can switch tools without confusing a ZIP-to-place lookup with a distance, route, timezone, phone, or postal-classification task." }
+    { q: "Why does one ZIP code return more than one area code?", a: "Because of overlays. An overlay adds a second (or third) NPA to the exact same rate-center geography without moving any existing numbers, so two people in the same ZIP can legitimately have different area codes. This is now the normal state in most major US metros, not an edge case." },
+    { q: "Can I use someone's area code to confirm where they currently live?", a: "No. Number portability lets people keep their phone number after moving, and mobile users especially tend to keep their original number for years after relocating. An area code reflects where a number was originally issued, not current residence." },
+    { q: "What's the difference between a split and an overlay?", a: "A split permanently reassigns part of a region to a new area code going forward. An overlay adds a second area code to the same geography indefinitely, which is why 10-digit local dialing becomes mandatory in overlay regions — the area code alone no longer disambiguates the number." },
+    { q: "Where does ZIP-to-area-code data actually come from, since there's no official crosswalk?", a: "It's derived by intersecting ZIP geography against published telephony rate-center boundaries and NPA-to-rate-center assignment data, since NANPA doesn't publish a direct ZIP-to-NPA file. That makes it a best-effort geographic crosswalk rather than an authoritative one-to-one mapping." },
+    { q: "Should I store area code as a single field or a list per ZIP?", a: "Store it as a list. Any ZIP that falls in an overlay region — which includes most major metros — legitimately has more than one valid area code, and a single scalar field will be wrong for a meaningful share of your records." },
+    { q: "Is VOIP or business-line area code data reliable for geographic inference?", a: "Less reliable than typical landline or mobile numbers. VOIP and many business lines choose an area code for branding purposes rather than because of any physical presence in that region, so treat these numbers with additional caution in any location-inference model." }
   ],
 }
 

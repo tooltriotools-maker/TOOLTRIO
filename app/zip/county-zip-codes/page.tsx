@@ -73,75 +73,85 @@ const tips = [
 const seoContent = {
   ...zipSeo,
   verifiedDate: 'AUG 2026',
-  heading: "County ZIP Codes: Explore ZIP Codes Associated with a US County",
-  tagline: "Page-specific guidance for county zip codes: organizing ZIP Codes around county geography for planning, reporting, and local research.",
-  comparisonTitle: "Choosing County ZIP Codes vs. Related ZIP Tools",
-  comparisonTable: [
-    { option: "County ZIP Codes", input: "County \u2192 ZIP list", bestFor: "Best for county-level territory discovery" },
-    { option: "ZIP to County", input: "ZIP \u2192 county", bestFor: "Best when starting with a postal code" },
-    { option: "State ZIP Codes", input: "State \u2192 ZIP list", bestFor: "Best for statewide inventories" }
-  ],
+  heading: "County-to-ZIP Aggregation: Reconciling FIPS Boundaries with Postal Delivery Geography",
+  tagline: "How ZIP records get rolled up to the county level, and why a ZIP-to-county assignment is a majority-overlap estimate, not a legal boundary.",
   infoTable: {
-  "title": "County ZIP Coverage Patterns by Area Type",
-  "subtitle": "How many ZIP codes to expect and what to watch for, by county density",
-  "icon": "🏛️",
-  "columns": [
-    "County Type",
-    "Typical ZIP Count",
-    "Key Risk"
-  ],
-  "rows": [
-    [
-      "Rural county",
-      "1–5 ZIP codes",
-      "One ZIP may represent the entire county — avoid double counting"
+    title: "Methodology Comparison: ZIP-to-County Aggregation Approaches",
+    subtitle: "Majority-population assignment vs. a single centroid crosswalk vs. full polygon-overlap GIS analysis",
+    icon: "⚙️",
+    columns: ["Parameter", "Majority-Assignment Crosswalk (this tool)", "Single-Centroid Crosswalk", "Full Polygon-Overlap GIS"],
+    rows: [
+      ["Assignment rule", "ZIP assigned to the county holding the majority of its population/addresses", "ZIP assigned to whichever county contains its geographic centroid point", "ZIP polygon intersected against every county polygon it touches, with % area reported"],
+      ["Handles multi-county ZIPs", "Reports primary county; flags known split ZIPs", "No — always reports exactly one county, sometimes wrong", "Yes, natively — reports every county touched and the overlap share"],
+      ["FIPS code included", "Yes, primary county FIPS", "Yes, but potentially the wrong county's FIPS", "Yes, per intersecting county"],
+      ["Computational cost", "Low — precomputed lookup table", "Low — precomputed lookup table", "High — real-time or batch polygon intersection"],
+      ["Reference geometry", "ZCTA (Census ZIP Code Tabulation Area) vs. county polygon overlap, weighted by address count where available", "ZCTA centroid point only", "Full ZCTA and county TIGER/Line polygons"],
+      ["Best fit", "Sales territory, tax-nexus flagging, reporting rollups", "Quick single-value lookups where precision doesn't matter", "Legal/tax jurisdiction determination, GIS-grade compliance work"],
     ],
-    [
-      "Suburban county",
-      "10–40 ZIP codes",
-      "Border ZIPs often overlap into neighboring counties"
+  },
+  infoTable2: {
+    title: "Benchmark: County ZIP-Count Patterns by Density Tier",
+    subtitle: "Representative counties illustrating how ZIP count scales with population density and geographic structure",
+    icon: "📊",
+    columns: ["County", "State", "Approx. ZIP Count", "Structural Note"],
+    rows: [
+      ["Los Angeles County", "CA", "290+", "Largest ZIP count of any US county; many border-sharing ZIPs with Orange/Ventura counties"],
+      ["Cook County", "IL", "150+", "Includes Chicago's dense carrier-route split plus suburban Cook"],
+      ["Harris County", "TX", "140+", "Houston metro; several ZIPs split with adjacent Fort Bend/Montgomery counties"],
+      ["Loving County", "TX", "1", "Least populous US county — effectively one ZIP for the entire county"],
+      ["San Francisco", "CA", "~27", "Consolidated city-county — reports as a single county-equivalent"],
+      ["Denver", "CO", "~20", "Consolidated city-county government"],
+      ["Fairfax County", "VA", "~35", "Surrounded by independent cities (Fairfax City, Falls Church) that are NOT part of the county"],
+      ["Nashville-Davidson", "TN", "~35", "Consolidated metro government, reported as one county-equivalent"],
     ],
-    [
-      "Dense urban county",
-      "60–300+ ZIP codes",
-      "No single ZIP represents the county — use the full list"
-    ],
-    [
-      "Consolidated city-county",
-      "Reported as one county-equivalent",
-      "Confirm it isn't double-mapped under a separate city record"
-    ],
-    [
-      "Independent city (VA)",
-      "Not part of any county",
-      "Do not assign to a bordering county by proximity"
-    ]
-  ]
-},
-  body: `**A county boundary and a ZIP boundary rarely line up**
-The United States has 3,143 counties and county-equivalents, and USPS never designed ZIP codes to respect any of those lines. A carrier route was drawn around how mail could efficiently be delivered, which means a single ZIP code can straddle two or even three counties, and a single county can contain dozens of ZIP codes that also creep into neighboring counties. This tool exists specifically to bridge that gap: you pick a county, and it returns every ZIP record whose delivery area falls inside — or meaningfully overlaps — that county's boundary.
+  },
+  body: `**1. Technical Mechanics & Computational Logic**
 
-**Why county-level ZIP lists matter operationally**
-Counties are the geographic unit behind property tax assessment, court jurisdiction, many public-health reporting programs, election administration, and a large share of local-government data. Businesses that need to respect county lines — for licensing, tax nexus, franchise territory, or regulatory compliance — cannot rely on ZIP codes alone, because a customer's ZIP does not guarantee which county collects their tax or which court has jurisdiction over their address. A county ZIP list is the practical translation layer: it lets you approximate county coverage using postal geography that's far easier to work with in a CRM or mailing platform than county polygon files.
+**Two incompatible boundary systems, reconciled by overlap**
+Counties are legal, FIPS-coded administrative jurisdictions maintained by the Census Bureau's TIGER/Line geography; ZIP codes are USPS delivery-route constructs with no legal boundary status at all. There is no authoritative "ZIP belongs to county X" file published by any government agency, because the two systems were never designed to nest inside each other. What every ZIP-to-county tool actually computes is a **spatial overlap estimate** — typically using ZCTAs (ZIP Code Tabulation Areas, the Census Bureau's polygon approximation of ZIP delivery areas, built by assigning each census block to the ZIP code used by most addresses in that block) intersected against county TIGER/Line polygons, with the ZIP assigned to whichever county contains the majority of its population or address count.
 
-**The overlap problem, explained**
-When a ZIP crosses a county line, most data providers assign it to the county containing the majority of its population or area, but a meaningful share of records still touch a second or third county. If your use case has real consequences — sales-tax remittance, licensing, or legal jurisdiction — do not treat a ZIP's listed county as absolute. Cross-check border ZIPs (ones whose city sits within a few miles of a county line) against an address-level or parcel-level source before finalizing a tax or compliance decision. For lower-stakes work like sales territory planning or market sizing, the ZIP-to-county approximation is normally accurate enough on its own.
+**Why a ZIP can legitimately belong to more than one county**
+Carrier routes are drawn for delivery efficiency, and county lines are legal artifacts that predate most ZIP assignments by a century or more. It's routine for a ZIP's delivery footprint to straddle a county line — a rural ZIP in particular can span a large geographic area that crosses two or three county boundaries even though its addresses are sparse. A tool that forces every ZIP into exactly one county is making a simplifying choice (majority overlap, or nearest centroid) rather than reporting an inherent one-to-one fact.
 
-**Reading the results by rural vs. metro density**
-Rural counties frequently contain fewer than five ZIP codes covering hundreds of square miles, while urban counties such as Los Angeles County, Cook County, or Harris County can contain well over a hundred. That density difference changes how you should use the list: in a rural county, a single ZIP might represent an entire trade area, so double-counting it across multiple analyses is a real risk. In a dense urban county, no single ZIP represents the whole county, so any decision based on "the county's ZIP" needs the full list, not a spot-check of one or two codes.
+**FIPS codes as the durable join key**
+Because county names repeat across states (there are multiple "Washington County" entries, for instance) and county boundaries occasionally change through annexation or consolidation, production systems should join on the 5-digit FIPS county code (2-digit state + 3-digit county) rather than the county name string. A ZIP-to-county table that only stores county name and state, without FIPS, will produce ambiguous joins against any external dataset (Census, IRS, HUD) that uses FIPS as its primary key.
 
-**Practical workflow for territory or compliance projects**
-Pull the full ZIP list for the target county, tag each ZIP with its delivery type (standard, PO Box, unique), and note which ZIPs are shared with a bordering county using a separate lookup if precision matters. From there the list becomes a reusable reference table: sales operations can assign it to a rep's territory, compliance teams can flag it for tax-nexus review, and marketing teams can use it to bound a geotargeted campaign to county lines rather than an arbitrary radius. Keep the extraction date attached to the list — county boundaries are stable, but the ZIP inventory inside them changes as new developments and postal routes are added.
+**Enterprise use cases**
+- **Sales-tax nexus determination** — many state and local tax jurisdictions are drawn at the county or sub-county level; ZIP-to-county rollups support a first-pass nexus check before a full address-level tax engine is invoked.
+- **Public-health and emergency-management reporting** — county is the standard reporting unit for many state and federal health datasets, requiring ZIP-level intake data to be rolled up to county for compliant reporting.
+- **Franchise and territory boundary definition** — franchise agreements are frequently written in county terms even though day-to-day operations run on ZIP-based mailing lists.
+- **Real estate and demographic market sizing** — county-level Census and HUD datasets need a ZIP-to-county crosswalk to be joined against ZIP-based CRM or listing data.
 
-**Counties with unusual postal structure**
-A handful of counties are worth double-checking manually: consolidated city-county governments (such as San Francisco, Denver, and Nashville-Davidson) report as a single county-equivalent even though they function as a city, and independent cities in Virginia are not part of any county at all. If your source data lists a Virginia city like Richmond or Norfolk, do not assume it belongs to a surrounding county — confirm the county-equivalent designation directly before applying county-based business rules.`,
+**2. Methodology & Comparison Analysis**
+
+**3. Real-World Edge Cases & Resolution Strategies**
+
+- **Multi-county ZIPs.** A ZIP whose delivery area straddles two or three counties will show a "primary" county in most crosswalks, but a meaningful share of its addresses can sit in the secondary county. *Resolution:* for high-stakes decisions (tax, licensing, legal jurisdiction), verify border ZIPs at the address level rather than trusting the ZIP-level primary-county assignment alone.
+- **Consolidated city-county governments.** Places like San Francisco, Denver, and Nashville-Davidson merged their city and county governments, so they report as a single county-equivalent in FIPS data even though they function administratively as a city. *Resolution:* don't assume every "county" row in your data corresponds to a traditional county government structure — check the FIPS class code.
+- **Independent cities (Virginia).** Virginia has dozens of independent cities (Richmond, Norfolk, Alexandria, etc.) that are legally NOT part of any surrounding county, despite being geographically embedded in one. *Resolution:* never assign a Virginia independent-city ZIP to a bordering county by proximity — confirm the county-equivalent FIPS code directly.
+- **Rural counties with very few ZIPs.** Sparse counties (Loving County, TX has roughly one ZIP for its entire area) mean a single ZIP can represent an entire county's trade area. *Resolution:* watch for double-counting when a rural ZIP appears in multiple analyses that assume finer geographic granularity than actually exists.
+- **County boundary changes over time.** County consolidations and, rarely, boundary adjustments do occur, and a stale crosswalk table won't reflect them. *Resolution:* re-derive or refresh the ZIP-to-county crosswalk against current TIGER/Line data on a periodic cycle rather than treating county geography as permanently static.
+
+**4. Empirical Reference & Benchmark Table**
+
+The benchmark set spans from Los Angeles County's 290+ ZIPs — the densest ZIP-to-county ratio in the country — down to Loving County, TX, where the entire county is served by essentially a single ZIP. The consolidated city-county entries (San Francisco, Denver, Nashville-Davidson) are included specifically because they're a common source of join errors against county-structured datasets.
+
+**5. Implementation Guide & Best Practices**
+
+- **Join on FIPS county code, not county name**, since names repeat across states and aren't guaranteed unique or stable over time.
+- **Store both a primary county and a flag for known multi-county ZIPs** so downstream logic can decide whether to trust the single-county simplification or route the record for address-level verification.
+- **Treat consolidated city-county and independent-city records as their own category**, since they break assumptions baked into most "county government" business logic (e.g., separate city vs. county tax authorities).
+- **Refresh the crosswalk against current TIGER/Line and ZCTA data periodically**, since both ZIP delivery geography and, less frequently, county boundaries can change.
+- **Reserve full polygon-overlap analysis for legal or tax-critical decisions** — majority-assignment crosswalks are fast and sufficient for territory planning and reporting, but a compliance-grade decision on a border ZIP warrants the more expensive GIS-level check.
+
+**6. Technical & Operational FAQ**`,
   faqs: [
-    { q: "What does the County ZIP Codes tool return?", a: "It is designed to answer the page-specific question of organizing ZIP Codes around county geography for planning, reporting, and local research. You provide county and state selection, and the tool returns ZIP Codes associated with the selected county and their location context. Review the surrounding location fields before using the result in a production dataset." },
-    { q: "Who is the County ZIP Codes tool most useful for?", a: "It is particularly useful for county-level analysts, public-sector researchers, sales planners, logistics teams, and GIS users. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
-    { q: "Can I use a ZIP result as an exact legal boundary?", a: "No. Zip and county boundaries are different systems, so some zips can intersect more than one county. ZIP geography should be kept separate from municipal, county, tax, census, or regulatory boundaries unless you have a documented crosswalk for that specific purpose." },
-    { q: "Should I store ZIP Codes as numbers or text?", a: "Store ZIP Codes as text. A five-digit ZIP is an identifier, not a quantity, and values such as 00501 or other leading-zero ZIPs can be damaged when treated as integers in spreadsheets, databases, or APIs." },
-    { q: "Is this tool suitable for production address decisions?", a: "It is useful for research and enrichment, but production workflows should define a verification policy. For county zip codes, retain the source input and lookup result, and use an authoritative postal, regulatory, routing, or commercial dataset when the decision has legal, financial, delivery, or compliance consequences." },
-    { q: "Which related ZIP tool should I use next?", a: "Choose based on the information you already have. The comparison table on this page separates the closest alternatives by starting input and purpose, so you can switch tools without confusing a ZIP-to-place lookup with a distance, route, timezone, phone, or postal-classification task." }
+    { q: "Is there an official government file that maps ZIP codes to counties?", a: "No single authoritative file exists, because ZIP codes are USPS delivery constructs and counties are legal FIPS-coded jurisdictions built for entirely different purposes. Every ZIP-to-county tool, including this one, computes an overlap-based estimate rather than reading an official one-to-one mapping." },
+    { q: "Why does this tool show one county for a ZIP that I know crosses a county line?", a: "Most crosswalks assign a ZIP to the county containing the majority of its population or addresses, for usability. A meaningful share of ZIPs do straddle a county line, so for decisions with real legal or tax consequences, verify border ZIPs at the address level rather than relying on the majority assignment." },
+    { q: "Why does a Virginia city not show up under a nearby county?", a: "Virginia has numerous independent cities that are legally separate from any surrounding county, even though they sit geographically inside one. Assigning them to a bordering county by proximity would be incorrect — they have their own county-equivalent FIPS designation." },
+    { q: "What's a FIPS code, and why does it matter for county data?", a: "A FIPS county code is a 5-digit identifier (2-digit state + 3-digit county) that uniquely identifies a county nationwide. Because county names repeat across states, joining datasets on the county name string alone can produce incorrect matches — FIPS code is the reliable join key." },
+    { q: "Why do some counties show as a single ZIP or a very small ZIP count?", a: "Sparsely populated rural counties can have an entire county served by just one or a handful of ZIP codes, since carrier routes there cover large areas efficiently rather than being subdivided the way dense urban counties are." },
+    { q: "Should I use ZIP-to-county data for legal or tax jurisdiction decisions?", a: "Use it as a fast first-pass estimate, but verify with an address-level or parcel-level source before finalizing a decision with legal, tax, or licensing consequences — ZIP-to-county assignment is a majority-overlap approximation, not a legal determination." }
   ],
 }
 

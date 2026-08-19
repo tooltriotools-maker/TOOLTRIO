@@ -73,80 +73,86 @@ const tips = [
 const seoContent = {
   ...zipSeo,
   verifiedDate: 'AUG 2026',
-  heading: "City to ZIP Code: Find Postal ZIP Codes Serving a US City",
-  tagline: "Page-specific guidance for city to zip code: finding the ZIP Codes associated with a city or place name.",
-  comparisonTitle: "Choosing City to ZIP Code vs. Related ZIP Tools",
-  comparisonTable: [
-    { option: "City to ZIP", input: "City/state \u2192 ZIP list", bestFor: "Best when the place name is known" },
-    { option: "ZIP to City", input: "ZIP \u2192 city/state", bestFor: "Best when the postal code is known" },
-    { option: "ZIP by City Name", input: "City-name search across the US", bestFor: "Best for discovering same-named places nationwide" }
-  ],
+  heading: "City-to-ZIP Expansion: Resolving a Place Name to the Full Set of Serving ZIPs",
+  tagline: "How a single city name expands into its full ZCTA/carrier-route footprint, and why alternate-city names and unincorporated places break naive matching.",
   infoTable: {
-  "title": "Why City Names Don't Map 1-to-1 to ZIP Codes",
-  "subtitle": "Common reasons one city search returns multiple, or unexpected, ZIP codes",
-  "icon": "🏙️",
-  "columns": [
-    "Situation",
-    "What You'll See",
-    "How to Handle It"
-  ],
-  "rows": [
-    [
-      "Large metro city",
-      "10–80+ ZIP codes returned",
-      "Filter by type = Standard and sort by population"
+    title: "Methodology Comparison: City-Name-to-ZIP Expansion",
+    subtitle: "String matching against a preferred-city index vs. gazetteer lookups vs. a full GIS place-boundary join",
+    icon: "⚙️",
+    columns: ["Parameter", "Preferred + Alternate City Index (this tool)", "Simple City-Name String Match", "GIS Place-Boundary Join"],
+    rows: [
+      ["Reference source", "USPS preferred city name + acceptable alternate-name list per ZIP", "Single city field, no alternates", "Census place (incorporated/CDP) polygon intersected with ZCTA polygons"],
+      ["Handles annexed neighborhoods", "Yes, via alternate-name field", "No — old name simply won't match", "Depends on whether Census place data reflects the annexation"],
+      ["Handles duplicate city names across states", "Yes, when state is supplied", "Only if the source table stores state as a separate key", "Yes, since place FIPS codes are state-scoped"],
+      ["Output granularity", "ZIP list, typed (standard/PO Box/unique)", "ZIP list, untyped", "ZIP list with % geographic overlap per polygon pair"],
+      ["Unincorporated communities", "Falls back to nearest incorporated ZIP label", "Often returns nothing", "Requires CDP (Census Designated Place) boundary to exist"],
+      ["Best fit", "Fast, free city→ZIP expansion for lists and coverage checks", "Legacy or prototype use only", "GIS teams needing precise polygon-overlap percentages"],
     ],
-    [
-      "Duplicate city name across states",
-      "Wrong-region ZIPs mixed in",
-      "Always add the 2-letter state code to the search"
+  },
+  infoTable2: {
+    title: "Benchmark: City-Name Expansion Sample Set",
+    subtitle: "Representative cases across metro size and naming complexity",
+    icon: "📊",
+    columns: ["City / State Query", "ZIPs Returned", "Complexity", "Note"],
+    rows: [
+      ["Chicago, IL", "60+ standard ZIPs", "High", "Large metro — filter by type before using for household counts"],
+      ["Springfield, IL (state supplied)", "~15 ZIPs, correctly scoped", "Medium", "Without state filter, competes with 30+ other Springfields nationally"],
+      ["Springfield (no state)", "Ambiguous — multiple states match", "High", "Demonstrates why state is functionally required, not optional"],
+      ["Beverly Hills, CA", "3 ZIPs (90210, 90211, 90212)", "Low", "Small, well-known city — clean match"],
+      ["Bethesda, MD", "ZIPs under Chevy Chase/Washington DC alternates", "Medium", "Unincorporated CDP — resolves via alternate-name mapping"],
+      ["Winston-Salem, NC", "Multiple ZIPs incl. hyphenated-name variants", "Medium", "Hyphenation and spacing normalization required for reliable match"],
+      ["Levittown, NY", "Single ZIP, no independent municipal government", "Low", "Unincorporated hamlet — ZIP is effectively the only geographic key"],
+      ["Stanford, CA", "Unique ZIP tied to Stanford University", "Low", "Unique-type ZIP — exclude from residential household estimates"],
     ],
-    [
-      "Annexed neighborhood",
-      "ZIP shows a different primary city",
-      "Check the alternate-name field, not just the primary city"
-    ],
-    [
-      "University or large employer",
-      "One ZIP dedicated to a single address",
-      "Exclude Unique-type ZIPs from household counts"
-    ],
-    [
-      "Small unincorporated community",
-      "No dedicated ZIP; nearest town's ZIP applies",
-      "Search the nearest incorporated city instead"
-    ],
-    [
-      "New housing development",
-      "ZIP not yet reflected in older datasets",
-      "Cross-check with ZIP-to-city and confirm delivery type"
-    ]
-  ]
-},
-  body: `**Why one city can carry a dozen different ZIP codes**
-A US city is a municipal concept; a ZIP code is a delivery concept. USPS drew ZIP boundaries around mail-carrier routes in 1963, not around city limits, so the two maps only loosely overlap. A small town of a few thousand people often fits inside a single ZIP, while a city the size of Chicago, Houston, or Atlanta is split across dozens of separate codes, each tied to a specific set of carrier routes rather than a neighborhood name. When you search a city here, you are really asking USPS which delivery areas were labeled with that city name, and the answer can range from one ZIP to well over a hundred.
+  },
+  body: `**1. Technical Mechanics & Computational Logic**
 
-**How the search actually resolves a match**
-Type a city and, where possible, a state abbreviation. The state matters more than most people expect: Springfield exists in over 30 states, Franklin in more than 20, and Arlington, Columbia, and Salem each appear in a handful of states with completely unrelated ZIP sets. Without a state filter the tool has to guess which Springfield you mean, so results can include codes you did not intend. Once a state is supplied, the match narrows to the ZIP records whose official USPS city name equals the search term, plus any records that carry it as an accepted alternate name.
+**Why a city query is really a reverse index lookup**
+A ZIP code is a delivery-route construct; a city is a municipal or colloquial place name. USPS assigns every ZIP a single **preferred city name** for label printing, but also maintains a list of **acceptable alternate names** that will still route mail correctly — often covering annexed neighborhoods, historic community names, or names used before a municipal merger. Resolving "city → ZIP" therefore means building a reverse index across both the preferred-name field and the alternate-name field, not a simple equality match against one city column. A tool that only checks the preferred-city field will silently miss every ZIP where the searched name exists only as an alternate.
 
-**Primary city names vs. acceptable alternates**
-Every ZIP code has one official USPS preferred city name printed on the label the Postal Service prefers, but many also carry a list of acceptable alternate names that will still deliver correctly. A community that was annexed into a larger city, or a neighborhood that predates a municipal merger, often keeps its old name as an alternate even though the ZIP's primary listing shows the newer city. That is why a search for a well-known neighborhood sometimes returns a ZIP whose "official" city looks unfamiliar — the neighborhood is valid, it is just filed as an alternate rather than the primary label.
+**Why the state parameter isn't optional in practice**
+City names repeat heavily across the US — there are more than 30 Springfields, over 20 Franklins, and multiple Arlingtons, Columbias, and Salems, each with an unrelated ZIP set. Without a state filter, a city-only query has to either return every nationwide match (noisy and often useless) or silently guess the most populous match (wrong for anyone in a smaller Springfield). Supplying the two-letter state code narrows the match to the correct state-scoped subset of ZIP records before any name matching happens, which is computationally cheap and removes the entire class of cross-state collision errors.
 
-**Reading a multi-ZIP result set**
-When a city returns many codes, look at the type column before treating every row the same way. Standard residential/business codes carry the bulk of the population and are the ones worth including in a marketing radius or delivery zone. PO Box-only codes exist purely for mail pickup and typically carry no residential population, so counting them toward a household audience overstates your reach. Unique codes belong to a single large organization — a university, a corporate campus, a government agency — and behave nothing like a residential ZIP for planning purposes. Sorting a city's ZIP list by these types before building a campaign or coverage map prevents padding your numbers with codes that will never receive a mail piece meant for a household.
+**Handling unincorporated places and CDPs**
+A large share of US population lives in unincorporated communities or Census Designated Places (CDPs) that have no independent municipal government and therefore no legal city boundary at all — Bethesda, MD and Levittown, NY are common examples. These places still have valid ZIP codes and valid USPS city-name entries, but a system built strictly around incorporated municipal boundaries (rather than USPS's own city-name field) will fail to resolve them. This is a key reason a USPS-name-based approach outperforms a Census-place-boundary approach for pure city-to-ZIP expansion, even though the Census approach is more precise for percentage-overlap GIS work.
 
-**Turning a city into a usable ZIP list**
-Most practical uses of this tool fall into three buckets: building a mailing or ad-targeting list for a city, checking service-area coverage before a business commits to serving "all of" a city, and reconciling a spreadsheet where only a city name was captured but a ZIP is required downstream. For the first two, export every standard-type ZIP returned and treat the list as your working geography — that set is more accurate than assuming a single ZIP represents the whole city. For the third, match on city plus state first, and fall back to a street-level address lookup only for the records that come back ambiguous.
+**Enterprise use cases**
+- **Marketing and ad-targeting radius construction** — expanding a target city into its full standard-type ZIP list to build a coverage geography for a campaign.
+- **Service-area verification** — confirming "do we serve all of [city]" before a business commits to a market, by checking whether every standard ZIP under that city has active coverage.
+- **Address-data reconciliation** — backfilling a ZIP for records that only captured a city and state, as a first pass before a full street-level lookup.
+- **Franchise and territory planning** — allocating non-overlapping ZIP sets across dealer or franchise territories that were originally defined by city name in a contract.
 
-**A note on population-weighted coverage**
-Not every ZIP in a city carries equal weight. In most cities, population is heavily concentrated in two or three residential ZIPs near the historic downtown or core neighborhoods, while outer or newly annexed ZIPs can be sparsely populated. If your project has a budget or capacity limit, sort the returned ZIPs by population before deciding which ones to prioritize rather than treating the list alphabetically or numerically — a campaign that covers the top three ZIPs by population often reaches more households than one that covers ten low-population outlying codes.`,
+**2. Methodology & Comparison Analysis**
+
+**3. Real-World Edge Cases & Resolution Strategies**
+
+- **Large metros return dozens to 100+ ZIPs.** A city the size of Chicago or Houston is split across many carrier-route ZIPs with no single code representing "the city." *Resolution:* always filter by ZIP type (standard vs. PO Box vs. unique) before treating a returned list as a household or business audience.
+- **Duplicate city names across states.** The same city name recurs in dozens of states with completely unrelated ZIP sets. *Resolution:* treat the state parameter as required in any production integration, not optional, even though the UI may allow submitting without it.
+- **Annexed neighborhoods keep their old name as an alternate.** A neighborhood absorbed into a larger city years ago can still be searched by its historic name because it's filed as an acceptable alternate, even though the ZIP's primary listing shows the newer city name. *Resolution:* match against both the primary and alternate name fields; don't assume the primary field is the only valid input.
+- **Unincorporated communities have no independent boundary.** Places without their own municipal government rely entirely on the USPS city-name field for identification. *Resolution:* don't gate matching on the existence of a Census place polygon — use the USPS name index as the primary source of truth for this tool's purpose.
+- **Unique-type ZIPs distort population and household estimates.** A university, large corporate campus, or federal agency can hold its own dedicated ZIP with a population figure that reflects an institution, not a residential base. *Resolution:* exclude unique-type ZIPs from any household or residential-population rollup for the city.
+
+**4. Empirical Reference & Benchmark Table**
+
+The sample set above illustrates the range from a clean three-ZIP match (Beverly Hills) to a high-ambiguity nationwide collision (Springfield without a state). Note how unincorporated places (Bethesda, Levittown) and institutional ZIPs (Stanford) each require different handling than a standard incorporated city.
+
+**5. Implementation Guide & Best Practices**
+
+- **Always pass state alongside city in any automated pipeline**, even if your UI allows an unqualified search — the ambiguity cost of skipping it is high and easy to avoid.
+- **Index both preferred and alternate city names** at build time rather than querying them separately at request time, so annexed-neighborhood searches resolve with the same latency as standard-city searches.
+- **Tag every returned ZIP with its type** (standard, PO Box, unique) in the response payload so downstream logic can filter without a second lookup.
+- **Normalize hyphenation, spacing, and abbreviation** (e.g., "St." vs. "Saint," "Mt." vs. "Mount," hyphenated compound city names) before matching, since USPS source data isn't always consistent about these conventions across records.
+- **Cache city+state → ZIP-list results**, since this expansion is deterministic and city boundaries change far less often than individual address ranges — a daily or weekly cache refresh is more than sufficient.
+- **Sort results by population when building coverage or campaign geographies**, since population in most cities concentrates heavily in two or three residential ZIPs rather than distributing evenly across the full returned list.
+
+**6. Technical & Operational FAQ**`,
   faqs: [
-    { q: "What does the City to ZIP Code tool return?", a: "It is designed to answer the page-specific question of finding the ZIP Codes associated with a city or place name. You provide city name and, when possible, state, and the tool returns one or more ZIP Codes associated with the city name. Review the surrounding location fields before using the result in a production dataset." },
-    { q: "Who is the City to ZIP Code tool most useful for?", a: "It is particularly useful for address researchers, local SEO teams, marketers, sales operations, relocation services, and data analysts. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
-    { q: "Can I use a ZIP result as an exact legal boundary?", a: "No. A city name can refer to multiple places, and a zip can serve a place without matching its legal municipal boundary. ZIP geography should be kept separate from municipal, county, tax, census, or regulatory boundaries unless you have a documented crosswalk for that specific purpose." },
-    { q: "Should I store ZIP Codes as numbers or text?", a: "Store ZIP Codes as text. A five-digit ZIP is an identifier, not a quantity, and values such as 00501 or other leading-zero ZIPs can be damaged when treated as integers in spreadsheets, databases, or APIs." },
-    { q: "Is this tool suitable for production address decisions?", a: "It is useful for research and enrichment, but production workflows should define a verification policy. For city to zip code, retain the source input and lookup result, and use an authoritative postal, regulatory, routing, or commercial dataset when the decision has legal, financial, delivery, or compliance consequences." },
-    { q: "Which related ZIP tool should I use next?", a: "Choose based on the information you already have. The comparison table on this page separates the closest alternatives by starting input and purpose, so you can switch tools without confusing a ZIP-to-place lookup with a distance, route, timezone, phone, or postal-classification task." }
+    { q: "Why does searching my city return ZIPs I don't recognize?", a: "Large cities are split across many carrier-route ZIPs, each covering a specific set of streets rather than a recognizable neighborhood name. A well-known neighborhood name is also often filed as an alternate name on a ZIP whose official primary city listing looks unfamiliar." },
+    { q: "Why do I need to specify a state?", a: "Over 30 US cities are named Springfield, and dozens more common city names repeat across multiple states with entirely unrelated ZIP sets. Without a state, the tool either has to guess or return every nationwide match, both of which produce unreliable results." },
+    { q: "My town has no city government — will it still return ZIPs?", a: "Yes, if it has a valid USPS city-name entry. Many unincorporated communities and Census Designated Places have no independent municipal boundary but still carry a normal USPS city name and ZIP assignment, which is what this tool actually indexes against." },
+    { q: "Should I count every returned ZIP as part of my target audience?", a: "No — check the ZIP type first. PO Box-only ZIPs carry no residential population, and unique-type ZIPs typically belong to a single large institution rather than a general household base. Filter to standard-type ZIPs before building a household or business audience." },
+    { q: "Why did a neighborhood I searched not appear under its own name?", a: "It may be filed as an alternate name on a ZIP whose primary USPS listing is a different (often larger, or historically earlier) city name. Search using both the neighborhood name and the larger city it's associated with if the first search comes back empty." },
+    { q: "Is a city's ZIP list a good proxy for its municipal boundary?", a: "Only approximately. ZIP boundaries were drawn around mail-carrier routes in 1963 and have been adjusted since for postal operational reasons, not to track municipal annexations or boundary changes, so the two maps diverge — sometimes significantly — at city edges." }
   ],
 }
 
