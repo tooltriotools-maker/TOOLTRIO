@@ -23,6 +23,22 @@ const removedCalculatorPrefixes = [
   '/calculators/dev',
 ] as const
 
+// Commodity tools were permanently removed from ToolTrio. Keep all legacy
+// commodity URL families as HTTP 410 so old indexed URLs are explicitly
+// retired instead of falling through to a normal 404.
+const removedCommodityPrefixes = [
+  '/commodity',
+  '/commodities',
+  '/calculator/commodity',
+  '/calculator/commodities',
+  '/calculators/commodity',
+  '/calculators/commodities',
+  '/tools/commodity',
+  '/tools/commodities',
+  '/commodity-tools',
+  '/commodities-tools',
+] as const
+
 const publishedBlogSlugs = new Set(publishedBlogPosts.map(post => post.slug))
 const publishedBlogCategorySlugs = new Set(blogCategories.map(category => category.slug))
 
@@ -35,6 +51,12 @@ function goneResponse() {
 
 function isRemovedCalculatorPath(pathname: string) {
   return removedCalculatorPrefixes.some(
+    prefix => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  )
+}
+
+function isRemovedCommodityPath(pathname: string) {
+  return removedCommodityPrefixes.some(
     prefix => pathname === prefix || pathname.startsWith(`${prefix}/`),
   )
 }
@@ -83,6 +105,10 @@ export function middleware(request: NextRequest) {
     return goneResponse()
   }
 
+  if (isRemovedCommodityPath(pathname)) {
+    return goneResponse()
+  }
+
   if (pathname.startsWith('/blog/')) {
     return handleBlogPath(pathname)
   }
@@ -95,6 +121,16 @@ export const config = {
     '/calculators/finance/:path*',
     '/calculators/health/:path*',
     '/calculators/dev/:path*',
+    '/commodity/:path*',
+    '/commodities/:path*',
+    '/calculator/commodity/:path*',
+    '/calculator/commodities/:path*',
+    '/calculators/commodity/:path*',
+    '/calculators/commodities/:path*',
+    '/tools/commodity/:path*',
+    '/tools/commodities/:path*',
+    '/commodity-tools/:path*',
+    '/commodities-tools/:path*',
     '/fun/:path*',
     '/blog/:path*',
   ],
