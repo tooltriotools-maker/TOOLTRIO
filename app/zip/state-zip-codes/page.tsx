@@ -73,100 +73,84 @@ const tips = [
 const seoContent = {
   ...zipSeo,
   verifiedDate: 'AUG 2026',
-  heading: "State ZIP Codes: Browse the ZIP Code Inventory for Any US State",
-  tagline: "Page-specific guidance for state zip codes: finding and organizing ZIP Codes belonging to a selected state.",
-  comparisonTitle: "Choosing State ZIP Codes vs. Related ZIP Tools",
-  comparisonTable: [
-    { option: "State ZIP Codes", input: "State \u2192 ZIP inventory", bestFor: "Best for statewide coverage" },
-    { option: "City to ZIP", input: "City \u2192 ZIP inventory", bestFor: "Best for a local place" },
-    { option: "County ZIP Codes", input: "County \u2192 ZIP inventory", bestFor: "Best for county territory" }
-  ],
+  heading: "State ZIP Inventories: SCF Prefix Structure and Why Sectional Center Facilities Don't Respect State Lines",
+  tagline: "How the first three digits of a ZIP map to a Sectional Center Facility, and why a small number of SCFs — and therefore ZIP prefixes — deliberately cross state boundaries.",
   infoTable: {
-  "title": "ZIP Prefix Ranges by US Region",
-  "subtitle": "The first digit of a ZIP code groups states into ten national delivery regions",
-  "icon": "🗺️",
-  "columns": [
-    "First Digit",
-    "Region",
-    "Example States"
-  ],
-  "rows": [
-    [
-      "0",
-      "Northeast (CT, MA, ME, NH, NJ, PR, RI, VT)",
-      "Connecticut, New Jersey, Puerto Rico"
+    title: "Methodology Comparison: Building a State ZIP Inventory",
+    subtitle: "SCF-prefix-based extraction vs. naive first-digit filtering vs. full USPS AMS state-field query",
+    icon: "⚙️",
+    columns: ["Parameter", "SCF/Prefix-Aware Extraction (this tool)", "Naive First-Digit Filtering", "Full USPS AMS State-Field Query"],
+    rows: [
+      ["Reference source", "Three-digit Sectional Center Facility (SCF) prefix ranges mapped to state, cross-referenced against actual per-ZIP state field", "First digit of ZIP only, assumed to map cleanly to a region", "Complete USPS Address Management System state assignment per ZIP"],
+      ["Handles SCFs that cross state lines", "Yes — explicit per-ZIP state field, not inferred from prefix alone", "No — first-digit regions span many states, useless for state-level filtering alone", "Yes, natively — this is the authoritative source"],
+      ["Handles border ZIPs serving addresses in an adjacent state", "Partially — flags known cases", "No", "Yes"],
+      ["Update cadence", "Periodic refresh against AMS", "Rarely updated in practice", "Continuous (USPS internal)"],
+      ["Best fit", "Free, general-purpose state ZIP inventories for research, marketing, and rollout planning", "Not recommended — prefix alone is not a reliable state filter", "Compliance-grade or mailing-operations use"],
     ],
-    [
-      "1",
-      "New York / Delaware / Pennsylvania",
-      "New York, Pennsylvania, Delaware"
+  },
+  infoTable2: {
+    title: "Benchmark: ZIP Count and Prefix Range by State (Illustrative)",
+    subtitle: "How state size, population, and SCF structure drive wide variance in ZIP inventory size",
+    icon: "🗺️",
+    columns: ["State", "Approx. ZIP Count", "Typical 3-Digit Prefix Range", "Note"],
+    rows: [
+      ["Texas", "~1,935", "733–739, 750–799, 885", "Largest state ZIP inventory; multiple non-contiguous prefix bands due to size"],
+      ["California", "~1,770", "900–961", "Large but single contiguous prefix band"],
+      ["New York", "~1,750", "100–149", "Includes NYC's dense low-prefix cluster (100–102)"],
+      ["Delaware", "~60", "197–199", "Smallest state ZIP inventory in the contiguous US"],
+      ["Rhode Island", "~90", "028–029", "Compact prefix range reflecting small land area"],
+      ["Alaska", "~250", "995–999", "Low ZIP-per-square-mile density despite moderate count"],
+      ["Puerto Rico", "~180", "006–009, 00979", "Numbered as part of the '0' national region despite not being a US state"],
+      ["Wyoming", "~180", "820–831", "Least populous state, moderate ZIP count reflecting land-area coverage needs"],
     ],
-    [
-      "2",
-      "Mid-Atlantic / DC / Virginia / Carolinas",
-      "Virginia, Maryland, North Carolina"
-    ],
-    [
-      "3",
-      "Southeast (AL, FL, GA, MS, TN)",
-      "Florida, Georgia, Tennessee"
-    ],
-    [
-      "4",
-      "Great Lakes (IN, KY, MI, OH)",
-      "Ohio, Michigan, Kentucky"
-    ],
-    [
-      "5",
-      "North Central (IA, MN, MT, ND, SD, WI)",
-      "Minnesota, Wisconsin, Iowa"
-    ],
-    [
-      "6",
-      "South Central (IL, KS, MO, NE)",
-      "Illinois, Missouri, Kansas"
-    ],
-    [
-      "7",
-      "Gulf / South Central (AR, LA, OK, TX)",
-      "Texas, Louisiana, Arkansas"
-    ],
-    [
-      "8",
-      "Mountain West (AZ, CO, ID, NM, NV, UT, WY)",
-      "Colorado, Arizona, Utah"
-    ],
-    [
-      "9",
-      "Pacific (AK, CA, HI, OR, WA)",
-      "California, Washington, Oregon"
-    ]
-  ]
-},
-  body: `**How ZIP prefixes reveal state structure before you even search**
-Every US ZIP code's first digit groups it into one of ten broad national regions running roughly west to east and north to south, and the first three digits narrow that down to a "sectional center facility," a regional mail-sorting hub that usually covers one state or a large piece of one. That means a state's ZIP codes are rarely scattered randomly across the numbering range — they cluster into a predictable band of three-digit prefixes. New York mostly sits in the 100–149 range, California spans roughly 900–961, and Texas covers a wide 750–799 and 733–775 band because of its size. Understanding this structure helps you sanity-check a state ZIP list at a glance: if a "California" record shows a ZIP starting with 3, something in your data is wrong.
+  },
+  body: `**1. Technical Mechanics & Computational Logic**
 
-**Why state-level ZIP counts vary so widely**
-Texas and California each contain more than 2,600 ZIP codes, while Delaware and Rhode Island contain fewer than 100. The difference is not just population — it also reflects land area, the number of separate postal-delivery routes required, and how many small unincorporated communities have their own dedicated code versus sharing one with a larger town nearby. A state's ZIP count is a reasonable proxy for postal-delivery complexity, but it should never be used alone as a proxy for population, since large rural states can have many low-population ZIPs.
+**Sectional Center Facilities are the real organizing unit, not states**
+The first three digits of a ZIP code identify a Sectional Center Facility (SCF) — a regional USPS mail-sorting and distribution hub — and the SCF, not the state, is what actually determines ZIP prefix grouping. Most SCFs happen to serve territory within a single state, which is why ZIP prefixes broadly correlate with state boundaries and why a "State ZIP Codes" tool is useful at all. But this correlation is a byproduct of SCF service-area design, not a guarantee, and a small but real number of SCFs serve territory across a state line — meaning prefix range alone is not a fully reliable way to filter ZIPs by state.
 
-**Working with a full state ZIP inventory**
-When you pull every ZIP in a state, the resulting list is most useful once you segment it — by type (standard, PO Box, unique), by county, or by population band. A raw unsegmented list of thousands of ZIP codes is hard to act on directly. If your goal is coverage verification (confirming a shipping or service network reaches "the whole state"), compare your active-ZIP list against the full state inventory and flag the gap. If your goal is market sizing, sum population by ZIP rather than treating each ZIP as an equal unit, since a handful of urban ZIPs can carry more residents than hundreds of rural ones combined.
+**Why the first-digit "national region" grouping is even coarser than SCF**
+Beyond the three-digit SCF prefix, the single leading digit groups ZIPs into ten broad national regions running roughly geographically (0 in the Northeast through 9 on the Pacific coast). This first-digit grouping is a useful mental model for sanity-checking data at a glance — a "California" record with a ZIP starting in 3 is obviously wrong — but it's far too coarse to use as an actual state filter, since each digit spans many states.
 
-**Special cases inside a state list**
-A few states contain ZIP codes that do not behave like the rest of the inventory. Military ZIP codes (starting with 09 for APO/FPO Europe, or embedded elsewhere for stateside bases) are technically associated with a state but do not represent a fixed civilian geography in the way other codes do. Unique ZIPs assigned to a single large employer, government agency, or university also inflate a raw state count without adding meaningful residential coverage. Before using a state ZIP count for anything population-related, subtract these special categories so your baseline reflects only standard delivery areas.
+**Why state ZIP counts vary by roughly 30x**
+Texas and California each have roughly 1,700–1,900 ZIP codes, while Delaware has around 60. This variance reflects a combination of population, land area, and postal-delivery complexity — a large rural state needs many ZIPs to cover its geography even at modest population density, while a small, compact state needs far fewer regardless of how dense its population is. ZIP count is therefore a reasonable proxy for postal-delivery complexity, but should never be used alone as a population proxy, since a handful of dense urban ZIPs can carry more residents than hundreds of sparse rural ones combined.
 
-**Comparing states for expansion or licensing decisions**
-Businesses evaluating state-by-state expansion often start from a ZIP inventory because state licensing, sales tax, and shipping rules are frequently ZIP-adjacent even though they are legally state-based. Use the full ZIP list as the operational unit for rollout sequencing (which ZIPs go live in phase one, two, three) while keeping the legal and tax obligations tied to the state itself rather than the individual ZIP. This separation avoids a common mistake: treating ZIP-level rollout completion as equivalent to state-level regulatory completion, when the two follow different rules.
+**Enterprise use cases**
+- **Multi-state licensing and rollout sequencing** — using a state's full ZIP inventory to plan which delivery or service areas activate in which rollout phase, while keeping the actual regulatory obligation tied to the state itself.
+- **Coverage-gap verification** — comparing an active service-area ZIP list against the full state inventory to identify unserved ZIPs within a state.
+- **Market-sizing and territory design** — segmenting a state's ZIP inventory by population band or ZIP type before building sales or marketing territories.
+- **Data-quality auditing** — using expected prefix ranges as a sanity check to catch mis-assigned state values in a large address dataset.
 
-**A quick sanity check before publishing a state list**
-Before you rely on a state ZIP export for a report or a production system, check three things: the ZIP prefix range matches the expected band for that state, the total count is in a plausible range for the state's known size, and no ZIP appears twice under two different state assignments (a rare but real data-quality issue near state borders, since a handful of ZIP codes serve addresses that physically sit close to another state line).`,
+**2. Methodology & Comparison Analysis**
+
+**3. Real-World Edge Cases & Resolution Strategies**
+
+- **SCFs that cross a state line.** A small number of Sectional Center Facilities serve ZIP ranges spanning two states, meaning prefix range alone can't be used as a perfectly reliable state filter. *Resolution:* always cross-reference against each ZIP's explicit state field rather than inferring state purely from prefix range.
+- **Military ZIP codes inflate raw counts without civilian geography.** APO/FPO/DPO codes are technically associated with a state or "no state" designation but don't represent a fixed civilian geography the way standard ZIPs do. *Resolution:* exclude military ZIP codes from any state inventory used for population, marketing, or civilian service-area purposes.
+- **Unique-type institutional ZIPs skew population-based analysis.** A university, large employer, or government agency ZIP inflates a raw state ZIP count without adding meaningful residential coverage. *Resolution:* segment unique-type ZIPs out of any state list used for population estimation or residential marketing.
+- **Non-contiguous prefix bands within a single large state.** Very large states like Texas can have multiple, non-adjacent three-digit prefix ranges rather than one continuous band, because a state's territory can be served by SCFs whose prefix assignments weren't allocated contiguously. *Resolution:* don't assume a state's ZIP prefixes form one continuous numeric range — validate against the actual assigned ranges, not an assumed min-max span.
+- **Territories numbered within the "0" national region despite not being states.** Puerto Rico, the US Virgin Islands, and similar territories are numbered as part of the national ZIP system (often within the 0 first-digit band) even though they aren't states. *Resolution:* explicitly decide whether your "state" list should include US territories, and label them clearly rather than silently including or excluding them.
+
+**4. Empirical Reference & Benchmark Table**
+
+The benchmark table above illustrates the roughly 30x range in state ZIP-inventory size (Texas's ~1,935 versus Delaware's ~60) and the non-contiguous prefix pattern found in large states — Texas alone spans three separate prefix bands rather than one continuous range, which is a common source of error in naive min-max prefix filtering.
+
+**5. Implementation Guide & Best Practices**
+
+- **Never filter by ZIP prefix range alone when state accuracy matters.** Cross-reference against each ZIP's explicit state field, since a small number of SCFs cross state lines and large states can have non-contiguous prefix bands.
+- **Segment military and unique-type ZIPs out of population-relevant state lists**, since both categories inflate raw ZIP counts without representing standard residential or business delivery geography.
+- **Sum population by ZIP, not by ZIP count, for any market-sizing use case** — a state's ZIP count is a postal-delivery-complexity metric, not a population metric, and the two can diverge significantly for large rural states.
+- **Decide explicitly whether territories are included in "state" lists**, and label them clearly, since Puerto Rico and other territories are numbered within the national ZIP system but aren't legally states.
+- **Refresh state ZIP inventories periodically** against current USPS AMS data, since new ZIPs are added and occasionally reassigned as postal geography evolves.
+
+**6. Technical & Operational FAQ**`,
   faqs: [
-    { q: "What does the State ZIP Codes tool return?", a: "It is designed to answer the page-specific question of finding and organizing ZIP Codes belonging to a selected state. You provide US state or territory, and the tool returns ZIP Codes associated with the selected state. Review the surrounding location fields before using the result in a production dataset." },
-    { q: "Who is the State ZIP Codes tool most useful for?", a: "It is particularly useful for market researchers, sales operations, data engineers, marketers, and people building state-level geographic lists. The strongest use is usually enrichment, research, territory planning, or a quick geographic check where a ZIP-level answer is enough to move the workflow forward." },
-    { q: "Can I use a ZIP result as an exact legal boundary?", a: "No. Zip prefixes can cross intuitive regional boundaries and should not be used as a substitute for official state assignment. ZIP geography should be kept separate from municipal, county, tax, census, or regulatory boundaries unless you have a documented crosswalk for that specific purpose." },
-    { q: "Should I store ZIP Codes as numbers or text?", a: "Store ZIP Codes as text. A five-digit ZIP is an identifier, not a quantity, and values such as 00501 or other leading-zero ZIPs can be damaged when treated as integers in spreadsheets, databases, or APIs." },
-    { q: "Is this tool suitable for production address decisions?", a: "It is useful for research and enrichment, but production workflows should define a verification policy. For state zip codes, retain the source input and lookup result, and use an authoritative postal, regulatory, routing, or commercial dataset when the decision has legal, financial, delivery, or compliance consequences." },
-    { q: "Which related ZIP tool should I use next?", a: "Choose based on the information you already have. The comparison table on this page separates the closest alternatives by starting input and purpose, so you can switch tools without confusing a ZIP-to-place lookup with a distance, route, timezone, phone, or postal-classification task." }
+    { q: "Why do ZIP prefixes roughly match state boundaries but not perfectly?", a: "The first three digits of a ZIP identify a Sectional Center Facility (SCF), a regional mail-sorting hub, and most SCFs happen to serve territory within a single state. But a small number of SCFs serve territory across a state line, so prefix range alone isn't a fully reliable way to filter ZIPs by state — always cross-reference against the explicit state field." },
+    { q: "Why does Texas have such a large and non-continuous ZIP prefix range?", a: "Texas is large enough to be served by multiple Sectional Center Facilities whose three-digit prefix assignments weren't allocated as one continuous numeric block, resulting in several separate prefix bands (roughly 733–739, 750–799, and 885) rather than a single min-to-max range." },
+    { q: "Should I use ZIP count as a proxy for a state's population?", a: "Not directly. ZIP count reflects postal-delivery complexity — a function of both population and land area — so a large, sparsely populated rural state can have a substantial ZIP count without a correspondingly large population. Sum population by ZIP rather than counting ZIPs for any population-based analysis." },
+    { q: "Are military ZIP codes included in a standard state ZIP inventory?", a: "They're technically assigned a state or special designation, but they don't represent fixed civilian geography the way standard delivery ZIPs do. Exclude them from any state inventory used for civilian population, marketing, or service-area purposes." },
+    { q: "Is Puerto Rico included when I request a US state ZIP list?", a: "Puerto Rico and other US territories are numbered within the national ZIP system (largely within the '0' first-digit region) even though they aren't legally states. Decide explicitly whether your use case should include territories, and label them clearly rather than assuming either inclusion or exclusion." },
+    { q: "How often does a state's ZIP inventory change?", a: "Infrequently, but not never — new ZIPs are added as areas develop, and occasional reassignments happen as USPS reorganizes delivery routes. Refresh a state ZIP inventory periodically against current data rather than treating it as permanently fixed." }
   ],
 }
 
