@@ -21,7 +21,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const cat = blogCategories.find(c => c.slug === slug)
-  if (!cat) return { title: 'Category Not Found | ToolTrio' }
+  if (!cat) {
+    return {
+      title: 'Page Not Found | ToolTrio',
+      robots: { index: false, follow: false },
+    }
+  }
   const restricted = false
   if (slug === 'zip-codes') {
     return {

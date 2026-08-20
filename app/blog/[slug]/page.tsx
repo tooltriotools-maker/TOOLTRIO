@@ -16,7 +16,12 @@ export async function generateStaticParams() { return publishedBlogPosts.map(pos
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = publishedBlogPosts.find(p => p.slug === slug)
-  if (!post) return { title: 'Post Not Found | ToolTrio' }
+  if (!post) {
+    return {
+      title: 'Page Not Found | ToolTrio',
+      robots: { index: false, follow: false },
+    }
+  }
   return {
     title: post.seoTitle.replace(/\s*\|\s*ToolTrio\s*$/i, '') + ' | ToolTrio',
     description: post.seoDescription,
