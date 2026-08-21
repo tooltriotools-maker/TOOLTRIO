@@ -54,7 +54,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <div className="rounded-3xl border p-6 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(10px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 8px 30px rgba(15,23,42,0.05)'}}>
         <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Your Birthday</label>
           <input type="date" value={dob} onChange={e=>setDob(e.target.value)} className="w-full border-2 border-gray-200 focus:border-purple-400 rounded-xl px-4 py-3 focus:outline-none" /></div>
-        <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Partner's Birthday</label>
+        <div><label className="text-xs font-bold text-gray-500 uppercase block mb-1.5">Partner&apos;s Birthday</label>
           <input type="date" value={partnerDob} onChange={e=>setPartnerDob(e.target.value)} className="w-full border-2 border-gray-200 focus:border-pink-400 rounded-xl px-4 py-3 focus:outline-none" /></div>
       </div>
       {me && them && (
@@ -100,21 +100,21 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Enter your birthday (year, month, day). The calculator applies the precise astronomical transition dates for Western zodiac boundaries -- these shift by up to a day each year because the solar year doesn't align perfectly with the calendar, which means people born on the 19th-23rd of a month may have a different sign than they assumed from a fixed-date chart. The Chinese zodiac animal is determined by birth year in the traditional lunar calendar cycle. Both are output with compatible signs, element, and ruling planet.</p>
+          <p className="text-gray-700 leading-relaxed">Enter your birthday (year, month, day). The calculator applies the precise astronomical transition dates for Western zodiac boundaries -- these shift by up to a day each year because the solar year doesn&apos;t align perfectly with the calendar, which means people born on the 19th-23rd of a month may have a different sign than they assumed from a fixed-date chart. The Chinese zodiac animal is determined by birth year in the traditional lunar calendar cycle. Both are output with compatible signs, element, and ruling planet.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The 12 Western zodiac signs were formalized by the ancient Babylonians around 600 BCE, who divided the apparent path of the Sun (the ecliptic) into 12 equal 30-degree segments. The actual constellations the zodiac signs are named after no longer align with the Sun's position during those calendar dates -- precession of the Earth's axis has shifted things by roughly 23 degrees over two millennia. This is why some astronomers note there are actually 13 constellations along the ecliptic (the 13th being Ophiuchus), though most Western astrology systems don't use it.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The 12 Western zodiac signs were formalized by the ancient Babylonians around 600 BCE, who divided the apparent path of the Sun (the ecliptic) into 12 equal 30-degree segments. The actual constellations the zodiac signs are named after no longer align with the Sun&apos;s position during those calendar dates -- precession of the Earth&apos;s axis has shifted things by roughly 23 degrees over two millennia. This is why some astronomers note there are actually 13 constellations along the ecliptic (the 13th being Ophiuchus), though most Western astrology systems don&apos;t use it.</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you've always identified more strongly with a different sign than the one you were told you are, re-check with this calculator using the exact date. Cusp-date calculations sometimes shift people's sign, and the "corrected" sign often feels more accurate to them.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The Chinese zodiac system uses the lunar calendar, so if you were born in January or early February, your Chinese animal might be from the previous year's cycle rather than the calendar year of your birth.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you&apos;ve always identified more strongly with a different sign than the one you were told you are, re-check with this calculator using the exact date. Cusp-date calculations sometimes shift people&apos;s sign, and the &quot;corrected&quot; sign often feels more accurate to them.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The Chinese zodiac system uses the lunar calendar, so if you were born in January or early February, your Chinese animal might be from the previous year&apos;s cycle rather than the calendar year of your birth.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For a full picture of Western astrology beyond just your Sun sign, your Moon sign and Rising sign require your exact birth time and location -- the Sun sign that this calculator provides is the starting point, but serious astrology uses all three.</span></li>
           </ul>
         </section>

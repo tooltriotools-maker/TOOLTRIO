@@ -44,7 +44,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <div>
           <div className="rounded-3xl border-2 p-8 text-center mb-6" style={{background:'linear-gradient(135deg,rgba(253,242,248,0.9),rgba(252,231,243,0.6))',borderColor:'rgba(249,168,212,0.5)'}}>
             <div className="text-5xl mb-4">💖</div>
-            <p className="text-xl font-black text-pink-900 leading-relaxed italic mb-4">"{compliment}"</p>
+            <p className="text-xl font-black text-pink-900 leading-relaxed italic mb-4">&quot;{compliment}&quot;</p>
             <div className="flex gap-2 justify-center">
               <button onClick={share} className="px-4 py-2 text-sm font-bold rounded-xl bg-pink-600 text-white hover:bg-pink-700">📤 Share</button>
               <button onClick={() => navigator.clipboard.writeText(compliment).then(() => alert('Copied!'))} className="px-4 py-2 text-sm font-bold rounded-xl border-2 border-pink-300 text-pink-700 hover:bg-pink-50">📋 Copy</button>

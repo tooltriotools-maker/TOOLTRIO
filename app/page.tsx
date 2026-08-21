@@ -187,7 +187,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Find a US ZIP code, measure distance between ZIP codes, identify a ZIP code's timezone, get ZIP coordinates, or look up ZIP+4 information. These five ZIP tools are the core of ToolTrio's location toolkit — free, fast and available without signup.
+            Find a US ZIP code, measure distance between ZIP codes, identify a ZIP code&apos;s timezone, get ZIP coordinates, or look up ZIP+4 information. These five ZIP tools are the core of ToolTrio&apos;s location toolkit — free, fast and available without signup.
           </p>
 
           <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>

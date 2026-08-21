@@ -180,8 +180,8 @@ export function GlobalSearch({ className }: { className?: string }) {
               ) : (
                 <div className="p-8 text-center">
                   <Search className="w-8 h-8 text-gray-300 mx-auto mb-3" />
-                  <p className="text-sm font-semibold text-gray-600 mb-1">No results for "{query}"</p>
-                  <p className="text-xs text-gray-400">Try "ZIP", "Fun", or a tool name</p>
+                  <p className="text-sm font-semibold text-gray-600 mb-1">No results for &quot;{query}&quot;</p>
+                  <p className="text-xs text-gray-400">Try &quot;ZIP&quot;, &quot;Fun&quot;, or a tool name</p>
                 </div>
               )
             ) : (

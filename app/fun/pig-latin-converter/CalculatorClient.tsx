@@ -76,8 +76,8 @@ export default function CalculatorClient({ faqs }: Props) {
       <div className="rounded-2xl border p-5" style={{background:'rgba(255,255,255,0.82)',backdropFilter:'blur(8px)',borderColor:'rgba(226,232,240,0.7)',boxShadow:'0 4px 20px rgba(15,23,42,0.05)'}}>
         <h2 className="font-bold text-gray-900 mb-2">📖 How Pig Latin Works</h2>
 <ul className="text-sm text-gray-600 space-y-1">
-  <li>- If word starts with a <strong>vowel</strong>: add "way" to the end (e.g., <em>apple → appleway</em>)</li>
-  <li>- If word starts with <strong>consonants</strong>: move them to end + add "ay" (e.g., <em>hello → ellohay</em>)</li>
+  <li>- If word starts with a <strong>vowel</strong>: add &quot;way&quot; to the end (e.g., <em>apple → appleway</em>)</li>
+  <li>- If word starts with <strong>consonants</strong>: move them to end + add &quot;ay&quot; (e.g., <em>hello → ellohay</em>)</li>
   <li>- <strong>Clusters</strong> move together (e.g., <em>street → eetstray</em>)</li>
 </ul>
       </div>
@@ -103,22 +103,22 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">The converter applies Pig Latin rules word-by-word: words beginning with consonants or consonant clusters get those consonants moved to the end with "-ay" appended; words beginning with vowels get "-way" or "-yay" appended (depending on convention). The output handles punctuation sensibly and preserves capitalization on the first letter of each word. It also works in reverse -- paste Pig Latin in and recover the original.</p>
+          <p className="text-gray-700 leading-relaxed">The converter applies Pig Latin rules word-by-word: words beginning with consonants or consonant clusters get those consonants moved to the end with &quot;-ay&quot; appended; words beginning with vowels get &quot;-way&quot; or &quot;-yay&quot; appended (depending on convention). The output handles punctuation sensibly and preserves capitalization on the first letter of each word. It also works in reverse -- paste Pig Latin in and recover the original.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Pig Latin is not actually Latin. It has no relationship to the Latin language and no established origin -- it emerged as an English children's word game in the United States, probably in the 19th century. Linguists classify it as a "language game" -- a rule-based transformation of an existing language rather than a language in its own right. Other examples include Ubbi Dubbi (inserting "ub" before every vowel) and Pig Greek (which is separate from Pig Latin and also not Greek).</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Pig Latin is not actually Latin. It has no relationship to the Latin language and no established origin -- it emerged as an English children&apos;s word game in the United States, probably in the 19th century. Linguists classify it as a &quot;language game&quot; -- a rule-based transformation of an existing language rather than a language in its own right. Other examples include Ubbi Dubbi (inserting &quot;ub&quot; before every vowel) and Pig Greek (which is separate from Pig Latin and also not Greek).</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Pig Latin is fastest to read aloud when you already know what the original text said. Reading Pig Latin cold for the first time is significantly slower -- which makes it reasonably effective as a low-tech cipher for content you don't want casual readers to absorb immediately.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The rules break down interestingly on words beginning with silent letters ("knife" → "ifeknay" by the standard rule, even though the K isn't pronounced). How you handle these edge cases is a legitimate dialect difference between different Pig Latin speakers.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For creative writing that needs to suggest a character using a code language without making the reader decode it, Pig Latin in italics reads as "they're speaking in code" well enough for most narrative purposes -- faster to write than inventing an actual cipher.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Pig Latin is fastest to read aloud when you already know what the original text said. Reading Pig Latin cold for the first time is significantly slower -- which makes it reasonably effective as a low-tech cipher for content you don&apos;t want casual readers to absorb immediately.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The rules break down interestingly on words beginning with silent letters (&quot;knife&quot; → &quot;ifeknay&quot; by the standard rule, even though the K isn&apos;t pronounced). How you handle these edge cases is a legitimate dialect difference between different Pig Latin speakers.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For creative writing that needs to suggest a character using a code language without making the reader decode it, Pig Latin in italics reads as &quot;they&apos;re speaking in code&quot; well enough for most narrative purposes -- faster to write than inventing an actual cipher.</span></li>
           </ul>
         </section>
 
@@ -131,7 +131,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Did You Know */}
         <section className="border-l-4 border-purple-300 pl-5">
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The longest naturally-occurring English word that is also valid Pig Latin for another word is a surprisingly interesting constraint puzzle. The word "stripe" in Pig Latin becomes "ipestray" -- which sounds like it should mean something but doesn't. "Trash" becomes "ashtray." The language hides unexpected words.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">The longest naturally-occurring English word that is also valid Pig Latin for another word is a surprisingly interesting constraint puzzle. The word &quot;stripe&quot; in Pig Latin becomes &quot;ipestray&quot; -- which sounds like it should mean something but doesn&apos;t. &quot;Trash&quot; becomes &quot;ashtray.&quot; The language hides unexpected words.</p>
         </section>
 
         {/* FAQs */}

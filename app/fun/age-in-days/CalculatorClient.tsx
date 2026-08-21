@@ -94,41 +94,41 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">You know you're 31 years old. But 31 years sounds abstract in a way that "11,323 days" does not. This calculator converts your age into its full stack of units -- days, hours, minutes, seconds, weeks, lunar cycles -- so the amount of time you've been alive stops being a number on your ID and starts feeling like a real quantity. The birthday milestone numbers are surprisingly interesting: most people reach 10,000 days somewhere in their late twenties, which is an occasion that passes entirely uncelebrated despite being a legitimately round number. Check when your <Link href="/fun/birthday-countdown" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">next birthday</Link> falls while you're here.</p>
+          <p className="text-gray-600 leading-relaxed">You know you&apos;re 31 years old. But 31 years sounds abstract in a way that &quot;11,323 days&quot; does not. This calculator converts your age into its full stack of units -- days, hours, minutes, seconds, weeks, lunar cycles -- so the amount of time you&apos;ve been alive stops being a number on your ID and starts feeling like a real quantity. The birthday milestone numbers are surprisingly interesting: most people reach 10,000 days somewhere in their late twenties, which is an occasion that passes entirely uncelebrated despite being a legitimately round number. Check when your <Link href="/fun/birthday-countdown" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">next birthday</Link> falls while you&apos;re here.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Enter your date of birth. The calculator computes your exact age in days (accounting for leap years), then converts that to weeks, hours, minutes, and seconds. It also identifies significant upcoming milestones -- your next 10,000-day anniversary, your next 1,000-week mark -- and tells you when you'll hit them. Heartbeats, breaths, and approximate sleep hours are estimated using statistical averages with a note on individual variation.</p>
+          <p className="text-gray-700 leading-relaxed">Enter your date of birth. The calculator computes your exact age in days (accounting for leap years), then converts that to weeks, hours, minutes, and seconds. It also identifies significant upcoming milestones -- your next 10,000-day anniversary, your next 1,000-week mark -- and tells you when you&apos;ll hit them. Heartbeats, breaths, and approximate sleep hours are estimated using statistical averages with a note on individual variation.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Most people celebrate their birthday on the same calendar date every year, but the astronomical anniversary of your birth -- the exact position of the Earth in its orbit when you were born -- shifts slightly each year because of leap year corrections. Your "true" astronomical birthday comes around every 1,461 days (4 years). This is why the leap-year birthday on February 29th is treated as special: those people celebrate on the actual astronomical anniversary only once every four years.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Most people celebrate their birthday on the same calendar date every year, but the astronomical anniversary of your birth -- the exact position of the Earth in its orbit when you were born -- shifts slightly each year because of leap year corrections. Your &quot;true&quot; astronomical birthday comes around every 1,461 days (4 years). This is why the leap-year birthday on February 29th is treated as special: those people celebrate on the actual astronomical anniversary only once every four years.</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Your 10,000-day birthday is worth calculating and actually celebrating. It falls for most people in their late 20s and is a more interesting number than 30, which is arbitrary. Send the date to someone you'll still know then.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The hours and minutes outputs are most useful for a perspective shift: seeing that you've lived 270,000 waking hours tends to prompt useful reflection on what those hours contained in a way that "30 years" doesn't.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Check someone else's age in days alongside yours to see the gap in a different unit. A 15-year age difference is 15 years; it's also about 5,500 days -- which feels simultaneously larger and smaller than the year count, depending on who you are.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Your 10,000-day birthday is worth calculating and actually celebrating. It falls for most people in their late 20s and is a more interesting number than 30, which is arbitrary. Send the date to someone you&apos;ll still know then.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The hours and minutes outputs are most useful for a perspective shift: seeing that you&apos;ve lived 270,000 waking hours tends to prompt useful reflection on what those hours contained in a way that &quot;30 years&quot; doesn&apos;t.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Check someone else&apos;s age in days alongside yours to see the gap in a different unit. A 15-year age difference is 15 years; it&apos;s also about 5,500 days -- which feels simultaneously larger and smaller than the year count, depending on who you are.</span></li>
           </ul>
         </section>
 
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Share your day count on your actual birthday instead of (or alongside) the year count. "Today I am 11,688 days old" is a statement that almost always produces genuine calculation attempts from the people who see it -- everyone tries to work out how old you are in years from the day count.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Share your day count on your actual birthday instead of (or alongside) the year count. &quot;Today I am 11,688 days old&quot; is a statement that almost always produces genuine calculation attempts from the people who see it -- everyone tries to work out how old you are in years from the day count.</p>
         </section>
 
         {/* Did You Know */}
         <section className="border-l-4 border-purple-300 pl-5">
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The Gregorian calendar has 97 leap years per 400-year cycle, not 100 -- because century years (1700, 1800, 1900) are not leap years unless also divisible by 400 (so 2000 was a leap year but 1900 was not). This correction keeps the calendar aligned with the Earth's actual orbital period, which is 365.2425 days rather than exactly 365.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">The Gregorian calendar has 97 leap years per 400-year cycle, not 100 -- because century years (1700, 1800, 1900) are not leap years unless also divisible by 400 (so 2000 was a leap year but 1900 was not). This correction keeps the calendar aligned with the Earth&apos;s actual orbital period, which is 365.2425 days rather than exactly 365.</p>
         </section>
 
         {/* FAQs */}

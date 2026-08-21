@@ -166,7 +166,7 @@ export default function CalculatorClient({ faqs }: Props) {
       {excuse && (
         <div className="rounded-3xl border-2 p-8 text-center mb-6" style={{background:'linear-gradient(135deg,rgba(255,247,237,0.9),rgba(254,237,213,0.6))',borderColor:'rgba(251,146,60,0.4)'}}>
           <div className="text-5xl mb-4">🏋️</div>
-          <p className="text-xl font-black text-orange-900 leading-relaxed italic mb-4">"{excuse}"</p>
+          <p className="text-xl font-black text-orange-900 leading-relaxed italic mb-4">&quot;{excuse}&quot;</p>
           <div className="flex gap-2 justify-center">
             <button onClick={share} className="px-4 py-2 text-sm font-bold rounded-xl bg-orange-500 text-white hover:bg-orange-600">📤 Share Excuse</button>
             <button onClick={() => navigator.clipboard.writeText(`"${excuse}"`).then(() => alert('Copied!'))} className="px-4 py-2 text-sm font-bold rounded-xl border-2 border-orange-300 text-orange-700 hover:bg-orange-50">📋 Copy</button>
@@ -182,7 +182,7 @@ export default function CalculatorClient({ faqs }: Props) {
           {EXCUSES.map((e, i) => (
             <button key={i} onClick={() => setExcuse(e)}
               className="w-full text-left text-sm text-gray-700 p-2 rounded-lg hover:bg-orange-50 transition-all">
-              "{e}"
+              &quot;{e}&quot;
             </button>
           ))}
         </div>

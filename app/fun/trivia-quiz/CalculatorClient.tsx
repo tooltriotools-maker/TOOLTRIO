@@ -112,15 +112,15 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The word "trivia" comes from Latin "trivium" -- literally "three roads" -- referring to the point where three roads meet, which in ancient Rome was where public notices were posted and people gathered to share information. The trivium was also the foundation of medieval education: grammar, logic, and rhetoric. "Trivial" originally meant "publicly known" rather than "unimportant" -- the connotation shift happened gradually as "what everyone knows" came to imply "what doesn't matter."</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The word &quot;trivia&quot; comes from Latin &quot;trivium&quot; -- literally &quot;three roads&quot; -- referring to the point where three roads meet, which in ancient Rome was where public notices were posted and people gathered to share information. The trivium was also the foundation of medieval education: grammar, logic, and rhetoric. &quot;Trivial&quot; originally meant &quot;publicly known&quot; rather than &quot;unimportant&quot; -- the connotation shift happened gradually as &quot;what everyone knows&quot; came to imply &quot;what doesn&apos;t matter.&quot;</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you know you don't know the answer, use the elimination method before guessing: rule out the most obviously wrong options first and pick from what remains. You'll be right more often than chance even without specific knowledge.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Category performance gaps are more useful than total score. Scoring well overall but poorly in history usually means something specific -- not that you're bad at trivia, but that you have a specific gap in your knowledge base that's fixable.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you know you don&apos;t know the answer, use the elimination method before guessing: rule out the most obviously wrong options first and pick from what remains. You&apos;ll be right more often than chance even without specific knowledge.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Category performance gaps are more useful than total score. Scoring well overall but poorly in history usually means something specific -- not that you&apos;re bad at trivia, but that you have a specific gap in your knowledge base that&apos;s fixable.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Read the explanations even when you get an answer right. The explanation often contains a more interesting fact than the question itself, which is the format trivia is most useful for actual learning.</span></li>
           </ul>
         </section>
@@ -128,13 +128,13 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Send a single trivia question (without the answer) to your group chat and give everyone 30 seconds to answer. The question "what percentage of the ocean has been explored?" produces confident wrong answers at a higher rate than almost any other trivia format.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Send a single trivia question (without the answer) to your group chat and give everyone 30 seconds to answer. The question &quot;what percentage of the ocean has been explored?&quot; produces confident wrong answers at a higher rate than almost any other trivia format.</p>
         </section>
 
         {/* Did You Know */}
         <section className="border-l-4 border-purple-300 pl-5">
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The most commonly wrong trivia answer across pub quiz formats worldwide is in response to the question "what is the longest river in the world?" Most people answer "The Nile" -- and most pub quizzes accept this as correct -- but measurement methodology disputes mean some hydrologists argue the Amazon is longer. The answer depends entirely on how you measure and where you put the source.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">The most commonly wrong trivia answer across pub quiz formats worldwide is in response to the question &quot;what is the longest river in the world?&quot; Most people answer &quot;The Nile&quot; -- and most pub quizzes accept this as correct -- but measurement methodology disputes mean some hydrologists argue the Amazon is longer. The answer depends entirely on how you measure and where you put the source.</p>
         </section>
 
         {/* FAQs */}

@@ -47,7 +47,7 @@ export default function CalculatorClient({ faqs }: Props) {
           {/* Fortune display */}
           <div className="rounded-3xl border-2 p-8 text-center mb-6" style={{background:'linear-gradient(135deg,rgba(254,243,199,0.8),rgba(253,230,138,0.4))',borderColor:'rgba(251,191,36,0.5)'}}>
             <div className="text-5xl mb-4">🥠</div>
-            <p className="text-xl font-black text-amber-900 leading-relaxed italic mb-4">"{fortune}"</p>
+            <p className="text-xl font-black text-amber-900 leading-relaxed italic mb-4">&quot;{fortune}&quot;</p>
             <div className="flex gap-2 justify-center">
               <button onClick={share}
                 className="px-4 py-2 text-sm font-bold rounded-xl bg-amber-600 text-white hover:bg-amber-700">

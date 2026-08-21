@@ -91,7 +91,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Morse code is the original compressed digital language -- a binary encoding system (dots and dashes) that predates digital computing by a century and is still a required proficiency for amateur radio operators. This converter translates any text into Morse code instantly, and also decodes Morse back to text. Practically useful for radio enthusiasts, SOS situations you'd rather be prepared for, and anyone who wants to communicate through a series of taps that sounds implausibly cinematic in real life. For other text transformation tools, <Link href="/fun/pig-latin-converter" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Pig Latin</Link> and the <Link href="/fun/emoji-translator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Emoji Translator</Link> cover the less life-saving ends of the spectrum.</p>
+          <p className="text-gray-600 leading-relaxed">Morse code is the original compressed digital language -- a binary encoding system (dots and dashes) that predates digital computing by a century and is still a required proficiency for amateur radio operators. This converter translates any text into Morse code instantly, and also decodes Morse back to text. Practically useful for radio enthusiasts, SOS situations you&apos;d rather be prepared for, and anyone who wants to communicate through a series of taps that sounds implausibly cinematic in real life. For other text transformation tools, <Link href="/fun/pig-latin-converter" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Pig Latin</Link> and the <Link href="/fun/emoji-translator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Emoji Translator</Link> cover the less life-saving ends of the spectrum.</p>
         </section>
 
         {/* How It Works */}
@@ -103,7 +103,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The international distress signal SOS (··· --- ···) was not chosen because the letters S-O-S stood for anything. They were chosen because the Morse pattern -- three shorts, three longs, three shorts -- is extremely easy to tap, flash, or signal under duress. The backronym "Save Our Souls" came later and was never official. The signal was adopted internationally in 1906 and remains valid emergency protocol.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The international distress signal SOS (··· --- ···) was not chosen because the letters S-O-S stood for anything. They were chosen because the Morse pattern -- three shorts, three longs, three shorts -- is extremely easy to tap, flash, or signal under duress. The backronym &quot;Save Our Souls&quot; came later and was never official. The signal was adopted internationally in 1906 and remains valid emergency protocol.</p>
         </section>
 
         {/* Tips */}
@@ -119,7 +119,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Encode a short message in Morse and set it as your phone lock screen or desktop wallpaper. See how long it takes anyone to notice, let alone decode it. The answer is usually "much longer than expected" and "only if they specifically look it up."</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Encode a short message in Morse and set it as your phone lock screen or desktop wallpaper. See how long it takes anyone to notice, let alone decode it. The answer is usually &quot;much longer than expected&quot; and &quot;only if they specifically look it up.&quot;</p>
         </section>
 
         {/* Did You Know */}

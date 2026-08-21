@@ -590,7 +590,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-gray-400 mt-3 text-center">*This website is a private tool and is not affiliated with the USPS or the US Government. "ZIP Code" is a registered trademark of the USPS.</p>
+            <p className="text-[10px] text-gray-400 mt-3 text-center">*This website is a private tool and is not affiliated with the USPS or the US Government. &quot;ZIP Code&quot; is a registered trademark of the USPS.</p>
           </div>
         )}
 

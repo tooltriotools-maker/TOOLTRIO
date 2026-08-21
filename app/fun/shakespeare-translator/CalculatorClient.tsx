@@ -231,8 +231,8 @@ export default function CalculatorClient({ faqs }: Props) {
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
             <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Keep sentences simple and direct — the dictionary matches whole words and common phrases, so plain, short sentences translate more cleanly than heavily idiomatic modern slang.</span></li>
-            <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Check the Word-by-Word Meanings panel after translating — it explains exactly why each word changed, which makes this genuinely useful for studying Shakespeare's plays, not just for jokes.</span></li>
-            <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Browse the Full Word Glossary tab any time — it's the complete dictionary behind the translator, searchable and filterable by category.</span></li>
+            <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Check the Word-by-Word Meanings panel after translating — it explains exactly why each word changed, which makes this genuinely useful for studying Shakespeare&apos;s plays, not just for jokes.</span></li>
+            <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Browse the Full Word Glossary tab any time — it&apos;s the complete dictionary behind the translator, searchable and filterable by category.</span></li>
           </ul>
         </section>
 

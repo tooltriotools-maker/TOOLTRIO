@@ -22,6 +22,10 @@ export const metadata: Metadata = generateFunToolMetadata({
     'emoji decoder online',
     'emoji to text translator',
     'turn words into emoji',
+    'gen z emoji translator',
+    'emoji slang meaning',
+    'millennial emoji meanings',
+    'no cap emoji',
     'tooltrio.com',
   ],
 })
@@ -52,8 +56,16 @@ const faqs = [
     answer: 'The translator creates inline emoji sentences rather than 2D emoji pixel art. For full emoji art grids, you would need a different tool. But for emoji-heavy captions and creative text posts, this nails it.'
   },
   {
-    question: 'Why does the same word sometimes get different emoji?',
-    answer: 'Some words map to multiple reasonable emoji, and the tool deliberately introduces some variety to make repeated use more interesting. "Happy" might get 😊 once and 🎉 another time depending on context. This keeps the output feeling a bit alive rather than rigidly mechanical.'
+    question: 'Does it understand Gen Z or Millennial slang, not just literal meanings?',
+    answer: 'Yes — flip on Slang Mode. It decodes emoji the way people actually use them online (💀 = "I\'m dead," 🚩 = a relationship red flag, 💅 = sassy/unbothered) instead of the literal Unicode name, and translates slang phrases like "no cap," "bet," "mid," and "touch grass" into the right emoji.'
+  },
+  {
+    question: 'How many emoji and words does the translator actually cover?',
+    answer: 'The dictionary is built from the complete official Unicode emoji list — 1,900+ emoji across every category, including all national flags — matched against roughly 6,000 words and short phrases. Each word always maps to the same emoji, so results stay consistent between visits.'
+  },
+  {
+    question: 'Can it translate a whole phrase like "thumbs up" as one emoji?',
+    answer: 'Yes. The translator checks for multi-word phrases (like "thumbs up" or "ice cream") before falling back to single words, so common two- and three-word concepts translate to one accurate emoji instead of being split apart.'
   },
 ]
 

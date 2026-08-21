@@ -105,13 +105,13 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Enter your birth month and day. The calculator determines how far away your next birthday is from today, broken down into days, hours, and minutes. It identifies the day of the week it falls on, and notes any interesting things about the date -- historical events, what star sign it falls in, whether it's a public holiday in major countries. For extra celebration context, it shows which famous people share your birthday.</p>
+          <p className="text-gray-700 leading-relaxed">Enter your birth month and day. The calculator determines how far away your next birthday is from today, broken down into days, hours, and minutes. It identifies the day of the week it falls on, and notes any interesting things about the date -- historical events, what star sign it falls in, whether it&apos;s a public holiday in major countries. For extra celebration context, it shows which famous people share your birthday.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The most common birthday in the United States (and several other countries) is September 9th. The least common is February 29th (leap day). The September clustering reflects a conception peak around the winter holidays -- December specifically produces the most September birthdays. The months with the lowest average birthday frequency are January and February, which also makes them the months most likely to feel statistically underserved in the "sharing a birthday" category.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The most common birthday in the United States (and several other countries) is September 9th. The least common is February 29th (leap day). The September clustering reflects a conception peak around the winter holidays -- December specifically produces the most September birthdays. The months with the lowest average birthday frequency are January and February, which also makes them the months most likely to feel statistically underserved in the &quot;sharing a birthday&quot; category.</p>
         </section>
 
         {/* Tips */}
@@ -120,14 +120,14 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>A Saturday or Sunday birthday in your next cycle is worth planning for significantly further in advance than a weekday one -- the logistics of gathering people on weekends are easier but the competition for those weekend slots from other events is real.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If your birthday falls within two weeks of Christmas or another major holiday, your celebration window is compressed in a way that requires earlier planning than most. You know this. The countdown tool helps you see how many usable weekends you have before the date.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Use the countdown to your own birthday as a deadline anchor for something you've been meaning to do before you turn the next year older. "I want to have done X before I'm 34" is a better motivational frame than a vague future intention.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Use the countdown to your own birthday as a deadline anchor for something you&apos;ve been meaning to do before you turn the next year older. &quot;I want to have done X before I&apos;m 34&quot; is a better motivational frame than a vague future intention.</span></li>
           </ul>
         </section>
 
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Share your exact countdown (days, hours, minutes) exactly 100 days before your birthday. It's early enough to be charming rather than pressuring, and "100 days until my birthday" is a much more interesting social post than "birthday is coming up!"</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Share your exact countdown (days, hours, minutes) exactly 100 days before your birthday. It&apos;s early enough to be charming rather than pressuring, and &quot;100 days until my birthday&quot; is a much more interesting social post than &quot;birthday is coming up!&quot;</p>
         </section>
 
         {/* Did You Know */}

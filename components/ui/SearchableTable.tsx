@@ -78,7 +78,7 @@ export function SearchableTable({
             {filtered.length === 0 && (
               <tr>
                 <td colSpan={headers.length} className="px-4 py-8 text-center text-gray-400 text-sm">
-                  No results for "{query}"
+                  No results for &quot;{query}&quot;
                 </td>
               </tr>
             )}

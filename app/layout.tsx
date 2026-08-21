@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
+const inter = { className: '' } // TEMP-STUB
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' })
+
 
 export const viewport: Viewport = {
   themeColor: '#16a34a',

@@ -106,19 +106,19 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Coffee is the world's most widely used psychoactive substance -- consumed daily by over 2 billion people, with a global industry worth hundreds of billions of dollars. This calculator quantifies your relationship with it: daily caffeine intake, annual cost, monthly spend, the point at which your afternoon coffee is still affecting your 11pm sleep, and the lifetime projection at current consumption. If sleep disruption shows up in your results, the  can give you a fuller picture of what that costs cognitively.</p>
+          <p className="text-gray-600 leading-relaxed">Coffee is the world&apos;s most widely used psychoactive substance -- consumed daily by over 2 billion people, with a global industry worth hundreds of billions of dollars. This calculator quantifies your relationship with it: daily caffeine intake, annual cost, monthly spend, the point at which your afternoon coffee is still affecting your 11pm sleep, and the lifetime projection at current consumption. If sleep disruption shows up in your results, the  can give you a fuller picture of what that costs cognitively.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Enter your typical daily coffee order (type, quantity, whether home-brewed or café), and the calculator outputs: caffeine mg per day, total annual spend, equivalent cost comparison (home brew vs café over 10 years is usually a notable number), the time at which your last coffee's caffeine will have dropped to 25% (the practical "safe" threshold for sleep), and a weekly caffeine graph showing your intake pattern. The half-life calculation accounts for individual variation with a slider for fast vs slow caffeine metabolizers.</p>
+          <p className="text-gray-700 leading-relaxed">Enter your typical daily coffee order (type, quantity, whether home-brewed or café), and the calculator outputs: caffeine mg per day, total annual spend, equivalent cost comparison (home brew vs café over 10 years is usually a notable number), the time at which your last coffee&apos;s caffeine will have dropped to 25% (the practical &quot;safe&quot; threshold for sleep), and a weekly caffeine graph showing your intake pattern. The half-life calculation accounts for individual variation with a slider for fast vs slow caffeine metabolizers.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Decaf coffee is not caffeine-free. A standard 8oz decaf contains approximately 2-15mg of caffeine, compared to a regular coffee's 80-100mg. However, the decaffeination process is imperfect, and some decafs test significantly higher. Heavy decaf drinkers (4-5 cups per day) can consume enough residual caffeine to produce measurable effects and disrupt sleep -- which is why "I only drink decaf" doesn't always explain intact sleep quality.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Decaf coffee is not caffeine-free. A standard 8oz decaf contains approximately 2-15mg of caffeine, compared to a regular coffee&apos;s 80-100mg. However, the decaffeination process is imperfect, and some decafs test significantly higher. Heavy decaf drinkers (4-5 cups per day) can consume enough residual caffeine to produce measurable effects and disrupt sleep -- which is why &quot;I only drink decaf&quot; doesn&apos;t always explain intact sleep quality.</p>
         </section>
 
         {/* Tips */}
@@ -127,7 +127,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <ul className="space-y-3 text-sm text-gray-600">
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine has a half-life of approximately 5-6 hours for most people (up to 9 hours for slow metabolizers, 3 hours for fast ones, which you can roughly determine by whether caffeine sensitivity runs in your family). A 3pm coffee still has 50% of its caffeine active at 9pm.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The cost difference between home brewing and café drinks seems small per day but substantial per year. A daily $5.50 flat white is roughly $2,000 per year; a home-brewed equivalent is under $300. The 10-year delta funds a decent holiday.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine tolerance develops quickly -- within a week of consistent daily use, the alertness benefit diminishes significantly while the dependence (withdrawal headaches on missed days) remains. The "I need coffee to function" sensation is mostly describing dependence rather than genuine benefit over baseline. The  has a parallel caffeine/alcohol calorie section if you're tracking both habits.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Caffeine tolerance develops quickly -- within a week of consistent daily use, the alertness benefit diminishes significantly while the dependence (withdrawal headaches on missed days) remains. The &quot;I need coffee to function&quot; sensation is mostly describing dependence rather than genuine benefit over baseline. The  has a parallel caffeine/alcohol calorie section if you&apos;re tracking both habits.</span></li>
           </ul>
         </section>
 

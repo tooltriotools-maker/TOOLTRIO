@@ -93,28 +93,28 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Would You Rather is the game that exposes your actual value hierarchy faster than almost any conversation format. Forced choices between two roughly equivalent bad options (or good ones) reveal what you prioritise when you can't have both -- which is most situations in real life. This generator creates scenario pairs calibrated for genuine difficulty, not ones where the answer is obviously one-sided. The goal is questions where reasonable people disagree and the disagreement is interesting. For structured personality analysis, the  gives a more formal framework; Would You Rather reveals the same things less formally.</p>
+          <p className="text-gray-600 leading-relaxed">Would You Rather is the game that exposes your actual value hierarchy faster than almost any conversation format. Forced choices between two roughly equivalent bad options (or good ones) reveal what you prioritise when you can&apos;t have both -- which is most situations in real life. This generator creates scenario pairs calibrated for genuine difficulty, not ones where the answer is obviously one-sided. The goal is questions where reasonable people disagree and the disagreement is interesting. For structured personality analysis, the  gives a more formal framework; Would You Rather reveals the same things less formally.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Each question is drawn from a pool organized by intensity level: mild (safe for all contexts), spicy (for close friends), and deep (philosophical dilemmas that reveal something meaningful). Select your intensity and hit generate. Each scenario is designed so both options have genuine costs -- the "obviously right answer" questions are filtered out because they produce zero interesting conversation. After you pick, the generator shows the percentage of people who chose each option.</p>
+          <p className="text-gray-700 leading-relaxed">Each question is drawn from a pool organized by intensity level: mild (safe for all contexts), spicy (for close friends), and deep (philosophical dilemmas that reveal something meaningful). Select your intensity and hit generate. Each scenario is designed so both options have genuine costs -- the &quot;obviously right answer&quot; questions are filtered out because they produce zero interesting conversation. After you pick, the generator shows the percentage of people who chose each option.</p>
         </section>
 
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Game show research has consistently found that most people, when faced with genuine dilemmas, take about 3-4 seconds to make a forced-choice decision -- and that their first instinct is usually different from their final answer when they have time to rationalise. The "gut answer vs considered answer" split on Would You Rather questions is itself a useful piece of self-knowledge: consistently overriding your gut in favour of what sounds more reasonable can indicate social desirability bias.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Game show research has consistently found that most people, when faced with genuine dilemmas, take about 3-4 seconds to make a forced-choice decision -- and that their first instinct is usually different from their final answer when they have time to rationalise. The &quot;gut answer vs considered answer&quot; split on Would You Rather questions is itself a useful piece of self-knowledge: consistently overriding your gut in favour of what sounds more reasonable can indicate social desirability bias.</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most revealing Would You Rather questions are the ones where your answer surprises you. Pay attention to these -- they usually indicate a value you hold more strongly than you'd previously articulated.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>When playing in a group, don't reveal your answers simultaneously -- instead, commit in writing first, then reveal. This eliminates social influence on individual choices and produces more honest results and more interesting disagreements.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you want to actually learn something about someone, ask them to explain their choice rather than just state it. "I'd rather do X" is low information; "I'd rather do X because..." tells you exactly where their priorities sit.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most revealing Would You Rather questions are the ones where your answer surprises you. Pay attention to these -- they usually indicate a value you hold more strongly than you&apos;d previously articulated.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>When playing in a group, don&apos;t reveal your answers simultaneously -- instead, commit in writing first, then reveal. This eliminates social influence on individual choices and produces more honest results and more interesting disagreements.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>If you want to actually learn something about someone, ask them to explain their choice rather than just state it. &quot;I&apos;d rather do X&quot; is low information; &quot;I&apos;d rather do X because...&quot; tells you exactly where their priorities sit.</span></li>
           </ul>
         </section>
 

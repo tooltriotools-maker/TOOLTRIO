@@ -160,13 +160,17 @@ function SingleNumberInput({
 }
 
 export function HeightField({ unit, value, onChange, showSlider = true }: HeightFieldProps) {
+  // Hooks must run unconditionally on every render (rules-of-hooks) — the
+  // metric branch below is the only one that uses this text-input state,
+  // but it still has to be declared before any conditional return.
+  const [raw, setRaw] = useState(String(value))
+  const focused = useRef(false)
+  useEffect(() => { if (!focused.current) setRaw(String(value)) }, [value])
+
   if (unit === 'metric') {
     // Single cm box
     const pct = Math.min(100, Math.max(0, ((value - 100) / (250 - 100)) * 100))
     const bg = `linear-gradient(to right,#16a34a 0%,#16a34a ${pct}%,#d1fae5 ${pct}%,#d1fae5 100%)`
-    const [raw, setRaw] = useState(String(value))
-    const focused = useRef(false)
-    useEffect(() => { if (!focused.current) setRaw(String(value)) }, [value])
     return (
       <div className="space-y-1.5">
         <div className="flex items-center justify-between">

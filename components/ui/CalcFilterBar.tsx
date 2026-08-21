@@ -113,7 +113,7 @@ export default function CalcFilterBar({ calculators, tagColors }: Props) {
       {filtered.length === 0 && (
         <div className="text-center py-16 text-gray-400">
           <p className="text-4xl mb-3">🔍</p>
-          <p className="font-semibold">No calculators found for "{search}"</p>
+          <p className="font-semibold">No calculators found for &quot;{search}&quot;</p>
           <button onClick={() => { setSearch(''); setActive('All') }}
             className="mt-3 text-sm text-green-600 underline">Clear filters</button>
         </div>

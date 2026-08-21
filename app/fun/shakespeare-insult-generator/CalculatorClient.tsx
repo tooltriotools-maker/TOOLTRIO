@@ -354,7 +354,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Shakespeare was, statistically, the most creative insulter in English literature. His works contain over 10,000 unique words, many of which he invented, and a significant number of those words were insults. "Nut-hook," "moldwarp," "skainsmate," and "flap-dragon" are all real Shakespearean insults, and all of them are better than most modern alternatives.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">Shakespeare was, statistically, the most creative insulter in English literature. His works contain over 10,000 unique words, many of which he invented, and a significant number of those words were insults. &quot;Nut-hook,&quot; &quot;moldwarp,&quot; &quot;skainsmate,&quot; and &quot;flap-dragon&quot; are all real Shakespearean insults, and all of them are better than most modern alternatives.</p>
         </section>
 
         <section>
@@ -368,12 +368,12 @@ export default function CalculatorClient({ faqs }: Props) {
 
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Post your best generated insult as your "out of office" message. "Thou puny, motley-minded maggot-pie" communicates unavailability just as clearly as "I am currently on leave" and is considerably more memorable.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Post your best generated insult as your &quot;out of office&quot; message. &quot;Thou puny, motley-minded maggot-pie&quot; communicates unavailability just as clearly as &quot;I am currently on leave&quot; and is considerably more memorable.</p>
         </section>
 
         <section className="border-l-4 border-purple-300 pl-5">
           <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The insult "you blocks, you stones, you worse than senseless things" (Julius Caesar, Act 1) was used by Shakespeare to address a crowd of Roman commoners, making it technically a group insult rated for crowds of two or more. Useful to know.</p>
+          <p className="text-gray-600 text-sm leading-relaxed">The insult &quot;you blocks, you stones, you worse than senseless things&quot; (Julius Caesar, Act 1) was used by Shakespeare to address a crowd of Roman commoners, making it technically a group insult rated for crowds of two or more. Useful to know.</p>
         </section>
 
         <section>
@@ -392,7 +392,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <div className="rounded-3xl border overflow-hidden" style={{ background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(10px)', borderColor: 'rgba(255,255,255,0.55)', boxShadow: '0 8px 30px rgba(15,23,42,0.05)' }}>
             <div className="px-6 py-4 border-b border-gray-100 bg-purple-50">
               <h2 className="text-lg font-bold text-gray-900">🎭 Every Insult &amp; Roast Generator</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Prefer a different era or tone? Here's the whole library.</p>
+              <p className="text-sm text-gray-500 mt-0.5">Prefer a different era or tone? Here&apos;s the whole library.</p>
             </div>
             <div className="p-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {INSULT_GENERATORS.filter(g => g.slug !== 'shakespeare-insult-generator').map(g => (

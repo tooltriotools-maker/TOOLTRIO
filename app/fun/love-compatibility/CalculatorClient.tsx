@@ -91,13 +91,13 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">Does numerology actually determine romantic compatibility? Probably not. Is it entertaining to calculate anyway? Absolutely yes. This calculator combines name numerology (the vibrational frequency of your names in the Pythagorean system) with birthday-based life path numbers and Chinese zodiac elemental compatibility to produce a single compatibility score and a layered reading of how two people's energies interact. It's the kind of thing that's fun to check on first dates and share with friends. For individual readings first, try the <Link href="/fun/lucky-number" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Lucky Number Calculator</Link> and the <Link href="/fun/zodiac-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Zodiac Calculator</Link> for each person separately.</p>
+          <p className="text-gray-600 leading-relaxed">Does numerology actually determine romantic compatibility? Probably not. Is it entertaining to calculate anyway? Absolutely yes. This calculator combines name numerology (the vibrational frequency of your names in the Pythagorean system) with birthday-based life path numbers and Chinese zodiac elemental compatibility to produce a single compatibility score and a layered reading of how two people&apos;s energies interact. It&apos;s the kind of thing that&apos;s fun to check on first dates and share with friends. For individual readings first, try the <Link href="/fun/lucky-number" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Lucky Number Calculator</Link> and the <Link href="/fun/zodiac-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Zodiac Calculator</Link> for each person separately.</p>
         </section>
 
         {/* How It Works */}
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
           <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed">Enter both people's names and birth dates. Three compatibility dimensions are calculated: name vibration compatibility (are your numerological values harmonically related or in tension?), life path compatibility (do your core number archetypes complement or challenge each other?), and elemental compatibility from Chinese zodiac (are your animals in the same element group, compatible groups, or conflicting ones?). The scores are combined and weighted into a total, with a reading that explains which dimension drives the result most.</p>
+          <p className="text-gray-700 leading-relaxed">Enter both people&apos;s names and birth dates. Three compatibility dimensions are calculated: name vibration compatibility (are your numerological values harmonically related or in tension?), life path compatibility (do your core number archetypes complement or challenge each other?), and elemental compatibility from Chinese zodiac (are your animals in the same element group, compatible groups, or conflicting ones?). The scores are combined and weighted into a total, with a reading that explains which dimension drives the result most.</p>
         </section>
 
         {/* Fun Fact */}
@@ -110,7 +110,7 @@ export default function CalculatorClient({ faqs }: Props) {
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most interesting results come from cases where numerological compatibility is high but zodiac elemental compatibility is low, or vice versa. This isn't a contradiction -- it maps onto the real experience of two people who connect intellectually but struggle temperamentally, or feel chemistry but don't understand each other.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The most interesting results come from cases where numerological compatibility is high but zodiac elemental compatibility is low, or vice versa. This isn&apos;t a contradiction -- it maps onto the real experience of two people who connect intellectually but struggle temperamentally, or feel chemistry but don&apos;t understand each other.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Run the calculator with multiple combination of name variants (nicknames, full names, middle names) and see how much the result shifts. Names that are used differently in different contexts produce different readings -- which is either a flaw in numerology or an accurate reflection of how identity works.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>This is most fun as a group activity at a dinner party -- run the calculator for every pairing and display the matrix of results. Who is most compatible with whom in the room is reliably entertaining data.</span></li>
           </ul>
@@ -119,7 +119,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Text someone your compatibility score with no setup. "78% compatible according to the numerology calculator" as an opening message produces reactions that are uniformly better than "hey." High scores are charming; unexpectedly low scores from close friends are funnier.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Text someone your compatibility score with no setup. &quot;78% compatible according to the numerology calculator&quot; as an opening message produces reactions that are uniformly better than &quot;hey.&quot; High scores are charming; unexpectedly low scores from close friends are funnier.</p>
         </section>
 
         {/* Did You Know */}

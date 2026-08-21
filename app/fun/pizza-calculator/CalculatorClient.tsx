@@ -107,16 +107,16 @@ export default function CalculatorClient({ faqs }: Props) {
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Round up, not down. A single extra pizza creates a pleasant surplus; ordering one short creates a problem that can't be fixed mid-event. The asymmetry of outcomes strongly favors over-ordering.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Round up, not down. A single extra pizza creates a pleasant surplus; ordering one short creates a problem that can&apos;t be fixed mid-event. The asymmetry of outcomes strongly favors over-ordering.</span></li>
           <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>For meetings and office events, order based on normal appetite level -- people eat conservatively in professional settings. For sports events, bachelor parties, and anything happening after 9pm, use hungry.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The <Link href="/fun/coffee-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Coffee Calculator</Link> is a useful follow-on if you're catering a long event -- the caffeine timeline tells you when people will start declining and when to introduce dessert.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The <Link href="/fun/coffee-calculator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Coffee Calculator</Link> is a useful follow-on if you&apos;re catering a long event -- the caffeine timeline tells you when people will start declining and when to introduce dessert.</span></li>
           </ul>
         </section>
 
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Run the calculator before your next group order, then post the result ("the algorithm says 4 larges") and watch how many people argue with it. The gap between what people think you need and what you actually need is consistently interesting data.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Run the calculator before your next group order, then post the result (&quot;the algorithm says 4 larges&quot;) and watch how many people argue with it. The gap between what people think you need and what you actually need is consistently interesting data.</p>
         </section>
 
         {/* Did You Know */}

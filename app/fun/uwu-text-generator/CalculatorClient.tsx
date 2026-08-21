@@ -84,7 +84,7 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* What It Does */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Calculator Actually Do?</h2>
-          <p className="text-gray-600 leading-relaxed">UWU (or uwu) is the internet's official dialect of deliberate cuteness -- a speech pattern that originated in anime fan communities and spread into mainstream online culture as both sincere expression and ironic commentary. This generator converts any text into full uwu-speak, applying the characteristic substitutions (r and l become w, certain consonants soften, stutters appear, kaomoji proliferate) with an intensity dial that goes from "subtly kawaii" to "full unhinged." For other text transformation tools, the <Link href="/fun/pig-latin-converter" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Pig Latin Converter</Link> gives you a different flavour of linguistic mischief.</p>
+          <p className="text-gray-600 leading-relaxed">UWU (or uwu) is the internet&apos;s official dialect of deliberate cuteness -- a speech pattern that originated in anime fan communities and spread into mainstream online culture as both sincere expression and ironic commentary. This generator converts any text into full uwu-speak, applying the characteristic substitutions (r and l become w, certain consonants soften, stutters appear, kaomoji proliferate) with an intensity dial that goes from &quot;subtly kawaii&quot; to &quot;full unhinged.&quot; For other text transformation tools, the <Link href="/fun/pig-latin-converter" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Pig Latin Converter</Link> gives you a different flavour of linguistic mischief.</p>
         </section>
 
         {/* How It Works */}
@@ -96,23 +96,23 @@ export default function CalculatorClient({ faqs }: Props) {
         {/* Fun Fact */}
         <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">The "uwu" emoticon represents a closed-eyes, blushing, happy face -- the u's are closed eyes, the w is a small smiling mouth. It predates emoji as a text emoticon and emerged from Japanese online communities before spreading via Western anime fandom on platforms like Tumblr, DeviantArt, and early Discord servers. By the mid-2010s it had crossed from sincere expression into ironic usage, and now occupies the same dual sincere/ironic space as most internet language.</p>
+          <p className="text-gray-700 leading-relaxed text-sm">The &quot;uwu&quot; emoticon represents a closed-eyes, blushing, happy face -- the u&apos;s are closed eyes, the w is a small smiling mouth. It predates emoji as a text emoticon and emerged from Japanese online communities before spreading via Western anime fandom on platforms like Tumblr, DeviantArt, and early Discord servers. By the mid-2010s it had crossed from sincere expression into ironic usage, and now occupies the same dual sincere/ironic space as most internet language.</p>
         </section>
 
         {/* Tips */}
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">💡 Tips for the Best Results</h2>
           <ul className="space-y-3 text-sm text-gray-600">
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Level 2 or 3 is the practical sweet spot -- readable by people who aren't fluent in uwu, but distinctly kawaii enough to read as intentional rather than a typo. Save level 5 for captions on posts where the joke is the illegibility itself.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The stutter effect (repeating the initial consonant, like "h-hewwo") is the most specifically anime-derived element and the one that reads most immediately as uwu to people who know the register. It's also the element that causes the strongest reaction from people who don't.</span></li>
-          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>UWU text works extremely well for rewriting serious or aggressive text to defuse it. Taking a strongly-worded email and running it through even level 1 uwu conversion makes the aggression impossible to sustain -- partly because it's funny, partly because you cannot uwuify "I am deeply disappointed in your performance" without recognising its absurdity.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>Level 2 or 3 is the practical sweet spot -- readable by people who aren&apos;t fluent in uwu, but distinctly kawaii enough to read as intentional rather than a typo. Save level 5 for captions on posts where the joke is the illegibility itself.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>The stutter effect (repeating the initial consonant, like &quot;h-hewwo&quot;) is the most specifically anime-derived element and the one that reads most immediately as uwu to people who know the register. It&apos;s also the element that causes the strongest reaction from people who don&apos;t.</span></li>
+          <li className="flex items-start gap-2"><span className="text-purple-500 font-bold flex-shrink-0 mt-0.5">→</span><span>UWU text works extremely well for rewriting serious or aggressive text to defuse it. Taking a strongly-worded email and running it through even level 1 uwu conversion makes the aggression impossible to sustain -- partly because it&apos;s funny, partly because you cannot uwuify &quot;I am deeply disappointed in your performance&quot; without recognising its absurdity.</span></li>
           </ul>
         </section>
 
         {/* Share tip */}
         <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
           <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Screenshot the level-5 conversion of your most recent professional email and send it to a colleague you trust. The reaction to seeing "I wooked ovew youw pwopowsaw" is reliably funnier in person than described.</p>
+          <p className="text-gray-700 text-sm leading-relaxed">Screenshot the level-5 conversion of your most recent professional email and send it to a colleague you trust. The reaction to seeing &quot;I wooked ovew youw pwopowsaw&quot; is reliably funnier in person than described.</p>
         </section>
 
         {/* Did You Know */}

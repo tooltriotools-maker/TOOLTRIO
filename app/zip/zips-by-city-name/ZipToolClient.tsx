@@ -41,7 +41,7 @@ export default function ZipToolClient() {
       </div>
       {searched && results.length === 0 && !loading && (
         <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-700">
-          No results found for "{query}". Try a different search term.
+          No results found for &quot;{query}&quot;. Try a different search term.
         </div>
       )}
       {results.length > 0 && (
