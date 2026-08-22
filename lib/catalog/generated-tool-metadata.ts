@@ -236,7 +236,7 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
     ],
     "source": "app/fun/random-name-generator/page.tsx"
   },
-  "/fun/shakespeare-insult-generator": {
+  "/fun/insult-generator/shakespeare-insult-generator": {
     "title": "Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio",
     "description": "Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.",
     "keywords": [
@@ -262,7 +262,7 @@ export const GENERATED_TOOL_PAGE_METADATA: Readonly<Record<string, GeneratedTool
       "roast generator",
       "tooltrio"
     ],
-    "source": "app/fun/shakespeare-insult-generator/page.tsx"
+    "source": "app/fun/insult-generator/shakespeare-insult-generator/page.tsx"
   },
   "/fun/superhero-name": {
     "title": "Superhero Name Generator | ToolTrio",

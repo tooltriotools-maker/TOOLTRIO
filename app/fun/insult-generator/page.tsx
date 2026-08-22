@@ -121,7 +121,7 @@ export default function InsultGeneratorHubPage() {
               const tool = INSULT_GENERATORS.find(g => g.slug === slug)
               if (!tool) return null
               const href = slug === 'shakespeare-insult-generator'
-                ? '/fun/shakespeare-insult-generator'
+                ? '/fun/insult-generator/shakespeare-insult-generator'
                 : `/fun/insult-generator/${slug}`
               return (
                 <Link key={slug} href={href}
@@ -137,7 +137,7 @@ export default function InsultGeneratorHubPage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {INSULT_GENERATORS.map(g => {
-            const href = g.slug === 'shakespeare-insult-generator' ? '/fun/shakespeare-insult-generator' : `/fun/insult-generator/${g.slug}`
+            const href = g.slug === 'shakespeare-insult-generator' ? '/fun/insult-generator/shakespeare-insult-generator' : `/fun/insult-generator/${g.slug}`
             const combos = hasBankLibrary(g.slug) ? estimateCombinations(g.slug) : (g.slug === 'shakespeare-insult-generator' ? 20_000_000_000_000 : g.lines.length)
             return (
               <Link key={g.slug} href={href}

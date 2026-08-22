@@ -170,7 +170,7 @@ export default function FunPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {[
             tools.find(t => t.href === '/fun/insult-generator')!,
-            { name: 'Shakespeare Insult Generator', desc: 'Elizabethan-style put-downs with a huge library of unique lines', href: '/fun/shakespeare-insult-generator', icon: '🎭', tag: 'Generators' as const, popular: false },
+            { name: 'Shakespeare Insult Generator', desc: 'Elizabethan-style put-downs with a huge library of unique lines', href: '/fun/insult-generator/shakespeare-insult-generator', icon: '🎭', tag: 'Generators' as const, popular: false },
             tools.find(t => t.href === '/fun/shakespeare-translator')!,
           ].map(tool => {
             const cfg = TAG_CONFIG[tool.tag]

@@ -19,11 +19,11 @@ const zipLinks = [
 
 const funLinks = [
   ['Insult Generator', '/fun/insult-generator'],
-  ['Shakespeare Insult Generator', '/fun/shakespeare-insult-generator'],
+  ['Shakespeare Insult Generator', '/fun/insult-generator/shakespeare-insult-generator'],
   ['Pirate Insult Generator', '/fun/pirate-insult-generator'],
   ['Victorian Insult Generator', '/fun/victorian-insult-generator'],
   ['Royal Insult Generator', '/fun/royal-insult-generator'],
-  ['All 41 Fun Tools →', '/fun'],
+  ['All 42 Fun Tools →', '/fun'],
 ]
 
 const blogLinks = [

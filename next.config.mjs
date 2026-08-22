@@ -128,7 +128,9 @@ const nextConfig = {
       // (Aug 2026) The generic insult-generator template used to also build a lower-
       // quality duplicate of the Shakespeare generator at this URL. It now redirects
       // straight to the real, fully-upgraded page with the full combinatorial engine.
-      { source: '/fun/insult-generator/shakespeare-insult-generator', destination: '/fun/shakespeare-insult-generator', permanent: true },
+      { source: '/fun/insult-generator/shakespear-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
+      { source: '/fun/shakespeare-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
+      
     ]
   },
 }

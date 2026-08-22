@@ -138,7 +138,7 @@ export default function InsultGeneratorClient({ generator, related, faqs }: Prop
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {related.map(r => {
                 const href = r.slug === 'shakespeare-insult-generator'
-                  ? '/fun/shakespeare-insult-generator'
+                  ? '/fun/insult-generator/shakespeare-insult-generator'
                   : `/fun/insult-generator/${r.slug}`
                 return (
                   <Link key={r.slug} href={href}

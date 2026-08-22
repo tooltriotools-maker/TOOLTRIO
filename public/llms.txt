@@ -3,11 +3,11 @@
 # Generated from the ToolTrio Master Tool Registry
 
 ## About
-76 active tools across Fun and ZIP tools.
+77 active tools across Fun and ZIP tools.
 Free to use. No signup required.
 
 ## Categories
-- Fun: https://tooltrio.com/fun (41 tools)
+- Fun: https://tooltrio.com/fun (42 tools)
 - ZIP: https://tooltrio.com/zip (35 tools)
 
 ## Tools
@@ -24,7 +24,8 @@ Free to use. No signup required.
 - Pizza Calculator: https://tooltrio.com/fun/pizza-calculator
 - Random Fact Generator: https://tooltrio.com/fun/random-fact-generator
 - Random Name Generator: https://tooltrio.com/fun/random-name-generator
-- Shakespeare Insult Generator: https://tooltrio.com/fun/shakespeare-insult-generator
+- Shakespeare Insult Generator: https://tooltrio.com/fun/insult-generator/shakespeare-insult-generator
+- Shakespeare English Translator: https://tooltrio.com/fun/shakespeare-translator
 - Superhero Name: https://tooltrio.com/fun/superhero-name
 - Text to Morse: https://tooltrio.com/fun/text-to-morse
 - Trivia Quiz: https://tooltrio.com/fun/trivia-quiz

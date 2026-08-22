@@ -5,7 +5,7 @@
  *  - /fun/shakespeare-translator (modern <-> Shakespearean sentence translation)
  *  - the plain-English "what does this mean" glossary shown on every
  *    insult/roast generator in /fun/insult-generator/* and
- *    /fun/shakespeare-insult-generator
+ *    /fun/insult-generator/shakespeare-insult-generator
  *
  * Every entry is a full round-trip pair: a modern word, its Shakespearean /
  * Elizabethan equivalent, and a plain-English meaning. Nothing here is a

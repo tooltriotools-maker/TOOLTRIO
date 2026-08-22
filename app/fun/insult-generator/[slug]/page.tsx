@@ -12,7 +12,7 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  // Shakespeare has its own dedicated, upgraded page at /fun/shakespeare-insult-generator
+  // Shakespeare has its own dedicated, upgraded page at /fun/insult-generator/shakespeare-insult-generator
   // (full combinatorial engine, richer content) — it's excluded here so this generic
   // template doesn't also build a duplicate, lower-quality version of it. The old URL
   // permanently redirects to the real page (see next.config.js).
@@ -66,7 +66,7 @@ export default async function Page({ params }: PageProps) {
   // Belt-and-suspenders alongside the next.config.js redirect: anyone who lands on this
   // slug directly (old bookmark, stale search index, etc.) still lands on the real,
   // fully-upgraded Shakespeare generator instead of this template's fallback version.
-  if (slug === 'shakespeare-insult-generator') redirect('/fun/shakespeare-insult-generator')
+  if (slug === 'shakespeare-insult-generator') redirect('/fun/insult-generator/shakespeare-insult-generator')
 
   const generator = getInsultGeneratorBySlug(slug)
   if (!generator) notFound()

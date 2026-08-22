@@ -204,7 +204,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Shakespeare Translator Do?</h2>
-          <p className="text-gray-600 leading-relaxed">This tool translates full sentences between modern English and Shakespearean / Elizabethan English in both directions, using a fully dynamic word-and-phrase dictionary — not a fixed script. Type a sentence, and every recognized word or phrase is swapped for its period-appropriate equivalent while everything else is left untouched, so the output stays readable. Pair it with the <Link href="/fun/shakespeare-insult-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Shakespeare Insult Generator</Link> for a full night of Elizabethan wordplay.</p>
+          <p className="text-gray-600 leading-relaxed">This tool translates full sentences between modern English and Shakespearean / Elizabethan English in both directions, using a fully dynamic word-and-phrase dictionary — not a fixed script. Type a sentence, and every recognized word or phrase is swapped for its period-appropriate equivalent while everything else is left untouched, so the output stays readable. Pair it with the <Link href="/fun/insult-generator/shakespeare-insult-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Shakespeare Insult Generator</Link> for a full night of Elizabethan wordplay.</p>
         </section>
 
         <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
@@ -258,7 +258,7 @@ export default function CalculatorClient({ faqs }: Props) {
             </div>
             <div className="p-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {INSULT_GENERATORS.map(g => {
-                const href = g.slug === 'shakespeare-insult-generator' ? '/fun/shakespeare-insult-generator' : `/fun/insult-generator/${g.slug}`
+                const href = g.slug === 'shakespeare-insult-generator' ? '/fun/insult-generator/shakespeare-insult-generator' : `/fun/insult-generator/${g.slug}`
                 return (
                   <Link key={g.slug} href={href}
                     className="flex items-center gap-2 p-3 rounded-2xl border group transition-all"

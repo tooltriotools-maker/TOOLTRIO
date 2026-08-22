@@ -8,10 +8,10 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 const NAV = [
   {
     key: 'fun', label: 'Fun Tools', emoji: '🎭', color: 'purple',
-    href: '/fun', viewAll: 'All 41 Fun Tools →',
+    href: '/fun', viewAll: 'All 42 Fun Tools →',
     items: [
       { name: 'Insult Generator', href: '/fun/insult-generator', emoji: '🔥' },
-      { name: 'Shakespeare Insult Generator', href: '/fun/shakespeare-insult-generator', emoji: '🎭' },
+      { name: 'Shakespeare Insult Generator', href: '/fun/insult-generator/shakespeare-insult-generator', emoji: '🎭' },
       { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', emoji: '⭐' },
       { name: 'Love Compatibility', href: '/fun/love-compatibility', emoji: '❤️' },
       { name: 'Lucky Number', href: '/fun/lucky-number', emoji: '🍀' },
