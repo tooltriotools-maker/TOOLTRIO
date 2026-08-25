@@ -110,27 +110,11 @@ const nextConfig = {
       { source: '/zip/',                        destination: '/zip',                         permanent: true },
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
       { source: '/blog/',                       destination: '/blog',                        permanent: true },
-      // ── SEO URL migration: /calculators/fun/* → /fun/* (Aug 2026) ────────────
-      // Handles the old hub page, all 30 legacy tool pages, and any trailing-
-      // slash variant of them, in a single hop each (no redirect chains).
-      { source: '/calculators/fun',             destination: '/fun',                         permanent: true },
-      { source: '/calculators/fun/:path*/',     destination: '/fun/:path*',                  permanent: true },
-      { source: '/calculators/fun/:path*',      destination: '/fun/:path*',                  permanent: true },
+      // /calculators/fun/* legacy migration is handled in middleware so the
+      // retired Shakespeare URLs can return HTTP 410 instead of redirecting.
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
 
-      // ── Removed insult variants → main insult hub (Aug 2026) ────────────────
-      { source: '/fun/insult-generator/roast-generator', destination: '/fun/insult-generator', permanent: true },
-      { source: '/fun/insult-generator/savage-insult-generator', destination: '/fun/insult-generator', permanent: true },
-      { source: '/fun/insult-generator/schoolyard-insult-generator', destination: '/fun/insult-generator', permanent: true },
-      { source: '/fun/insult-generator/office-roast-generator', destination: '/fun/insult-generator', permanent: true },
-      { source: '/fun/insult-generator/best-friend-roast-generator', destination: '/fun/insult-generator', permanent: true },
-      // ── Insult Generator: old flat/fallback Shakespeare URL → real upgraded page ──
-      // (Aug 2026) The generic insult-generator template used to also build a lower-
-      // quality duplicate of the Shakespeare generator at this URL. It now redirects
-      // straight to the real, fully-upgraded page with the full combinatorial engine.
-      { source: '/fun/insult-generator/shakespear-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
-      { source: '/fun/shakespeare-insult-generator', destination: '/fun/insult-generator/shakespeare-insult-generator', permanent: true },
-      
+      // Removed insult variants are handled by middleware as HTTP 410 Gone.
     ]
   },
 }

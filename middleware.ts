@@ -15,6 +15,19 @@ const removedFunTools = new Set([
   '/fun/screen-time-calculator',
   '/fun/sleep-debt-calculator',
   '/fun/social-media-addiction',
+
+  // Removed insult-generator URLs — permanently gone (HTTP 410).
+  '/fun/insult-generator/roast-generator',
+  '/fun/insult-generator/savage-insult-generator',
+  '/fun/insult-generator/schoolyard-insult-generator',
+  '/fun/insult-generator/office-roast-generator',
+  '/fun/insult-generator/best-friend-roast-generator',
+])
+
+const removedShakespearePaths = new Set([
+  '/fun/shakespeare-insult-generator',
+  '/fun/insult-generator/shakespear-insult-generator',
+  '/calculators/fun/shakespeare-insult-generator',
 ])
 
 const removedCalculatorPrefixes = [
@@ -47,6 +60,26 @@ function goneResponse() {
     status: 410,
     headers: BASE_GONE_HEADERS,
   })
+}
+
+
+function handleLegacyFunCalculatorPath(pathname: string, request: NextRequest) {
+  const normalized = pathname.replace(/\/+$/, '') || '/'
+
+  if (normalized === '/calculators/fun/shakespeare-insult-generator') {
+    return goneResponse()
+  }
+
+  if (normalized === '/calculators/fun') {
+    return NextResponse.redirect(new URL('/fun', request.url), 308)
+  }
+
+  if (normalized.startsWith('/calculators/fun/')) {
+    const suffix = normalized.slice('/calculators/fun'.length)
+    return NextResponse.redirect(new URL(`/fun${suffix}`, request.url), 308)
+  }
+
+  return NextResponse.next()
 }
 
 function isRemovedCalculatorPath(pathname: string) {
@@ -97,15 +130,28 @@ function handleBlogPath(pathname: string) {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  if (removedFunTools.has(pathname)) {
+  const normalizedPathname = pathname.replace(/\/+$/, '') || '/'
+
+  // Shakespeare insult generator was intentionally moved to the corrected
+  // canonical [slug] URL. Do not redirect these retired URLs; return 410 Gone
+  // so search engines permanently remove the old URLs from their index.
+  if (removedShakespearePaths.has(normalizedPathname)) {
     return goneResponse()
   }
 
-  if (isRemovedCalculatorPath(pathname)) {
+  if (normalizedPathname === '/calculators/fun' || normalizedPathname.startsWith('/calculators/fun/')) {
+    return handleLegacyFunCalculatorPath(pathname, request)
+  }
+
+  if (removedFunTools.has(normalizedPathname)) {
     return goneResponse()
   }
 
-  if (isRemovedCommodityPath(pathname)) {
+  if (isRemovedCalculatorPath(normalizedPathname)) {
+    return goneResponse()
+  }
+
+  if (isRemovedCommodityPath(normalizedPathname)) {
     return goneResponse()
   }
 
@@ -121,6 +167,8 @@ export const config = {
     '/calculators/finance/:path*',
     '/calculators/health/:path*',
     '/calculators/dev/:path*',
+    '/calculators/fun/:path*',
+    '/calculators/fun',
     '/commodity/:path*',
     '/commodities/:path*',
     '/calculator/commodity/:path*',
