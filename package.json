@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "indexnow:submit": "node scripts/indexnow-submit.mjs",
+    "indexnow:410": "node scripts/indexnow-410.mjs"
   },
   "dependencies": {
     "clsx": "2.1.1",
