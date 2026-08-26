@@ -66,7 +66,9 @@ const INDEXNOW_KEY_LOCATION = `https://tooltrio.com/${INDEXNOW_KEY}.txt`
  * tells Bing that the URL changed and should be checked again.
  */
 function notifyIndexNowForGoneUrl(request: NextRequest, event: NextFetchEvent) {
-  const url = `https://tooltrio.com${request.nextUrl.pathname}`
+  // Use the exact requested URL so wildcard 410 rules can notify IndexNow
+  // without maintaining a list of the old URLs.
+  const url = request.nextUrl.toString()
 
   event.waitUntil(
     fetch('https://api.indexnow.org/indexnow', {
