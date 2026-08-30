@@ -8,6 +8,40 @@
  * sibling in the library, so no two generator pages read the same.
  */
 
+import type { InsultGenerator } from './insult-generators'
+import { estimateCombinations } from './insultCombinator'
+
+/**
+ * Builds the full FAQ list for a given generator's page: theme-specific
+ * questions first (most useful, least generic), then a small shared set of
+ * genuinely functional questions (pricing, mobile, sharing) that are
+ * legitimately the same mechanic across every generator.
+ */
+export function buildInsultFaqs(generator: InsultGenerator) {
+  const shortName = generator.name.replace(' Generator', '')
+  const combos = estimateCombinations(generator.slug)
+  const combosLabel = combos >= 1000 ? `${Math.round(combos / 100) / 10}K+` : `${combos}+`
+
+  const themed = INSULT_FAQ_EXTRAS[generator.slug] ?? []
+
+  const functional = [
+    {
+      question: `Is the ${generator.name} free to use?`,
+      answer: `Yes — the ${generator.name} is completely free, with no signup and no limit on how many lines you generate.`,
+    },
+    {
+      question: `How many different ${shortName.toLowerCase()} lines can it make?`,
+      answer: `This generator draws from themed word banks and sentence templates built specifically for the ${shortName} voice, giving it roughly ${combosLabel} unique combinations — far more than a short fixed list, and the library is built to keep growing.`,
+    },
+    {
+      question: `Does the ${generator.name} repeat lines, and does it work on mobile?`,
+      answer: `Every line generated this session is tracked, so you won't see the same one twice in a row. It also works the same on phone, tablet, or desktop — no app or download needed, just tap generate. Use the Share button to send a result directly, or Copy to paste it anywhere.`,
+    },
+  ]
+
+  return [...themed, ...functional]
+}
+
 export const INSULT_FAQ_EXTRAS: Record<string, { question: string; answer: string }[]> = {
   'medieval-insult-generator': [
     {

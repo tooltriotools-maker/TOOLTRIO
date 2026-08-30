@@ -3,7 +3,7 @@
  *
  * Word-bank + template libraries for every insult/roast/comeback generator
  * EXCEPT the Shakespeare Insult Generator, which has its own dedicated
- * combinatorial system in components/fun/ShakespeareInsultGeneratorClient.tsx.
+ * combinatorial system in app/fun/insult-generator/shakespeare-insult-generator/ShakespeareInsultGeneratorClient.tsx.
  *
  * Each entry combines multiple themed word banks (traits/nouns plus a bank of
  * period- or voice-appropriate opening phrases, or opener/reason/modifier for
