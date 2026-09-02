@@ -109,7 +109,7 @@ function handleQuickFill(route: { from: string; to: string }) {
 
   // ── Derived metrics ───────────────────────────────────────────────────────
   let driveMiles = 0, driveKm = 0, driveHours = 0, driveMin = 0
-  let flightMiles = 0, flightHours = 0
+ let straightLineMiles = 0,flightHours = 0
   let fuelCostLow = 0, fuelCostHigh = 0
   let tzMsg = '', tzDetail = ''
   let shippingGround = '', shippingPriority = ''
@@ -124,8 +124,8 @@ function handleQuickFill(route: { from: string; to: string }) {
     driveHours = Math.floor(totalMin / 60)
     driveMin   = totalMin % 60
 
-    flightMiles = Math.round(s * 1.05)
-    flightHours = +(flightMiles / 500).toFixed(1)
+    straightLineMiles = Math.round(s)
+    flightHours = +(straightLineMiles / 500).toFixed(1)
 
     const gallons = driveMiles / 25
     fuelCostLow  = Math.round(gallons * 3.40)
@@ -229,7 +229,7 @@ function handleQuickFill(route: { from: string; to: string }) {
 >
   {[
     { icon: "✅", text: "41,000+ ZIP Codes" },
-    { icon: "📮", text: "USPS Compatible" },
+    { icon: "📮", text: "US ZIP Dataset" },
     { icon: "🆓", text: "Free Forever" },
     { icon: "⚡", text: "Instant Results" },
     { icon: "📅", text: "Updated 2026" },
@@ -357,16 +357,16 @@ and
   <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mt-6">
 
     <div className="rounded-xl border bg-white p-3 text-center">
-      <div className="text-xs text-gray-500">🚗 Driving</div>
+      <div className="text-xs text-gray-500">🚗 Estimated Road</div>
       <div className="font-bold mt-1">
         {driveMiles.toLocaleString()} mi
       </div>
     </div>
 
     <div className="rounded-xl border bg-white p-3 text-center">
-      <div className="text-xs text-gray-500">✈ Air</div>
+      <div className="text-xs text-gray-500">📏 Straight-Line</div>
       <div className="font-bold mt-1">
-        {flightMiles.toLocaleString()} mi
+        {straightLineMiles.toLocaleString()} mi
       </div>
     </div>
 
@@ -435,17 +435,19 @@ and
 >
   <div className="text-xl mb-1">🛣️</div>
 
-  <div className="text-xs text-blue-700 font-semibold">
-    Route Type
+<div className="rounded-xl border bg-white p-3 text-center">
+  <div className="text-xs text-gray-500">
+    📐 Method
   </div>
 
-  <div className="font-black text-blue-800 mt-1">
-    Interstate Highway
+  <div className="font-bold mt-1">
+    ZIP Coordinate
   </div>
 
-  <div className="text-xs text-blue-600">
-    Fastest recommended route
+  <div className="text-xs text-gray-500">
+    Haversine + road estimate
   </div>
+</div>
 
 </div>
 
@@ -805,7 +807,7 @@ How far is {result.r1.city} ({result.r1.zip}) from {result.r2.city} ({result.r2.
 
 <p className="mt-3 text-gray-600">
 
-Driving distance is approximately <b>{driveMiles.toLocaleString()} miles</b> while straight-line distance is <b>{Math.round(result.miles).toLocaleString()} miles</b>.
+Estimated road distance is approximately <b>{driveMiles.toLocaleString()} miles</b> while straight-line distance is <b>{Math.round(result.miles).toLocaleString()} miles</b>.
 
 </p>
 
@@ -883,6 +885,26 @@ style={{borderColor:"#e5e7eb"}}
 >
 
 <h2 className="text-2xl font-bold mb-4">
+  ZIP Code vs. ZCTA: Why the Difference Matters
+</h2>
+
+<p className="text-gray-700 leading-8">
+  A USPS ZIP Code is created for mail delivery. A Census ZIP Code
+  Tabulation Area (ZCTA) is a generalized geographic representation
+  created for mapping and statistical analysis.
+</p>
+
+<p className="text-gray-700 leading-8 mt-4">
+  They often have the same five-digit code, but they are not identical
+  geographic concepts. Not every USPS ZIP Code has a corresponding ZCTA.
+</p>
+
+<p className="text-gray-700 leading-8 mt-4">
+  For a ZIP distance calculation, this distinction matters because
+  different datasets can use different representative coordinates.
+</p> 
+
+<h2 className="text-2xl font-bold mb-4">
 
 Driving from {result.r1.city}, {result.r1.stateCode}
 to {result.r2.city}, {result.r2.stateCode}
@@ -909,7 +931,7 @@ The estimated driving time is
 
 <b> {driveHours} hours {driveMin} minutes</b>
 
-under normal highway traffic.
+using the calculator's estimated average travel speed
 
 The straight-line air distance between these ZIP codes is
 
@@ -958,7 +980,7 @@ The straight-line distance between these ZIP Codes is
 
 <b> {Math.round(result.miles).toLocaleString()} miles</b>,
 
-while the actual driving distance is
+while the estimated road distance is
 
 <b>{driveMiles.toLocaleString()} miles</b>.
 

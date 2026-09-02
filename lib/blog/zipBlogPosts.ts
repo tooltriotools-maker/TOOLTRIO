@@ -942,8 +942,8 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
       { name: 'Multi-ZIP Distance', href: '/zip/multi-zip-distance', icon: '📐', desc: 'Distance between many ZIPs' },
       { name: 'Nearest ZIP Code', href: '/zip/nearest-zip-code', icon: '📌', desc: 'Closest ZIPs to yours' },
     ],
-    seoTitle: 'How Far Apart Are Two ZIP Codes? Free Distance Calculator | ToolTrio',
-    seoDescription: 'Calculate the exact distance in miles and kilometers between any two US ZIP codes. Free instant ZIP code distance calculator.',
+    seoTitle: 'How Far Apart Are Two ZIP Codes? Straight-Line vs Driving Distance | ToolTrio',
+    seoDescription: 'Learn how distance between ZIP codes is calculated, why straight-line and driving distance differ, and when to use each measurement.',
     keywords: ['distance between zip codes', 'zip code distance calculator', 'how far apart are two zip codes', 'miles between zip codes', 'zip code mileage'],
     content: `# How Far Apart Are Two ZIP Codes?
 
@@ -951,7 +951,7 @@ The distance between two ZIP codes is calculated using each ZIP's center-point c
 
 ## Quick Answer
 
-To find the distance between two ZIP codes, enter both into a ZIP distance calculator, such as our **[ZIP Code Distance tool](/zip/zip-code-distance)**. It looks up the center-point latitude and longitude of each ZIP code and applies the great-circle (Haversine) formula to return the straight-line distance in miles and kilometers, typically instantly.
+To find the distance between two ZIP codes, enter both into a ZIP distance calculator, such as our **[US ZIP Distance Calculator](/zip/zip-code-distance)**. It looks up the center-point latitude and longitude of each ZIP code and applies the great-circle (Haversine) formula to return the straight-line distance in miles and kilometers, typically instantly.
 
 ## How ZIP Code Distance Is Calculated
 
@@ -965,7 +965,7 @@ The Haversine formula calculates the shortest distance between two points on a s
 2. Calculates the angular distance between the two points along the Earth's surface
 3. Multiplies that angular distance by the Earth's radius to produce a distance in miles or kilometers
 
-You don't need to run this math yourself — enter any two ZIP codes into our **[ZIP Code Distance calculator](/zip/zip-code-distance)** to get the distance in both miles and kilometers immediately.
+You don't need to run this math yourself — enter any two ZIP codes into our **[ZIP Distance calculator](/zip/zip-code-distance)** to get the distance in both miles and kilometers immediately.
 
 ## Straight-Line vs. Driving Distance
 

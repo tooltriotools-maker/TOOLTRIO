@@ -255,7 +255,7 @@ function getToolDescription(name: string) {
   return descriptions[name] || "Explore this ZIP tool."
 }
 export function ZipToolLayout({ title, description, icon, children, relatedTools, tips, seoContent, slug }: Props) {
-  const displayTitle = /\bToolTrio\b/i.test(title) ? title : `${title} | ToolTrio`
+  const displayTitle = title
   const structuredData = generateZipToolStructuredData({ name: displayTitle, description, slug })
 
   return (
