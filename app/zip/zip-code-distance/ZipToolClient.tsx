@@ -931,7 +931,7 @@ The estimated driving time is
 
 <b> {driveHours} hours {driveMin} minutes</b>
 
-using the calculator's estimated average travel speed
+using the calculator&apos;s estimated average travel speed.
 
 The straight-line air distance between these ZIP codes is
 
