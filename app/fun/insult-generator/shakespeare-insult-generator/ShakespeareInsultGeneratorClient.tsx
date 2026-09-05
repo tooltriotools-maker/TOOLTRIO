@@ -122,7 +122,7 @@ const NOUNS = [
   'chaff-seed','changeling','chap-fallen','clodpoll','clotpole',
   'clownish-fool','cobweb','cock-sparrow','cold-heart','common-scold',
   'cony-catcher','craven','crow-keeper','cur','cutpurse',
-  'dead-nettle',,'ditch-bred','dock-weed','dog-fish',
+  'dead-nettle','ditch-bred','dock-weed','dog-fish',
   'dotard','dragon-fly','drone','dull-head','dunghill-cock',
   'dung-worm','dust-worm','eel-skin','empty-barrel','fallow-deer',
   'fat-guts','featherweight','fen-rat','fig-seed','filth-monger',
@@ -218,11 +218,14 @@ const ENDINGS = [
   'God made thee as a warning to others!',
   'thou art unfit for any honest employment!'
 ]
-
-// ─── Combination counts ───────────────────────────────────────────
-// Short mode: PHYSICAL(277) × NOUNS(303) = 83,931
+// ─── Theoretical combination counts ───────────────────────────────
+// Short mode: PHYSICAL(277) × NOUNS(303) = 83,931 combinations
 // Full mode: CHARACTER(118)² × PHYSICAL(277)² × NOUNS(303) × ENDINGS(50)
-//             = 118×118×277×277×303×50 = 16,185,875,129,400 (16.19 trillion)
+//           = 16,185,875,129,400 theoretical combinations
+//
+// These counts represent possible vocabulary combinations, not a guarantee
+// that every combination is linguistically distinct or historically written
+// by Shakespeare.
 
 export default function CalculatorClient({ faqs }: Props) {
   const [insult, setInsult] = useState('')
@@ -238,10 +241,11 @@ export default function CalculatorClient({ faqs }: Props) {
     let result = ''
     do {
       if (length === 'short') {
-        // 3-word insult: "Thou [PHYSICAL] [NOUN]!" — 83,931 unique combinations
+        // Short insult: "Thou [PHYSICAL] [NOUN]!" — 83,931 theoretical combinations
         result = `Thou ${rand(PHYSICAL)} ${rand(NOUNS)}!`
       } else {
-        // Full insult: CHARACTER×CHARACTER×PHYSICAL×PHYSICAL×NOUN×ENDING — 16.19 trillion unique
+       // Full insult: CHARACTER×CHARACTER×PHYSICAL×PHYSICAL×NOUN×ENDING
+// — 16.19 trillion theoretical combinations
         result = `Thou ${rand(CHARACTER)}, ${rand(CHARACTER)}, ${rand(PHYSICAL)}, ${rand(PHYSICAL)} ${rand(NOUNS)}, ${rand(ENDINGS)}`
       }
     } while (generated.current.has(result))
@@ -258,7 +262,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <DevToolLayout
       title="Shakespeare Insult Generator"
       icon="🎭"
-      description="Generate gloriously old-fashioned insults straight from the Bard himself!"
+      description="Generate gloriously old-fashioned Shakespeare-inspired insults, roasts, and theatrical comebacks."
       category="Fun"
       parentPath="/fun"
       parentLabel="Fun & Entertainment"
@@ -306,13 +310,13 @@ export default function CalculatorClient({ faqs }: Props) {
             onClick={() => { setLength('short'); setInsult('') }}
             className={`flex-1 py-2.5 text-sm font-bold transition-all ${length === 'short' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
           >
-            Short (3 words · 83,931 unique)
+            Short (3 words · 83,931 combinations)
           </button>
           <button
             onClick={() => { setLength('full'); setInsult('') }}
             className={`flex-1 py-2.5 text-sm font-bold transition-all ${length === 'full' ? 'bg-purple-600 text-white' : 'bg-white text-gray-500 hover:bg-purple-50'}`}
           >
-            Full (16.19 Trillion unique)
+           Full (16.19 trillion combinations)
           </button>
         </div>
       </div>
@@ -330,31 +334,518 @@ export default function CalculatorClient({ faqs }: Props) {
           <div className="h-px flex-1 bg-gray-100" />
         </div>
 
-        <section>
-          <h2 className="text-xl font-black text-gray-900 mb-3">What Does This Shakespeare Insult Generator Do?</h2>
-          <p className="text-gray-600 leading-relaxed">This Shakespeare insult generator creates funny Shakespearean insults, Elizabethan roasts, and old English comebacks inspired by the language of William Shakespeare. <Link href="/fun/compliment-generator" className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900">Compliment Generator</Link> for people who like to cover all emotional registers.</p>
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900 mb-3">
+            What Is a Shakespeare Insult Generator?
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            A Shakespeare insult generator is a playful tool that creates
+            dramatic, theatrical insults inspired by Shakespearean and
+            Elizabethan-style language. Instead of using modern profanity,
+            these insults rely on unusual vocabulary, exaggerated descriptions,
+            colorful nouns, and theatrical endings.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            This free Shakespeare insult generator lets you create a random
+            Shakespeare insult instantly. You can use it as a Shakespearean
+            insult generator, Shakespeare roast generator, funny insult
+            generator, old English insult generator, Elizabethan insult
+            generator, or bard insult generator depending on the style you are
+            looking for.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            The results are designed for entertainment, creative writing,
+            classroom activities, party games, social sharing, and playful
+            Shakespeare-themed roast battles. They are not intended to be used
+            to genuinely harass, threaten, or hurt another person.
+          </p>
         </section>
 
-        <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-          <h2 className="text-xl font-black text-purple-800 mb-3">🔬 How It Works</h2>
-          <p className="text-gray-700 leading-relaxed mb-3">The generator combines Shakespearean character traits, physical descriptors, classic Elizabethan nouns, and dramatic closing phrases.</p>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <div className="bg-white rounded-xl p-3 border border-purple-100">
-              <p className="font-black text-purple-700 text-lg">83,931</p>
-              <p className="text-gray-600 font-semibold">Short insults (3 words)</p>
-              <p className="text-xs text-gray-400 mt-1">277 descriptors × 303 nouns</p>
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900 mb-3">
+            Shakespeare Roast Generator: Funny Shakespearean Roasts
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Looking for a Shakespeare roast? This generator creates
+            Shakespearean roasts that sound theatrical rather than modern.
+            Shakespeare roasts work particularly well because the vocabulary
+            feels dramatic, exaggerated, and unexpectedly creative.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            A Shakespeare roast can be useful for a friendly Shakespeare roast
+            battle, a comedy challenge, a school activity, a fantasy-themed
+            party, or a creative writing exercise. The goal is playful wordplay,
+            not genuine hostility.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Some searches for “Shakespeare roast” can also refer to completely
+            different topics, including Shakespeare roast dinner, Shakespeare
+            Sunday roast, Shakespeare hog roast, or a local search such as
+            Shakespeare roast Bristol. Those are food, restaurant, or local
+            search intents rather than Shakespeare insult-generator intent.
+            This page focuses specifically on Shakespearean roasts and insults.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900 mb-3">
+            Shakespeare Insults and Shakespearean Insults
+          </h2>
+
+<section className="space-y-5">
+  <h2 className="text-xl font-black text-gray-900">
+    What Makes a Shakespearean Insult?
+  </h2>
+
+  <p className="text-gray-600 leading-relaxed">
+    A Shakespearean-style insult is memorable because it often combines
+    unusual vocabulary with exaggeration, vivid imagery, rhythm, and
+    theatrical delivery. Instead of relying on a short modern swear word,
+    the speaker can describe someone with several unexpected words before
+    finishing with a dramatic conclusion.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed">
+    This generator follows that basic creative idea. It selects words from
+    different vocabulary groups and combines them into new expressions. A
+    physical descriptor can create the image, a noun supplies the comic
+    target, and a dramatic ending can give the sentence a theatrical finish.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed">
+    The result is intentionally Shakespeare-inspired rather than a claim of
+    historical authenticity. If you are researching Shakespeare himself,
+    distinguish generated text from quotations appearing in his plays.
+  </p>
+</section>
+
+<section className="space-y-5">
+  <h2 className="text-xl font-black text-gray-900">
+    Shakespeare Insult Generator vs. Shakespeare Insult List
+  </h2>
+
+  <p className="text-gray-600 leading-relaxed">
+    A Shakespeare insult list is a collection of existing examples, while
+    an insult generator creates new combinations from a vocabulary system.
+    These serve different purposes.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed">
+    If you need a quotation for literary research, use a reliable edition of
+    the relevant Shakespeare play and verify the speaker, act, scene, and
+    wording. If you want a fresh Shakespeare-inspired roast for a game,
+    writing exercise, or creative challenge, a generator is more useful.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed">
+    ToolTrio's page is an interactive generator rather than a Shakespeare
+    insults PDF, Shakespeare insult book, or fixed collection of 100
+    historical quotations.
+  </p>
+</section>
+
+
+          <p className="text-gray-600 leading-relaxed">
+            Shakespeare insults are famous for combining strange words with
+            vivid descriptions. A Shakespearean insult can sound much more
+            elaborate than an ordinary modern insult because it often stacks
+            adjectives, unusual nouns, and theatrical phrases together.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            People search for Shakespeare insults in many different ways:
+            Shakespearean insults, funny Shakespeare insults, Shakespeare
+            insult words, Shakespearean insult words, Shakespeare insult
+            quotes, Shakespeare insult list, and 100 Shakespeare insults are
+            all common ways of describing the same general topic.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            This generator is different from a static Shakespeare insult list.
+            Instead of displaying only a fixed collection of quotations, it
+            constructs new Shakespeare-style combinations from multiple
+            vocabulary pools.
+          </p>
+        </section>
+
+        <section className="bg-purple-50 border border-purple-100 rounded-2xl p-6 space-y-5">
+          <h2 className="text-xl font-black text-purple-800">
+            How Does the Shakespeare Insult Generator Work?
+          </h2>
+
+          <p className="text-gray-700 leading-relaxed">
+            The generator uses several vocabulary pools to create different
+            combinations. Short mode combines one physical descriptor with one
+            noun. Full mode combines two character descriptors, two physical
+            descriptors, one noun, and one dramatic ending.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-3 text-sm">
+            <div className="bg-white rounded-xl p-4 border border-purple-100">
+              <p className="font-black text-purple-700 text-lg">
+                83,931
+              </p>
+              <p className="text-gray-700 font-semibold">
+                Short-mode combinations
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                277 physical descriptors × 303 nouns
+              </p>
             </div>
-            <div className="bg-white rounded-xl p-3 border border-purple-100">
-              <p className="font-black text-purple-700 text-lg">16.19 Trillion</p>
-              <p className="text-gray-600 font-semibold">Full insults</p>
-              <p className="text-xs text-gray-400 mt-1">118²×277²×303×50 combinations</p>
+
+            <div className="bg-white rounded-xl p-4 border border-purple-100">
+              <p className="font-black text-purple-700 text-lg">
+                16.19 Trillion
+              </p>
+              <p className="text-gray-700 font-semibold">
+                Full-mode combinations
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                118² × 277² × 303 × 50
+              </p>
             </div>
           </div>
+
+          <p className="text-gray-700 leading-relaxed">
+            Because the generator selects combinations randomly and remembers
+            previously generated lines during the current browser session,
+            clicking Generate Another produces a different result rather than
+            immediately repeating the same line.
+          </p>
         </section>
 
-        <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">🎉 Fun Fact</p>
-          <p className="text-gray-700 leading-relaxed text-sm">Shakespeare was, statistically, the most creative insulter in English literature. His works contain over 10,000 unique words, many of which he invented, and a significant number of those words were insults. &quot;Nut-hook,&quot; &quot;moldwarp,&quot; &quot;skainsmate,&quot; and &quot;flap-dragon&quot; are all real Shakespearean insults, and all of them are better than most modern alternatives.</p>
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespearean Insult Generator Online and Free
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            This Shakespearean insult generator is available online and is
+            free to use. You do not need to download software, create an
+            account, or prepare a list of insults before using it. Enter the
+            page, choose the insult length, and generate a Shakespeare-style
+            insult instantly.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            If you specifically searched for a Shakespeare insult generator
+            online or a Shakespearean insult generator online, this page is
+            designed for exactly that purpose. It works directly in the browser
+            and gives you an immediately usable result.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            The generator is also useful when you are looking for a
+            Shakespearean insult generator free of signup requirements. You can
+            generate, copy, translate, and share results without creating an
+            account.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Random Shakespeare Insult Generator
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            A random Shakespeare insult generator is useful when you do not have
+            a particular phrase in mind. Instead of browsing a long Shakespeare
+            insult list, simply press the generate button and receive a new
+            combination.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Random generation is especially useful for party games, writing
+            prompts, improv exercises, classroom activities, character
+            development, and friendly Shakespeare roast battles. You can keep
+            generating new lines until you find one with the exact theatrical
+            style you want.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespeare Insult Words and Shakespearean Insult Words
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Shakespearean insult words often sound unusual because English
+            vocabulary has changed significantly since Shakespeare's time.
+            Words such as “knave,” “coxcomb,” “moldwarp,” “jackanapes,” and
+            “skainsmate” have a very different effect from modern insults.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            If you are studying Shakespearean insult words, the generator can
+            help you explore how individual descriptors and nouns combine into
+            larger expressions. It can also be paired with the Shakespeare
+            English Translator on ToolTrio when you want a plain-English
+            explanation of an unfamiliar word or generated line.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespeare Insult Quotes, Lists, Books, PDFs and Worksheets
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            People looking for Shakespeare insults may also search for
+            Shakespeare insult quotes, Shakespeare insult list, Shakespeare
+            insults PDF, Shakespearean insults PDF, Shakespeare insults book,
+            Shakespearean insults book, Shakespeare insult generator PDF, or
+            Shakespearean insult generator PDF.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            This page is an online generator rather than a downloadable book or
+            PDF collection. The advantage is that the generator can create new
+            combinations instead of requiring you to choose from a fixed
+            document.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Teachers and students may also encounter searches such as
+            Shakespeare insult generator worksheet or Shakespearean insult
+            generator worksheet. The generator can be used as the interactive
+            part of a classroom exercise in vocabulary, creative writing,
+            dramatic language, or literary analysis.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Similarly, searches for a Shakespeare insult chart, Shakespeare
+            insults poster, Shakespeare Insult Kit, or Shakespeare insult mug
+            usually refer to printable, educational, or novelty formats. This
+            ToolTrio page focuses on generating the language interactively.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespeare Insults in Macbeth and Other Shakespeare Plays
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Shakespeare insults Macbeth is another search variation people use
+            when looking for examples of Shakespearean language in a specific
+            play. Shakespeare's plays contain many examples of insults,
+            taunts, accusations, mockery, and colorful descriptions.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            A generator should not be confused with a quotation database. The
+            lines produced here are newly constructed Shakespeare-style
+            combinations rather than claims that Shakespeare personally wrote
+            every generated sentence.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            If you need an exact Shakespeare insult quote from Macbeth or
+            another play, consult the original text and verify the quotation,
+            speaker, play, act, and scene. Use this generator when your goal is
+            playful Shakespeare-inspired language rather than literary
+            quotation research.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespeare Insults and Compliments
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Shakespeare insults and compliments represent two sides of
+            theatrical language. An insult exaggerates a flaw for comic effect,
+            while a compliment exaggerates a positive quality.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            If you want to switch from playful insults to positive language,
+            try the
+            <Link
+              href="/fun/compliment-generator"
+              className="text-purple-700 font-semibold underline underline-offset-2 hover:text-purple-900"
+            >
+              {' '}Compliment Generator
+            </Link>.
+            It is a useful companion when you want dramatic wording without the
+            negative tone.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Shakespeare Insult Generator Translation
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Some Shakespearean vocabulary is difficult for modern readers. A
+            Shakespeare insult generator translation can therefore be useful
+            when you want to understand what an unusual word means in modern
+            English.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            ToolTrio connects generated insults to its Shakespeare English
+            Translator so that you can examine unfamiliar vocabulary and see a
+            plain-English interpretation. This makes the generator useful not
+            only for entertainment but also for exploring historical vocabulary.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            What Are Some Shakespearean Insults?
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Some famous Shakespearean insult vocabulary includes words and
+            expressions such as knave, coxcomb, jackanapes, moldwarp,
+            fustilarian, scullion, and other colorful terms. The appeal is not
+            simply that the words are old; it is that they create vivid mental
+            images.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            The generator builds on this idea by combining descriptors and nouns
+            into playful new expressions. That makes each result feel more like
+            a tiny theatrical performance than a conventional modern insult.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            What Is Shakespeare Slang?
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            “Shakespeare slang” is a broad search phrase that can refer to
+            informal vocabulary, insults, expressions, contractions, wordplay,
+            or unusual language associated with Shakespeare's works and the
+            period in which he wrote.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Not every unusual word in Shakespeare is slang, and not every word
+            used by the generator should be treated as a direct quotation from
+            Shakespeare. The most accurate description of this tool is a
+            Shakespeare-inspired generator that uses theatrical vocabulary.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            What Are Rare Insult Words?
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            Rare insult words are unusual terms that most modern speakers do
+            not encounter regularly. Shakespearean vocabulary is particularly
+            entertaining in this category because words such as moldwarp,
+            skainsmate, fustilarian, and jackanapes sound dramatic even when
+            their exact historical meaning is unfamiliar.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            If your goal is to discover rare insult words, generate several
+            results and then use the translation option to investigate unfamiliar
+            vocabulary.
+          </p>
+        </section>
+
+        <section className="bg-amber-50 border border-amber-100 rounded-2xl p-6 space-y-4">
+          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider">
+            🎭 A Note About Shakespeare Roasts
+          </p>
+
+          <p className="text-gray-700 leading-relaxed">
+            The phrase “Shakespeare roast” can have multiple meanings online.
+            It can describe a Shakespeare-themed insult, a roast battle, a
+            Shakespeare-related comedy event, or even a food-related search
+            such as a Shakespeare roast dinner, Shakespeare Sunday roast, or
+            Shakespeare hog roast. A search for Shakespeare roast Bristol can
+            also indicate local food or event intent.
+          </p>
+
+          <p className="text-gray-700 leading-relaxed">
+            This page intentionally focuses on the literary and entertainment
+            meaning: Shakespearean roasts and playful insults generated from
+            Shakespeare-inspired vocabulary.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            How to Use the Shakespeare Insult Generator
+          </h2>
+
+          <ol className="space-y-3 text-gray-600 text-sm">
+            <li>
+              <strong>1. Choose Short or Full mode.</strong> Short mode creates
+              a compact three-word insult. Full mode creates a longer,
+              theatrical construction.
+            </li>
+            <li>
+              <strong>2. Click Generate Insult.</strong> The generator randomly
+              selects words from its vocabulary pools.
+            </li>
+            <li>
+              <strong>3. Generate another result.</strong> Continue generating
+              until you find a phrase you like.
+            </li>
+            <li>
+              <strong>4. Copy or share it.</strong> Use the copy control to
+              reuse the generated line in a game, writing prompt, or friendly
+              conversation.
+            </li>
+            <li>
+              <strong>5. Translate unfamiliar words.</strong> Open the
+              Shakespeare English Translator when a generated expression is
+              difficult to understand.
+            </li>
+          </ol>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-xl font-black text-gray-900">
+            Best Uses for Shakespearean Roasts
+          </h2>
+
+          <p className="text-gray-600 leading-relaxed">
+            A Shakespearean roast works best when everyone involved understands
+            that the exchange is playful. Good uses include party games,
+            classroom vocabulary exercises, creative writing, character
+            development, improv, fantasy events, social posts, and friendly
+            Shakespeare roast battles.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            Avoid using generated insults to target someone who has not agreed
+            to the joke. The theatrical style is intended to make the language
+            humorous and imaginative, not to make harassment more effective.
+          </p>
+        </section>
+
+
+
+          <section className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
+          <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">
+            🎉 Fun Fact
+          </p>
+
+          <p className="text-gray-700 leading-relaxed text-sm">
+            Shakespeare's works are famous for unusually vivid vocabulary,
+            wordplay, insults, compliments, puns, and dramatic expressions.
+            That makes Shakespearean language especially fun to explore with a
+            generator: even a short combination can sound like dialogue from a
+            stage play.
+          </p>
         </section>
 
         <section>
@@ -366,15 +857,33 @@ export default function CalculatorClient({ faqs }: Props) {
           </ul>
         </section>
 
-        <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
-          <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">📲 How to Share</p>
-          <p className="text-gray-700 text-sm leading-relaxed">Post your best generated insult as your &quot;out of office&quot; message. &quot;Thou puny, motley-minded maggot-pie&quot; communicates unavailability just as clearly as &quot;I am currently on leave&quot; and is considerably more memorable.</p>
-        </section>
+  <section className="bg-pink-50 border border-pink-100 rounded-2xl p-5">
+  <p className="text-xs font-bold text-pink-600 uppercase tracking-wider mb-2">
+    🎭 Make It More Shakespearean
+  </p>
 
+  <p className="text-gray-700 text-sm leading-relaxed">
+    The fun of a Shakespearean roast is in the theatrical delivery. Try
+    reading a generated insult slowly, emphasizing the unusual vocabulary,
+    and treating it like dialogue from a stage play. For writing exercises,
+    use a generated line as a starting point and rewrite it into your own
+    character's voice.
+  </p>
+</section>
+
+ 
         <section className="border-l-4 border-purple-300 pl-5">
-          <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">📌 Did You Know?</p>
-          <p className="text-gray-600 text-sm leading-relaxed">The insult &quot;you blocks, you stones, you worse than senseless things&quot; (Julius Caesar, Act 1) was used by Shakespeare to address a crowd of Roman commoners, making it technically a group insult rated for crowds of two or more. Useful to know.</p>
-        </section>
+  <p className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-2">
+    📌 Did You Know? Shakespearean Language
+  </p>
+
+  <p className="text-gray-600 text-sm leading-relaxed">
+    Shakespeare's plays contain insults, taunts, accusations, mockery,
+    compliments, puns, and elaborate wordplay. His language shows how
+    memorable a character's speech can become when unusual vocabulary is
+    combined with rhythm, exaggeration, and theatrical delivery.
+  </p>
+</section>
 
         <section>
           <h2 className="text-xl font-black text-gray-900 mb-4">Example Shakespearean Insults</h2>
@@ -454,31 +963,76 @@ export default function CalculatorClient({ faqs }: Props) {
           </div>
         </section>
 
-        <SEOContent
+        <section className="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-4">
+  <h2 className="text-xl font-black text-gray-900">
+    A Note on Shakespearean Accuracy
+  </h2>
+
+  <p className="text-gray-600 leading-relaxed">
+    This tool is designed for creative entertainment and vocabulary
+    exploration. Generated lines are Shakespeare-inspired combinations, not
+    newly discovered quotations from Shakespeare's plays.
+  </p>
+
+  <p className="text-gray-600 leading-relaxed">
+    Shakespeare's actual language should be studied using the original plays,
+    reputable editions, scholarly references, and verified quotations.
+    Unusual words appearing in this generator should not automatically be
+    interpreted as words invented by Shakespeare or as evidence that a
+    particular generated sentence appeared in one of his works.
+  </p>
+</section>
+
+              <SEOContent
           title=""
           category="fun"
           intro={`
 # Shakespeare Insult Generator
 
-This free Shakespeare insult generator creates funny Shakespearean insults, Shakespeare roasts, Elizabethan insults, and old English comebacks inspired by the language of William Shakespeare.
+This free Shakespeare Insult Generator creates playful Shakespearean insults, Shakespeare roasts, Elizabethan-style comebacks, old-English-style insults, and random Shakespeare-inspired phrases.
 
-Choose **Short mode** for punchy 3-word insults (83,931 unique combinations) or **Full mode** for maximum dramatic effect with over 16.19 trillion unique Shakespearean insult combinations — making repeated results practically impossible.
+Choose Short mode for compact insults or Full mode for longer theatrical combinations. The generator uses multiple vocabulary pools to create new combinations instantly.
 
-Whether you need a Shakespeare roast for a party, a funny Elizabethan comeback, a classroom activity, a creative writing prompt, or simply want to explore Shakespearean language, this Shakespearean insult generator provides endless entertainment.
-
+Use it for entertainment, creative writing, classroom activities, party games, character development, and friendly Shakespeare roast battles.
 `}
-          howItWorks={`The generator uses four pools of authentic Elizabethan vocabulary: character adjectives (118 words), physical descriptors (277 words), Shakespearean nouns (303 words), and dramatic endings (50 phrases). Short mode picks one descriptor and one noun for a punchy 3-word insult — 83,931 unique combinations. Full mode stacks two character adjectives, two physical descriptors, a noun, and an ending — over 16.19 trillion unique combinations.`}
-          tipsSection={`These are purely for entertainment and theatrical fun — NOT for actual use against real people. The Shakespearean insult is best deployed in jest with willing participants who appreciate the form. It's the verbal equivalent of a foam sword fight.`}
-          conclusion={`Creativity in language — even antagonistic language — is a form of wit. Shakespeare's insults have survived 400 years precisely because they're inventive rather than merely vulgar. Enjoy them in the spirit of linguistic playfulness they represent.`}
+          howItWorks={`
+The generator combines Shakespeare-inspired character descriptors, physical descriptors, nouns, and dramatic endings. Short mode uses 277 physical descriptors and 303 nouns to create 83,931 possible combinations. Full mode combines 118 character descriptors, 277 physical descriptors, 303 nouns, and 50 endings to create 16,185,875,129,400 theoretical combinations.
+
+These are generated combinations rather than claims that Shakespeare personally wrote every resulting sentence.
+`}
+          tipsSection={`
+Use the generator for playful and theatrical situations where everyone understands the joke. If a word is unfamiliar, use the Shakespeare English Translator to explore its modern meaning. For literary research, verify quotations against the original Shakespeare text rather than treating generated lines as historical quotations.
+`}
+          conclusion={`
+Shakespearean insults remain entertaining because unusual vocabulary, exaggeration, rhythm, and theatrical delivery can turn a simple put-down into memorable wordplay. Generate a line, translate unfamiliar words, and enjoy the language as a creative literary game.
+`}
           benefits={[
-            { title: `Just for fun`, text: `This calculator is designed for entertainment and lighthearted use — enjoy it and share results with friends.` },
-            { title: `Quick results`, text: `Get your answer instantly without any signup, account, or personal data required.` },
-            { title: `Free to use`, text: `Completely free with no ads, no tracking, and no strings attached.` },
+            {
+              title: `Free and instant`,
+              text: `Generate Shakespeare-inspired insults online without creating an account.`,
+            },
+            {
+              title: `Huge combination space`,
+              text: `Multiple vocabulary pools create a very large number of possible combinations.`,
+            },
+            {
+              title: `Learn the vocabulary`,
+              text: `Use the translator to explore unfamiliar Shakespearean-style words and expressions.`,
+            },
           ]}
           useCases={[
-            { title: `Personal entertainment`, text: `Use it for personal curiosity, conversation starters, or just a fun break from your day.` },
-            { title: `Social sharing`, text: `Share your results with friends and compare answers — great for group settings and social media.` },
-            { title: `Learning and exploration`, text: `Explore the topic in a playful way and discover something new or interesting.` },
+            {
+              title: `Creative writing`,
+              text: `Use generated lines as prompts for characters, dialogue, comedy, and fictional scenes.`,
+            },
+            {
+              title: `Games and parties`,
+              text: `Use playful Shakespearean roasts for friendly challenges and theatrical games.`,
+            },
+            {
+              title: `English and literature`,
+              text: `Explore unusual vocabulary, dramatic language, and Shakespeare-inspired wordplay.`,
+            },
           ]}
         />
       </div>

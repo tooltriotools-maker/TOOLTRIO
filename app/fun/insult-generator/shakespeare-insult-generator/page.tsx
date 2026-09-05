@@ -15,25 +15,40 @@ const ShakespeareInsultGeneratorClient = dynamic(
 const SLUG = 'shakespeare-insult-generator'
 
 export const metadata: Metadata = generateFunToolMetadata({
-  title: 'Shakespeare Insult Generator (468M+ Unique Insults) | ToolTrio',
-  description: 'Free Shakespeare Insult Generator. Create funny Shakespearean insults, roasts, Elizabethan comebacks and old-English-style insults instantly.',
+  title:
+  'Shakespeare Insult Generator – Funny Shakespearean Insults & Roasts | ToolTrio',
+
+description:
+  'Free Shakespeare Insult Generator for funny Shakespearean insults, random roasts, Elizabethan-style comebacks, and theatrical old-English insults. Generate and copy instantly.',
   slug: `insult-generator/${SLUG}`,
+
   keywords: [
     'shakespeare insult generator',
     'shakespearean insult generator',
-    'shakespeare roast generator',
-    'shakespearean roast generator',
-    'shakespeare insults',
+    'shakespeare insult generator free',
+    'shakespearean insult generator free',
+    'shakespeare insult',
     'shakespearean insults',
-    'random shakespeare insult',
+    'shakespeare insult generator online',
+    'shakespearean insult generator online',
+    'random shakespeare insult generator',
+    'shakespeare insults',
     'funny shakespeare insults',
-    'shakespeare comeback generator',
-    'shakespearean comeback generator',
+    'shakespeare roast',
+    'shakespeare roasts',
+    'shakespeare roast generator',
+    'shakespeare roast battle',
+    'shakespearean roasts',
+    'shakespeare insult list',
+    'shakespearean insult words',
+    'shakespeare insult words',
+    'shakespeare insult quotes',
+    '100 shakespeare insults',
+    'shakespeare insults and compliments',
+    'shakespeare insults macbeth',
+    'shakespeare insult generator translation',
     'old english insult generator',
-    'old english roast generator',
     'elizabethan insult generator',
-    'elizabethan roast generator',
-    'william shakespeare insults',
     'bard insult generator',
     'creative roast generator',
     'witty insult generator',
@@ -44,26 +59,29 @@ export const metadata: Metadata = generateFunToolMetadata({
 })
 
 const SHAKESPEARE_FAQS = [
-  {
-    question: 'Why is this Shakespeare insult generator different?',
-    answer: 'Unlike many Shakespeare insult generators that recycle a small set of phrases, this tool can generate more than 468 million unique Shakespeare-style insults using multiple adjective, noun, and ending combinations.',
-  },
+ {
+  question: 'Why is this Shakespeare insult generator different?',
+  answer:
+    'This generator builds Shakespeare-inspired insults dynamically from several vocabulary pools instead of relying only on a fixed list of sentences. Short mode has 83,931 possible vocabulary combinations, while Full mode has 16,185,875,129,400 theoretical combinations.',
+},
   {
     question: 'What is a Shakespeare insult generator?',
     answer: 'A Shakespeare insult generator creates funny Shakespearean insults inspired by the language, vocabulary, and theatrical style used by William Shakespeare.',
   },
-  {
-    question: 'How many insults can this generator create?',
-    answer: 'This tool can generate more than 468 million unique Shakespearean insult combinations, making repeated results extremely rare.',
-  },
+{
+  question: 'How many combinations can this Shakespeare insult generator create?',
+  answer:
+    'Short mode has 83,931 theoretical combinations. Full mode has 16,185,875,129,400 theoretical combinations, or about 16.19 trillion. These figures describe possible vocabulary combinations, not 16.19 trillion historically documented Shakespeare quotations.',
+},
   {
     question: 'What is an Elizabethan insult?',
     answer: 'An Elizabethan insult is a humorous or dramatic insult written in the style of the Elizabethan era, the period when William Shakespeare lived and wrote.',
   },
-  {
-    question: 'Are these real Shakespeare insults?',
-    answer: 'Many of the words come directly from Shakespeare\'s plays, while the generator combines them into new Shakespeare-style insults.',
-  },
+{
+  question: 'Are these real Shakespeare insults?',
+  answer:
+    'The generated sentences are original combinations created by this tool and should not be treated as quotations written by Shakespeare. The generator uses Shakespearean, Elizabethan, and Shakespeare-inspired vocabulary to create theatrical insults.',
+},
   {
     question: 'What makes Shakespearean insults so satisfying?',
     answer: 'The theatrical language makes them feel dramatic without being genuinely cruel. The generator draws on the tradition of creative, stacked Elizabethan put-downs.',
@@ -72,10 +90,11 @@ const SHAKESPEARE_FAQS = [
     question: 'Are these insults appropriate for all ages?',
     answer: 'Yes — the Shakespearean style keeps everything theatrical and old-fashioned rather than crude. There is no profanity.',
   },
-  {
-    question: 'Where do the insults come from?',
-    answer: 'The generator combines authentic Elizabethan adjectives and nouns with a pattern-based system for constructing new multi-part insults.',
-  },
+{
+  question: 'Where do the insults come from?',
+  answer:
+    'The generator selects words from several curated vocabulary pools and combines them using predefined sentence patterns. The resulting lines are Shakespeare-inspired rather than historical Shakespeare quotations.',
+},
   {
     question: 'Can I use this for a school project or English class?',
     answer: 'Yes. Exploring Shakespearean insults is a fun way to understand Elizabethan vocabulary, theatrical language, and the tradition of competitive wit.',
@@ -92,6 +111,81 @@ const SHAKESPEARE_FAQS = [
     question: 'Is this free and does it require an account?',
     answer: 'It is free and does not require an account. Generate insults without signing up.',
   },
+    {
+    question: 'Can I use this as a Shakespeare insult generator online?',
+    answer:
+      'Yes. The generator runs online in your browser and creates Shakespeare-inspired insults without requiring a download or account.',
+  },
+  {
+    question: 'Is this a Shakespearean insult generator free to use?',
+    answer:
+      'Yes. ToolTrio provides the generator for free and does not require an account to generate a result.',
+  },
+  {
+    question: 'Can this generate a random Shakespeare insult?',
+    answer:
+      'Yes. Click Generate Insult to randomly combine words from the generator vocabulary pools.',
+  },
+  {
+    question: 'Can I find 100 Shakespeare insults here?',
+    answer:
+      'The generator does not use a fixed list of only 100 insults. It creates combinations dynamically, allowing you to generate many different Shakespeare-inspired lines.',
+  },
+  {
+    question: 'Does this provide a Shakespeare insult generator PDF?',
+    answer:
+      'No. This is an online interactive generator rather than a downloadable PDF. You can generate and copy lines directly from the page.',
+  },
+  {
+    question: 'Does this provide a Shakespearean insult generator worksheet?',
+    answer:
+      'The tool itself is interactive rather than a printable worksheet, but it can be used as part of a classroom exercise involving Shakespearean vocabulary and creative writing.',
+  },
+  {
+    question: 'Is this a Shakespeare insult generator book?',
+    answer:
+      'No. This page is an interactive generator rather than a book. It creates new combinations from its vocabulary pools.',
+  },
+  {
+    question: 'Can I use this for Shakespeare insults and compliments?',
+    answer:
+      'Yes. Use this page for playful Shakespeare-inspired insults and visit the ToolTrio Compliment Generator when you want a positive alternative.',
+  },
+  {
+    question: 'Can I use Shakespeare insults from Macbeth?',
+    answer:
+      'This generator creates new Shakespeare-inspired combinations and should not be treated as a quotation database. For exact Macbeth quotations, verify the wording in the original play.',
+  },
+  {
+    question: 'What are Shakespearean insult words?',
+    answer:
+      'Shakespearean insult words are unusual or colorful words associated with the insults, mockery, and wordplay found in Shakespearean drama. Examples include terms such as knave, coxcomb, jackanapes, and moldwarp.',
+  },
+  {
+    question: 'What is the difference between a Shakespeare insult and a Shakespearean insult?',
+    answer:
+      'The phrases generally refer to the same broad topic. “Shakespearean insult” emphasizes the style or language associated with Shakespeare, while “Shakespeare insult” is a shorter search phrase.',
+  },
+  {
+    question: 'Can I translate a Shakespeare insult into modern English?',
+    answer:
+      'Yes. Generated lines can be opened in the ToolTrio Shakespeare English Translator to help explain unfamiliar Shakespearean-style vocabulary in modern English.',
+  },
+  {
+    question: 'What are some Shakespearean insults?',
+    answer:
+      'Shakespearean insults often use vivid descriptors and unusual nouns rather than modern profanity. This generator creates new playful combinations inspired by that theatrical vocabulary.',
+  },
+  {
+    question: 'What is Shakespeare slang?',
+    answer:
+      'Shakespeare slang is a broad phrase that can refer to informal, unusual, or period-specific vocabulary associated with Shakespeare and Elizabethan English. Not every unusual Shakespearean word is technically slang.',
+  },
+  {
+    question: 'What are rare insult words?',
+    answer:
+      'Rare insult words are unusual terms that modern speakers do not commonly use. Shakespearean vocabulary is particularly rich in colorful and unfamiliar words that can make playful insults sound theatrical.',
+  },
   {
     question: 'Can I share my insult on social media?',
     answer: 'Yes — each result has copy and sharing options so you can send a dramatic Shakespearean insult to friends or post it elsewhere.',
@@ -100,7 +194,8 @@ const SHAKESPEARE_FAQS = [
 
 const structuredData = generateFunToolStructuredData({
   name: 'Shakespeare Insult Generator',
-  description: 'Generate authentic Shakespearean insults and Elizabethan put-downs. Thou art about to be thoroughly roasted in old English. Free, instant, shareable.',
+  description:
+    'Free Shakespeare Insult Generator for funny Shakespearean insults, Elizabethan roasts, old-English-style comebacks, random insults, and playful Shakespeare-style word combinations.',
   slug: `insult-generator/${SLUG}`,
 })
 const faqStructuredData = generateFAQStructuredData(SHAKESPEARE_FAQS)
