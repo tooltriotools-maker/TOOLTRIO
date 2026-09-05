@@ -1,12 +1,23 @@
 'use client'
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { ZipQuickFill } from '@/components/ui/ZipQuickFill'
 import { zipFetch } from '@/lib/data/zip-client'
+
+const USZipMap = dynamic(() => import('@/components/ui/USZipMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[520px] rounded-3xl border border-gray-200 bg-gray-50 animate-pulse flex items-center justify-center mb-5">
+      <div className="text-sm text-gray-400">Loading interactive US map…</div>
+    </div>
+  ),
+})
 
 export default function ZipToolClient() {
   const [zip, setZip] = useState('')
   const [result, setResult] = useState<any>(null)
   const [loading, setLoading] = useState(false)
+  const [mapLoading, setMapLoading] = useState(false)
   const [error, setError] = useState('')
 
   async function lookup(z?: string) {
@@ -16,12 +27,24 @@ export default function ZipToolClient() {
     const res = await zipFetch(`/api/zip/lookup?zip=${val}`)
     const data = await res.json(); setLoading(false)
     if (!res.ok) { setError(data.error); setResult(null); return }
+    setError('')
     setResult(data)
+    setZip(data.zip)
   }
 
-  const mapUrl = result
-    ? `https://maps.google.com/maps?q=${result.lat},${result.lng}&z=13&output=embed`
-    : null
+  async function lookupByClick(lat: number, lng: number) {
+    setMapLoading(true); setError('')
+    const res = await zipFetch(`/api/zip/nearest?lat=${lat}&lng=${lng}`)
+    const data = await res.json(); setMapLoading(false)
+    if (!res.ok) { setError(data.error); return }
+    setError('')
+    setResult(data)
+    setZip(data.zip)
+  }
+
+  function reset() {
+    setResult(null); setError(''); setZip('')
+  }
 
   return (
     <div>
@@ -70,8 +93,8 @@ export default function ZipToolClient() {
 <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-5">
   {[
     { icon: "🗺️", text: "Interactive Map" },
-    { icon: "📍", text: "ZIP Location" },
-    { icon: "🔲", text: "ZIP Boundaries" },
+    { icon: "🖱️", text: "Click to Find ZIP" },
+    { icon: "🔍", text: "Live Search" },
     { icon: "⚡", text: "Instant Results" },
     { icon: "🆓", text: "Free Forever" },
   ].map((item) => (
@@ -94,8 +117,17 @@ export default function ZipToolClient() {
   ))}
 </div>
 
-
       {error && <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 mb-4 text-sm">{error}</div>}
+
+      {/* ── INTERACTIVE ZIP MAP (always visible — click, search, or lookup) ── */}
+      <USZipMap
+        result={result}
+        loadingClick={mapLoading}
+        onZipSelect={(z) => lookup(z)}
+        onMapClick={(lat, lng) => lookupByClick(lat, lng)}
+        onReset={reset}
+      />
+
       {result && (
         <div>
         {/* ── ZIP LOCATION REPORT ────────────────────────────────── */}
@@ -304,71 +336,6 @@ export default function ZipToolClient() {
   </div>
 
 </div>
-          {/* ── INTERACTIVE ZIP MAP ─────────────────────────────────── */}
-<div
-  className="rounded-3xl border overflow-hidden mb-5"
-  style={{
-    borderColor: "#d1fae5",
-    background: "#ffffff",
-    boxShadow: "0 10px 30px rgba(0,0,0,.07)",
-  }}
->
-
-  {/* Map Header */}
-  <div className="px-5 py-4 border-b bg-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-
-    <div>
-      <div className="text-xs uppercase tracking-[2px] text-gray-400 font-bold">
-        Interactive Map
-      </div>
-
-      <h3 className="text-lg font-black text-gray-900 mt-1">
-        📍 ZIP {result.zip} Location
-      </h3>
-    </div>
-
-    <div className="text-xs font-semibold text-green-600">
-      ✓ Coordinates loaded
-    </div>
-
-  </div>
-
-  {/* Map */}
-  <div
-    className="relative"
-    style={{ height: 420 }}
-  >
-    <iframe
-      src={mapUrl!}
-      width="100%"
-      height="100%"
-      style={{
-        border: 0,
-        display: 'block',
-      }}
-      allowFullScreen
-      loading="lazy"
-      title={`Interactive map of ZIP ${result.zip}`}
-    />
-  </div>
-
-  {/* Map Footer */}
-  <div className="px-5 py-3 border-t bg-gray-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-
-    <div className="text-xs text-gray-500">
-      <span className="font-semibold text-gray-700">
-        Center:
-      </span>{' '}
-      {result.lat.toFixed(5)}, {result.lng.toFixed(5)}
-    </div>
-
-    <div className="text-xs text-gray-400">
-      ZIP {result.zip} · {result.city}, {result.state}
-    </div>
-
-  </div>
-
-</div>
      {/* ── GOOGLE MAPS ACTION ──────────────────────────────────── */}
 <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-4">
 
@@ -415,10 +382,11 @@ export default function ZipToolClient() {
     </div>
 
     <p className="text-xs text-amber-700 leading-relaxed">
-      ZIP Code boundaries shown on maps are geographic approximations
-      based on Census ZIP Code Tabulation Areas (ZCTAs). Use the map
-      for geographic context and the coordinates for precise location
-      calculations.
+      Click anywhere on the map to instantly find that location&apos;s ZIP code,
+      use the search box on the map to jump straight to a ZIP or city, or
+      click any blue neighboring dot to explore ZIPs nearby. Boundaries on
+      this map are approximated by ZIP centroid location — for precise
+      geographic details, cross-check with our ZIP Boundary Info tool.
     </p>
   </div>
 </div>

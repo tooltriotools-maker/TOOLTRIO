@@ -91,6 +91,23 @@ async function lookupZip(zip: string): Promise<ZipRecord | null> {
   return e ? toRecord(zip, e) : null
 }
 
+// Reverse lookup: given raw lat/lng (e.g. a click on the interactive map),
+// find the closest ZIP centroid. Used to power "click anywhere on the map
+// to find that ZIP" instead of only allowing typed ZIP/city search.
+async function nearestByCoords(lat: number, lng: number): Promise<(ZipRecord & { distance: number }) | null> {
+  const idx = await loadIndex()
+  let best: (ZipRecord & { distance: number }) | null = null
+  let bestDist = Infinity
+  for (const [z, e] of Object.entries(idx)) {
+    const d = distanceMiles(lat, lng, e[2], e[3])
+    if (d < bestDist) {
+      bestDist = d
+      best = { ...toRecord(z, e), distance: d }
+    }
+  }
+  return best
+}
+
 async function getNearby(zip: string, radiusMiles = 25, limit = 30): Promise<(ZipRecord & { distance: number })[]> {
   const idx = await loadIndex()
   const origin = idx[zip]
@@ -252,6 +269,23 @@ export async function zipFetch(url: string): Promise<MockResponse> {
       // Keep the radius tool response backward-compatible with both the
       // older API shape (origin/results) and the radius UI shape (center/nearby).
       return ok({ center: origin, nearby: results, origin, results, count: results.length })
+    }
+
+    if (u.pathname === '/api/zip/nearest') {
+      const lat = parseFloat(p.get('lat') || '')
+      const lng = parseFloat(p.get('lng') || '')
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return fail('Invalid map coordinates')
+      // Rough US + territories bounding box (includes AK, HI, PR).
+      if (lat < 14 || lat > 72 || lng < -180 || lng > -64) {
+        return fail('Click a location inside the United States to find its ZIP code')
+      }
+      const nearest = await nearestByCoords(lat, lng)
+      if (!nearest || nearest.distance > 150) {
+        return fail('No ZIP code found near that location')
+      }
+      const nearby = await getNearby(nearest.zip, 30, 6)
+      const tzLabel = TIMEZONE_OFFSETS[nearest.timezone] || nearest.timezone
+      return ok({ ...nearest, tzLabel, nearby, clickDistanceMiles: +nearest.distance.toFixed(2) })
     }
 
     if (u.pathname === '/api/zip/distance') {
