@@ -444,7 +444,7 @@ export default function CalculatorClient({ faqs }: Props) {
   </p>
 
   <p className="text-gray-600 leading-relaxed">
-    ToolTrio's page is an interactive generator rather than a Shakespeare
+    ToolTrio&apos;s page is an interactive generator rather than a Shakespeare
     insults PDF, Shakespeare insult book, or fixed collection of 100
     historical quotations.
   </p>
@@ -576,7 +576,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
           <p className="text-gray-600 leading-relaxed">
             Shakespearean insult words often sound unusual because English
-            vocabulary has changed significantly since Shakespeare's time.
+            vocabulary has changed significantly since Shakespeare&apos;s time.
             Words such as “knave,” “coxcomb,” “moldwarp,” “jackanapes,” and
             “skainsmate” have a very different effect from modern insults.
           </p>
@@ -634,7 +634,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <p className="text-gray-600 leading-relaxed">
             Shakespeare insults Macbeth is another search variation people use
             when looking for examples of Shakespearean language in a specific
-            play. Shakespeare's plays contain many examples of insults,
+            play. Shakespeare&apos;s plays contain many examples of insults,
             taunts, accusations, mockery, and colorful descriptions.
           </p>
 
@@ -727,7 +727,7 @@ export default function CalculatorClient({ faqs }: Props) {
           <p className="text-gray-600 leading-relaxed">
             “Shakespeare slang” is a broad search phrase that can refer to
             informal vocabulary, insults, expressions, contractions, wordplay,
-            or unusual language associated with Shakespeare's works and the
+            or unusual language associated with Shakespeare&apos;s works and the
             period in which he wrote.
           </p>
 
@@ -840,7 +840,7 @@ export default function CalculatorClient({ faqs }: Props) {
           </p>
 
           <p className="text-gray-700 leading-relaxed text-sm">
-            Shakespeare's works are famous for unusually vivid vocabulary,
+            Shakespeare&apos;s works are famous for unusually vivid vocabulary,
             wordplay, insults, compliments, puns, and dramatic expressions.
             That makes Shakespearean language especially fun to explore with a
             generator: even a short combination can sound like dialogue from a
@@ -867,7 +867,7 @@ export default function CalculatorClient({ faqs }: Props) {
     reading a generated insult slowly, emphasizing the unusual vocabulary,
     and treating it like dialogue from a stage play. For writing exercises,
     use a generated line as a starting point and rewrite it into your own
-    character's voice.
+    character&apos;s voice.
   </p>
 </section>
 
@@ -878,9 +878,9 @@ export default function CalculatorClient({ faqs }: Props) {
   </p>
 
   <p className="text-gray-600 text-sm leading-relaxed">
-    Shakespeare's plays contain insults, taunts, accusations, mockery,
+   Shakespeare&apos;s plays contain insults, taunts, accusations, mockery,
     compliments, puns, and elaborate wordplay. His language shows how
-    memorable a character's speech can become when unusual vocabulary is
+    memorable a character&apos;s speech can become when unusual vocabulary is
     combined with rhythm, exaggeration, and theatrical delivery.
   </p>
 </section>
@@ -971,11 +971,11 @@ export default function CalculatorClient({ faqs }: Props) {
   <p className="text-gray-600 leading-relaxed">
     This tool is designed for creative entertainment and vocabulary
     exploration. Generated lines are Shakespeare-inspired combinations, not
-    newly discovered quotations from Shakespeare's plays.
+    newly discovered quotations from Shakespeare&apos;s plays.
   </p>
 
   <p className="text-gray-600 leading-relaxed">
-    Shakespeare's actual language should be studied using the original plays,
+    Shakespeare&apos;s actual language should be studied using the original plays,
     reputable editions, scholarly references, and verified quotations.
     Unusual words appearing in this generator should not automatically be
     interpreted as words invented by Shakespeare or as evidence that a
