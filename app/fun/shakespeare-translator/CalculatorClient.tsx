@@ -274,7 +274,7 @@ export default function CalculatorClient({ faqs }: Props) {
       For readers, the reverse direction can be used to
       <strong>translate Shakespeare to modern English</strong> or as a
       <strong>Shakespeare translator to English</strong>. This is especially
-      useful when reading Shakespeare's plays, poems and dialogue.
+      useful when reading Shakespeare&apos;s plays, poems and dialogue.
     </p>
   </div>
 </section>
@@ -384,7 +384,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <div className="space-y-4 text-gray-700 leading-8">
       <p>
   People sometimes search for a
-  <strong>Shakespeare old English translator</strong> because Shakespeare's
+  <strong>Shakespeare old English translator</strong> because Shakespeare&apos;s
   language sounds old-fashioned to modern readers. However, Shakespearean
   English is not technically Old English. Shakespeare wrote in Early Modern
   English, which is much closer to modern English than the language of
@@ -393,7 +393,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <p>
         Shakespearean English refers broadly to the Early Modern English used
         during the period when William Shakespeare wrote his plays and poems.
-        It is sometimes casually called "Old English," but that description is
+        It is sometimes casually called &quot;Old English,&quot; but that description is
         historically incorrect.
       </p>
 
@@ -405,7 +405,7 @@ export default function CalculatorClient({ faqs }: Props) {
       </p>
 
       <p>
-        What makes Shakespeare's language seem unfamiliar is a combination of
+       What makes Shakespeare&apos;s language seem unfamiliar is a combination of
         older vocabulary, grammatical forms, contractions, poetic expressions
         and words whose meanings have changed over time.
       </p>
@@ -430,7 +430,7 @@ export default function CalculatorClient({ faqs }: Props) {
     <p className="text-gray-600 leading-8 mb-5">
       One reason people search for a <strong>Shakespeare word translator</strong>
       is to understand the old pronouns used in Shakespearean dialogue.
-      These words are not simply decorative replacements for "you."
+      These words are not simply decorative replacements for &quot;you.&quot;
     </p>
 
     <div className="overflow-hidden rounded-2xl border border-gray-200">
@@ -467,12 +467,12 @@ export default function CalculatorClient({ faqs }: Props) {
       </div>
     </div>
 
-    <p className="text-gray-600 leading-8 mt-5">
-      For example, "Thou art kind" can be understood as "You are kind,"
-      while "I give thee this" means approximately "I give you this."
-      Historical usage is more complicated than a one-to-one substitution,
-      which is why the glossary should be used together with the translation.
-    </p>
+ <p className="text-gray-600 leading-8 mt-5">
+  For example, &quot;Thou art kind&quot; can be understood as &quot;You are kind,&quot;
+  while &quot;I give thee this&quot; means approximately &quot;I give you this.&quot;
+  Historical usage is more complicated than a one-to-one substitution,
+  which is why the glossary should be used together with the translation.
+</p>
   </section>
 
 
@@ -559,8 +559,8 @@ export default function CalculatorClient({ faqs }: Props) {
           You → Thou / Thee
         </p>
         <p className="text-sm text-gray-600 mt-1">
-          The correct historical form depends on the grammatical role of
-          "you" in the sentence.
+     The correct historical form depends on the grammatical role of
+&quot;you&quot; in the sentence.
         </p>
       </div>
 
@@ -588,7 +588,7 @@ export default function CalculatorClient({ faqs }: Props) {
           Why → Wherefore
         </p>
         <p className="text-sm text-gray-600 mt-1">
-          "Wherefore" means "why" or "for what reason," not "where."
+          &quot;Wherefore&quot; means &quot;why&quot; or &quot;for what reason,&quot; not &quot;where.&quot;
         </p>
       </div>
 
@@ -608,7 +608,7 @@ export default function CalculatorClient({ faqs }: Props) {
         You in Shakespearean English
       </h3>
       <p className="text-sm text-gray-600 leading-7">
-        Depending on grammar, modern "you" may correspond to
+        Depending on grammar, modern &quot;you&quot; may correspond to
         <strong> thou</strong>, <strong>thee</strong> or another historical
         form. Thou is generally the subject form, while thee is generally
         the object form.
@@ -620,7 +620,7 @@ export default function CalculatorClient({ faqs }: Props) {
         Yes in Shakespearean Language
       </h3>
       <p className="text-sm text-gray-600 leading-7">
-        Historical-style alternatives to modern "yes" include
+        Historical-style alternatives to modern &quot;yes&quot; include
         <strong> ay</strong> and <strong>aye</strong>, depending on the
         context and style.
       </p>
@@ -631,7 +631,7 @@ export default function CalculatorClient({ faqs }: Props) {
         I Am in Shakespearean Language
       </h3>
       <p className="text-sm text-gray-600 leading-7">
-        "I am" does not necessarily need to be changed. Shakespearean style
+       &quot;I am&quot; does not necessarily need to be changed. Shakespearean style
         often comes from changing surrounding vocabulary and sentence
         construction.
       </p>
@@ -642,7 +642,7 @@ export default function CalculatorClient({ faqs }: Props) {
         My and Me in Shakespearean English
       </h3>
       <p className="text-sm text-gray-600 leading-7">
-        "My" and "me" can already appear in Shakespearean English. Forms such
+        &quot;My&quot; and &quot;me&quot; can already appear in Shakespearean English. Forms such
         as <strong>mine</strong>, <strong>thee</strong> and
         <strong> thou</strong> depend on grammatical context rather than
         being automatic replacements for every sentence.
@@ -845,8 +845,8 @@ export default function CalculatorClient({ faqs }: Props) {
     </h2>
 
     <p className="text-gray-700 leading-8 mb-5">
-      If your goal is <strong>how to make text sound like Shakespeare</strong>,
-      don't simply replace every modern word with an old word. Shakespearean
+     If your goal is <strong>how to make text sound like Shakespeare</strong>,
+don&apos;t simply replace every modern word with an old word.Shakespearean
       style is also about rhythm, dramatic expression, imagery and sentence
       structure.
     </p>
@@ -882,7 +882,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <li>
         <strong>5. Read the final sentence aloud.</strong>
         <br />
-        Shakespeare's writing is strongly connected to rhythm and performance.
+        Shakespeare&apos;s writing is strongly connected to rhythm and performance.
       </li>
     </ol>
   </section>
@@ -1024,7 +1024,7 @@ export default function CalculatorClient({ faqs }: Props) {
     </h2>
 
     <p className="text-gray-700 leading-8">
-      If you're looking for a <strong>free modern English to Shakespearean
+      If you&apos;re looking for a <strong>free modern English to Shakespearean
       translator online</strong>, ToolTrio is designed to work directly in
       your browser. There is no need to install software just to translate a
       sentence or look up a Shakespearean word.
@@ -1122,7 +1122,7 @@ export default function CalculatorClient({ faqs }: Props) {
 
     <p className="text-gray-600 leading-8 mt-4">
       This tool is designed as a practical vocabulary translator. It does not
-      claim to recreate Shakespeare's complete grammar, poetry, meter,
+      claim to recreate Shakespeare&apos;s complete grammar, poetry, meter,
       historical context, metaphor or individual authorial voice.
     </p>
 
@@ -1293,7 +1293,7 @@ export default function CalculatorClient({ faqs }: Props) {
     </h2>
 
     <p className="text-gray-600 leading-8">
-      Shakespeare's language cannot always be translated perfectly by
+      Shakespeare&apos;s language cannot always be translated perfectly by
       replacing individual words. Meaning can depend on grammar, metaphor,
       pronunciation, historical usage, wordplay and the surrounding scene.
     </p>
@@ -1303,7 +1303,7 @@ export default function CalculatorClient({ faqs }: Props) {
       <strong> Shakespeare text translator</strong> and learning aid. It is
       useful for understanding vocabulary and creating Shakespeare-inspired
       text, but it should not be treated as a definitive scholarly translation
-      of Shakespeare's works.
+      of Shakespeare&apos;s works.
     </p>
   </section>
 
