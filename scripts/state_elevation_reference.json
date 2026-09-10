@@ -1,0 +1,314 @@
+{
+  "AL": {
+    "mean_ft": 500,
+    "high_point_lat": 33.4854,
+    "high_point_lng": -85.8086,
+    "high_point_ft": 2405
+  },
+  "AK": {
+    "mean_ft": 1900,
+    "high_point_lat": 63.069,
+    "high_point_lng": -151.0063,
+    "high_point_ft": 20310
+  },
+  "AZ": {
+    "mean_ft": 4100,
+    "high_point_lat": 35.3464,
+    "high_point_lng": -111.678,
+    "high_point_ft": 12637
+  },
+  "AR": {
+    "mean_ft": 650,
+    "high_point_lat": 35.1671,
+    "high_point_lng": -93.6447,
+    "high_point_ft": 2753
+  },
+  "CA": {
+    "mean_ft": 2900,
+    "high_point_lat": 36.5786,
+    "high_point_lng": -118.2924,
+    "high_point_ft": 14505
+  },
+  "CO": {
+    "mean_ft": 6800,
+    "high_point_lat": 39.1178,
+    "high_point_lng": -106.4453,
+    "high_point_ft": 14440
+  },
+  "CT": {
+    "mean_ft": 500,
+    "high_point_lat": 42.0496,
+    "high_point_lng": -73.4828,
+    "high_point_ft": 2386
+  },
+  "DE": {
+    "mean_ft": 60,
+    "high_point_lat": 39.836,
+    "high_point_lng": -75.5222,
+    "high_point_ft": 449
+  },
+  "DC": {
+    "mean_ft": 150,
+    "high_point_lat": 38.9517,
+    "high_point_lng": -77.076,
+    "high_point_ft": 414
+  },
+  "FL": {
+    "mean_ft": 100,
+    "high_point_lat": 30.9848,
+    "high_point_lng": -86.2824,
+    "high_point_ft": 345
+  },
+  "GA": {
+    "mean_ft": 600,
+    "high_point_lat": 34.8744,
+    "high_point_lng": -83.8111,
+    "high_point_ft": 4784
+  },
+  "HI": {
+    "mean_ft": 3030,
+    "high_point_lat": 19.8207,
+    "high_point_lng": -155.468,
+    "high_point_ft": 13803
+  },
+  "ID": {
+    "mean_ft": 5000,
+    "high_point_lat": 44.1374,
+    "high_point_lng": -113.7811,
+    "high_point_ft": 12668
+  },
+  "IL": {
+    "mean_ft": 600,
+    "high_point_lat": 42.5041,
+    "high_point_lng": -90.2398,
+    "high_point_ft": 1235
+  },
+  "IN": {
+    "mean_ft": 795,
+    "high_point_lat": 40.0012,
+    "high_point_lng": -84.8487,
+    "high_point_ft": 1257
+  },
+  "IA": {
+    "mean_ft": 1100,
+    "high_point_lat": 43.4602,
+    "high_point_lng": -95.7089,
+    "high_point_ft": 1671
+  },
+  "KS": {
+    "mean_ft": 2000,
+    "high_point_lat": 39.022,
+    "high_point_lng": -102.0371,
+    "high_point_ft": 4041
+  },
+  "KY": {
+    "mean_ft": 750,
+    "high_point_lat": 36.9142,
+    "high_point_lng": -82.8938,
+    "high_point_ft": 4139
+  },
+  "LA": {
+    "mean_ft": 100,
+    "high_point_lat": 32.4249,
+    "high_point_lng": -92.8967,
+    "high_point_ft": 535
+  },
+  "ME": {
+    "mean_ft": 600,
+    "high_point_lat": 45.9044,
+    "high_point_lng": -68.9214,
+    "high_point_ft": 5270
+  },
+  "MD": {
+    "mean_ft": 350,
+    "high_point_lat": 39.2374,
+    "high_point_lng": -79.4855,
+    "high_point_ft": 3370
+  },
+  "MA": {
+    "mean_ft": 500,
+    "high_point_lat": 42.6373,
+    "high_point_lng": -73.1659,
+    "high_point_ft": 3489
+  },
+  "MI": {
+    "mean_ft": 900,
+    "high_point_lat": 46.7557,
+    "high_point_lng": -88.1553,
+    "high_point_ft": 1979
+  },
+  "MN": {
+    "mean_ft": 1200,
+    "high_point_lat": 47.8974,
+    "high_point_lng": -90.5606,
+    "high_point_ft": 2302
+  },
+  "MS": {
+    "mean_ft": 300,
+    "high_point_lat": 34.7877,
+    "high_point_lng": -88.2416,
+    "high_point_ft": 807
+  },
+  "MO": {
+    "mean_ft": 800,
+    "high_point_lat": 37.5713,
+    "high_point_lng": -90.7291,
+    "high_point_ft": 1772
+  },
+  "MT": {
+    "mean_ft": 3400,
+    "high_point_lat": 45.1635,
+    "high_point_lng": -109.8076,
+    "high_point_ft": 12807
+  },
+  "NE": {
+    "mean_ft": 2600,
+    "high_point_lat": 41.0077,
+    "high_point_lng": -104.0314,
+    "high_point_ft": 5432
+  },
+  "NV": {
+    "mean_ft": 5500,
+    "high_point_lat": 37.8461,
+    "high_point_lng": -118.3514,
+    "high_point_ft": 13147
+  },
+  "NH": {
+    "mean_ft": 1000,
+    "high_point_lat": 44.2705,
+    "high_point_lng": -71.3034,
+    "high_point_ft": 6286
+  },
+  "NJ": {
+    "mean_ft": 250,
+    "high_point_lat": 41.3209,
+    "high_point_lng": -74.6616,
+    "high_point_ft": 1802
+  },
+  "NM": {
+    "mean_ft": 5700,
+    "high_point_lat": 36.5568,
+    "high_point_lng": -105.4169,
+    "high_point_ft": 13167
+  },
+  "NY": {
+    "mean_ft": 1000,
+    "high_point_lat": 44.1129,
+    "high_point_lng": -73.9238,
+    "high_point_ft": 5343
+  },
+  "NC": {
+    "mean_ft": 700,
+    "high_point_lat": 35.7649,
+    "high_point_lng": -82.2651,
+    "high_point_ft": 6684
+  },
+  "ND": {
+    "mean_ft": 1900,
+    "high_point_lat": 46.387,
+    "high_point_lng": -103.3027,
+    "high_point_ft": 3506
+  },
+  "OH": {
+    "mean_ft": 850,
+    "high_point_lat": 40.3703,
+    "high_point_lng": -83.7201,
+    "high_point_ft": 1548
+  },
+  "OK": {
+    "mean_ft": 1300,
+    "high_point_lat": 36.9318,
+    "high_point_lng": -102.9979,
+    "high_point_ft": 4975
+  },
+  "OR": {
+    "mean_ft": 3300,
+    "high_point_lat": 45.3735,
+    "high_point_lng": -121.696,
+    "high_point_ft": 11249
+  },
+  "PA": {
+    "mean_ft": 1100,
+    "high_point_lat": 39.786,
+    "high_point_lng": -79.1768,
+    "high_point_ft": 3213
+  },
+  "RI": {
+    "mean_ft": 200,
+    "high_point_lat": 41.8493,
+    "high_point_lng": -71.7789,
+    "high_point_ft": 811
+  },
+  "SC": {
+    "mean_ft": 350,
+    "high_point_lat": 35.0651,
+    "high_point_lng": -82.7773,
+    "high_point_ft": 3554
+  },
+  "SD": {
+    "mean_ft": 2200,
+    "high_point_lat": 43.866,
+    "high_point_lng": -103.5312,
+    "high_point_ft": 7244
+  },
+  "TN": {
+    "mean_ft": 900,
+    "high_point_lat": 35.5629,
+    "high_point_lng": -83.4986,
+    "high_point_ft": 6643
+  },
+  "TX": {
+    "mean_ft": 1700,
+    "high_point_lat": 31.8915,
+    "high_point_lng": -104.8607,
+    "high_point_ft": 8751
+  },
+  "UT": {
+    "mean_ft": 6100,
+    "high_point_lat": 40.7763,
+    "high_point_lng": -110.3729,
+    "high_point_ft": 13534
+  },
+  "VT": {
+    "mean_ft": 1000,
+    "high_point_lat": 44.5438,
+    "high_point_lng": -72.8144,
+    "high_point_ft": 4395
+  },
+  "VA": {
+    "mean_ft": 950,
+    "high_point_lat": 36.6601,
+    "high_point_lng": -81.5449,
+    "high_point_ft": 5711
+  },
+  "WA": {
+    "mean_ft": 1700,
+    "high_point_lat": 46.8529,
+    "high_point_lng": -121.7604,
+    "high_point_ft": 14400
+  },
+  "WV": {
+    "mean_ft": 1500,
+    "high_point_lat": 38.6998,
+    "high_point_lng": -79.533,
+    "high_point_ft": 4862
+  },
+  "WI": {
+    "mean_ft": 1050,
+    "high_point_lat": 45.4508,
+    "high_point_lng": -90.1954,
+    "high_point_ft": 1951
+  },
+  "WY": {
+    "mean_ft": 6700,
+    "high_point_lat": 43.1844,
+    "high_point_lng": -109.6543,
+    "high_point_ft": 13809
+  },
+  "PR": {
+    "mean_ft": 856,
+    "high_point_lat": 18.1722,
+    "high_point_lng": -66.5917,
+    "high_point_ft": 4390
+  }
+}
