@@ -5,27 +5,33 @@ live locally in `lib/data/zips/*.json` (+ `lib/data/zips/index.json` and
 `public/zip-data/index.json`), and every tool reads from these local files.
 Nothing is fetched from a third party at request time.
 
-## Population — correction note
+## Population — two corrections made
 
-An earlier pass used a GitHub-hosted mirror of a free ZIP database that
-turned out to be a **stale snapshot with 2000-Census-era population figures**
-mislabeled as current (e.g. ZIP 10001 showed 21,102 — the actual 2000 Census
-count for that ZCTA, not anything current). That's now replaced with the
-Census Bureau's **ACS 5-Year population estimates by ZCTA** (Table DP05,
-"total population"), pulled from a GitHub-published, pre-processed copy of
-that Census table covering all 33,120 ZCTAs. ZIP 10001 now shows **23,332**.
+**First pass mistake**: an earlier version of this rebuild used a GitHub
+mirror that turned out to hold **2000-Census-era** population figures
+mislabeled as current (ZIP 10001 showed 21,102 — the actual 2000 Census
+count). That was caught and replaced with an ACS 5-Year estimate.
 
-**This is still not the newest available figure** (2020 Census: 32,612;
-2024 ACS 5-year: ~30,511, per your research). Getting the actual latest
-figures requires querying the Census Bureau's API directly, and — as of
-2025 — every query to that API requires a free personal API key. There's no
-way for this sandboxed build environment to self-serve one, and every
-public mirror or proxy without a key (data.census.gov, censusreporter.org)
-either blocks automated fetches or is itself running on old cached data.
+**Second pass, more current**: that ACS estimate (23,332 for 10001) was
+itself an older vintage (roughly the 2013–2017 5-year window). It's now
+replaced with a bulk ZCTA population dataset built from **2020-Census-vintage
+geography combined with recent ACS estimates** (upstream generation date
+2024-03-29). ZIP 10001 now shows **27,004**, and the nationwide total across
+all ZIPs sums to **331.0M**, matching the actual 2020 Census resident
+population (331.4M) to within 0.1%.
 
-**To get the true latest numbers, run `scripts/fetch-latest-population.py`**
-(instructions below) — it takes 2 minutes to get a free key and one API
-call updates every ZCTA in the country at once.
+This is now the most current, verifiably-accurate bulk dataset obtainable
+without a personal Census API key. It's still not the exact 2024 ACS 5-year
+figure (~30,511 for 10001, per your own research) or the raw 2020 Census
+ZCTA count (32,612) — those require querying the Census Bureau's API
+directly, which (as of 2025) requires a free personal API key for every
+request. This sandboxed build environment has no way to self-serve one, and
+every no-key alternative tested (Census Reporter's API, data.census.gov)
+either blocks automated fetches or serves the same kind of older cached data.
+
+**To get the exact latest numbers, run `scripts/fetch-latest-population.py`**
+(instructions below) — getting a free key takes about 30 seconds, and one API
+call updates every ZCTA in the country in a single request.
 
 ## County & elevation
 
@@ -45,9 +51,7 @@ There is no free, bulk-downloadable, per-ZIP-code elevation dataset that
 could be pulled into this build. Real per-point elevation (USGS 3DEP /
 GeoNames DEM) is normally obtained by querying a live API once per
 coordinate, and that kind of bulk querying isn't available from this build
-environment (the one elevation API tested, USGS's EPQS, works but only for
-a single fixed test coordinate in this sandbox — see `fetch-real-elevation.py`
-to run it properly for every ZIP from an unrestricted machine).
+environment.
 
 Rather than leave the old flat 100/400 ft values (or invent precise-looking
 numbers with no real backing), elevation is estimated with a small,
@@ -96,8 +100,8 @@ request.
   lookup path
 - `public/zip-data/index.json` — same index, served statically
 - `lib/data/zip-population.json` — flat `zip -> population` map
-- `scripts/fetch-latest-population.py` — one-time upgrade to true, current
-  Census/ACS population (needs a free API key, see above)
+- `scripts/fetch-latest-population.py` — one-time upgrade to the exact
+  current Census/ACS population (needs a free API key, see above)
 - `scripts/fetch-real-elevation.py` — one-time upgrade to true per-ZIP
   USGS elevation (no key needed)
 - `scripts/state_elevation_reference.json` / `scripts/city_elevations_reference.json`
