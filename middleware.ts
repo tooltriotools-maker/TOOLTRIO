@@ -55,6 +55,12 @@ const removedCommodityPrefixes = [
 const publishedBlogSlugs = new Set(publishedBlogPosts.map(post => post.slug))
 const publishedBlogCategorySlugs = new Set(blogCategories.map(category => category.slug))
 
+function goneResponse() {
+  return new NextResponse('Gone', {
+    status: 410,
+    headers: BASE_GONE_HEADERS,
+  })
+}
 
 function handleLegacyFunCalculatorPath(pathname: string, request: NextRequest) {
   const normalized = pathname.replace(/\/+$/, '') || '/'

@@ -252,7 +252,7 @@ export function DownloadPDFButton({ title, category = 'Finance' }: Props) {
         setState('idle')
       }
     }
-  }, [state, title, category, accent])
+  }, [state, title, accent])
 
   return (
     <>
