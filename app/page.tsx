@@ -183,7 +183,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="page-title font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-              &apos;Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode ,ZIP Code Finder &amp; Location Toolkit | ToolTrio&apos; &amp; ZIP+4{' '}
+              Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode ,ZIP Code Finder &amp; Location Toolkit | ToolTrio &amp; ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
