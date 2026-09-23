@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
-        title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
+        title: 'Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode,ZIP+4 Tools US ,ZIP Code Finder & Location Toolkit | ToolTrio',
     description:
       'ZIP Code Lookup, ZIP Code Distance, ZIP to Timezone, ZIP to Coordinates and ZIP+4 tools for US ZIP codes. Free, fast and easy to use with no signup.',
     url: 'https://tooltrio.com',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-     title: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
+     title: 'Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode,ZIP+4 Tools US ,ZIP Code Finder & Location Toolkit | ToolTrio',
     description: 'Free US ZIP code tools for lookup, distance, timezone, coordinates and ZIP+4, plus fun tools. No signup required.',
     images: ['/og-image.png'],
   },
@@ -183,15 +183,19 @@ export default function HomePage() {
           </div>
 
           <h1 className="page-title font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-              Free US ZIP Code Lookup, Distance, Timezone & ZIP+4{' '}
+              'Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode ,ZIP Code Finder & Location Toolkit | ToolTrio', & ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-            Find a US ZIP code, measure distance between ZIP codes, identify a ZIP code&apos;s timezone, get ZIP coordinates, or look up ZIP+4 information. These five ZIP tools are the core of ToolTrio&apos;s location toolkit — free, fast and available without signup.
+           Find a US ZIP code with our ZIP Code Finder, explore ZIP Code Maps, calculate distances between ZIP codes with the ZIP Distance Calculator, identify a ZIP code\'s timezone, find ZIP code coordinates, and look up ZIP+4 information. These five ZIP code tools are the core of ToolTrio\'s location toolkit — free, fast, easy to use, and available without signup.
+
           </p>
 
           <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: '#94a3b8' }}>
-            Look up city, state, county and timezone; calculate ZIP-to-ZIP distance; find ZIP+4 information; get latitude and longitude coordinates; or identify the timezone for a ZIP code. All five tools are free to use.
+            Look up a valid US ZIP code by city, state, county, or address with our free ZIP Code Finder. Explore an interactive ZIP Code Map, find ZIP code locations and coordinates, check ZIP code time zones, and calculate the distance between ZIP codes with our ZIP Distance Calculator. You can also use the ZIP+4 Lookup to find a 9-digit ZIP code, ZIP code plus 4 digits, or full ZIP+4 information. Learn about US ZIP code format, postal code format, USPS address format, and how ZIP+4 codes are used for accurate mail delivery. All five ZIP code tools are free, fast, and available without signup.
+
+
+
             <br />
             <span>Also searched as Tool Trio, Trio Tools, Tools Trio and Toolstrio.</span>
           </p>
