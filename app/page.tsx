@@ -6,7 +6,7 @@ import { publicBlogPosts } from '@/lib/blog/posts'
 
 export const metadata: Metadata = {
   title: {
-      absolute: 'Free US ZIP Code Lookup, Distance, Timezone & ZIP+4 Tools | ToolTrio',
+      absolute: 'Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode,ZIP+4 Tools US ,ZIP Code Finder & Location Toolkit | ToolTrio',
   },
     description:
         'Free US ZIP code tools for ZIP lookup, ZIP-to-ZIP distance, timezone lookup, ZIP coordinates and ZIP+4. Use 35+ practical ZIP tools for location, mailing and geographic lookups with instant results and no signup.',
