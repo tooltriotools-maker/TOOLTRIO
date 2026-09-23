@@ -183,11 +183,11 @@ export default function HomePage() {
           </div>
 
           <h1 className="page-title font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
-              'Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode ,ZIP Code Finder & Location Toolkit | ToolTrio', & ZIP+4{' '}
+              &apos;Free US ZIP Code Lookup,ZIP Distance,ZIP Code Map,time zone by zipcode ,ZIP Code Finder &amp; Location Toolkit | ToolTrio&apos; &amp; ZIP+4{' '}
           </h1>
 
           <p className="text-lg md:text-xl mb-3 max-w-2xl mx-auto" style={{ color: '#475569' }}>
-           Find a US ZIP code with our ZIP Code Finder, explore ZIP Code Maps, calculate distances between ZIP codes with the ZIP Distance Calculator, identify a ZIP code\'s timezone, find ZIP code coordinates, and look up ZIP+4 information. These five ZIP code tools are the core of ToolTrio\'s location toolkit — free, fast, easy to use, and available without signup.
+           Find a US ZIP code with our ZIP Code Finder, explore ZIP Code Maps, calculate distances between ZIP codes with the ZIP Distance Calculator, identify a ZIP code&apos;s timezone, find ZIP code coordinates, and look up ZIP+4 information. These five ZIP code tools are the core of ToolTrio&apos;s location toolkit — free, fast, easy to use, and available without signup.
 
           </p>
 

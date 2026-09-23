@@ -7,13 +7,7 @@ import { ChevronRight, Copy, Check } from 'lucide-react'
 
 interface Props { faqs: { question: string; answer: string }[] }
 
-export default function CalculatorClient({ faqs }: Props) {
-
-  const [text, setText] = useState('HELLO WORLD')
-  const [mode, setMode] = useState<'encode'|'decode'>('encode')
-  const [copied, setCopied] = useState(false)
-
-  const MORSE: Record<string,string> = {
+const MORSE: Record<string,string> = {
     A:'.-', B:'-...', C:'-.-.', D:'-..', E:'.', F:'..-.', G:'--.', H:'....', 
     I:'..', J:'.---', K:'-.-', L:'.-..', M:'--', N:'-.', O:'---', P:'.--.',
     Q:'--.-', R:'.-.', S:'...', T:'-', U:'..-', V:'...-', W:'.--', X:'-..-',
@@ -22,7 +16,15 @@ export default function CalculatorClient({ faqs }: Props) {
     '.':'.-.-.-', ',':'--..--', '?':'..--..', '/':'-..-.', '-':'-....-',
     '(':'-.--.', ')':'-.--.-'
   }
-  const REV = Object.fromEntries(Object.entries(MORSE).map(([k,v])=>[v,k]))
+const REV = Object.fromEntries(Object.entries(MORSE).map(([k,v])=>[v,k]))
+
+export default function CalculatorClient({ faqs }: Props) {
+
+  const [text, setText] = useState('HELLO WORLD')
+  const [mode, setMode] = useState<'encode'|'decode'>('encode')
+  const [copied, setCopied] = useState(false)
+
+
 
   const output = useMemo(() => {
     if (mode==='encode') {
