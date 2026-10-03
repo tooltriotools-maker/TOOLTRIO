@@ -11,8 +11,8 @@ const zipLinks = [
   ['ZIPs in Radius', '/zip/zips-within-radius'],
   ['ZIP Timezone', '/zip/zip-to-timezone'],
   ['ZIP Code Map', '/zip/zip-code-map'],
-  ['ZIP Validator', '/zip/zip-code-validator'],
-  ['USPS Address Format', '/zip/usps-address-format'],
+  ['Valid ZIP Code', '/zip/zip-code-validator'],
+  ['USPS Mailing Address Format', '/zip/usps-address-format'],
   ['All ZIP Tools →', '/zip'],
 ]
 
@@ -97,6 +97,28 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Popular search links — useful navigation, not a keyword list */}
+        <div className="border-t border-gray-800 pt-8 mb-8">
+          <h2 className="font-bold text-white text-sm mb-4">Popular ZIP Code Searches</h2>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {[
+              ['ZIP Code Lookup', '/zip/zip-code-lookup'],
+              ['Valid ZIP Code', '/zip/zip-code-validator'],
+              ['ZIP Code Map', '/zip/zip-code-map'],
+              ['ZIP+4 Lookup', '/zip/zip-plus-4-lookup'],
+              ['USPS Mailing Address Format', '/zip/usps-address-format'],
+              ['Time Zone by ZIP Code', '/zip/zip-to-timezone'],
+              ['ZIP Code Distance', '/zip/zip-code-distance'],
+              ['ZIP Code Coordinates', '/zip/zip-to-coordinates'],
+              ['ZIP Codes Within Radius', '/zip/zips-within-radius'],
+            ].map(([name, href]) => (
+              <Link key={href} href={href} className="text-gray-500 hover:text-green-400 transition-all">
+                {name}
+              </Link>
+            ))}
           </div>
         </div>
 

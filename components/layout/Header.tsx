@@ -19,8 +19,8 @@ const NAV = [
     ],
   },
   {
-    key: 'address', label: 'ZIP+4 & Address', emoji: '✉️', color: 'green',
-    href: '/zip/zip-plus-4-lookup', viewAll: 'ZIP+4 & Address Tools →',
+    key: 'address', label: 'ZIP+4', emoji: '✉️', color: 'green',
+    href: '/zip/zip-plus-4-lookup', viewAll: 'ZIP+4 Tools →',
     items: [
       { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup', emoji: '➕' },
       { name: 'USPS Mailing Address Format', href: '/zip/usps-address-format', emoji: '📬' },

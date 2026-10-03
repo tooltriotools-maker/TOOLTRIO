@@ -120,8 +120,8 @@ const homepageToolLinks = [
   { name: 'ZIP Code to City Lookup', desc: 'Identify the city associated with a ZIP', href: '/zip/zip-to-city', icon: '🏙️' },
   { name: 'City ZIP Code Finder', desc: 'Find ZIP codes for a US city', href: '/zip/city-to-zip', icon: '🗺️' },
   { name: 'ZIP Codes Near Me by Radius', desc: 'Find ZIP codes within a chosen radius', href: '/zip/zips-within-radius', icon: '🎯' },
-  { name: 'US ZIP Code Map', desc: 'Explore ZIP Code Tabulation Area boundaries', href: '/zip/zip-code-map', icon: '🗾' },
-  { name: 'ZIP Code Validator', desc: 'Check whether a US ZIP code is valid', href: '/zip/zip-code-validator', icon: '✅' },
+  { name: 'ZIP Code Map', desc: 'Explore ZIP Code Tabulation Area boundaries', href: '/zip/zip-code-map', icon: '🗺️' },
+  { name: 'Valid ZIP Code', desc: 'Check whether a US ZIP code is valid', href: '/zip/zip-code-validator', icon: '✅' },
   { name: 'USPS Mailing Address Format', desc: 'See the standard format for US mailing addresses', href: '/zip/usps-address-format', icon: '✉️' },
   { name: 'Address to ZIP Code Finder', desc: 'Find a ZIP code from a US address', href: '/zip/address-to-zip', icon: '🏠' },
   { name: 'Area Code by ZIP Code', desc: 'Find telephone area codes associated with a ZIP', href: '/zip/area-code-by-zip', icon: '☎️' },
@@ -151,11 +151,12 @@ const homepageToolLinks = [
 
 const keywordCategories = [
   { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', desc: 'Find a ZIP, city, state or county' },
-  { name: 'ZIP+4 & Mailing Address', href: '/zip/zip-plus-4-lookup', desc: 'ZIP+4 and address-format help' },
-  { name: 'ZIP Code Validator', href: '/zip/zip-code-validator', desc: 'Check valid US ZIP codes' },
+  { name: 'ZIP+4', href: '/zip/zip-plus-4-lookup', desc: 'Find ZIP+4 information for US postal codes' },
+  { name: 'USPS Mailing Address Format', href: '/zip/usps-address-format', desc: 'Format a US mailing address correctly' },
+  { name: 'Valid ZIP Code', href: '/zip/zip-code-validator', desc: 'Check valid US ZIP codes' },
   { name: 'ZIP Distance & Radius', href: '/zip/zip-code-distance', desc: 'Distance, radius and route tools' },
   { name: 'ZIP Time Zones', href: '/zip/zip-to-timezone', desc: 'Time zone lookup and maps' },
-  { name: 'ZIP Maps & Geography', href: '/zip/zip-code-map', desc: 'Maps, coordinates and boundaries' },
+  { name: 'ZIP Code Map', href: '/zip/zip-code-map', desc: 'Maps, coordinates and boundaries' },
 ]
 
 
