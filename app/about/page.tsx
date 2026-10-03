@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { publishedBlogPosts } from '@/lib/blog/posts'
 
 const siteUrl = 'https://tooltrio.com'
 const contactEmail = 'tooltrio.tools@gmail.com'
@@ -41,7 +42,7 @@ export default function AboutPage() {
       </header>
 
       <section className="grid md:grid-cols-3 gap-5 mb-10">
-        {[['35+', 'US ZIP tools'], ['21', 'ZIP Code guides'], ['0', 'required signups']].map(([value,label]) => <div key={label} className="bg-white rounded-2xl border border-gray-200 p-6 text-center shadow-sm"><div className="text-3xl font-black text-gray-900">{value}</div><div className="text-sm font-semibold text-gray-500 mt-1">{label}</div></div>)}
+        {[['35+', 'US ZIP tools'], [String(publishedBlogPosts.length), 'ZIP Code guides'], ['0', 'required signups']].map(([value,label]) => <div key={label} className="bg-white rounded-2xl border border-gray-200 p-6 text-center shadow-sm"><div className="text-3xl font-black text-gray-900">{value}</div><div className="text-sm font-semibold text-gray-500 mt-1">{label}</div></div>)}
       </section>
 
       <section className="bg-white rounded-3xl border border-gray-200 shadow-sm p-8 md:p-10 mb-8">

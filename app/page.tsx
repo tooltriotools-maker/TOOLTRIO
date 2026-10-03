@@ -9,7 +9,7 @@ export const metadata: Metadata = {
       absolute: 'Free ZIP Code Finder & Lookup Tools | ToolTrio',
   },
     description:
-        'Free ZIP Code Finder and ZIP Code Lookup tools for US ZIP codes. Find ZIP codes, ZIP+4, distance, maps, time zones, coordinates and more with 35+ free ZIP tools.',
+        'Free ZIP Code Finder and ZIP Code Lookup tools for US ZIP codes. Find ZIP codes, ZIP+4, distance, maps, time zones, coordinates and more with free ZIP tools.',
 
   keywords: [
     'zip code lookup',
@@ -211,16 +211,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 mt-10">
-            {[
-              { val: '35+', label: 'ZIP Code Tools' },
-            ].map(s => (
-              <div key={s.label} className="text-center">
-                <div className="text-2xl font-black" style={{ color: '#16a34a' }}>{s.val}</div>
-                <div className="text-xs mt-0.5" style={{ color: '#94a3b8' }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -252,7 +242,7 @@ export default function HomePage() {
               <p className="text-sm text-gray-500 mt-1">Common ZIP-code tasks, with clear names that take you directly to the right tool.</p>
             </div>
             <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700 hidden sm:block">
-              Browse all 35+ tools →
+              Browse all tools →
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -303,8 +293,23 @@ export default function HomePage() {
               View all ZIP guides →
             </Link>
           </div>
+          {publicBlogPosts.filter(post => post.slug === 'mountain-time-zip-codes').map(post => (
+            <Link key={`featured-${post.slug}`} href={`/blog/${post.slug}`} className="group mb-5 block rounded-3xl border border-green-200 bg-gradient-to-r from-green-50 via-white to-blue-50 p-6 shadow-sm hover:shadow-lg hover:border-green-300 transition-all">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-100 border border-green-200 text-green-700">🏔️ Featured Guide</span>
+                    <span className="text-xs text-gray-400">{post.readTime}</span>
+                  </div>
+                  <h3 className="text-xl font-black text-gray-900 group-hover:text-green-700 transition-colors leading-tight">Mountain Time ZIP Codes: States, Examples & Lookup</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mt-2 max-w-3xl">List ZIP codes for Mountain Time, understand MST vs MDT, check split-state areas, and find the exact time zone for a ZIP code.</p>
+                </div>
+                <span className="shrink-0 inline-flex items-center justify-center rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-bold text-white group-hover:bg-green-700 transition-colors">Read Mountain Time Guide →</span>
+              </div>
+            </Link>
+          ))}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {publicBlogPosts.filter(post => post.categorySlug === 'zip-codes').slice(0, 6).map(post => (
+            {publicBlogPosts.filter(post => post.categorySlug === 'zip-codes' && post.slug !== 'mountain-time-zip-codes').slice(0, 6).map(post => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group p-5 rounded-2xl border bg-white hover:border-green-300 hover:shadow-lg transition-all">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-green-50 border border-green-200 text-green-700">📮 ZIP Guide</span>
@@ -408,7 +413,7 @@ export default function HomePage() {
             {[
               {
                 q: 'What is ToolTrio?',
-                a: 'ToolTrio is a free online tools website focused on 35+ US ZIP code tools. No signup required.',
+                a: 'ToolTrio is a free online tools website focused on US ZIP code tools. No signup required.',
               },
               {
                 q: 'How do I find the city and state for a ZIP code?',
@@ -428,7 +433,7 @@ export default function HomePage() {
               },
               {
                 q: 'What public tool categories does ToolTrio offer?',
-                a: 'ToolTrio provides 35+ US ZIP code tools covering lookup, distance, ZIP+4, timezone, coordinates and radius searches.',
+                a: 'ToolTrio provides US ZIP code tools covering lookup, distance, ZIP+4, timezone, coordinates and radius searches.',
               },
               {
                 q: 'Is ToolTrio also called Tool Trio or Trio Tools?',

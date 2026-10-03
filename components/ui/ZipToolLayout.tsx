@@ -612,7 +612,7 @@ export function ZipToolLayout({ title, description, icon, children, relatedTools
  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
 >
 
-View all 35+ ZIP Tools
+View all ZIP Tools
 
 <span>→</span>
 
@@ -680,7 +680,7 @@ View all 35+ ZIP Tools
             <h3 className="font-black text-gray-900 text-base">ToolTrio — Free ZIP Code Tool Suite</h3>
           </div>
           <p className="text-xs text-gray-600 leading-relaxed mb-3">
-            TOOLTRIO (also searched as <em>Tool Trio</em>, <em>ToolTrio</em>, <em>Trio Tools</em>) is a free suite of 35+ US ZIP code tools. No signup, no rate limits. Every tool is free forever on tooltrio.com.
+            TOOLTRIO (also searched as <em>Tool Trio</em>, <em>ToolTrio</em>, <em>Trio Tools</em>) is a free suite of US ZIP code tools. No signup, no rate limits. Every tool is free forever on tooltrio.com.
           </p>
           <div className="flex flex-wrap gap-2">
             {[
@@ -689,7 +689,7 @@ View all 35+ ZIP Tools
               ['📏 ZIP Distance','/zip/zip-code-distance'],
               ['🎯 ZIPs in Radius','/zip/zips-within-radius'],
               ['👥 ZIP Population','/zip/zip-code-population'],
-              ['✅ ZIP Validator','/zip/zip-code-validator'],
+              ['✅ Valid ZIP Code','/zip/zip-code-validator'],
             ].map(([label, href]) => (
               <Link key={href} href={href} className="text-xs bg-white border border-green-200 text-green-700 hover:bg-green-600 hover:text-white hover:border-green-600 rounded-lg px-3 py-1.5 font-medium transition-all">
                 {label}

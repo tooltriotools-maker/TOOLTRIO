@@ -106,3 +106,11 @@ request.
   USGS elevation (no key needed)
 - `scripts/state_elevation_reference.json` / `scripts/city_elevations_reference.json`
   — the reference data used to model elevation, for transparency/auditing
+
+## Time-zone blog accuracy — reviewed 2026-10-03
+
+The ZIP time-zone article cluster was reviewed against the current IANA Time Zone Database release 2026e (released 2026-09-29), the U.S. Department of Transportation's official time-zone framework / 49 CFR Part 71, and NIST's U.S. local-time offset guidance.
+
+Important distinction: IANA/NIST/DOT provide current time-zone rules and boundaries, but USPS does not publish a single official ZIP-to-time-zone directory. The article examples therefore come from the site's bundled static ZIP dataset and are explicitly presented as representative examples, not as an official or exhaustive 2026 USPS ZIP/time-zone directory. No API is called when the blog page renders.
+
+The article charts use authoritative UTC-offset facts rather than the project's internal ZIP-record counts. This avoids presenting a static internal dataset count as a current USPS statistic.

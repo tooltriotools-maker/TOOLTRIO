@@ -91,7 +91,7 @@ export default async function BlogPost({ params }: Props) {
               <ShareButton title={post.title} description={post.excerpt} category="ZIP" />
             </div>
             <div className="mt-7 pt-5 border-t border-slate-200/70 flex flex-wrap gap-x-6 gap-y-2 text-xs md:text-sm text-slate-500">
-              <span>By <strong className="text-slate-700">{post.author}</strong></span><span>Published {post.publishedAt}</span><span>Refreshed {post.updatedAt ?? post.publishedAt}</span><span>21-guide ZIP knowledge cluster</span>
+              <span>By <strong className="text-slate-700">{post.author}</strong></span><span>Published {post.publishedAt}</span><span>Refreshed {post.updatedAt ?? post.publishedAt}</span><span>{publishedBlogPosts.length}-guide ZIP knowledge cluster</span>
             </div>
           </div>
         </header>

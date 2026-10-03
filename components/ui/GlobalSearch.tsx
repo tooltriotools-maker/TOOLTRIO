@@ -98,7 +98,7 @@ export function GlobalSearch({ className }: { className?: string }) {
         aria-label="Search calculators and guides"
       >
         <Search className="w-3.5 h-3.5 text-gray-400 group-hover:text-green-500 flex-shrink-0" />
-        <span className="flex-1 text-left text-sm">Search {TOTAL}+ tools...</span>
+        <span className="flex-1 text-left text-sm">Search ZIP tools & guides...</span>
         <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] bg-gray-100 text-gray-400 border border-gray-200 font-mono">⌘K</kbd>
       </button>
 
@@ -113,7 +113,7 @@ export function GlobalSearch({ className }: { className?: string }) {
               type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder={`Search ${TOTAL}+ calculators & guides...`}
+              placeholder={`Search ZIP tools & guides...`}
               className="flex-1 bg-transparent text-sm text-gray-900 placeholder-gray-400 outline-none"
               autoComplete="off"
               spellCheck={false}
@@ -216,7 +216,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                   ))}
                 </div>
                 <p className="text-center text-[11px] text-gray-400 mt-2 pb-1">
-                  {TOTAL} total tools -- type to search all
+                  Type to search ZIP tools and guides
                 </p>
               </div>
             )}

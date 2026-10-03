@@ -26,9 +26,9 @@ export const blogCategories = [
 export { zipBlogPosts as blogPosts } from './zipBlogPosts'
 import { zipBlogPosts } from './zipBlogPosts'
 
-export const publishedBlogPosts = zipBlogPosts
+export const publishedBlogPosts = [...zipBlogPosts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 export const scheduledBlogPosts: BlogPost[] = []
-export const publicBlogPosts = zipBlogPosts
+export const publicBlogPosts = publishedBlogPosts
 
 export const isBlogPostPublished = (post: BlogPost, now = new Date()): boolean => {
   if (!post.publishedAt) return false

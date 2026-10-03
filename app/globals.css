@@ -778,3 +778,70 @@ header nav button:hover {
     font-size: clamp(1.6rem, 7vw, 2rem) !important;
   }
 }
+
+/* ── FINAL MOBILE WEB-APP SAFETY ──────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Never allow a control or card to create page-level horizontal scroll. */
+  main, section, article, aside, header, footer, nav, form, [role="main"] {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  button, a, input, select, textarea {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  button, a {
+    overflow-wrap: anywhere;
+  }
+
+  /* Tool input/action rows: stack or wrap instead of pushing buttons off-screen. */
+  .flex > button,
+  .flex > a,
+  form > button,
+  form > a {
+    min-width: 0;
+  }
+
+  /* Base Tailwind grids used by several tools need a comfortable mobile layout. */
+  [class~="grid-cols-5"],
+  [class~="grid-cols-4"],
+  [class~="grid-cols-3"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Keep two-column tool forms readable on very narrow screens. */
+  .grid.grid-cols-2 > * {
+    min-width: 0;
+  }
+
+  /* Tool cards and content panels should not force their children wider than the viewport. */
+  .rounded-2xl, .rounded-3xl, .rounded-xl {
+    min-width: 0;
+  }
+
+  /* Long labels/buttons remain inside the card. */
+  .whitespace-nowrap {
+    white-space: normal !important;
+  }
+
+  /* Preserve horizontal scrolling only where it is intentional. */
+  .overflow-x-auto,
+  .table-scroll-wrap,
+  .calc-table-wrap {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Extra-small phones: use one column for dense tool controls. */
+  .grid.grid-cols-2 > .col-span-2 {
+    grid-column: span 1 / span 1;
+  }
+
+  .calc-header-buttons button,
+  .calc-header-buttons a {
+    width: 100%;
+  }
+}
