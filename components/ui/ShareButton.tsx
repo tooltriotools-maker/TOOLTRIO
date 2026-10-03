@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
-type ShareCategory = 'Fun' | 'ZIP'
+type ShareCategory = 'ZIP'
 
 interface ShareButtonProps {
   title: string
@@ -14,7 +14,6 @@ interface ShareButtonProps {
 
 // ─── Category accent colours ───────────────────────────────────────────────────
 const ACCENTS: Record<ShareCategory, { bg: string; light: string; text: string; border: string }> = {
-  Fun:         { bg: '#7c3aed', light: '#f5f3ff', text: '#6d28d9', border: '#ddd6fe' },
   ZIP:         { bg: '#0284c7', light: '#f0f9ff', text: '#0369a1', border: '#bae6fd' },
 }
 
@@ -105,12 +104,12 @@ function CheckIcon() {
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────
-export function ShareButton({ title, description = '', category = 'Fun', url }: ShareButtonProps) {
+export function ShareButton({ title, description = '', category = 'ZIP', url }: ShareButtonProps) {
   const [open, setOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [pageUrl, setPageUrl] = useState(url || '')
   const modalRef = useRef<HTMLDivElement>(null)
-  const accent = ACCENTS[category] ?? ACCENTS.Fun
+  const accent = ACCENTS[category] ?? ACCENTS.ZIP
 
   // Resolve URL client-side
   useEffect(() => {

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useCallback } from 'react'
 
-export type ExportCategory = 'Finance' | 'Health' | 'Dev' | 'Fun' | string
+export type ExportCategory = string
 
 interface Props {
   title: string
@@ -13,7 +13,6 @@ const ACCENT: Record<string, string> = {
   Finance: '#16a34a',
   Health:  '#ef4444',
   Dev:     '#3b82f6',
-  Fun:     '#8b5cf6',
 }
 
 // ── Load a script from CDN once ───────────────────────────────────────────────

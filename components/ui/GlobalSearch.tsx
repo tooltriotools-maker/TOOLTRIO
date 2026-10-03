@@ -1,11 +1,10 @@
 'use client'
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { Search, X, Smile, BookOpen, BarChart2 } from 'lucide-react'
+import { Search, X, BookOpen, BarChart2 } from 'lucide-react'
 import { PUBLIC_TOOL_REGISTRY, BLOG_CATALOG, TOOL_COUNTS } from '@/lib/catalog'
 
 const CAT_META: Record<string, { color: string; bg: string; icon: React.ReactNode }> = {
-  Fun:     { color: 'text-purple-600',bg: 'bg-purple-100',icon: <Smile className="w-3 h-3" /> },
   Blog:    { color: 'text-orange-600',bg: 'bg-orange-100',icon: <BookOpen className="w-3 h-3" /> },
   ZIP:     { color: 'text-cyan-600',  bg: 'bg-cyan-100',  icon: <BarChart2 className="w-3 h-3" /> },
 }
@@ -15,7 +14,6 @@ const TRENDING: { name: string; href: string; cat: string }[] = [
 
 const PUBLIC_BLOG_CATALOG = BLOG_CATALOG
 const BLOG_COUNT = PUBLIC_BLOG_CATALOG.length
-const FUN_COUNT = TOOL_COUNTS.fun
 const ZIP_COUNT = TOOL_COUNTS.zip
 const TOTAL = PUBLIC_TOOL_REGISTRY.length + BLOG_COUNT
 const ITEMS = [
@@ -86,7 +84,7 @@ export function GlobalSearch({ className }: { className?: string }) {
     return () => document.removeEventListener('keydown', handler)
   }, [open, openSearch, closeSearch])
 
-  const tabs = ['All', 'Fun', 'ZIP', 'Blog']
+  const tabs = ['All', 'ZIP', 'Blog']
 
   return (
     <div ref={containerRef} className={`relative ${className || ''}`}>
@@ -156,7 +154,7 @@ export function GlobalSearch({ className }: { className?: string }) {
                     {filtered.length} result{filtered.length !== 1 ? 's' : ''}{activeTab !== 'All' ? ` in ${activeTab}` : ''}
                   </p>
                   {filtered.map(item => {
-                    const meta = CAT_META[item.cat] || CAT_META.Fun
+                    const meta = CAT_META[item.cat] || CAT_META.ZIP
                     return (
                       <Link
                         key={item.href}
@@ -181,14 +179,14 @@ export function GlobalSearch({ className }: { className?: string }) {
                 <div className="p-8 text-center">
                   <Search className="w-8 h-8 text-gray-300 mx-auto mb-3" />
                   <p className="text-sm font-semibold text-gray-600 mb-1">No results for &quot;{query}&quot;</p>
-                  <p className="text-xs text-gray-400">Try &quot;ZIP&quot;, &quot;Fun&quot;, or a tool name</p>
+                  <p className="text-xs text-gray-400">Try &quot;ZIP&quot; or a tool name</p>
                 </div>
               )
             ) : (
               <div className="p-3">
                 <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider px-2 py-1.5">🔥 Trending</p>
                 {TRENDING.map(item => {
-                  const meta = CAT_META[item.cat] || CAT_META.Fun
+                  const meta = CAT_META[item.cat] || CAT_META.ZIP
                   return (
                     <Link
                       key={item.href}
@@ -202,9 +200,8 @@ export function GlobalSearch({ className }: { className?: string }) {
                     </Link>
                   )
                 })}
-                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-4 gap-1 px-2">
+                <div className="mt-3 pt-2 border-t border-gray-100 grid grid-cols-3 gap-1 px-2">
                   {[
-                    ['Fun', FUN_COUNT, 'text-purple-600 bg-purple-50'],
                     ['ZIP', ZIP_COUNT, 'text-cyan-600 bg-cyan-50'],
                     ['Blog', BLOG_COUNT, 'text-orange-600 bg-orange-50'],
                   ].map(([cat, count, cls]) => (

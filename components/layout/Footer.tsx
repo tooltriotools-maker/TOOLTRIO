@@ -17,15 +17,6 @@ const zipLinks = [
 ]
 
 
-const funLinks = [
-  ['Insult Generator', '/fun/insult-generator'],
-  ['Shakespeare Insult Generator', '/fun/insult-generator/shakespeare-insult-generator'],
-  ['Pirate Insult Generator', '/fun/pirate-insult-generator'],
-  ['Victorian Insult Generator', '/fun/victorian-insult-generator'],
-  ['Royal Insult Generator', '/fun/royal-insult-generator'],
-  ['All 42 Fun Tools →', '/fun'],
-]
-
 const blogLinks = [
   ['Blog Home', '/blog'],
   ['ZIP Code Guides', '/blog/category/zip-codes'],
@@ -50,7 +41,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-12">
 
         {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -64,7 +55,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-sm leading-relaxed mb-5 max-w-xs">
-              Free online calculators and tools for ZIP codes and fun tools. No signup. No ads. Instant results.
+              Free US ZIP code tools for lookup, distance, timezone, ZIP+4, coordinates and radius searches. No signup. No ads.
             </p>
             <a
               href={`mailto:${contactEmail}`}
@@ -73,18 +64,6 @@ export function Footer() {
               ✉️
               {contactEmail}
             </a>
-          </div>
-
-          {/* Fun Tools */}
-          <div>
-            <h2 className="font-bold text-white text-sm mb-4 flex items-center gap-1.5">🎭 Fun Tools</h2>
-            <ul className="space-y-2.5 text-sm">
-              {funLinks.map(([name, href]) => (
-                <li key={href}>
-                  <Link href={href} className="hover:text-fuchsia-400 transition-all">{name}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* ZIP Tools */}
@@ -125,7 +104,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <p className="text-xs text-gray-600 leading-relaxed max-w-5xl">
             <strong className="text-gray-500">ToolTrio.com</strong> provides free online calculators across
-            ZIP codes and fun tools. Popular public tools include{' '}
+            US ZIP code and location tools. Popular public tools include{' '}
             <Link href="/zip/zip-code-lookup" className="text-gray-500 hover:text-gray-400">ZIP code lookup</Link>, and{' '}
             All tools are free, private, and require no account.
           </p>

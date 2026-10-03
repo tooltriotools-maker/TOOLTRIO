@@ -27,12 +27,9 @@ export const TOOL_COUNTS: Record<ToolCategory, number> = MASTER_TOOL_REGISTRY.re
     counts[tool.cat] += 1
     return counts
   },
-  { fun: 0, zip: 0 } as Record<ToolCategory, number>,
+  { zip: 0 } as Record<ToolCategory, number>,
 )
 
-export const CALCULATOR_COUNTS = {
-  fun: TOOL_COUNTS.fun,
-} as const
 
 export const TOOL_TOTAL = MASTER_TOOL_REGISTRY.length
 

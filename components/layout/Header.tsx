@@ -7,20 +7,6 @@ import { GlobalSearch } from '@/components/ui/GlobalSearch'
 // -- Nav data ------------------------------------------------------------------
 const NAV = [
   {
-    key: 'fun', label: 'Fun Tools', emoji: '🎭', color: 'purple',
-    href: '/fun', viewAll: 'All 42 Fun Tools →',
-    items: [
-      { name: 'Insult Generator', href: '/fun/insult-generator', emoji: '🔥' },
-      { name: 'Shakespeare Insult Generator', href: '/fun/insult-generator/shakespeare-insult-generator', emoji: '🎭' },
-      { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', emoji: '⭐' },
-      { name: 'Love Compatibility', href: '/fun/love-compatibility', emoji: '❤️' },
-      { name: 'Lucky Number', href: '/fun/lucky-number', emoji: '🍀' },
-      { name: 'Trivia Quiz', href: '/fun/trivia-quiz', emoji: '🧠' },
-      { name: 'Superhero Name', href: '/fun/superhero-name', emoji: '🦸' },
-      { name: 'Fortune Cookie', href: '/fun/fortune-cookie', emoji: '🥠' },
-    ],
-  },
-  {
     key: 'zip', label: 'ZIP Tools', emoji: '📮', color: 'teal',
     href: '/zip', viewAll: 'All 35 ZIP Tools →',
     items: [

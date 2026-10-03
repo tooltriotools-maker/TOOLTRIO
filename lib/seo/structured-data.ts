@@ -52,46 +52,6 @@ export function generateBreadcrumbStructuredData(items: Array<{ name: string; ur
   }
 }
 
-export function generateFunToolStructuredDataFromSlug(slug: string) {
-  const key = `/fun/${slug}`
-  const metadata = GENERATED_TOOL_PAGE_METADATA[key]
-
-  if (!metadata?.title || !metadata.description) {
-    throw new Error(`Missing generated metadata for fun tool slug: ${slug}`)
-  }
-
-  return generateFunToolStructuredData({
-    name: metadata.title,
-    description: metadata.description,
-    slug,
-  })
-}
-
-export function generateFunToolStructuredData(params: {
-  name: string
-  description: string
-  slug: string
-}) {
-  const url = `${BASE_URL}/fun/${params.slug}`
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      generateWebApplicationStructuredData({
-        name: params.name,
-        description: params.description,
-        url,
-        applicationCategory: 'EntertainmentApplication',
-      }),
-      generateBreadcrumbNode([
-        { name: 'Home', url: BASE_URL },
-        { name: 'Fun & Entertainment', url: `${BASE_URL}/fun` },
-        { name: params.name, url },
-      ]),
-    ],
-  }
-}
-
 export function generateZipToolStructuredData(params: {
   name: string
   description: string

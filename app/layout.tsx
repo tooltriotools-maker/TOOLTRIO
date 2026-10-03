@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free online tools across ZIP code tools, fun generators and quizzes. No signup required.',
+    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free US ZIP code lookup and location tools. No signup required.',
 
   keywords: [
     'tooltrio', 'tool trio', 'tooltrio.com', 'trio tools', 'tools trio', 'toolstrio',
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName,
     title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
-      'Free online tools across ZIP code tools, fun generators and more. No signup required. Instant results.',
+      'Free online tools focused on US ZIP code lookup, distance, timezone, ZIP+4 and location utilities. No signup required. Instant results.',
     images: [
       {
         url: '/og-image.png',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     creator: '@tooltrio',
     title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
     description:
-      'Free online tools across ZIP code tools, fun generators and more. No signup.',
+      'Free online tools focused on US ZIP code lookup, distance, timezone, ZIP+4 and location utilities. No signup.',
     images: ['/og-image.png'],
   },
 
@@ -106,7 +106,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    'ToolTrio is a free online tools website offering ZIP code tools, fun generators and other practical tools.',
+    'ToolTrio is a free online tools website focused on US ZIP code and location utilities.',
   email: 'tooltrio.tools@gmail.com',
   foundingDate: '2026',
   contactPoint: {
@@ -116,7 +116,7 @@ const organizationSchema = {
     availableLanguage: ['English'],
   },
   knowsAbout: [
-    'ZIP Code Tools', 'Fun Generators', 'Online Utilities',
+    'ZIP Code Tools', 'ZIP & Location Utilities', 'Online Utilities',
   ],
 }
 
@@ -127,7 +127,7 @@ const websiteSchema = {
   alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
   url: siteUrl,
   description:
-    'Free online tools across ZIP tools, fun generators and other practical categories. No signup required.',
+    'Free online tools focused on ZIP lookup and practical US location questions. No signup required.',
   inLanguage: 'en-US',
 }
 

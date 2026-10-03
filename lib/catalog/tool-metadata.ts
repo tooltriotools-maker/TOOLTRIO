@@ -103,9 +103,3 @@ export function buildToolMetadataMap(tools: readonly ToolRecord[]): ReadonlyMap<
   return new Map(tools.map(tool => [tool.href, buildToolMetadata(tool)]))
 }
 
-export function categoryLabel(category: ToolCategory): string {
-  switch (category) {
-    case 'fun': return 'Fun'
-    case 'zip': return 'ZIP Tools'
-  }
-}

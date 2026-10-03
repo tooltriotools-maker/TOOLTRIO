@@ -105,16 +105,12 @@ const nextConfig = {
         permanent:   true,
       },
       // ── Trailing slash removal (canonical URL enforcement) ───────────────────
-      { source: '/fun/:path*/',                 destination: '/fun/:path*',                  permanent: true },
       { source: '/zip/:path*/',                 destination: '/zip/:path*',                  permanent: true },
       { source: '/zip/',                        destination: '/zip',                         permanent: true },
       { source: '/blog/:path*/',                destination: '/blog/:path*',                 permanent: true },
       { source: '/blog/',                       destination: '/blog',                        permanent: true },
-      // /calculators/fun/* legacy migration is handled in middleware so the
-      // retired Shakespeare URLs can return HTTP 410 instead of redirecting.
       // ── Pregnancy duplicate fix ──────────────────────────────────────────────
 
-      // Removed insult variants are handled by middleware as HTTP 410 Gone.
     ]
   },
 }

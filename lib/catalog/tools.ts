@@ -1,7 +1,7 @@
 // GENERATED CATALOG SOURCE OF TRUTH
 // Generated from route folders. Preserve names by keeping them in this file before regeneration.
 
-export type ToolCategory = 'fun' | 'zip'
+export type ToolCategory = 'zip'
 export type ToolRegion = 'usa' | 'uk' | 'europe' | 'india' | 'global'
 
 export type ToolRecord = {
@@ -14,49 +14,6 @@ export type ToolRecord = {
 }
 
 export const TOOL_CATALOG: readonly ToolRecord[] = [
-  { name: 'Age in Days', href: '/fun/age-in-days', cat: 'fun', catLabel: 'Fun', kw: 'age in days', region: 'global' },
-  { name: 'Birthday Countdown', href: '/fun/birthday-countdown', cat: 'fun', catLabel: 'Fun', kw: 'birthday countdown', region: 'global' },
-  { name: 'Coffee Calculator', href: '/fun/coffee-calculator', cat: 'fun', catLabel: 'Fun', kw: 'coffee calculator', region: 'global' },
-  { name: 'Compliment Generator', href: '/fun/compliment-generator', cat: 'fun', catLabel: 'Fun', kw: 'compliment generator', region: 'global' },
-  { name: 'Emoji Translator', href: '/fun/emoji-translator', cat: 'fun', catLabel: 'Fun', kw: 'emoji translator', region: 'global' },
-  { name: 'Fantasy Name Generator', href: '/fun/fantasy-name-generator', cat: 'fun', catLabel: 'Fun', kw: 'fantasy name generator', region: 'global' },
-  { name: 'Fortune Cookie', href: '/fun/fortune-cookie', cat: 'fun', catLabel: 'Fun', kw: 'fortune cookie', region: 'global' },
-  { name: 'Love Compatibility', href: '/fun/love-compatibility', cat: 'fun', catLabel: 'Fun', kw: 'love compatibility', region: 'global' },
-  { name: 'Lucky Number', href: '/fun/lucky-number', cat: 'fun', catLabel: 'Fun', kw: 'lucky number', region: 'global' },
-  { name: 'Pig Latin Converter', href: '/fun/pig-latin-converter', cat: 'fun', catLabel: 'Fun', kw: 'pig latin converter', region: 'global' },
-  { name: 'Pizza Calculator', href: '/fun/pizza-calculator', cat: 'fun', catLabel: 'Fun', kw: 'pizza calculator', region: 'global' },
-  { name: 'Random Fact Generator', href: '/fun/random-fact-generator', cat: 'fun', catLabel: 'Fun', kw: 'random fact generator', region: 'global' },
-  { name: 'Random Name Generator', href: '/fun/random-name-generator', cat: 'fun', catLabel: 'Fun', kw: 'random name generator', region: 'global' },
-  { name: 'Shakespeare Insult Generator', href: '/fun/insult-generator/shakespeare-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare insult generator', region: 'global' },
-  { name: 'Shakespeare English Translator', href: '/fun/shakespeare-translator', cat: 'fun', catLabel: 'Fun', kw: 'shakespeare translator shakespeare english translator', region: 'global' },
-  { name: 'Superhero Name', href: '/fun/superhero-name', cat: 'fun', catLabel: 'Fun', kw: 'superhero name', region: 'global' },
-  { name: 'Text to Morse', href: '/fun/text-to-morse', cat: 'fun', catLabel: 'Fun', kw: 'text to morse', region: 'global' },
-  { name: 'Trivia Quiz', href: '/fun/trivia-quiz', cat: 'fun', catLabel: 'Fun', kw: 'trivia quiz', region: 'global' },
-  { name: 'Uwu Text Generator', href: '/fun/uwu-text-generator', cat: 'fun', catLabel: 'Fun', kw: 'uwu text generator', region: 'global' },
-  { name: 'Villain Name', href: '/fun/villain-name', cat: 'fun', catLabel: 'Fun', kw: 'villain name', region: 'global' },
-  { name: 'Workout Excuse Generator', href: '/fun/workout-excuse-generator', cat: 'fun', catLabel: 'Fun', kw: 'workout excuse generator', region: 'global' },
-  { name: 'Would You Rather', href: '/fun/would-you-rather', cat: 'fun', catLabel: 'Fun', kw: 'would you rather', region: 'global' },
-  { name: 'Zodiac Calculator', href: '/fun/zodiac-calculator', cat: 'fun', catLabel: 'Fun', kw: 'zodiac calculator', region: 'global' },
-  // ── Insult Generators sub-hub (19 tools under /fun/insult-generator/*) ──
-  { name: 'Insult Generator Hub', href: '/fun/insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'insult generator', region: 'global' },
-  { name: 'Medieval Insult Generator', href: '/fun/insult-generator/medieval-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'medieval insult generator', region: 'global' },
-  { name: 'Pirate Insult Generator', href: '/fun/insult-generator/pirate-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'pirate insult generator', region: 'global' },
-  { name: 'Victorian Insult Generator', href: '/fun/insult-generator/victorian-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'victorian insult generator', region: 'global' },
-  { name: 'Funny Insult Generator', href: '/fun/insult-generator/funny-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'funny insult generator', region: 'global' },
-  { name: 'Friendly Insult Generator', href: '/fun/insult-generator/friendly-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'friendly insult generator', region: 'global' },
-  { name: 'Fantasy Insult Generator', href: '/fun/insult-generator/fantasy-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'fantasy insult generator', region: 'global' },
-  { name: 'Wizard Insult Generator', href: '/fun/insult-generator/wizard-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'wizard insult generator', region: 'global' },
-  { name: 'Pirate Roast Generator', href: '/fun/insult-generator/pirate-roast-generator', cat: 'fun', catLabel: 'Fun', kw: 'pirate roast generator', region: 'global' },
-  { name: 'Cowboy Insult Generator', href: '/fun/insult-generator/cowboy-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'cowboy insult generator', region: 'global' },
-  { name: 'Royal Insult Generator', href: '/fun/insult-generator/royal-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'royal insult generator', region: 'global' },
-  { name: 'Comeback Generator', href: '/fun/insult-generator/comeback-generator', cat: 'fun', catLabel: 'Fun', kw: 'comeback generator', region: 'global' },
-  { name: 'Sarcastic Comeback Generator', href: '/fun/insult-generator/sarcastic-comeback-generator', cat: 'fun', catLabel: 'Fun', kw: 'sarcastic comeback generator', region: 'global' },
-  { name: 'Villain Insult Generator', href: '/fun/insult-generator/villain-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'villain insult generator', region: 'global' },
-  { name: 'New Age Insult Generator', href: '/fun/insult-generator/new-age-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'new age insult generator', region: 'global' },
-  { name: 'Zodiac Insult Generator', href: '/fun/insult-generator/zodiac-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'zodiac insult generator', region: 'global' },
-  { name: 'Sci-Fi Insult Generator', href: '/fun/insult-generator/sci-fi-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'sci-fi insult generator', region: 'global' },
-  { name: 'Robot Insult Generator', href: '/fun/insult-generator/robot-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'robot insult generator', region: 'global' },
-  { name: 'Zombie Insult Generator', href: '/fun/insult-generator/zombie-insult-generator', cat: 'fun', catLabel: 'Fun', kw: 'zombie insult generator', region: 'global' },
   { name: 'Address To Zip', href: '/zip/address-to-zip', cat: 'zip', catLabel: 'ZIP', kw: 'address to zip', region: 'usa' },
   { name: 'Area Code By Zip', href: '/zip/area-code-by-zip', cat: 'zip', catLabel: 'ZIP', kw: 'area code by zip', region: 'usa' },
   { name: 'City To Zip', href: '/zip/city-to-zip', cat: 'zip', catLabel: 'ZIP', kw: 'city to zip', region: 'usa' },
