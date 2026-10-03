@@ -79,6 +79,6 @@
   },
 ]
 
-const relatedSlugMap — attached after the array is
+// relatedSlugMap is attached after the array is
 // built (avoids referencing zipBlogPosts before it's initialized). Builds a
 // tight internal-linking topic cluster around the /zip tool suite.

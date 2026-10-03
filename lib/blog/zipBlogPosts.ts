@@ -6205,7 +6205,7 @@ If a result will change a customer's address, a shipment, a tax or jurisdiction 
   },
 ]
 
-const relatedSlugMap — attached after the array is
+// relatedSlugMap is attached after the array is
 // built (avoids referencing zipBlogPosts before it's initialized). Builds a
 // tight internal-linking topic cluster around the /zip tool suite.
 const relatedSlugMap: Record<string, string[]> = {
