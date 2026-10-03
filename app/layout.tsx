@@ -21,15 +21,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
+    default: 'ToolTrio — Free Online Tools & Calculators',
     template: '%s | ToolTrio', // Every non-absolute route title is branded consistently.
   },
 
   description:
-    'ToolTrio (also searched as Tool Trio, Trio Tools and Tools Trio) offers free US ZIP code lookup and location tools. No signup required.',
+    'ToolTrio offers free US ZIP code lookup and location tools. No signup required.',
 
   keywords: [
-    'tooltrio', 'tool trio', 'tooltrio.com', 'trio tools', 'tools trio', 'toolstrio',
+    'tooltrio', 'tooltrio.com',
     'online tools', 'free online tools', 'ZIP code tools',
     'ZIP code lookup',
   ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
+    title: 'ToolTrio — Free Online Tools & Calculators',
     description:
       'Free online tools focused on US ZIP code lookup, distance, timezone, ZIP+4 and location utilities. No signup required. Instant results.',
     images: [
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
+        alt: 'ToolTrio — Free Online Tools & Calculators',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@tooltrio',
     creator: '@tooltrio',
-    title: 'ToolTrio (Tool Trio) — Free Online Tools & Calculators',
+    title: 'ToolTrio — Free Online Tools & Calculators',
     description:
       'Free online tools focused on US ZIP code lookup, distance, timezone, ZIP+4 and location utilities. No signup.',
     images: ['/og-image.png'],
@@ -102,7 +102,6 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'ToolTrio',
-  alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio', 'tooltrio.com'],
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
@@ -124,7 +123,6 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'ToolTrio',
-  alternateName: ['Tool Trio', 'Trio Tools', 'Tools Trio', 'Toolstrio'],
   url: siteUrl,
   description:
     'Free online tools focused on ZIP lookup and practical US location questions. No signup required.',

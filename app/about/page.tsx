@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const schema = {
   '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About ToolTrio', url: `${siteUrl}/about`,
   description: 'About ToolTrio and its US ZIP code location tools.',
-  mainEntity: { '@type': 'Organization', name: 'ToolTrio', alternateName: ['Tool Trio', 'Trio Tools'], url: siteUrl, email: contactEmail, logo: `${siteUrl}/logo.png`, description: 'ToolTrio provides focused US ZIP code and location tools for quick, practical answers.' },
+  mainEntity: { '@type': 'Organization', name: 'ToolTrio', url: siteUrl, email: contactEmail, logo: `${siteUrl}/logo.png`, description: 'ToolTrio provides focused US ZIP code and location tools for quick, practical answers.' },
 }
 
 const tools = [

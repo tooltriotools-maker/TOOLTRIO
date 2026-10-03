@@ -30,11 +30,6 @@ export const metadata: Metadata = {
     'us zip code tools',
     'free zip code tools',
     'tooltrio',
-    'tool trio',
-    'trio tools',
-    'tools trio',
-    'toolstrio',
-    'tool trio online tools',
   ],
   alternates: { canonical: 'https://tooltrio.com' },
   openGraph: {
@@ -180,11 +175,14 @@ export default function HomePage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 border" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(8px)', borderColor: '#d1fae5', color: '#15803d', boxShadow: '0 4px 16px rgba(22,163,74,0.1)' }}>
-            <span>📮 ZIP Code Tools</span>
-
+            <span className="inline-flex items-center gap-2">
+              <span className="premium-tool-icon" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+              <span>ZIP Code Tools</span>
+            </span>
             <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span className="w-px h-3" style={{ background: '#bbf7d0' }} />
-            <span>🔒 Free · No Signup</span>
+            <span>Free · No Signup</span>
           </div>
 
           <h1 className="page-title font-black mb-4 leading-tight" style={{ fontSize: 'clamp(2rem,5vw,3.25rem)', color: '#0f172a', fontFamily: "'Inter', system-ui, sans-serif" }}>
@@ -434,10 +432,6 @@ export default function HomePage() {
               {
                 q: 'What public tool categories does ToolTrio offer?',
                 a: 'ToolTrio provides US ZIP code tools covering lookup, distance, ZIP+4, timezone, coordinates and radius searches.',
-              },
-              {
-                q: 'Is ToolTrio also called Tool Trio or Trio Tools?',
-                a: 'Yes. ToolTrio is also searched as Tool Trio, Trio Tools, Tools Trio, Trio Tool and Toolstrio. All of these refer to ToolTrio.com.',
               },
             ].map(({ q, a }) => (
               <div key={q} className="rounded-2xl border p-5" style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', borderColor: 'rgba(226,232,240,0.8)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>

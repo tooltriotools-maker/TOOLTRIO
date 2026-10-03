@@ -680,7 +680,7 @@ View all ZIP Tools
             <h3 className="font-black text-gray-900 text-base">ToolTrio — Free ZIP Code Tool Suite</h3>
           </div>
           <p className="text-xs text-gray-600 leading-relaxed mb-3">
-            TOOLTRIO (also searched as <em>Tool Trio</em>, <em>ToolTrio</em>, <em>Trio Tools</em>) is a free suite of US ZIP code tools. No signup, no rate limits. Every tool is free forever on tooltrio.com.
+            ToolTrio is a free suite of US ZIP code tools. No signup, no rate limits. Every tool is free forever on tooltrio.com.
           </p>
           <div className="flex flex-wrap gap-2">
             {[
