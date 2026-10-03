@@ -111,27 +111,51 @@ const homepageFAQSchema = {
   ],
 }
 
-const zipTools = [
-  { name: 'ZIP Code Lookup', desc: 'Find city, state & county', href: '/zip/zip-code-lookup', icon: '📮', badge: 'Popular' },
-  { name: 'ZIP Code Distance', desc: 'Distance between ZIPs', href: '/zip/zip-code-distance', icon: '📏', badge: 'Popular' },
-  { name: 'ZIP+4 Lookup', desc: 'Find ZIP+4 extension', href: '/zip/zip-plus-4-lookup', icon: '➕', badge: 'Popular' },
-  { name: 'ZIP Code Timezone', desc: 'Find timezone by ZIP', href: '/zip/zip-to-timezone', icon: '🕐', badge: 'Popular' },
-  { name: 'ZIP to Coordinates', desc: 'Find latitude & longitude by ZIP', href: '/zip/zip-to-coordinates', icon: '🌐', badge: 'Popular' },
-  { name: 'ZIP to City', desc: 'Reverse ZIP lookup', href: '/zip/zip-to-city', icon: '🏙️', badge: null },
-  { name: 'City to ZIP', desc: 'Find ZIP codes by city', href: '/zip/city-to-zip', icon: '🗺️', badge: null },
-  { name: 'ZIPs in Radius', desc: 'All ZIPs within miles', href: '/zip/zips-within-radius', icon: '🎯', badge: 'NEW' },
-  { name: 'ZIP Code Map', desc: 'Visualize ZIP boundaries', href: '/zip/zip-code-map', icon: '🗾', badge: null },
-  { name: 'ZIP Code Validator', desc: 'Check valid US ZIP', href: '/zip/zip-code-validator', icon: '✅', badge: null },
-  { name: 'USPS Address Format', desc: 'Format addresses correctly', href: '/zip/usps-address-format', icon: '✉️', badge: null },
+const homepageToolLinks = [
+  { name: 'US ZIP Code Finder', desc: 'Find the city, state, county and timezone for a ZIP', href: '/zip/zip-code-lookup', icon: '📮' },
+  { name: 'ZIP Code Distance Calculator', desc: 'Measure the distance between two US ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
+  { name: 'ZIP+4 Lookup', desc: 'Look up the ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
+  { name: 'Time Zone by ZIP Code', desc: 'Find the US time zone for any ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
+  { name: 'ZIP Code Coordinates Finder', desc: 'Get latitude and longitude from a ZIP', href: '/zip/zip-to-coordinates', icon: '🌐' },
+  { name: 'ZIP Code to City Lookup', desc: 'Identify the city associated with a ZIP', href: '/zip/zip-to-city', icon: '🏙️' },
+  { name: 'City ZIP Code Finder', desc: 'Find ZIP codes for a US city', href: '/zip/city-to-zip', icon: '🗺️' },
+  { name: 'ZIP Codes Near Me by Radius', desc: 'Find ZIP codes within a chosen radius', href: '/zip/zips-within-radius', icon: '🎯' },
+  { name: 'US ZIP Code Map', desc: 'Explore ZIP Code Tabulation Area boundaries', href: '/zip/zip-code-map', icon: '🗾' },
+  { name: 'ZIP Code Validator', desc: 'Check whether a US ZIP code is valid', href: '/zip/zip-code-validator', icon: '✅' },
+  { name: 'USPS Mailing Address Format', desc: 'See the standard format for US mailing addresses', href: '/zip/usps-address-format', icon: '✉️' },
+  { name: 'Address to ZIP Code Finder', desc: 'Find a ZIP code from a US address', href: '/zip/address-to-zip', icon: '🏠' },
+  { name: 'Area Code by ZIP Code', desc: 'Find telephone area codes associated with a ZIP', href: '/zip/area-code-by-zip', icon: '☎️' },
+  { name: 'ZIP Code to Area Code', desc: 'Look up ZIP codes from an area code', href: '/zip/zip-to-area-code', icon: '📞' },
+  { name: 'ZIP Code to State Lookup', desc: 'Identify the state for a ZIP code', href: '/zip/zip-to-state', icon: '🗺️' },
+  { name: 'ZIP Code to County Lookup', desc: 'Find the county associated with a ZIP', href: '/zip/zip-to-county', icon: '📍' },
+  { name: 'County ZIP Code Finder', desc: 'Browse ZIP codes within a US county', href: '/zip/county-zip-codes', icon: '🏛️' },
+  { name: 'State ZIP Code Directory', desc: 'Explore ZIP codes by state', href: '/zip/state-zip-codes', icon: '🇺🇸' },
+  { name: 'ZIP Code Elevation Lookup', desc: 'Check elevation information for a ZIP', href: '/zip/zip-code-elevation', icon: '⛰️' },
+  { name: 'ZIP Code Population Lookup', desc: 'Explore population data by ZIP', href: '/zip/zip-code-population', icon: '👥' },
+  { name: 'ZIP Code Type Finder', desc: 'Identify the type of a US ZIP code', href: '/zip/zip-code-type', icon: '🏷️' },
+  { name: 'ZIP Code Format Guide', desc: 'Learn 5-digit and ZIP+4 formatting rules', href: '/zip/zip-code-format-guide', icon: '📝' },
+  { name: 'Random ZIP Code Generator', desc: 'Generate a US ZIP code for testing and examples', href: '/zip/zip-code-generator', icon: '🎲' },
+  { name: 'ZIP Code Boundary Information', desc: 'Review geographic boundary details for ZIP areas', href: '/zip/zip-boundary-info', icon: '🧭' },
+  { name: 'ZIP Codes by Area Code', desc: 'Browse ZIP codes associated with a phone area code', href: '/zip/zip-by-area-code', icon: '📱' },
+  { name: 'Nearest ZIP Code Finder', desc: 'Find the closest ZIP code to a location', href: '/zip/nearest-zip-code', icon: '📌' },
+  { name: 'Multiple ZIP Distance Tool', desc: 'Compare distances across multiple ZIP codes', href: '/zip/multi-zip-distance', icon: '📐' },
+  { name: 'ZIP Route Planner', desc: 'Explore a route between ZIP codes', href: '/zip/zip-to-zip-route', icon: '🛣️' },
+  { name: 'ZIP Drive Time Lookup', desc: 'Estimate driving time between ZIP areas', href: '/zip/drive-time-by-zip', icon: '🚗' },
+  { name: 'ZIPs with Multiple Cities', desc: 'Find ZIP codes that cover multiple cities', href: '/zip/multiple-cities-in-zip', icon: '🏘️' },
+  { name: 'ZIP Codes by City Name', desc: 'Search ZIP codes using a city name', href: '/zip/zips-by-city-name', icon: '🔤' },
+  { name: 'Same Time Zone ZIP Codes', desc: 'Find ZIP codes sharing a time zone', href: '/zip/same-timezone-zips', icon: '🌎' },
+  { name: 'ZIP Time Converter', desc: 'Convert local time using ZIP code time zones', href: '/zip/zip-time-converter', icon: '⏱️' },
+  { name: 'ZIP Time Zone Map', desc: 'Explore time zones across ZIP areas', href: '/zip/zip-to-timezone-map', icon: '🕰️' },
+  { name: 'Largest ZIP Code Areas', desc: 'Explore ZIP codes with the largest geographic areas', href: '/zip/largest-zip-codes', icon: '📊' },
 ]
 
-// The 5 hero ZIP tools — proven search-demand products, featured prominently on homepage
-const heroZipTools = [
-  { name: 'ZIP Code Lookup', desc: 'City, state, county & timezone for any US ZIP', href: '/zip/zip-code-lookup', icon: '📮' },
-  { name: 'ZIP Code Distance', desc: 'Miles & km between any two ZIP codes', href: '/zip/zip-code-distance', icon: '📏' },
-  { name: 'ZIP+4 Lookup', desc: 'Find your ZIP+4 delivery extension', href: '/zip/zip-plus-4-lookup', icon: '➕' },
-  { name: 'ZIP Code Timezone', desc: 'Instant timezone lookup by ZIP code', href: '/zip/zip-to-timezone', icon: '🕐' },
-  { name: 'ZIP to Coordinates', desc: 'Find latitude & longitude by ZIP', href: '/zip/zip-to-coordinates', icon: '🌐' },
+const keywordCategories = [
+  { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup', desc: 'Find a ZIP, city, state or county' },
+  { name: 'ZIP+4 & Mailing Address', href: '/zip/zip-plus-4-lookup', desc: 'ZIP+4 and address-format help' },
+  { name: 'ZIP Code Validator', href: '/zip/zip-code-validator', desc: 'Check valid US ZIP codes' },
+  { name: 'ZIP Distance & Radius', href: '/zip/zip-code-distance', desc: 'Distance, radius and route tools' },
+  { name: 'ZIP Time Zones', href: '/zip/zip-to-timezone', desc: 'Time zone lookup and maps' },
+  { name: 'ZIP Maps & Geography', href: '/zip/zip-code-map', desc: 'Maps, coordinates and boundaries' },
 ]
 
 
@@ -178,18 +202,10 @@ export default function HomePage() {
             <GlobalSearch />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-6" aria-label="ZIP Code Tools">
-            {[
-              { label: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
-              { label: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
-              { label: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
-              { label: 'ZIP Code Map', href: '/zip/zip-code-map' },
-              { label: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
-              { label: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-              { label: 'ZIPs Within Radius', href: '/zip/zips-within-radius' },
-            ].map(t => (
-              <Link key={t.label} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 16px' }}>
-                {t.label}
+          <div className="flex flex-wrap justify-center gap-2 mt-6" aria-label="ZIP code search categories">
+            {keywordCategories.map(t => (
+              <Link key={t.href} href={t.href} className="tag-pill text-xs" style={{ padding: '8px 14px' }}>
+                {t.name}
               </Link>
             ))}
           </div>
@@ -207,22 +223,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Popular strip */}
-      <section className="border-b py-4 px-4" style={{ background: '#F0F7F0', borderColor: '#d1fae5' }}>
+      {/* Main keyword categories */}
+      <section className="border-y py-5 px-4" style={{ background: '#F0F7F0', borderColor: '#d1fae5' }}>
         <div className="max-w-6xl mx-auto">
           <p className="text-xs text-gray-500 text-center mb-3 font-semibold uppercase tracking-wider">
-            Most Popular Tools & Calculators
+            Explore ZIP Code Tools by Task
           </p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {[
-              { name: 'ZIP Code Lookup', href: '/zip/zip-code-lookup' },
-              { name: 'ZIP Code Distance', href: '/zip/zip-code-distance' },
-              { name: 'ZIP+4 Lookup', href: '/zip/zip-plus-4-lookup' },
-              { name: 'ZIP Code Timezone', href: '/zip/zip-to-timezone' },
-              { name: 'ZIP to Coordinates', href: '/zip/zip-to-coordinates' },
-            ].map(c => (
-              <Link key={c.href} href={c.href} className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-green-700 hover:bg-green-50 hover:border-green-300 font-medium transition-all">
-                {c.name}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+            {keywordCategories.map(c => (
+              <Link key={c.href} href={c.href} className="p-3 bg-white border border-gray-200 rounded-xl text-center hover:bg-green-50 hover:border-green-300 transition-all">
+                <span className="block text-xs font-bold text-gray-900">{c.name}</span>
+                <span className="block text-[10px] text-gray-500 mt-1 leading-tight">{c.desc}</span>
               </Link>
             ))}
           </div>
@@ -230,63 +241,49 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 py-10">
-
-        {/* Hero ZIP Tools — highest-impression products, featured first */}
+        {/* Featured search-intent tools */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <span>📮</span> Free ZIP Code Tools
-            </h2>
-            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all 35+ ZIP code tools →
+            <div>
+              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+                <span>⭐</span> Popular ZIP Code Searches
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">Common ZIP-code tasks, with clear names that take you directly to the right tool.</p>
+            </div>
+            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700 hidden sm:block">
+              Browse all 35+ tools →
             </Link>
           </div>
-          <p className="text-sm text-gray-500 mb-5 max-w-2xl">
-                   Look up any US ZIP code, find your ZIP+4 extension, calculate the distance between ZIP codes, or convert a ZIP to its timezone — instant results for every ZIP code cluster in the US.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {heroZipTools.map(c => (
-              <Link key={c.href} href={c.href} className="group p-5 border-2 rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all" style={{ background: 'rgba(255,255,255,0.9)', borderColor: 'rgba(124,58,237,0.15)', boxShadow: '0 4px 20px rgba(124,58,237,0.08)' }}>
-                <span className="flex items-center justify-between mb-3">
-                  <span className="text-3xl">{c.icon}</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                    Popular
-                  </span>
-                </span>
-                <span className="text-sm font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight mb-1">
-                  {c.name}
-                </span>
-                <span className="text-xs text-gray-500 leading-snug">{c.desc}</span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {homepageToolLinks.slice(0, 10).map(c => (
+              <Link key={c.href} href={c.href} className="group p-4 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200 transition-all" style={{ background: 'rgba(255,255,255,0.9)', borderColor: 'rgba(15,23,42,0.08)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)' }}>
+                <span className="text-2xl mb-2">{c.icon}</span>
+                <span className="text-sm font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">{c.name}</span>
+                <span className="text-[11px] text-gray-500 mt-1 leading-snug">{c.desc}</span>
               </Link>
             ))}
           </div>
         </section>
 
-         {/* ZIP Tools Section */}
+        {/* All tools with homepage-specific display names */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-              <span>📮</span> All ZIP Code Tools
-            </h2>
-            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700">
-              View all ZIP code tools →
+            <div>
+              <h2 className="text-2xl font-black text-gray-900 flex items-center gap-2" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
+                <span>📮</span> All ZIP Code Tools
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">Each card uses a natural search-friendly description while linking to its canonical ToolTrio page.</p>
+            </div>
+            <Link href="/zip" className="text-sm font-semibold text-green-600 hover:text-green-700 hidden sm:block">
+              ZIP Code tools index →
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {zipTools.map(c => (
-              <Link key={c.href} href={c.href} className="group p-3 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-purple-200/50" style={{ background: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)', backdropFilter: 'blur(8px)', boxShadow: '0 4px 16px rgba(15,23,42,0.05)', transition: 'all 0.3s cubic-bezier(.4,0,.2,1)' }}>
-                <span className="flex items-center gap-2 mb-1">
-                  <span className="text-xl">{c.icon}</span>
-                  {c.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                      {c.badge}
-                    </span>
-                  )}
-                </span>
-                <span className="text-xs font-bold text-gray-900 group-hover:text-purple-700 transition-all leading-tight">
-                  {c.name}
-                </span>
-                <span className="text-[11px] text-gray-500 mt-0.5 leading-tight">{c.desc}</span>
+            {homepageToolLinks.map(c => (
+              <Link key={c.href} href={c.href} className="group p-3.5 border rounded-2xl flex flex-col hover:-translate-y-1 hover:shadow-lg hover:border-green-200" style={{ background: 'rgba(255,255,255,0.82)', borderColor: 'rgba(15,23,42,0.07)', boxShadow: '0 4px 14px rgba(15,23,42,0.04)', transition: 'all 0.25s ease' }}>
+                <span className="text-xl mb-2">{c.icon}</span>
+                <span className="text-xs font-bold text-gray-900 group-hover:text-green-700 transition-all leading-tight">{c.name}</span>
+                <span className="text-[11px] text-gray-500 mt-1 leading-tight">{c.desc}</span>
               </Link>
             ))}
           </div>
